@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<Version>0.0.9.0</Version>
+		<AssemblyVersion>0.0.9.0</AssemblyVersion>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<RepositoryUrl>https://github.com/ReneSchwarzer/WebExpress.Tutorial.WebUI.git</RepositoryUrl>
+		<EnableDynamicLoading>true</EnableDynamicLoading>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="Assets\img\favicon.png" />
+	  <None Remove="Assets\img\webui.svg" />
+	  <None Remove="Assets\md\home.md" />
+	  <None Remove="Internationalization\de" />
+	  <None Remove="Internationalization\en" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Assets\img\favicon.png" />
+	  <EmbeddedResource Include="Assets\img\webui.svg" />
+	  <EmbeddedResource Include="Assets\md\home.md" />
+	  <EmbeddedResource Include="Internationalization\de" />
+	  <EmbeddedResource Include="Internationalization\en" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="WebExpress.WebApp" Version="0.0.9-alpha">
+			<Private>false</Private>
+			<ExcludeAssets>runtime</ExcludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+</Project>
