@@ -24,7 +24,7 @@
 	  <EmbeddedResource Include="Internationalization\de" />
 	  <EmbeddedResource Include="Internationalization\en" />
 	</ItemGroup>
-
+	
 	<ItemGroup>
 		<PackageReference Include="WebExpress.WebApp" Version="0.0.9-alpha">
 			<Private>false</Private>

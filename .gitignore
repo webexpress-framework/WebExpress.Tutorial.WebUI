@@ -54,3 +54,4 @@ TestResult.xml
 nunit-*.xml
 /.vs
 /src/.vs/WebExpress.Tutorial.WebUI
+/src/.vs/ProjectEvaluation

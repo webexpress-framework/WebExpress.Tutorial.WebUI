@@ -8,6 +8,8 @@ using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebFragment;
 using WebExpress.WebUI.WebIcon;
 using WebExpress.WebUI.WebPage;
+using WebUI.WebPage;
+using WebUI.WWW.Controls;
 
 namespace WebUI.WebFragment.ControlPage
 {
@@ -43,7 +45,7 @@ namespace WebUI.WebFragment.ControlPage
         /// <returns>An HTML node representing the rendered control.</returns>
         public override IHtmlNode Render(IRenderControlContext renderContext, IVisualTreeControl visualTree)
         {
-            Active = renderContext.Endpoint is WWW.Controls.Index ? TypeActive.Active : TypeActive.None;
+            Active = renderContext.Endpoint is PageControl || renderContext.Endpoint is Index ? TypeActive.Active : TypeActive.None;
 
             return base.Render(renderContext, visualTree);
         }
