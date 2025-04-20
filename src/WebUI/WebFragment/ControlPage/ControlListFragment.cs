@@ -13,13 +13,12 @@ using WebUI.WWW.Controls;
 namespace WebUI.WebFragment.ControlPage
 {
     /// <summary>
-    /// Represents the sidebar fragment for the control page.
-    /// This fragment is used to display the primary sidebar section in the control page.
+    /// Represents a fragment that displays a list of controls.
     /// </summary>
-    [Section<SectionSidebarPrimary>]
-    [Scope<WWW.Controls.Index>]
+    [Section<SectionContentPrimary>]
+    [Scope<Index>]
     [Cache]
-    public sealed class ControlSidebarFragment : FragmentControlNavigation
+    public sealed class ControlListFragment : FragmentControlList
     {
         private readonly IComponentHub _componentHub;
         private readonly IFragmentContext _fragmentContext;
@@ -27,34 +26,35 @@ namespace WebUI.WebFragment.ControlPage
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
-        /// <param name="visualTree">The visual tree representing the control's structure.</param>
-        /// <param name="fragmentContext">The context of the fragment, providing access to the current state and dependencies.</param>
-        public ControlSidebarFragment(IComponentHub componentHub, IFragmentContext fragmentContext)
-            : base(fragmentContext)
+        /// <param name="componentHub">The component hub used to manage components.</param>
+        /// <param name="fragmentContext">The context of the fragment.</param>
+        public ControlListFragment(IComponentHub componentHub, IFragmentContext fragmentContext)
+          : base(fragmentContext)
         {
             _componentHub = componentHub;
             _fragmentContext = fragmentContext;
 
-            Layout = TypeLayoutTab.Pill;
-            Orientation = TypeOrientationTab.Vertical;
-            GridColumn = new PropertyGrid(TypeDevice.Medium, 2);
+            Layout = TypeLayoutList.Simple;
         }
 
         /// <summary>
-        /// Convert the control to HTML.
+        /// Converts the control to an HTML representation.
         /// </summary>
         /// <param name="renderContext">The context in which the control is rendered.</param>
         /// <param name="visualTree">The visual tree representing the control's structure.</param>
         /// <returns>An HTML node representing the rendered control.</returns>
         public override IHtmlNode Render(IRenderControlContext renderContext, IVisualTreeControl visualTree)
         {
+            // Retrieve the context of the index page.
             var indexContext = _componentHub.PageManager.GetPages(typeof(Index), _fragmentContext.ApplicationContext).FirstOrDefault();
+
+            // Retrieve and filter the list of pages to be displayed.
             var items = _componentHub.PageManager.Pages
                 .Where(x => x.ApplicationContext == _fragmentContext.ApplicationContext)
                 .Where(x => x.Scopes.Contains(typeof(Index)))
                 .Where(x => x.EndpointId != indexContext?.EndpointId)
                 .OrderBy(x => x.PageTitle)
-                .Select(x => new ControlNavigationItemLink()
+                .Select(x => new ControlListItemLink()
                 {
                     Text = I18N.Translate(renderContext, x.PageTitle),
                     Uri = x.Route.ToUri(),
@@ -63,6 +63,7 @@ namespace WebUI.WebFragment.ControlPage
                         : TypeActive.None
                 });
 
+            // Render the control list with the filtered items.
             return base.Render(renderContext, visualTree, items);
         }
     }

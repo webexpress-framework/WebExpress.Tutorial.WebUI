@@ -8,7 +8,7 @@ namespace WebUI.WWW.Controls
     /// <summary>
     /// Represents the alert control for the tutorial.
     /// </summary>
-    [Title("webui:alertpage.label")]
+    [Title("Alert")]
     [Scope<Index>]
     [Scope<IScopeGeneral>]
     public sealed class Alert : PageControl

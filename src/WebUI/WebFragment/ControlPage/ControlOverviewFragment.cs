@@ -1,12 +1,12 @@
 ﻿using System.IO;
+using WebApp.WWW;
 using WebExpress.WebApp.WebSection;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebFragment;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebFragment;
-using WebUI.WWW.Controls;
 
-namespace WebUI.WebFragment.HomePage
+namespace WebUI.WebFragment.ControlPage
 {
     [Section<SectionContentPrimary>]
     [Scope<Index>]
@@ -16,7 +16,7 @@ namespace WebUI.WebFragment.HomePage
         public ControlOverviewFragment(IFragmentContext fragmentContext)
           : base(fragmentContext)
         {
-            using var stream = GetType().Assembly.GetManifestResourceStream("WebUI.Assets.md.control.md");
+            using var stream = GetType().Assembly.GetManifestResourceStream("WebUI.Assets.md.home.md");
             using var reader = new StreamReader(stream);
 
             Add(new ControlText()

@@ -26,6 +26,7 @@ namespace WebUI.WWW.Controls
         /// <param name="visualTree">The visual tree of the web application.</param>
         public void Process(IRenderContext renderContext, VisualTreeWebApp visualTree)
         {
+
         }
     }
 }

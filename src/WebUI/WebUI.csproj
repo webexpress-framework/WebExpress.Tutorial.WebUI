@@ -20,6 +20,7 @@
 	<ItemGroup>
 	  <EmbeddedResource Include="Assets\img\favicon.png" />
 	  <EmbeddedResource Include="Assets\img\webui.svg" />
+	  <EmbeddedResource Include="Assets\md\control.md" />
 	  <EmbeddedResource Include="Assets\md\home.md" />
 	  <EmbeddedResource Include="Internationalization\de" />
 	  <EmbeddedResource Include="Internationalization\en" />

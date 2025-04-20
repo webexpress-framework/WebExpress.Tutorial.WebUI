@@ -12,4 +12,3 @@ app.version.label={0} Version {1} erstellt mit {2} Version {3}.
 homepage.label=Startseite
 infopage.label=Info
 controlpage.label=Steuerelemente
-alertpage.label=Alert
