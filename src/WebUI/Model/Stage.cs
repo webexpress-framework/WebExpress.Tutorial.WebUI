@@ -64,6 +64,18 @@ namespace WebUI.Model
         /// </summary>
         /// <param name="propertyName">The name of the property associated with the act.</param>
         /// <param name="description">A description of the act, providing context or details.</param>
+        /// <param name="code">The example code or script associated with the act.</param>
+        /// <param name="controls">The controls that are part of this act.</param>
+        public void Add(string propertyName, string description, string code, params IControl[] controls)
+        {
+            Add(propertyName, description, null, code, controls);
+        }
+
+        /// <summary>
+        /// Adds a new supporting act to the stage.
+        /// </summary>
+        /// <param name="propertyName">The name of the property associated with the act.</param>
+        /// <param name="description">A description of the act, providing context or details.</param>
         /// <param name="callout">The callout text providing additional information or hints.</param>
         /// <param name="code">The example code or script associated with the act.</param>
         /// <param name="controls">The controls that are part of this act.</param>

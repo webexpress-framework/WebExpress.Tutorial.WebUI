@@ -51,7 +51,7 @@ namespace WebUI.WebFragment.ControlPage
             // Retrieve and filter the list of pages to be displayed.
             var items = _componentHub.PageManager.Pages
                 .Where(x => x.ApplicationContext == _fragmentContext.ApplicationContext)
-                .Where(x => x.Scopes.Contains(typeof(Index)))
+                .Where(x => x.Scopes.Contains(typeof(IScopeControl)))
                 .Where(x => x.EndpointId != indexContext?.EndpointId)
                 .OrderBy(x => x.PageTitle)
                 .Select(x => new ControlListItemLink()

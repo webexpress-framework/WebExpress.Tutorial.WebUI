@@ -2,6 +2,7 @@
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
+using WebUI.WebFragment.ControlPage;
 using WebUI.WebPage;
 
 namespace WebUI.WWW.Controls
@@ -10,8 +11,8 @@ namespace WebUI.WWW.Controls
     /// Represents the button control for the tutorial.  
     /// </summary>  
     [Title("Button")]
-    [Scope<Index>]
     [Scope<IScopeGeneral>]
+    [Scope<IScopeControl>]
     public sealed class Button : PageControl
     {
         /// <summary>  
@@ -48,7 +49,6 @@ namespace WebUI.WWW.Controls
             (
                 "BackgroundColor",
                 "Sets the background color of the button.",
-                "",
                 "Color = new PropertyColorButton(TypeColorButton.Primary)",
                 new ControlButton()
                 {
@@ -100,7 +100,6 @@ namespace WebUI.WWW.Controls
             (
                 "Outline",
                 "Removes the background color from the button.",
-                "",
                 "Outline = true",
                 new ControlButton()
                 {
@@ -167,7 +166,6 @@ namespace WebUI.WWW.Controls
             (
                 "Size",
                 "Determines the size of the button.",
-                "",
                 "Size = TypeSizeButton.Small",
                 new ControlButton()
                 {
@@ -193,7 +191,6 @@ namespace WebUI.WWW.Controls
             (
                 "Icon",
                 "Adds an icon to the button.",
-                "",
                 "Icon = new IconHome()",
                 new ControlButton()
                 {
@@ -213,7 +210,6 @@ namespace WebUI.WWW.Controls
             (
                "Block",
                "Spans the button across the entire width.",
-               "",
                "Block = TypeBlockButton.Block",
                new ControlButton()
                {
@@ -227,7 +223,6 @@ namespace WebUI.WWW.Controls
             (
                 "Active",
                 "Sets the activity property of the button.",
-                "",
                 "Active = TypeActive.Active",
                 new ControlButton()
                 {
@@ -256,7 +251,6 @@ namespace WebUI.WWW.Controls
             (
                 "Modal",
                 "Displays a dialog.",
-                "",
                 "Modal = new ControlModal(...)",
                 new ControlButton()
                 {

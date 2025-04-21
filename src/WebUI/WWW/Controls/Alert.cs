@@ -1,6 +1,7 @@
 ﻿using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebUI.WebControl;
+using WebUI.WebFragment.ControlPage;
 using WebUI.WebPage;
 
 namespace WebUI.WWW.Controls
@@ -9,8 +10,8 @@ namespace WebUI.WWW.Controls
     /// Represents the alert control for the tutorial.
     /// </summary>
     [Title("Alert")]
-    [Scope<Index>]
     [Scope<IScopeGeneral>]
+    [Scope<IScopeControl>]
     public sealed class Alert : PageControl
     {
         /// <summary>
@@ -40,7 +41,6 @@ namespace WebUI.WWW.Controls
             (
                 "BackgroundColor",
                 "Sets the background color of the alert, allowing customization for different contexts.",
-                "",
                 "BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Primary)",
                 new ControlAlert()
                 {
@@ -132,7 +132,6 @@ namespace WebUI.WWW.Controls
             (
                 "Dismissible",
                 "Determines whether the alert can be closed (hidden) by the user.",
-                "",
                 "Dismissible = TypeDismissibleAlert.Dismissible",
                 new ControlAlert()
                 {
@@ -154,7 +153,6 @@ namespace WebUI.WWW.Controls
             (
                 "Fade",
                 "Specifies the type of fade effect used to display the alert.",
-                "",
                 "Fade = TypeFade.FadeShow",
                 new ControlAlert()
                 {

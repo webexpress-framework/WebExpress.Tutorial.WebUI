@@ -17,7 +17,7 @@ namespace WebUI.WebFragment.ControlPage
     /// This fragment is used to display the primary sidebar section in the control page.
     /// </summary>
     [Section<SectionSidebarPrimary>]
-    [Scope<WWW.Controls.Index>]
+    [Scope<IScopeControl>]
     [Cache]
     public sealed class ControlSidebarFragment : FragmentControlNavigation
     {
@@ -51,7 +51,7 @@ namespace WebUI.WebFragment.ControlPage
             var indexContext = _componentHub.PageManager.GetPages(typeof(Index), _fragmentContext.ApplicationContext).FirstOrDefault();
             var items = _componentHub.PageManager.Pages
                 .Where(x => x.ApplicationContext == _fragmentContext.ApplicationContext)
-                .Where(x => x.Scopes.Contains(typeof(Index)))
+                .Where(x => x.Scopes.Contains(typeof(IScopeControl)))
                 .Where(x => x.EndpointId != indexContext?.EndpointId)
                 .OrderBy(x => x.PageTitle)
                 .Select(x => new ControlNavigationItemLink()

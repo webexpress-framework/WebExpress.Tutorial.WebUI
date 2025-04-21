@@ -4,13 +4,14 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 using WebUI.Model;
+using WebUI.WebFragment.ControlPage;
 
 namespace WebUI.WebPage
 {
     /// <summary>
     /// Represents the base class for page controls in the web application.
     /// </summary>
-    public abstract class PageControl : IPage<VisualTreeWebApp>, IScopeGeneral
+    public abstract class PageControl : IPage<VisualTreeWebApp>, IScopeControl, IScopeGeneral
     {
         /// <summary>
         /// Returns the stage where the acts (Main Act and Supporting Acts) come to life.
@@ -40,10 +41,40 @@ namespace WebUI.WebPage
                 Text = "To demonstrate the functionality and potential use cases of this control, here’s an example showcasing its key features in action.",
                 Format = TypeFormatText.Paragraph
             });
+            visualTree.Content.MainPanel.AddPrimary(new ControlText()
+            {
+                Text = "Light Mode",
+                Format = TypeFormatText.H5,
+                Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+            });
+            visualTree.Content.MainPanel.AddPrimary(new ControlText()
+            {
+                Text = @"Designed for bright and well-lit environments, Light Mode offers a clear and vibrant presentation of the control, making it ideal for applications that prioritize brightness and clarity.",
+                Format = TypeFormatText.Markdown,
+                Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+            });
             visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. Stage.Controls])
             {
                 BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light),
                 Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
+            });
+            visualTree.Content.MainPanel.AddPrimary(new ControlText()
+            {
+                Text = "Dark Mode",
+                Format = TypeFormatText.H5,
+                Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+            });
+            visualTree.Content.MainPanel.AddPrimary(new ControlText()
+            {
+                Text = @"Optimized for dim settings, Dark Mode delivers a high-contrast theme that enhances readability and reduces eye strain, while maintaining the control’s core functionalities.",
+                Format = TypeFormatText.Markdown,
+                Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+            });
+            visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. Stage.Controls])
+            {
+                BackgroundColor = new PropertyColorBackground(TypeColorBackground.Dark),
+                Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                Theme = TypeTheme.Dark
             });
             visualTree.Content.MainPanel.AddPrimary(new ControlText()
             {

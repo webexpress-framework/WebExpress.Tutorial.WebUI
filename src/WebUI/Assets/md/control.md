@@ -1,1 +1,1 @@
-This overview provides a summary of the available controls, each designed to enhance user interfaces and streamline web development. Below is a list of the controls, their purposes, and a brief description of their functionality.
+This overview provides a summary of the available controls, each designed to enhance user interfaces and streamline web development. Below is a list of the controls, their purposes, and a brief description of their functionality. For more detailed documentation and examples, visit https://reneschwarzer.github.io/WebExpress.WebUI/.
