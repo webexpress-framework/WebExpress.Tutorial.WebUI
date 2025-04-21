@@ -18,6 +18,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Include="Assets\md\example.md" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <EmbeddedResource Include="Assets\img\favicon.png" />
 	  <EmbeddedResource Include="Assets\img\webui.svg" />
 	  <EmbeddedResource Include="Assets\md\control.md" />
