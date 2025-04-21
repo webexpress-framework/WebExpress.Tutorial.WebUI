@@ -209,7 +209,7 @@ namespace WebUI.WWW.Controls
                 },
                 new ControlBadge()
                 {
-                    Value = "User defined",
+                    Value = "Custom",
                     Uri = pageContext.Route.ToUri(),
                     TextColor = new PropertyColorText("red"),
                     BackgroundColor = new PropertyColorBackgroundBadge("gold")
