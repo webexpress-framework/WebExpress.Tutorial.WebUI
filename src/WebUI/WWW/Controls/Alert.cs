@@ -37,7 +37,7 @@ namespace WebUI.WWW.Controls
                 BackgroundColor = new PropertyColorBackground(TypesBackgroundColor.Info) 
             };";
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "BackgroundColor",
                 "Sets the background color of the alert, allowing customization for different contexts.",
@@ -128,7 +128,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Dismissible",
                 "Determines whether the alert can be closed (hidden) by the user.",
@@ -149,7 +149,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Fade",
                 "Specifies the type of fade effect used to display the alert.",

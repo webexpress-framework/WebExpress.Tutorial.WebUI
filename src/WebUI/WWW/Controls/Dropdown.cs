@@ -59,7 +59,7 @@ namespace WebUI.WWW.Controls
                 BackgroundColor = new PropertyColorButton(TypeColorButton.Primary)
             };";
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "BackgroundColor",
                 "Sets the background color of the button.",
@@ -127,7 +127,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Outline",
                 "Removes the background color from the button.",
@@ -204,7 +204,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Size",
                 "Determines the size of the button.",
@@ -240,7 +240,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Icon",
                 "Adds an icon to the button.",
@@ -269,7 +269,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                "Block",
                "Spans the button across the entire width.",
@@ -283,7 +283,7 @@ namespace WebUI.WWW.Controls
                }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Active",
                 "Sets the active state of the button.",
@@ -319,7 +319,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Toggle",
                 "An indicator that shows a menu is available.",
@@ -348,7 +348,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "MenuAlignment",
                 "Determines how the menu should be aligned relative to the button.",

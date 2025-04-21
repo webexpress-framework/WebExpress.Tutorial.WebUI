@@ -40,7 +40,7 @@ namespace WebUI.WWW.Controls
 
             Stage.Code = $"new ControlLink() {{ Text = \"{pageContext.PageTitle}\", Icon = new IconClone(), Uri = new UriEndpoint(\"{pageContext.Route.ToUri()}\") }};";
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Text",
                 "Sets the text of the link",
@@ -53,7 +53,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Content",
                 "Sets the content of the link",
@@ -65,7 +65,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Title",
                 "Sets a tooltip.",
@@ -79,7 +79,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Target",
                 "Sets the target of the link.",
@@ -93,7 +93,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Uri",
                 "Sets the address of the link.",
@@ -111,7 +111,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Icon",
                 "Adds an icon to the link.",
@@ -146,7 +146,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Active",
                 "Sets the active state of the link.",
@@ -175,7 +175,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Decoration",
                 "Determines whether the link is underlined on hover.",
@@ -196,7 +196,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Size",
                 "Determines the size of the link.",
@@ -245,7 +245,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "TextColor",
                 "Sets the text color.",
@@ -329,7 +329,7 @@ namespace WebUI.WWW.Controls
             );
 
             // Properties
-            Stage.Add
+            Stage.AddProperty
             (
                 "BackgroundColor",
                 "Sets the background color.",
@@ -452,7 +452,7 @@ namespace WebUI.WWW.Controls
             linkParam.Params.Add(new Parameter("param1", 1, ParameterScope.Parameter));
             linkParam.Params.Add(new Parameter("param2", "two", ParameterScope.Parameter));
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Param",
                 "Link with parameters",
@@ -460,7 +460,7 @@ namespace WebUI.WWW.Controls
                 linkParam
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Modal",
                 "Displays a dialog.",

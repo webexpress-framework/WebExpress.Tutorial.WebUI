@@ -11,7 +11,8 @@ namespace WebUI.Model
     public class Stage
     {
         private readonly Act _mainAct = new();
-        private readonly List<Act> _supportingActs = [];
+        private readonly List<Act> _propertyActs = [];
+        private readonly List<Act> _itemActs = [];
 
         /// <summary>
         /// Returns or sets the description of the Main Act.
@@ -55,33 +56,70 @@ namespace WebUI.Model
         }
 
         /// <summary>
-        /// Returns the collection of supporting acts associated with the stage.
+        /// Returns the collection of property acts associated with the stage.
         /// </summary>
-        public IEnumerable<Act> SupportedActs => _supportingActs;
+        public IEnumerable<Act> PropertyActs => _propertyActs;
 
         /// <summary>
-        /// Adds a new supporting act to the stage.
+        /// Returns the collection of item acts associated with the stage.
+        /// </summary>
+        public IEnumerable<Act> ItemActs => _itemActs;
+
+        /// <summary>
+        /// Adds a new property act to the stage.
         /// </summary>
         /// <param name="propertyName">The name of the property associated with the act.</param>
         /// <param name="description">A description of the act, providing context or details.</param>
         /// <param name="code">The example code or script associated with the act.</param>
         /// <param name="controls">The controls that are part of this act.</param>
-        public void Add(string propertyName, string description, string code, params IControl[] controls)
+        public void AddProperty(string propertyName, string description, string code, params IControl[] controls)
         {
-            Add(propertyName, description, null, code, controls);
+            AddProperty(propertyName, description, null, code, controls);
         }
 
         /// <summary>
-        /// Adds a new supporting act to the stage.
+        /// Adds a new property act to the stage.
         /// </summary>
         /// <param name="propertyName">The name of the property associated with the act.</param>
         /// <param name="description">A description of the act, providing context or details.</param>
         /// <param name="callout">The callout text providing additional information or hints.</param>
         /// <param name="code">The example code or script associated with the act.</param>
         /// <param name="controls">The controls that are part of this act.</param>
-        public void Add(string propertyName, string description, string callout, string code, params IControl[] controls)
+        public void AddProperty(string propertyName, string description, string callout, string code, params IControl[] controls)
         {
-            _supportingActs.Add(new Act()
+            _propertyActs.Add(new Act()
+            {
+                Name = propertyName,
+                Description = description,
+                Callout = callout,
+                Code = code,
+                Controls = controls
+            });
+        }
+
+        /// <summary>
+        /// Adds a new item act to the stage.
+        /// </summary>
+        /// <param name="propertyName">The name of the property associated with the act.</param>
+        /// <param name="description">A description of the act, providing context or details.</param>
+        /// <param name="code">The example code or script associated with the act.</param>
+        /// <param name="controls">The controls that are part of this act.</param>
+        public void AddItem(string propertyName, string description, string code, params IControl[] controls)
+        {
+            AddItem(propertyName, description, null, code, controls);
+        }
+
+        /// <summary>
+        /// Adds a new item act to the stage.
+        /// </summary>
+        /// <param name="propertyName">The name of the property associated with the act.</param>
+        /// <param name="description">A description of the act, providing context or details.</param>
+        /// <param name="callout">The callout text providing additional information or hints.</param>
+        /// <param name="code">The example code or script associated with the act.</param>
+        /// <param name="controls">The controls that are part of this act.</param>
+        public void AddItem(string propertyName, string description, string callout, string code, params IControl[] controls)
+        {
+            _itemActs.Add(new Act()
             {
                 Name = propertyName,
                 Description = description,

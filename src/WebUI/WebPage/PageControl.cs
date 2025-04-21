@@ -97,7 +97,7 @@ namespace WebUI.WebPage
                 BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light)
             });
 
-            if (Stage.SupportedActs.Any())
+            if (Stage.PropertyActs.Any())
             {
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
@@ -113,16 +113,16 @@ namespace WebUI.WebPage
                 });
             }
 
-            foreach (var supportedAct in Stage.SupportedActs)
+            foreach (var supportedAct in Stage.PropertyActs)
             {
-                visualTree.Content.MainPanel.AddSecondary(new ControlText()
+                visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
                     Text = supportedAct.Name,
                     Format = TypeFormatText.H4,
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
 
-                visualTree.Content.MainPanel.AddSecondary(new ControlText()
+                visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
                     Text = supportedAct.Description,
                     Format = TypeFormatText.Markdown
@@ -130,7 +130,7 @@ namespace WebUI.WebPage
 
                 if (!string.IsNullOrWhiteSpace(supportedAct.Callout))
                 {
-                    visualTree.Content.MainPanel.AddSecondary(new ControlPanelCallout(null, new ControlText()
+                    visualTree.Content.MainPanel.AddPrimary(new ControlPanelCallout(null, new ControlText()
                     {
                         Text = supportedAct.Callout
                     })
@@ -140,13 +140,69 @@ namespace WebUI.WebPage
                     });
                 }
 
-                visualTree.Content.MainPanel.AddSecondary(new ControlPanelCard(null, [.. supportedAct.Controls])
+                visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. supportedAct.Controls])
                 {
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
 
-                visualTree.Content.MainPanel.AddSecondary(new ControlText()
+                visualTree.Content.MainPanel.AddPrimary(new ControlText()
+                {
+                    Text = supportedAct.Code,
+                    Format = TypeFormatText.Code
+                });
+            }
+
+            if (Stage.ItemActs.Any())
+            {
+                visualTree.Content.MainPanel.AddPrimary(new ControlText()
+                {
+                    Text = "Item types",
+                    Format = TypeFormatText.H3,
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                });
+
+                visualTree.Content.MainPanel.AddPrimary(new ControlText()
+                {
+                    Text = "Item types enhance enumerations with a range of functionalities, providing increased flexibility and adaptability for various applications. Through the assignment of distinct attributes and behaviors, they empower developers to customize lists to address specific needs effectively.",
+                    Format = TypeFormatText.Paragraph
+                });
+            }
+
+            foreach (var supportedAct in Stage.ItemActs)
+            {
+                visualTree.Content.MainPanel.AddPrimary(new ControlText()
+                {
+                    Text = supportedAct.Name,
+                    Format = TypeFormatText.H4,
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                });
+
+                visualTree.Content.MainPanel.AddPrimary(new ControlText()
+                {
+                    Text = supportedAct.Description,
+                    Format = TypeFormatText.Markdown
+                });
+
+                if (!string.IsNullOrWhiteSpace(supportedAct.Callout))
+                {
+                    visualTree.Content.MainPanel.AddPrimary(new ControlPanelCallout(null, new ControlText()
+                    {
+                        Text = supportedAct.Callout
+                    })
+                    {
+                        Color = new PropertyColorCallout(TypeColorCallout.Info),
+                        Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                    });
+                }
+
+                visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. supportedAct.Controls])
+                {
+                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light),
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                });
+
+                visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
                     Text = supportedAct.Code,
                     Format = TypeFormatText.Code

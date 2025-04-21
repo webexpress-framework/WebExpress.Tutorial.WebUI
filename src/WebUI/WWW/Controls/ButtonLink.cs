@@ -52,7 +52,7 @@ namespace WebUI.WWW.Controls
                 Uri = pageContext.Route.ToUri()
             };";
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "BackgroundColor",
                 "Sets the background color of the button.",
@@ -112,7 +112,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Outline",
                 "Removes the background color from the button.",
@@ -187,7 +187,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Size",
                 "Determines the size of the button.",
@@ -215,7 +215,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Icon",
                 "Adds an icon to the button.",
@@ -236,7 +236,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                "Block",
                "Spans the button across the entire width.",
@@ -250,7 +250,7 @@ namespace WebUI.WWW.Controls
                }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Active",
                 "Sets the active state of the button.",
@@ -281,7 +281,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Modal",
                 "Displays a dialog.",

@@ -82,7 +82,7 @@ namespace WebUI.WWW.Controls
                 BackgroundColor = new PropertyColorBackground(TypesBackgroundColor.Success) 
             };";
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Pill",
                 "Changes the design and adds more rounded corners.",
@@ -149,7 +149,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Uri",
                 "Adds a URI so that the badge functions like a link.",
@@ -216,7 +216,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Size",
                 "Sets the size",

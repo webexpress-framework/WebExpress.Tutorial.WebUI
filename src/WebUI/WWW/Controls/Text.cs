@@ -34,7 +34,7 @@ namespace WebUI.WWW.Controls
 
             Stage.Code = $"new ControlText() {{ Text = \"{_text}\"}}";
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Format",
                 "Defines the format of the text.",
@@ -196,7 +196,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "TextColor",
                 "Defines the text color.",
@@ -263,7 +263,7 @@ namespace WebUI.WWW.Controls
                 }
              );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Size",
                 "Defines the text size.",
@@ -306,7 +306,7 @@ namespace WebUI.WWW.Controls
                 }
             );
 
-            Stage.Add
+            Stage.AddProperty
             (
                 "Title",
                 "Defines a tooltip.",
