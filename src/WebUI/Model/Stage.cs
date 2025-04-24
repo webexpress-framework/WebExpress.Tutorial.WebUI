@@ -13,6 +13,7 @@ namespace WebUI.Model
         private readonly Act _mainAct = new();
         private readonly List<Act> _propertyActs = [];
         private readonly List<Act> _itemActs = [];
+        private readonly List<(string, string)> _events = [];
 
         /// <summary>
         /// Returns or sets the description of the Main Act.
@@ -64,6 +65,11 @@ namespace WebUI.Model
         /// Returns the collection of item acts associated with the stage.
         /// </summary>
         public IEnumerable<Act> ItemActs => _itemActs;
+
+        /// <summary>
+        /// Returns the collection of events associated with the stage.
+        /// </summary>
+        public IEnumerable<(string, string)> Events => _events;
 
         /// <summary>
         /// Adds a new property act to the stage.
@@ -127,6 +133,16 @@ namespace WebUI.Model
                 Code = code,
                 Controls = controls
             });
+        }
+
+        /// <summary>
+        /// Adds a event to the stage.
+        /// </summary>
+        /// <param name="eventName">The name of the event.</param>
+        /// <param name="description">A description of the event, providing context or details.</param>
+        public void AddEvent(string propertyName, string description)
+        {
+            _events.Add((propertyName, description));
         }
     }
 }

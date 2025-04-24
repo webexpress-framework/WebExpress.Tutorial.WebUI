@@ -41,7 +41,13 @@ namespace WebUI.WWW.Controls
                 Title = x.GetType().Name,
             })];
 
-            Stage.Code = $"new ControlIcon() {{ Icon = new IconClone(), TextColor = new PropertyColorText(TypeColorText.Info), Title = \"IconClone\" }};";
+            Stage.Code = @"
+            new ControlIcon() 
+            { 
+                Icon = new IconClone(), 
+                TextColor = new PropertyColorText(TypeColorText.Info), 
+                Title = \""IconClone\"" 
+            };";
 
             Stage.AddProperty
             (

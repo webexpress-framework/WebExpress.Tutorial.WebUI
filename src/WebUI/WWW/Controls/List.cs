@@ -42,13 +42,14 @@ namespace WebUI.WWW.Controls
                 )
             ];
 
-            Stage.Code = @"new ControlList
-                (
-                    ""myList"",
-                    new ControlListItem(null, new ControlText() { Text = ""First Element"" }),
-                    new ControlListItem(null, new ControlText() { Text = ""Second Element"" }),
-                    new ControlListItem(null, new ControlText() { Text = ""Third Element"" })
-                );";
+            Stage.Code = @"
+            new ControlList
+            (
+                ""myList"",
+                new ControlListItem(null, new ControlText() { Text = ""First Element"" }),
+                new ControlListItem(null, new ControlText() { Text = ""Second Element"" }),
+                new ControlListItem(null, new ControlText() { Text = ""Third Element"" })
+            );";
 
             Stage.AddProperty
             (

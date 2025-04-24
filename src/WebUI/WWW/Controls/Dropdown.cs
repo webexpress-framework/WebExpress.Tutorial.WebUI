@@ -44,7 +44,8 @@ namespace WebUI.WWW.Controls
                 }
             ];
 
-            Stage.Code = @"new ControlDropdown
+            Stage.Code = @"
+            new ControlDropdown
             (
                 null, 
                 new ControlDropdownItemHeader() { Text = ""Header"" }, 

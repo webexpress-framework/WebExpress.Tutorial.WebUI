@@ -29,7 +29,8 @@ namespace WebUI.WWW.Controls
                 BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Info)
             };
 
-            Stage.Code = @"new ControlAlert() 
+            Stage.Code = @"
+            new ControlAlert() 
             { 
                 Text = ""This is a sample alert!"", 
                 Dismissible = TypesDismissibleAlert.Dismissible, 

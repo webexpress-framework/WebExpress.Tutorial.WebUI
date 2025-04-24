@@ -39,7 +39,8 @@ namespace WebUI.WWW.Controls
                 }
             ];
 
-            Stage.Code = @"new ControlButton()  
+            Stage.Code = @"
+            new ControlButton()  
             {  
                 Text = ""Hallo World!"",
                 BackgroundColor = new PropertyColorButton(TypeColorButton.Info)

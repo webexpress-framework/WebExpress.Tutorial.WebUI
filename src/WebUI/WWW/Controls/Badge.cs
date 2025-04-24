@@ -76,7 +76,8 @@ namespace WebUI.WWW.Controls
                 }
             ];
 
-            Stage.Code = @"new ControlBadge() 
+            Stage.Code = @"
+            new ControlBadge() 
             { 
                 Value = ""New"", 
                 BackgroundColor = new PropertyColorBackground(TypesBackgroundColor.Success) 

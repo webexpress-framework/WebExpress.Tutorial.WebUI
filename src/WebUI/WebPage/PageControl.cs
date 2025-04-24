@@ -3,7 +3,9 @@ using WebExpress.WebApp.WebPage;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebPage;
 using WebUI.Model;
+using WebUI.WebControl;
 using WebUI.WebFragment.ControlPage;
 
 namespace WebUI.WebPage
@@ -25,6 +27,9 @@ namespace WebUI.WebPage
         /// <param name="visualTree">The visual tree of the web application.</param>
         public void Process(IRenderContext renderContext, VisualTreeWebApp visualTree)
         {
+            visualTree.Content.MainPanel.AddPrimary(new ControlLine()
+            {
+            });
             visualTree.Content.MainPanel.AddPrimary(new ControlText()
             {
                 Text = Stage.Description,
@@ -49,7 +54,7 @@ namespace WebUI.WebPage
             });
             visualTree.Content.MainPanel.AddPrimary(new ControlText()
             {
-                Text = @"Designed for bright and well-lit environments, Light Mode offers a clear and vibrant presentation of the control, making it ideal for applications that prioritize brightness and clarity.",
+                Text = @"Designed for bright and well-lit environments, light mode offers a clear and vibrant presentation of the control, making it ideal for applications that prioritize brightness and clarity.",
                 Format = TypeFormatText.Markdown,
                 Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
             });
@@ -66,7 +71,7 @@ namespace WebUI.WebPage
             });
             visualTree.Content.MainPanel.AddPrimary(new ControlText()
             {
-                Text = @"Optimized for dim settings, Dark Mode delivers a high-contrast theme that enhances readability and reduces eye strain, while maintaining the control’s core functionalities.",
+                Text = @"Optimized for dim settings, dark mode delivers a high-contrast theme that enhances readability and reduces eye strain, while maintaining the control’s core functionalities.",
                 Format = TypeFormatText.Markdown,
                 Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
             });
@@ -89,7 +94,21 @@ namespace WebUI.WebPage
             });
             visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, new ControlText()
             {
-                Text = Stage.Code,
+                Text = TrimIndentation(Stage.Code),
+                Format = TypeFormatText.Code,
+                Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+            })
+            {
+                BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light)
+            });
+            visualTree.Content.MainPanel.AddPrimary(new ControlText()
+            {
+                Text = "The following HTML structure is generated based on the example control and serves as the foundation for its visual and functional representation. It includes the necessary elements to create an interactive user interface, allowing users to engage intuitively and efficiently.",
+                Format = TypeFormatText.Paragraph
+            });
+            visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, new ControlText()
+            {
+                Text = Stage.Control.Render(new RenderControlContext(renderContext), visualTree).ToString().Trim().Replace("<", "&lt;").Replace(">", "&gt;"),
                 Format = TypeFormatText.Code,
                 Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
             })
@@ -208,6 +227,72 @@ namespace WebUI.WebPage
                     Format = TypeFormatText.Code
                 });
             }
+
+            if (Stage.Events.Any())
+            {
+                visualTree.Content.MainPanel.AddPrimary(new ControlPanelCallout(null, new ControlText()
+                {
+                    Text = "Events",
+                    Format = TypeFormatText.H3
+                })
+                {
+                    Color = new PropertyColorCallout(TypeColorCallout.Info),
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                });
+                visualTree.Content.MainPanel.AddPrimary(new ControlText()
+                {
+                    Text = "Several events are registered with the Control, enabling precise monitoring and management of processes. They respond to specific occurrences and trigger appropriate actions:",
+                    Format = TypeFormatText.Paragraph
+                });
+                visualTree.Content.MainPanel.AddPrimary(new ControlList(null,
+                [..
+                    Stage.Events.Select(x => new ControlListItem(null, new ControlText()
+                    {
+                        Text = $"`{x.Item1}` - {x.Item2}",
+                        Format = TypeFormatText.Markdown
+                    }))
+                ])
+                {
+                    Layout = TypeLayoutList.Default
+                });
+                visualTree.Content.MainPanel.AddPrimary(new ControlText()
+                {
+                    Text = "In the next section, these events will be monitored in real time as they are triggered during example usage. This live tracking provides a detailed analysis of event behavior and system interactions, offering valuable insights into their functionality:",
+                    Format = TypeFormatText.Paragraph
+                });
+                visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, new ControlEventLogger
+                (
+                    null,
+                    string.Join(" ", Stage.Events.Select(x => x.Item1))
+                )
+                {
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                })
+                {
+                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light)
+                });
+            }
+        }
+
+        /// <summary>
+        /// Trims the leading indentation from each line of the input string.
+        /// </summary>
+        /// <param name="input">The input string with potential leading indentation.</param>
+        /// <returns>A string with the leading indentation removed from each line.</returns>
+        private static string TrimIndentation(string input)
+        {
+            var lines = input.Replace("\r", "").Split('\n', System.StringSplitOptions.RemoveEmptyEntries);
+            var indentation = lines.FirstOrDefault(line => !string.IsNullOrWhiteSpace(line))?.TakeWhile(char.IsWhiteSpace).Count() ?? 0;
+
+            for (int i = 0; i < lines.Length; i++)
+            {
+                if (lines[i].Length >= indentation)
+                {
+                    lines[i] = lines[i].Substring(indentation);
+                }
+            }
+
+            return string.Join("\n", lines);
         }
     }
 }

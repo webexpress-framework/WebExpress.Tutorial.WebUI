@@ -46,7 +46,8 @@ namespace WebUI.WWW.Controls
                 }
             ];
 
-            Stage.Code = @"new ControlButtonLink()  
+            Stage.Code = @"
+            new ControlButtonLink()  
             {  
                 Text = ""Hello World!"",
                 Uri = pageContext.Route.ToUri()
