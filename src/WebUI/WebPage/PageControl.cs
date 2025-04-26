@@ -248,7 +248,7 @@ namespace WebUI.WebPage
                 [..
                     Stage.Events.Select(x => new ControlListItem(null, new ControlText()
                     {
-                        Text = $"`{x.Item1}` - {x.Item2}",
+                        Text = $"`{x.GetEventName()}` - {x.GetDescription()}",
                         Format = TypeFormatText.Markdown
                     }))
                 ])
@@ -263,7 +263,7 @@ namespace WebUI.WebPage
                 visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, new ControlEventLogger
                 (
                     null,
-                    string.Join(" ", Stage.Events.Select(x => x.Item1))
+                    string.Join(" ", Stage.Events.Select(x => x.GetEventName()))
                 )
                 {
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
