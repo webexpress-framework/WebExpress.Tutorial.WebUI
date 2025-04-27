@@ -108,7 +108,7 @@ namespace WebUI.WebPage
             });
             visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, new ControlText()
             {
-                Text = Stage.Control.Render(new RenderControlContext(renderContext), visualTree).ToString().Trim().Replace("<", "&lt;").Replace(">", "&gt;"),
+                Text = Stage.Control.Render(new RenderControlContext(renderContext), visualTree)?.ToString().Trim().Replace("<", "&lt;").Replace(">", "&gt;"),
                 Format = TypeFormatText.Code,
                 Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
             })

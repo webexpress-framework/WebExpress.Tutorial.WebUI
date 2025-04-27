@@ -64,14 +64,14 @@ namespace WebUI.WWW.Controls
                 "Placeholder = \"Enter search term...\"",
                 new ControlSearch(Guid.NewGuid().ToString(), [.. _suggestions])
                 {
-                    Placeholder = "Enter search term...",
+                    Placeholder = "Enter search term..."
                 }
             );
 
             Stage.AddProperty
             (
                 "EnableFavorited",
-                "The `EnableFavorited` property allows for the prioritization of preferred search suggestions. When enabled, certain favorites can be highlighted and displayed more prominently within the search suggestions.\r\n\r\nThis feature enhances the user experience by making frequently used or marked-as-relevant suggestions more accessible.",
+                "The `EnableFavorited` property allows for the prioritization of preferred search suggestions. When enabled, certain favorites can be highlighted and displayed more prominently within the search suggestions. This feature enhances the user experience by making frequently used or marked-as-relevant suggestions more accessible.",
                 "EnableFavorited = true",
                 new ControlSearch(Guid.NewGuid().ToString(), [.. _suggestions])
                 {
@@ -99,7 +99,6 @@ namespace WebUI.WWW.Controls
                 {
                     Placeholder = "Enter search term..."
                 }
-
             );
         }
     }
