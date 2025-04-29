@@ -1,10 +1,12 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using WebExpress.WebApp.WebSection;
 using WebExpress.WebCore.Internationalization;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebFragment;
 using WebExpress.WebCore.WebHtml;
+using WebExpress.WebCore.WebUri;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebFragment;
 using WebExpress.WebUI.WebPage;
@@ -19,15 +21,15 @@ namespace WebUI.WebFragment.ControlPage
     [Section<SectionSidebarPrimary>]
     [Scope<IScopeControl>]
     [Cache]
-    public sealed class ControlSidebarFragment : FragmentControlNavigation
+    public sealed class ControlSidebarFragment : FragmentControlTree
     {
         private readonly IComponentHub _componentHub;
         private readonly IFragmentContext _fragmentContext;
 
         /// <summary>
-        /// Initializes a new instance of the class.
+        /// Initializes a new instance of the <see cref="ControlSidebarFragment"/> class.
         /// </summary>
-        /// <param name="visualTree">The visual tree representing the control's structure.</param>
+        /// <param name="componentHub">The component hub providing access to various managers and services.</param>
         /// <param name="fragmentContext">The context of the fragment, providing access to the current state and dependencies.</param>
         public ControlSidebarFragment(IComponentHub componentHub, IFragmentContext fragmentContext)
             : base(fragmentContext)
@@ -35,13 +37,11 @@ namespace WebUI.WebFragment.ControlPage
             _componentHub = componentHub;
             _fragmentContext = fragmentContext;
 
-            Layout = TypeLayoutTab.Pill;
-            Orientation = TypeOrientationTab.Vertical;
-            GridColumn = new PropertyGrid(TypeDevice.Medium, 2);
+            Layout = TypeLayoutTree.Default;
         }
 
         /// <summary>
-        /// Convert the control to HTML.
+        /// Converts the control to an HTML representation.
         /// </summary>
         /// <param name="renderContext">The context in which the control is rendered.</param>
         /// <param name="visualTree">The visual tree representing the control's structure.</param>
@@ -54,16 +54,46 @@ namespace WebUI.WebFragment.ControlPage
                 .Where(x => x.Scopes.Contains(typeof(IScopeControl)))
                 .Where(x => x.EndpointId != indexContext?.EndpointId)
                 .OrderBy(x => x.PageTitle)
-                .Select(x => new ControlNavigationItemLink()
+                .Select(x => new ControlTreeItemLink
                 {
-                    Text = I18N.Translate(renderContext, x.PageTitle),
+                    Label = I18N.Translate(renderContext, x.PageTitle),
                     Uri = x.Route.ToUri(),
-                    Active = renderContext.PageContext.EndpointId == x.EndpointId
-                        ? TypeActive.Active
-                        : TypeActive.None
-                });
+                    Active = x.Route == renderContext.PageContext.Route,
+                    Expand = true
+                }).ToList();
 
-            return base.Render(renderContext, visualTree, items);
+            var tree = BuildTree(items, indexContext.Route.ToUri());
+
+            return base.Render(renderContext, visualTree, tree);
+        }
+
+        /// <summary>
+        /// Builds a hierarchical tree structure from a flat list of items.
+        /// </summary>
+        /// <param name="items">The flat list of tree items.</param>
+        /// <param name="root">The root URI to determine the hierarchy.</param>
+        /// <returns>A collection of <see cref="ControlTreeItemLink"/> representing the hierarchical tree structure.</returns>
+        private static IEnumerable<ControlTreeItemLink> BuildTree(IEnumerable<ControlTreeItemLink> items, IUri root)
+        {
+            var nodes = new List<ControlTreeItemLink>();
+
+            foreach (var item in items.Where
+            (
+                x => x.Uri.ToString().StartsWith(root.ToString()) &&
+                x.Uri.PathSegments.Count() == root.PathSegments.Count() + 1)
+            )
+            {
+                var node = new ControlTreeItemLink(item.Id, BuildTree(items, item.Uri).ToArray())
+                {
+                    Label = item.Label,
+                    Uri = item.Uri,
+                    Active = item.Active,
+                    Expand = true
+                };
+                nodes.Add(node);
+            }
+
+            return nodes;
         }
     }
 }

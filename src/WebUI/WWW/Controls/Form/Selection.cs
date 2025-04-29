@@ -8,7 +8,7 @@ using WebExpress.WebUI.WebIcon;
 using WebUI.WebFragment.ControlPage;
 using WebUI.WebPage;
 
-namespace WebUI.WWW.Controls
+namespace WebUI.WWW.Controls.Form
 {
     /// <summary>    
     /// Represents the selection control for the tutorial.    
@@ -18,7 +18,7 @@ namespace WebUI.WWW.Controls
     [Scope<IScopeControl>]
     public sealed class Selection : PageControl
     {
-        private IEnumerable<ControlFormItemInputSelectionItem> _options =
+        private readonly IEnumerable<ControlFormItemInputSelectionItem> _options =
         [
             new ControlFormItemInputSelectionItem("1") { Label = "Option 1", Icon = new IconSquare() },
             new ControlFormItemInputSelectionItem("2") { Label = "Option 2", Icon = new IconCar() },
