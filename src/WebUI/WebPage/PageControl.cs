@@ -167,7 +167,7 @@ namespace WebUI.WebPage
 
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
-                    Text = supportedAct.Code,
+                    Text = TrimIndentation(supportedAct.Code),
                     Format = TypeFormatText.Code
                 });
             }
@@ -223,7 +223,7 @@ namespace WebUI.WebPage
 
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
-                    Text = supportedAct.Code,
+                    Text = TrimIndentation(supportedAct.Code),
                     Format = TypeFormatText.Code
                 });
             }

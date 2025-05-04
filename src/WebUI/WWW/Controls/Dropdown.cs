@@ -259,7 +259,7 @@ namespace WebUI.WWW.Controls
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
                         Text = "Custom",
-                        Icon = new ImageIcon(pageContext.ApplicationContext.ContextPath.Concat("assets/img/webui.svg").ToUri(), new PropertySizeIcon(1, TypeSizeUnit.Em)),
+                        Icon = new ImageIcon(pageContext.ApplicationContext.Route.Concat("assets/img/webui.svg").ToUri(), new PropertySizeIcon(1, TypeSizeUnit.Em)),
                         BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                     }

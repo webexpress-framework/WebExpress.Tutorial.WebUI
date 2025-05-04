@@ -26,7 +26,7 @@ namespace WebUI.WWW.Controls.Form
                 Label = "Username",
                 Icon = new IconFont(),
                 Help = "Enter your desired username."
-            },
+            }.Validate(x => x.Add(string.IsNullOrWhiteSpace(x.Value), "Username is required. Please enter a valid name.")),
             new ControlFormItemInputTextBox("email")
             {
                 Label = "Email Address",
@@ -169,6 +169,45 @@ namespace WebUI.WWW.Controls.Form
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
                     Padding = new PropertySpacingPadding(PropertySpacing.Space.Two)
                 }.AddSecondaryButton(new ControlFormItemButtonSubmit(), new ControlFormItemButtonReset())
+            );
+
+            Stage.AddProperty
+            (
+                "Conformation",
+                "The property represents the control that is displayed instead of the original form after the form has been successfully submitted. It provides visual feedback to the user by showing a confirmation element, indicating that the submission was successful. This enhances the user experience by offering clear acknowledgment of the completed action. For example, if the form involves a registration or an order, a thank-you message or a summary of the submitted data can appear in place of the form, allowing the user to immediately recognize that their input has been processed.",
+                @"
+                Conformation = new ControlAlert() 
+                { 
+                    Text = ""Thank you!"", 
+                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Success) 
+                }",
+                new ControlForm(NextId(), [.. _exampleFormItems])
+                {
+                    Border = new PropertyBorder(true),
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
+                    Conformation = new ControlAlert()
+                    {
+                        Text = @"Thank you! Your submission has been successfully received. We have received your request and will process it as soon as possible. If you need any further information, feel free to reach out to us anytime.",
+                        BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Success)
+                    }
+
+                }.AddPreferencesButton(new ControlFormItemButtonSubmit())
+            );
+
+            Stage.AddProperty
+            (
+                "RedirectUri",
+                "The `RedirectUri` property specifies the target address to which the user is redirected after the form has been successfully submitted. This can be used, for example, to direct the user to a welcome page after registration or to an order confirmation page after a purchase.",
+                @"RedirectUri = pageContext.ApplicationContext.Route.ToUri()",
+                new ControlForm(NextId(), [.. _exampleFormItems])
+                {
+                    Border = new PropertyBorder(true),
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
+                    RedirectUri = pageContext.ApplicationContext.Route.ToUri()
+
+                }.AddPreferencesButton(new ControlFormItemButtonSubmit())
             );
         }
 

@@ -62,7 +62,7 @@ namespace WebUI.WebControl
         /// <exception cref="NotImplementedException">Thrown when the method is not implemented.</exception>
         public override IHtmlNode Render(IRenderControlContext renderContext, IVisualTreeControl visualTree)
         {
-            visualTree.AddHeaderScriptLink(renderContext.PageContext.ApplicationContext.ContextPath.Concat("assets/js/eventlogger.js").ToString());
+            visualTree.AddHeaderScriptLink(renderContext.PageContext.ApplicationContext.Route.Concat("assets/js/eventlogger.js").ToString());
 
             var html = new HtmlElementTextContentDiv()
             {

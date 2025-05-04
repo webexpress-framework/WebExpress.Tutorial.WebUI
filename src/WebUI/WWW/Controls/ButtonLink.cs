@@ -226,12 +226,12 @@ namespace WebUI.WWW.Controls
                     Text = "Home",
                     Icon = new IconHome(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Warning),
-                    Uri = pageContext.ApplicationContext.ContextPath.ToUri()
+                    Uri = pageContext.ApplicationContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
                     Text = "Custom",
-                    Icon = new ImageIcon(pageContext.ApplicationContext.ContextPath.Concat("assets/img/webui.svg").ToUri(), new PropertySizeIcon(1, TypeSizeUnit.Em)),
+                    Icon = new ImageIcon(pageContext.ApplicationContext.Route.Concat("assets/img/webui.svg").ToUri(), new PropertySizeIcon(1, TypeSizeUnit.Em)),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Warning),
                     Uri = pageContext.Route.ToUri()
                 }
