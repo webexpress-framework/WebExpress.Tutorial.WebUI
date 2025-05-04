@@ -57,7 +57,8 @@ namespace WebUI.WWW.Controls
                 Label = "Node 2",
                 IconOpen = new IconFolderOpen(),
                 IconClose = new IconFolder(),
-                Icon = new IconCog()
+                Icon = new IconCog(),
+                Expand = false
             }
         ];
 
