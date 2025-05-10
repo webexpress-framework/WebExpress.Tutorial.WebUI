@@ -53,7 +53,22 @@
         /// <summary>
         /// Event triggered when a node is moved in a tree control.
         /// </summary>
-        MOVE_EVENT
+        MOVE_EVENT,
+
+        /// <summary>
+        /// Event triggered when the page changes in a pagination control.
+        /// </summary>
+        CHANGE_PAGE_EVENT,
+
+        /// <summary>
+        /// Event triggered when a modal is shown.
+        /// </summary>
+        MODAL_SHOW_EVENT,
+
+        /// <summary>
+        /// Event triggered when a modal is hidden.
+        /// </summary>
+        MODAL_HIDE_EVENT
     }
 
     /// <summary>
@@ -80,6 +95,9 @@
                 Event.TABLE_SORT_EVENT => "webexpress.webui.table.sorted",
                 Event.CHANGE_VALUE_EVENT => "webexpress.webui.change.value",
                 Event.MOVE_EVENT => "webexpress.webui.tree.node.move",
+                Event.CHANGE_PAGE_EVENT => "webexpress.webui.change.page",
+                Event.MODAL_SHOW_EVENT => "webexpress.webui.modal.show",
+                Event.MODAL_HIDE_EVENT => "webexpress.webui.modal.hide",
                 _ => ""
             };
         }
@@ -103,6 +121,9 @@
                 Event.TABLE_SORT_EVENT => "Event triggered when a table is sorted.",
                 Event.CHANGE_VALUE_EVENT => "Event triggered when the value of an input or control changes.",
                 Event.MOVE_EVENT => "Event triggered when a node is moved in a tree control.",
+                Event.CHANGE_PAGE_EVENT => "Event triggered when the page changes in a pagination control.",
+                Event.MODAL_SHOW_EVENT => "Event triggered when a modal is shown.",
+                Event.MODAL_HIDE_EVENT => "Event triggered when a modal is hidden.",
                 _ => ""
             };
         }

@@ -5,6 +5,7 @@ using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
+using WebUI.Model;
 using WebUI.WebFragment.ControlPage;
 using WebUI.WebPage;
 
@@ -39,6 +40,8 @@ namespace WebUI.WWW.Controls.Form
         /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>  
         public Selection(IPageContext pageContext, ISitemapManager sitemapManager)
         {
+            Stage.AddEvent(Event.CHANGE_VALUE_EVENT, Event.CHANGE_FILTER_EVENT, Event.DROPDOWN_SHOW_EVENT, Event.DROPDOWN_HIDDEN_EVENT);
+
             Stage.Description = @"A `Selection` control is a form element that allows users to select multiple options from a predefined list. It is commonly used in user interfaces to simplify interactions by enabling users to choose their desired options with simple clicks or markings.";
 
             Stage.Control = new ControlForm(null, new ControlFormItemInputSelection(null, [.. _options])
@@ -76,7 +79,7 @@ namespace WebUI.WWW.Controls.Form
             Stage.AddItem
             (
                 "Label",
-                "The `Label` property of a `Select` control item serves as a short form of the option text and is displayed in the main area of the control once a selection is made. Instead of showing the full descriptive text of an option, the label ensures a concise and clear representation of the chosen selection. When the label is defined as an internationalization key",
+                "The `Label` property of a `Select` control item serves as a short form of the option text and is displayed in the main area of the control once a selection is made. Instead of showing the full descriptive text of an option, the label ensures a concise and clear representation of the chosen selection. When the label is defined as an internationalization key.",
                 "new ControlFormItemInputSelectionItem() { Label = \"Label 1\" }",
                 new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Label = "Label 1" })
                 {
@@ -97,7 +100,7 @@ namespace WebUI.WWW.Controls.Form
             (
                 "Icon",
                 "The `Icon` property defines the symbol assigned to a item. It provides a visual representation and identification of a option within the list structure, enhancing user guidance and recognition. Icons can be either system icons or custom icons, allowing flexibility in design and functionality. System icons offer a standardized visual language, ensuring consistency across applications, while custom icons enable tailored representations to meet specific user needs.",
-                "new ControlTreeItem() { Icon = new IconHome() }",
+                "new ControlFormItemInputSelectionItem() { Icon = new IconHome() }",
                 new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Icon = new IconHome() })
                 {
                 })
