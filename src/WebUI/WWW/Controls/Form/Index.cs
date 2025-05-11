@@ -18,7 +18,6 @@ namespace WebUI.WWW.Controls.Form
     [Scope<IScopeControl>]
     public sealed class Index : PageControl
     {
-        private int _id = 0;
         private readonly IEnumerable<IControlFormItem> _exampleFormItems =
         [
             new ControlFormItemInputTextBox("username")
@@ -54,7 +53,7 @@ namespace WebUI.WWW.Controls.Form
         /// <summary>    
         /// Initializes a new instance of the class.    
         /// </summary>    
-        /// <param name="pageContext">The context of the page where the selection control is used.</param>  
+        /// <param name="pageContext">The context of the page where the form control is used.</param>  
         /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>  
         public Index(IPageContext pageContext, ISitemapManager sitemapManager)
         {
@@ -86,7 +85,7 @@ namespace WebUI.WWW.Controls.Form
                 "This property defines the visual positioning of form elements relative to the submit button.",
                 "FormLayout = TypeLayoutForm.Inline",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(NextId(), new ControlFormItemInputTextBox("layout1") { Icon = new IconAlignLeft(), Label = "Arrangement", Help = "This is a help text" })
+                new ControlForm(items: new ControlFormItemInputTextBox("layout1") { Icon = new IconAlignLeft(), Label = "Arrangement", Help = "This is a help text" })
                 {
                     Border = new PropertyBorder(true),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
@@ -94,7 +93,7 @@ namespace WebUI.WWW.Controls.Form
                     FormLayout = TypeLayoutForm.Default
                 }.AddPrimaryButton(new ControlFormItemButtonSubmit()),
                 new ControlText() { Text = "Inline", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(NextId(), new ControlFormItemInputTextBox("layout1") { Icon = new IconAlignLeft(), Label = "Arrangement", Help = "This is a help text" })
+                new ControlForm(items: new ControlFormItemInputTextBox("layout1") { Icon = new IconAlignLeft(), Label = "Arrangement", Help = "This is a help text" })
                 {
                     Border = new PropertyBorder(true),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
@@ -109,7 +108,7 @@ namespace WebUI.WWW.Controls.Form
                 "This property defines how the form elements are arranged within the form, ensuring a structured and user-friendly layout.",
                 "ItemLayout = TypeLayoutFormItem.Horizontal",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(NextId(), [.. _exampleFormItems])
+                new ControlForm(items: [.. _exampleFormItems])
                 {
                     Border = new PropertyBorder(true),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
@@ -117,7 +116,7 @@ namespace WebUI.WWW.Controls.Form
 
                 }.AddPrimaryButton(new ControlFormItemButtonSubmit()),
                 new ControlText() { Text = "Horizontal", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(NextId(), [.. _exampleFormItems])
+                new ControlForm(items: [.. _exampleFormItems])
                 {
                     Border = new PropertyBorder(true),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
@@ -125,7 +124,7 @@ namespace WebUI.WWW.Controls.Form
                     ItemLayout = TypeLayoutFormItem.Horizontal
                 }.AddPrimaryButton(new ControlFormItemButtonSubmit()),
                 new ControlText() { Text = "Vertical", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(NextId(), [.. _exampleFormItems])
+                new ControlForm(items: [.. _exampleFormItems])
                 {
                     Border = new PropertyBorder(true),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
@@ -133,7 +132,7 @@ namespace WebUI.WWW.Controls.Form
                     ItemLayout = TypeLayoutFormItem.Vertical
                 }.AddPrimaryButton(new ControlFormItemButtonSubmit()),
                 new ControlText() { Text = "Mix", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(NextId(), [.. _exampleFormItems])
+                new ControlForm(items: [.. _exampleFormItems])
                 {
                     Border = new PropertyBorder(true),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
@@ -148,7 +147,7 @@ namespace WebUI.WWW.Controls.Form
                 "This method enables adding buttons to control the behavior of the form, such as submitting, resetting, or canceling actions.",
                 "new ControlFormItemButtonSubmit(), new ControlFormItemButtonReset()",
                 new ControlText() { Text = "AddPreferencesButton", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(NextId(), [.. _exampleFormItems])
+                new ControlForm(items: [.. _exampleFormItems])
                 {
                     Border = new PropertyBorder(true),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
@@ -156,14 +155,14 @@ namespace WebUI.WWW.Controls.Form
 
                 }.AddPreferencesButton(new ControlFormItemButtonSubmit(), new ControlFormItemButtonReset()),
                 new ControlText() { Text = "AddPrimaryButton", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(NextId(), [.. _exampleFormItems])
+                new ControlForm(items: [.. _exampleFormItems])
                 {
                     Border = new PropertyBorder(true),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
                     Padding = new PropertySpacingPadding(PropertySpacing.Space.Two)
                 }.AddPrimaryButton(new ControlFormItemButtonSubmit(), new ControlFormItemButtonReset()),
                 new ControlText() { Text = "AddSecondaryButton", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(NextId(), [.. _exampleFormItems])
+                new ControlForm(items: [.. _exampleFormItems])
                 {
                     Border = new PropertyBorder(true),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
@@ -181,7 +180,7 @@ namespace WebUI.WWW.Controls.Form
                     Text = ""Thank you!"", 
                     BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Success) 
                 }",
-                new ControlForm(NextId(), [.. _exampleFormItems])
+                new ControlForm("conformationform", items: [.. _exampleFormItems])
                 {
                     Border = new PropertyBorder(true),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
@@ -200,7 +199,7 @@ namespace WebUI.WWW.Controls.Form
                 "RedirectUri",
                 "The `RedirectUri` property specifies the target address to which the user is redirected after the form has been successfully submitted. This can be used, for example, to direct the user to a welcome page after registration or to an order confirmation page after a purchase.",
                 @"RedirectUri = pageContext.ApplicationContext.Route.ToUri()",
-                new ControlForm(NextId(), [.. _exampleFormItems])
+                new ControlForm(items: [.. _exampleFormItems])
                 {
                     Border = new PropertyBorder(true),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
@@ -209,15 +208,6 @@ namespace WebUI.WWW.Controls.Form
 
                 }.AddPreferencesButton(new ControlFormItemButtonSubmit())
             );
-        }
-
-        /// <summary>
-        /// Generates a unique identifier for a form.
-        /// </summary>
-        /// <returns>A unique string identifier for a form.</returns>
-        private string NextId()
-        {
-            return "myForm" + _id++;
         }
     }
 }

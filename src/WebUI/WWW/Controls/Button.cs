@@ -2,6 +2,7 @@
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
+using WebUI.WebControl;
 using WebUI.WebFragment.ControlPage;
 using WebUI.WebPage;
 
@@ -256,13 +257,13 @@ namespace WebUI.WWW.Controls
                 new ControlButton()
                 {
                     Text = "Click me!",
-                    Modal = new PropertyModal(TypeModal.Modal, new ControlModal(null, new ControlText()
-                    {
-                        Text = "Hello World!"
-                    })),
+                    Modal = "modal",
                     TextColor = new PropertyColorText(TypeColorText.Default),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                },
+                new ControlModalExample("modal")
+                {
                 }
             );
         }

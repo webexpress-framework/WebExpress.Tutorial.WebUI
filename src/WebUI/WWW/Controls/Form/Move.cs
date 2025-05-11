@@ -37,7 +37,7 @@ namespace WebUI.WWW.Controls.Form
         /// <summary>    
         /// Initializes a new instance of the class.    
         /// </summary>    
-        /// <param name="pageContext">The context of the page where the selection control is used.</param>  
+        /// <param name="pageContext">The context of the page where the move control is used.</param>  
         /// <param name="componentHub">The component hub for managing components.</param>  
         public Move(IPageContext pageContext, IComponentHub componentHub)
         {

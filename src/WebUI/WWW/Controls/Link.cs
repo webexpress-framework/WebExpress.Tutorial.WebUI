@@ -7,6 +7,7 @@ using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
+using WebUI.WebControl;
 using WebUI.WebFragment.ControlPage;
 using WebUI.WebPage;
 
@@ -468,9 +469,11 @@ namespace WebUI.WWW.Controls
                 new ControlLink()
                 {
                     Text = "Click me!",
-                    Uri = pageContext.Route.ToUri(),
-                    Modal = new PropertyModal(TypeModal.Modal, new ControlModal(null, new ControlText() { Text = "Hello World!" })),
+                    Modal = "modal",
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                },
+                new ControlModalExample("modal")
+                {
                 }
             );
         }
