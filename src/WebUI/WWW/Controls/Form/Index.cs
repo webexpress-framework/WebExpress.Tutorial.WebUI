@@ -44,7 +44,7 @@ namespace WebUI.WWW.Controls.Form
                 Icon = new IconMapLocationDot(),
                 Help = "Select your home country."
             },
-            new ControlFormItemInputCheckbox("terms")
+            new ControlFormItemInputCheckBox("terms")
             {
                 Label = "I accept the terms and conditions",
                 Help = "Please confirm that you have read the terms."

@@ -13,7 +13,7 @@ using WebUI.WebPage;
 namespace WebUI.WWW.Controls.Form
 {
     /// <summary>    
-    /// Represents the selection control for the tutorial.    
+    /// Represents the move control for the tutorial.    
     /// </summary>    
     [Title("Move")]
     [Scope<IScopeGeneral>]
