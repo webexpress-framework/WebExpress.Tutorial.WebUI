@@ -75,7 +75,7 @@ namespace WebUI.WebPage
                 Format = TypeFormatText.Markdown,
                 Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
             });
-            visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. Stage.Controls])
+            visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. Stage.DarkControls.Any() ? Stage.DarkControls : Stage.Controls])
             {
                 BackgroundColor = new PropertyColorBackground(TypeColorBackground.Dark),
                 Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two),

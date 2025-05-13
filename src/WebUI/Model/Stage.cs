@@ -5,7 +5,7 @@ using WebExpress.WebUI.WebControl;
 namespace WebUI.Model
 {
     /// <summary>  
-    /// Represents the grand "Stage" where the acts (Main Act and Supporting Acts) come to life.  
+    /// Represents the grand "Stage" where the acts (main act and supporting acts) come to life.  
     /// This class serves as the foundation for orchestrating the performances of controls.  
     /// </summary>  
     public class Stage
@@ -16,7 +16,7 @@ namespace WebUI.Model
         private readonly List<Event> _events = [];
 
         /// <summary>  
-        /// Returns or sets the description of the Main Act.  
+        /// Returns or sets the description of the main act.  
         /// This property provides a convenient way to access or modify the description of the Main Act directly.  
         /// </summary>  
         public string Description
@@ -26,7 +26,7 @@ namespace WebUI.Model
         }
 
         /// <summary>  
-        /// Returns or sets the controls of the Main Act.  
+        /// Returns or sets the controls of the main act.  
         /// This property allows access to the controls in the Main Act or assigns a new control to it.  
         /// </summary>  
         public IEnumerable<IControl> Controls
@@ -36,8 +36,8 @@ namespace WebUI.Model
         }
 
         /// <summary>  
-        /// Returns or sets the primary control of the Main Act.  
-        /// This property allows access to the first control in the Main Act or assigns a new control to it.  
+        /// Returns or sets the primary control of the main act.  
+        /// This property allows access to the first control in the main act or assigns a new control to it.  
         /// </summary>  
         public IControl Control
         {
@@ -46,7 +46,17 @@ namespace WebUI.Model
         }
 
         /// <summary>  
-        /// Returns or sets the example code associated with the Main Act.  
+        /// Returns or sets the dark mode controls of the main act.  
+        /// This property allows access to the controls in the main act or assigns a new control to it.  
+        /// </summary>  
+        public IEnumerable<IControl> DarkControls
+        {
+            get { return _mainAct.DarkControls; }
+            set { _mainAct.DarkControls = value; }
+        }
+
+        /// <summary>  
+        /// Returns or sets the example code associated with the main act.  
         /// This property allows for the retrieval or assignment of the code snippet  
         /// that represents the Main Act's functionality or behavior.  
         /// </summary>  

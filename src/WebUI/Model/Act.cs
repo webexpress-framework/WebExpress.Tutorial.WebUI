@@ -19,6 +19,12 @@ namespace WebUI.Model
         /// </summary>
         public IEnumerable<IControl> Controls { get; set; } = [];
 
+        /// <summary>  
+        /// Returns or sets the dark mode controls of the main act.  
+        /// This property allows access to the controls in the main act or assigns a new control to it.  
+        /// </summary>  
+        public IEnumerable<IControl> DarkControls { get; set; } = [];
+
         /// <summary>
         /// Gets or sets the description text for the control descriptor.
         /// </summary>

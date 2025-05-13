@@ -71,22 +71,60 @@ namespace WebUI.WWW.Controls.Modal
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
                     Modal = "myModal"
                 },
-                new ControlModalForm("myModal", [.. _exampleFormItems ])
+                new ControlModalForm("myModal")
                 {
                     Header = "My modal",
+                    Conformation = new ControlAlert()
+                    {
+                        Text = @"Thank you! Your submission has been successfully received. We have received your request and will process it as soon as possible. If you need any further information, feel free to reach out to us anytime.",
+                        BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Success)
+                    }
                 }
+                .Add(_exampleFormItems)
+                .AddPreferencesButton(new ControlFormItemButtonSubmit())
+            ];
+
+            Stage.DarkControls =
+            [
+                new ControlButton()
+                {
+                    Text = "Activator",
+                    Icon = new IconPenToSquare(),
+                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                    Modal = "myDarkModal"
+                },
+                new ControlModalForm("myDarkModal")
+                {
+                    Header = "My dark modal",
+                    Conformation = new ControlAlert()
+                    {
+                        Text = @"Thank you! Your submission has been successfully received. We have received your request and will process it as soon as possible. If you need any further information, feel free to reach out to us anytime.",
+                        BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Success)
+                    }
+                }
+                .Add(_exampleFormItems)
+                .AddPreferencesButton(new ControlFormItemButtonSubmit())
             ];
 
             Stage.Code = @"
             new ControlButton()
-            {
-                Text = ""Activator"",
-                Icon = new IconPenToSquare(),
-                BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                Modal = ""myModal""
-            },
-            new ControlModal(""myModal"") { Header = ""My modal"" }
-                .Add(new ControlText() { Text = ""I'm sure that in 1985...""} )";
+                {
+                    Text = ""Activator"",
+                    Icon = new IconPenToSquare(),
+                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                    Modal = ""myModal""
+                },
+                new ControlModalForm(""myModal"")
+                {
+                    Header = ""My modal"",
+                    Conformation = new ControlAlert() 
+                    {
+                        Text = @""Thank you! Your submission has been successfully received. We have received your request and will process it as soon as possible. If you need any further information, feel free to reach out to us anytime."",
+                        BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Success)
+                    }
+                }
+                .Add(_exampleFormItems)
+                .AddPreferencesButton(new ControlFormItemButtonSubmit())";
 
             Stage.AddProperty
             (
@@ -100,10 +138,12 @@ namespace WebUI.WWW.Controls.Modal
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
                      Modal = "myModalHeader"
                  },
-                 new ControlModal("myModalHeader")
+                 new ControlModalForm("myModalHeader")
                  {
                      Header = "Header"
-                 }.Add(_exampleFormItems)
+                 }
+                 .Add(_exampleFormItems)
+                 .AddPreferencesButton(new ControlFormItemButtonSubmit())
             );
 
             Stage.AddProperty
@@ -118,11 +158,13 @@ namespace WebUI.WWW.Controls.Modal
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
                      Modal = "myModalDefault"
                  },
-                 new ControlModal("myModalDefault")
+                 new ControlModalForm("myModalDefault")
                  {
                      Header = "Default",
                      Size = TypeModalSize.Default
-                 }.Add(_exampleFormItems),
+                 }
+                 .Add(_exampleFormItems)
+                 .AddPreferencesButton(new ControlFormItemButtonSubmit()),
                  new ControlButton()
                  {
                      Text = "Small",
@@ -130,11 +172,13 @@ namespace WebUI.WWW.Controls.Modal
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
                      Modal = "myModalSmall"
                  },
-                 new ControlModal("myModalSmall")
+                 new ControlModalForm("myModalSmall")
                  {
                      Header = "Small",
                      Size = TypeModalSize.Small
-                 }.Add(_exampleFormItems),
+                 }
+                 .Add(_exampleFormItems)
+                 .AddPreferencesButton(new ControlFormItemButtonSubmit()),
                  new ControlButton()
                  {
                      Text = "Large",
@@ -142,11 +186,13 @@ namespace WebUI.WWW.Controls.Modal
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
                      Modal = "myModalLarge"
                  },
-                 new ControlModal("myModalLarge")
+                 new ControlModalForm("myModalLarge")
                  {
                      Header = "Large",
                      Size = TypeModalSize.Large
-                 }.Add(_exampleFormItems),
+                 }
+                 .Add(_exampleFormItems)
+                 .AddPreferencesButton(new ControlFormItemButtonSubmit()),
                  new ControlButton()
                  {
                      Text = "ExtraLarge",
@@ -154,11 +200,13 @@ namespace WebUI.WWW.Controls.Modal
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
                      Modal = "myModalExtraLarge"
                  },
-                 new ControlModal("myModalExtraLarge")
+                 new ControlModalForm("myModalExtraLarge")
                  {
                      Header = "ExtraLarge",
                      Size = TypeModalSize.ExtraLarge
-                 }.Add(_exampleFormItems),
+                 }
+                 .Add(_exampleFormItems)
+                 .AddPreferencesButton(new ControlFormItemButtonSubmit()),
                  new ControlButton()
                  {
                      Text = "Fullscreen",
@@ -166,11 +214,13 @@ namespace WebUI.WWW.Controls.Modal
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
                      Modal = "myModalFullscreen"
                  },
-                 new ControlModal("myModalFullscreen")
+                 new ControlModalForm("myModalFullscreen")
                  {
                      Header = "Fullscreen",
                      Size = TypeModalSize.Fullscreen
-                 }.Add(_exampleFormItems)
+                 }
+                 .Add(_exampleFormItems)
+                 .AddPreferencesButton(new ControlFormItemButtonSubmit())
             );
         }
     }
