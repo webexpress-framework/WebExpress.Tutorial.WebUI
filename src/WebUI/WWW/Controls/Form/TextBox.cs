@@ -114,13 +114,13 @@ namespace WebUI.WWW.Controls.Form
             (
                "Format",
                "The `Format` property controls the behavior of the `TextBox`, allowing it to be converted into a multi-line input box. When this property is configured, the TextBox supports line breaks and expands dynamically to accommodate longer text entries.",
-               "Format = TypesEditTextFormat.Wysiwyg",
+               "Format = TypeEditTextFormat.Wysiwyg",
                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
-               new ControlForm(items: new ControlFormItemInputTextBox() { Format = TypesEditTextFormat.Default }),
+               new ControlForm(items: new ControlFormItemInputTextBox() { Format = TypeEditTextFormat.Default }),
                new ControlText() { Text = "Multiline", TextColor = new PropertyColorText(TypeColorText.Info) },
-               new ControlForm(items: new ControlFormItemInputTextBox() { Format = TypesEditTextFormat.Multiline }),
+               new ControlForm(items: new ControlFormItemInputTextBox() { Format = TypeEditTextFormat.Multiline }),
                new ControlText() { Text = "Wysiwyg", TextColor = new PropertyColorText(TypeColorText.Info) },
-               new ControlForm(items: new ControlFormItemInputTextBox() { Format = TypesEditTextFormat.Wysiwyg })
+               new ControlForm(items: new ControlFormItemInputTextBox() { Format = TypeEditTextFormat.Wysiwyg })
             );
         }
     }

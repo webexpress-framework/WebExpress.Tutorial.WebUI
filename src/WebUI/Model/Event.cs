@@ -51,7 +51,7 @@
         CHANGE_VALUE_EVENT,
 
         /// <summary>
-        /// Event triggered when a node is moved in a tree control.
+        /// Event triggered when a item is moved.
         /// </summary>
         MOVE_EVENT,
 
@@ -68,7 +68,32 @@
         /// <summary>
         /// Event triggered when a modal is hidden.
         /// </summary>
-        MODAL_HIDE_EVENT
+        MODAL_HIDE_EVENT,
+
+        /// <summary>
+        /// Event triggered when data is requested
+        /// </summary>
+        DATA_REQUESTED_EVENT,
+
+        /// <summary>
+        /// Event triggered when data has arrived
+        /// </summary>
+        DATA_ARRIVED_EVENT,
+
+        /// <summary>
+        /// Event triggered when a task starts
+        /// </summary>
+        TASK_START_EVENT,
+
+        /// <summary>
+        /// Event triggered when a task is updated
+        /// </summary>
+        TASK_UPDATE_EVENT,
+
+        /// <summary>
+        /// Event triggered when a task is finished
+        /// </summary>
+        TASK_FINISH_EVENT,
     }
 
     /// <summary>
@@ -94,10 +119,15 @@
                 Event.COLUMN_REORDER_EVENT => "webexpress.webui.table.column.reorder",
                 Event.TABLE_SORT_EVENT => "webexpress.webui.table.sorted",
                 Event.CHANGE_VALUE_EVENT => "webexpress.webui.change.value",
-                Event.MOVE_EVENT => "webexpress.webui.tree.node.move",
+                Event.MOVE_EVENT => "webexpress.webui.move",
                 Event.CHANGE_PAGE_EVENT => "webexpress.webui.change.page",
                 Event.MODAL_SHOW_EVENT => "webexpress.webui.modal.show",
                 Event.MODAL_HIDE_EVENT => "webexpress.webui.modal.hide",
+                Event.DATA_REQUESTED_EVENT => "webexpress.webui.data.requested",
+                Event.DATA_ARRIVED_EVENT => "webexpress.webui.data.arrived",
+                Event.TASK_START_EVENT => "webexpress.webapp.task.start",
+                Event.TASK_UPDATE_EVENT => "webexpress.webapp.task.update",
+                Event.TASK_FINISH_EVENT => "webexpress.webapp.task.finish",
                 _ => ""
             };
         }
@@ -120,10 +150,15 @@
                 Event.COLUMN_REORDER_EVENT => "Event triggered when columns are reordered in a table control.",
                 Event.TABLE_SORT_EVENT => "Event triggered when a table is sorted.",
                 Event.CHANGE_VALUE_EVENT => "Event triggered when the value of an input or control changes.",
-                Event.MOVE_EVENT => "Event triggered when a node is moved in a tree control.",
+                Event.MOVE_EVENT => "Event triggered when a item is moved.",
                 Event.CHANGE_PAGE_EVENT => "Event triggered when the page changes in a pagination control.",
                 Event.MODAL_SHOW_EVENT => "Event triggered when a modal is shown.",
                 Event.MODAL_HIDE_EVENT => "Event triggered when a modal is hidden.",
+                Event.DATA_REQUESTED_EVENT => "Event triggered when data is requested",
+                Event.DATA_ARRIVED_EVENT => "Event triggered when data has arrived",
+                Event.TASK_START_EVENT => "Event triggered when a task starts",
+                Event.TASK_UPDATE_EVENT => "Event triggered when a task is updated",
+                Event.TASK_FINISH_EVENT => "Event triggered when a task is finished",
                 _ => ""
             };
         }
