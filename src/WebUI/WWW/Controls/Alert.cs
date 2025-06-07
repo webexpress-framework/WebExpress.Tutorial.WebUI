@@ -3,6 +3,7 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebUI.WebControl;
 using WebUI.WebFragment.ControlPage;
 using WebUI.WebPage;
+using WebUI.WebScope;
 
 namespace WebUI.WWW.Controls
 {
@@ -12,6 +13,7 @@ namespace WebUI.WWW.Controls
     [Title("Alert")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
+    [Scope<IScopeControlWebUI>]
     public sealed class Alert : PageControl
     {
         /// <summary>

@@ -9,6 +9,7 @@ using WebExpress.WebUI.WebIcon;
 using WebUI.Model;
 using WebUI.WebFragment.ControlPage;
 using WebUI.WebPage;
+using WebUI.WebScope;
 
 namespace WebUI.WWW.Controls
 {
@@ -18,6 +19,7 @@ namespace WebUI.WWW.Controls
     [Title("Search")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
+    [Scope<IScopeControlWebUI>]
     public sealed class Search : PageControl
     {
         private readonly IEnumerable<ControlSearchItemSuggestion> _suggestions =

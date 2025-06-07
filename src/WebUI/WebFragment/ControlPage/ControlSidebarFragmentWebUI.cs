@@ -10,6 +10,7 @@ using WebExpress.WebCore.WebUri;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebFragment;
 using WebExpress.WebUI.WebPage;
+using WebUI.WebScope;
 using WebUI.WWW.Controls;
 
 namespace WebUI.WebFragment.ControlPage
@@ -21,17 +22,17 @@ namespace WebUI.WebFragment.ControlPage
     [Section<SectionSidebarPrimary>]
     [Scope<IScopeControl>]
     [Cache]
-    public sealed class ControlSidebarFragment : FragmentControlTree
+    public sealed class ControlSidebarFragmentWebUI : FragmentControlTree
     {
         private readonly IComponentHub _componentHub;
         private readonly IFragmentContext _fragmentContext;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ControlSidebarFragment"/> class.
+        /// Initializes a new instance of the <see cref="ControlSidebarFragmentWebUI"/> class.
         /// </summary>
         /// <param name="componentHub">The component hub providing access to various managers and services.</param>
         /// <param name="fragmentContext">The context of the fragment, providing access to the current state and dependencies.</param>
-        public ControlSidebarFragment(IComponentHub componentHub, IFragmentContext fragmentContext)
+        public ControlSidebarFragmentWebUI(IComponentHub componentHub, IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
             _componentHub = componentHub;
@@ -51,10 +52,10 @@ namespace WebUI.WebFragment.ControlPage
             var indexContext = _componentHub.PageManager.GetPages(typeof(Index), _fragmentContext.ApplicationContext).FirstOrDefault();
             var items = _componentHub.PageManager.Pages
                 .Where(x => x.ApplicationContext == _fragmentContext.ApplicationContext)
-                .Where(x => x.Scopes.Contains(typeof(IScopeControl)))
+                .Where(x => x.Scopes.Contains(typeof(IScopeControlWebUI)))
                 .Where(x => x.EndpointId != indexContext?.EndpointId)
                 .OrderBy(x => x.PageTitle)
-                .Select(x => new ControlTreeItemLink
+                .Select(x => new ControlTreeItem
                 {
                     Label = I18N.Translate(renderContext, x.PageTitle),
                     Uri = x.Route.ToUri(),
@@ -64,7 +65,7 @@ namespace WebUI.WebFragment.ControlPage
 
             var tree = BuildTree(items, indexContext.Route.ToUri());
 
-            return base.Render(renderContext, visualTree, tree);
+            return new HtmlElementTextContentP("WebExpress.WebUI").Add(base.Render(renderContext, visualTree, tree));
         }
 
         /// <summary>
@@ -73,9 +74,9 @@ namespace WebUI.WebFragment.ControlPage
         /// <param name="items">The flat list of tree items.</param>
         /// <param name="root">The root URI to determine the hierarchy.</param>
         /// <returns>A collection of <see cref="ControlTreeItemLink"/> representing the hierarchical tree structure.</returns>
-        private static IEnumerable<ControlTreeItemLink> BuildTree(IEnumerable<ControlTreeItemLink> items, IUri root)
+        private static IEnumerable<ControlTreeItem> BuildTree(IEnumerable<ControlTreeItem> items, IUri root)
         {
-            var nodes = new List<ControlTreeItemLink>();
+            var nodes = new List<ControlTreeItem>();
 
             foreach (var item in items.Where
             (
@@ -83,7 +84,7 @@ namespace WebUI.WebFragment.ControlPage
                 x.Uri.PathSegments.Count() == root.PathSegments.Count() + 1)
             )
             {
-                var node = new ControlTreeItemLink(item.Id, BuildTree(items, item.Uri).ToArray())
+                var node = new ControlTreeItem(item.Id, BuildTree(items, item.Uri).ToArray())
                 {
                     Label = item.Label,
                     Uri = item.Uri,

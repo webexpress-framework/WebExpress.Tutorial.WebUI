@@ -8,8 +8,9 @@ using WebExpress.WebUI.WebIcon;
 using WebUI.Model;
 using WebUI.WebFragment.ControlPage;
 using WebUI.WebPage;
+using WebUI.WebScope;
 
-namespace WebUI.WWW.Controls.Table
+namespace WebUI.WWW.Controls
 {
     /// <summary>    
     /// Represents the table control for the tutorial.    
@@ -17,7 +18,8 @@ namespace WebUI.WWW.Controls.Table
     [Title("Table")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
-    public sealed class Index : PageControl
+    [Scope<IScopeControlWebUI>]
+    public sealed class Table : PageControl
     {
         private readonly IEnumerable<ControlTableColumn> _columns =
         [
@@ -68,7 +70,7 @@ namespace WebUI.WWW.Controls.Table
         /// </summary>    
         /// <param name="pageContext">The context of the page where the table control is used.</param>  
         /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>  
-        public Index(IPageContext pageContext, ISitemapManager sitemapManager)
+        public Table(IPageContext pageContext, ISitemapManager sitemapManager)
         {
             Stage.AddEvent(Event.TABLE_SORT_EVENT, Event.COLUMN_REORDER_EVENT);
 
@@ -308,8 +310,8 @@ namespace WebUI.WWW.Controls.Table
                 AddColumns(new ControlTableColumn() 
                 { 
                     Title = ""Column"",
-                    Icon = new IconBaseball(),
-                    Color = TypeTableColor.Primary
+                    Icon = new IconTableTennisPaddleBall(),
+                    Color = TypeTableColor.Warning
                 })",
                 new ControlTable()
                 {

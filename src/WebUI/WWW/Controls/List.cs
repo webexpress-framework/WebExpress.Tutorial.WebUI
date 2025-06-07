@@ -6,6 +6,7 @@ using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
 using WebUI.WebFragment.ControlPage;
 using WebUI.WebPage;
+using WebUI.WebScope;
 
 namespace WebUI.WWW.Controls
 {
@@ -15,6 +16,7 @@ namespace WebUI.WWW.Controls
     [Title("List")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
+    [Scope<IScopeControlWebUI>]
     public sealed class List : PageControl
     {
         private readonly IControlDropdownItem _item1 = new ControlDropdownItemHeader() { Text = "Header" };

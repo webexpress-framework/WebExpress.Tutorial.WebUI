@@ -5,6 +5,7 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebUI.WebControl;
 using WebUI.WebFragment.ControlPage;
 using WebUI.WebPage;
+using WebUI.WebScope;
 
 namespace WebUI.WWW.Controls
 {
@@ -14,6 +15,7 @@ namespace WebUI.WWW.Controls
     [Title("Text")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
+    [Scope<IScopeControlWebUI>]
     public sealed class Text : PageControl
     {
         private readonly string _text = "WebExpress is a lightweight web server written in C# and available for various platforms.";

@@ -3,6 +3,7 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebUI.WebFragment.ControlPage;
+using WebUI.WebScope;
 
 namespace WebUI.WWW.Controls
 {
@@ -12,6 +13,7 @@ namespace WebUI.WWW.Controls
     [Title("webui:controlpage.label")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
+    [Scope<IScopeControlWebUI>]
     public sealed class Index : IPage<VisualTreeWebApp>, IScopeGeneral, IScopeControl
     {
         /// <summary>

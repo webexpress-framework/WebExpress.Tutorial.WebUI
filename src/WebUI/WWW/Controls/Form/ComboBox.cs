@@ -7,6 +7,7 @@ using WebExpress.WebUI.WebControl;
 using WebUI.Model;
 using WebUI.WebFragment.ControlPage;
 using WebUI.WebPage;
+using WebUI.WebScope;
 
 namespace WebUI.WWW.Controls.Form
 {
@@ -16,6 +17,7 @@ namespace WebUI.WWW.Controls.Form
     [Title("ComboBox")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
+    [Scope<IScopeControlWebUI>]
     public sealed class ComboBox : PageControl
     {
         private readonly IEnumerable<ControlFormItemInputComboBoxItem> _options =

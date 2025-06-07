@@ -11,6 +11,7 @@ using WebExpress.WebUI.WebIcon;
 using WebUI.Model;
 using WebUI.WebFragment.ControlPage;
 using WebUI.WebPage;
+using WebUI.WebScope;
 
 namespace WebUI.WWW.Controls
 {
@@ -20,13 +21,14 @@ namespace WebUI.WWW.Controls
     [Title("Tree")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
+    [Scope<IScopeControlWebUI>]
     public sealed class Tree : PageControl
     {
         private readonly IEnumerable<ControlTreeItem> _nodes =
         [
             new ControlTreeItem("1",
                 [
-                    new ControlTreeItemLink("1.1")
+                    new ControlTreeItem("1.1")
                     {
                         Label = "Node 1.1",
                         Uri = new UriEndpoint("http://example.com")
@@ -155,7 +157,7 @@ namespace WebUI.WWW.Controls
                 "Uri",
                 "The `Uri` property enables the association of a node with a specific link address. These links can point to external websites or internal resources, allowing users to navigate directly to relevant content.",
                 "new ControlTreeItemLink(\"1\") { Uri = new UriEndpoint(\"http://example.com\") }",
-                new ControlTree(Guid.NewGuid().ToString(), new ControlTreeItemLink("1") { Uri = new UriEndpoint("http://example.com") })
+                new ControlTree(Guid.NewGuid().ToString(), new ControlTreeItem("1") { Uri = new UriEndpoint("http://example.com") })
                 {
                 }
             );
@@ -165,7 +167,7 @@ namespace WebUI.WWW.Controls
                 "Target",
                 "The `Target` property controls how a link opens when clicked. It determines whether the destination page appears in the same tab, a new tab, or a specific window.",
                 "new ControlTreeItemLink(\"1\") { Uri = new UriEndpoint(\"http://example.com\"), Target = TypeTarget.Blank }",
-                new ControlTree(Guid.NewGuid().ToString(), new ControlTreeItemLink("1") { Uri = new UriEndpoint("http://example.com"), Target = TypeTarget.Blank })
+                new ControlTree(Guid.NewGuid().ToString(), new ControlTreeItem("1") { Uri = new UriEndpoint("http://example.com"), Target = TypeTarget.Blank })
                 {
                 }
             );
@@ -175,7 +177,7 @@ namespace WebUI.WWW.Controls
                 "Tooltip",
                 "The `Tooltip` property provides additional information when hovering over a node. It displays a small pop-up text box, helping users understand the purpose or details of the node without clicking on it.",
                 "new ControlTreeItemLink(\"1\") { Tooltip = \"abc\" }",
-                new ControlTree(Guid.NewGuid().ToString(), new ControlTreeItemLink("1") { Tooltip = "abc" })
+                new ControlTree(Guid.NewGuid().ToString(), new ControlTreeItem("1") { Tooltip = "abc" })
                 {
                 }
             );

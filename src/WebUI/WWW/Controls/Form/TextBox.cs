@@ -7,6 +7,7 @@ using WebExpress.WebUI.WebIcon;
 using WebUI.Model;
 using WebUI.WebFragment.ControlPage;
 using WebUI.WebPage;
+using WebUI.WebScope;
 
 namespace WebUI.WWW.Controls.Form
 {
@@ -16,6 +17,7 @@ namespace WebUI.WWW.Controls.Form
     [Title("TextBox")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
+    [Scope<IScopeControlWebUI>]
     public sealed class TextBox : PageControl
     {
         /// <summary>    
@@ -28,12 +30,12 @@ namespace WebUI.WWW.Controls.Form
             Stage.Description = @"The `TextBox` control allows for an intuitive and dynamic input of text options. Users can easily type or edit text, creating a fluid and visually engaging interaction.";
 
             Stage.Control = new ControlForm()
-                .Add(new ControlFormItemInputTextBox())
+                .Add(new ControlFormItemInputTextBox() { Format = TypeEditTextFormat.Wysiwyg })
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"  
                new ControlForm()
-                .Add(new ControlFormItemInputTextBox())
+                .Add(new ControlFormItemInputTextBox() { Format = TypeEditTextFormat.Wysiwyg })
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
             Stage.AddProperty

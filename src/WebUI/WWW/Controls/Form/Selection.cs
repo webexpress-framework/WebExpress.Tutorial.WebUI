@@ -8,6 +8,7 @@ using WebExpress.WebUI.WebIcon;
 using WebUI.Model;
 using WebUI.WebFragment.ControlPage;
 using WebUI.WebPage;
+using WebUI.WebScope;
 
 namespace WebUI.WWW.Controls.Form
 {
@@ -17,6 +18,7 @@ namespace WebUI.WWW.Controls.Form
     [Title("Selection")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
+    [Scope<IScopeControlWebUI>]
     public sealed class Selection : PageControl
     {
         private readonly IEnumerable<ControlFormItemInputSelectionItem> _options =

@@ -7,6 +7,7 @@ using WebExpress.WebUI.WebIcon;
 using WebUI.Model;
 using WebUI.WebFragment.ControlPage;
 using WebUI.WebPage;
+using WebUI.WebScope;
 
 namespace WebUI.WWW.Controls.Modal
 {
@@ -16,6 +17,7 @@ namespace WebUI.WWW.Controls.Modal
     [Title("ModalRemoteForm")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
+    [Scope<IScopeControlWebUI>]
     public sealed class ModalRemoteForm : PageControl
     {
         /// <summary>    

@@ -7,6 +7,7 @@ using WebExpress.WebUI.WebIcon;
 using WebUI.WebControl;
 using WebUI.WebFragment.ControlPage;
 using WebUI.WebPage;
+using WebUI.WebScope;
 
 namespace WebUI.WWW.Controls
 {
@@ -16,6 +17,7 @@ namespace WebUI.WWW.Controls
     [Title("ButtonLink")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
+    [Scope<IScopeControlWebUI>]
     public sealed class ButtonLink : PageControl
     {
         /// <summary>  

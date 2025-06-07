@@ -5,6 +5,7 @@ using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
 using WebUI.WebFragment.ControlPage;
 using WebUI.WebPage;
+using WebUI.WebScope;
 
 namespace WebUI.WWW.Controls
 {
@@ -14,6 +15,7 @@ namespace WebUI.WWW.Controls
     [Title("Line")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
+    [Scope<IScopeControlWebUI>]
     public sealed class Line : PageControl
     {
         /// <summary>    

@@ -1,0 +1,59 @@
+﻿using WebExpress.WebApp.WebControl;
+using WebExpress.WebApp.WebScope;
+using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebPage;
+using WebExpress.WebCore.WebSitemap;
+using WebUI.Model;
+using WebUI.WebFragment.ControlPage;
+using WebUI.WebPage;
+using WebUI.WebScope;
+using WebUI.WWW.Api._1;
+
+namespace WebUI.WWW.Controls
+{
+    /// <summary>    
+    /// Represents the table control for the tutorial.    
+    /// </summary>    
+    [Title("RestTable")]
+    [Scope<IScopeGeneral>]
+    [Scope<IScopeControl>]
+    [Scope<IScopeControlWebApp>]
+    public sealed class RestTable : PageControl
+    {
+
+        /// <summary>    
+        /// Initializes a new instance of the class.    
+        /// </summary>    
+        /// <param name="pageContext">The context of the page where the table control is used.</param>  
+        /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>  
+        public RestTable(IPageContext pageContext, ISitemapManager sitemapManager)
+        {
+            Stage.AddEvent(Event.TABLE_SORT_EVENT, Event.COLUMN_REORDER_EVENT);
+
+            Stage.Description = @"A `RestTable` control is a user interface component that retrieves data from a REST API and operates based on the CRUD principle, which encompasses creating, reading, updating, and processing data. The control automatically fetches data from the API and displays it in a tabular format. Users can add, modify, or delete entries in the table, with each action being synchronized directly with the API. Additionally, the control provides sorting and filtering functionalities to enhance data presentation and accessibility.";
+
+            Stage.Controls =
+            [
+                new ControlRestTable("myTable")
+                {
+                    RestUri = sitemapManager.GetUri<MonkeyIslandCharacters>(pageContext.ApplicationContext)
+                }
+            ];
+
+            Stage.DarkControls =
+            [
+                new ControlRestTable("myTableDark")
+                {
+                    RestUri = sitemapManager.GetUri<MonkeyIslandCharacters>(pageContext.ApplicationContext)
+                }
+            ];
+
+            Stage.Code = @"
+            new ControlRestTable(""myTable"")
+            {
+                RestUri = sitemapManager.GetUri<Character>(pageContext.ApplicationContext)
+            }";
+
+        }
+    }
+}

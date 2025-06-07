@@ -9,6 +9,7 @@ using WebExpress.WebUI.WebNotification;
 using WebUI.Model;
 using WebUI.WebFragment.ControlPage;
 using WebUI.WebPage;
+using WebUI.WebScope;
 
 namespace WebUI.WWW.Controls.Form
 {
@@ -18,6 +19,7 @@ namespace WebUI.WWW.Controls.Form
     [Title("Move")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
+    [Scope<IScopeControlWebUI>]
     public sealed class Move : PageControl
     {
         private readonly IEnumerable<ControlFormItemInputMoveItem> _options =

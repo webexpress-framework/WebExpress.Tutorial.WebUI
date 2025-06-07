@@ -1,0 +1,55 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using WebExpress.WebApp.WebRestApi;
+using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebMessage;
+using WebExpress.WebCore.WebRestApi;
+using WebExpress.WebIndex.Wql;
+using WebUI.Model;
+
+namespace WebUI.WWW.Api._1
+{
+    /// <summary>
+    /// Represents a REST API table for managing and retrieving data about Monkey Island characters.
+    /// </summary>
+    [Title("Monkey Island characters")]
+    [Method(CrudMethod.GET)]
+    public sealed class MonkeyIslandCharacters : RestApiCrudTable<Character>
+    {
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        public MonkeyIslandCharacters()
+        {
+        }
+
+        /// <summary>
+        /// Retrieves a collection of options.
+        /// </summary>
+        /// <param name="request">The request object containing the criteria for retrieving options. Cannot be null.</param>
+        /// <param name="row">The row object for which options are being retrieved. Cannot be null.</param>
+        public override IEnumerable<RestApiCrudTableRowOption> GetOptions(Request request, Character row)
+        {
+            yield return new RestApiCrudTableRowOption() { Label = "Delete" };
+        }
+
+        /// <summary>
+        /// Retrieves a collection of objects based on the specified WQL statement and request.
+        /// </summary>
+        /// <param name="wql">The WQL statement used to query the data. This parameter defines the filtering and selection criteria.</param>
+        /// <param name="request">The request context containing additional information for the operation.</param>
+        /// <returns>An enumerable containing the objects that match the
+        /// query criteria.</returns>
+        public override IEnumerable<Character> GetData(IWqlStatement<Character> wql, Request request)
+        {
+            var filter = request.GetParameter("filter")?.Value;
+
+            if (filter == null || filter == "null")
+            {
+                return ViewModel.MonkeyIslandCharacters;
+            }
+
+            return ViewModel.MonkeyIslandCharacters.Where(x => x.Name.Contains(filter) || x.Description.Contains(filter) || x.AppearsIn.Contains(filter));
+        }
+    }
+}
