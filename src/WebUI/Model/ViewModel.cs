@@ -10,8 +10,7 @@ namespace WebUI.Model
         /// <summary>
         /// Returns a collection of sample table data.
         /// </summary>
-        public static IEnumerable<Character> MonkeyIslandCharacters { get; } = GetMonkeyIslandCharacters();
-
+        public static List<Character> MonkeyIslandCharacters { get; } = [.. GetMonkeyIslandCharacters()];
 
         /// <summary>
         /// Retrieves a collection of characters from the Monkey Island universe.

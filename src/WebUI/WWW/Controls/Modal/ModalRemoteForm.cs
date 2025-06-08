@@ -49,6 +49,24 @@ namespace WebUI.WWW.Controls.Modal
                 }
             ];
 
+            Stage.DarkControls =
+            [
+                new ControlButton()
+                {
+                    Text = "Activator",
+                    Icon = new IconPenToSquare(),
+                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                    Modal = "myDarkModal"
+                },
+                new ControlModalRemoteForm("myDarkModal")
+                {
+                    Header = "My modal",
+                    Size = TypeModalSize.ExtraLarge,
+                    Uri = sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
+                    Selector = "#conformationform"
+                }
+            ];
+
             Stage.Code = @"
             new ControlButton()
             {

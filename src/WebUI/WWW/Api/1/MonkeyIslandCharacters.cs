@@ -14,6 +14,7 @@ namespace WebUI.WWW.Api._1
     /// </summary>
     [Title("Monkey Island characters")]
     [Method(CrudMethod.GET)]
+    [Method(CrudMethod.DELETE)]
     public sealed class MonkeyIslandCharacters : RestApiCrudTable<Character>
     {
         /// <summary>
@@ -30,7 +31,7 @@ namespace WebUI.WWW.Api._1
         /// <param name="row">The row object for which options are being retrieved. Cannot be null.</param>
         public override IEnumerable<RestApiCrudTableRowOption> GetOptions(Request request, Character row)
         {
-            yield return new RestApiCrudTableRowOption() { Label = "Delete" };
+            yield return new RestApiCrudTableRowOptionDelete(request);
         }
 
         /// <summary>
@@ -50,6 +51,16 @@ namespace WebUI.WWW.Api._1
             }
 
             return ViewModel.MonkeyIslandCharacters.Where(x => x.Name.Contains(filter) || x.Description.Contains(filter) || x.AppearsIn.Contains(filter));
+        }
+
+        /// <summary>
+        /// Deletes data.
+        /// </summary>
+        /// <param name="id">The id of the data to delete.</param>
+        /// <param name="request">The request.</param>
+        public override void DeleteData(string id, Request request)
+        {
+            ViewModel.MonkeyIslandCharacters.RemoveAll(x => x.Id.ToString() == id);
         }
     }
 }
