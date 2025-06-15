@@ -3,7 +3,9 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
+using WebExpress.WebUI.WebControl;
 using WebUI.Model;
+using WebUI.WebControl;
 using WebUI.WebFragment.ControlPage;
 using WebUI.WebPage;
 using WebUI.WebScope;
@@ -38,21 +40,34 @@ namespace WebUI.WWW.Controls
                 {
                     RestUri = sitemapManager.GetUri<MonkeyIslandCharacters>(pageContext.ApplicationContext)
                 }
+                    .Add(new ControlRestFormCharacter("myTableForm")
+                    {
+                        Uri = sitemapManager.GetUri<MonkeyIslandCharacters>(pageContext.ApplicationContext)
+                    })
             ];
 
             Stage.DarkControls =
             [
-                new ControlRestTable("myTableDark")
-                {
-                    RestUri = sitemapManager.GetUri<MonkeyIslandCharacters>(pageContext.ApplicationContext)
-                }
+                new ControlText()
+                //new ControlRestTable("myTableDark")
+                //{
+                //    RestUri = sitemapManager.GetUri<MonkeyIslandCharacters>(pageContext.ApplicationContext)
+                //}
+                //    .Add(new ControlRestFormCharacter("myTableDarkForm")
+                //    {
+                //        Uri = sitemapManager.GetUri<MonkeyIslandCharacters>(pageContext.ApplicationContext)
+                //    })
             ];
 
             Stage.Code = @"
             new ControlRestTable(""myTable"")
-            {
-                RestUri = sitemapManager.GetUri<Character>(pageContext.ApplicationContext)
-            }";
+                {
+                    RestUri = sitemapManager.GetUri<MonkeyIslandCharacters>(pageContext.ApplicationContext)
+                }
+                    .Add(new ControlRestFormCharacter(""myTableForm"")
+                    {
+                        RestUri = sitemapManager.GetUri<MonkeyIslandCharacters>(pageContext.ApplicationContext)
+                    })";
 
         }
     }

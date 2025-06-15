@@ -110,6 +110,7 @@ namespace WebUI.WebPage
             {
                 Text = string.Join("<br>", Stage.Controls.Select(x => x.Render(new RenderControlContext(renderContext), visualTree)?.ToString().Trim().Replace("<", "&lt;").Replace(">", "&gt;"))),
                 Format = TypeFormatText.Code,
+                Styles = ["white-space: pre-wrap;"],
                 Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
             })
             {

@@ -1,11 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using WebExpress.WebApp.WebRestApi;
+using WebExpress.WebCore.WebApplication;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebRestApi;
+using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebIndex.Wql;
 using WebUI.Model;
+using WebUI.WWW.Controls;
 
 namespace WebUI.WWW.Api._1
 {
@@ -15,13 +18,20 @@ namespace WebUI.WWW.Api._1
     [Title("Monkey Island characters")]
     [Method(CrudMethod.GET)]
     [Method(CrudMethod.DELETE)]
+    [Method(CrudMethod.PUT)]
     public sealed class MonkeyIslandCharacters : RestApiCrudTable<Character>
     {
+        private readonly string _formUri;
+
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
-        public MonkeyIslandCharacters()
+        /// <param name="sitemapManager">The sitemap manager used to retrieve URIs for the application context.</param>
+        /// <param name="applicationContext"> The application context containing the current state of the application.</param>
+        public MonkeyIslandCharacters(ISitemapManager sitemapManager, IApplicationContext applicationContext)
         {
+            var uri = sitemapManager.GetUri<RestTable>(applicationContext);
+            _formUri = uri?.SetFragment("myTableForm")?.ToString();
         }
 
         /// <summary>
@@ -31,6 +41,17 @@ namespace WebUI.WWW.Api._1
         /// <param name="row">The row object for which options are being retrieved. Cannot be null.</param>
         public override IEnumerable<RestApiCrudTableRowOption> GetOptions(Request request, Character row)
         {
+            yield return new RestApiCrudTableRowOptionHeader(request)
+            {
+                Label = "webexpress.webapp:header.setting.label"
+            };
+
+            yield return new RestApiCrudTableRowOptionEdit(request)
+            {
+                Uri = _formUri
+            };
+
+            yield return new RestApiCrudTableRowOptionSeperator(request);
             yield return new RestApiCrudTableRowOptionDelete(request);
         }
 
@@ -50,7 +71,16 @@ namespace WebUI.WWW.Api._1
                 return ViewModel.MonkeyIslandCharacters;
             }
 
-            return ViewModel.MonkeyIslandCharacters.Where(x => x.Name.Contains(filter) || x.Description.Contains(filter) || x.AppearsIn.Contains(filter));
+            return ViewModel.MonkeyIslandCharacters
+                .Where(x => x.Name.Contains(filter) || x.Description.Contains(filter) || x.AppearsIn.Contains(filter));
+        }
+
+        /// <summary>
+        /// Updates data.
+        /// </summary>
+        /// <param name="request">The request.</param>
+        public override void UpdateData(Request request)
+        {
         }
 
         /// <summary>

@@ -94,6 +94,26 @@
         /// Event triggered when a task is finished
         /// </summary>
         TASK_FINISH_EVENT,
+
+        /// <summary>
+        /// Event triggered when the size changes
+        /// </summary>
+        SIZE_CHANGE_EVENT,
+
+        /// <summary>
+        /// Event triggered when an element is hidden
+        /// </summary>
+        HIDE_EVENT,
+
+        /// <summary>
+        /// Event triggered when an element is shown
+        /// </summary>
+        SHOW_EVENT,
+
+        /// <summary>
+        /// Event triggered when an element is updated
+        /// </summary>
+        UPDATED_EVENT,
     }
 
     /// <summary>
@@ -125,9 +145,13 @@
                 Event.MODAL_HIDE_EVENT => "webexpress.webui.modal.hide",
                 Event.DATA_REQUESTED_EVENT => "webexpress.webui.data.requested",
                 Event.DATA_ARRIVED_EVENT => "webexpress.webui.data.arrived",
-                Event.TASK_START_EVENT => "webexpress.webapp.task.start",
-                Event.TASK_UPDATE_EVENT => "webexpress.webapp.task.update",
-                Event.TASK_FINISH_EVENT => "webexpress.webapp.task.finish",
+                Event.TASK_START_EVENT => "webexpress.webui.task.start",
+                Event.TASK_UPDATE_EVENT => "webexpress.webui.task.update",
+                Event.TASK_FINISH_EVENT => "webexpress.webui.task.finish",
+                Event.SIZE_CHANGE_EVENT => "webexpress.webui.size.change",
+                Event.HIDE_EVENT => "webexpress.webui.hide",
+                Event.SHOW_EVENT => "webexpress.webui.show",
+                Event.UPDATED_EVENT => "webexpress.webui.updated",
                 _ => ""
             };
         }
@@ -154,11 +178,15 @@
                 Event.CHANGE_PAGE_EVENT => "Event triggered when the page changes in a pagination control.",
                 Event.MODAL_SHOW_EVENT => "Event triggered when a modal is shown.",
                 Event.MODAL_HIDE_EVENT => "Event triggered when a modal is hidden.",
-                Event.DATA_REQUESTED_EVENT => "Event triggered when data is requested",
-                Event.DATA_ARRIVED_EVENT => "Event triggered when data has arrived",
-                Event.TASK_START_EVENT => "Event triggered when a task starts",
-                Event.TASK_UPDATE_EVENT => "Event triggered when a task is updated",
-                Event.TASK_FINISH_EVENT => "Event triggered when a task is finished",
+                Event.DATA_REQUESTED_EVENT => "Event triggered when data is requested.",
+                Event.DATA_ARRIVED_EVENT => "Event triggered when data has arrived.",
+                Event.TASK_START_EVENT => "Event triggered when a task starts.",
+                Event.TASK_UPDATE_EVENT => "Event triggered when a task is updated.",
+                Event.TASK_FINISH_EVENT => "Event triggered when a task is finished.",
+                Event.SIZE_CHANGE_EVENT => "Event triggered when the size changes.",
+                Event.HIDE_EVENT => "Event triggered when an element is hidden.",
+                Event.SHOW_EVENT => "Event triggered when an element is shown.",
+                Event.UPDATED_EVENT => "Event triggered when an element is updated.",
                 _ => ""
             };
         }
