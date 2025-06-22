@@ -6,7 +6,6 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebRestApi;
 using WebExpress.WebCore.WebSitemap;
-using WebExpress.WebIndex.Wql;
 using WebUI.Model;
 using WebUI.WWW.Controls;
 
@@ -26,12 +25,18 @@ namespace WebUI.WWW.Api._1
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
-        /// <param name="sitemapManager">The sitemap manager used to retrieve URIs for the application context.</param>
-        /// <param name="applicationContext"> The application context containing the current state of the application.</param>
+        /// <param name="sitemapManager">
+        /// The sitemap manager used to retrieve URIs for the application context.
+        /// </param>
+        /// <param name="applicationContext">
+        /// The application context containing the current state of the application.
+        /// </param>
         public MonkeyIslandCharacters(ISitemapManager sitemapManager, IApplicationContext applicationContext)
         {
             var uri = sitemapManager.GetUri<RestTable>(applicationContext);
             _formUri = uri?.SetFragment("myTableForm")?.ToString();
+
+            Data = ViewModel.MonkeyIslandCharacters;
         }
 
         /// <summary>
@@ -58,29 +63,52 @@ namespace WebUI.WWW.Api._1
         /// <summary>
         /// Retrieves a collection of objects based on the specified WQL statement and request.
         /// </summary>
-        /// <param name="wql">The WQL statement used to query the data. This parameter defines the filtering and selection criteria.</param>
+        /// <param name="filter">The filter used to query the data. This parameter defines the filtering and selection criteria.</param>
         /// <param name="request">The request context containing additional information for the operation.</param>
         /// <returns>An enumerable containing the objects that match the
         /// query criteria.</returns>
-        public override IEnumerable<Character> GetData(IWqlStatement<Character> wql, Request request)
+        public override IEnumerable<Character> GetData(string filter, Request request)
         {
-            var filter = request.GetParameter("filter")?.Value;
-
             if (filter == null || filter == "null")
             {
-                return ViewModel.MonkeyIslandCharacters;
+                return Data;
             }
 
-            return ViewModel.MonkeyIslandCharacters
-                .Where(x => x.Name.Contains(filter) || x.Description.Contains(filter) || x.AppearsIn.Contains(filter));
+            return Data
+                .Where
+                (
+                    x => x.Name.Contains(filter) ||
+                    x.Description.Contains(filter) ||
+                    x.AppearsIn.Contains(filter)
+                );
         }
 
         /// <summary>
-        /// Updates data.
+        /// Performs validation before updating data.
         /// </summary>
-        /// <param name="request">The request.</param>
-        public override void UpdateData(Request request)
+        /// <param name="item"> The item containing the updated data.</param>
+        /// <param name="request">The HTTP request containing input data and parameters.</param>
+        /// <returns>
+        /// A <see cref="RestApiValidationResult"/> containing any validation errors 
+        /// encountered during the update process. If the operation completes successfully, 
+        /// the result will contain no errors.
+        /// </returns>
+        public override RestApiValidationResult ValidateUpdateData(Character item, Request request)
         {
+            return new RestApiValidator(request)
+                .Require(nameof(Character.Name))
+                .MinLength(nameof(Character.Name), 3)
+                .Result;
+        }
+
+        /// <summary>
+        /// Updates the data record identified by the specified ID.
+        /// </summary>
+        /// <param name="item"> The item containing the updated data.</param>
+        /// <param name="request">The HTTP request containing the update parameters.</param>
+        public override void UpdateData(Character item, Request request)
+        {
+            item.Name = request.GetParameter(nameof(Character.Name))?.Value;
         }
 
         /// <summary>

@@ -19,6 +19,7 @@ namespace WebUI.Model
         /// Returns or sets the name associated with the object.
         /// </summary>
         [RestTableColumnName("Name")]
+        //[Require]
         public string Name { get; set; }
 
         /// <summary>
