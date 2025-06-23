@@ -16,7 +16,7 @@ namespace WebUI.WebFragment.ControlPage
         public ControlOverviewFragment(IFragmentContext fragmentContext)
           : base(fragmentContext)
         {
-            using var stream = GetType().Assembly.GetManifestResourceStream("WebUI.Assets.md.home.md");
+            using var stream = GetType().Assembly.GetManifestResourceStream("WebUI.Assets.md\\home.md");
             using var reader = new StreamReader(stream);
 
             Add(new ControlText()

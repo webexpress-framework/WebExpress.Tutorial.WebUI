@@ -151,7 +151,7 @@ namespace WebUI.WWW.Controls
                 new ControlText() { Text = "Markdown", Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = new StreamReader(GetType().Assembly.GetManifestResourceStream("WebUI.Assets.md.example.md")).ReadToEnd(),
+                    Text = new StreamReader(GetType().Assembly.GetManifestResourceStream("WebUI.Assets.md\\example.md")).ReadToEnd(),
                     Format = TypeFormatText.Markdown
                 },
                 new ControlText() { Text = "Mark", Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },

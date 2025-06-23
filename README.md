@@ -27,7 +27,7 @@ To get started with `WebExpress`, use the following links.
 This tutorial guides you through demonstrating the UI elements of a `WebExpress` application. Learn how to effectively use the templates and controls provided by the `WebExpress.WebUI` project.
 
 ## Prerequisites
-- Create a `WebExpress` application after the [WebApp](https://github.com/ReneSchwarzer/WebExpress.Tutorial.WebApp#readme) tutorial but name it `WebExpress.Tutorial.WebIndex`.
+- Create a `WebExpress` application after the [WebApp](https://github.com/ReneSchwarzer/WebExpress.Tutorial.WebApp#readme) tutorial but name it `WebExpress.Tutorial.WebUI`.
 
 ## Compile and register in WebExpress
 - Compile the solution as a release. To do this, open the command line or terminal in the solution directory and run the following command:
