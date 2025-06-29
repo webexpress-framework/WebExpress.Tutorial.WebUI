@@ -4,25 +4,27 @@
  * This class listens to specific events and updates the associated DOM element
  * with the message from the triggered event.
  */
-EventLoggerCtrl = class extends webexpress.webui.Ctrl {
+webexpress.webui.EventLoggerCtrl = class extends webexpress.webui.Ctrl {
     /**
      * Constructor
      * @param {HTMLElement} element - The DOM element associated with the instance.
-     *  - events: A comma-separated list of event IDs to be monitored by the Event Logger.
+     *  - events: A space-separated list of event IDs to be monitored by the Event Logger.
      */
     constructor(element) {
-        super(element); // Call the base Control class constructor
+        super(element);
 
         // Parse the "events" attribute into an array of event IDs
-        this._events = ($(element).attr('events') || "")
+        this._events = (element.getAttribute('events') || "")
             .split(' ')
             .map(eventId => eventId.trim())
-            .filter(eventId => eventId !== ""); // Filter out empty strings
+            .filter(eventId => eventId !== "");
 
-        // Remove the "events" attribute to clean up the DOM
-        $(element).empty().removeAttr('events');
+        // Remove the "events" attribute and clear content
+        element.innerHTML = "";
+        element.removeAttribute('events');
 
-        // Register event listeners
+        // Internal structure for tracking event listeners and divs
+        this._listenerRefs = [];
         this.subscribeToEvents();
     }
 
@@ -30,15 +32,37 @@ EventLoggerCtrl = class extends webexpress.webui.Ctrl {
      * Subscribes to all events specified in the "events" property.
      */
     subscribeToEvents() {
+        // Remove all existing log entries
+        this._element.innerHTML = "";
+        this._listenerRefs = [];
+
         this._events.forEach(eventId => {
-            const div = $("<div>").html(`<b>Event-Typ:</b> <span style="color: var(--bs-code-color);">${eventId}</span><br><b>Data:</b> <code>null</code><hr>`);
-            $(this._element).append(div);
-            // Attach an event listener to the document for each event ID
-            $(document).on(eventId, (event, data) => {
+            // Create a div for the event log entry
+            const div = document.createElement("div");
+            div.innerHTML = `<b>Event-Typ:</b> <span class="text-primary">${eventId}</span>,<br><b>Data:</b> <span class="text-light">null</span>`;
+            this._element.appendChild(div);
+
+            // Handler for the event
+            const handler = (event) => {
+                // For jQuery compatibility: try to extract detail if it's a CustomEvent, else raw event data
+                let data = null;
+                if (event.detail !== undefined) {
+                    data = event.detail;
+                } else if (event.data !== undefined) {
+                    data = event.data;
+                }
+                // Logging
                 console.log(eventId, event, data);
-                div.html(`<b>Event-Typ:</b> <span style="color: var(--bs-code-color);">${eventId}</span><br><b>Data:</b> <pre>${JSON.stringify(data, null, 4)}</pre><hr>`);
-                $(this._element).prepend(div);
-            });
+                div.innerHTML = `<b>Event-Typ:</b> <span class="text-primary">${eventId}</span>,<br><b>Data:</b> <span class="text-light"><pre>${JSON.stringify(data, null, 4)}</pre></span>`;
+                // Move this div to the top
+                if (this._element.firstChild !== div) {
+                    this._element.insertBefore(div, this._element.firstChild);
+                }
+            };
+
+            // Event registration on document
+            document.addEventListener(eventId, handler);
+            this._listenerRefs.push({ eventId, handler });
         });
     }
 
@@ -47,28 +71,26 @@ EventLoggerCtrl = class extends webexpress.webui.Ctrl {
      * This is useful for cleanup when the control is destroyed.
      */
     unsubscribeFromEvents() {
-        this._events.forEach(eventId => {
-            $(document).off(eventId); // Unbind all listeners for the event ID
+        this._listenerRefs.forEach(ref => {
+            document.removeEventListener(ref.eventId, ref.handler);
         });
+        this._listenerRefs = [];
     }
 
     /**
      * Renders the Event Logger Control.
-     * Displays the current state of the logger in the DOM element.
      */
     render() {
+        // No-op for now: UI updates are handled in subscribeToEvents
     }
 
     /**
      * Destroys the control and cleans up resources.
-     * Unsubscribes from all events and calls the base class's destroy method.
      */
     destroy() {
         this.unsubscribeFromEvents();
-        super.destroy(); // Call the base class's destroy method
+        super.destroy();
     }
-
-    // Getter and setter for the "events" property
 
     /**
      * Gets the list of events the logger is listening to.
@@ -84,14 +106,14 @@ EventLoggerCtrl = class extends webexpress.webui.Ctrl {
      * @param {string[]} eventList - Array of new event IDs.
      */
     set events(eventList) {
-        this.unsubscribeFromEvents(); // Unsubscribe from old events
+        this.unsubscribeFromEvents();
         this._events = eventList
             .map(eventId => eventId.trim())
-            .filter(eventId => eventId !== ""); // Filter out empty strings
-        this.subscribeToEvents(); // Subscribe to new events
-        this.render(); // Re-render the logger
+            .filter(eventId => eventId !== "");
+        this.subscribeToEvents();
+        this.render();
     }
 };
 
 // Register the class in the controller
-webexpress.webui.Controller.registerClass('wx-eventlogger', EventLoggerCtrl);
+webexpress.webui.Controller.registerClass('wx-webui-eventlogger', webexpress.webui.EventLoggerCtrl);
