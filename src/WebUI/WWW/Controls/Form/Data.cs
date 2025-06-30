@@ -96,6 +96,17 @@ namespace WebUI.WWW.Controls.Form
                     Icon = new IconCalendarDay()
                 })
             );
+
+            Stage.AddProperty
+            (
+                "Format",
+                @"The `Format` property specifies the date or time pattern used to display values within the calendar input control. It accepts a format string based on the standard .NET date and time formatting conventions, such as ""yyyy-MM-dd"" for a year-month-day format or ""dd.MM.yyyy"" for a more localized European style. This pattern determines both how the value appears in the user interface and how it is represented as a string internally or in serialized output. If no format is specified, the control automatically uses the short date pattern defined by the current culture, as determined by the system's regional settings.",
+                @"Format = ""dd.MM.yyyy""",
+                new ControlForm(null, new ControlFormItemInputDatepicker(null)
+                {
+                    Format = "dd.MM.yyyy"
+                })
+            );
         }
     }
 }
