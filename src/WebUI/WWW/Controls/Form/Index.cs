@@ -12,7 +12,7 @@ using WebUI.WebScope;
 namespace WebUI.WWW.Controls.Form
 {
     /// <summary>    
-    /// Represents the selection control for the tutorial.    
+    /// Represents the form control for the tutorial.    
     /// </summary>    
     [Title("Form")]
     [Scope<IScopeGeneral>]
@@ -22,13 +22,13 @@ namespace WebUI.WWW.Controls.Form
     {
         private readonly IEnumerable<IControlFormItem> _exampleFormItems =
         [
-            new ControlFormItemInputTextBox("username")
+            new ControlFormItemInputText("username")
             {
                 Label = "Username",
                 Icon = new IconFont(),
                 Help = "Enter your desired username."
             }.Validate(x => x.Add(string.IsNullOrWhiteSpace(x.Value), "Username is required. Please enter a valid name.")),
-            new ControlFormItemInputTextBox("email")
+            new ControlFormItemInputText("email")
             {
                 Label = "Email Address",
                 Icon = new IconAt(),
@@ -45,7 +45,7 @@ namespace WebUI.WWW.Controls.Form
                 Icon = new IconMapLocationDot(),
                 Help = "Select your home country."
             },
-            new ControlFormItemInputCheckBox("terms")
+            new ControlFormItemInputCheck("terms")
             {
                 Label = "I accept the terms and conditions",
                 Help = "Please confirm that you have read the terms."
@@ -62,7 +62,7 @@ namespace WebUI.WWW.Controls.Form
             Stage.Description = @"A `Form` control is used to structure, validate, and submit user input to a server. It organizes various fields such as text boxes, dropdowns, and buttons, ensuring a seamless and user-friendly experience. Additionally, it incorporates validation mechanisms to maintain data accuracy and prevent errors before sending the information for processing.";
 
             Stage.Control = new ControlForm("myform")
-                .Add(new ControlFormItemInputTextBox("regards")
+                .Add(new ControlFormItemInputText("regards")
                 {
                     Label = "Greetings",
                     Icon = new IconFont(),
@@ -87,7 +87,7 @@ namespace WebUI.WWW.Controls.Form
                 "This property defines the visual positioning of form elements relative to the submit button.",
                 "FormLayout = TypeLayoutForm.Inline",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(items: new ControlFormItemInputTextBox("layout1") { Icon = new IconAlignLeft(), Label = "Arrangement", Help = "This is a help text" })
+                new ControlForm(items: new ControlFormItemInputText("layout1") { Icon = new IconAlignLeft(), Label = "Arrangement", Help = "This is a help text" })
                 {
                     Border = new PropertyBorder(true),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
@@ -95,7 +95,7 @@ namespace WebUI.WWW.Controls.Form
                     FormLayout = TypeLayoutForm.Default
                 }.AddPrimaryButton(new ControlFormItemButtonSubmit()),
                 new ControlText() { Text = "Inline", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(items: new ControlFormItemInputTextBox("layout1") { Icon = new IconAlignLeft(), Label = "Arrangement", Help = "This is a help text" })
+                new ControlForm(items: new ControlFormItemInputText("layout1") { Icon = new IconAlignLeft(), Label = "Arrangement", Help = "This is a help text" })
                 {
                     Border = new PropertyBorder(true),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),

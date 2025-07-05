@@ -16,7 +16,7 @@ namespace WebUI.WebControl
         /// <summary>
         /// Returns or sets the name associated with the object.
         /// </summary>
-        public ControlFormItemInputTextBox CharacterName { get; } = new ControlFormItemInputTextBox
+        public ControlFormItemInputText CharacterName { get; } = new ControlFormItemInputText
         {
             Label = "Name",
             Name = nameof(Character.Name),
@@ -30,7 +30,7 @@ namespace WebUI.WebControl
         /// <summary>
         /// Returns or sets the description associated with the object.
         /// </summary>
-        public ControlFormItemInputTextBox Description { get; } = new ControlFormItemInputTextBox
+        public ControlFormItemInputText Description { get; } = new ControlFormItemInputText
         {
             Label = "Description",
             Name = nameof(Character.Description),
@@ -44,7 +44,7 @@ namespace WebUI.WebControl
         /// <summary>
         /// Returns or sets the name of the context or entity where this item appears.
         /// </summary>
-        public ControlFormItemInputTextBox AppearsIn { get; } = new ControlFormItemInputTextBox
+        public ControlFormItemInputText AppearsIn { get; } = new ControlFormItemInputText
         {
             Label = "Appears In",
             Name = nameof(Character.AppearsIn),

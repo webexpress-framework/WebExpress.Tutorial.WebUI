@@ -12,30 +12,30 @@ using WebUI.WebScope;
 namespace WebUI.WWW.Controls.Form
 {
     /// <summary>    
-    /// Represents the CheckBox control for the tutorial.    
+    /// Represents the Check control for the tutorial.    
     /// </summary>    
-    [Title("CheckBox")]
+    [Title("Check")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
     [Scope<IScopeControlWebUI>]
-    public sealed class CheckBox : PageControl
+    public sealed class Check : PageControl
     {
         /// <summary>    
         /// Initializes a new instance of the class.    
         /// </summary>    
         /// <param name="pageContext">The context of the page on which the CheckBox control is used.</param>  
         /// <param name="componentHub">The component hub for managing components.</param>  
-        public CheckBox(IPageContext pageContext, IComponentHub componentHub)
+        public Check(IPageContext pageContext, IComponentHub componentHub)
         {
-            Stage.Description = @"A `CheckBox` control is a graphical user interface element that allows users to choose between two states: checked (selected) or unchecked (not selected).";
+            Stage.Description = @"A `Check` control is a graphical user interface element that allows users to choose between two states: checked (selected) or unchecked (not selected).";
 
             Stage.Control = new ControlForm()
-                .Add(new ControlFormItemInputCheckBox { Label = "Label", Description = "Checkbox description" })
+                .Add(new ControlFormItemInputCheck { Label = "Label", Description = "Checkbox description" })
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
             new ControlForm()
-                .Add(new ControlFormItemInputCheckBox { Label = ""Label"", Description = ""Checkbox description"" })
+                .Add(new ControlFormItemInputCheck { Label = ""Label"", Description = ""Checkbox description"" })
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
             Stage.AddProperty
@@ -43,7 +43,7 @@ namespace WebUI.WWW.Controls.Form
                 "Label",
                 "The `Label` property of the checkbox field serves as a short description and is displayed in the main area of the control. It ensures a clear and concise presentation of the selection.",
                 "Label = \"Subscribe to newsletter\"",
-                new ControlForm(null, new ControlFormItemInputCheckBox(null)
+                new ControlForm(null, new ControlFormItemInputCheck(null)
                 {
                     Label = "Subscribe to newsletter"
                 })
@@ -52,9 +52,9 @@ namespace WebUI.WWW.Controls.Form
             Stage.AddProperty
             (
                 "Help",
-                "The `Help` property provides a help text that gives the user additional information on how to use the checkbox field.",
+                "The `Help` property provides a help text that gives the user additional information on how to use the check box field.",
                 "Help = \"You can unsubscribe anytime from your account settings.\"",
-                new ControlForm(null, new ControlFormItemInputCheckBox(null)
+                new ControlForm(null, new ControlFormItemInputCheck(null)
                 {
                     Help = "You can unsubscribe anytime from your account settings."
                 })
@@ -65,7 +65,7 @@ namespace WebUI.WWW.Controls.Form
                 "Icon",
                 "The `Icon` property defines the icon associated with the checkbox field. It provides visual support and makes it easier to identify the field.",
                 "Icon = new IconPaperPlane()",
-                new ControlForm(null, new ControlFormItemInputCheckBox(null)
+                new ControlForm(null, new ControlFormItemInputCheck(null)
                 {
                     Icon = new IconPaperPlane()
                 })
@@ -74,10 +74,10 @@ namespace WebUI.WWW.Controls.Form
             Stage.AddProperty
                (
                    "Description",
-                   "The `description` property provides a short, contextual explanation displayed directly to the right of the `CheckBox`. It enhances clarity without increasing vertical space, making it ideal for clean, compact user interfaces.",
+                   "The `description` property provides a short, contextual explanation displayed directly to the right of the check box. It enhances clarity without increasing vertical space, making it ideal for clean, compact user interfaces.",
                    @"Description = ""Subscribe to newsletter – Receive monthly updates via email""",
                    new ControlForm()
-                       .Add(new ControlFormItemInputCheckBox
+                       .Add(new ControlFormItemInputCheck
                        {
                            Label = "Subscribe to newsletter",
                            Icon = new IconPaperPlane(),
@@ -91,10 +91,10 @@ namespace WebUI.WWW.Controls.Form
             Stage.AddProperty
                (
                    "Disabled",
-                   "The `disabled` property is used to make a `CheckBox` non interactive and visually grayed out. It signals to users that the option is currently not available.",
+                   "The `disabled` property is used to make a check box non interactive and visually grayed out. It signals to users that the option is currently not available.",
                    @"Disabled = true",
                    new ControlForm()
-                       .Add(new ControlFormItemInputCheckBox
+                       .Add(new ControlFormItemInputCheck
                        {
                            Label = "Subscribe to newsletter",
                            Icon = new IconPaperPlane(),
@@ -109,20 +109,37 @@ namespace WebUI.WWW.Controls.Form
             Stage.AddProperty
                 (
                     "Layout",
-                    "The `layout` property defines how the `ComboBox` is visually presented and how its content is arranged within the user interface. It does not affect the logic or functionality—only the appearance and positioning.",
+                    "The `layout` property defines how the check box is visually presented and how its content is arranged within the user interface. It does not affect the logic or functionality—only the appearance and positioning.",
                     "Layout = TypeLayoutCheckbox.Switch",
                     new ControlForm()
-                        .Add(new ControlFormItemInputCheckBox
+                        .Add(new ControlFormItemInputCheck
                         {
                             Label = "Default",
                             Description = "Checkbox description",
                             Layout = TypeLayoutCheckbox.Default
                         })
-                        .Add(new ControlFormItemInputCheckBox
+                        .Add(new ControlFormItemInputCheck
                         {
                             Label = "Switch",
                             Description = "Checkbox description",
                             Layout = TypeLayoutCheckbox.Switch
+                        })
+                        .AddPrimaryButton(new ControlFormItemButtonSubmit())
+                );
+
+            Stage.AddProperty
+                (
+                    "Inline",
+                    "The `Inline` property arranges check box elements horizontally in a single row, rather than stacking them vertically. It's ideal for compact interfaces such as toolbars, input groups, or forms where side-by-side alignment improves clarity and flow.",
+                    "Layout = TypeLayoutCheckbox.Switch",
+                    new ControlForm()
+                        .Add(new ControlFormItemInputCheck
+                        {
+                            Description = "Checkbox 1"
+                        })
+                        .Add(new ControlFormItemInputCheck
+                        {
+                            Description = "Checkbox 2"
                         })
                         .AddPrimaryButton(new ControlFormItemButtonSubmit())
                 );

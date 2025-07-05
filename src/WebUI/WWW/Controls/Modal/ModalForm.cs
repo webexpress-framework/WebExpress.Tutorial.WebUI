@@ -23,13 +23,13 @@ namespace WebUI.WWW.Controls.Modal
     {
         private readonly IEnumerable<IControlFormItem> _exampleFormItems =
         [
-            new ControlFormItemInputTextBox("username")
+            new ControlFormItemInputText("username")
             {
                 Label = "Username",
                 Icon = new IconFont(),
                 Help = "Enter your desired username."
             }.Validate(x => x.Add(string.IsNullOrWhiteSpace(x.Value), "Username is required. Please enter a valid name.")),
-            new ControlFormItemInputTextBox("email")
+            new ControlFormItemInputText("email")
             {
                 Label = "Email Address",
                 Icon = new IconAt(),
@@ -46,7 +46,7 @@ namespace WebUI.WWW.Controls.Modal
                 Icon = new IconMapLocationDot(),
                 Help = "Select your home country."
             },
-            new ControlFormItemInputCheckBox("terms")
+            new ControlFormItemInputCheck("terms")
             {
                 Label = "I accept the terms and conditions",
                 Help = "Please confirm that you have read the terms."

@@ -13,7 +13,7 @@ using WebUI.WebScope;
 namespace WebUI.WWW.Controls.Form
 {
     /// <summary>    
-    /// Represents the date selection field for the tutorial.    
+    /// Represents the date date field for the tutorial.    
     /// </summary>    
     [Title("Date")]
     [Scope<IScopeGeneral>]
@@ -32,7 +32,7 @@ namespace WebUI.WWW.Controls.Form
 
             Stage.Description = @"The `Date` field enables intuitive selection of a date via a calendar. Users can conveniently select a date, providing a user-friendly and efficient interaction.";
 
-            Stage.Control = new ControlForm("myform", new ControlFormItemInputDatepicker(null)
+            Stage.Control = new ControlForm("myform", new ControlFormItemInputDate(null)
             {
                 Icon = new IconCalendar(),
                 Label = "Date",
@@ -47,7 +47,7 @@ namespace WebUI.WWW.Controls.Form
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
-                new ControlForm(""myform"", new ControlFormItemInputDatepicker(null)
+                new ControlForm(""myform"", new ControlFormItemInputDate(null)
                 {
                     Icon = new IconCalendar(),
                     Label = ""Date"",
@@ -66,7 +66,7 @@ namespace WebUI.WWW.Controls.Form
                 "Label",
                 "The `Label` property of the date field serves as a short description and is displayed in the main area of the control. It ensures a clear and concise presentation of the selection.",
                 "Label = \"Date\"",
-                new ControlForm(null, new ControlFormItemInputDatepicker(null)
+                new ControlForm(null, new ControlFormItemInputDate(null)
                 {
                     Icon = new IconCalendar(),
                     Label = "Date",
@@ -80,7 +80,7 @@ namespace WebUI.WWW.Controls.Form
                 "Help",
                 "The `Help` property provides a help text that gives the user additional information on how to use the date field.",
                 "Help = \"Select a date.\"",
-                new ControlForm(null, new ControlFormItemInputDatepicker(null)
+                new ControlForm(null, new ControlFormItemInputDate(null)
                 {
                     Help = "Select a date."
                 })
@@ -91,7 +91,7 @@ namespace WebUI.WWW.Controls.Form
                 "Icon",
                 "The `Icon` property defines the icon associated with the date field. It provides visual support and makes it easier to identify the field.",
                 "Icon = new IconCalendarDay()",
-                new ControlForm(null, new ControlFormItemInputDatepicker(null)
+                new ControlForm(null, new ControlFormItemInputDate(null)
                 {
                     Icon = new IconCalendarDay()
                 })
@@ -102,7 +102,7 @@ namespace WebUI.WWW.Controls.Form
                 "Format",
                 @"The `Format` property specifies the date or time pattern used to display values within the calendar input control. It accepts a format string based on the standard .NET date and time formatting conventions, such as ""yyyy-MM-dd"" for a year-month-day format or ""dd.MM.yyyy"" for a more localized European style. This pattern determines both how the value appears in the user interface and how it is represented as a string internally or in serialized output. If no format is specified, the control automatically uses the short date pattern defined by the current culture, as determined by the system's regional settings.",
                 @"Format = ""dd.MM.yyyy""",
-                new ControlForm(null, new ControlFormItemInputDatepicker(null)
+                new ControlForm(null, new ControlFormItemInputDate(null)
                 {
                     Format = "dd.MM.yyyy"
                 })
