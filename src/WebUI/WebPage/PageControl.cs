@@ -231,14 +231,10 @@ namespace WebUI.WebPage
 
             if (Stage.Events.Any())
             {
-                visualTree.Content.MainPanel.AddPrimary(new ControlPanelCallout(null, new ControlText()
+                visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
                     Text = "Events",
                     Format = TypeFormatText.H3
-                })
-                {
-                    Color = new PropertyColorCallout(TypeColorCallout.Info),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
