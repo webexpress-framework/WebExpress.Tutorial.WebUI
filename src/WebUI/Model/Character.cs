@@ -2,7 +2,7 @@
 using WebExpress.WebApp.WebAttribute;
 using WebExpress.WebIndex;
 
-namespace WebUI.Model
+namespace WebExpress.Toutorial.WebUI.Model
 {
     /// <summary>
     /// Represents a data entity for a table.

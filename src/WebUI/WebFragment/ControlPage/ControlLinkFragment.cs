@@ -1,4 +1,6 @@
-﻿using WebExpress.WebApp.WebScope;
+﻿using WebExpress.Toutorial.WebUI.WebPage;
+using WebExpress.Toutorial.WebUI.WWW.Controls;
+using WebExpress.WebApp.WebScope;
 using WebExpress.WebApp.WebSection;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebComponent;
@@ -8,10 +10,8 @@ using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebFragment;
 using WebExpress.WebUI.WebIcon;
 using WebExpress.WebUI.WebPage;
-using WebUI.WebPage;
-using WebUI.WWW.Controls;
 
-namespace WebUI.WebFragment.ControlPage
+namespace WebExpress.Toutorial.WebUI.WebFragment.ControlPage
 {
     /// <summary>
     /// Represents a navigation item link for the control page.
@@ -33,7 +33,7 @@ namespace WebUI.WebFragment.ControlPage
             : base(fragmentContext)
         {
             Text = "webui:controlpage.label";
-            Uri = componentHub.SitemapManager.GetUri<WWW.Controls.Index>(fragmentContext.ApplicationContext);
+            Uri = componentHub.SitemapManager.GetUri<Index>(fragmentContext.ApplicationContext);
             Icon = new IconClone();
         }
 

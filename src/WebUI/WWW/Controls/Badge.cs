@@ -1,12 +1,12 @@
-﻿using WebExpress.WebApp.WebScope;
+﻿using WebExpress.Toutorial.WebUI.WebFragment.ControlPage;
+using WebExpress.Toutorial.WebUI.WebPage;
+using WebExpress.Toutorial.WebUI.WebScope;
+using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
-using WebUI.WebFragment.ControlPage;
-using WebUI.WebPage;
-using WebUI.WebScope;
 
-namespace WebUI.WWW.Controls
+namespace WebExpress.Toutorial.WebUI.WWW.Controls
 {
     /// <summary>  
     /// Represents the badge control for the tutorial.  

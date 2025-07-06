@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
+using WebExpress.Toutorial.WebUI.WebFragment.ControlPage;
+using WebExpress.Toutorial.WebUI.WebPage;
+using WebExpress.Toutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
-using WebUI.WebFragment.ControlPage;
-using WebUI.WebPage;
-using WebUI.WebScope;
 
-namespace WebUI.WWW.Controls.Form
+namespace WebExpress.Toutorial.WebUI.WWW.Controls.Form
 {
     /// <summary>    
     /// Represents the form control for the tutorial.    

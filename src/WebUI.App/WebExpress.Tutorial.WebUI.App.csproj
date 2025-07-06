@@ -16,7 +16,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="../WebUI/WebUI.csproj" />
+		<ProjectReference Include="../WebUI/WebExpress.Tutorial.WebUI.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

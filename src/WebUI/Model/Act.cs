@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using WebExpress.WebUI.WebControl;
 
-namespace WebUI.Model
+namespace WebExpress.Toutorial.WebUI.Model
 {
     /// <summary>
     /// Represents an "Act" in the grand stage of controls, including its cast, main number, supporting acts, and script.

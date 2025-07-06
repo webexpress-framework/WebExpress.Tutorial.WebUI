@@ -1,14 +1,14 @@
 ﻿using System.Linq;
+using WebExpress.Toutorial.WebUI.Model;
+using WebExpress.Toutorial.WebUI.WebControl;
+using WebExpress.Toutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.WebApp.WebPage;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebPage;
-using WebUI.Model;
-using WebUI.WebControl;
-using WebUI.WebFragment.ControlPage;
 
-namespace WebUI.WebPage
+namespace WebExpress.Toutorial.WebUI.WebPage
 {
     /// <summary>
     /// Represents the base class for page controls in the web application.

@@ -1,6 +1,6 @@
 ﻿using WebExpress.WebCore.WebScope;
 
-namespace WebUI.WebFragment.ControlPage
+namespace WebExpress.Toutorial.WebUI.WebFragment.ControlPage
 {
     /// <summary>
     /// Represents a scope fpr control pages an fragments.

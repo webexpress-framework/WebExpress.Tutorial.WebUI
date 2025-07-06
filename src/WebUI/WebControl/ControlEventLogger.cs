@@ -5,7 +5,7 @@ using WebExpress.WebCore.WebHtml;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebPage;
 
-namespace WebUI.WebControl
+namespace WebExpress.Toutorial.WebUI.WebControl
 {
     /// <summary>
     /// Represents a control that logs events occurring within the web application.

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WebUI.Model
+namespace WebExpress.Toutorial.WebUI.Model
 {
     /// <summary>
     /// Provides a static view model containing sample table data for demonstration or testing purposes.

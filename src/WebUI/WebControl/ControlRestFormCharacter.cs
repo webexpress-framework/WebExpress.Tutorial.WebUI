@@ -1,9 +1,9 @@
-﻿using WebExpress.WebApp.WebControl;
+﻿using WebExpress.Toutorial.WebUI.Model;
+using WebExpress.WebApp.WebControl;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
-using WebUI.Model;
 
-namespace WebUI.WebControl
+namespace WebExpress.Toutorial.WebUI.WebControl
 {
     /// <summary>
     /// Represents a form for managing character data, including their name, description, and context of

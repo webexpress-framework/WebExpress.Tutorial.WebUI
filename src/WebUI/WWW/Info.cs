@@ -7,7 +7,7 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 
-namespace WebApp.WWW
+namespace WebExpress.Toutorial.WebUI.WWW
 {
     /// <summary>
     /// Represents the info page for the tutorial.

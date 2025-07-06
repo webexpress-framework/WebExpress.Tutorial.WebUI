@@ -1,4 +1,4 @@
-﻿using WebApp.WWW;
+﻿using WebExpress.Toutorial.WebUI.WWW;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebApp.WebSection;
 using WebExpress.WebCore.WebAttribute;
@@ -10,7 +10,7 @@ using WebExpress.WebUI.WebFragment;
 using WebExpress.WebUI.WebIcon;
 using WebExpress.WebUI.WebPage;
 
-namespace WebUI.WebFragment.InfoPage
+namespace WebExpress.Toutorial.WebUI.WebFragment.InfoPage
 {
     /// <summary>
     /// Represents a navigation item link for the info page.

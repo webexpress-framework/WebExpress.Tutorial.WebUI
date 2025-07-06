@@ -1,13 +1,13 @@
 ﻿using System;
 using System.IO;
+using WebExpress.Toutorial.WebUI.WebFragment.ControlPage;
+using WebExpress.Toutorial.WebUI.WebPage;
+using WebExpress.Toutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebUI.WebControl;
-using WebUI.WebFragment.ControlPage;
-using WebUI.WebPage;
-using WebUI.WebScope;
 
-namespace WebUI.WWW.Controls
+namespace WebExpress.Toutorial.WebUI.WWW.Controls
 {
     /// <summary>  
     /// Represents the text control for the tutorial.  
@@ -151,7 +151,7 @@ namespace WebUI.WWW.Controls
                 new ControlText() { Text = "Markdown", Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = new StreamReader(GetType().Assembly.GetManifestResourceStream("WebUI.Assets.md\\example.md")).ReadToEnd(),
+                    Text = new StreamReader(GetType().Assembly.GetManifestResourceStream("WebExpress.Tutorial.WebUI.Assets.md\\example.md")).ReadToEnd(),
                     Format = TypeFormatText.Markdown
                 },
                 new ControlText() { Text = "Mark", Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },

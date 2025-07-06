@@ -3,7 +3,7 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 
-namespace WebApp.WWW
+namespace WebExpress.Toutorial.WebUI.WWW
 {
     /// <summary>
     /// Represents the home page for the tutorial.
