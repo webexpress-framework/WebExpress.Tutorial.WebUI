@@ -10,7 +10,7 @@ namespace WebExpress.Toutorial.WebUI.WWW.Controls
     /// <summary>
     /// Represents the home page for the tutorial.
     /// </summary>
-    [Title("webui:controlpage.label")]
+    [Title("webexpress.toutorial.webui:controlpage.label")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
     [Scope<IScopeControlWebUI>]

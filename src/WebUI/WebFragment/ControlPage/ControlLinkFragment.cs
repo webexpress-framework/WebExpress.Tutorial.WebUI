@@ -32,7 +32,7 @@ namespace WebExpress.Toutorial.WebUI.WebFragment.ControlPage
         public ControlLinkFragment(IComponentHub componentHub, IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "webui:controlpage.label";
+            Text = "webexpress.toutorial.webui:controlpage.label";
             Uri = componentHub.SitemapManager.GetUri<Index>(fragmentContext.ApplicationContext);
             Icon = new IconClone();
         }

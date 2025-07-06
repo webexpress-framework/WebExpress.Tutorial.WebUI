@@ -31,7 +31,7 @@ namespace WebExpress.Toutorial.WebUI.WebFragment.HomePage
         public HomeLinkFragment(IComponentHub componentHub, IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "webui:homepage.label";
+            Text = "webexpress.toutorial.webui:homepage.label";
             Uri = componentHub.SitemapManager.GetUri<Index>(fragmentContext.ApplicationContext);
             Icon = new IconHome();
         }
