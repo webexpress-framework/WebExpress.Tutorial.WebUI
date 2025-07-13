@@ -1,10 +1,13 @@
-<img src="https://raw.githubusercontent.com/ReneSchwarzer/WebExpress/main/assets/banner.png" alt="WebExpress" width="1024" />
+![WebExpress](https://raw.githubusercontent.com/ReneSchwarzer/WebExpress/main/assets/banner.png)
 
 # WebExpress.Tutorial.WebUI
 
 Welcome to **WebExpress.Tutorial.WebUI**! This tutorial guides you through the basics and features of the UI elements within a `WebExpress` application.
 
 Through this tutorial, you will learn how to use the templates and controls provided by the `WebExpress.WebUI` library to create professional and user-friendly web interfaces.
+
+>? This tutorial is designed for developers of all levels. Whether you're just starting with WebExpress or you're customizing advanced templates, you'll find practical examples and best practices to accelerate your workflow.
+
 
 ## Objectives of this Tutorial
 - **UI Elements Demonstration**: Understand how to seamlessly integrate templates and controls into your `WebExpress` application.

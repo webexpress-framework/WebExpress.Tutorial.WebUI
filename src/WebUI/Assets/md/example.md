@@ -1,6 +1,4 @@
-﻿<img src="https://raw.githubusercontent.com/ReneSchwarzer/WebExpress/main/assets/banner.png" alt="WebExpress" width="1024" />
-
-# Markdown Example
+﻿# Markdown Example
 
 Welcome to this **Markdown Guide**! Below are examples of Markdown syntax to help you structure and style your text.
 
@@ -19,14 +17,14 @@ Welcome to this **Markdown Guide**! Below are examples of Markdown syntax to hel
 ### Unordered List:
 - Item 1
 - Item 2
-  - Sub-item 2.1
-  - Sub-item 2.2
+    - Sub-item 2.1
+    - Sub-item 2.2
 
 ### Ordered List:
 1. First item
 2. Second item
-   1. Nested item 2.1
-   2. Nested item 2.2
+    I. Nested item 2.1
+    II. Nested item 2.2
 
 ---
 
@@ -43,7 +41,7 @@ Welcome to this **Markdown Guide**! Below are examples of Markdown syntax to hel
 ## 4. Code Blocks
 
 ### Inline code:
-Use `print(""Hello World!"")` to display text.
+Use `print("Hello World!")` to display text.
 
 ### Multiline code:
 ```python
