@@ -41,10 +41,11 @@ namespace WebExpress.Toutorial.WebUI.WWW.Controls
                 "Format",
                 "Defines the format of the text.",
                 "Format = TypesTextFormat.Paragraph",
-                new ControlText() { Text = "Standard", Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = "Default", Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text
+                    Text = _text,
+                    Format = TypeFormatText.Default
                 },
                 new ControlText() { Text = "H1", Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
