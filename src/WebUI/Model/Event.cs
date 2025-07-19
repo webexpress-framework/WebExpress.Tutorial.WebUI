@@ -71,49 +71,59 @@
         MODAL_HIDE_EVENT,
 
         /// <summary>
-        /// Event triggered when data is requested
+        /// Event triggered when data is requested.
         /// </summary>
         DATA_REQUESTED_EVENT,
 
         /// <summary>
-        /// Event triggered when data has arrived
+        /// Event triggered when data has arrived.
         /// </summary>
         DATA_ARRIVED_EVENT,
 
         /// <summary>
-        /// Event triggered when a task starts
+        /// Event triggered when a task starts.
         /// </summary>
         TASK_START_EVENT,
 
         /// <summary>
-        /// Event triggered when a task is updated
+        /// Event triggered when a task is updated.
         /// </summary>
         TASK_UPDATE_EVENT,
 
         /// <summary>
-        /// Event triggered when a task is finished
+        /// Event triggered when a task is finished.
         /// </summary>
         TASK_FINISH_EVENT,
 
         /// <summary>
-        /// Event triggered when the size changes
+        /// Event triggered when the size changes.
         /// </summary>
         SIZE_CHANGE_EVENT,
 
         /// <summary>
-        /// Event triggered when an element is hidden
+        /// Event triggered when an element is hidden.
         /// </summary>
         HIDE_EVENT,
 
         /// <summary>
-        /// Event triggered when an element is shown
+        /// Event triggered when an element is shown.
         /// </summary>
         SHOW_EVENT,
 
         /// <summary>
-        /// Event triggered when an element is updated
+        /// Event triggered when an element is updated.
         /// </summary>
         UPDATED_EVENT,
+
+        /// <summary>
+        /// Event triggered when an element is added.
+        /// </summary>
+        ADD_EVENT,
+
+        /// <summary>
+        /// Event triggered when an element is removed.
+        /// </summary>
+        REMOVE_EVENT
     }
 
     /// <summary>
@@ -152,6 +162,8 @@
                 Event.HIDE_EVENT => "webexpress.webui.hide",
                 Event.SHOW_EVENT => "webexpress.webui.show",
                 Event.UPDATED_EVENT => "webexpress.webui.updated",
+                Event.ADD_EVENT => "webexpress.webui.add",
+                Event.REMOVE_EVENT => "webexpress.webui.remove",
                 _ => ""
             };
         }
@@ -187,6 +199,8 @@
                 Event.HIDE_EVENT => "Event triggered when an element is hidden.",
                 Event.SHOW_EVENT => "Event triggered when an element is shown.",
                 Event.UPDATED_EVENT => "Event triggered when an element is updated.",
+                Event.ADD_EVENT => "Event triggered when an element is added.",
+                Event.REMOVE_EVENT => "Event triggered when an element is removed.",
                 _ => ""
             };
         }

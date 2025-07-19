@@ -92,29 +92,24 @@ namespace WebExpress.Toutorial.WebUI.WebPage
                 Text = "Below is the corresponding code snippet, designed to provide a clear understanding of the control's implementation. It demonstrates how the control is instantiated and customized to achieve specific functionality and appearance.",
                 Format = TypeFormatText.Paragraph
             });
-            visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, new ControlText()
+            visualTree.Content.MainPanel.AddPrimary(null, new ControlCode()
             {
-                Text = TrimIndentation(Stage.Code),
-                Format = TypeFormatText.Code,
+                Code = TrimIndentation(Stage.Code),
+                LineNumbers = true,
+                Language = TypeLanguage.CSharp,
                 Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
-            })
-            {
-                BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light)
             });
             visualTree.Content.MainPanel.AddPrimary(new ControlText()
             {
                 Text = "The following HTML structure is generated based on the example control and serves as the foundation for its visual and functional representation. It includes the necessary elements to create an interactive user interface, allowing users to engage intuitively and efficiently.",
                 Format = TypeFormatText.Paragraph
             });
-            visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, new ControlText()
+            visualTree.Content.MainPanel.AddPrimary(new ControlCode()
             {
-                Text = string.Join("<br>", Stage.Controls.Select(x => x.Render(new RenderControlContext(renderContext), visualTree)?.ToString().Trim().Replace("<", "&lt;").Replace(">", "&gt;"))),
-                Format = TypeFormatText.Code,
-                Styles = ["white-space: pre-wrap;"],
+                Code = string.Join("<br>", Stage.Controls.Select(x => x.Render(new RenderControlContext(renderContext), visualTree)?.ToString().Trim())),
+                LineNumbers = true,
+                Language = TypeLanguage.Xml,
                 Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
-            })
-            {
-                BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light)
             });
 
             if (Stage.PropertyActs.Any())
