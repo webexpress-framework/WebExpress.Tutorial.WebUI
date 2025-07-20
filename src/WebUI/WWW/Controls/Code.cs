@@ -32,7 +32,13 @@ namespace WebExpress.Toutorial.WebUI.WWW.Controls
                     }
             ];
 
-            Stage.Code = $"";
+            Stage.Code = @"
+            new ControlCode()
+            {
+                Code = ""cls\nprint \""hello world!\"""",
+                Language = TypeLanguage.Basic,
+                LineNumbers = true
+            }";
 
             Stage.AddProperty
             (

@@ -61,6 +61,7 @@ namespace WebExpress.Toutorial.WebUI.WebPage
             visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. Stage.Controls])
             {
                 BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light),
+                Styles = ["max-width: 80em;"],
                 Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
             });
             visualTree.Content.MainPanel.AddPrimary(new ControlText()
@@ -78,7 +79,9 @@ namespace WebExpress.Toutorial.WebUI.WebPage
             visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. Stage.DarkControls.Any() ? Stage.DarkControls : Stage.Controls])
             {
                 BackgroundColor = new PropertyColorBackground(TypeColorBackground.Dark),
-                Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                Styles = ["max-width: 80em;"],
+                Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None,
+                PropertySpacing.Space.None, PropertySpacing.Space.Two),
                 Theme = TypeTheme.Dark
             });
             visualTree.Content.MainPanel.AddPrimary(new ControlText()
@@ -96,6 +99,7 @@ namespace WebExpress.Toutorial.WebUI.WebPage
             {
                 Code = TrimIndentation(Stage.Code),
                 LineNumbers = true,
+                Styles = ["max-width: 91em;"],
                 Language = TypeLanguage.CSharp,
                 Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
             });
@@ -108,6 +112,7 @@ namespace WebExpress.Toutorial.WebUI.WebPage
             {
                 Code = string.Join("<br>", Stage.Controls.Select(x => x.Render(new RenderControlContext(renderContext), visualTree)?.ToString().Trim())),
                 LineNumbers = true,
+                Styles = ["max-width: 91em;"],
                 Language = TypeLanguage.Xml,
                 Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
             });
@@ -158,6 +163,7 @@ namespace WebExpress.Toutorial.WebUI.WebPage
                 visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. supportedAct.Controls])
                 {
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light),
+                    Styles = ["max-width: 80em;"],
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
 
@@ -214,6 +220,7 @@ namespace WebExpress.Toutorial.WebUI.WebPage
                 visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. supportedAct.Controls])
                 {
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light),
+                    Styles = ["max-width: 80em;"],
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
 
@@ -258,6 +265,7 @@ namespace WebExpress.Toutorial.WebUI.WebPage
                     string.Join(" ", Stage.Events.Select(x => x.GetEventName()))
                 )
                 {
+                    Styles = ["max-width: 80em;"],
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 })
                 {
