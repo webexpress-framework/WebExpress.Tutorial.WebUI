@@ -20,10 +20,10 @@ namespace WebExpress.Toutorial.WebUI.WWW.Controls
     public sealed class Dropdown : PageControl
     {
         private readonly IControlDropdownItem _item1 = new ControlDropdownItemHeader() { Text = "Header" };
-        private readonly IControlDropdownItem _item2 = new ControlDropdownItemLink() { Text = "First Entry", Icon = new IconWrench() };
-        private readonly IControlDropdownItem _item3 = new ControlDropdownItemLink() { Text = "Second Entry" };
+        private readonly IControlDropdownItem _item2 = new ControlDropdownItemLink() { Label = "First Entry", Icon = new IconWrench() };
+        private readonly IControlDropdownItem _item3 = new ControlDropdownItemLink() { Label = "Second Entry" };
         private readonly IControlDropdownItem _item4 = new ControlDropdownItemDivider();
-        private readonly IControlDropdownItem _item5 = new ControlDropdownItemLink() { Text = "Third Entry" };
+        private readonly IControlDropdownItem _item5 = new ControlDropdownItemLink() { Label = "Third Entry" };
 
         /// <summary>  
         /// Initializes a new instance of the class.  
@@ -40,7 +40,7 @@ namespace WebExpress.Toutorial.WebUI.WWW.Controls
             Stage.Controls = [
                 new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                 {
-                    Text = "Dropdown",
+                    Label = "Dropdown",
                     TextColor = new PropertyColorText(TypeColorText.Default),
                     Color = new PropertyColorButton(TypeColorButton.Primary),
                 }
@@ -72,54 +72,54 @@ namespace WebExpress.Toutorial.WebUI.WWW.Controls
                     null,
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Default",
+                        Label = "Default",
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                     },
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Primary",
+                        Label = "Primary",
                         Color = new PropertyColorButton(TypeColorButton.Primary),
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                     },
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Info",
+                        Label = "Info",
                         Color = new PropertyColorButton(TypeColorButton.Info),
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                     },
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Success",
+                        Label = "Success",
                         Color = new PropertyColorButton(TypeColorButton.Success),
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                     },
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Warning",
+                        Label = "Warning",
                         Color = new PropertyColorButton(TypeColorButton.Warning),
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                     },
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Danger",
+                        Label = "Danger",
                         Color = new PropertyColorButton(TypeColorButton.Danger),
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                     },
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Dark",
+                        Label = "Dark",
                         Color = new PropertyColorButton(TypeColorButton.Dark),
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                     },
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Light",
+                        Label = "Light",
                         Color = new PropertyColorButton(TypeColorButton.Light),
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                     },
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Custom",
+                        Label = "Custom",
                         Color = new PropertyColorButton("gold"),
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                     }
@@ -140,62 +140,62 @@ namespace WebExpress.Toutorial.WebUI.WWW.Controls
                     null,
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Default",
+                        Label = "Default",
                         Outline = true,
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                     },
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Primary",
+                        Label = "Primary",
                         Color = new PropertyColorButton(TypeColorButton.Primary),
                         Outline = true,
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                     },
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Info",
+                        Label = "Info",
                         Color = new PropertyColorButton(TypeColorButton.Info),
                         Outline = true,
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                     },
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Success",
+                        Label = "Success",
                         Color = new PropertyColorButton(TypeColorButton.Success),
                         Outline = true,
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                     },
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Warning",
+                        Label = "Warning",
                         Color = new PropertyColorButton(TypeColorButton.Warning),
                         Outline = true,
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                     },
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Danger",
+                        Label = "Danger",
                         Color = new PropertyColorButton(TypeColorButton.Danger),
                         Outline = true,
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                     },
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Dark",
+                        Label = "Dark",
                         Color = new PropertyColorButton(TypeColorButton.Dark),
                         Outline = true,
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                     },
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Light",
+                        Label = "Light",
                         Color = new PropertyColorButton(TypeColorButton.Light),
                         Outline = true,
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                     },
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Custom",
+                        Label = "Custom",
                         Color = new PropertyColorButton("gold"),
                         Outline = true,
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
@@ -217,21 +217,21 @@ namespace WebExpress.Toutorial.WebUI.WWW.Controls
                     null,
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Small",
+                        Label = "Small",
                         Size = TypeSizeButton.Small,
                         Color = new PropertyColorButton(TypeColorButton.Primary),
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                     },
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Default",
+                        Label = "Default",
                         Size = TypeSizeButton.Default,
                         Color = new PropertyColorButton(TypeColorButton.Primary),
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                     },
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Large",
+                        Label = "Large",
                         Size = TypeSizeButton.Large,
                         Color = new PropertyColorButton(TypeColorButton.Primary),
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
@@ -253,14 +253,14 @@ namespace WebExpress.Toutorial.WebUI.WWW.Controls
                     null,
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Home",
+                        Label = "Home",
                         Icon = new IconHome(),
                         Color = new PropertyColorButton(TypeColorButton.Primary),
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                     },
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Custom",
+                        Label = "Custom",
                         Icon = new ImageIcon(pageContext.ApplicationContext.Route.Concat("assets/img/webui.svg").ToUri(), new PropertySizeIcon(1, TypeSizeUnit.Em)),
                         Color = new PropertyColorButton(TypeColorButton.Primary),
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
@@ -279,7 +279,7 @@ namespace WebExpress.Toutorial.WebUI.WWW.Controls
                "Block = TypeBlockButton.Block",
                new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                {
-                   Text = "Block",
+                   Label = "Block",
                    Block = TypeBlockButton.Block,
                    Color = new PropertyColorButton(TypeColorButton.Primary),
                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
@@ -296,21 +296,21 @@ namespace WebExpress.Toutorial.WebUI.WWW.Controls
                     null,
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "None",
+                        Label = "None",
                         Active = TypeActive.None,
                         Color = new PropertyColorButton(TypeColorButton.Primary),
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                     },
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Active",
+                        Label = "Active",
                         Active = TypeActive.Active,
                         Color = new PropertyColorButton(TypeColorButton.Primary),
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                     },
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Disabled",
+                        Label = "Disabled",
                         Active = TypeActive.Disabled,
                         Color = new PropertyColorButton(TypeColorButton.Primary),
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
@@ -332,14 +332,14 @@ namespace WebExpress.Toutorial.WebUI.WWW.Controls
                     null,
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "None",
+                        Label = "None",
                         Toggle = TypeToggleDropdown.None,
                         Color = new PropertyColorButton(TypeColorButton.Primary),
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                     },
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Toggle",
+                        Label = "Toggle",
                         Toggle = TypeToggleDropdown.Toggle,
                         Color = new PropertyColorButton(TypeColorButton.Primary),
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
@@ -361,14 +361,14 @@ namespace WebExpress.Toutorial.WebUI.WWW.Controls
                     null,
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "None",
+                        Label = "None",
                         AlignmentMenu = TypeAlignmentDropdownMenu.Default,
                         Color = new PropertyColorButton(TypeColorButton.Primary),
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                     },
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "Right",
+                        Label = "Right",
                         AlignmentMenu = TypeAlignmentDropdownMenu.Right,
                         Color = new PropertyColorButton(TypeColorButton.Primary),
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
