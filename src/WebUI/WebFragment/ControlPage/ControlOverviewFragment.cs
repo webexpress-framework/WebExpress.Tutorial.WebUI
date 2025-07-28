@@ -1,12 +1,12 @@
 ﻿using System.IO;
-using WebExpress.Toutorial.WebUI.WWW.Controls;
+using WebExpress.Tutorial.WebUI.WWW.Controls;
 using WebExpress.WebApp.WebSection;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebFragment;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebFragment;
 
-namespace WebExpress.Toutorial.WebUI.WebFragment.ControlPage
+namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
 {
     /// <summary>
     /// Represents a control panel fragment that displays an overview using Markdown content and the controls.

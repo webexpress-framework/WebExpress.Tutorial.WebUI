@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using WebExpress.Toutorial.WebUI.WebScope;
-using WebExpress.Toutorial.WebUI.WWW.Controls;
+using WebExpress.Tutorial.WebUI.WebScope;
+using WebExpress.Tutorial.WebUI.WWW.Controls;
 using WebExpress.WebApp.WebSection;
 using WebExpress.WebCore.Internationalization;
 using WebExpress.WebCore.WebAttribute;
@@ -13,7 +13,7 @@ using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebFragment;
 using WebExpress.WebUI.WebPage;
 
-namespace WebExpress.Toutorial.WebUI.WebFragment.ControlPage
+namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
 {
     /// <summary>
     /// Represents the sidebar fragment for the control page.

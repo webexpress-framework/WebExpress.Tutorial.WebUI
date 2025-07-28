@@ -1,4 +1,4 @@
-﻿namespace WebExpress.Toutorial.WebUI.Model
+﻿namespace WebExpress.Tutorial.WebUI.Model
 {
     /// <summary>
     /// Represents various events that can occur in the WebUI.

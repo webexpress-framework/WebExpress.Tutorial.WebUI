@@ -1,6 +1,6 @@
-﻿using WebExpress.Toutorial.WebUI.WebFragment.ControlPage;
+﻿using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 
-namespace WebExpress.Toutorial.WebUI.WebScope
+namespace WebExpress.Tutorial.WebUI.WebScope
 {
     /// <summary>
     /// Represents a scope for web ui elements.

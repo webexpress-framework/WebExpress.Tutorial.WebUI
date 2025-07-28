@@ -1,6 +1,6 @@
 ﻿using WebExpress.WebUI.WebControl;
 
-namespace WebExpress.Toutorial.WebUI.WebControl
+namespace WebExpress.Tutorial.WebUI.WebControl
 {
     /// <summary>  
     /// Represents an example implementation of a modal control.  

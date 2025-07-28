@@ -1,13 +1,13 @@
 ﻿using WebExpress.WebCore.WebApplication;
 using WebExpress.WebCore.WebAttribute;
 
-namespace WebExpress.Toutorial.WebUI
+namespace WebExpress.Tutorial.WebUI
 {
     /// <summary>
     /// Represents the application of the tutorial.
     /// </summary>
-    [Name("webexpress.toutorial.webui:app.name")]
-    [Description("webexpress.toutorial.webui:app.description")]
+    [Name("webexpress.Tutorial.webui:app.name")]
+    [Description("webexpress.Tutorial.webui:app.description")]
     [Icon("/assets/img/webui.svg")]
     [ContextPath("/webui")]
     public sealed class Application : IApplication

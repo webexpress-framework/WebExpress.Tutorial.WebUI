@@ -1,13 +1,14 @@
-﻿using WebExpress.Toutorial.WebUI.WebControl;
-using WebExpress.Toutorial.WebUI.WebFragment.ControlPage;
-using WebExpress.Toutorial.WebUI.WebPage;
-using WebExpress.Toutorial.WebUI.WebScope;
+﻿using WebExpress.Tutorial.WebUI.WebControl;
+using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
+using WebExpress.Tutorial.WebUI.WebPage;
+using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
 
-namespace WebExpress.Toutorial.WebUI.WWW.Controls
+namespace WebExpress.Tutorial.WebUI.WWW.Controls
 {
     /// <summary>  
     /// Represents the button control for the tutorial.  
@@ -20,8 +21,9 @@ namespace WebExpress.Toutorial.WebUI.WWW.Controls
     {
         /// <summary>  
         /// Initializes a new instance of the class.  
-        /// </summary>  
-        public Button()
+        /// </summary>
+        /// <param name="pageContext">The context of the page where the dropdown control is used.</param>  
+        public Button(IPageContext pageContext)
         {
             Stage.Description = @"The `Button` control is an intuitive and versatile tool designed for triggering actions, submitting forms, or navigating in web applications. It ensures user interactions are handled effectively, using dynamic styling and functionality to enhance user experience. Built for flexibility, the control can be customized to suit various use cases.";
 
@@ -205,7 +207,7 @@ namespace WebExpress.Toutorial.WebUI.WWW.Controls
                 new ControlButton()
                 {
                     Text = "Custom",
-                    //Icon = new Icon(Uri.Root.Append("/Assets/img/Icon16.png")),
+                    Icon = new ImageIconWebExpress(pageContext.ApplicationContext),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary)
                 }
             );

@@ -7,12 +7,12 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 
-namespace WebExpress.Toutorial.WebUI.WWW
+namespace WebExpress.Tutorial.WebUI.WWW
 {
     /// <summary>
     /// Represents the info page for the tutorial.
     /// </summary>
-    [Title("webexpress.toutorial.webui:infopage.label")]
+    [Title("webexpress.Tutorial.webui:infopage.label")]
     [Scope<IScopeGeneral>]
     public sealed class Info : IPage<VisualTreeWebApp>, IScopeGeneral
     {
@@ -49,19 +49,19 @@ namespace WebExpress.Toutorial.WebUI.WWW
 
             card.Add(new ControlText()
             {
-                Text = I18N.Translate(renderContext.Request?.Culture, "webexpress.toutorial.webui:app.name"),
+                Text = I18N.Translate(renderContext.Request?.Culture, "webexpress.Tutorial.webui:app.name"),
                 Format = TypeFormatText.H3
             });
 
             card.Add(new ControlText()
             {
-                Text = I18N.Translate(renderContext.Request?.Culture, "webexpress.toutorial.webui:app.description"),
+                Text = I18N.Translate(renderContext.Request?.Culture, "webexpress.Tutorial.webui:app.description"),
                 Format = TypeFormatText.Paragraph
             });
 
             card.Add(new ControlText()
             {
-                Text = I18N.Translate(renderContext.Request?.Culture, "webexpress.toutorial.webui:app.about"),
+                Text = I18N.Translate(renderContext.Request?.Culture, "webexpress.Tutorial.webui:app.about"),
                 Format = TypeFormatText.H3
             });
 
@@ -69,7 +69,7 @@ namespace WebExpress.Toutorial.WebUI.WWW
             {
                 Text = string.Format
                 (
-                    I18N.Translate(renderContext.Request?.Culture, "webexpress.toutorial.webui:app.version.label"),
+                    I18N.Translate(renderContext.Request?.Culture, "webexpress.Tutorial.webui:app.version.label"),
                     I18N.Translate(renderContext.Request?.Culture, webapp?.PluginName),
                     webapp?.Version,
                     webexpress?.PluginName,

@@ -2,7 +2,7 @@
 using System.Linq;
 using WebExpress.WebUI.WebControl;
 
-namespace WebExpress.Toutorial.WebUI.Model
+namespace WebExpress.Tutorial.WebUI.Model
 {
     /// <summary>  
     /// Represents the grand "Stage" where the acts (main act and supporting acts) come to life.  

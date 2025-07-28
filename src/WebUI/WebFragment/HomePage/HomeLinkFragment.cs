@@ -1,4 +1,4 @@
-﻿using WebExpress.Toutorial.WebUI.WWW;
+﻿using WebExpress.Tutorial.WebUI.WWW;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebApp.WebSection;
 using WebExpress.WebCore.WebAttribute;
@@ -10,7 +10,7 @@ using WebExpress.WebUI.WebFragment;
 using WebExpress.WebUI.WebIcon;
 using WebExpress.WebUI.WebPage;
 
-namespace WebExpress.Toutorial.WebUI.WebFragment.HomePage
+namespace WebExpress.Tutorial.WebUI.WebFragment.HomePage
 {
     /// <summary>
     /// Represents a navigation item link for the home page.
@@ -31,7 +31,7 @@ namespace WebExpress.Toutorial.WebUI.WebFragment.HomePage
         public HomeLinkFragment(IComponentHub componentHub, IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "webexpress.toutorial.webui:homepage.label";
+            Text = "webexpress.Tutorial.webui:homepage.label";
             Uri = componentHub.SitemapManager.GetUri<Index>(fragmentContext.ApplicationContext);
             Icon = new IconHome();
         }

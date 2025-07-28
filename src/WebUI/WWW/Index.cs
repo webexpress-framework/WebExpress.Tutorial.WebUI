@@ -3,12 +3,12 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 
-namespace WebExpress.Toutorial.WebUI.WWW
+namespace WebExpress.Tutorial.WebUI.WWW
 {
     /// <summary>
     /// Represents the home page for the tutorial.
     /// </summary>
-    [Title("webexpress.toutorial.webui:homepage.label")]
+    [Title("webexpress.Tutorial.webui:homepage.label")]
     [Scope<IScopeGeneral>]
     public sealed class Index : IPage<VisualTreeWebApp>, IScopeGeneral
     {

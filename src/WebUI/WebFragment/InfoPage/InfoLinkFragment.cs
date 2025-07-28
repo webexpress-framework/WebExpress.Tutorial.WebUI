@@ -1,4 +1,4 @@
-﻿using WebExpress.Toutorial.WebUI.WWW;
+﻿using WebExpress.Tutorial.WebUI.WWW;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebApp.WebSection;
 using WebExpress.WebCore.WebAttribute;
@@ -10,7 +10,7 @@ using WebExpress.WebUI.WebFragment;
 using WebExpress.WebUI.WebIcon;
 using WebExpress.WebUI.WebPage;
 
-namespace WebExpress.Toutorial.WebUI.WebFragment.InfoPage
+namespace WebExpress.Tutorial.WebUI.WebFragment.InfoPage
 {
     /// <summary>
     /// Represents a navigation item link for the info page.
@@ -31,7 +31,7 @@ namespace WebExpress.Toutorial.WebUI.WebFragment.InfoPage
         public InfoLinkFragment(IComponentHub componentHub, IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "webexpress.toutorial.webui:infopage.label";
+            Text = "webexpress.Tutorial.webui:infopage.label";
             Uri = componentHub.SitemapManager.GetUri<Info>(fragmentContext.ApplicationContext);
             Icon = new IconInfoCircle();
         }

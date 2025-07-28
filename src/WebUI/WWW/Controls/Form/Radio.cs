@@ -1,6 +1,6 @@
-﻿using WebExpress.Toutorial.WebUI.WebFragment.ControlPage;
-using WebExpress.Toutorial.WebUI.WebPage;
-using WebExpress.Toutorial.WebUI.WebScope;
+﻿using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
+using WebExpress.Tutorial.WebUI.WebPage;
+using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebComponent;
@@ -8,7 +8,7 @@ using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
 
-namespace WebExpress.Toutorial.WebUI.WWW.Controls.Form
+namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
 {
     /// <summary>    
     /// Represents the RadioButton control for the tutorial.    

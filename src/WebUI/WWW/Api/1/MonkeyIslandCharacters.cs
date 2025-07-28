@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using WebExpress.Toutorial.WebUI.Model;
-using WebExpress.Toutorial.WebUI.WWW.Controls;
+using WebExpress.Tutorial.WebUI.Model;
+using WebExpress.Tutorial.WebUI.WWW.Controls;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebApplication;
 using WebExpress.WebCore.WebAttribute;
@@ -10,7 +10,7 @@ using WebExpress.WebCore.WebRestApi;
 using WebExpress.WebCore.WebSitemap;
 
 
-namespace WebExpress.Toutorial.WebUI.WWW.Api._1
+namespace WebExpress.Tutorial.WebUI.WWW.Api._1
 {
     /// <summary>
     /// Represents a REST API table for managing and retrieving data about Monkey Island characters.

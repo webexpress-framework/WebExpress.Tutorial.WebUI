@@ -1,16 +1,16 @@
-﻿using WebExpress.Toutorial.WebUI.WebFragment.ControlPage;
-using WebExpress.Toutorial.WebUI.WebScope;
+﻿using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
+using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebPage;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 
-namespace WebExpress.Toutorial.WebUI.WWW.Controls
+namespace WebExpress.Tutorial.WebUI.WWW.Controls
 {
     /// <summary>
     /// Represents the home page for the tutorial.
     /// </summary>
-    [Title("webexpress.toutorial.webui:controlpage.label")]
+    [Title("webexpress.Tutorial.webui:controlpage.label")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
     [Scope<IScopeControlWebUI>]

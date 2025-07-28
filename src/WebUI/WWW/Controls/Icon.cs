@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using WebExpress.Toutorial.WebUI.WebFragment.ControlPage;
-using WebExpress.Toutorial.WebUI.WebPage;
-using WebExpress.Toutorial.WebUI.WebScope;
+using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
+using WebExpress.Tutorial.WebUI.WebPage;
+using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebIcon;
@@ -13,7 +13,7 @@ using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
 
-namespace WebExpress.Toutorial.WebUI.WWW.Controls
+namespace WebExpress.Tutorial.WebUI.WWW.Controls
 {
     /// <summary>  
     /// Represents the icon control for the tutorial.  

@@ -1,12 +1,12 @@
 ﻿using System.IO;
-using WebExpress.Toutorial.WebUI.WWW;
+using WebExpress.Tutorial.WebUI.WWW;
 using WebExpress.WebApp.WebSection;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebFragment;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebFragment;
 
-namespace WebExpress.Toutorial.WebUI.WebFragment.HomePage
+namespace WebExpress.Tutorial.WebUI.WebFragment.HomePage
 {
     /// <summary>
     /// Represents a control panel fragment that displays an overview of control-related information.
