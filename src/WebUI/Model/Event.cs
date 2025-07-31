@@ -123,7 +123,22 @@
         /// <summary>
         /// Event triggered when an element is removed.
         /// </summary>
-        REMOVE_EVENT
+        REMOVE_EVENT,
+
+        /// <summary>
+        ///  Event triggered when inline editing starts.
+        /// </summary>
+        START_INLINE_EDIT_EVENT,
+
+        /// <summary>
+        /// Event triggered when inline editing is saved.
+        /// </summary>
+        SAVE_INLINE_EDIT_EVENT,
+
+        /// <summary>
+        /// Event triggered when inline editing ends (regardless if saved or canceled).
+        /// </summary>
+        END_INLINE_EDIT_EVENT,
     }
 
     /// <summary>
@@ -164,6 +179,9 @@
                 Event.UPDATED_EVENT => "webexpress.webui.updated",
                 Event.ADD_EVENT => "webexpress.webui.add",
                 Event.REMOVE_EVENT => "webexpress.webui.remove",
+                Event.START_INLINE_EDIT_EVENT => "webexpress.webui.inlineedit.start",
+                Event.SAVE_INLINE_EDIT_EVENT => "webexpress.webui.inlineedit.save",
+                Event.END_INLINE_EDIT_EVENT => "webexpress.webui.inlineedit.end",
                 _ => ""
             };
         }
@@ -201,6 +219,9 @@
                 Event.UPDATED_EVENT => "Event triggered when an element is updated.",
                 Event.ADD_EVENT => "Event triggered when an element is added.",
                 Event.REMOVE_EVENT => "Event triggered when an element is removed.",
+                Event.START_INLINE_EDIT_EVENT => "Event triggered when inline editing starts.",
+                Event.SAVE_INLINE_EDIT_EVENT => "Event triggered when inline editing is saved.",
+                Event.END_INLINE_EDIT_EVENT => "Event triggered when inline editing ends (regardless if saved or canceled).",
                 _ => ""
             };
         }
