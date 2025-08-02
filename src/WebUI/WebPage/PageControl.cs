@@ -101,6 +101,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                 LineNumbers = true,
                 Styles = ["max-width: 91em;"],
                 Language = TypeLanguage.CSharp,
+
                 Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
             });
             visualTree.Content.MainPanel.AddPrimary(new ControlText()
