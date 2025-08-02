@@ -139,6 +139,26 @@
         /// Event triggered when inline editing ends (regardless if saved or canceled).
         /// </summary>
         END_INLINE_EDIT_EVENT,
+
+        /// <summary>
+        /// Event triggered when a file is selected.
+        /// </summary>
+        FILE_SELECTED_EVENT,
+
+        /// <summary>
+        /// Event triggered when a file upload completes successfully.
+        /// </summary>
+        UPLOAD_SUCCESS_EVENT,
+
+        /// <summary>
+        /// Event triggered when a file upload fails.
+        /// </summary>
+        UPLOAD_ERROR_EVENT,
+
+        /// <summary>
+        /// Event triggered to indicate upload progress.
+        /// </summary>
+        UPLOAD_PROGRESS_EVENT
     }
 
     /// <summary>
@@ -182,6 +202,10 @@
                 Event.START_INLINE_EDIT_EVENT => "webexpress.webui.inlineedit.start",
                 Event.SAVE_INLINE_EDIT_EVENT => "webexpress.webui.inlineedit.save",
                 Event.END_INLINE_EDIT_EVENT => "webexpress.webui.inlineedit.end",
+                Event.FILE_SELECTED_EVENT => "webexpress.webui.file.selected",
+                Event.UPLOAD_SUCCESS_EVENT => "webexpress.webui.upload.success",
+                Event.UPLOAD_ERROR_EVENT => "webexpress.webui.upload.error",
+                Event.UPLOAD_PROGRESS_EVENT => "webexpress.webui.upload.progress",
                 _ => ""
             };
         }
@@ -222,8 +246,13 @@
                 Event.START_INLINE_EDIT_EVENT => "Event triggered when inline editing starts.",
                 Event.SAVE_INLINE_EDIT_EVENT => "Event triggered when inline editing is saved.",
                 Event.END_INLINE_EDIT_EVENT => "Event triggered when inline editing ends (regardless if saved or canceled).",
+                Event.FILE_SELECTED_EVENT => "Event triggered when a file is selected.",
+                Event.UPLOAD_SUCCESS_EVENT => "Event triggered when a file upload completes successfully.",
+                Event.UPLOAD_ERROR_EVENT => "Event triggered when a file upload fails.",
+                Event.UPLOAD_PROGRESS_EVENT => "Event triggered to indicate upload progress.",
                 _ => ""
-            };
+            }
+;
         }
     }
 }
