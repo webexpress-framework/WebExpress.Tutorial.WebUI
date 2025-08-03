@@ -78,6 +78,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
 
             Stage.AddProperty
             (
+                "Placeholder",
+                "The `Placeholder` property displays a persistent hint or instruction text within the upload area. It serves as a static guide to inform users about the expected file types, size limits, or upload purpose.",
+                @"Placeholder = ""Placeholder""",
+                new ControlUpload()
+                {
+                    Uri = pageContext.Route.ToUri(),
+                    Placeholder = "Placeholder"
+                }
+            );
+
+            Stage.AddProperty
+            (
                 "Accept",
                 "The `Accept` property defines which file types the user is allowed to select when uploading files. It acts as a filter in the file picker dialog, helping guide users to choose appropriate formats.",
                 @"Accept = ""image/*""",
