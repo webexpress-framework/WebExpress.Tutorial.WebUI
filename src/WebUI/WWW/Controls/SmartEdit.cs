@@ -1,4 +1,5 @@
-﻿using WebExpress.Tutorial.WebUI.Model;
+﻿using System;
+using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
@@ -38,6 +39,121 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
             {
             }
                 .Add(new ControlFormItemInputText().Initialize(x => x.Value = ""Hello WebExpress!""))";
+
+            Stage.AddItem
+            (
+                "Add",
+                "Adds a form input element to the UI. The following input types are supported:",
+                "new ControlSmartEdit().Add(new ControlFormItemInputText().Initialize(x => x.Value = \"Hello WebExpress!\"))",
+                new ControlText()
+                {
+                    Text = "ControlFormItemInputText",
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    TextColor = new PropertyColorText(TypeColorText.Info)
+                },
+                new ControlSmartEdit()
+                {
+                }
+                    .Add(new ControlFormItemInputText().Initialize(x => x.Value = "Hello WebExpress!")),
+                new ControlText()
+                {
+                    Text = "ControlFormItemInputText (Wysiwyg)",
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    TextColor = new PropertyColorText(TypeColorText.Info)
+                },
+                new ControlSmartEdit()
+                {
+                }
+                    .Add(new ControlFormItemInputText() { Format = TypeEditTextFormat.Wysiwyg }
+                        .Initialize(x => x.Value = "Hello WebExpress!")),
+                new ControlText()
+                {
+                    Text = "ControlFormItemInputDate",
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    TextColor = new PropertyColorText(TypeColorText.Info)
+                },
+                new ControlSmartEdit()
+                {
+                }
+                    .Add(new ControlFormItemInputDate().Initialize(x => x.Value = DateTime.Now.ToShortDateString())),
+                new ControlText()
+                {
+                    Text = "ControlFormItemInputCalendar",
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    TextColor = new PropertyColorText(TypeColorText.Info)
+                },
+                new ControlSmartEdit()
+                {
+                }
+                    .Add(new ControlFormItemInputCalendar().Initialize(x => x.Value = DateTime.Now.ToShortDateString())),
+                new ControlText()
+                {
+                    Text = "ControlFormItemInputTag",
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    TextColor = new PropertyColorText(TypeColorText.Info)
+                },
+                new ControlSmartEdit()
+                {
+                }
+                    .Add(new ControlFormItemInputTag().Initialize(x => x.Value = "tag1;tag2")),
+                new ControlText()
+                {
+                    Text = "ControlFormItemInputCombo",
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    TextColor = new PropertyColorText(TypeColorText.Info)
+                },
+                new ControlSmartEdit()
+                {
+                }
+                    .Add(new ControlFormItemInputCombo()
+                        .Add
+                        (
+                            new ControlFormItemInputComboItem() { Value = "a", Text = "Combo A" },
+                            new ControlFormItemInputComboItem() { Value = "b", Text = "Combo B" }
+                        )
+                        .Initialize(x => x.Value = "Combo B")),
+                new ControlText()
+                {
+                    Text = "ControlFormItemInputSelection",
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    TextColor = new PropertyColorText(TypeColorText.Info)
+                },
+                new ControlSmartEdit()
+                {
+                }
+                    .Add(new ControlFormItemInputSelection()
+                        .Add
+                        (
+                            new ControlFormItemInputSelectionItem("a")
+                            {
+                                Label = "Selection A",
+                                LabelColor = TypeColorSelection.Warning
+                            },
+                            new ControlFormItemInputSelectionItem("b")
+                            {
+                                Label = "Selection B",
+                                LabelColor = TypeColorSelection.Warning
+                            }
+                        )
+                        .Initialize(x => x.Value = "a")),
+                new ControlText()
+                {
+                    Text = "ControlFormItemInputMove",
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    TextColor = new PropertyColorText(TypeColorText.Info)
+                },
+                new ControlSmartEdit()
+                {
+                }
+                    .Add(new ControlFormItemInputMove()
+                        .Add
+                        (
+                            new ControlFormItemInputMoveItem("a") { Label = "Item A" },
+                            new ControlFormItemInputMoveItem("b") { Label = "Item B" },
+                            new ControlFormItemInputMoveItem("c") { Label = "Item C" }
+                        )
+                        .Initialize(x => x.Value = "a;c"))
+            );
         }
     }
 }
