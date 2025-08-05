@@ -282,10 +282,10 @@ namespace WebExpress.Tutorial.WebUI.WebPage
         /// <returns>A string with the leading indentation removed from each line.</returns>
         private static string TrimIndentation(string input)
         {
-            var lines = input.Replace("\r", "").Split('\n', System.StringSplitOptions.RemoveEmptyEntries);
-            var indentation = lines.FirstOrDefault(line => !string.IsNullOrWhiteSpace(line))?.TakeWhile(char.IsWhiteSpace).Count() ?? 0;
+            var lines = input?.Replace("\r", "").Split('\n', System.StringSplitOptions.RemoveEmptyEntries);
+            var indentation = lines?.FirstOrDefault(line => !string.IsNullOrWhiteSpace(line))?.TakeWhile(char.IsWhiteSpace).Count() ?? 0;
 
-            for (int i = 0; i < lines.Length; i++)
+            for (int i = 0; i < lines?.Length; i++)
             {
                 if (lines[i].Length >= indentation)
                 {
@@ -293,7 +293,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                 }
             }
 
-            return string.Join("\n", lines);
+            return string.Join("\n", lines ?? []);
         }
     }
 }

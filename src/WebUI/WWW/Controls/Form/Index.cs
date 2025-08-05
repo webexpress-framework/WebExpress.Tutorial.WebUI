@@ -27,7 +27,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
                 Label = "Username",
                 Icon = new IconFont(),
                 Help = "Enter your desired username."
-            }.Validate(x => x.Add(string.IsNullOrWhiteSpace(x.Value), "Username is required. Please enter a valid name.")),
+            }.Validate(x => x.Add(string.IsNullOrWhiteSpace(x.Value.Text), "Username is required. Please enter a valid name.")),
             new ControlFormItemInputText("email")
             {
                 Label = "Email Address",
@@ -67,7 +67,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
                     Label = "Greetings",
                     Icon = new IconFont(),
                     Help = "This is the associated help text."
-                }.Initialize(args => args.Value = "Hello World!"))
+                }.Initialize(args => args.Value.Text = "Hello World!"))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"

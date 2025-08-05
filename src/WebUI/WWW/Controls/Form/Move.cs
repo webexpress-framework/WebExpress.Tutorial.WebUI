@@ -54,7 +54,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
                 Help = "Select the desired options here.",
                 Name = "myMoveCtrl"
             }
-                    .Initialize(args => args.Value = "2;3")
+                    .Initialize(args => args.Value.Text = "2;3")
                     .Process(x => componentHub
                         .GetComponentManager<NotificationManager>()
                         .AddNotification(pageContext.ApplicationContext, $"Value: {x.Value}"))

@@ -5,7 +5,10 @@ using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebComponent;
+using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebNotification;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls
 {
@@ -20,8 +23,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
     {
         /// <summary>  
         /// Initializes a new instance of the class.  
-        /// </summary>  
-        public SmartEdit()
+        /// </summary>
+        /// <param name="pageContext">The context of the page where the tree control is used.</param>
+        /// <param name="componentHub">
+        /// The component hub instance used to manage components and 
+        /// their interactions within the application.
+        /// </param>
+        public SmartEdit(IPageContext pageContext, IComponentHub componentHub)
         {
             Stage.AddEvent(Event.START_INLINE_EDIT_EVENT, Event.SAVE_INLINE_EDIT_EVENT, Event.END_INLINE_EDIT_EVENT);
 
@@ -31,7 +39,33 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 new ControlSmartEdit()
                 {
                 }
-                    .Add(new ControlFormItemInputText().Initialize(x => x.Value = "Hello WebExpress!"))
+                    .Add(new ControlFormItemInputText().Initialize(x => x.Value.Text = "Hello WebExpress!")
+                    .Process(x =>
+                    {
+                        var notificationManager = componentHub.GetComponentManager<NotificationManager>();
+                        notificationManager.AddNotification
+                        (
+                            pageContext.ApplicationContext,
+                            "Changes saved – great job!",
+                            type: TypeNotification.Success
+                        );
+                    }))
+            ];
+
+            Stage.DarkControls = [
+                new ControlSmartEdit()
+                {
+                }
+                    .Add(new ControlFormItemInputText().Initialize(x => x.Value.Text = "Hello WebExpress!")
+                    .Process(x =>
+                    {
+                        var notificationManager = componentHub.GetComponentManager<NotificationManager>();
+                        notificationManager.AddNotification
+                        (
+                            pageContext.ApplicationContext,
+                            "Your text has been updated successfully!"
+                        );
+                    }))
             ];
 
             Stage.Code = @"
@@ -54,7 +88,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 new ControlSmartEdit()
                 {
                 }
-                    .Add(new ControlFormItemInputText().Initialize(x => x.Value = "Hello WebExpress!")),
+                    .Add(new ControlFormItemInputText().Initialize(x => x.Value.Text = "Hello WebExpress!")),
                 new ControlText()
                 {
                     Text = "ControlFormItemInputText (Wysiwyg)",
@@ -65,7 +99,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 {
                 }
                     .Add(new ControlFormItemInputText() { Format = TypeEditTextFormat.Wysiwyg }
-                        .Initialize(x => x.Value = "Hello WebExpress!")),
+                        .Initialize(x => x.Value.Text = "Hello WebExpress!")),
                 new ControlText()
                 {
                     Text = "ControlFormItemInputDate",
@@ -75,7 +109,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 new ControlSmartEdit()
                 {
                 }
-                    .Add(new ControlFormItemInputDate().Initialize(x => x.Value = DateTime.Now.ToShortDateString())),
+                    .Add(new ControlFormItemInputDate().Initialize(x => x.Value.From = DateTime.Now)),
                 new ControlText()
                 {
                     Text = "ControlFormItemInputCalendar",
@@ -85,7 +119,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 new ControlSmartEdit()
                 {
                 }
-                    .Add(new ControlFormItemInputCalendar().Initialize(x => x.Value = DateTime.Now.ToShortDateString())),
+                    .Add(new ControlFormItemInputCalendar().Initialize(x => x.Value.Text = DateTime.Now.ToShortDateString())),
                 new ControlText()
                 {
                     Text = "ControlFormItemInputTag",
@@ -95,7 +129,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 new ControlSmartEdit()
                 {
                 }
-                    .Add(new ControlFormItemInputTag().Initialize(x => x.Value = "tag1;tag2")),
+                    .Add(new ControlFormItemInputTag().Initialize(x => x.Value.Text = "tag1;tag2")),
                 new ControlText()
                 {
                     Text = "ControlFormItemInputCombo",
@@ -111,7 +145,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                             new ControlFormItemInputComboItem() { Value = "a", Text = "Combo A" },
                             new ControlFormItemInputComboItem() { Value = "b", Text = "Combo B" }
                         )
-                        .Initialize(x => x.Value = "Combo B")),
+                        .Initialize(x => x.Value.Text = "Combo B")),
                 new ControlText()
                 {
                     Text = "ControlFormItemInputSelection",
@@ -135,7 +169,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                                 LabelColor = TypeColorSelection.Warning
                             }
                         )
-                        .Initialize(x => x.Value = "a")),
+                        .Initialize(x => x.Value.Text = "a")),
                 new ControlText()
                 {
                     Text = "ControlFormItemInputMove",
@@ -152,7 +186,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                             new ControlFormItemInputMoveItem("b") { Label = "Item B" },
                             new ControlFormItemInputMoveItem("c") { Label = "Item C" }
                         )
-                        .Initialize(x => x.Value = "a;c"))
+                        .Initialize(x => x.Value.Text = "a;c"))
             );
         }
     }

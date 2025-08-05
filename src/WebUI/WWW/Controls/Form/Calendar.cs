@@ -39,7 +39,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
                 Help = "Select the desired date here.",
                 Name = "myCalendarCtrl"
             }
-                .Initialize(args => args.Value = "2024-06-01")
+                .Initialize(args => args.Value.Text = "2024-06-01")
                 .Process(x => componentHub
                     .GetComponentManager<NotificationManager>()
                     .AddNotification(pageContext.ApplicationContext, $"Value: {x.Value}"))

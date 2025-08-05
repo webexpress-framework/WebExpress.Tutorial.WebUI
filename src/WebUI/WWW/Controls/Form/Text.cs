@@ -57,7 +57,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
                     .Add(new ControlFormItemInputText()
                     {
                         MinLength = 5,
-                    }.Initialize(x => x.Value = "01234"))
+                    }.Initialize(x => x.Value.Text = "01234"))
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
 
@@ -70,7 +70,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
                     .Add(new ControlFormItemInputText()
                     {
                         MaxLength = 10,
-                    }.Initialize(x => x.Value = "0123456789"))
+                    }.Initialize(x => x.Value.Text = "0123456789"))
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
 
@@ -83,7 +83,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
                     .Add(new ControlFormItemInputText("pattern")
                     {
                         Pattern = "[A-Za-z]{4}"
-                    }.Initialize(x => x.Value = "Hello"))
+                    }.Initialize(x => x.Value.Text = "Hello"))
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
 
