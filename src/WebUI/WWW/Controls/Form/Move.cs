@@ -54,7 +54,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
                 Help = "Select the desired options here.",
                 Name = "myMoveCtrl"
             }
-                    .Initialize(args => args.Value.Text = "2;3")
+                    .Initialize(args => args.Value.Add("2").Add("3"))
                     .Process(x => componentHub
                         .GetComponentManager<NotificationManager>()
                         .AddNotification(pageContext.ApplicationContext, $"Value: {x.Value}"))
@@ -62,9 +62,19 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
-            new ControlForm(new ControlFormItemInputSelection(null, new ControlFormItemInputMoveItem(""1"") { Label = ""Option 1"" })  
-            {  
-            });";
+            new ControlFormItemInputMove(null, [.. _options])
+            {
+                Icon = new IconShieldCat(),
+                Label = ""Options"",
+                Help = ""Select the desired options here."",
+                Name = ""myMoveCtrl""
+            }
+                    .Initialize(args => args.Value.Add(""2"").Add(""3""))
+                    .Process(x => componentHub
+                        .GetComponentManager<NotificationManager>()
+                        .AddNotification(pageContext.ApplicationContext, $""Value: {x.Value}""))
+            )
+                .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
             Stage.AddProperty
             (

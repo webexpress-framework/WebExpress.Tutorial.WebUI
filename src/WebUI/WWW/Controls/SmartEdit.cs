@@ -109,7 +109,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 new ControlSmartEdit()
                 {
                 }
-                    .Add(new ControlFormItemInputDate().Initialize(x => x.Value.From = DateTime.Now)),
+                    .Add(new ControlFormItemInputDate().Initialize(x => x.Value.Date = DateTime.Now)),
                 new ControlText()
                 {
                     Text = "ControlFormItemInputCalendar",
@@ -119,7 +119,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 new ControlSmartEdit()
                 {
                 }
-                    .Add(new ControlFormItemInputCalendar().Initialize(x => x.Value.Text = DateTime.Now.ToShortDateString())),
+                    .Add(new ControlFormItemInputCalendar().Initialize(x => x.Value.Date = DateTime.Now)),
                 new ControlText()
                 {
                     Text = "ControlFormItemInputTag",
@@ -129,7 +129,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 new ControlSmartEdit()
                 {
                 }
-                    .Add(new ControlFormItemInputTag().Initialize(x => x.Value.Text = "tag1;tag2")),
+                    .Add(new ControlFormItemInputTag().Initialize(x => x.Value.Add("tag1;tag2"))),
                 new ControlText()
                 {
                     Text = "ControlFormItemInputCombo",
@@ -186,7 +186,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                             new ControlFormItemInputMoveItem("b") { Label = "Item B" },
                             new ControlFormItemInputMoveItem("c") { Label = "Item C" }
                         )
-                        .Initialize(x => x.Value.Text = "a;c"))
+                        .Initialize(x => x.Value.Add("a;c")))
             );
         }
     }

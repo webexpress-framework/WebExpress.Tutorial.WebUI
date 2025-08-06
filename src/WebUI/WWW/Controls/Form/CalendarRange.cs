@@ -14,33 +14,37 @@ using WebExpress.WebUI.WebNotification;
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
 {
     /// <summary>    
-    /// Represents the calendar selection field for the tutorial.    
+    /// Represents the calendar range selection field for the tutorial.    
     /// </summary>    
-    [Title("Calendar")]
+    [Title("CalendarRange")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
     [Scope<IScopeControlWebUI>]
-    public sealed class Calendar : PageControl
+    public sealed class CalendarRange : PageControl
     {
         /// <summary>    
         /// Initializes a new instance of the class.    
         /// </summary>    
         /// <param name="pageContext">The context of the page where the calendar field is used.</param>  
         /// <param name="componentHub">The component hub for managing components.</param>  
-        public Calendar(IPageContext pageContext, IComponentHub componentHub)
+        public CalendarRange(IPageContext pageContext, IComponentHub componentHub)
         {
             Stage.AddEvent(Event.CHANGE_VALUE_EVENT, Event.DROPDOWN_SHOW_EVENT, Event.DROPDOWN_HIDDEN_EVENT);
 
-            Stage.Description = @"The `Calendar` field enables intuitive selection of a date via a calendar. Users can conveniently select a date, providing a user-friendly and efficient interaction.";
+            Stage.Description = @"The `CalendarRange` field enables intuitive selection of a date via a calendar. Users can conveniently select a date, providing a user-friendly and efficient interaction.";
 
-            Stage.Control = new ControlForm("myform", new ControlFormItemInputCalendar(null)
+            Stage.Control = new ControlForm("myform", new ControlFormItemInputCalendarRange(null)
             {
                 Icon = new IconCalendar(),
                 Label = "Calendar",
                 Help = "Select the desired date here.",
                 Name = "myCalendarCtrl"
             }
-                .Initialize(args => args.Value.Date = DateTime.Now)
+                .Initialize(args =>
+                {
+                    args.Value.From = DateTime.Now.AddDays(-2);
+                    args.Value.To = DateTime.Now.AddDays(2);
+                })
                 .Process(x => componentHub
                     .GetComponentManager<NotificationManager>()
                     .AddNotification(pageContext.ApplicationContext, $"Value: {x.Value}"))
@@ -55,7 +59,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
                         Help = ""Select the desired date here."",
                         Name = ""myCalendarCtrl""
                     }
-                        .Initialize(args => args.Value.Date = DateTime.Now)
+                        .Initialize(args =>
+                        {
+                            args.Value.From = DateTime.Now.AddDays(-2);
+                            args.Value.To = DateTime.Now.AddDays(2);
+                        })
                         .Process(x => componentHub
                             .GetComponentManager<NotificationManager>()
                             .AddNotification(pageContext.ApplicationContext, $""Value: {x.Value}""))
