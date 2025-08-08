@@ -38,9 +38,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
                 Icon = new IconCalendar(),
                 Label = "Date",
                 Help = "Select the desired date here.",
-                Name = "myDateCtrl"
+                Name = "myDateCtrl",
+                Format = "yyyy-MM-dd"
             }
-                .Initialize(args => args.Value.From = DateTime.Now)
+                .Initialize(args =>
+                {
+                    args.Value.From = DateTime.Now.AddDays(-2);
+                    args.Value.To = DateTime.Now.AddDays(2);
+                })
                 .Process(x => componentHub
                     .GetComponentManager<NotificationManager>()
                     .AddNotification(pageContext.ApplicationContext, $"Value: {x.Value}"))
@@ -54,7 +59,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
                   Help = "Select the desired date here.",
                   Name = "myDateCtrl"
               }
-                 .Initialize(args => args.Value.From = DateTime.Now)
+                 .Initialize(args =>
+                 {
+                    args.Value.From = DateTime.Now.AddDays(-2);
+                    args.Value.To = DateTime.Now.AddDays(2);
+                 })
                  .Process(x => componentHub
                      .GetComponentManager<NotificationManager>()
                      .AddNotification(pageContext.ApplicationContext, $"Value: {x.Value}"))
@@ -69,7 +78,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
                       Help = ""Select the desired date here."",
                       Name = ""myDateCtrl""
                   }
-                      .Initialize(args => args.Value.From = DateTime.Now)
+                      .Initialize(args =>
+                      {
+                          args.Value.From = DateTime.Now.AddDays(-2);
+                          args.Value.To = DateTime.Now.AddDays(2);
+                      })
                       .Process(x => componentHub
                           .GetComponentManager<NotificationManager>()
                           .AddNotification(pageContext.ApplicationContext, $""Value: {x.Value}""))
