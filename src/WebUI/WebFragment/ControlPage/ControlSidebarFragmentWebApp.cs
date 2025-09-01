@@ -28,7 +28,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
         private readonly IFragmentContext _fragmentContext;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ControlSidebarFragmentWebUI"/> class.
+        /// Initializes a new instance of the <see cref="ControlSidebarFragmentWebApp"/> class.
         /// </summary>
         /// <param name="componentHub">The component hub providing access to various managers and services.</param>
         /// <param name="fragmentContext">The context of the fragment, providing access to the current state and dependencies.</param>
