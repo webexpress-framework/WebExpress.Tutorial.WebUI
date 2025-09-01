@@ -1,0 +1,14 @@
+plugin.name=WebUI
+plugin.description=Ein Tutorial, das die UI-Elemente einer WebExpress-Anwendung demonstriert.
+
+app.name=WebUI Tutorial
+app.label=WebExpress UI-Anwendung
+app.description=Ein Tutorial, das die UI-Elemente einer WebExpress-Anwendung demonstriert.
+app.license.label=Lizenz MIT
+app.license.uri=https://github.com/ReneSchwarzer/WebExpress.Tutorial.WebUI/blob/main/LICENSE
+app.about=Über WebUI Tutorial
+app.version.label={0} Version {1} erstellt mit {2} Version {3}.
+
+homepage.label=Startseite
+infopage.label=Info
+controlpage.label=Steuerelemente
