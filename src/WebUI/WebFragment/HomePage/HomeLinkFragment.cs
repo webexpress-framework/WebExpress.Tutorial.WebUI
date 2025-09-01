@@ -16,7 +16,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.HomePage
     /// Represents a navigation item link for the home page.
     /// </summary>
     /// <remarks>
-    /// This fragment is used to create a navigation link to the Info page with an icon and label.
+    /// This fragment is used to create a navigation link to the home page (Index) with an icon and label.
     /// </remarks>
     [Section<SectionAppNavigationPreferences>]
     [Scope<IScopeGeneral>]
