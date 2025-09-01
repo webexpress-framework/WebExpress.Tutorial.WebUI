@@ -3,7 +3,7 @@
 namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
 {
     /// <summary>
-    /// Represents a scope fpr control pages an fragments.
+    /// Represents a scope for control pages an fragments.
     /// </summary>
     public interface IScopeControl : IScope
     {
