@@ -73,7 +73,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
         /// </summary>
         /// <param name="items">The flat list of tree items.</param>
         /// <param name="root">The root URI to determine the hierarchy.</param>
-        /// <returns>A collection of <see cref="ControlTreeItemLink"/> representing the hierarchical tree structure.</returns>
+        /// <returns>A collection of <see cref="ControlTreeItem"/> representing the hierarchical tree structure.</returns>
         private static IEnumerable<ControlTreeItem> BuildTree(IEnumerable<ControlTreeItem> items, IUri root)
         {
             var nodes = new List<ControlTreeItem>();
