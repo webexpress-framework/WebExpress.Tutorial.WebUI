@@ -168,10 +168,14 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
 
-                visualTree.Content.MainPanel.AddPrimary(new ControlText()
+                visualTree.Content.MainPanel.AddPrimary(new ControlCode()
                 {
-                    Text = TrimIndentation(supportedAct.Code),
-                    Format = TypeFormatText.Code
+                    Code = TrimIndentation(supportedAct.Code),
+                    LineNumbers = true,
+                    Styles = ["max-width: 91em;"],
+                    Language = TypeLanguage.CSharp,
+
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
             }
 
@@ -225,10 +229,14 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
 
-                visualTree.Content.MainPanel.AddPrimary(new ControlText()
+                visualTree.Content.MainPanel.AddPrimary(new ControlCode()
                 {
-                    Text = TrimIndentation(supportedAct.Code),
-                    Format = TypeFormatText.Code
+                    Code = TrimIndentation(supportedAct.Code),
+                    LineNumbers = true,
+                    Styles = ["max-width: 91em;"],
+                    Language = TypeLanguage.CSharp,
+
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
             }
 

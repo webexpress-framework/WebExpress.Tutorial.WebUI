@@ -419,9 +419,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 "AddRow",
                 "The `AddRow` function adds a new row to a table, ensuring structural consistency and proper data integration.",
                 @"
-                AddRows(new ControlTableRow(""myRow4"") 
-                { 
-                    Color = TypeTableColor.Danger 
+                .AddRows(new ControlTableRow(""myRow4"")
+                {
+                    Color = TypeTableColor.Danger
                 }
                     .Add
                     (
@@ -429,13 +429,22 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                         new ControlTableCell() { Text = ""Row 4 - Cell 2"" },
                         new ControlTableCell() { Text = ""Row 4 - Cell 3"" }
                     )
-                )
-                .AddRows(new ControlTableRow(""myRow5"")
                     .Add
                     (
-                        new ControlTableCell() { Text = ""Row 5 - Cell 1"", Color = TypeTableColor.Primary },
-                        new ControlTableCell() { Text = ""Row 5 - Cell 2"", Icon = new IconHome() },
-                        new ControlTableCell() { Text = ""Row 5 - Cell 3"" }
+                        new ControlTableRow(""myRow4_1"")
+                        .Add
+                        (
+                            new ControlTableCell() { Text = ""Row 4.1 - Cell 1"" },
+                            new ControlTableCell() { Text = ""Row 4.1 - Cell 2"" },
+                            new ControlTableCell() { Text = ""Row 4.1 - Cell 3"" }
+                        ),
+                        new ControlTableRow(""myRow4_2"")
+                        .Add
+                        (
+                            new ControlTableCell() { Text = ""Row 4.2 - Cell 1"" },
+                            new ControlTableCell() { Text = ""Row 4.2 - Cell 2"" },
+                            new ControlTableCell() { Text = ""Row 4.2 - Cell 3"" }
+                        )
                     )
                 )",
                 new ControlTable()
@@ -452,6 +461,23 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                             new ControlTableCell() { Text = "Row 4 - Cell 1" },
                             new ControlTableCell() { Text = "Row 4 - Cell 2" },
                             new ControlTableCell() { Text = "Row 4 - Cell 3" }
+                        )
+                        .Add
+                        (
+                            new ControlTableRow("myRow4_1")
+                            .Add
+                            (
+                                new ControlTableCell() { Text = "Row 4.1 - Cell 1" },
+                                new ControlTableCell() { Text = "Row 4.1 - Cell 2" },
+                                new ControlTableCell() { Text = "Row 4.1 - Cell 3" }
+                            ),
+                            new ControlTableRow("myRow4_2")
+                            .Add
+                            (
+                                new ControlTableCell() { Text = "Row 4.2 - Cell 1" },
+                                new ControlTableCell() { Text = "Row 4.2 - Cell 2" },
+                                new ControlTableCell() { Text = "Row 4.2 - Cell 3" }
+                            )
                         )
                     )
                     .AddRows(new ControlTableRow("myRow5")
