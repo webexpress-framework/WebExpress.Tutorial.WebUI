@@ -356,7 +356,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 "AddColumn",
                 "The `AddColumn` function is used to add new columns to a table, allowing for increased data representation and flexibility in table structure.",
                 @"
-                AddColumns(new ControlTableColumnEditor()
+                AddColumns(new ControlTableColumnTemplateEditor()
                 {
                     Title = ""Column"",
                     Icon = new IconTableTennisPaddleBall(),
@@ -377,11 +377,57 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                                 type: TypeNotification.Success
                             );
                         })))",
+                new ControlText() { Text = "ControlTableColumn", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                 }
                     .AddColumns(_columns)
-                    .AddColumns(new ControlTableColumnEditor()
+                    .AddColumns(new ControlTableColumn()
+                    {
+                        Title = "Column",
+                        Icon = new IconTableTennisPaddleBall(),
+                        Color = TypeTableColor.Warning
+                    })
+                    .AddRows(_rows.Select
+                    (
+                        x => new ControlTableRow()
+                            .Add(x.Cells)
+                            .Add(new ControlTableCell($"myDate_{i}")
+                            {
+                                Text = DateTime.Now.AddDays(i++).ToString("yyyy-MM-dd")
+                            })
+                    )),
+                new ControlText() { Text = "ControlTableColumnTemplate", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlTable()
+                {
+                }
+                    .AddColumns(_columns)
+                    .AddColumns(new ControlTableColumnTemplate()
+                    {
+                        Title = "Column",
+                        Icon = new IconTableTennisPaddleBall(),
+                        Color = TypeTableColor.Warning
+                    }
+                        .Add(new ControlDate(Guid.NewGuid().ToString())
+                        {
+                            Format = "yyyy-MM-dd",
+                            Date = DateTime.Now
+                        }))
+                    .AddRows(_rows.Select
+                    (
+                        x => new ControlTableRow()
+                            .Add(x.Cells)
+                            .Add(new ControlTableCell($"myDate_{i}")
+                            {
+                                Text = DateTime.Now.AddDays(i++).ToString("yyyy-MM-dd")
+                            })
+                    )),
+                new ControlText() { Text = "ControlTableColumnTemplateEditor", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlTable()
+                {
+                }
+                    .AddColumns(_columns)
+                    .AddColumns(new ControlTableColumnTemplateEditor()
                     {
                         Title = "Column",
                         Icon = new IconTableTennisPaddleBall(),
@@ -399,7 +445,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                                 notificationManager.AddNotification
                                 (
                                     pageContext.ApplicationContext,
-                                    "Changes saved – great job!",
+                                    "Changes saved - great job!",
                                     type: TypeNotification.Success
                                 );
                             })))
