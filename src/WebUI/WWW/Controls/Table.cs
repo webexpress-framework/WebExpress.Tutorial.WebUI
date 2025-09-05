@@ -81,7 +81,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
             var i = 0;
             var notificationManager = componentHub.GetComponentManager<NotificationManager>();
 
-            Stage.AddEvent(Event.TABLE_SORT_EVENT, Event.COLUMN_REORDER_EVENT, Event.ROW_REORDER_EVENT, Event.START_INLINE_EDIT_EVENT, Event.SAVE_INLINE_EDIT_EVENT, Event.END_INLINE_EDIT_EVENT);
+            Stage.AddEvent(Event.TABLE_SORT_EVENT, Event.COLUMN_REORDER_EVENT, Event.ROW_REORDER_EVENT, Event.START_INLINE_EDIT_EVENT, Event.SAVE_INLINE_EDIT_EVENT, Event.END_INLINE_EDIT_EVENT, Event.COLUMN_SEARCH_EVENT);
 
             Stage.Description = @"A `TableControl` is a user interface component designed to display structured data in a tabular format. It organizes information into rows and columns, making it easier for users to view, interact with, and manage data efficiently.";
 
@@ -467,7 +467,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 @"
                 .AddRows(new ControlTableRow(""myRow4"")
                 {
-                    Color = TypeTableColor.Danger
+                    Color = TypeTableColor.Danger,
+                    ExpandState = TypeExpandState.Collapsed
                 }
                     .Add
                     (
@@ -500,7 +501,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     .AddRows(_rows)
                     .AddRows(new ControlTableRow("myRow4")
                     {
-                        Color = TypeTableColor.Danger
+                        Color = TypeTableColor.Danger,
+                        ExpandState = TypeExpandState.Collapsed
                     }
                         .Add
                         (

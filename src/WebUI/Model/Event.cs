@@ -41,6 +41,11 @@
         COLUMN_REORDER_EVENT,
 
         /// <summary>
+        /// Event triggered when a search/filter is applied to a column.
+        /// </summary>
+        COLUMN_SEARCH_EVENT,
+
+        /// <summary>
         /// Event triggered when rows are reordered in a table control.
         /// </summary>
         ROW_REORDER_EVENT,
@@ -187,6 +192,7 @@
                 Event.DROPDOWN_HIDDEN_EVENT => "webexpress.webui.dropdown.hidden",
                 Event.CHANGE_FAVORITE_EVENT => "webexpress.webui.change.favorite",
                 Event.COLUMN_REORDER_EVENT => "webexpress.webui.table.column.reorder",
+                Event.COLUMN_SEARCH_EVENT => "webexpress.webui.table.column.search",
                 Event.ROW_REORDER_EVENT => "webexpress.webui.table.row.reorder",
                 Event.TABLE_SORT_EVENT => "webexpress.webui.table.sorted",
                 Event.CHANGE_VALUE_EVENT => "webexpress.webui.change.value",
@@ -232,7 +238,7 @@
                 Event.DROPDOWN_HIDDEN_EVENT => "Event triggered when a dropdown menu is hidden.",
                 Event.CHANGE_FAVORITE_EVENT => "Event triggered when a favorite changes.",
                 Event.COLUMN_REORDER_EVENT => "Event triggered when columns are reordered in a table control.",
-
+                Event.COLUMN_SEARCH_EVENT => "Event triggered when a search/filter is applied to a column.",
                 Event.ROW_REORDER_EVENT => "Event triggered when rows are reordered in a table control.",
                 Event.TABLE_SORT_EVENT => "Event triggered when a table is sorted.",
                 Event.CHANGE_VALUE_EVENT => "Event triggered when the value of an input or control changes.",
