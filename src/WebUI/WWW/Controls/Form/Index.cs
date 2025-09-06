@@ -190,7 +190,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
                     Conformation = new ControlAlert()
                     {
                         Text = @"Thank you! Your submission has been successfully received. We have received your request and will process it as soon as possible. If you need any further information, feel free to reach out to us anytime.",
-                        BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Success)
+                        BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Success)
                     }
 
                 }.AddPreferencesButton(new ControlFormItemButtonSubmit())

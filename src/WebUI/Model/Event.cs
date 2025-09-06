@@ -168,7 +168,17 @@
         /// <summary>
         /// Event triggered to indicate upload progress.
         /// </summary>
-        UPLOAD_PROGRESS_EVENT
+        UPLOAD_PROGRESS_EVENT,
+
+        /// <summary>
+        /// Event triggered when a tile search operation is performed.
+        /// </summary>
+        TILE_SEARCH_EVENT,
+
+        /// <summary>
+        /// Event triggered when tiles are sorted by a specific criterion.
+        /// </summary>
+        TILE_SORT_EVENT
     }
 
     /// <summary>
@@ -218,6 +228,8 @@
                 Event.UPLOAD_SUCCESS_EVENT => "webexpress.webui.upload.success",
                 Event.UPLOAD_ERROR_EVENT => "webexpress.webui.upload.error",
                 Event.UPLOAD_PROGRESS_EVENT => "webexpress.webui.upload.progress",
+                Event.TILE_SEARCH_EVENT => "webexpress.webui.tile.search",
+                Event.TILE_SORT_EVENT => "webexpress.webui.tile.sort",
                 _ => ""
             };
         }
@@ -264,9 +276,10 @@
                 Event.UPLOAD_SUCCESS_EVENT => "Event triggered when a file upload completes successfully.",
                 Event.UPLOAD_ERROR_EVENT => "Event triggered when a file upload fails.",
                 Event.UPLOAD_PROGRESS_EVENT => "Event triggered to indicate upload progress.",
+                Event.TILE_SEARCH_EVENT => "Event triggered when a tile search operation is performed.",
+                Event.TILE_SORT_EVENT => "Event triggered when tiles are sorted by a specific criterion.",
                 _ => ""
-            }
-;
+            };
         }
     }
 }

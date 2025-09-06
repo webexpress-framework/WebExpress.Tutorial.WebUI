@@ -28,7 +28,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 Text = "This is a sample alert!",
                 Dismissible = TypeDismissibleAlert.Dismissible,
                 Fade = TypeFade.FadeShow,
-                BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Info)
+                BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Info)
             };
 
             Stage.Code = @"
@@ -37,7 +37,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 Text = ""This is a sample alert!"", 
                 Dismissible = TypesDismissibleAlert.Dismissible, 
                 Fade = TypesFade.FadeShow, 
-                BackgroundColor = new PropertyColorBackground(TypesBackgroundColor.Info) 
+                BackgroundColor = new PropertyColorBackground(TypeColorBackgroundAlert.Info) 
             };";
 
             Stage.AddProperty
@@ -56,70 +56,70 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     Text = "This is a primary alert!",
                     Dismissible = TypeDismissibleAlert.Dismissible,
                     Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Primary)
+                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Primary)
                 },
                 new ControlAlert()
                 {
                     Text = "This is a secondary alert!",
                     Dismissible = TypeDismissibleAlert.Dismissible,
                     Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Secondary)
+                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Secondary)
                 },
                 new ControlAlert()
                 {
                     Text = "This is an info alert!",
                     Dismissible = TypeDismissibleAlert.Dismissible,
                     Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Info)
+                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Info)
                 },
                 new ControlAlert()
                 {
                     Text = "This is a success alert!",
                     Dismissible = TypeDismissibleAlert.Dismissible,
                     Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Success)
+                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Success)
                 },
                 new ControlAlert()
                 {
                     Text = "This is a warning alert!",
                     Dismissible = TypeDismissibleAlert.Dismissible,
                     Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Warning)
+                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Warning)
                 },
                 new ControlAlert()
                 {
                     Text = "This is an error alert!",
                     Dismissible = TypeDismissibleAlert.Dismissible,
                     Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Danger)
+                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Danger)
                 },
                 new ControlAlert()
                 {
                     Text = "This is a dark alert!",
                     Dismissible = TypeDismissibleAlert.Dismissible,
                     Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Dark)
+                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Dark)
                 },
                 new ControlAlert()
                 {
                     Text = "This is a light alert!",
                     Dismissible = TypeDismissibleAlert.Dismissible,
                     Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Light)
+                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Light)
                 },
                 new ControlAlert()
                 {
                     Text = "This is a white alert!",
                     Dismissible = TypeDismissibleAlert.Dismissible,
                     Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.White)
+                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.White)
                 },
                 new ControlAlert()
                 {
                     Text = "This is a transparent alert!",
                     Dismissible = TypeDismissibleAlert.Dismissible,
                     Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Transparent)
+                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Transparent)
                 },
                 new ControlAlert()
                 {
@@ -141,14 +141,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     Text = "This is a success alert that cannot be dismissed.",
                     Dismissible = TypeDismissibleAlert.None,
                     Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Success)
+                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Success)
                 },
                 new ControlAlert()
                 {
                     Text = "This is a success alert that can be dismissed.",
                     Dismissible = TypeDismissibleAlert.Dismissible,
                     Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Success)
+                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Success)
                 }
             );
 
@@ -162,14 +162,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     Text = "This is a success alert without animation.",
                     Dismissible = TypeDismissibleAlert.Dismissible,
                     Fade = TypeFade.None,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Success)
+                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Success)
                 },
                 new ControlAlert()
                 {
                     Text = "This is a success alert with full animation.",
                     Dismissible = TypeDismissibleAlert.Dismissible,
                     Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Success)
+                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Success)
                 }
             );
         }

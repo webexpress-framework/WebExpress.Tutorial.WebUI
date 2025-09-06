@@ -108,25 +108,25 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 (
                     "Bordered",
                     @"The `Bordered` property of a table control adds visible borders around the entire table and each individual cell. This enhances the table's structure, making it easier to read and visually distinguish its contents.",
-                    @"TableBorder = TypeTableBorder.Borderless",
+                    @"TableBorder = TypeBorderTable.Borderless",
                     new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                     new ControlTable()
                     {
-                        TableBorder = TypeTableBorder.Default
+                        TableBorder = TypeBorderTable.Default
                     }
                         .AddColumns(_columns)
                         .AddRows(_rows),
                     new ControlText() { Text = "Borderless", TextColor = new PropertyColorText(TypeColorText.Info) },
                     new ControlTable()
                     {
-                        TableBorder = TypeTableBorder.Borderless
+                        TableBorder = TypeBorderTable.Borderless
                     }
                         .AddColumns(_columns)
                         .AddRows(_rows),
                     new ControlText() { Text = "Bordered", TextColor = new PropertyColorText(TypeColorText.Info) },
                     new ControlTable()
                     {
-                        TableBorder = TypeTableBorder.Bordered
+                        TableBorder = TypeBorderTable.Bordered
                     }
                         .AddColumns(_columns)
                         .AddRows(_rows)
@@ -137,32 +137,32 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 (
                     "Striped",
                     @"The `Striped` property of a table control enhances its readability by applying alternating background colors to its rows. This visual distinction makes large datasets easier to scan and improves organization.",
-                    @"Striped = TypeTableStriped.Row",
+                    @"Striped = TypeStripedTable.Row",
                     new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                     new ControlTable()
                     {
-                        Striped = TypeTableStriped.Default
+                        Striped = TypeStripedTable.Default
                     }
                         .AddColumns(_columns)
                         .AddRows(_rows),
                     new ControlText() { Text = "Column", TextColor = new PropertyColorText(TypeColorText.Info) },
                     new ControlTable()
                     {
-                        Striped = TypeTableStriped.Column
+                        Striped = TypeStripedTable.Column
                     }
                         .AddColumns(_columns)
                         .AddRows(_rows),
                     new ControlText() { Text = "Row", TextColor = new PropertyColorText(TypeColorText.Info) },
                     new ControlTable()
                     {
-                        Striped = TypeTableStriped.Row
+                        Striped = TypeStripedTable.Row
                     }
                         .AddColumns(_columns)
                         .AddRows(_rows),
                     new ControlText() { Text = "Both", TextColor = new PropertyColorText(TypeColorText.Info) },
                     new ControlTable()
                     {
-                        Striped = TypeTableStriped.Both
+                        Striped = TypeStripedTable.Both
                     }
                         .AddColumns(_columns)
                         .AddRows(_rows)
@@ -173,67 +173,67 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 (
                     "Color",
                     @"The `Color` property in a table control allows customization of the table’s background color, helping improve readability and design consistency.",
-                    @"Color = TypeTableColor.Primary",
+                    @"Color = TypeColorTable.Primary",
                     new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                     new ControlTable()
                     {
-                        Color = TypeTableColor.Default
+                        Color = TypeColorTable.Default
                     }
                         .AddColumns(_columns)
                         .AddRows(_rows),
                     new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
                     new ControlTable()
                     {
-                        Color = TypeTableColor.Primary
+                        Color = TypeColorTable.Primary
                     }
                         .AddColumns(_columns)
                         .AddRows(_rows),
                     new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
                     new ControlTable()
                     {
-                        Color = TypeTableColor.Secondary
+                        Color = TypeColorTable.Secondary
                     }
                         .AddColumns(_columns)
                         .AddRows(_rows),
                     new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
                     new ControlTable()
                     {
-                        Color = TypeTableColor.Info
+                        Color = TypeColorTable.Info
                     }
                         .AddColumns(_columns)
                         .AddRows(_rows),
                     new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
                     new ControlTable()
                     {
-                        Color = TypeTableColor.Success
+                        Color = TypeColorTable.Success
                     }
                         .AddColumns(_columns)
                         .AddRows(_rows),
                     new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
                     new ControlTable()
                     {
-                        Color = TypeTableColor.Warning
+                        Color = TypeColorTable.Warning
                     }
                         .AddColumns(_columns)
                         .AddRows(_rows),
                     new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
                     new ControlTable()
                     {
-                        Color = TypeTableColor.Danger
+                        Color = TypeColorTable.Danger
                     }
                         .AddColumns(_columns)
                         .AddRows(_rows),
                     new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
                     new ControlTable()
                     {
-                        Color = TypeTableColor.Light
+                        Color = TypeColorTable.Light
                     }
                         .AddColumns(_columns)
                         .AddRows(_rows),
                     new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
                     new ControlTable()
                     {
-                        Color = TypeTableColor.Dark
+                        Color = TypeColorTable.Dark
                     }
                         .AddColumns(_columns)
                         .AddRows(_rows)
@@ -244,67 +244,67 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 (
                     "HeaderColor",
                     @"The `HeaderColor` property of a table control allows customization of the table header’s background color, improving visibility and design consistency.",
-                    @"HeaderColor = TypeTableColor.Primary",
+                    @"HeaderColor = TypeColorTable.Primary",
                     new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                     new ControlTable()
                     {
-                        HeaderColor = TypeTableColor.Default
+                        HeaderColor = TypeColorTable.Default
                     }
                         .AddColumns(_columns)
                         .AddRows(_rows),
                     new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
                     new ControlTable()
                     {
-                        HeaderColor = TypeTableColor.Primary
+                        HeaderColor = TypeColorTable.Primary
                     }
                         .AddColumns(_columns)
                         .AddRows(_rows),
                     new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
                     new ControlTable()
                     {
-                        HeaderColor = TypeTableColor.Secondary
+                        HeaderColor = TypeColorTable.Secondary
                     }
                         .AddColumns(_columns)
                         .AddRows(_rows),
                     new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
                     new ControlTable()
                     {
-                        HeaderColor = TypeTableColor.Info
+                        HeaderColor = TypeColorTable.Info
                     }
                         .AddColumns(_columns)
                         .AddRows(_rows),
                     new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
                     new ControlTable()
                     {
-                        HeaderColor = TypeTableColor.Success
+                        HeaderColor = TypeColorTable.Success
                     }
                         .AddColumns(_columns)
                         .AddRows(_rows),
                     new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
                     new ControlTable()
                     {
-                        HeaderColor = TypeTableColor.Warning
+                        HeaderColor = TypeColorTable.Warning
                     }
                         .AddColumns(_columns)
                         .AddRows(_rows),
                     new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
                     new ControlTable()
                     {
-                        HeaderColor = TypeTableColor.Danger
+                        HeaderColor = TypeColorTable.Danger
                     }
                         .AddColumns(_columns)
                         .AddRows(_rows),
                     new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
                     new ControlTable()
                     {
-                        HeaderColor = TypeTableColor.Light
+                        HeaderColor = TypeColorTable.Light
                     }
                         .AddColumns(_columns)
                         .AddRows(_rows),
                     new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
                     new ControlTable()
                     {
-                        HeaderColor = TypeTableColor.Dark
+                        HeaderColor = TypeColorTable.Dark
                     }
                         .AddColumns(_columns)
                         .AddRows(_rows)
@@ -360,7 +360,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 {
                     Title = ""Column"",
                     Icon = new IconTableTennisPaddleBall(),
-                    Color = TypeTableColor.Warning,
+                    Color = TypeColorTable.Warning,
                     Uri = pageContext.Route.ToUri(),
                     Method = WebCore.WebMessage.RequestMethod.POST
                 }
@@ -386,7 +386,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     {
                         Title = "Column",
                         Icon = new IconTableTennisPaddleBall(),
-                        Color = TypeTableColor.Warning
+                        Color = TypeColorTable.Warning
                     })
                     .AddRows(_rows.Select
                     (
@@ -406,7 +406,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     {
                         Title = "Column",
                         Icon = new IconTableTennisPaddleBall(),
-                        Color = TypeTableColor.Warning
+                        Color = TypeColorTable.Warning
                     }
                         .Add(new ControlDate(Guid.NewGuid().ToString())
                         {
@@ -431,7 +431,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     {
                         Title = "Column",
                         Icon = new IconTableTennisPaddleBall(),
-                        Color = TypeTableColor.Warning,
+                        Color = TypeColorTable.Warning,
                         Name = "myDate",
                         Uri = pageContext.Route.ToUri(),
                         Method = WebCore.WebMessage.RequestMethod.POST
@@ -467,7 +467,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 @"
                 .AddRows(new ControlTableRow(""myRow4"")
                 {
-                    Color = TypeTableColor.Danger,
+                    Color = TypeColorTable.Danger,
                     ExpandState = TypeExpandState.Collapsed
                 }
                     .Add
@@ -501,7 +501,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     .AddRows(_rows)
                     .AddRows(new ControlTableRow("myRow4")
                     {
-                        Color = TypeTableColor.Danger,
+                        Color = TypeColorTable.Danger,
                         ExpandState = TypeExpandState.Collapsed
                     }
                         .Add
@@ -531,7 +531,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     .AddRows(new ControlTableRow("myRow5")
                         .Add
                         (
-                            new ControlTableCell() { Text = "Row 5 - Cell 1", Color = TypeTableColor.Primary },
+                            new ControlTableCell() { Text = "Row 5 - Cell 1", Color = TypeColorTable.Primary },
                             new ControlTableCell() { Text = "Row 5 - Cell 2", Icon = new IconHome() },
                             new ControlTableCell() { Text = "Row 5 - Cell 3" }
                         )
