@@ -173,18 +173,21 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 "Size",
                 "Determines the size of the button.",
                 "Size = TypeSizeButton.Small",
-                new ControlButton()
-                {
-                    Text = "Small",
-                    Size = TypeSizeButton.Small,
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                },
+                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlButton()
                 {
                     Text = "Default",
                     Size = TypeSizeButton.Default,
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary)
                 },
+                new ControlText() { Text = "Small", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlButton()
+                {
+                    Text = "Small",
+                    Size = TypeSizeButton.Small,
+                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                },
+                new ControlText() { Text = "Large", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlButton()
                 {
                     Text = "Large",

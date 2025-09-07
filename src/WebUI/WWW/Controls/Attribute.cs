@@ -22,7 +22,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
         /// <summary>    
         /// Initializes a new instance of the class.    
         /// </summary>    
-        /// <param name="pageContext">The context of the page where the line control is used.</param>  
+        /// <param name="pageContext">The context of the page where the line control is used.</param>
         /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>  
         public Attribute(IPageContext pageContext, ISitemapManager sitemapManager)
         {
@@ -221,51 +221,67 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
             (
                 "BackgroundColor",
                 "Returns or sets the background color of the attribute.",
-                "Color = new PropertyColorButton(TypeColorButton.Primary)",
+                "BackgroundColor = new PropertyColorBackground(TypeColorBackground.Primary)",
+                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info)},
                 new ControlAttribute()
                 {
                     Value = "Default"
                 },
+                new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Value = "Primary",
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Primary)
                 },
+                new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlAttribute()
+                {
+                    Value = "Primary",
+                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Secondary)
+                },
+                new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Value = "Info",
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Info)
                 },
+                new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Value = "Success",
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Success)
                 },
+                new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Value = "Warning",
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Warning)
                 },
+                new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Value = "Danger",
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Danger)
                 },
+                new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Value = "Dark",
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Dark)
                 },
+                new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Value = "Light",
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light)
                 },
+                new ControlText() { Text = "Transparent", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Value = "Transparent",
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Transparent)
                 },
+                new ControlText() { Text = "Custom", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Value = "Custom",

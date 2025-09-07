@@ -32,7 +32,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
         /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>  
         public Dropdown(IPageContext pageContext, ISitemapManager sitemapManager)
         {
-            Stage.Description = @"The `Dropdown` control is a versatile and interactive component for web applications.  
+            Stage.Description = @"
+            The `Dropdown` control is a versatile and interactive component for web applications.  
             It allows users to select options or navigate seamlessly, ensuring a smooth and intuitive user experience.  
             The control supports extensive customization for various use cases, making it adaptable to diverse requirements.  
             The `Dropdown` provides a button with a dropdown menu, offering a clean and efficient design.";
