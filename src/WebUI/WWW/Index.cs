@@ -9,6 +9,7 @@ namespace WebExpress.Tutorial.WebUI.WWW
     /// Represents the home page for the tutorial.
     /// </summary>
     [Title("webexpress.Tutorial.webui:homepage.label")]
+    [Icon("fa fa-home")]
     [Scope<IScopeGeneral>]
     public sealed class Index : IPage<VisualTreeWebApp>, IScopeGeneral
     {
