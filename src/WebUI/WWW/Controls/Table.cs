@@ -313,6 +313,20 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
 
             Stage.AddProperty
                 (
+                    "SuppressHeaders",
+                    @"The `SuppressHeaders` property controls the visibility of column headers in a table. When enabled, it ensures that all column headers are hidden, regardless of the table’s structure or content.
+",
+                    @"SuppressHeaders = true",
+                    new ControlTable()
+                    {
+                        SuppressHeaders = true
+                    }
+                        .AddColumns(_columns)
+                        .AddRows(_rows)
+                );
+
+            Stage.AddProperty
+                (
                     "AllowColumnRemove",
                     @"The `AllowColumnRemove` property in a table control enables users to remove columns dynamically. This enhances flexibility in data presentation and allows for a more tailored user experience.",
                     @"AllowColumnRemove = true",
