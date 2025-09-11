@@ -11,7 +11,7 @@ using WebExpress.WebUI.WebIcon;
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
 {
     /// <summary>    
-    /// Represents the RadioButton control for the tutorial.    
+    /// Represents the radio button control for the tutorial.    
     /// </summary>    
     [Title("Radio")]
     [Scope<IScopeGeneral>]
@@ -22,7 +22,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
         /// <summary>    
         /// Initializes a new instance of the class.    
         /// </summary>    
-        /// <param name="pageContext">The context of the page on which the RadioButton control is used.</param>  
+        /// <param name="pageContext">The context of the page on which the radio button control is used.</param>  
         /// <param name="componentHub">The component hub for managing components.</param>  
         public Radio(IPageContext pageContext, IComponentHub componentHub)
         {
@@ -40,7 +40,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
             Stage.AddProperty
             (
                 "Label",
-                "The `Label` property of the radio button field serves as a short description and is displayed in the main area of the control. It ensures a clear and concise presentation of the selection.",
+                "The `Label` property of the radio button field serves as a short description and is displayed in the main area of the control. It ensures a clear and concise presentation of the radio button.",
                 "Label = \"Option 1\"",
                 new ControlForm(null, new ControlFormItemInputRadio(null)
                 {

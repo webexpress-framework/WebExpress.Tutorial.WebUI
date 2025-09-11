@@ -11,7 +11,7 @@ using WebExpress.WebUI.WebIcon;
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
 {
     /// <summary>    
-    /// Represents the Check control for the tutorial.    
+    /// Represents the check control for the tutorial.    
     /// </summary>    
     [Title("Check")]
     [Scope<IScopeGeneral>]
@@ -22,25 +22,25 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
         /// <summary>    
         /// Initializes a new instance of the class.    
         /// </summary>    
-        /// <param name="pageContext">The context of the page on which the CheckBox control is used.</param>  
+        /// <param name="pageContext">The context of the page on which the check control is used.</param>  
         /// <param name="componentHub">The component hub for managing components.</param>  
         public Check(IPageContext pageContext, IComponentHub componentHub)
         {
             Stage.Description = @"A `Check` control is a graphical user interface element that allows users to choose between two states: checked (selected) or unchecked (not selected).";
 
             Stage.Control = new ControlForm()
-                .Add(new ControlFormItemInputCheck { Label = "Label", Description = "Checkbox description" })
+                .Add(new ControlFormItemInputCheck { Label = "Label", Description = "Check box description" })
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
             new ControlForm()
-                .Add(new ControlFormItemInputCheck { Label = ""Label"", Description = ""Checkbox description"" })
+                .Add(new ControlFormItemInputCheck { Label = ""Label"", Description = ""Check box description"" })
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
             Stage.AddProperty
             (
                 "Label",
-                "The `Label` property of the checkbox field serves as a short description and is displayed in the main area of the control. It ensures a clear and concise presentation of the selection.",
+                "The `Label` property of the check box field serves as a short description and is displayed in the main area of the control. It ensures a clear and concise presentation of the check control.",
                 "Label = \"Subscribe to newsletter\"",
                 new ControlForm(null, new ControlFormItemInputCheck(null)
                 {
@@ -62,7 +62,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
             Stage.AddProperty
             (
                 "Icon",
-                "The `Icon` property defines the icon associated with the checkbox field. It provides visual support and makes it easier to identify the field.",
+                "The `Icon` property defines the icon associated with the check box field. It provides visual support and makes it easier to identify the field.",
                 "Icon = new IconPaperPlane()",
                 new ControlForm(null, new ControlFormItemInputCheck(null)
                 {
