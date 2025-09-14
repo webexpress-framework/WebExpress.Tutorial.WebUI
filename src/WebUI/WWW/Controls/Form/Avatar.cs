@@ -26,7 +26,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
         /// Initializes a new instance of the class.    
         /// </summary>    
         /// <param name="pageContext">The context of the page on which the CheckBox control is used.</param>  
-        /// <param name="componentHub">The component hub for managing components.</param>  
+        /// <param name="componentHub">The component hub for managing components.</param>
         public Avatar(IPageContext pageContext, IComponentHub componentHub)
         {
             Stage.AddEvent(Event.FILE_SELECTED_EVENT);

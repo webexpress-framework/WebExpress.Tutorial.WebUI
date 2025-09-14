@@ -4,9 +4,10 @@ using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
-using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebNotification;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls
 {
@@ -23,8 +24,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
         /// Initializes a new instance of the class.    
         /// </summary>    
         /// <param name="pageContext">The context of the page where the tree control is used.</param>  
-        /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>  
-        public Upload(IPageContext pageContext, ISitemapManager sitemapManager)
+        /// <param name="componentHub">The component hub for managing components.</param>
+        public Upload(IPageContext pageContext, IComponentHub componentHub)
         {
             Stage.AddEvent(Event.FILE_SELECTED_EVENT, Event.UPLOAD_SUCCESS_EVENT, Event.UPLOAD_ERROR_EVENT, Event.UPLOAD_PROGRESS_EVENT);
 
@@ -33,7 +34,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
             Stage.Control = new ControlUpload()
             {
                 Uri = pageContext.Route.ToUri()
-            };
+            }
+                .Process(x =>
+                {
+                    componentHub
+                        .GetComponentManager<NotificationManager>()
+                        .AddNotification(pageContext.ApplicationContext, $"Value: {x.Value}");
+                });
 
             Stage.DarkControls = [new ControlUpload()
             {
