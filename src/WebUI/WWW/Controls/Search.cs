@@ -102,6 +102,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     Placeholder = "Enter search term..."
                 }
             );
+
+            Stage.AddProperty
+            (
+                "Icon",
+                "Sets the icon displayed in the search control. It provides a visual cue for the search functionality.",
+                "Icon = new IconStar()",
+                new ControlSearch()
+                {
+                    Icon = new IconStar()
+                }
+            );
         }
     }
 }
