@@ -29,7 +29,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
         /// <param name="componentHub">The component hub for managing components.</param>  
         public Calendar(IPageContext pageContext, IComponentHub componentHub)
         {
-            Stage.AddEvent(Event.CHANGE_VALUE_EVENT, Event.DROPDOWN_SHOW_EVENT, Event.DROPDOWN_HIDDEN_EVENT);
+            Stage.AddEvent(Event.CHANGE_VALUE_EVENT);
 
             Stage.Description = @"The `Calendar` field enables intuitive selection of a date via a calendar. Users can conveniently select a date, providing a user-friendly and efficient interaction.";
 
