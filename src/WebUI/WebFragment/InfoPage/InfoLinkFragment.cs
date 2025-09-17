@@ -31,7 +31,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.InfoPage
         public InfoLinkFragment(IComponentHub componentHub, IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "webexpress.Tutorial.webui:infopage.label";
+            Text = "webexpress.tutorial.webui:infopage.label";
             Uri = componentHub.SitemapManager.GetUri<Info>(fragmentContext.ApplicationContext);
             Icon = new IconInfoCircle();
         }

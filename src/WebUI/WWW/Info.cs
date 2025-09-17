@@ -6,13 +6,15 @@ using WebExpress.WebCore.Internationalization;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW
 {
     /// <summary>
     /// Represents the info page for the tutorial.
     /// </summary>
-    [Title("webexpress.Tutorial.webui:infopage.label")]
+    [WebIcon<IconCircleInfo>]
+    [Title("webexpress.tutorial.webui:infopage.label")]
     [Scope<IScopeGeneral>]
     public sealed class Info : IPage<VisualTreeWebApp>, IScopeGeneral
     {

@@ -12,3 +12,6 @@ app.version.label={0} version {1} created with {2} version {3}.
 homepage.label=Home page
 infopage.label=Info
 controlpage.label=Controls
+
+fragmentpage.label=Fragments
+fragmentpage.description=Demonstration of using fragments in WebExpress.

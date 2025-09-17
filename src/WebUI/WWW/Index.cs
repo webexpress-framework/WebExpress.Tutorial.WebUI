@@ -2,13 +2,15 @@
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW
 {
     /// <summary>
     /// Represents the home page for the tutorial.
     /// </summary>
-    [Title("webexpress.Tutorial.webui:homepage.label")]
+    [WebIcon<IconHome>]
+    [Title("webexpress.tutorial.webui:homepage.label")]
     [Icon("fa fa-home")]
     [Scope<IScopeGeneral>]
     public sealed class Index : IPage<VisualTreeWebApp>, IScopeGeneral

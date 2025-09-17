@@ -10,7 +10,7 @@ using WebExpress.WebUI.WebControl;
 namespace WebExpress.Tutorial.WebUI.WWW.Controls
 {
     /// <summary>    
-    /// Represents the avatar control for the tutorial.    
+    /// Represents the avatar control for the tutorial.
     /// </summary>    
     [Title("Avatar")]
     [Scope<IScopeGeneral>]
