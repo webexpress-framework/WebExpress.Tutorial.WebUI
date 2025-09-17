@@ -27,8 +27,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
         /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>  
         public Flex(IPageContext pageContext, ISitemapManager sitemapManager)
         {
-            Stage.Description = @"The `Flex` is a versatile UI control designed to arrange content dynamically using the CSS Flexbox model. It enables declarative, configurable layout composition in either horizontal or vertical direction. Ideal for responsive interfaces, modular dashboards, or runtime-generated views.
-";
+            Stage.Description = @"The `Flex` is a versatile UI control designed to arrange content dynamically using the CSS Flexbox model. It enables declarative, configurable layout composition in either horizontal or vertical direction. Ideal for responsive interfaces, modular dashboards, or runtime-generated views.";
 
             Stage.Control = new ControlPanelFlex()
             {
