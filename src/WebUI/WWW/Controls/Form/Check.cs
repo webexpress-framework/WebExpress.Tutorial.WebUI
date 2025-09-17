@@ -82,7 +82,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
                            Icon = new IconPaperPlane(),
                            Description = "Subscribe to newsletter – Receive monthly updates via email",
                            Help = "You can unsubscribe anytime from your account settings.",
-                           Layout = TypeLayoutCheckbox.Default
+                           Layout = TypeLayoutCheck.Default
                        })
                        .AddPrimaryButton(new ControlFormItemButtonSubmit())
                );
@@ -99,7 +99,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
                            Icon = new IconPaperPlane(),
                            Description = "Subscribe to newsletter – Receive monthly updates via email",
                            Help = "You can unsubscribe anytime from your account settings.",
-                           Layout = TypeLayoutCheckbox.Default,
+                           Layout = TypeLayoutCheck.Default,
                            Disabled = true
                        })
                        .AddPrimaryButton(new ControlFormItemButtonSubmit())
@@ -109,19 +109,19 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
                 (
                     "Layout",
                     "The `layout` property defines how the check box is visually presented and how its content is arranged within the user interface. It does not affect the logic or functionality—only the appearance and positioning.",
-                    "Layout = TypeLayoutCheckbox.Switch",
+                    "Layout = TypeLayoutCheck.Switch",
                     new ControlForm()
                         .Add(new ControlFormItemInputCheck
                         {
                             Label = "Default",
                             Description = "Checkbox description",
-                            Layout = TypeLayoutCheckbox.Default
+                            Layout = TypeLayoutCheck.Default
                         })
                         .Add(new ControlFormItemInputCheck
                         {
                             Label = "Switch",
                             Description = "Checkbox description",
-                            Layout = TypeLayoutCheckbox.Switch
+                            Layout = TypeLayoutCheck.Switch
                         })
                         .AddPrimaryButton(new ControlFormItemButtonSubmit())
                 );
@@ -130,7 +130,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
                 (
                     "Inline",
                     "The `Inline` property arranges check box elements horizontally in a single row, rather than stacking them vertically. It's ideal for compact interfaces such as toolbars, input groups, or forms where side-by-side alignment improves clarity and flow.",
-                    "Layout = TypeLayoutCheckbox.Switch",
+                    "Layout = TypeLayoutCheck.Switch",
                     new ControlForm()
                         .Add(new ControlFormItemInputCheck
                         {

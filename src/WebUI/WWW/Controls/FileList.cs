@@ -13,7 +13,7 @@ using WebExpress.WebUI.WebIcon;
 namespace WebExpress.Tutorial.WebUI.WWW.Controls
 {
     /// <summary>    
-    /// Represents the tree control for the tutorial.    
+    /// Represents the file list control for the tutorial.    
     /// </summary>    
     [Title("FileList")]
     [Scope<IScopeGeneral>]

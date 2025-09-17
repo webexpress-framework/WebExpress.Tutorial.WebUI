@@ -68,7 +68,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 "BackgroundColor",
                 "Sets the background color of the button.",
                 "Color = new PropertyColorButton(TypeColorButton.Primary)",
-                new ControlPanelFlexbox
+                new ControlPanelFlex
                 (
                     null,
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
@@ -126,8 +126,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     }
                 )
                 {
-                    Layout = TypeLayoutFlexbox.Default,
-                    Align = TypeAlignFlexbox.Center
+                    Layout = TypeLayoutFlex.Default,
+                    Align = TypeAlignFlex.Center
                 }
             );
 
@@ -136,7 +136,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 "Outline",
                 "Removes the background color from the button.",
                 "Outline = true",
-                new ControlPanelFlexbox
+                new ControlPanelFlex
                 (
                     null,
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
@@ -203,8 +203,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     }
                 )
                 {
-                    Layout = TypeLayoutFlexbox.Default,
-                    Align = TypeAlignFlexbox.Center
+                    Layout = TypeLayoutFlex.Default,
+                    Align = TypeAlignFlex.Center
                 }
             );
 
@@ -213,7 +213,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 "Size",
                 "Determines the size of the button.",
                 "Size = TypeSizeButton.Small",
-                new ControlPanelFlexbox
+                new ControlPanelFlex
                 (
                     null,
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
@@ -239,8 +239,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     }
                 )
                 {
-                    Layout = TypeLayoutFlexbox.Default,
-                    Align = TypeAlignFlexbox.Center
+                    Layout = TypeLayoutFlex.Default,
+                    Align = TypeAlignFlex.Center
                 }
             );
 
@@ -249,7 +249,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 "Icon",
                 "Adds an icon to the button.",
                 "Icon = new IconHome()",
-                new ControlPanelFlexbox
+                new ControlPanelFlex
                 (
                     null,
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
@@ -268,8 +268,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     }
                 )
                 {
-                    Layout = TypeLayoutFlexbox.Default,
-                    Align = TypeAlignFlexbox.Center
+                    Layout = TypeLayoutFlex.Default,
+                    Align = TypeAlignFlex.Center
                 }
             );
 
@@ -292,7 +292,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 "Active",
                 "Sets the active state of the button.",
                 "Active = TypeActive.Active",
-                new ControlPanelFlexbox
+                new ControlPanelFlex
                 (
                     null,
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
@@ -318,8 +318,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     }
                 )
                 {
-                    Layout = TypeLayoutFlexbox.Default,
-                    Align = TypeAlignFlexbox.Center
+                    Layout = TypeLayoutFlex.Default,
+                    Align = TypeAlignFlex.Center
                 }
             );
 
@@ -328,7 +328,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 "Toggle",
                 "An indicator that shows a menu is available.",
                 "Toggle = TypeToggleDropdown.Toggle",
-                new ControlPanelFlexbox
+                new ControlPanelFlex
                 (
                     null,
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
@@ -347,8 +347,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     }
                 )
                 {
-                    Layout = TypeLayoutFlexbox.Default,
-                    Align = TypeAlignFlexbox.Center
+                    Layout = TypeLayoutFlex.Default,
+                    Align = TypeAlignFlex.Center
                 }
             );
 
@@ -357,7 +357,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 "MenuAlignment",
                 "Determines how the menu should be aligned relative to the button.",
                 "AlignmentMenu = TypeAlignmentDropdownMenu.Right",
-                new ControlPanelFlexbox
+                new ControlPanelFlex
                 (
                     null,
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
@@ -376,8 +376,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     }
                 )
                 {
-                    Layout = TypeLayoutFlexbox.Default,
-                    Align = TypeAlignFlexbox.Center
+                    Layout = TypeLayoutFlex.Default,
+                    Align = TypeAlignFlex.Center
                 }
             );
         }
