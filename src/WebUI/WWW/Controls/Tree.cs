@@ -146,10 +146,38 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
             (
                 "Expand",
                 "The `Expand` property controls the visibility of a tree node's substructure. It determines whether the child elements are displayed by default or remain collapsed.\r\n\r\nBy managing visibility dynamically, `Expand` allows for a flexible tree structure. Users can reveal relevant sections as needed, improving navigation and ensuring a clearer, more organized view.",
-                "new ControlTreeItem(\"1\", new ControlTreeItem(\"1.1\")) { Expand = true }",
-                new ControlTree(Guid.NewGuid().ToString(), new ControlTreeItem("1", new ControlTreeItem("1.1")) { Expand = true })
+                @"
+                new ControlTree(Guid.NewGuid().ToString())
                 {
                 }
+                    .Add(new ControlTreeItem(""1"", new ControlTreeItem(""1.1""))
+                    {
+                        Expand = true
+                    })",
+                new ControlTree(Guid.NewGuid().ToString())
+                {
+                }
+                    .Add(new ControlTreeItem("1", new ControlTreeItem("1.1"))
+                    {
+                        Expand = true
+                    })
+            );
+
+            Stage.AddItem
+            (
+                "DisableIndicator",
+                "Determines whether the expand/collapse indicator is displayed for tree nodes. When set to true, the indicator is hidden even if the node has children, allowing for cleaner layouts or custom expansion logic.",
+                @"
+                new ControlTree() 
+                { 
+                    DisableIndicator = true 
+                }
+                    .Add(...)",
+                new ControlTree(Guid.NewGuid().ToString())
+                {
+                    DisableIndicator = true
+                }
+                    .Add(_nodes)
             );
 
             Stage.AddItem
