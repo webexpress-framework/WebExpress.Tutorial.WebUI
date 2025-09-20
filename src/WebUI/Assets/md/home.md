@@ -8,7 +8,6 @@ Through this tutorial, you will learn how to use the templates and controls prov
 
 >? This tutorial is designed for developers of all levels. Whether you're just starting with WebExpress or you're customizing advanced templates, you'll find practical examples and best practices to accelerate your workflow.
 
-
 ## Objectives of this Tutorial
 - **UI Elements Demonstration**: Understand how to seamlessly integrate templates and controls into your `WebExpress` application.
 - **Best Practices**: Develop a stable and intuitive user interface with minimal effort.
