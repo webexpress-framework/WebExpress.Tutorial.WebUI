@@ -31,10 +31,10 @@ Welcome to this **Markdown Guide**! Below are examples of Markdown syntax to hel
 ## 3. Links and Images
 
 ### Hyperlink:
-[Visit WebExpress](https://reneschwarzer.github.io/WebExpress.WebUI/)
+[Visit WebExpress](https://webexpress-framework.github.io/WebExpress.WebUI/)
 
 ### Image:
-![Placeholder Image](https://raw.githubusercontent.com/ReneSchwarzer/WebExpress/refs/heads/main/icon.png)
+![Placeholder Image](https://raw.githubusercontent.com/webexpress-framework/WebExpress/refs/heads/main/icon.png)
 
 ---
 

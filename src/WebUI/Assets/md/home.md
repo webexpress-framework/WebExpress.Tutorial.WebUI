@@ -1,4 +1,4 @@
-![WebExpress](https://raw.githubusercontent.com/ReneSchwarzer/WebExpress/main/assets/banner.png)
+![WebExpress-Framework](https://raw.githubusercontent.com/webexpress-framework/.github/main/docs/assets/img/banner.png)
 
 # WebExpress.Tutorial.WebUI
 
@@ -16,12 +16,12 @@ Through this tutorial, you will learn how to use the templates and controls prov
 
 ## Prerequisites
 Before you begin, ensure you have the following:
-- An existing `WebExpress` application created by following the [WebApp tutorial](https://github.com/ReneSchwarzer/WebExpress.Tutorial.WebApp#readme).
+- An existing `WebExpress` application created by following the [WebApp tutorial](https://github.com/webexpress-framework/WebExpress.Tutorial.WebApp#readme).
 - Basic knowledge of .NET development and the structure of `WebExpress`.
 
 ## Getting Started
 1. **Installation**:
-   Ensure that all dependencies are correctly installed in your project. You can find details in the [Installation Guide](https://github.com/ReneSchwarzer/WebExpress/blob/main/doc/installation_guide.md).
+   Ensure that all dependencies are correctly installed in your project. You can find details in the [Installation Guide](https://github.com/webexpress-framework/WebExpress/blob/main/doc/installation_guide.md).
 
 2. **Run the Sample Application**:
    Build the project and run it locally to test the initial implementation of UI elements.
@@ -33,6 +33,6 @@ The `WebExpress.WebUI` library offers:
 - **Efficiency**: Reduce development time with ready-to-use components.
 
 ## Documentation
-Detailed information can be found in the official [WebExpress.WebUI documentation](https://reneschwarzer.github.io/WebExpress.WebUI/).
+Detailed information can be found in the official [WebExpress.WebUI documentation](https://webexpress-framework.github.io/WebExpress.WebUI/).
 
 Good luck building your own user interfaces with **WebExpress**!
