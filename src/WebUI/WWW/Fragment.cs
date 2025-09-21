@@ -10,7 +10,7 @@ namespace WebExpress.Tutorial.WebUI.WWW
     /// <summary>
     /// Represents the fragment page for the tutorial.
     /// </summary>
-    [WebIcon<IconCrosshairs>]
+    [WebIcon<IconExpand>]
     [Title("webexpress.tutorial.webui:fragmentpage.label")]
     [Description("webexpress.tutorial.webui:fragmentpage.description")]
     [Scope<IScopeGeneral>]

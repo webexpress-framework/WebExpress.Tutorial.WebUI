@@ -33,7 +33,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.FragmentPage
         {
             Text = "webexpress.tutorial.webui:fragmentpage.label";
             Uri = componentHub.SitemapManager.GetUri<Fragment>(fragmentContext.ApplicationContext);
-            Icon = new IconCrosshairs();
+            Icon = new IconExpand();
         }
 
         /// <summary>
