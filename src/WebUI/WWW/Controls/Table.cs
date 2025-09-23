@@ -552,10 +552,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                         .Add
                         (
                             new ControlDropdownItemHeader() { Text = "Header" },
-                            new ControlDropdownItemLink() { Label = "First Entry", Icon = new IconWrench() },
-                            new ControlDropdownItemLink() { Label = "Second Entry" },
+                            new ControlDropdownItemLink() { Text = "First Entry", Icon = new IconWrench() },
+                            new ControlDropdownItemLink() { Text = "Second Entry" },
                             new ControlDropdownItemDivider(),
-                            new ControlDropdownItemLink() { Label = "Third Entry" }
+                            new ControlDropdownItemLink() { Text = "Third Entry" }
                         )
                     )
             );

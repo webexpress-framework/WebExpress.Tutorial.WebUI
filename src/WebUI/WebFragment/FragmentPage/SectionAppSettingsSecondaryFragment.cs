@@ -20,7 +20,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.FragmentPage
         public SectionAppSettingsSecondaryFragment(IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Label = "SectionAppSettingsSecondary";
+            Text = "SectionAppSettingsSecondary";
         }
     }
 }

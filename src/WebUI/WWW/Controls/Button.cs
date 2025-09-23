@@ -55,7 +55,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
             (
                 "BackgroundColor",
                 "Sets the background color of the button.",
-                "Color = new PropertyColorButton(TypeColorButton.Primary)",
+                "BackgroundColor = new PropertyColorButton(TypeColorButton.Primary)",
                 new ControlButton()
                 {
                     Text = "Default"
@@ -64,6 +64,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 {
                     Text = "Primary",
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary)
+                },
+                new ControlButton()
+                {
+                    Text = "Secondary",
+                    BackgroundColor = new PropertyColorButton(TypeColorButton.Secondary)
                 },
                 new ControlButton()
                 {

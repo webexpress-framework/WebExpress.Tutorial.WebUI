@@ -20,10 +20,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
     public sealed class List : PageControl
     {
         private readonly IControlDropdownItem _item1 = new ControlDropdownItemHeader() { Text = "Header" };
-        private readonly IControlDropdownItem _item2 = new ControlDropdownItemLink() { Label = "First Entry", Icon = new IconWrench() };
-        private readonly IControlDropdownItem _item3 = new ControlDropdownItemLink() { Label = "Second Entry" };
+        private readonly IControlDropdownItem _item2 = new ControlDropdownItemLink() { Text = "First Entry", Icon = new IconWrench() };
+        private readonly IControlDropdownItem _item3 = new ControlDropdownItemLink() { Text = "Second Entry" };
         private readonly IControlDropdownItem _item4 = new ControlDropdownItemDivider();
-        private readonly IControlDropdownItem _item5 = new ControlDropdownItemLink() { Label = "Third Entry" };
+        private readonly IControlDropdownItem _item5 = new ControlDropdownItemLink() { Text = "Third Entry" };
 
         /// <summary>  
         /// Initializes a new instance of the class.  

@@ -1,4 +1,5 @@
-﻿using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
+﻿using System.Collections.Generic;
+using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
@@ -37,9 +38,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
             }
                 .Add
                 (
-                    new ControlDropdownItemLink("item3-1") { Label = "Profile", Icon = new IconUser()},
-                    new ControlDropdownItemLink("item3-2") { Label = "Preferences", Icon = new IconStar() },
-                    new ControlDropdownItemLink("item3-3") { Label = "Logout", Icon = new IconPowerOff()}
+                    new ControlDropdownItemLink("item3-1") { Text = "Profile", Icon = new IconUser()},
+                    new ControlDropdownItemLink("item3-2") { Text = "Preferences", Icon = new IconStar() },
+                    new ControlDropdownItemLink("item3-3") { Text = "Logout", Icon = new IconPowerOff()}
                 ),
             new ControlToolbarItemButton("item4")
             {
@@ -47,7 +48,19 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 Icon = new IconCog(),
                 Alignment = TypeToolbarItemAlignment.Right
             },
-            new ControlToolbarItemCombo("item5")
+            new ControlToolbarItemButton("item5") { Label = "Item 5", Icon = new IconHome(), Alignment = TypeToolbarItemAlignment.Right},
+            new ControlToolbarItemButton("item6") { Label = "Item 6", Icon = new IconHome(), Alignment = TypeToolbarItemAlignment.Right},
+            new ControlToolbarItemButton("item7") { Label = "Item 7", Icon = new IconHome(), Alignment = TypeToolbarItemAlignment.Right},
+            new ControlToolbarItemButton("item8") { Label = "Item 8", Icon = new IconHome(), Alignment = TypeToolbarItemAlignment.Right },
+            new ControlToolbarItemButton("item9") { Label = "Item 9", Icon = new IconHome() , Alignment = TypeToolbarItemAlignment.Right},
+            new ControlToolbarItemButton("item10") { Label = "Item 10", Icon = new IconHome(), Alignment = TypeToolbarItemAlignment.Right },
+            new ControlToolbarItemButton("item11") { Label = "Item 11", Icon = new IconHome(), Alignment = TypeToolbarItemAlignment.Right },
+            new ControlToolbarItemButton("item12") { Label = "Item 12", Icon = new IconHome() , Alignment = TypeToolbarItemAlignment.Right},
+            new ControlToolbarItemButton("item13") { Label = "Item 13", Icon = new IconHome() , Alignment = TypeToolbarItemAlignment.Right},
+            new ControlToolbarItemButton("item14") { Label = "Item 14", Icon = new IconHome(), Alignment = TypeToolbarItemAlignment.Right },
+            new ControlToolbarItemButton("item15") { Label = "Item 15", Icon = new IconHome() , Alignment = TypeToolbarItemAlignment.Right},
+            new ControlToolbarItemButton("item16") { Label = "Item 16", Icon = new IconHome(), Alignment = TypeToolbarItemAlignment.Right },
+            new ControlToolbarItemCombo("item17")
             {
                 Label = "Vehicle",
                 Icon = new IconCar(),
@@ -61,12 +74,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     new ControlFormItemInputComboItem() { Text = "Train"}
                 ),
             new ControlToolbarItemDivider() { Alignment = TypeToolbarItemAlignment.Right },
-            new ControlToolbarItemLabel("item6")
+            new ControlToolbarItemLabel("item18")
             {
                 Label = "webexpress.WebUI:plugin.name",
                 Color = new PropertyColorText(TypeColorText.Success),
                 Alignment = TypeToolbarItemAlignment.Right
-            }
+            },
+
+             new ControlToolbarItemButton("item19") { Label = "Item 19", Icon = new IconHome() },
+             new ControlToolbarItemButton("item20") { Label = "Item 20", Icon = new IconHome() },
+             new ControlToolbarItemButton("item21") { Label = "Item 21", Icon = new IconHome() },
         ];
 
         /// <summary>  
@@ -76,29 +93,26 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
         /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>  
         public Toolbar(IPageContext pageContext, ISitemapManager sitemapManager)
         {
-            Stage.Description = @"The `Toolbar` control is a horizontal container that organizes frequently used actions — like buttons, menus, or icons — in a single, accessible location. It improves usability by grouping related commands and offering quick access to core functionality.";
+            Stage.Description = @"The `Toolbar` control is a horizontal container that organizes frequently used actions, like buttons, menus, or icons, in a single, accessible location. It improves usability by grouping related commands and offering quick access to core functionality.";
 
             Stage.Controls =
             [
                 new ControlToolbar("myToolbar")
-                    .Add(_items)
-                    .AddMore(new ControlDropdownItemLink() { Label = "Calculator", Icon = new IconCalculator()})
+                    .Add(CreateItems(25))
+                    .AddMore(new ControlDropdownItemLink() { Text = "Calculator", Icon = new IconCalculator()})
             ];
 
             Stage.DarkControls =
             [
                 new ControlToolbar("myDarkToolbar")
-                    .Add(_items)
-                    .AddMore(new ControlDropdownItemLink() { Label = "Calculator", Icon = new IconCalculator()})
+                    .Add(CreateItems(25))
+                    .AddMore(new ControlDropdownItemLink() { Text = "Calculator", Icon = new IconCalculator()})
             ];
 
             Stage.Code = @"
             new ControlToolbar(""myToolbar"")
-                .Add
-                (
-                    new ControlToolbarItemButton(""item1"") { Text = ""Home"", Icon = new IconHome()  },
-                    ...
-                );";
+                .Add(CreateItems(25))
+                .AddMore(new ControlDropdownItemLink() { Text = ""Calculator"", Icon = new IconCalculator()})";
 
             Stage.AddItem
             (
@@ -381,9 +395,35 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 "new ControlToolbar().AddMore(new ControlDropdownItemLink() { Label = \"Calculator\", Icon = new IconCalculator()})",
                 new ControlToolbar().AddMore
                 (
-                    new ControlDropdownItemLink() { Label = "Calculator", Icon = new IconCalculator() }
+                    new ControlDropdownItemLink() { Text = "Calculator", Icon = new IconCalculator() }
                 )
             );
+        }
+
+        /// <summary>
+        /// Creates a collection of toolbar items with sequential labels and icons.
+        /// </summary>
+        /// <remarks>
+        /// <returns>
+        /// An enumerable collection of <see cref="IControlToolbarItem"/> objects, each representing a 
+        /// toolbar item with a unique label and a default home icon.
+        /// </returns>
+        private IEnumerable<IControlToolbarItem> CreateItems(int count)
+        {
+            for (int i = 1; i <= count; i++)
+            {
+                var alignment = i > count / 2 ? TypeToolbarItemAlignment.Right : TypeToolbarItemAlignment.Left;
+
+                if (i % 3 == 0)
+                {
+                    yield return new ControlToolbarItemDivider() { Alignment = alignment };
+                }
+                yield return new ControlToolbarItemButton($"item{i}")
+                {
+                    Label = $"Item {i}",
+                    Icon = new IconHome()
+                };
+            }
         }
     }
 }

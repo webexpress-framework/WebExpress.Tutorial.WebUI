@@ -20,7 +20,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.FragmentPage
         public SectionHeadlineMorePreferencesFragment(IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Label = "SectionHeadlineMorePreferences";
+            Text = "SectionHeadlineMorePreferences";
         }
     }
 }
