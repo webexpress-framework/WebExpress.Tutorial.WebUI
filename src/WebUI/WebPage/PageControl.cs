@@ -61,6 +61,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
             visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. Stage.Controls])
             {
                 BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light),
+                Classes = ["wx-resizable"],
                 Styles = ["max-width: 80em;"],
                 Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
             });

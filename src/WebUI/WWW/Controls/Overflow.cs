@@ -25,8 +25,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
         /// <param name="pageContext">The context of the page where the dropdown control is used.</param>  
         public Overflow(IPageContext pageContext)
         {
-            Stage.Description = @"The `Overflow` control is a responsive UI mechanism designed to maintain layout integrity when the available space within a container becomes insufficient to display all child elements. It automatically detects overflow conditions and seamlessly relocates excess elements into a collapsible dropdown menu, preserving both usability and visual hierarchy.
-";
+            Stage.Description = @"The `Overflow` control is a responsive UI mechanism designed to maintain layout integrity when the available space within a container becomes insufficient to display all child elements. It automatically detects overflow conditions and seamlessly relocates excess elements into a collapsible dropdown menu, preserving both usability and visual hierarchy.";
 
             Stage.Controls = [
                 new ControlPanelOverflow()
@@ -35,7 +34,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
 
             Stage.Code = @"
             new ControlPanelOverflow()
-                .Add(CreateControl(30))";
+                .Add(CreateControl(30));";
 
             Stage.AddProperty
             (
