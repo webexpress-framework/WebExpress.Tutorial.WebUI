@@ -20,7 +20,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.FragmentPage
         public SectionToolbarPreferencesLeftFragment(IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Label = "SectionToolbarPreferences (Left)";
+            Text = "SectionToolbarPreferences (Left)";
         }
     }
 }

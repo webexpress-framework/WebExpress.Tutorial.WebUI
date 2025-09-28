@@ -57,7 +57,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
                 .OrderBy(x => x.PageTitle)
                 .Select(x => new ControlTreeItem
                 {
-                    Label = I18N.Translate(renderContext, x.PageTitle),
+                    Text = I18N.Translate(renderContext, x.PageTitle),
                     Uri = x.Route.ToUri(),
                     Active = x.Route == renderContext.PageContext.Route,
                     Expand = true
@@ -84,9 +84,9 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
                 x.Uri.PathSegments.Count() == root.PathSegments.Count() + 1)
             )
             {
-                var node = new ControlTreeItem(item.Id, BuildTree(items, item.Uri).ToArray())
+                var node = new ControlTreeItem(item.Id, [.. BuildTree(items, item.Uri)])
                 {
-                    Label = item.Label,
+                    Text = item.Text,
                     Uri = item.Uri,
                     Active = item.Active,
                     Expand = true

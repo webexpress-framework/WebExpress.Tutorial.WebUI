@@ -19,18 +19,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
     [Scope<IScopeControlWebUI>]
     public sealed class Split : PageControl
     {
-        private readonly ControlAlert _sidePanel = new ControlAlert()
+        private readonly ControlAlert _sidePanel = new()
         {
             Head = "Side panel",
             Text = "Side panel content ...",
-            Dismissible = TypeDismissibleAlert.None
+            Dismissibility = TypeDismissibilityAlert.None
         };
 
-        private readonly ControlAlert _mainPanel = new ControlAlert()
+        private readonly ControlAlert _mainPanel = new()
         {
             Head = "Main panel ",
             Text = "Main panel content ...",
-            Dismissible = TypeDismissibleAlert.None
+            Dismissibility = TypeDismissibilityAlert.None
         };
 
 

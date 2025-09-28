@@ -30,16 +30,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 [
                     new ControlTreeItem("1.1")
                     {
-                        Label = "Node 1.1",
+                        Text = "Node 1.1",
                         Uri = new UriEndpoint("http://example.com")
                     },
                     new ControlTreeItem("1.2")
                     {
-                        Label = "Node 1.2"
+                        Text = "Node 1.2"
                     }
                 ])
             {
-                Label = "Node 1",
+                Text = "Node 1",
                 IconOpen = new IconFolderOpen(),
                 IconClose = new IconFolder(),
                 Expand = true
@@ -48,15 +48,15 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 [
                     new ControlTreeItem("2.1")
                     {
-                        Label = "Node 2.1"
+                        Text = "Node 2.1"
                     },
                     new ControlTreeItem("2.2")
                     {
-                        Label = "Node 2.2"
+                        Text = "Node 2.2"
                     }
                 ])
             {
-                Label = "Node 2",
+                Text = "Node 2",
                 IconOpen = new IconFolderOpen(),
                 IconClose = new IconFolder(),
                 Icon = new IconCog(),

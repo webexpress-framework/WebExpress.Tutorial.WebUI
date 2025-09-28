@@ -159,7 +159,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 {
                     yield return new ControlDropdown()
                     {
-                        Label = $"Dropdown {i}",
+                        Text = $"Dropdown {i}",
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.One),
                         Icon = new IconSpider()
                     }

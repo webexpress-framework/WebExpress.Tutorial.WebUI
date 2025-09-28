@@ -21,7 +21,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.FragmentPage
         public SectionToolbarSecondaryRightFragment(IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Label = "SectionToolbarSecondary (Right)";
+            Text = "SectionToolbarSecondary (Right)";
             Alignment = TypeToolbarItemAlignment.Right;
         }
     }
