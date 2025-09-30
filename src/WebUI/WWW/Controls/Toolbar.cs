@@ -421,7 +421,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 yield return new ControlToolbarItemButton($"item{i}")
                 {
                     Text = $"Item {i}",
-                    Icon = new IconHome()
+                    Icon = i > count / 2 ? new IconCat() : new IconDog(),
+                    Alignment = alignment
                 };
             }
         }
