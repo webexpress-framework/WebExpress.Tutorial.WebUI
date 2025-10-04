@@ -11,6 +11,7 @@ using WebExpress.WebCore.WebHtml;
 using WebExpress.WebCore.WebUri;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebFragment;
+using WebExpress.WebUI.WebIcon;
 using WebExpress.WebUI.WebPage;
 
 namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
@@ -19,26 +20,62 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
     /// Represents the sidebar fragment for the control page.
     /// This fragment is used to display the primary sidebar section in the control page.
     /// </summary>
-    [Section<SectionSidebarSecondary>]
+    [Section<SectionSidebarPrimary>]
     [Scope<IScopeControl>]
     [Cache]
-    public sealed class ControlSidebarFragmentWebApp : FragmentControlTree
+    [Order(2)]
+    public sealed class ControlSidebarFragmentWebUITree : FragmentControlSidebarItemDynamic
     {
         private readonly IComponentHub _componentHub;
         private readonly IFragmentContext _fragmentContext;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ControlSidebarFragmentWebApp"/> class.
+        /// Returns the control tree used to manage and organize UI controls.
         /// </summary>
-        /// <param name="componentHub">The component hub providing access to various managers and services.</param>
-        /// <param name="fragmentContext">The context of the fragment, providing access to the current state and dependencies.</param>
-        public ControlSidebarFragmentWebApp(IComponentHub componentHub, IFragmentContext fragmentContext)
+        public ControlTree Tree { get; } = new ControlTree("webui-control-tree")
+        {
+            Layout = TypeLayoutTree.Default
+        };
+
+        /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        /// <param name="componentHub">
+        /// The component hub providing access to various managers and services.
+        /// </param>
+        /// <param name="fragmentContext">
+        /// The context of the fragment, providing access to the current state and dependencies.
+        /// </param>
+        public ControlSidebarFragmentWebUITree(IComponentHub componentHub, IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
             _componentHub = componentHub;
             _fragmentContext = fragmentContext;
+            Icon = new IconSitemap();
+            Mode = TypeSidebarModeExtended.Overlay;
 
-            Layout = TypeLayoutTree.Default;
+            RenderControl += (renderContext, visualTree) =>
+            {
+                var indexContext = _componentHub.PageManager
+                .GetPages(typeof(Index), _fragmentContext.ApplicationContext)
+                .FirstOrDefault();
+                var items = _componentHub.PageManager.Pages
+                    .Where(x => x.ApplicationContext == _fragmentContext.ApplicationContext)
+                    .Where(x => x.Scopes.Contains(typeof(IScopeControlWebUI)))
+                    .Where(x => x.EndpointId != indexContext?.EndpointId)
+                    .OrderBy(x => x.PageTitle)
+                    .Select(x => new ControlTreeItem
+                    {
+                        Text = I18N.Translate(renderContext, x.PageTitle),
+                        Uri = x.Route.ToUri(),
+                        Active = x.Route == renderContext.PageContext.Route,
+                        Expand = true
+                    }).ToList();
+
+                var tree = BuildTree(items, indexContext.Route.ToUri());
+
+                return Tree.Render(renderContext, visualTree, tree);
+            };
         }
 
         /// <summary>
@@ -49,23 +86,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
         /// <returns>An HTML node representing the rendered control.</returns>
         public override IHtmlNode Render(IRenderControlContext renderContext, IVisualTreeControl visualTree)
         {
-            var indexContext = _componentHub.PageManager.GetPages(typeof(Index), _fragmentContext.ApplicationContext).FirstOrDefault();
-            var items = _componentHub.PageManager.Pages
-                .Where(x => x.ApplicationContext == _fragmentContext.ApplicationContext)
-                .Where(x => x.Scopes.Contains(typeof(IScopeControlWebApp)))
-                .Where(x => x.EndpointId != indexContext?.EndpointId)
-                .OrderBy(x => x.PageTitle)
-                .Select(x => new ControlTreeItem
-                {
-                    Text = I18N.Translate(renderContext, x.PageTitle),
-                    Uri = x.Route.ToUri(),
-                    Active = x.Route == renderContext.PageContext.Route,
-                    Expand = true
-                }).ToList();
-
-            var tree = BuildTree(items, indexContext.Route.ToUri());
-
-            return new HtmlElementTextContentP("WebExpress.WebApp").Add(base.Render(renderContext, visualTree, tree));
+            return base.Render(renderContext, visualTree);
         }
 
         /// <summary>

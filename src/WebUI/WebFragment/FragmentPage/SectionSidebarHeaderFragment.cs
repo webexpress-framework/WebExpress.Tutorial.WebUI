@@ -11,7 +11,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.FragmentPage
     [Section<SectionSidebarHeader>]
     [Scope<IScopeFragment>]
     [Cache]
-    public sealed class SectionSidebarHeaderFragment : FragmentControlText
+    public sealed class SectionSidebarHeaderFragment : FragmentControlSidebarItemLink
     {
         /// <summary>
         /// Initializes a new instance of the class.
