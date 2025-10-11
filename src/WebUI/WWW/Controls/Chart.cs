@@ -29,7 +29,6 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 new ControlChart()
                 {
                     Type = TypeChart.Bar,
-                    Labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
                     Title = "Sales Development",
                     TitleX = "Month",
                     TitleY = "Sales (k)",
@@ -40,16 +39,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     TitleDisplay = true,
                     YBeginAtZero = true
                 }
-                .AddDataset(new ControlChartDataset
-                {
-                    Title = "2024",
-                    Data = [12f, 19f, 3f, 5f, 2f, 3f]
-                })
-                .AddDataset(new ControlChartDataset
-                {
-                    Title = "2025",
-                    Data = [8f, 11f, 5f, 8f, 13f, 7f]
-                });
+                    .AddLabel("Jan", "Feb", "Mar", "Apr", "May", "Jun")
+                    .AddDataset(new ControlChartDataset
+                    {
+                        Title = "2024",
+                        Data = new ControlChartDatasetPointCollection(12f, 19f, 3f, 5f, 2f, 3f)
+                    })
+                    .AddDataset(new ControlChartDataset
+                    {
+                        Title = "2025",
+                        Data = new ControlChartDatasetPointCollection(8f, 11f, 5f, 8f, 13f, 7f)
+                    });
 
             // show code snippet for the basic example
             Stage.Code = @"
@@ -67,15 +67,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 TitleDisplay = true,
                 YBeginAtZero = true
             }
+                .AddLabel(""Jan"", ""Feb"", ""Mar"", ""Apr"", ""May"", ""Jun"")
                 .AddDataset(new ControlChartDataset
                 {
                     Title = ""2024"",
-                    Data = [12f, 19f, 3f, 5f, 2f, 3f]
+                    Data = new ControlChartDatasetPointCollection(12f, 19f, 3f, 5f, 2f, 3f)
                 })
                 .AddDataset(new ControlChartDataset
                 {
                     Title = ""2025"",
-                    Data = [8f, 11f, 5f, 8f, 13f, 7f]
+                    Data = new ControlChartDatasetPointCollection(8f, 11f, 5f, 8f, 13f, 7f)
                 });";
 
             // property: Type
@@ -87,87 +88,88 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 new ControlChart()
                 {
                     Type = TypeChart.Bar,
-                    Labels = ["A", "B", "C", "D"],
                     Title = "Bar",
                     TitleDisplay = true,
                     Height = 220,
                     YBeginAtZero = true
                 }
+                    .AddLabel("A", "B", "C", "D")
                     .AddDataset(new ControlChartDataset
                     {
                         Title = "Values",
-                        Data = [5f, 9f, 2f, 7f]
+                        Data = new ControlChartDatasetPointCollection(5f, 9f, 2f, 7f)
                     }),
                 new ControlChart()
                 {
                     Type = TypeChart.Line,
-                    Labels = ["A", "B", "C", "D"],
                     Title = "Line",
                     TitleDisplay = true,
                     Height = 220,
                     YBeginAtZero = true
                 }
+                    .AddLabel("A", "B", "C", "D")
                     .AddDataset(new ControlChartDataset
                     {
                         Title = "Values",
-                        Data = [5f, 9f, 2f, 7f]
+                        Data = new ControlChartDatasetPointCollection(5f, 9f, 2f, 7f)
                     }),
                 new ControlChart()
                 {
                     Type = TypeChart.Pie,
-                    Labels = ["Red", "Blue", "Yellow"],
                     Title = "Pie",
                     TitleDisplay = true,
                     Height = 220
                 }
+                    .AddLabel("Red", "Blue", "Yellow")
                     .AddDataset(new ControlChartDataset
                     {
                         Title = "Votes",
-                        Data = [12f, 19f, 3f]
+                        Data = new ControlChartDatasetPointCollection(12f, 19f, 3f)
                     }),
                 new ControlChart()
                 {
                     Type = TypeChart.Doughnut,
-                    Labels = ["Chrome", "Firefox", "Edge"],
+
                     Title = "Browser Usage",
                     TitleDisplay = true,
                     Height = 220
                 }
+                    .AddLabel("Chrome", "Firefox", "Edge")
                     .AddDataset(new ControlChartDataset
                     {
                         Title = "Users",
-                        Data = [55f, 20f, 25f]
+                        Data = new ControlChartDatasetPointCollection(55f, 20f, 25f)
                     }),
                 new ControlChart()
                 {
                     Type = TypeChart.Radar,
-                    Labels = ["Speed", "Reliability", "Comfort"],
                     Title = "Car Comparison",
                     TitleDisplay = true,
                     Height = 220
                 }
+                    .AddLabel("Speed", "Reliability", "Comfort")
                     .AddDataset(new ControlChartDataset
                     {
                         Title = "Car A",
-                        Data = [7f, 9f, 8f]
+                        Data = new ControlChartDatasetPointCollection(7f, 9f, 8f)
                     })
                     .AddDataset(new ControlChartDataset
                     {
                         Title = "Car B",
-                        Data = [6f, 7f, 9f]
+                        Data = new ControlChartDatasetPointCollection(6f, 7f, 9f)
                     }),
                 new ControlChart()
                 {
                     Type = TypeChart.PolarArea,
-                    Labels = ["North", "East", "South"],
                     Title = "Wind Strength",
                     TitleDisplay = true,
                     Height = 220
                 }
+                    .AddLabel("North", "East", "South")
                     .AddDataset(new ControlChartDataset
                     {
                         Title = "Wind",
-                        Data = [11f, 16f, 7f]
+                        Data = new ControlChartDatasetPointCollection(11f, 16f, 7f)
                     }),
                 new ControlChart()
                 {
@@ -179,11 +181,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     .AddDataset(new ControlChartDataset
                     {
                         Title = "Bubbles",
-                        Data =
-                        [
-                            new ControlChartDatasetBubbleData { X = 10, Y = 20, R = 15 },
-                            new ControlChartDatasetBubbleData { X = 15, Y = 10, R = 10 }
-                        ]
+                        Data = new ControlChartDatasetPointCollection
+                        (
+                            new ControlChartDatasetPointBubble { X = 1, Y = 1, Radius = 15 },
+                            new ControlChartDatasetPointBubble { X = 0.5f, Y = 0.5f, Radius = 10 }
+                        )
                     }),
                 new ControlChart()
                 {
@@ -195,12 +197,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     .AddDataset(new ControlChartDataset
                     {
                         Title = "Points",
-                        Data =
-                        [
-                            new ControlChartDatasetScatterData { X = 3, Y = 7 },
-                            new ControlChartDatasetScatterData { X = 7, Y = 2 },
-                            new ControlChartDatasetScatterData { X = 5, Y = 9 }
-                        ]
+                        Data = new ControlChartDatasetPointCollection
+                        (
+                            new ControlChartDatasetPointScatter { X = 3, Y = 7 },
+                            new ControlChartDatasetPointScatter { X = 7, Y = 2 },
+                            new ControlChartDatasetPointScatter { X = 5, Y = 9 }
+                        )
                     })
             );
 
@@ -213,21 +215,21 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 new ControlChart()
                 {
                     Type = TypeChart.Bar,
-                    Labels = ["Q1", "Q2", "Q3", "Q4"],
                     Title = "Quarters",
                     TitleDisplay = true,
                     Height = 220,
                     YBeginAtZero = true
                 }
+                    .AddLabel("Q1", "Q2", "Q3", "Q4")
                     .AddDataset(new ControlChartDataset
                     {
                         Title = "Plan",
-                        Data = [10f, 15f, 12f, 18f]
+                        Data = new ControlChartDatasetPointCollection(10f, 15f, 12f, 18f)
                     })
                     .AddDataset(new ControlChartDataset
                     {
                         Title = "Actual",
-                        Data = [9f, 14f, 13f, 17f]
+                        Data = new ControlChartDatasetPointCollection(9f, 14f, 13f, 17f)
                     })
             );
 
@@ -240,17 +242,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 new ControlChart()
                 {
                     Type = TypeChart.Line,
-                    Labels = ["Jan", "Feb", "Mar", "Apr"],
                     Title = "Performance Overview",
                     TitleX = "Month",
                     TitleY = "Points",
                     TitleDisplay = true,
                     Height = 220
                 }
+                    .AddLabel("Jan", "Feb", "Mar", "Apr")
                     .AddDataset(new ControlChartDataset
                     {
                         Title = "Team A",
-                        Data = [3f, 6f, 4f, 7f]
+                        Data = new ControlChartDatasetPointCollection(3f, 6f, 4f, 7f)
                     })
             );
 
@@ -263,7 +265,6 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 new ControlChart()
                 {
                     Type = TypeChart.Bar,
-                    Labels = ["S", "M", "L", "XL"],
                     Title = "Sizes",
                     TitleDisplay = true,
                     Responsive = true,
@@ -272,10 +273,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     Height = 220,
                     YBeginAtZero = true
                 }
+                    .AddLabel("S", "M", "L", "XL")
                     .AddDataset(new ControlChartDataset
                     {
                         Title = "Orders",
-                        Data = [4f, 8f, 6f, 2f]
+                        Data = new ControlChartDatasetPointCollection(4f, 8f, 6f, 2f)
                     })
             );
 
@@ -288,7 +290,6 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 new ControlChart()
                 {
                     Type = TypeChart.Bar,
-                    Labels = ["P1", "P2", "P3", "P4"],
                     Title = "Scaling",
                     TitleDisplay = true,
                     Height = 220,
@@ -296,10 +297,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     Minimum = 0,
                     Maximum = 20
                 }
+                    .AddLabel("P1", "P2", "P3", "P4")
                     .AddDataset(new ControlChartDataset
                     {
                         Title = "Measurements",
-                        Data = [2f, 5f, 9f, 14f]
+                        Data = new ControlChartDatasetPointCollection(2f, 5f, 9f, 14f)
                     })
             );
 
@@ -320,16 +322,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 new ControlChart()
                 {
                     Type = TypeChart.Bar,
-                    Labels = ["K1", "K2", "K3"],
                     Title = "Style",
                     TitleDisplay = true,
                     Height = 220,
                     YBeginAtZero = true
                 }
+                    .AddLabel("K1", "K2", "K3")
                     .AddDataset(new ControlChartDataset
                     {
                         Title = "Alpha",
-                        Data = [3f, 7f, 5f],
+                        Data = new ControlChartDatasetPointCollection(3f, 7f, 5f),
                         BackgroundColor = "gold",
                         BorderColor = "red",
                         BorderWidth = 2
@@ -337,7 +339,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     .AddDataset(new ControlChartDataset
                     {
                         Title = "Beta",
-                        Data = [4f, 4f, 8f]
+                        Data = new ControlChartDatasetPointCollection(4f, 4f, 8f)
                     })
             );
 
@@ -350,16 +352,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 new ControlChart()
                 {
                     Type = TypeChart.Line,
-                    Labels = ["T1", "T2", "T3", "T4", "T5"],
                     Title = "Height Example",
                     TitleDisplay = true,
                     Height = 360,
                     YBeginAtZero = true
                 }
+                    .AddLabel("T1", "T2", "T3", "T4", "T5")
                     .AddDataset(new ControlChartDataset
                     {
                         Title = "Progression",
-                        Data = [1f, 3f, 2f, 5f, 4f]
+                        Data = new ControlChartDatasetPointCollection(1f, 3f, 2f, 5f, 4f)
                     })
             );
         }
