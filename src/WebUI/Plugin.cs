@@ -10,6 +10,7 @@ namespace WebExpress.Tutorial.WebUI
     [Description("webexpress.Tutorial.webui:plugin.description")]
     [Icon("/assets/img/webapp.svg")]
     [Application<Application>()]
+    [Dependency("webexpress.webapp")]
     public sealed class Plugin : IPlugin
     {
         /// <summary>  
