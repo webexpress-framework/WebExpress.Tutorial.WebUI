@@ -41,7 +41,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 new ControlRestDropdown("inventoryDropdown")
                 {
                     Text = "Inventory",
-                    RestUri = sitemapManager.GetUri<MonkeyIslandInventory>(pageContext.ApplicationContext)
+                    RestUri = sitemapManager.GetUri<MonkeyIslandInventories>(pageContext.ApplicationContext)
                 }
                     .Add(new ControlDropdownItemLink()
                     {
@@ -56,7 +56,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 new ControlRestDropdown("darkInventoryDropdown")
                 {
                     Text = "Inventory",
-                    RestUri = sitemapManager.GetUri<MonkeyIslandInventory>(pageContext.ApplicationContext)
+                    RestUri = sitemapManager.GetUri<MonkeyIslandInventories>(pageContext.ApplicationContext)
                 }
             ];
 
@@ -82,7 +82,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 new ControlRestDropdown("p_api")
                 {
                     Text = "Inventory",
-                    RestUri = sitemapManager.GetUri<MonkeyIslandInventory>(pageContext.ApplicationContext)
+                    RestUri = sitemapManager.GetUri<MonkeyIslandInventories>(pageContext.ApplicationContext)
                 }
             );
 
@@ -95,7 +95,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 new ControlRestDropdown("p_maxitems")
                 {
                     Text = "Inventory",
-                    RestUri = sitemapManager.GetUri<MonkeyIslandInventory>(pageContext.ApplicationContext),
+                    RestUri = sitemapManager.GetUri<MonkeyIslandInventories>(pageContext.ApplicationContext),
                     MaxItems = 10
                 }
             );
@@ -109,7 +109,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 new ControlRestDropdown("p_placeholder")
                 {
                     Text = "Inventory",
-                    RestUri = sitemapManager.GetUri<MonkeyIslandInventory>(pageContext.ApplicationContext),
+                    RestUri = sitemapManager.GetUri<MonkeyIslandInventories>(pageContext.ApplicationContext),
                     SearchPlaceholder = "Search entries..."
                 }
             );

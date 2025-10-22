@@ -18,6 +18,11 @@ namespace WebExpress.Tutorial.WebUI.Model
         public static List<Inventory> MonkeyIslanInventories { get; } = [.. GetMonkeyIslandInventories()];
 
         /// <summary>
+        /// Returns the list of predefined locations in Monkey Island.
+        /// </summary>
+        public static List<Location> MonkeyIslanLocations { get; } = [.. GetMonkeyIslandLocations()];
+
+        /// <summary>
         /// Retrieves a collection of characters from the Monkey Island universe.
         /// </summary>
         /// <returns>An enumerable of objects, each representing a notable character from the Monkey Island series.</returns>
@@ -539,6 +544,144 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Text = "Note",
                 Description = "A handwritten note of dubious importance; pirates love leaving messages."
             };
+        }
+
+        /// <summary>
+        /// Retrieves a collection of locations.
+        /// </summary>
+        /// <returns>An collection containing the locations.</returns>
+        public static IEnumerable<Location> GetMonkeyIslandLocations()
+        {
+            // locations from "The Secret of Monkey Island" (1990)
+            // melee island
+            yield return new Location
+            {
+                Text = "Lookout Point",
+                Description = "Clifftop vantage point where the Lookout keeps watch over Mêlée Island."
+            };
+            yield return new Location
+            {
+                Text = "Mêlée Island Village",
+                Description = "Central village street with shops and notable buildings."
+            };
+            yield return new Location
+            {
+                Text = "Scumm Bar",
+                Description = "Notorious pirate tavern by the docks."
+            };
+            yield return new Location
+            {
+                Text = "Docks",
+                Description = "Harbor area where ships moor and the Scumm Bar is located."
+            };
+            yield return new Location
+            {
+                Text = "Jail",
+                Description = "Small prison that houses characters like Otis."
+            };
+            yield return new Location
+            {
+                Text = "General Store",
+                Description = "Village shop run by the shopkeeper."
+            };
+            yield return new Location
+            {
+                Text = "Church",
+                Description = "Chapel used for certain story events."
+            };
+            yield return new Location
+            {
+                Text = "Alley",
+                Description = "Narrow back alley with hidden goings-on."
+            };
+            yield return new Location
+            {
+                Text = "Governor's Mansion",
+                Description = "Residence of Governor Elaine Marley, guarded by piranha poodles."
+            };
+            yield return new Location
+            {
+                Text = "Circus of the Fettuccini Brothers",
+                Description = "Traveling circus for daring stunts and a few bruises."
+            };
+            yield return new Location
+            {
+                Text = "Forest",
+                Description = "Maze-like woods that hide several paths and clearings."
+            };
+            yield return new Location
+            {
+                Text = "Fork in the Forest",
+                Description = "Signposted fork that helps (or hinders) orientation."
+            };
+            yield return new Location
+            {
+                Text = "Sword Master's House",
+                Description = "Secluded home of the Sword Master, reachable through the forest."
+            };
+            yield return new Location
+            {
+                Text = "Stan's Previously Owned Vessels",
+                Description = "Shipyard where Stan sells second-hand ships with flair."
+            };
+
+            // monkey island (key locations)
+            yield return new Location
+            {
+                Text = "Landing Beach",
+                Description = "Sandy shore where the Sea Monkey reaches Monkey Island."
+            };
+            yield return new Location
+            {
+                Text = "Jungle",
+                Description = "Dense jungle covering most of the island."
+            };
+            yield return new Location
+            {
+                Text = "Herman Toothrot's Camp",
+                Description = "Makeshift camp of castaway Herman Toothrot."
+            };
+            yield return new Location
+            {
+                Text = "Banana Grove",
+                Description = "Spot to acquire bananas for a helpful primate."
+            };
+            yield return new Location
+            {
+                Text = "Lagoon",
+                Description = "Quiet inland waterbody used in puzzle-solving."
+            };
+            yield return new Location
+            {
+                Text = "Cannibal Village",
+                Description = "Huts of the vegetarian cannibals with unique interior design."
+            };
+            yield return new Location
+            {
+                Text = "Giant Stone Monkey Head",
+                Description = "Ancient statue hiding an entrance to catacombs."
+            };
+            yield return new Location
+            {
+                Text = "Volcano Rim",
+                Description = "Fiery heart of the island visible near the catacombs."
+            };
+            yield return new Location
+            {
+                Text = "Sea Monkey Wreck",
+                Description = "The Sea Monkey in less-than-seaworthy condition on the shore."
+            };
+            yield return new Location
+            {
+                Text = "Catacombs",
+                Description = "Underground passages leading to LeChuck's ghost ship."
+            };
+            yield return new Location
+            {
+                Text = "LeChuck's Ghost Ship",
+                Description = "The dread pirate's vessel anchored in hidden waters."
+            };
+
         }
     }
 }

@@ -15,7 +15,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
     /// </summary>
     [Title("Monkey Island inventory")]
     [Method(CrudMethod.GET)]
-    public sealed class MonkeyIslandInventory : RestApiCrudDropdown<Inventory>
+    public sealed class MonkeyIslandInventories : RestApiCrudDropdown<Inventory>
     {
         /// <summary>
         /// Initializes a new instance of the class.
@@ -26,7 +26,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// <param name="applicationContext">
         /// The application context containing the current state of the application.
         /// </param>
-        public MonkeyIslandInventory(ISitemapManager sitemapManager, IApplicationContext applicationContext)
+        public MonkeyIslandInventories(ISitemapManager sitemapManager, IApplicationContext applicationContext)
         {
             Data = ViewModel.MonkeyIslanInventories;
         }
