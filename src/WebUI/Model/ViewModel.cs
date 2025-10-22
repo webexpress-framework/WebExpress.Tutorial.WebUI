@@ -13,6 +13,11 @@ namespace WebExpress.Tutorial.WebUI.Model
         public static List<Character> MonkeyIslandCharacters { get; } = [.. GetMonkeyIslandCharacters()];
 
         /// <summary>
+        /// Returns the list of inventories available in Monkey Island.
+        /// </summary>
+        public static List<Inventory> MonkeyIslanInventories { get; } = [.. GetMonkeyIslandInventories()];
+
+        /// <summary>
         /// Retrieves a collection of characters from the Monkey Island universe.
         /// </summary>
         /// <returns>An enumerable of objects, each representing a notable character from the Monkey Island series.</returns>
@@ -395,6 +400,144 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Name = "Rapp Scallion",
                 Description = "A ghost pirate who once ran the best weenie hut in town.",
                 AppearsIn = "Monkey Island 2: LeChuck’s Revenge (1991)"
+            };
+        }
+
+        /// <summary>
+        /// Retrieves a collection of inventory items.
+        /// </summary>
+        /// <returns>An collection containing the inventory items.</returns>
+        public static IEnumerable<Inventory> GetMonkeyIslandInventories()
+        {
+            // preferences / key items
+            yield return new Inventory
+            {
+                Text = "Sword",
+                Description = "A cutlass used for insult swordfighting and training with the Sword Master."
+            };
+            yield return new Inventory
+            {
+                Text = "Shovel",
+                Description = "A sturdy shovel used to dig up treasure at the X-marked spot."
+            };
+            yield return new Inventory
+            {
+                Text = "Treasure Map (PTA Minutes)",
+                Description = "Looks like PTA minutes, but actually leads to buried treasure on Melee Island."
+            };
+            yield return new Inventory
+            {
+                Text = "Spyglass",
+                Description = "A handy spyglass for distant viewing; favored by lookouts and nosy pirates."
+            };
+
+            // primary / main quest items
+            yield return new Inventory
+            {
+                Text = "Rubber Chicken with a Pulley in the Middle",
+                Description = "A rubber chicken fitted with a pulley, perfect for crossing improvised zip-lines."
+            };
+            yield return new Inventory
+            {
+                Text = "Head of the Navigator",
+                Description = "A disembodied head that points the way through the ghost ship's catacombs."
+            };
+            yield return new Inventory
+            {
+                Text = "Navigator's Necklace",
+                Description = "A mystical necklace that allows mingling with the ghostly realm aboard LeChuck's ship."
+            };
+            yield return new Inventory
+            {
+                Text = "Idol of Many Hands",
+                Description = "A precious idol stolen from the Governor's mansion during a daring heist."
+            };
+            yield return new Inventory
+            {
+                Text = "Cooking Pot",
+                Description = "A robust pot that doubles as protective headgear in questionable circus stunts."
+            };
+            yield return new Inventory
+            {
+                Text = "Gunpowder",
+                Description = "Explosive powder used for making things go boom at the most inappropriate times."
+            };
+            yield return new Inventory
+            {
+                Text = "Rope",
+                Description = "A length of rope that conveniently serves as a fuse and climbing aid."
+            };
+            yield return new Inventory
+            {
+                Text = "Root Beer",
+                Description = "A fizzy beverage with voodoo properties effective against ghost pirates."
+            };
+            yield return new Inventory
+            {
+                Text = "Monkey Head Key",
+                Description = "A peculiar key used to unlock the giant monkey head on Monkey Island."
+            };
+            yield return new Inventory
+            {
+                Text = "Directions to Monkey Island",
+                Description = "Vital directions concocted via a questionable recipe to reach Monkey Island."
+            };
+
+            // secondary / optional or situational items
+            yield return new Inventory
+            {
+                Text = "Fish",
+                Description = "A slippery fish; surprisingly useful for bribes, trolls, and culinary experiments."
+            };
+            yield return new Inventory
+            {
+                Text = "Hunk of Meat",
+                Description = "A chunk of meat from the SCUMM Bar kitchen; perfect for distracting vicious dogs."
+            };
+            yield return new Inventory
+            {
+                Text = "Yellow Petals",
+                Description = "Alchemically potent petals used to spice meat with... unforeseen side effects."
+            };
+            yield return new Inventory
+            {
+                Text = "Red Herring",
+                Description = "A cheeky nautical snack and a blatant adventure-game tradition."
+            };
+            yield return new Inventory
+            {
+                Text = "Mug",
+                Description = "A sturdy mug that, when filled with grog, tends to corrode in concerning ways."
+            };
+            yield return new Inventory
+            {
+                Text = "Mug o' Grog",
+                Description = "Highly corrosive grog that eats through locks and tableware alike."
+            };
+            yield return new Inventory
+            {
+                Text = "\"I beat the Sword Master\" T-Shirt",
+                Description = "A brag-worthy souvenir commemorating a victory over the Sword Master of Melee Island."
+            };
+            yield return new Inventory
+            {
+                Text = "Pieces of Eight",
+                Description = "Shiny pirate currency used for shopping, bribery, and impulsive purchases."
+            };
+            yield return new Inventory
+            {
+                Text = "Breath Mints",
+                Description = "Minty-fresh confidence boosters; surprisingly useful in social piracy."
+            };
+            yield return new Inventory
+            {
+                Text = "Bananas",
+                Description = "A bunch of bananas favored by certain simian companions."
+            };
+            yield return new Inventory
+            {
+                Text = "Note",
+                Description = "A handwritten note of dubious importance; pirates love leaving messages."
             };
         }
     }

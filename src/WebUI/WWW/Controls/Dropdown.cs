@@ -23,7 +23,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
         private readonly IControlDropdownItem _item2 = new ControlDropdownItemLink() { Text = "First Entry", Icon = new IconWrench() };
         private readonly IControlDropdownItem _item3 = new ControlDropdownItemLink() { Text = "Second Entry" };
         private readonly IControlDropdownItem _item4 = new ControlDropdownItemDivider();
-        private readonly IControlDropdownItem _item5 = new ControlDropdownItemLink() { Text = "Third Entry" };
+        private readonly IControlDropdownItem _item5 = new ControlDropdownItemLink() { Text = "Third Entry", Modal = "myModal" };
 
         /// <summary>  
         /// Initializes a new instance of the class.  
@@ -39,29 +39,47 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
             The `Dropdown` provides a button with a dropdown menu, offering a clean and efficient design.";
 
             Stage.Controls = [
-                new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
+                new ControlDropdown()
                 {
                     Text = "Dropdown",
                     TextColor = new PropertyColorText(TypeColorText.Default),
                     Color = new PropertyColorButton(TypeColorButton.Primary),
                 }
+                    .Add(_item1)
+                    .Add(_item2)
+                    .Add(_item3)
+                    .Add(_item4)
+                    .Add(_item5),
+                new ControlModalRemoteForm("myModal")
+                {
+                    Header = "My modal",
+                    Size = TypeModalSize.ExtraLarge,
+                    Uri = sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
+                    Selector = "#conformationform"
+                }
             ];
 
+            Stage.DarkControls = [
+               new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
+                {
+                    Text = "Dropdown",
+                    TextColor = new PropertyColorText(TypeColorText.Default),
+                    Color = new PropertyColorButton(TypeColorButton.Primary),
+                }
+           ];
+
             Stage.Code = @"
-            new ControlDropdown
-            (
-                null, 
-                new ControlDropdownItemHeader() { Text = ""Header"" }, 
-                new ControlDropdownItemLink() { Text = ""First Entry"", Icon = new IconWrench() }, 
-                new ControlDropdownItemLink() { Text = ""Second Entry"" }, 
-                new ControlDropdownItemDivider(),
-                new ControlDropdownItemLink() { Text = ""Third Entry"" }
-            )
+            new ControlDropdown()
             {
                 Text = ""Dropdown"",
                 TextColor = new PropertyColorText(TypeColorText.Default),
                 BackgroundColor = new PropertyColorButton(TypeColorButton.Primary)
-            };";
+            }
+                .Add(new ControlDropdownItemHeader() { Text = ""Header"" }) 
+                .Add(new ControlDropdownItemLink() { Text = ""First Entry"", Icon = new IconWrench() })
+                .Add(new ControlDropdownItemLink() { Text = ""Second Entry"" })
+                .Add(new ControlDropdownItemDivider())
+                .Add(new ControlDropdownItemLink() { Text = ""Third Entry"", Modal = ""myModal"" });";
 
             Stage.AddProperty
             (
