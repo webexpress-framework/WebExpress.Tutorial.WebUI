@@ -1,5 +1,4 @@
-﻿using WebExpress.Tutorial.WebUI.WWW;
-using WebExpress.WebApp.WebScope;
+﻿using WebExpress.WebApp.WebScope;
 using WebExpress.WebApp.WebSection;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebComponent;
@@ -11,32 +10,53 @@ using WebExpress.WebUI.WebFragment;
 using WebExpress.WebUI.WebIcon;
 using WebExpress.WebUI.WebPage;
 
-namespace WebExpress.Tutorial.WebUI.WebFragment.FragmentPage
+namespace WebExpress.Tutorial.WebUI.WebFragment.StatusPages
 {
     /// <summary>
-    /// Represents a navigation item link for the fragment page.
+    /// Represents a navigation item link for the home page.
     /// </summary>
     /// <remarks>
     /// This fragment is used to create a navigation link to the home page (Index) with an icon and label.
     /// </remarks>
-    [Section<SectionAppNavigationPrimary>]
+    [Section<SectionAppNavigationSecondary>]
     [Scope<IScopeGeneral>]
     [Scope<IScopeAdmin>]
     [Scope<IScopeStatusPage>]
     [Cache]
-    public sealed class FragmentLinkFragment : FragmentControlNavigationItemLink
+    public sealed class StatusPageFragment : FragmentControlNavigationItemDropdown
     {
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
         /// <param name="componentHub">The component hub used to manage components.</param>
         /// <param name="fragmentContext">The context in which the fragment is used.</param>
-        public FragmentLinkFragment(IComponentHub componentHub, IFragmentContext fragmentContext)
+        public StatusPageFragment(IComponentHub componentHub, IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "webexpress.tutorial.webui:fragmentpage.label";
-            Uri = componentHub.SitemapManager.GetUri<Fragment>(fragmentContext.ApplicationContext);
-            Icon = new IconExpand();
+            Text = "webexpress.tutorial.webui:statuspage.label";
+            Toggle = TypeToggleDropdown.Toggle;
+            Icon = new IconRoadBarrier();
+
+            //Add(new ControlDropdownItemLink()
+            //{
+            //    Text = "webexpress.tutorial.webui:statuspage.400",
+            //    Icon = new IconLink(),
+            //    Uri = componentHub.SitemapManager.GetUri<WWW.StatusPages.BadRequest>(fragmentContext.ApplicationContext)
+            //});
+
+            Add(new ControlDropdownItemLink()
+            {
+                Text = "webexpress.tutorial.webui:statuspage.404",
+                Icon = new IconLink(),
+                Uri = componentHub.SitemapManager.GetUri<WWW.Index>(fragmentContext.ApplicationContext).Concat("unavailable")
+            });
+
+            Add(new ControlDropdownItemLink()
+            {
+                Text = "webexpress.tutorial.webui:statuspage.500",
+                Icon = new IconBug(),
+                Uri = componentHub.SitemapManager.GetUri<WWW.StatusPages.Index>(fragmentContext.ApplicationContext)
+            });
         }
 
         /// <summary>
@@ -47,8 +67,6 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.FragmentPage
         /// <returns>An HTML node representing the rendered control.</returns>
         public override IHtmlNode Render(IRenderControlContext renderContext, IVisualTreeControl visualTree)
         {
-            Active = renderContext.Endpoint is Fragment ? TypeActive.Active : TypeActive.None;
-
             return base.Render(renderContext, visualTree);
         }
     }

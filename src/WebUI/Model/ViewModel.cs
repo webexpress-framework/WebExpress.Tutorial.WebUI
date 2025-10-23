@@ -552,134 +552,159 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// <returns>An collection containing the locations.</returns>
         public static IEnumerable<Location> GetMonkeyIslandLocations()
         {
-            // locations from "The Secret of Monkey Island" (1990)
+            // locations from "The Secret of Monkey Island"
             // melee island
             yield return new Location
             {
                 Text = "Lookout Point",
-                Description = "Clifftop vantage point where the Lookout keeps watch over Mêlée Island."
+                Description = "Clifftop vantage point where the Lookout keeps watch over Mêlée Island.",
+                Island = "Mêlée Island"
             };
             yield return new Location
             {
                 Text = "Mêlée Island Village",
-                Description = "Central village street with shops and notable buildings."
+                Description = "Central village street with shops and notable buildings.",
+                Island = "Mêlée Island"
             };
             yield return new Location
             {
                 Text = "Scumm Bar",
-                Description = "Notorious pirate tavern by the docks."
+                Description = "Notorious pirate tavern by the docks.",
+                Island = "Mêlée Island"
             };
             yield return new Location
             {
                 Text = "Docks",
-                Description = "Harbor area where ships moor and the Scumm Bar is located."
+                Description = "Harbor area where ships moor and the Scumm Bar is located.",
+                Island = "Mêlée Island"
             };
             yield return new Location
             {
                 Text = "Jail",
-                Description = "Small prison that houses characters like Otis."
+                Description = "Small prison that houses characters like Otis.",
+                Island = "Mêlée Island"
             };
             yield return new Location
             {
                 Text = "General Store",
-                Description = "Village shop run by the shopkeeper."
+                Description = "Village shop run by the shopkeeper.",
+                Island = "Mêlée Island"
             };
             yield return new Location
             {
                 Text = "Church",
-                Description = "Chapel used for certain story events."
+                Description = "Chapel used for certain story events.",
+                Island = "Mêlée Island"
             };
             yield return new Location
             {
                 Text = "Alley",
-                Description = "Narrow back alley with hidden goings-on."
+                Description = "Narrow back alley with hidden goings-on.",
+                Island = "Mêlée Island"
             };
             yield return new Location
             {
                 Text = "Governor's Mansion",
-                Description = "Residence of Governor Elaine Marley, guarded by piranha poodles."
+                Description = "Residence of Governor Elaine Marley, guarded by piranha poodles.",
+                Island = "Mêlée Island"
             };
             yield return new Location
             {
                 Text = "Circus of the Fettuccini Brothers",
-                Description = "Traveling circus for daring stunts and a few bruises."
+                Description = "Traveling circus for daring stunts and a few bruises.",
+                Island = "Mêlée Island"
             };
             yield return new Location
             {
                 Text = "Forest",
-                Description = "Maze-like woods that hide several paths and clearings."
+                Description = "Maze-like woods that hide several paths and clearings.",
+                Island = "Mêlée Island"
             };
             yield return new Location
             {
                 Text = "Fork in the Forest",
-                Description = "Signposted fork that helps (or hinders) orientation."
+                Description = "Signposted fork that helps (or hinders) orientation.",
+                Island = "Mêlée Island"
             };
             yield return new Location
             {
                 Text = "Sword Master's House",
-                Description = "Secluded home of the Sword Master, reachable through the forest."
+                Description = "Secluded home of the Sword Master, reachable through the forest.",
+                Island = "Mêlée Island"
             };
             yield return new Location
             {
                 Text = "Stan's Previously Owned Vessels",
-                Description = "Shipyard where Stan sells second-hand ships with flair."
+                Description = "Shipyard where Stan sells second-hand ships with flair.",
+                Island = "Mêlée Island"
             };
 
             // monkey island (key locations)
             yield return new Location
             {
                 Text = "Landing Beach",
-                Description = "Sandy shore where the Sea Monkey reaches Monkey Island."
+                Description = "Sandy shore where the Sea Monkey reaches Monkey Island.",
+                Island = "Monkey Island"
             };
             yield return new Location
             {
                 Text = "Jungle",
-                Description = "Dense jungle covering most of the island."
+                Description = "Dense jungle covering most of the island.",
+                Island = "Monkey Island"
             };
             yield return new Location
             {
                 Text = "Herman Toothrot's Camp",
-                Description = "Makeshift camp of castaway Herman Toothrot."
+                Description = "Makeshift camp of castaway Herman Toothrot.",
+                Island = "Monkey Island"
             };
             yield return new Location
             {
                 Text = "Banana Grove",
-                Description = "Spot to acquire bananas for a helpful primate."
+                Description = "Spot to acquire bananas for a helpful primate.",
+                Island = "Monkey Island"
             };
             yield return new Location
             {
                 Text = "Lagoon",
-                Description = "Quiet inland waterbody used in puzzle-solving."
+                Description = "Quiet inland waterbody used in puzzle-solving.",
+                Island = "Monkey Island"
             };
             yield return new Location
             {
                 Text = "Cannibal Village",
-                Description = "Huts of the vegetarian cannibals with unique interior design."
+                Description = "Huts of the vegetarian cannibals with unique interior design.",
+                Island = "Monkey Island"
             };
             yield return new Location
             {
                 Text = "Giant Stone Monkey Head",
-                Description = "Ancient statue hiding an entrance to catacombs."
+                Description = "Ancient statue hiding an entrance to catacombs.",
+                Island = "Monkey Island"
             };
             yield return new Location
             {
                 Text = "Volcano Rim",
-                Description = "Fiery heart of the island visible near the catacombs."
+                Description = "Fiery heart of the island visible near the catacombs.",
+                Island = "Monkey Island"
             };
             yield return new Location
             {
                 Text = "Sea Monkey Wreck",
-                Description = "The Sea Monkey in less-than-seaworthy condition on the shore."
+                Description = "The Sea Monkey in less-than-seaworthy condition on the shore.",
+                Island = "Monkey Island"
             };
             yield return new Location
             {
                 Text = "Catacombs",
-                Description = "Underground passages leading to LeChuck's ghost ship."
+                Description = "Underground passages leading to LeChuck's ghost ship.",
+                Island = "Monkey Island"
             };
             yield return new Location
             {
                 Text = "LeChuck's Ghost Ship",
-                Description = "The dread pirate's vessel anchored in hidden waters."
+                Description = "The dread pirate's vessel anchored in hidden waters.",
+                Island = "Monkey Island"
             };
 
         }

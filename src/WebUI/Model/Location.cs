@@ -1,6 +1,5 @@
 ﻿using System;
 using WebExpress.WebApp.WebRestApi;
-using WebExpress.WebCore.WebUri;
 
 namespace WebExpress.Tutorial.WebUI.Model
 {
@@ -23,11 +22,6 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// Returns or sets a short description of the location.
         /// </summary>
         public string Description { get; set; }
-
-        /// <summary>
-        /// Returns or sets an optional deep link target to the location.
-        /// </summary>
-        public IUri Uri { get; set; }
 
         /// <summary>
         /// Returns or sets the island the location belongs to (e.g., "Melee Island", "Monkey Island").

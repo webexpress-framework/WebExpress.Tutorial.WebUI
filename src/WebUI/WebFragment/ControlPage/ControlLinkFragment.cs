@@ -6,6 +6,7 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebFragment;
 using WebExpress.WebCore.WebHtml;
+using WebExpress.WebCore.WebScope;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebFragment;
 using WebExpress.WebUI.WebIcon;
@@ -21,6 +22,8 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
     /// </remarks>
     [Section<SectionAppNavigationPrimary>]
     [Scope<IScopeGeneral>]
+    [Scope<IScopeAdmin>]
+    [Scope<IScopeStatusPage>]
     [Cache]
     public sealed class ControlLinkFragment : FragmentControlNavigationItemLink
     {

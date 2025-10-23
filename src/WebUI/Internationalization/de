@@ -15,3 +15,9 @@ controlpage.label=Steuerelemente
 
 fragmentpage.label=Fragmente
 fragmentpage.description=Demonstration der Verwendung von Fragmenten in WebExpress.
+
+statuspage.label=StatusPage
+statuspage.description=Demonstration der Statusseiten in WebExpress.
+statuspage.400=Fehler 400 - Ungültige Anforderung
+statuspage.404=Fehler 404 - Seite nicht gefunden
+statuspage.500=Fehler 500 - Interner Serverfehler
