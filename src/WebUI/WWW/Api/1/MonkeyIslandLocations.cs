@@ -28,7 +28,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// </param>
         public MonkeyIslandLocations(ISitemapManager sitemapManager, IApplicationContext applicationContext)
         {
-            Data = ViewModel.MonkeyIslanLocations;
+            Data = ViewModel.MonkeyIslandLocations;
         }
 
         /// <summary>

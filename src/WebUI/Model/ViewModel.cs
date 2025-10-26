@@ -15,12 +15,17 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// <summary>
         /// Returns the list of inventories available in Monkey Island.
         /// </summary>
-        public static List<Inventory> MonkeyIslanInventories { get; } = [.. GetMonkeyIslandInventories()];
+        public static List<Inventory> MonkeyIslandInventories { get; } = [.. GetMonkeyIslandInventories()];
 
         /// <summary>
         /// Returns the list of predefined locations in Monkey Island.
         /// </summary>
-        public static List<Location> MonkeyIslanLocations { get; } = [.. GetMonkeyIslandLocations()];
+        public static List<Location> MonkeyIslandLocations { get; } = [.. GetMonkeyIslandLocations()];
+
+        /// <summary>
+        /// Returns a list of Monkey Island games.
+        /// </summary>
+        public static List<Game> MonkeyIslandGames { get; } = [.. GetMonkeyIslandGames()];
 
         /// <summary>
         /// Retrieves a collection of characters from the Monkey Island universe.
@@ -706,7 +711,77 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Description = "The dread pirate's vessel anchored in hidden waters.",
                 Island = "Monkey Island"
             };
+        }
 
+        /// <summary>
+        /// Retrieves a collection of Monkey Island games.
+        /// </summary>
+        /// <returns>A collection containing the games.</returns>
+        public static IEnumerable<Game> GetMonkeyIslandGames()
+        {
+            yield return new Game
+            {
+                Name = "The Secret of Monkey Island",
+                ReleaseYear = 1990,
+                Description = "Guybrush Threepwood begins his pirate journey on Mêlée Island and faces the ghost pirate LeChuck.",
+                IsRemake = false
+            };
+
+            yield return new Game
+            {
+                Name = "Monkey Island 2: LeChuck’s Revenge",
+                ReleaseYear = 1991,
+                Description = "Guybrush searches for the legendary treasure Big Whoop while LeChuck returns as a zombie.",
+                IsRemake = false
+            };
+
+            yield return new Game
+            {
+                Name = "The Curse of Monkey Island",
+                ReleaseYear = 1997,
+                Description = "Guybrush must lift a curse from Elaine and defeat LeChuck once again, now in skeletal form.",
+                IsRemake = false
+            };
+
+            yield return new Game
+            {
+                Name = "Escape from Monkey Island",
+                ReleaseYear = 2000,
+                Description = "Guybrush battles corporate villain Ozzie Mandrill to save the pirate way of life.",
+                IsRemake = false
+            };
+
+            yield return new Game
+            {
+                Name = "Tales of Monkey Island",
+                ReleaseYear = 2009,
+                Description = "Episodic adventure where Guybrush accidentally unleashes a voodoo plague and must stop it.",
+                IsRemake = false
+            };
+
+            yield return new Game
+            {
+                Name = "Return to Monkey Island",
+                ReleaseYear = 2022,
+                Description = "Guybrush finally uncovers the true secret of Monkey Island in a modern, stylized adventure.",
+                IsRemake = false
+            };
+
+            yield return new Game
+            {
+                Name = "The Secret of Monkey Island: Special Edition",
+                ReleaseYear = 2009,
+                Description = "Remake of the original with updated graphics, voice acting, and music.",
+                IsRemake = true
+            };
+
+            yield return new Game
+            {
+                Name = "Monkey Island 2: LeChuck’s Revenge – Special Edition",
+                ReleaseYear = 2010,
+                Description = "Remake of the second game with enhanced visuals and audio, plus commentary.",
+                IsRemake = true
+            };
         }
     }
 }
