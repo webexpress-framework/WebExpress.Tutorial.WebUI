@@ -8,19 +8,19 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.FragmentPage
     /// <summary>
     /// Represents a fragment control for the tutorial.
     /// </summary>
-    [Section<SectionToastNotficationSecondary>]
+    [Section<SectionToastNotificationSecondary>]
     [Scope<IScopeFragment>]
     [Cache]
-    public sealed class SectionToastNotficationSecondaryFragment : FragmentControlText
+    public sealed class SectionToastnotificationSecondaryFragment : FragmentControlText
     {
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
         /// <param name="fragmentContext">The context in which the fragment is used.</param>
-        public SectionToastNotficationSecondaryFragment(IFragmentContext fragmentContext)
+        public SectionToastnotificationSecondaryFragment(IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "SectionToastNotficationSecondary";
+            Text = "SectionToastnotificationSecondary";
         }
     }
 }
