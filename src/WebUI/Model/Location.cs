@@ -1,12 +1,13 @@
 ﻿using System;
-using WebExpress.WebApp.WebRestApi;
+using WebExpress.WebApp.WebAttribute;
+using WebExpress.WebIndex;
 
 namespace WebExpress.Tutorial.WebUI.Model
 {
     /// <summary>
     /// Represents a location entity for a selection control within "The Secret of Monkey Island".
     /// </summary>
-    public class Location : IRestApiCrudSelectionItem
+    public class Location : IIndexItem
     {
         /// <summary>
         /// Returns or sets the unique identifier of the location.
@@ -16,6 +17,7 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// <summary>
         /// Returns or sets the display name of the location.
         /// </summary>
+        [RestSelectionText]
         public string Text { get; set; }
 
         /// <summary>

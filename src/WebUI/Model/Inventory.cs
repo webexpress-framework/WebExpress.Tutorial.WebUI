@@ -1,13 +1,14 @@
 ﻿using System;
-using WebExpress.WebApp.WebRestApi;
+using WebExpress.WebApp.WebAttribute;
 using WebExpress.WebCore.WebUri;
+using WebExpress.WebIndex;
 
 namespace WebExpress.Tutorial.WebUI.Model
 {
     /// <summary>
     /// Represents a data entity for a dropdown.
     /// </summary>
-    public class Inventory : IRestApiCrudDropdownItem
+    public class Inventory : IIndexItem
     {
         /// <summary>
         /// Returns or sets the identifier of the table data.
@@ -17,6 +18,7 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// <summary>
         /// Returns or sets the name associated with the object.
         /// </summary>
+        [RestDropdownText]
         public string Text { get; set; }
 
         /// <summary>

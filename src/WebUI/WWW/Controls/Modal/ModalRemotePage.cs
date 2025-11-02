@@ -88,7 +88,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
             (
                "Selector",
                 @"The Selector property defines the element or identifier used to locate and load content into the modal. It allows specifying a target source, such as a CSS selector or element reference, from which data will be retrieved and displayed dynamically within the modal dialog.",
-                "Selector = \"#wx-content\"",
+                "Selector = \"wx-content\"",
                 new ControlButton()
                 {
                     Text = "Activator",
@@ -101,7 +101,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                     Header = "Header",
                     Size = TypeModalSize.ExtraLarge,
                     Uri = sitemapManager.GetUri<Info>(pageContext.ApplicationContext),
-                    Selector = "#wx-content"
+                    Selector = "wx-content"
                 }
             );
         }

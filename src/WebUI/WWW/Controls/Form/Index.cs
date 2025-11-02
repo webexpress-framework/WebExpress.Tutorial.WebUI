@@ -25,6 +25,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
             new ControlFormItemInputText("username")
             {
                 Label = "Username",
+                Required = true,
                 Icon = new IconFont(),
                 Help = "Enter your desired username."
             }.Validate(x => x.Add(string.IsNullOrWhiteSpace(x.Value.Text), "Username is required. Please enter a valid name.")),
@@ -64,6 +65,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
             Stage.Control = new ControlForm("myform")
                 .Add(new ControlFormItemInputText("regards")
                 {
+                    Required = true,
                     Label = "Greetings",
                     Icon = new IconFont(),
                     Help = "This is the associated help text."

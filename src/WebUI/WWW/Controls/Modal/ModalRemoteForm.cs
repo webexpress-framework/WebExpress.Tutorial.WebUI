@@ -45,7 +45,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                     Header = "My modal",
                     Size = TypeModalSize.ExtraLarge,
                     Uri = sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
-                    Selector = "#conformationform"
+                    Selector = "conformationform"
                 }
             ];
 
@@ -80,7 +80,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                 Header = ""My modal"",
                 Size = TypeModalSize.ExtraLarge,
                 Uri = sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
-                Selector = ""#conformationform""
+                Selector = ""conformationform""
             }";
 
             Stage.AddProperty
@@ -101,7 +101,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                     Header = "Header",
                     Size = TypeModalSize.ExtraLarge,
                     Uri = sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
-                    Selector = "#conformationform"
+                    Selector = "conformationform"
                 }
             );
 
@@ -109,7 +109,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
             (
                "Selector",
                 @"The Selector property defines the element or identifier used to locate and load content into the modal. It allows specifying a target source, such as a CSS selector or element reference, from which data will be retrieved and displayed dynamically within the modal dialog.",
-                "Selector = \"#wx-content\"",
+                "Selector = \"conformationform\"",
                 new ControlButton()
                 {
                     Text = "Activator",
@@ -122,7 +122,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                     Header = "Header",
                     Size = TypeModalSize.ExtraLarge,
                     Uri = sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
-                    Selector = "#conformationform"
+                    Selector = "conformationform"
                 }
             );
         }
