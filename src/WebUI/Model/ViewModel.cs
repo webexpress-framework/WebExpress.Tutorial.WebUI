@@ -28,6 +28,11 @@ namespace WebExpress.Tutorial.WebUI.Model
         public static List<Game> MonkeyIslandGames { get; } = [.. GetMonkeyIslandGames()];
 
         /// <summary>
+        /// Returns the list of curses associated with Monkey Island.
+        /// </summary>
+        public static List<Curse> MonkeyIslandCurses { get; } = [.. GetMonkeyIslandCurses()];
+
+        /// <summary>
         /// Retrieves a collection of characters from the Monkey Island universe.
         /// </summary>
         /// <returns>An enumerable of objects, each representing a notable character from the Monkey Island series.</returns>
@@ -781,6 +786,113 @@ namespace WebExpress.Tutorial.WebUI.Model
                 ReleaseYear = 2010,
                 Description = "Remake of the second game with enhanced visuals and audio, plus commentary.",
                 IsRemake = true
+            };
+        }
+
+        /// <summary>
+        /// Retrieves a complete collection of curses from the Monkey Island universe.
+        /// </summary>
+        /// <returns>A collection containing all known curses.</returns>
+        public static IEnumerable<Curse> GetMonkeyIslandCurses()
+        {
+            yield return new Curse
+            {
+                Name = "LeChuck's Ghost Curse",
+                Description = "LeChuck returns from the dead as a ghost pirate, haunting Mêlée Island and seeking revenge.",
+                Origin = "Voodoo resurrection",
+                Effect = "Immortality and spectral terror",
+                Cure = "Root beer exorcism",
+                AppearsIn = "The Secret of Monkey Island"
+            };
+
+            yield return new Curse
+            {
+                Name = "Zombie LeChuck Curse",
+                Description = "LeChuck is revived as a zombie, spreading decay and fear across the Caribbean.",
+                Origin = "Dark voodoo ritual",
+                Effect = "Undead persistence and decomposition",
+                Cure = "Voodoo doll destruction",
+                AppearsIn = "Monkey Island 2: LeChuck’s Revenge"
+            };
+
+            yield return new Curse
+            {
+                Name = "Elaine's Statue Curse",
+                Description = "Elaine is turned into a gold statue by a cursed engagement ring Guybrush finds on LeChuck’s ship.",
+                Origin = "Cursed artifact",
+                Effect = "Transformation into immobile gold",
+                Cure = "Replace with a genuine, uncursed engagement ring",
+                AppearsIn = "The Curse of Monkey Island"
+            };
+
+            yield return new Curse
+            {
+                Name = "Big Whoop Curse",
+                Description = "A mysterious portal distorts reality and traps Guybrush in a surreal childhood illusion.",
+                Origin = "Dimensional artifact",
+                Effect = "Temporal confusion and identity distortion",
+                Cure = "Escape through narrative resolution",
+                AppearsIn = "Monkey Island 2 & Escape from Monkey Island"
+            };
+
+            yield return new Curse
+            {
+                Name = "Pox of LeChuck",
+                Description = "A voodoo plague infects Guybrush’s hand and spreads chaos across the seas.",
+                Origin = "Voodoo contamination",
+                Effect = "Possessed hand and spreading corruption",
+                Cure = "La Esponja Grande",
+                AppearsIn = "Tales of Monkey Island"
+            };
+
+            yield return new Curse
+            {
+                Name = "Trial Curse",
+                Description = "To become a pirate, one must pass three absurd trials: sword fighting, treasure hunting, and thievery.",
+                Origin = "Pirate tradition",
+                Effect = "Initiation pressure and public humiliation",
+                Cure = "Complete all three trials",
+                AppearsIn = "The Secret of Monkey Island"
+            };
+
+            yield return new Curse
+            {
+                Name = "Voodoo Doll Backlash",
+                Description = "Guybrush creates a voodoo doll of LeChuck, but the magic backfires and distorts reality.",
+                Origin = "Improvised voodoo",
+                Effect = "Reality collapse and identity confusion",
+                Cure = "Unclear - possibly narrative reset",
+                AppearsIn = "Monkey Island 2: LeChuck’s Revenge"
+            };
+
+            yield return new Curse
+            {
+                Name = "Possessed Hand Curse",
+                Description = "Guybrush’s hand becomes sentient and malevolent after exposure to LeChuck’s pox.",
+                Origin = "Voodoo infection",
+                Effect = "Loss of control and unintended actions",
+                Cure = "Purification via La Esponja Grande",
+                AppearsIn = "Tales of Monkey Island"
+            };
+
+            yield return new Curse
+            {
+                Name = "Giant Monkey Head Curse",
+                Description = "A massive stone monkey head guards the entrance to LeChuck’s lair, sealed by ancient magic.",
+                Origin = "Island ritual",
+                Effect = "Blocked access and spiritual intimidation",
+                Cure = "Unlock with sacred items and rituals",
+                AppearsIn = "The Secret of Monkey Island & Monkey Island 2"
+            };
+
+            yield return new Curse
+            {
+                Name = "Voodoo Lady's Narrative Curse",
+                Description = "The Voodoo Lady’s guidance always seems to lead Guybrush back to LeChuck.",
+                Origin = "Mystical manipulation",
+                Effect = "Eternal entanglement with LeChuck",
+                Cure = "Break narrative dependency",
+                AppearsIn = "All Monkey Island games"
             };
         }
     }
