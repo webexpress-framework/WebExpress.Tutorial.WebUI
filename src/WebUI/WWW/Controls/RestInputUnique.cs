@@ -50,31 +50,35 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
             // dark sample
             Stage.DarkControls =
             [
-                new ControlRestFormItemInputUnique("darkUnique")
-                {
-                    //Text = "Inventory",
-                    RestUri = sitemapManager.GetUri<MonkeyIslandInventories>(pageContext.ApplicationContext)
-                }
+                new ControlForm()
+                    .Add(new ControlRestFormItemInputUnique("darkUnique")
+                    {
+                        RestUri = sitemapManager.GetUri<MonkeyIslandCurse>(pageContext.ApplicationContext),
+                        Help = @"Enter a curse name to check its availability (e.g., ""Elaine's Statue Curse"")"
+                    }
+                        .Initialize(x => x.Value.Text = "LeChuck's Ghost Curse"))
+                    .AddPrimaryButton(new ControlFormItemButtonSubmit())
             ];
 
             // code sample
             Stage.Code = @"
             new ControlForm()
-                .Add(new ControlRestFormItemInputUnique(""lightUnique"") 
-                { 
-                    RestUri = sitemapManager.GetUri<MonkeyIslandInventories>(pageContext.ApplicationContext)
-                })
+                .Add(new ControlRestFormItemInputUnique(""lightUnique"")
+                {
+                    RestUri = sitemapManager.GetUri<MonkeyIslandCurse>(pageContext.ApplicationContext),
+                    Help = @""Enter a curse name to check its availability (e.g., """"Elaine's Statue Curse"""")""
+                }
+                    .Initialize(x => x.Value.Text = ""LeChuck's Ghost Curse""))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit())";
 
             // properties: Api
             Stage.AddProperty
             (
                 "RestUri",
-                "The REST endpoint from which the entries are loaded.",
-                "RestUri = sitemapManager.GetUri<MonkeyIslandInventory>(pageContext.ApplicationContext)",
+                "Defines the REST API endpoint that checks the uniqueness of a specified input value.",
+                "RestUri = sitemapManager.GetUri<MonkeyIslandCurse>(pageContext.ApplicationContext)",
                 new ControlRestFormItemInputUnique("p_api")
                 {
-                    //Text = "Inventory",
                     RestUri = sitemapManager.GetUri<MonkeyIslandCurse>(pageContext.ApplicationContext)
                 }
             );
