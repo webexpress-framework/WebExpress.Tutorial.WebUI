@@ -12,7 +12,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
     /// </summary>
     [Title("Monkey Island Curses")]
     [Method(CrudMethod.GET)]
-    public sealed class MonkeyIslandCurse : RestApiCrudUnique
+    public sealed class MonkeyIslandCurse : RestApiUnique
     {
         /// <summary>
         /// Initializes a new instance of the class.
