@@ -77,10 +77,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 "RestUri",
                 "Defines the REST API endpoint that checks the uniqueness of a specified input value.",
                 "RestUri = sitemapManager.GetUri<MonkeyIslandCurse>(pageContext.ApplicationContext)",
-                new ControlRestFormItemInputUnique("p_api")
-                {
-                    RestUri = sitemapManager.GetUri<MonkeyIslandCurse>(pageContext.ApplicationContext)
-                }
+                new ControlForm()
+                    .Add(new ControlRestFormItemInputUnique("p_api")
+                    {
+                        RestUri = sitemapManager.GetUri<MonkeyIslandCurse>(pageContext.ApplicationContext)
+                    })
+                    .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
         }
     }

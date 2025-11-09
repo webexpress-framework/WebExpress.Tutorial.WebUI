@@ -12,14 +12,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
     /// </summary>
     [Title("Monkey Island Curses")]
     [Method(CrudMethod.GET)]
-    public sealed class MonkeyIslandCurse : RestApiCrudUnique<Curse>
+    public sealed class MonkeyIslandCurse : RestApiCrudUnique
     {
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
         public MonkeyIslandCurse()
         {
-            Data = ViewModel.MonkeyIslandCurses;
         }
 
         /// <summary>
@@ -34,7 +33,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// <returns>True if the specified value is available; otherwise, false.</returns>
         protected override bool CheckAvailable(string value, Request request)
         {
-            var unique = Data.Select(x => x.Name.ToLower()).Any(x => x.StartsWith(value));
+            var data = ViewModel.MonkeyIslandCurses;
+            var unique = data.Select(x => x.Name.ToLower()).Any(x => x.StartsWith(value));
 
             return !unique;
         }
