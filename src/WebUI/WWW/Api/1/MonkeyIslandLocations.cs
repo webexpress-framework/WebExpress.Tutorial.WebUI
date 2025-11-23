@@ -45,7 +45,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// </returns>
         public override IEnumerable<Location> GetData(string filter, Request request)
         {
-            if (filter == null || filter == "null")
+            if (filter is null || filter == "null")
             {
                 return Data;
             }

@@ -4,8 +4,8 @@ using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
-using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebPage;
+using WebExpress.WebCore.WebParameter;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
 

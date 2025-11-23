@@ -70,7 +70,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// query criteria.</returns>
         public override IEnumerable<Character> GetData(string filter, Request request)
         {
-            if (filter == null || filter == "null")
+            if (filter is null || filter == "null")
             {
                 return Data;
             }
