@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
@@ -99,7 +100,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 {
                 }
                     .Add(new ControlFormItemInputText() { Format = TypeEditTextFormat.Wysiwyg }
-                        .Initialize(x => x.Value.Text = "Hello WebExpress!")),
+                        .Initialize(x => x.Value.Text = "Hello <b>WebExpress</b>!")),
                 new ControlText()
                 {
                     Text = "ControlFormItemInputDate",
@@ -109,7 +110,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 new ControlSmartEdit()
                 {
                 }
-                    .Add(new ControlFormItemInputDate().Initialize(x => x.Value.Date = DateTime.Now)),
+                    .Add(new ControlFormItemInputDate()
+                    {
+                        Format = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern
+                    }.Initialize(x => x.Value.Date = DateTime.Now)),
                 new ControlText()
                 {
                     Text = "ControlFormItemInputCalendar",
@@ -186,7 +190,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                             new ControlFormItemInputMoveItem("b") { Label = "Item B" },
                             new ControlFormItemInputMoveItem("c") { Label = "Item C" }
                         )
-                        .Initialize(x => x.Value.Add("a;c")))
+                        .Initialize(x => x.Value.Add("a;c"))),
+                new ControlText()
+                {
+                    Text = "ControlFormItemInputRating",
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    TextColor = new PropertyColorText(TypeColorText.Info)
+                },
+                new ControlSmartEdit()
+                {
+                }
+                    .Add(new ControlFormItemInputRating()
+                        .Initialize(x => x.Value.Number = 3))
             );
         }
     }
