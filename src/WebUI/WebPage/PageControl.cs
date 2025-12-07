@@ -65,26 +65,30 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                 Styles = ["max-width: 80em;"],
                 Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
             });
-            visualTree.Content.MainPanel.AddPrimary(new ControlText()
+
+            if (Stage.DarkControls is not null)
             {
-                Text = "Dark Mode",
-                Format = TypeFormatText.H5,
-                Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
-            });
-            visualTree.Content.MainPanel.AddPrimary(new ControlText()
-            {
-                Text = @"Optimized for dim settings, dark mode delivers a high-contrast theme that enhances readability and reduces eye strain, while maintaining the control’s core functionalities.",
-                Format = TypeFormatText.Markdown,
-                Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
-            });
-            visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. Stage.DarkControls.Any() ? Stage.DarkControls : Stage.Controls])
-            {
-                BackgroundColor = new PropertyColorBackground(TypeColorBackground.Dark),
-                Styles = ["max-width: 80em;"],
-                Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None,
-                PropertySpacing.Space.None, PropertySpacing.Space.Two),
-                Theme = TypeTheme.Dark
-            });
+                visualTree.Content.MainPanel.AddPrimary(new ControlText()
+                {
+                    Text = "Dark Mode",
+                    Format = TypeFormatText.H5,
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                });
+                visualTree.Content.MainPanel.AddPrimary(new ControlText()
+                {
+                    Text = @"Optimized for dim settings, dark mode delivers a high-contrast theme that enhances readability and reduces eye strain, while maintaining the control’s core functionalities.",
+                    Format = TypeFormatText.Markdown,
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                });
+                visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. Stage.DarkControls.Any() ? Stage.DarkControls : Stage.Controls])
+                {
+                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Dark),
+                    Styles = ["max-width: 80em;"],
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None,
+                    PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Theme = TypeTheme.Dark
+                });
+            }
             visualTree.Content.MainPanel.AddPrimary(new ControlText()
             {
                 Text = "Code",
