@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace WebExpress.Tutorial.WebUI.Model
 {
@@ -41,6 +42,7 @@ namespace WebExpress.Tutorial.WebUI.Model
             // Monkey Island universe sample data
             yield return new Character
             {
+                Id = Guid.Parse("72030107-08B7-42F2-BD0A-7A1984DC385B"),
                 Name = "Guybrush Threepwood",
                 Description = "A determined yet clumsy wannabe pirate with sharp wit.",
                 AppearsIn = "The Secret of Monkey Island (1990) and all sequels"
@@ -48,6 +50,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Character
             {
+                Id = Guid.Parse("ACA83ECD-7216-42F6-8D7B-08B4FF4A7F43"),
                 Name = "LeChuck",
                 Description = "A vengeful ghost/zombie/demon pirate obsessed with Elaine Marley.",
                 AppearsIn = "The Secret of Monkey Island (1990) and all sequels"
@@ -55,6 +58,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Character
             {
+                Id = Guid.Parse("A15466E0-E5ED-4A26-8356-14EBC7AFE02E"),
                 Name = "Elaine Marley",
                 Description = "The intelligent and fearless governor of Mêlée Island.",
                 AppearsIn = "The Secret of Monkey Island (1990) and all sequels"
@@ -62,6 +66,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Character
             {
+                Id = Guid.Parse("8FB14018-7702-420E-B71C-7D9EAABA18DF"),
                 Name = "Murray",
                 Description = "A talking skull with sinister world domination ambitions.",
                 AppearsIn = "The Curse of Monkey Island (1997) and later titles"
@@ -69,6 +74,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Character
             {
+                Id = Guid.Parse("42540604-8384-4C08-B743-95D10C3730CD"),
                 Name = "Stan S. Stanman",
                 Description = "An over-the-top salesman who can sell anything, even used coffins.",
                 AppearsIn = "The Secret of Monkey Island (1990) and sequels"
@@ -76,6 +82,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Character
             {
+                Id = Guid.Parse("F239022E-14B6-43CB-AD45-72E85B922849"),
                 Name = "Herman Toothrot",
                 Description = "An eccentric castaway who was stranded on Monkey Island for years.",
                 AppearsIn = "The Secret of Monkey Island (1990) and others"
@@ -83,6 +90,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Character
             {
+                Id = Guid.Parse("E06E0CF0-F854-4993-A8F1-4ECFC3D25115"),
                 Name = "Carla",
                 Description = "A highly skilled swordmaster with an intimidating presence.",
                 AppearsIn = "The Secret of Monkey Island (1990) and others"
@@ -90,6 +98,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Character
             {
+                Id = Guid.Parse("84DE0F83-4C23-4206-AD17-744823BA3F6B"),
                 Name = "Wally",
                 Description = "A timid cartographer who often gets caught up in adventures.",
                 AppearsIn = "Monkey Island 2: LeChuck’s Revenge (1991) and others"
@@ -97,6 +106,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Character
             {
+                Id = Guid.Parse("4CED9F99-6153-4177-B2E1-F8C17192DAE5"),
                 Name = "Captain Madison",
                 Description = "A cunning member of the pirate council in Mêlée Island.",
                 AppearsIn = "Return to Monkey Island (2022)"
@@ -104,6 +114,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Character
             {
+                Id = Guid.Parse("032DF5FB-8DFD-4C82-B1EF-6CD2BBE61610"),
                 Name = "Otis",
                 Description = "A jail inmate with a weakness for mint candies.",
                 AppearsIn = "The Secret of Monkey Island (1990)"
@@ -111,6 +122,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Character
             {
+                Id = Guid.Parse("21B39A1E-6369-4C91-8E90-052C856027D8"),
                 Name = "Fester Shinetop",
                 Description = "A corrupt sheriff of Mêlée Island secretly working with LeChuck.",
                 AppearsIn = "The Secret of Monkey Island (1990)"
@@ -118,6 +130,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Character
             {
+                Id = Guid.Parse("B5A1C852-E503-4658-B00A-130464D24A04"),
                 Name = "The Voodoo Lady",
                 Description = "A mysterious woman with vast knowledge of magic and prophecies.",
                 AppearsIn = "The Secret of Monkey Island (1990) and all sequels"
@@ -125,6 +138,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Character
             {
+                Id = Guid.Parse("DDB25077-4DE0-4687-AD89-4DD8974F20A5"),
                 Name = "Meathook",
                 Description = "A fearsome pirate with hooks instead of hands.",
                 AppearsIn = "The Secret of Monkey Island (1990)"
@@ -132,6 +146,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Character
             {
+                Id = Guid.Parse("D18784CB-E8E4-4C62-A2C9-39FDA7BABAB4"),
                 Name = "Bob the Ghost Pirate",
                 Description = "LeChuck’s loyal ghostly henchman.",
                 AppearsIn = "The Secret of Monkey Island (1990)"
@@ -139,6 +154,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Character
             {
+                Id = Guid.Parse("70C1999C-D29A-486B-BEB2-AE04BAF57883"),
                 Name = "Kate Capsize",
                 Description = "A sharp businesswoman and boat captain.",
                 AppearsIn = "Monkey Island 2: LeChuck’s Revenge (1991)"
@@ -146,6 +162,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Character
             {
+                Id = Guid.Parse("7D8D604B-103E-4E74-8EF4-4706968864B7"),
                 Name = "Griswold Goodsoup",
                 Description = "A hotel owner with a dark family history.",
                 AppearsIn = "The Curse of Monkey Island (1997)"
@@ -153,6 +170,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Character
             {
+                Id = Guid.Parse("E6712AD6-CD85-438D-BC24-CF0C84B9CB87"),
                 Name = "Baron Saturday",
                 Description = "A mysterious character with voodoo-like abilities.",
                 AppearsIn = "Escape from Monkey Island (2000)"
@@ -160,6 +178,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Character
             {
+                Id = Guid.Parse("1D74B4C5-BB00-4BB9-831A-22692E1101B1"),
                 Name = "Cutthroat Bill",
                 Description = "A tough and silent pirate with a menacing presence.",
                 AppearsIn = "The Curse of Monkey Island (1997)"
@@ -167,6 +186,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Character
             {
+                Id = Guid.Parse("6027DA44-6FF4-4DE8-93CD-53D3E6D4F32F"),
                 Name = "Haggis McMutton",
                 Description = "A burly Scottish pirate who prefers caber tossing over sword fights.",
                 AppearsIn = "The Curse of Monkey Island (1997)"
@@ -174,6 +194,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Character
             {
+                Id = Guid.Parse("4486F4CB-1368-4BF5-B943-E366376938A0"),
                 Name = "Edward Van Helgen",
                 Description = "A charismatic pirate who enjoys dueling and playing the banjo.",
                 AppearsIn = "The Curse of Monkey Island (1997)"
@@ -181,6 +202,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Character
             {
+                Id = Guid.Parse("24E9387C-6CF6-4EB7-B00A-07122081A378"),
                 Name = "Charles L. Charles",
                 Description = "LeChuck's alter ego as he runs for Governor.",
                 AppearsIn = "Escape from Monkey Island (2000)"

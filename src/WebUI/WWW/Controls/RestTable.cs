@@ -1,5 +1,4 @@
 ﻿using WebExpress.Tutorial.WebUI.Model;
-using WebExpress.Tutorial.WebUI.WebControl;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
@@ -38,11 +37,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
             [
                 new ControlRestTable("myTable")
                 {
-                    RestUri = sitemapManager.GetUri<MonkeyIslandCharacters>(pageContext.ApplicationContext)
+                    RestUri = sitemapManager.GetUri<MonkeyIslandCharactersTable>(pageContext.ApplicationContext)
                 }
-                    .Add(new ControlRestFormCharacter("myTableForm")
+                    .Add(new ControlModalRemoteForm("myTableFormEdit")
                     {
-                        Uri = sitemapManager.GetUri<MonkeyIslandCharacters>(pageContext.ApplicationContext)
+                        Header = "webexpress.tutorial.webui:character.edit.header",
+                        Size = TypeModalSize.ExtraLarge
                     })
             ];
 

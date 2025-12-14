@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using WebExpress.WebCore.WebAttribute;
-using WebExpress.WebCore.WebRestApi;
 using WebExpress.WebCore.WebTask;
 
 
@@ -11,7 +10,7 @@ namespace WebExpress.Tutorial.WebUI.WebTask
     /// A task that simulates progress using Monkey Island sword-fighting insults.
     /// </summary>
     [Title("Monkey Island insult progress")]
-    [Method(CrudMethod.GET)]
+    //[Method(CrudMethod.GET)]
     public sealed class MonkeyIslandInsultTask : Task
     {
         private int _insultIndex = 0;

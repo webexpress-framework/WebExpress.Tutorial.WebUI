@@ -6,8 +6,8 @@ namespace WebExpress.Tutorial.WebUI
     /// <summary>  
     /// Represents the plugin for the tutorial.  
     /// </summary>  
-    [Name("webexpress.Tutorial.webui:plugin.name")]
-    [Description("webexpress.Tutorial.webui:plugin.description")]
+    [Name("webexpress.tutorial.webui:plugin.name")]
+    [Description("webexpress.tutorial.webui:plugin.description")]
     [Icon("/assets/img/webapp.svg")]
     [Application<Application>()]
     [Dependency("webexpress.webapp")]

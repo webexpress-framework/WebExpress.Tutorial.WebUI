@@ -40,7 +40,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 (
                     new ControlRestFormItemInputSelection("lightSelection")
                     {
-                        RestUri = sitemapManager.GetUri<MonkeyIslandLocations>(pageContext.ApplicationContext)
+                        RestUri = sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
                     }
                 );
 
@@ -52,7 +52,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 (
                     new ControlRestFormItemInputSelection("darkSelection")
                     {
-                        RestUri = sitemapManager.GetUri<MonkeyIslandLocations>(pageContext.ApplicationContext)
+                        RestUri = sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
                     }
                 )
             ];
@@ -75,7 +75,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 new ControlForm(null, new ControlRestFormItemInputSelection()
                 {
                     MultiSelect = true,
-                    RestUri = sitemapManager.GetUri<MonkeyIslandLocations>(pageContext.ApplicationContext)
+                    RestUri = sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
                 })
             );
 
@@ -87,7 +87,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 new ControlForm(null, new ControlRestFormItemInputSelection()
                 {
                     Placeholder = "Placeholder",
-                    RestUri = sitemapManager.GetUri<MonkeyIslandLocations>(pageContext.ApplicationContext)
+                    RestUri = sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
                 })
             );
 
@@ -99,7 +99,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                  new ControlForm(null, new ControlRestFormItemInputSelection()
                  {
                      MaxItems = 10,
-                     RestUri = sitemapManager.GetUri<MonkeyIslandLocations>(pageContext.ApplicationContext)
+                     RestUri = sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
                  })
             );
         }

@@ -3,7 +3,6 @@ using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebMessage;
-using WebExpress.WebCore.WebRestApi;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1
 {
@@ -11,13 +10,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
     /// Represents a REST API table for managing and retrieving data about Monkey Island curses.
     /// </summary>
     [Title("Monkey Island Curses")]
-    [Method(CrudMethod.GET)]
-    public sealed class MonkeyIslandCurse : RestApiUnique
+    public sealed class MonkeyIslandCurseUnique : RestApiUnique
     {
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
-        public MonkeyIslandCurse()
+        public MonkeyIslandCurseUnique()
         {
         }
 

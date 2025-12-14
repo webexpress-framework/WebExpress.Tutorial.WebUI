@@ -54,7 +54,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 {
                     Header = "My modal",
                     Size = TypeModalSize.ExtraLarge,
-                    Uri = sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
+                    Uri = sitemapManager.GetUri<Index>(pageContext.ApplicationContext),
                     Selector = "#conformationform"
                 }
             ];

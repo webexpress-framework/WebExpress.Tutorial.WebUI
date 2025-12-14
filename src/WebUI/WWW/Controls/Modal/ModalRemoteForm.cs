@@ -44,7 +44,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                 {
                     Header = "My modal",
                     Size = TypeModalSize.ExtraLarge,
-                    Uri = sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
+                    Uri = sitemapManager.GetUri<WWW.Controls.Form.Index>(pageContext.ApplicationContext),
                     Selector = "conformationform"
                 }
             ];
@@ -62,7 +62,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                 {
                     Header = "My modal",
                     Size = TypeModalSize.ExtraLarge,
-                    Uri = sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
+                    Uri = sitemapManager.GetUri<Controls.Index>(pageContext.ApplicationContext),
                     Selector = "#conformationform"
                 }
             ];
@@ -100,7 +100,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                 {
                     Header = "Header",
                     Size = TypeModalSize.ExtraLarge,
-                    Uri = sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
+                    Uri = sitemapManager.GetUri<Controls.Index>(pageContext.ApplicationContext),
                     Selector = "conformationform"
                 }
             );
@@ -121,7 +121,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                 {
                     Header = "Header",
                     Size = TypeModalSize.ExtraLarge,
-                    Uri = sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
+                    Uri = sitemapManager.GetUri<Controls.Index>(pageContext.ApplicationContext),
                     Selector = "conformationform"
                 }
             );

@@ -2,11 +2,8 @@
 using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
-using WebExpress.WebCore.WebApplication;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebMessage;
-using WebExpress.WebCore.WebRestApi;
-using WebExpress.WebCore.WebSitemap;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1
 {
@@ -14,21 +11,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
     /// Represents a REST API selection for managing and retrieving data about Monkey Island locations.
     /// </summary>
     [Title("Monkey Island location")]
-    [Method(CrudMethod.GET)]
-    public sealed class MonkeyIslandLocations : RestApiCrudSelection<Location>
+    public sealed class MonkeyIslandLocationsSelection : RestApiSelection<Location>
     {
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
-        /// <param name="sitemapManager">
-        /// The sitemap manager used to retrieve URIs for the application context.
-        /// </param>
-        /// <param name="applicationContext">
-        /// The application context containing the current state of the application.
-        /// </param>
-        public MonkeyIslandLocations(ISitemapManager sitemapManager, IApplicationContext applicationContext)
+        public MonkeyIslandLocationsSelection()
         {
-            Data = ViewModel.MonkeyIslandLocations;
         }
 
         /// <summary>
@@ -47,10 +36,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         {
             if (filter is null || filter == "null")
             {
-                return Data;
+                return ViewModel.MonkeyIslandLocations;
             }
 
-            return Data
+            return ViewModel.MonkeyIslandLocations
                 .Where
                 (
                     x => x.Text.Contains(filter, System.StringComparison.InvariantCultureIgnoreCase)

@@ -13,6 +13,8 @@ homepage.label=Home page
 infopage.label=Info
 controlpage.label=Controls
 
+character.edit.header=Edit Monkey Island Character
+
 fragmentpage.label=Fragments
 fragmentpage.description=Demonstration of using fragments in WebExpress.
 

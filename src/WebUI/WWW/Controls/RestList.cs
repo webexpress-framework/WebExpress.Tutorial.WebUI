@@ -38,11 +38,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
             [
                 new ControlRestList("myList")
                 {
-                    RestUri = sitemapManager.GetUri<MonkeyIslandGames>(pageContext.ApplicationContext)
+                    RestUri = sitemapManager.GetUri<MonkeyIslandGamesList>(pageContext.ApplicationContext)
                 }
                     .Add(new ControlRestFormGame("myListForm")
                     {
-                        Uri = sitemapManager.GetUri<MonkeyIslandGames>(pageContext.ApplicationContext)
+                        Uri = sitemapManager.GetUri<MonkeyIslandGamesList>(pageContext.ApplicationContext)
                     })
             ];
 

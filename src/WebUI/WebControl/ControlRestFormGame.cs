@@ -1,5 +1,4 @@
 ﻿using WebExpress.Tutorial.WebUI.Model;
-using WebExpress.WebApp.WebControl;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
 
@@ -8,7 +7,7 @@ namespace WebExpress.Tutorial.WebUI.WebControl
     /// <summary>
     /// Represents a form for managing Monkey Island game data, including title, description, release year, and remake status.
     /// </summary>
-    public class ControlRestFormGame : ControlRestForm
+    public class ControlRestFormGame : ControlForm
     {
         /// <summary>
         /// Returns or sets the title of the game.

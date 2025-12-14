@@ -2,11 +2,8 @@
 using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
-using WebExpress.WebCore.WebApplication;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebMessage;
-using WebExpress.WebCore.WebRestApi;
-using WebExpress.WebCore.WebSitemap;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1
 {
@@ -14,43 +11,40 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
     /// Represents a REST API dropdown for managing and retrieving data about Monkey Island inventory items.
     /// </summary>
     [Title("Monkey Island inventory")]
-    [Method(CrudMethod.GET)]
-    public sealed class MonkeyIslandInventories : RestApiCrudDropdown<Inventory>
+    public sealed class MonkeyIslandInventoriesDropdown : RestApiDropdown<Inventory>
     {
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
-        /// <param name="sitemapManager">
-        /// The sitemap manager used to retrieve URIs for the application context.
-        /// </param>
-        /// <param name="applicationContext">
-        /// The application context containing the current state of the application.
-        /// </param>
-        public MonkeyIslandInventories(ISitemapManager sitemapManager, IApplicationContext applicationContext)
+        public MonkeyIslandInventoriesDropdown()
         {
-            Data = ViewModel.MonkeyIslandInventories;
         }
 
         /// <summary>
-        /// Retrieves a collection of objects based on the specified WQL statement and request.
+        /// Retrieves a collection of index items that match the specified filter 
+        /// and request parameters.
         /// </summary>
         /// <param name="filter">
-        /// The filter used to query the data. This parameter defines the filtering and selection criteria.
+        /// A string used to filter the results. The format and supported values 
+        /// depend on the implementation. Can be null or empty to indicate no filtering.
         /// </param>
         /// <param name="request">
-        /// The request context containing additional information for the operation.
+        /// An object containing additional parameters that influence the data 
+        /// retrieval operation. Cannot be null.
         /// </param>
         /// <returns>
-        /// An enumerable containing the objects that match the query criteria.
+        /// An enumerable collection of index items of type TIndexItem that 
+        /// satisfy the filter and request criteria. The collection may be 
+        /// empty if no items match.
         /// </returns>
         public override IEnumerable<Inventory> GetData(string filter, Request request)
         {
             if (filter is null || filter == "null")
             {
-                return Data;
+                return ViewModel.MonkeyIslandInventories;
             }
 
-            return Data
+            return ViewModel.MonkeyIslandInventories
                 .Where
                 (
                     x => x.Text.Contains(filter, System.StringComparison.InvariantCultureIgnoreCase)
