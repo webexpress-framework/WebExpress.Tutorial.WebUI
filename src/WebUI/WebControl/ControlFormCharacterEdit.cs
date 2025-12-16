@@ -16,7 +16,7 @@ namespace WebExpress.Tutorial.WebUI.WebControl
     /// This class provides a structured form for inputting and managing 
     /// information about a character.
     /// </remarks>
-    public class ControlFormCharacterEdit : ControlRestForm
+    public class ControlFormCharacterEdit : ControlRestFormEdit
     {
         /// <summary>
         /// Returns or sets the name associated with the object.
@@ -60,14 +60,6 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         };
 
         /// <summary>
-        /// Returns the submit button control for the form.
-        /// </summary>
-        public ControlFormItemButtonSubmit Submit { get; } = new ControlFormItemButtonSubmit
-        {
-
-        };
-
-        /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
         /// <param name="id">The unique identifier for the form control.</param>
@@ -79,7 +71,6 @@ namespace WebExpress.Tutorial.WebUI.WebControl
             Add(CharacterName);
             Add(Description);
             Add(AppearsIn);
-            AddPrimaryButton(Submit);
         }
 
         /// <summary>

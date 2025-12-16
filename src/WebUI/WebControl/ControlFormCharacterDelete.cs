@@ -1,8 +1,6 @@
 ﻿using WebExpress.Tutorial.WebUI.WebParamter;
 using WebExpress.WebApp.WebControl;
 using WebExpress.WebCore.WebHtml;
-using WebExpress.WebUI.WebControl;
-using WebExpress.WebUI.WebIcon;
 using WebExpress.WebUI.WebPage;
 
 namespace WebExpress.Tutorial.WebUI.WebControl
@@ -15,18 +13,8 @@ namespace WebExpress.Tutorial.WebUI.WebControl
     /// This class provides a structured form for inputting and managing 
     /// information about a character.
     /// </remarks>
-    public class ControlFormCharacterDelete : ControlRestForm
+    public class ControlFormCharacterDelete : ControlRestFormDelete
     {
-        /// <summary>
-        /// Returns the submit button control for the form.
-        /// </summary>
-        public ControlFormItemButtonSubmit Submit { get; } = new ControlFormItemButtonSubmit
-        {
-            Text = "Delete",
-            Icon = new IconTrash(),
-            Color = new PropertyColorButton(TypeColorButton.Danger)
-        };
-
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
@@ -34,9 +22,6 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         public ControlFormCharacterDelete(string id)
             : base(id)
         {
-            Enable = false;
-
-            AddPrimaryButton(Submit);
         }
 
         /// <summary>
