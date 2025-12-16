@@ -10,16 +10,16 @@ using WebExpress.WebCore.WebSitemap;
 namespace WebExpress.Tutorial.WebUI.WWW.Characters
 {
     /// <summary>
-    /// Represents the page for editing character rest settings within the 
+    /// Represents the page for delete character rest settings within the 
     /// web application.
     /// </summary>
-    [Title("Edit Character")]
-    public sealed class Edit : IPage<VisualTreeWebApp>
+    [Title("Delete Character")]
+    public sealed class Delete : IPage<VisualTreeWebApp>
     {
         /// <summary>
         /// Returns the form control used to manage character rest settings.
         /// </summary>
-        public ControlFormCharacterEdit Form { get; } = new ControlFormCharacterEdit("characterform")
+        public ControlFormCharacterDelete Form { get; } = new ControlFormCharacterDelete(null)
         {
         };
 
@@ -32,7 +32,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Characters
         /// <param name="applicationContext">
         /// The application context containing the current state of the application.
         /// </param>
-        public Edit(ISitemapManager sitemapManager, IApplicationContext applicationContext)
+        public Delete(ISitemapManager sitemapManager, IApplicationContext applicationContext)
         {
             Form.Mode = TypeRestFormMode.Edit;
             Form.Uri = sitemapManager.GetUri<MonkeyIslandCharacter>(applicationContext);

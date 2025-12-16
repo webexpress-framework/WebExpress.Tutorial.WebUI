@@ -15,9 +15,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
     /// Represents a REST API table for managing and retrieving data about Monkey Island characters.
     /// </summary>
     [Title("Monkey Island characters")]
-    public sealed class MonkeyIslandCharactersTable : RestApiTable<Character>
+    public sealed class MonkeyIslandCharacterTable : RestApiTable<Character>
     {
-        private readonly IUri _formUri;
+        private readonly IUri _formEditUri;
+        private readonly IUri _formDeleteUri;
 
         /// <summary>
         /// Initializes a new instance of the class.
@@ -28,10 +29,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// <param name="applicationContext">
         /// The application context containing the current state of the application.
         /// </param>
-        public MonkeyIslandCharactersTable(ISitemapManager sitemapManager, IApplicationContext applicationContext)
+        public MonkeyIslandCharacterTable(ISitemapManager sitemapManager, IApplicationContext applicationContext)
         {
-            var uri = sitemapManager.GetUri<Characters.Edit>(applicationContext);
-            _formUri = uri;
+            _formEditUri = sitemapManager.GetUri<Characters.Edit>(applicationContext); ;
+            _formDeleteUri = sitemapManager.GetUri<Characters.Delete>(applicationContext);
         }
 
         /// <summary>
@@ -52,7 +53,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
 
             yield return new RestApiOptionEdit(request)
             {
-                Uri = _formUri?.SetParameters
+                Uri = _formEditUri?.SetParameters
                 (
                     new CharacterIdParameter(row.Id.ToString())
                 )?
@@ -61,7 +62,15 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
             };
 
             yield return new RestApiOptionSeperator(request);
-            yield return new RestApiOptionDelete(request);
+            yield return new RestApiOptionDelete(request)
+            {
+                Uri = _formDeleteUri?.SetParameters
+                (
+                    new CharacterIdParameter(row.Id.ToString())
+                )?
+                    .ToString(),
+                Modal = "#myTableFormEdit"
+            };
         }
 
         /// <summary>

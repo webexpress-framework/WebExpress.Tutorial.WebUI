@@ -39,7 +39,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// <returns>
         /// An IRestApiValidationResult indicating validation success or errors.
         /// </returns>
-        public override IRestApiValidationResult ValidateData(Character existingItem, Payload payload, Request request)
+        public override IRestApiValidationResult ValidateData(Character existingItem, RestApiCrudFormData payload, Request request)
         {
             return new RestApiValidationResult();
         }
@@ -48,7 +48,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// Updates the data record.
         /// </summary>
         /// <param name="existingItem">
-        /// The currently persisted item (null for create).
+        /// The currently persisted item.
         /// </param>
         /// <param name="payload">
         /// The dynamic payload containing updated fields.
@@ -56,9 +56,34 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// <param name="request">
         /// The HTTP request providing additional context.
         /// </param>
-        public override void UpdateData(Character existingItem, Payload payload, Request request)
+        public override IRestApiCrudResultUpdate UpdateData(Character existingItem, RestApiCrudFormData payload, Request request)
         {
             existingItem.Name = payload[nameof(Character.Name)]?.ToString();
+
+            return new RestApiCrudResultUpdate()
+            {
+                Message = "Updated"
+            };
+        }
+
+        /// <summary>
+        /// Deletes the specified resource.
+        /// </summary>
+        /// <param name="existingItem">
+        /// The currently persisted item that is to be deleted.
+        /// </param>
+        /// <param name="request">
+        /// The HTTP request providing additional context for the delete operation.
+        /// </param>
+        /// <returns>
+        /// A result object containing information about the delete operation.
+        /// </returns>
+        public override IRestApiCrudResultDelete DeleteData(Character existingItem, Request request)
+        {
+            return new RestApiCrudResultDelete()
+            {
+                Message = "Deleted"
+            };
         }
     }
 }

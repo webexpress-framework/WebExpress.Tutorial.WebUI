@@ -37,7 +37,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
             [
                 new ControlRestTable("myTable")
                 {
-                    RestUri = sitemapManager.GetUri<MonkeyIslandCharactersTable>(pageContext.ApplicationContext)
+                    RestUri = sitemapManager.GetUri<MonkeyIslandCharacterTable>(pageContext.ApplicationContext)
                 }
                     .Add(new ControlModalRemoteForm("myTableFormEdit")
                     {
