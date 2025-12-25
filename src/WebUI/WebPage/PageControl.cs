@@ -46,18 +46,21 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                 Text = "To demonstrate the functionality and potential use cases of this control, here’s an example showcasing its key features in action.",
                 Format = TypeFormatText.Paragraph
             });
-            visualTree.Content.MainPanel.AddPrimary(new ControlText()
+            if (Stage.DarkControls is not null)
             {
-                Text = "Light Mode",
-                Format = TypeFormatText.H5,
-                Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
-            });
-            visualTree.Content.MainPanel.AddPrimary(new ControlText()
-            {
-                Text = @"Designed for bright and well-lit environments, light mode offers a clear and vibrant presentation of the control, making it ideal for applications that prioritize brightness and clarity.",
-                Format = TypeFormatText.Markdown,
-                Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
-            });
+                visualTree.Content.MainPanel.AddPrimary(new ControlText()
+                {
+                    Text = "Light Mode",
+                    Format = TypeFormatText.H5,
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                });
+                visualTree.Content.MainPanel.AddPrimary(new ControlText()
+                {
+                    Text = @"Designed for bright and well-lit environments, light mode offers a clear and vibrant presentation of the control, making it ideal for applications that prioritize brightness and clarity.",
+                    Format = TypeFormatText.Markdown,
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                });
+            }
             visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. Stage.Controls])
             {
                 BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light),

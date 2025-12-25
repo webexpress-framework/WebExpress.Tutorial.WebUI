@@ -25,8 +25,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
         /// <summary>    
         /// Initializes a new instance of the class.    
         /// </summary>    
-        /// <param name="pageContext">The context of the page where the table control is used.</param>
-        /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>
+        /// <param name="pageContext">
+        /// The context of the page where the table control is used.
+        /// </param>
+        /// <param name="sitemapManager">
+        /// The sitemap manager for managing site navigation.
+        /// </param>
         public RestTable(IPageContext pageContext, ISitemapManager sitemapManager)
         {
             Stage.AddEvent(Event.TABLE_SORT_EVENT, Event.COLUMN_REORDER_EVENT);
