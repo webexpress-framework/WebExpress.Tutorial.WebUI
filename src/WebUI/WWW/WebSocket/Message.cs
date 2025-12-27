@@ -27,7 +27,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.WebSocket
         public Message(ISocketContext socketContext, SocketWriteStream writeStream)
         {
             _socketContext = socketContext ?? throw new ArgumentNullException(nameof(socketContext), "Parameter cannot be null or empty.");
-            _writeStream = writeStream ?? throw new ArgumentNullException(nameof(writeStream), "Parameter cannot be null or empty.");
+            _writeStream = writeStream; //?? throw new ArgumentNullException(nameof(writeStream), "Parameter cannot be null or empty.");
         }
 
         /// <summary>
