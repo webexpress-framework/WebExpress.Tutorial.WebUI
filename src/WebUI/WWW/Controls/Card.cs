@@ -133,11 +133,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
             (
                 "HeaderImage",
                 "The `HeaderImage` property specifies an image resource that is displayed in the top section of the component. It enhances visual appeal and can provide contextual, thematic, or branding value.",
-                "HeaderImage = applicationContext.Route.Concat(\"/assets/img/rocket.png\").ToUri()",
+                "HeaderImage = applicationContext.Route.Concat(\"/assets/img/ufo.png\").ToUri()",
                 new ControlPanelCard()
                 {
                     Header = "Header",
-                    HeaderImage = applicationContext.Route.Concat("/assets/img/rocket.png").ToUri(),
+                    HeaderImage = applicationContext.Route.Concat("/assets/img/ufo.png").ToUri(),
                     TextColor = new PropertyColorText(TypeColorText.White),
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Success)
                 }
@@ -176,11 +176,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
             (
                 "FooterImage",
                 "The `Footer` property defines the content area displayed at the bottom of the component. It is typically used to present supplementary information or actionable elements that relate to the overall content.",
-                "FooterImage = applicationContext.Route.Concat(\"/assets/img/rocket.png\").ToUri()",
+                "FooterImage = applicationContext.Route.Concat(\"/assets/img/ufo.png\").ToUri()",
                 new ControlPanelCard()
                 {
                     Footer = "Footer",
-                    FooterImage = applicationContext.Route.Concat("/assets/img/rocket.png").ToUri(),
+                    FooterImage = applicationContext.Route.Concat("/assets/img/ufo.png").ToUri(),
                     TextColor = new PropertyColorText(TypeColorText.White),
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Success)
                 }
