@@ -34,7 +34,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Characters
         /// </param>
         public Delete(ISitemapManager sitemapManager, IApplicationContext applicationContext)
         {
-            Form.Mode = TypeRestFormMode.Edit;
+            Form.Mode = TypeRestFormMode.Delete;
             Form.Uri = sitemapManager.GetUri<MonkeyIslandCharacter>(applicationContext);
         }
 

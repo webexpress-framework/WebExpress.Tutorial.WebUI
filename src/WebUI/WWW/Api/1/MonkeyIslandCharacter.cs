@@ -39,7 +39,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// <returns>
         /// An IRestApiValidationResult indicating validation success or errors.
         /// </returns>
-        public override IRestApiValidationResult ValidateData(Character existingItem, RestApiCrudFormData payload, Request request)
+        public override IRestApiValidationResult Validate(Character existingItem, RestApiCrudFormData payload, IRequest request)
         {
             return new RestApiValidationResult();
         }
@@ -56,7 +56,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// <param name="request">
         /// The HTTP request providing additional context.
         /// </param>
-        public override IRestApiCrudResultUpdate UpdateData(Character existingItem, RestApiCrudFormData payload, Request request)
+        public override IRestApiCrudResultUpdate Update(Character existingItem, RestApiCrudFormData payload, IRequest request)
         {
             existingItem.Name = payload[nameof(Character.Name)]?.ToString();
 
@@ -78,11 +78,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// <returns>
         /// A result object containing information about the delete operation.
         /// </returns>
-        public override IRestApiCrudResultDelete DeleteData(Character existingItem, Request request)
+        public override IRestApiCrudResultDelete Delete(Character existingItem, IRequest request)
         {
             return new RestApiCrudResultDelete()
             {
-                Message = "Deleted"
             };
         }
     }
