@@ -1,5 +1,6 @@
 ﻿using System;
 using WebExpress.WebApp.WebAttribute;
+using WebExpress.WebCore.WebDomain;
 using WebExpress.WebIndex;
 
 namespace WebExpress.Tutorial.WebUI.Model
@@ -7,7 +8,7 @@ namespace WebExpress.Tutorial.WebUI.Model
     /// <summary>
     /// Represents a data entity for a table.
     /// </summary>
-    public class Character : IIndexItem
+    public class Character : IIndexItem, IDomain
     {
         /// <summary>
         /// Returns or sets the identifier of the table data.
