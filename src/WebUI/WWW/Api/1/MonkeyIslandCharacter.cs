@@ -1,4 +1,5 @@
-﻿using WebExpress.Tutorial.WebUI.Model;
+﻿using System.Collections.Generic;
+using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebMessage;
@@ -18,7 +19,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// </summary>
         public MonkeyIslandCharacter()
         {
-            Data = ViewModel.MonkeyIslandCharacters;
+        }
+
+        /// <summary>
+        /// Retrieves a collection of index items of type TIndexItem.
+        /// </summary>
+        /// <returns>
+        /// An enumerable collection of TIndexItem objects. The collection is empty if 
+        /// no items are available.
+        /// </returns>
+        public override IEnumerable<Character> Retrieve()
+        {
+            return ViewModel.MonkeyIslandCharacters;
         }
 
         /// <summary>
@@ -80,6 +92,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// </returns>
         public override IRestApiCrudResultDelete Delete(Character existingItem, IRequest request)
         {
+            ViewModel.MonkeyIslandCharacters.Remove(existingItem);
+
             return new RestApiCrudResultDelete()
             {
             };

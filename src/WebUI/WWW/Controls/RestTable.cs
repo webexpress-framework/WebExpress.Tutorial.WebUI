@@ -19,9 +19,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
     [Scope<IScopeControlWebApp>]
+    [Domain<Character>]
     public sealed class RestTable : PageControl
     {
-
         /// <summary>    
         /// Initializes a new instance of the class.    
         /// </summary>    
