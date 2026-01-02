@@ -44,7 +44,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// <param name="row">
         /// The row object for which options are being retrieved. Cannot be null.
         /// </param>
-        public override IEnumerable<RestApiOption> GetOptions(Request request, Character row)
+        public override IEnumerable<RestApiOption> GetOptions(IRequest request, Character row)
         {
             yield return new RestApiOptionHeader(request)
             {
@@ -90,7 +90,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// satisfy the filter and request criteria. The collection may be 
         /// empty if no items match.
         /// </returns>
-        public override IEnumerable<Character> GetData(string filter, Request request)
+        public override IEnumerable<Character> GetData(string filter, IRequest request)
         {
             if (filter is null || filter == "null")
             {

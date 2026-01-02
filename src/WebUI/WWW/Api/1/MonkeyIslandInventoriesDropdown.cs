@@ -37,7 +37,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// satisfy the filter and request criteria. The collection may be 
         /// empty if no items match.
         /// </returns>
-        public override IEnumerable<Inventory> GetData(string filter, Request request)
+        public override IEnumerable<Inventory> GetData(string filter, IRequest request)
         {
             if (filter is null || filter == "null")
             {

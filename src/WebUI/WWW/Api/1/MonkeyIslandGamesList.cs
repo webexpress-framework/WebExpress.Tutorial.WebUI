@@ -31,7 +31,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// <summary>
         /// Retrieves a collection of options.
         /// </summary>
-        public override IEnumerable<RestApiOption> GetOptions(Request request, Game row)
+        public override IEnumerable<RestApiOption> GetOptions(IRequest request, Game row)
         {
             yield return new RestApiOptionHeader(request)
             {
@@ -50,7 +50,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// <summary>
         /// Retrieves a collection of games based on the specified filter.
         /// </summary>
-        public override IEnumerable<Game> GetData(string filter, Request request)
+        public override IEnumerable<Game> GetData(string filter, IRequest request)
         {
             if (string.IsNullOrEmpty(filter) || filter == "null")
             {

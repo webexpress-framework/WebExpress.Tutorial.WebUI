@@ -32,7 +32,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// <returns>
         /// An enumerable containing the objects that match the query criteria.
         /// </returns>
-        public override IEnumerable<Location> GetData(string filter, Request request)
+        public override IEnumerable<Location> GetData(string filter, IRequest request)
         {
             if (filter is null || filter == "null")
             {
