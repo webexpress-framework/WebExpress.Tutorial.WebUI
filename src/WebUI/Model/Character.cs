@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using WebExpress.WebApp.WebAttribute;
 using WebExpress.WebCore.WebDomain;
 using WebExpress.WebIndex;
+using WebExpress.WebUI.WebControl;
 
 namespace WebExpress.Tutorial.WebUI.Model
 {
@@ -33,7 +35,9 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// Returns or sets the name of the context or entity where this item appears.
         /// </summary>
         [RestTableColumnName("Appears in")]
-        public string AppearsIn { get; set; }
+        [RestTableJoin(';')]
+        [RestApiTableColumnTemplateTag(true, TypeColorTag.Warning, "appears in")]
+        public IEnumerable<string> AppearsIn { get; set; }
 
         /// <summary>
         /// Returns a string representation of the object, including its name, description, and appearances.
