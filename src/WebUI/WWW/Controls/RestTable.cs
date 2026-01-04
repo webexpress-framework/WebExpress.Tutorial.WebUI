@@ -45,8 +45,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 }
                     .Add(new ControlModalRemoteForm("myTableFormEdit")
                     {
-                        Header = "webexpress.tutorial.webui:character.edit.header",
-                        Size = TypeModalSize.ExtraLarge
+                        Header = "webexpress.tutorial.webui:character.edit.header"
                     })
             ];
 
