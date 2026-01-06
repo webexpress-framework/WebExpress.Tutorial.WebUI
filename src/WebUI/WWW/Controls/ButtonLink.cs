@@ -289,11 +289,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
             (
                 "Modal",
                 "Displays a dialog.",
-                "Modal = new ControlModal(...)",
+                "Modal = new ModalTarget(\"modal\")",
                 new ControlButtonLink()
                 {
                     Text = "Click me!",
-                    Modal = "modal",
+                    Modal = new ModalTarget("modal"),
                     TextColor = new PropertyColorText(TypeColorText.Default),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },

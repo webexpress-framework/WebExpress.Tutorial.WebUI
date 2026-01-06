@@ -75,7 +75,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                     Text = "Activator",
                     Icon = new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    Modal = "myModal"
+                    Modal = new ModalTarget("myModal")
                 },
                 new ControlModalForm("myModal")
                 {
@@ -97,7 +97,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                     Text = "Activator",
                     Icon = new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    Modal = "myDarkModal"
+                    Modal = new ModalTarget("myDarkModal")
                 },
                 new ControlModalForm("myDarkModal")
                 {
@@ -118,7 +118,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                     Text = ""Activator"",
                     Icon = new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    Modal = ""myModal""
+                    Modal = new ModalTarget(""myModal"")
                 },
                 new ControlModalForm(""myModal"")
                 {
@@ -142,7 +142,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                      Text = "Activator",
                      Icon = new IconPenToSquare(),
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                     Modal = "myModalHeader"
+                     Modal = new ModalTarget("myModalHeader")
                  },
                  new ControlModalForm("myModalHeader")
                  {
@@ -162,7 +162,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                      Text = "Default",
                      Icon = new IconPenToSquare(),
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                     Modal = "myModalDefault"
+                     Modal = new ModalTarget("myModalDefault")
                  },
                  new ControlModalForm("myModalDefault")
                  {
@@ -176,7 +176,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                      Text = "Small",
                      Icon = new IconPenToSquare(),
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                     Modal = "myModalSmall"
+                     Modal = new ModalTarget("myModalSmall")
                  },
                  new ControlModalForm("myModalSmall")
                  {
@@ -190,7 +190,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                      Text = "Large",
                      Icon = new IconPenToSquare(),
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                     Modal = "myModalLarge"
+                     Modal = new ModalTarget("myModalLarge")
                  },
                  new ControlModalForm("myModalLarge")
                  {
@@ -204,7 +204,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                      Text = "ExtraLarge",
                      Icon = new IconPenToSquare(),
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                     Modal = "myModalExtraLarge"
+                     Modal = new ModalTarget("myModalExtraLarge")
                  },
                  new ControlModalForm("myModalExtraLarge")
                  {
@@ -218,7 +218,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                      Text = "Fullscreen",
                      Icon = new IconPenToSquare(),
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                     Modal = "myModalFullscreen"
+                     Modal = new ModalTarget("myModalFullscreen")
                  },
                  new ControlModalForm("myModalFullscreen")
                  {

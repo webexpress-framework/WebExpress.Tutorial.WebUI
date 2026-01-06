@@ -38,7 +38,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                     Text = "Activator",
                     Icon = new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    Modal = "myModal"
+                    Modal = new ModalTarget("myModal")
                 },
                 new ControlModalRemotePage("myModal")
                 {
@@ -54,7 +54,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                 Text = ""Activator"",
                 Icon = new IconPenToSquare(),
                 BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                Modal = ""myModal""
+                Modal = new ModalTarget(""myModal"")
             },
             new ControlModalPage(""myModal"")
             {
@@ -74,7 +74,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                     Text = "Activator",
                     Icon = new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    Modal = "myModalUri"
+                    Modal = new ModalTarget("myModalUri")
                 },
                 new ControlModalRemotePage("myModalUri")
                 {
@@ -94,7 +94,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                     Text = "Activator",
                     Icon = new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    Modal = "myModalSelector"
+                    Modal = new ModalTarget("myModalSelector")
                 },
                 new ControlModalRemotePage("myModalSelector")
                 {

@@ -54,7 +54,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                     Text = "Activator",
                     Icon = new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    Modal = "myModal"
+                    Modal = new ModalTarget("myModal")
                 },
                 new ControlModal("myModal") { Header = "My modal" }
                     .Add(_content)
@@ -81,7 +81,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                      Text = "Activator",
                      Icon = new IconPenToSquare(),
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                     Modal = "myModalHeader"
+                     Modal = new ModalTarget("myModalHeader")
                  },
                  new ControlModal("myModalHeader")
                  {
@@ -99,7 +99,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                      Text = "Default",
                      Icon = new IconPenToSquare(),
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                     Modal = "myModalDefault"
+                     Modal = new ModalTarget("myModalDefault")
                  },
                  new ControlModal("myModalDefault")
                  {
@@ -111,7 +111,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                      Text = "Small",
                      Icon = new IconPenToSquare(),
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                     Modal = "myModalSmall"
+                     Modal = new ModalTarget("myModalSmall")
                  },
                  new ControlModal("myModalSmall")
                  {
@@ -123,7 +123,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                      Text = "Large",
                      Icon = new IconPenToSquare(),
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                     Modal = "myModalLarge"
+                     Modal = new ModalTarget("myModalLarge")
                  },
                  new ControlModal("myModalLarge")
                  {
@@ -135,7 +135,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                      Text = "ExtraLarge",
                      Icon = new IconPenToSquare(),
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                     Modal = "myModalExtraLarge"
+                     Modal = new ModalTarget("myModalExtraLarge")
                  },
                  new ControlModal("myModalExtraLarge")
                  {
@@ -147,7 +147,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                      Text = "Fullscreen",
                      Icon = new IconPenToSquare(),
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                     Modal = "myModalFullscreen"
+                     Modal = new ModalTarget("myModalFullscreen")
                  },
                  new ControlModal("myModalFullscreen")
                  {

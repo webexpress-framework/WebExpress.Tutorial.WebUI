@@ -470,7 +470,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 new ControlLink()
                 {
                     Text = "Click me!",
-                    Modal = "modal",
+                    Modal = new ModalTarget("modal"),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlModalExample("modal")

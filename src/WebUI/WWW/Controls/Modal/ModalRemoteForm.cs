@@ -38,7 +38,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                     Text = "Activator",
                     Icon = new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    Modal = "myModal"
+                    Modal = new ModalTarget("myModal")
                 },
                 new ControlModalRemoteForm("myModal")
                 {
@@ -56,7 +56,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                     Text = "Activator",
                     Icon = new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    Modal = "myDarkModal"
+                    Modal = new ModalTarget("myDarkModal")
                 },
                 new ControlModalRemoteForm("myDarkModal")
                 {
@@ -73,7 +73,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                 Text = ""Activator"",
                 Icon = new IconPenToSquare(),
                 BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                Modal = ""myModal""
+                Modal = new ModalTarget(""myModal"")
             },
             new ControlModalPage(""myModal"")
             {
@@ -94,7 +94,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                     Text = "Activator",
                     Icon = new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    Modal = "myModalUri"
+                    Modal = new ModalTarget("myModalUri")
                 },
                 new ControlModalRemoteForm("myModalUri")
                 {
@@ -115,7 +115,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                     Text = "Activator",
                     Icon = new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    Modal = "conformationform"
+                    Modal = new ModalTarget("conformationform")
                 },
                 new ControlModalRemoteForm("myModalSelector")
                 {

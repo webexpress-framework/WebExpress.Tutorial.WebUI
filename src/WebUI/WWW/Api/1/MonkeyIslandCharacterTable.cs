@@ -8,6 +8,7 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebCore.WebUri;
+using WebExpress.WebUI.WebControl;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1
 {
@@ -58,7 +59,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
                     new CharacterIdParameter(row.Id.ToString())
                 )?
                     .ToString(),
-                Modal = "#myTableFormEdit"
+                Modal = new ModalTarget("myTableFormEdit", TypeModalSize.ExtraLarge)
             };
 
             yield return new RestApiOptionSeperator(request);
@@ -69,7 +70,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
                     new CharacterIdParameter(row.Id.ToString())
                 )?
                     .ToString(),
-                Modal = "#myTableFormEdit"
+                Modal = new ModalTarget("myTableFormEdit")
             };
         }
 
