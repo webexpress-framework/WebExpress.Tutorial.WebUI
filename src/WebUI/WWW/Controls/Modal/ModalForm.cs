@@ -154,9 +154,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
 
             Stage.AddProperty
             (
-                "Header",
-                 @"The modal header text serves as a descriptive title displayed at the top of the modal. It typically provides context for the modal's purpose or content, helping users quickly understand its function.",
-                 "Header = \"Header\"",
+                "Size",
+                @"The size property defines the dimensions of the modal. It determines how large the modal appears and helps ensure that the available space fits the content and use case appropriately.",
+                 "Size = TypeModalSize.Small",
                  new ControlButton()
                  {
                      Text = "Default",
@@ -169,8 +169,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                      Header = "Default",
                      Size = TypeModalSize.Default
                  }
-                 .Add(_exampleFormItems)
-                 .AddPreferencesButton(new ControlFormItemButtonSubmit()),
+                     .Add(_exampleFormItems)
+                     .AddPreferencesButton(new ControlFormItemButtonSubmit()),
                  new ControlButton()
                  {
                      Text = "Small",
@@ -183,8 +183,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                      Header = "Small",
                      Size = TypeModalSize.Small
                  }
-                 .Add(_exampleFormItems)
-                 .AddPreferencesButton(new ControlFormItemButtonSubmit()),
+                     .Add(_exampleFormItems)
+                     .AddPreferencesButton(new ControlFormItemButtonSubmit()),
                  new ControlButton()
                  {
                      Text = "Large",
@@ -197,8 +197,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                      Header = "Large",
                      Size = TypeModalSize.Large
                  }
-                 .Add(_exampleFormItems)
-                 .AddPreferencesButton(new ControlFormItemButtonSubmit()),
+                     .Add(_exampleFormItems)
+                     .AddPreferencesButton(new ControlFormItemButtonSubmit()),
                  new ControlButton()
                  {
                      Text = "ExtraLarge",
@@ -211,8 +211,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                      Header = "ExtraLarge",
                      Size = TypeModalSize.ExtraLarge
                  }
-                 .Add(_exampleFormItems)
-                 .AddPreferencesButton(new ControlFormItemButtonSubmit()),
+                     .Add(_exampleFormItems)
+                     .AddPreferencesButton(new ControlFormItemButtonSubmit()),
                  new ControlButton()
                  {
                      Text = "Fullscreen",
@@ -225,8 +225,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                      Header = "Fullscreen",
                      Size = TypeModalSize.Fullscreen
                  }
-                 .Add(_exampleFormItems)
-                 .AddPreferencesButton(new ControlFormItemButtonSubmit())
+                     .Add(_exampleFormItems)
+                     .AddPreferencesButton(new ControlFormItemButtonSubmit())
             );
         }
     }

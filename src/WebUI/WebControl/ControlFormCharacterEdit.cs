@@ -49,13 +49,12 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         /// <summary>
         /// Returns or sets the name of the context or entity where this item appears.
         /// </summary>
-        public ControlFormItemInputText AppearsIn { get; } = new ControlFormItemInputText
+        public ControlFormItemInputTag AppearsIn { get; } = new ControlFormItemInputTag
         {
             Label = "Appears In",
             Name = nameof(Character.AppearsIn),
             Placeholder = "Enter the name of the game or context where this character appears",
             Required = true,
-            MaxLength = 100,
             Help = "The name of the game or context where this character appears. This field is required and should specify the game or narrative context in which the character is involved."
         };
 

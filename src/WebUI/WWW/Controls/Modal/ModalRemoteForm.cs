@@ -44,7 +44,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                 {
                     Header = "My modal",
                     Size = TypeModalSize.ExtraLarge,
-                    Uri = sitemapManager.GetUri<WWW.Controls.Form.Index>(pageContext.ApplicationContext),
+                    Uri = sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
                     Selector = "conformationform"
                 }
             ];
@@ -62,8 +62,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                 {
                     Header = "My modal",
                     Size = TypeModalSize.ExtraLarge,
-                    Uri = sitemapManager.GetUri<Controls.Index>(pageContext.ApplicationContext),
-                    Selector = "#conformationform"
+                    Uri = sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
+                    Selector = "conformationform"
                 }
             ];
 
@@ -75,7 +75,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                 BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
                 Modal = new ModalTarget(""myModal"")
             },
-            new ControlModalPage(""myModal"")
+            new ControlModalRemoteForm(""myModal"")
             {
                 Header = ""My modal"",
                 Size = TypeModalSize.ExtraLarge,
@@ -100,7 +100,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                 {
                     Header = "Header",
                     Size = TypeModalSize.ExtraLarge,
-                    Uri = sitemapManager.GetUri<Controls.Index>(pageContext.ApplicationContext),
+                    Uri = sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
                     Selector = "conformationform"
                 }
             );
@@ -115,13 +115,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
                     Text = "Activator",
                     Icon = new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    Modal = new ModalTarget("conformationform")
+                    Modal = new ModalTarget("myModalSelector")
                 },
                 new ControlModalRemoteForm("myModalSelector")
                 {
                     Header = "Header",
                     Size = TypeModalSize.ExtraLarge,
-                    Uri = sitemapManager.GetUri<Controls.Index>(pageContext.ApplicationContext),
+                    Uri = sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
                     Selector = "conformationform"
                 }
             );

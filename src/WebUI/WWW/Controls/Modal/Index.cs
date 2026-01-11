@@ -91,9 +91,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Modal
 
             Stage.AddProperty
             (
-                "Header",
-                 @"The modal header text serves as a descriptive title displayed at the top of the modal. It typically provides context for the modal's purpose or content, helping users quickly understand its function.",
-                 "Header = \"Header\"",
+                "Size",
+                @"The size property defines the dimensions of the modal. It determines how large the modal appears and helps ensure that the available space fits the content and use case appropriately.",
+                 "Size = TypeModalSize.Small",
                  new ControlButton()
                  {
                      Text = "Default",
