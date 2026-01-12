@@ -19,7 +19,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
     public sealed class MonkeyIslandCharacterTable : RestApiTable<Character>
     {
         private readonly IUri _formEditUri;
-        private readonly IUri _formDeleteUri;
+        private readonly IUri _restApi;
 
         /// <summary>
         /// Initializes a new instance of the class.
@@ -33,7 +33,25 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         public MonkeyIslandCharacterTable(ISitemapManager sitemapManager, IApplicationContext applicationContext)
         {
             _formEditUri = sitemapManager.GetUri<Characters.Edit>(applicationContext); ;
-            _formDeleteUri = sitemapManager.GetUri<Characters.Delete>(applicationContext);
+            _restApi = sitemapManager.GetUri<MonkeyIslandCharacter>(applicationContext);
+        }
+
+        /// <summary>
+        /// Gets the REST API endpoint URI associated with the specified request and index item.
+        /// </summary>
+        /// <param name="request">
+        /// The request for which to retrieve the REST API endpoint.
+        /// </param>
+        /// <param name="row">
+        /// The index item that provides context for determining the appropriate REST API endpoint.
+        /// </param>
+        /// <returns>
+        /// An <see cref="IUri"/> representing the REST API endpoint for the given request 
+        /// and index item, or null if no endpoint is available.
+        /// </returns>
+        public override IUri GetRestApi(IRequest request, Character row)
+        {
+            return _restApi?.Add(new UriQuery("id", row.Id.ToString()));
         }
 
         /// <summary>
@@ -47,6 +65,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// </param>
         public override IEnumerable<RestApiOption> GetOptions(IRequest request, Character row)
         {
+            var restApi = _formEditUri?.SetParameters
+            (
+                new CharacterIdParameter(row.Id.ToString())
+            );
+
             yield return new RestApiOptionHeader(request)
             {
                 Label = "webexpress.webapp:header.setting.label"
@@ -54,22 +77,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
 
             yield return new RestApiOptionEdit(request)
             {
-                Uri = _formEditUri?.SetParameters
-                (
-                    new CharacterIdParameter(row.Id.ToString())
-                )?
-                    .ToString(),
+                Uri = restApi?.ToString(),
                 Modal = new ModalTarget("myTableFormEdit", TypeModalSize.ExtraLarge)
             };
 
             yield return new RestApiOptionSeperator(request);
             yield return new RestApiOptionDelete(request)
             {
-                Uri = _formDeleteUri?.SetParameters
-                (
-                    new CharacterIdParameter(row.Id.ToString())
-                )?
-                    .ToString(),
+                Uri = restApi?.ToString(),
                 Modal = new ModalTarget("myTableFormEdit")
             };
         }

@@ -42,7 +42,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// <param name="existingItem">
         /// The currently persisted item (null for create).
         /// </param>
-        /// <param name="payload">
+        /// <param name="fieldMap">
         /// The dynamic payload containing updated fields.
         /// </param>
         /// <param name="request">
@@ -51,7 +51,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// <returns>
         /// An IRestApiValidationResult indicating validation success or errors.
         /// </returns>
-        public override IRestApiValidationResult Validate(Character existingItem, RestApiCrudFormData payload, IRequest request)
+        public override IRestApiValidationResult Validate(Character existingItem, RestApiCrudFormData fieldMap, IRequest request)
         {
             return new RestApiValidationResult();
         }
@@ -62,20 +62,15 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// <param name="existingItem">
         /// The currently persisted item.
         /// </param>
-        /// <param name="payload">
+        /// <param name="fieldMap">
         /// The dynamic payload containing updated fields.
         /// </param>
         /// <param name="request">
         /// The HTTP request providing additional context.
         /// </param>
-        public override IRestApiCrudResultUpdate Update(Character existingItem, RestApiCrudFormData payload, IRequest request)
+        public override IRestApiCrudResultUpdate Update(Character existingItem, RestApiCrudFormData fieldMap, IRequest request)
         {
-            existingItem.Name = payload[nameof(Character.Name)]?.ToString();
-
-            return new RestApiCrudResultUpdate()
-            {
-                Message = "Updated"
-            };
+            return base.Update(existingItem, fieldMap, request);
         }
 
         /// <summary>
