@@ -19,6 +19,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
     public sealed class MonkeyIslandCharacterTable : RestApiTable<Character>
     {
         private readonly IUri _formEditUri;
+        private readonly IUri _formDeleteUri;
         private readonly IUri _restApi;
 
         /// <summary>
@@ -32,7 +33,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// </param>
         public MonkeyIslandCharacterTable(ISitemapManager sitemapManager, IApplicationContext applicationContext)
         {
-            _formEditUri = sitemapManager.GetUri<Characters.Edit>(applicationContext); ;
+            _formEditUri = sitemapManager.GetUri<Characters.Edit>(applicationContext);
+            _formDeleteUri = sitemapManager.GetUri<Characters.Delete>(applicationContext);
             _restApi = sitemapManager.GetUri<MonkeyIslandCharacter>(applicationContext);
         }
 
@@ -65,7 +67,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// </param>
         public override IEnumerable<RestApiOption> GetOptions(IRequest request, Character row)
         {
-            var restApi = _formEditUri?.SetParameters
+            var restEditApi = _formEditUri?.SetParameters
+            (
+                new CharacterIdParameter(row.Id.ToString())
+            );
+
+            var restDeleteApi = _formDeleteUri?.SetParameters
             (
                 new CharacterIdParameter(row.Id.ToString())
             );
@@ -77,14 +84,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
 
             yield return new RestApiOptionEdit(request)
             {
-                Uri = restApi?.ToString(),
+                Uri = restEditApi?.ToString(),
                 Modal = new ModalTarget("myTableFormEdit", TypeModalSize.ExtraLarge)
             };
 
             yield return new RestApiOptionSeperator(request);
             yield return new RestApiOptionDelete(request)
             {
-                Uri = restApi?.ToString(),
+                Uri = restDeleteApi?.ToString(),
                 Modal = new ModalTarget("myTableFormEdit")
             };
         }

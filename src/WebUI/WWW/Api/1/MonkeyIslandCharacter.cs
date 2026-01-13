@@ -53,7 +53,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// </returns>
         public override IRestApiValidationResult Validate(Character existingItem, RestApiCrudFormData fieldMap, IRequest request)
         {
-            return new RestApiValidationResult();
+            return base.Validate(existingItem, fieldMap, request);
         }
 
         /// <summary>

@@ -51,19 +51,19 @@ namespace WebExpress.Tutorial.WebUI.WWW
 
             card.Add(new ControlText()
             {
-                Text = I18N.Translate(renderContext.Request?.Culture, "webexpress.Tutorial.webui:app.name"),
+                Text = I18N.Translate(renderContext, "webexpress.Tutorial.webui:app.name"),
                 Format = TypeFormatText.H3
             });
 
             card.Add(new ControlText()
             {
-                Text = I18N.Translate(renderContext.Request?.Culture, "webexpress.Tutorial.webui:app.description"),
+                Text = I18N.Translate(renderContext, "webexpress.Tutorial.webui:app.description"),
                 Format = TypeFormatText.Paragraph
             });
 
             card.Add(new ControlText()
             {
-                Text = I18N.Translate(renderContext.Request?.Culture, "webexpress.Tutorial.webui:app.about"),
+                Text = I18N.Translate(renderContext, "webexpress.Tutorial.webui:app.about"),
                 Format = TypeFormatText.H3
             });
 
@@ -71,8 +71,8 @@ namespace WebExpress.Tutorial.WebUI.WWW
             {
                 Text = string.Format
                 (
-                    I18N.Translate(renderContext.Request?.Culture, "webexpress.Tutorial.webui:app.version.label"),
-                    I18N.Translate(renderContext.Request?.Culture, webapp?.PluginName),
+                    I18N.Translate(renderContext, "webexpress.Tutorial.webui:app.version.label"),
+                    I18N.Translate(renderContext, webapp?.PluginName),
                     webapp?.Version,
                     webexpress?.PluginName,
                     webexpress?.Version

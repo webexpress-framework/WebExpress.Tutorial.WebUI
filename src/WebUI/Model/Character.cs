@@ -22,7 +22,7 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// Returns or sets the name associated with the object.
         /// </summary>
         [RestTableColumnName("Name")]
-        //[Require]
+        [ValidateRequired()]
         public string Name { get; set; }
 
         /// <summary>

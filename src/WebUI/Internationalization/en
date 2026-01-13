@@ -22,4 +22,5 @@ statuspage.label=StatusPage
 statuspage.description=Demonstration of status pages in WebExpress.
 statuspage.400=Error 400 - Bad Request
 statuspage.404=Error 404 - Page not found
-statuspage.500=Error 500 - Internal Server Error	
+statuspage.500=Error 500 - Internal Server Error
+
