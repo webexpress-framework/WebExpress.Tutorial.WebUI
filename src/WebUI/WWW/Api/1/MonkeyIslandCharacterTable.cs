@@ -51,7 +51,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// An <see cref="IUri"/> representing the REST API endpoint for the given request 
         /// and index item, or null if no endpoint is available.
         /// </returns>
-        public override IUri GetRestApi(IRequest request, Character row)
+        public override IUri GetRestApiForInlineEdit(IRequest request, Character row)
         {
             return _restApi?.Add(new UriQuery("id", row.Id.ToString()));
         }

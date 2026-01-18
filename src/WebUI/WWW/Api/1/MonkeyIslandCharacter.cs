@@ -28,7 +28,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// An enumerable collection of TIndexItem objects. The collection is empty if 
         /// no items are available.
         /// </returns>
-        public override IEnumerable<Character> Retrieve()
+        protected override IEnumerable<Character> Retrieve()
         {
             return ViewModel.MonkeyIslandCharacters;
         }
@@ -51,7 +51,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// <returns>
         /// An IRestApiValidationResult indicating validation success or errors.
         /// </returns>
-        public override IRestApiValidationResult Validate(Character existingItem, RestApiCrudFormData fieldMap, IRequest request)
+        protected override IRestApiValidationResult Validate(Character existingItem, RestApiCrudFormData fieldMap, IRequest request)
         {
             return base.Validate(existingItem, fieldMap, request);
         }
@@ -68,7 +68,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// <param name="request">
         /// The HTTP request providing additional context.
         /// </param>
-        public override IRestApiCrudResultUpdate Update(Character existingItem, RestApiCrudFormData fieldMap, IRequest request)
+        protected override IRestApiCrudResultUpdate Update(Character existingItem, RestApiCrudFormData fieldMap, IRequest request)
         {
             return base.Update(existingItem, fieldMap, request);
         }
@@ -85,7 +85,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// <returns>
         /// A result object containing information about the delete operation.
         /// </returns>
-        public override IRestApiCrudResultDelete Delete(Character existingItem, IRequest request)
+        protected override IRestApiCrudResultDelete Delete(Character existingItem, IRequest request)
         {
             ViewModel.MonkeyIslandCharacters.Remove(existingItem);
 
