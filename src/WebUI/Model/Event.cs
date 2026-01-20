@@ -16,6 +16,11 @@
         CLICK_EVENT,
 
         /// <summary>
+        /// Event triggered when an element is double-clicked.
+        /// </summary>
+        DOUBLE_CLICK_EVENT,
+
+        /// <summary>
         /// Event triggered when a filter changes, typically in search or filter controls.
         /// </summary>
         CHANGE_FILTER_EVENT,
@@ -197,6 +202,7 @@
             {
                 Event.CHANGE_VISIBILITY_EVENT => "webexpress.webui.change.visibility",
                 Event.CLICK_EVENT => "webexpress.webui.click",
+                Event.DOUBLE_CLICK_EVENT => "webexpress.webui.dbclick",
                 Event.CHANGE_FILTER_EVENT => "webexpress.webui.change.filter",
                 Event.DROPDOWN_SHOW_EVENT => "webexpress.webui.dropdown.show",
                 Event.DROPDOWN_HIDDEN_EVENT => "webexpress.webui.dropdown.hidden",
@@ -245,6 +251,7 @@
             {
                 Event.CHANGE_VISIBILITY_EVENT => "Event triggered when the visibility of an element changes.",
                 Event.CLICK_EVENT => "Event triggered when an element is clicked.",
+                Event.DOUBLE_CLICK_EVENT => "Event triggered when an element is double-clicked.",
                 Event.CHANGE_FILTER_EVENT => "Event triggered when a filter changes, typically in search or filter controls.",
                 Event.DROPDOWN_SHOW_EVENT => "Event triggered when a dropdown menu is shown.",
                 Event.DROPDOWN_HIDDEN_EVENT => "Event triggered when a dropdown menu is hidden.",
