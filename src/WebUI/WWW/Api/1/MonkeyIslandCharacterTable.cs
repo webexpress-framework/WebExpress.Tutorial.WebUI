@@ -123,9 +123,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
             return ViewModel.MonkeyIslandCharacters
                 .Where
                 (
-                    x => x.Name.Contains(filter) ||
-                    x.Description.Contains(filter) ||
-                    x.AppearsIn.Contains(filter)
+                    x => x.Name.Contains(filter, System.StringComparison.CurrentCultureIgnoreCase)
                 );
         }
     }
