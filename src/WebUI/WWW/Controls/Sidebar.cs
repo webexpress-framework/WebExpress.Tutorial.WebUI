@@ -178,6 +178,30 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                         Mode = TypeSidebarModeExtended.Overlay
                     })
             );
+
+            Stage.AddItem
+            (
+                "ControlSidebarItemIcon",
+                @"Adds a freely placeable icon element to the sidebar, optionally combined with an edit button on hover and an optional modal. In compact mode the icon is displayed small, otherwise large. Optionally, a text label can be shown below the icon. The properties `IconClass`, `IconImage`, `IconText`, `IconEdit`, and `IconEditModal` control appearance and behavior.",
+                @"
+                new ControlSidebar()
+                    .Add(new ControlSidebarItemIcon()
+                    {
+                        Icon = new IconHome(),
+                        IconEdit = true,
+                        Modal = new ModalTarget(""modalId""),
+                        Text = ""My Icon"",
+                        // Mode = TypeSidebarMode.Default  // if needed
+                    });",
+                new ControlSidebar()
+                    .Add(new ControlSidebarItemIcon()
+                    {
+                        Icon = new IconHome(),
+                        IconEdit = true,
+                        Modal = new ModalTarget("modalId"),
+                        Text = "My Icon"
+                    })
+            );
         }
 
         /// <summary>
