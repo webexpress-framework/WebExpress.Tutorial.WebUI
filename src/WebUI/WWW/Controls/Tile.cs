@@ -22,31 +22,6 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
     [Scope<IScopeControlWebUI>]
     public sealed class Tile : PageControl
     {
-        // 20 influential pre-1980 games (ascending by release year)
-        private readonly IEnumerable<IControlTileCard> _cards =
-        [
-            Card("game-1962-spacewar",       "1962 • Spacewar! – Early real-time vector space duel"),
-            Card("game-1963-sumerian",       "1963 • The Sumerian Game – Educational economic simulation seed"),
-            Card("game-1968-hammurabi",      "1968 • Hammurabi – Text resource management refinement"),
-            Card("game-1969-spacetravel",    "1969 • Space Travel – OS-influencing simulation experiment"),
-            Card("game-1971-computerspace",  "1971 • Computer Space – First commercial arcade video game"),
-            Card("game-1971-startrek",       "1971 • Star Trek (text) – Widely copied BASIC starship tactics"),
-            Card("game-1972-pong",           "1972 • Pong – Arcade mass-market breakthrough"),
-            Card("game-1972-wumpus",         "1972 • Hunt the Wumpus – Early procedural cave logic"),
-            Card("game-1973-mazewar",        "1973 • Maze War – First-person networked multiplayer roots"),
-            Card("game-1974-dnd",            "1974 • dnd (PLATO) – Persistent character RPG dungeon prototype"),
-            Card("game-1974-grantrak10",     "1974 • Gran Trak 10 – Early dedicated racing cabinet design"),
-            Card("game-1975-gunfight",       "1975 • Gun Fight – First microprocessor-based arcade shooter"),
-            Card("game-1976-breakout",       "1976 • Breakout – Paddle reflex design influencing later action"),
-            Card("game-1976-adventure",      "1976 • Colossal Cave Adventure – Text adventure narrative model"),
-            Card("game-1977-zork",           "1977 • Zork (mainframe) – Parser sophistication milestone"),
-            Card("game-1977-combat",         "1977 • Combat (VCS) – Local multiplayer cartridge showcase"),
-            Card("game-1978-spaceinvaders",  "1978 • Space Invaders – Shooter wave design + arcade boom"),
-            Card("game-1978-adventureland",  "1978 • Adventureland – Commercial home micro adventure"),
-            Card("game-1979-galaxian",       "1979 • Galaxian – Color sprite-based formation shooting"),
-            Card("game-1979-akalabeth",      "1979 • Akalabeth – Proto-Ultima first-person RPG groundwork")
-        ];
-
         /// <summary>    
         /// Initializes a new instance of the class.    
         /// </summary>    
@@ -61,7 +36,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
             Stage.Control = new ControlTile(Guid.NewGuid().ToString())
             {
             }
-                .Add(_cards);
+                .Add(GetCards());
 
             Stage.Code = @"
             new ControlTile()
@@ -160,9 +135,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                   {
                       Movable = true
                   }
-                      .Add(_cards)
+                      .Add(GetCards())
               );
-            
+
             Stage.AddProperty
               (
                   "AllowRemove",
@@ -172,8 +147,35 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                   {
                       AllowRemove = true
                   }
-                      .Add(_cards)
+                      .Add(GetCards())
               );
+        }
+        /// <summary>
+        /// Returns the 20 influential pre‑1980 game cards as a lazy sequence.
+        /// </summary>
+        /// <returns>An enumerable of IControlTileCard representing the game cards.</returns>
+        private static IEnumerable<IControlTileCard> GetCards()
+        {
+            yield return Card("game-1962-spacewar", "1962 • Spacewar! – Early real-time vector space duel");
+            yield return Card("game-1963-sumerian", "1963 • The Sumerian Game – Educational economic simulation seed");
+            yield return Card("game-1968-hammurabi", "1968 • Hammurabi – Text resource management refinement");
+            yield return Card("game-1969-spacetravel", "1969 • Space Travel – OS-influencing simulation experiment");
+            yield return Card("game-1971-computerspace", "1971 • Computer Space – First commercial arcade video game");
+            yield return Card("game-1971-startrek", "1971 • Star Trek (text) – Widely copied BASIC starship tactics");
+            yield return Card("game-1972-pong", "1972 • Pong – Arcade mass-market breakthrough");
+            yield return Card("game-1972-wumpus", "1972 • Hunt the Wumpus – Early procedural cave logic");
+            yield return Card("game-1973-mazewar", "1973 • Maze War – First-person networked multiplayer roots");
+            yield return Card("game-1974-dnd", "1974 • dnd (PLATO) – Persistent character RPG dungeon prototype");
+            yield return Card("game-1974-grantrak10", "1974 • Gran Trak 10 – Early dedicated racing cabinet design");
+            yield return Card("game-1975-gunfight", "1975 • Gun Fight – First microprocessor-based arcade shooter");
+            yield return Card("game-1976-breakout", "1976 • Breakout – Paddle reflex design influencing later action");
+            yield return Card("game-1976-adventure", "1976 • Colossal Cave Adventure – Text adventure narrative model");
+            yield return Card("game-1977-zork", "1977 • Zork (mainframe) – Parser sophistication milestone");
+            yield return Card("game-1977-combat", "1977 • Combat (VCS) – Local multiplayer cartridge showcase");
+            yield return Card("game-1978-spaceinvaders", "1978 • Space Invaders – Shooter wave design + arcade boom");
+            yield return Card("game-1978-adventureland", "1978 • Adventureland – Commercial home micro adventure");
+            yield return Card("game-1979-galaxian", "1979 • Galaxian – Color sprite-based formation shooting");
+            yield return Card("game-1979-akalabeth", "1979 • Akalabeth – Proto-Ultima first-person RPG groundwork");
         }
 
         /// <summary>
