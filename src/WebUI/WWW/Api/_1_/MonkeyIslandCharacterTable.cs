@@ -8,6 +8,7 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebCore.WebUri;
+using WebExpress.WebIndex.Queries;
 using WebExpress.WebUI.WebControl;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1
@@ -41,17 +42,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// <summary>
         /// Gets the REST API endpoint URI associated with the specified request and index item.
         /// </summary>
-        /// <param name="request">
-        /// The request for which to retrieve the REST API endpoint.
-        /// </param>
         /// <param name="row">
         /// The index item that provides context for determining the appropriate REST API endpoint.
+        /// </param>
+        /// <param name="request">
+        /// The request for which to retrieve the REST API endpoint.
         /// </param>
         /// <returns>
         /// An <see cref="IUri"/> representing the REST API endpoint for the given request 
         /// and index item, or null if no endpoint is available.
         /// </returns>
-        public override IUri GetRestApiForInlineEdit(IRequest request, Character row)
+        public override IUri GetRestApiForInlineEdit(Character row, IRequest request)
         {
             return _restApi?.Add(new UriQuery("id", row.Id.ToString()));
         }
@@ -59,13 +60,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// <summary>
         /// Retrieves a collection of options.
         /// </summary>
-        /// <param name="request">
-        /// The request object containing the criteria for retrieving options. Cannot be null.
-        /// </param>
         /// <param name="row">
         /// The row object for which options are being retrieved. Cannot be null.
         /// </param>
-        public override IEnumerable<RestApiOption> GetOptions(IRequest request, Character row)
+        /// <param name="request">
+        /// The request object containing the criteria for retrieving options. Cannot be null.
+        /// </param>
+        public override IEnumerable<RestApiOption> GetOptions(Character row, IRequest request)
         {
             var restEditApi = _formEditUri?.SetParameters
             (
@@ -97,34 +98,51 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         }
 
         /// <summary>
-        /// Retrieves a collection of index items that match the specified filter 
-        /// and request parameters.
+        /// Retrieves a queryable collection of index items that match the specified query criteria.
         /// </summary>
-        /// <param name="filter">
-        /// A string used to filter the results. The format and supported values 
-        /// depend on the implementation. Can be null or empty to indicate no filtering.
-        /// </param>
-        /// <param name="request">
-        /// An object containing additional parameters that influence the data 
-        /// retrieval operation. Cannot be null.
+        /// <param name="query">
+        /// An object containing the query parameters used to filter and select index items. Cannot 
+        /// be null.
         /// </param>
         /// <returns>
-        /// An enumerable collection of index items of type TIndexItem that 
-        /// satisfy the filter and request criteria. The collection may be 
-        /// empty if no items match.
+        /// An <see cref="IQueryable{TIndexItem}"/> representing the filtered set of index items. The 
+        /// result may be empty if no items match the query.
         /// </returns>
-        public override IEnumerable<Character> GetData(string filter, IRequest request)
+        protected override IQueryable<Character> Retrieve(IQuery<Character> query)
+        {
+            return query.Apply(ViewModel.MonkeyIslandCharacters.AsQueryable());
+        }
+
+        /// <summary>
+        /// Applies the specified filter criteria to the given query object.
+        /// </summary>
+        /// <param name="filter">
+        /// A string representing the filter expression to apply. The format and supported 
+        /// operators depend on the implementation.
+        /// </param>
+        /// <param name="query">
+        /// The query object to which the filter will be applied.
+        /// </param>
+        /// <param name="request">
+        /// The request that provides the operational context for resolving
+        /// the appropriate REST API URI.
+        /// </param>
+        /// <returns>
+        /// A new query representing the result of applying the WQL filter to the input 
+        /// query. The returned query may be further composed or executed to retrieve 
+        /// filtered results.
+        /// </returns>
+        public override IQuery<Character> Filter(string filter, IQuery<Character> query, IRequest request)
         {
             if (filter is null || filter == "null")
             {
-                return ViewModel.MonkeyIslandCharacters;
+                return query;
             }
 
-            return ViewModel.MonkeyIslandCharacters
-                .Where
-                (
-                    x => x.Name.Contains(filter, System.StringComparison.CurrentCultureIgnoreCase)
-                );
+            return query.Where
+            (
+                x => x.Name.Contains(filter, System.StringComparison.CurrentCultureIgnoreCase)
+            );
         }
     }
 }

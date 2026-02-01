@@ -6,6 +6,7 @@ using WebExpress.WebCore.WebApplication;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebSitemap;
+using WebExpress.WebIndex.Queries;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1
 {
@@ -15,8 +16,6 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
     [Title("Monkey Island Games")]
     public sealed class MonkeyIslandGamesList : RestApiList<Game>
     {
-        private readonly string _formUri;
-
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
@@ -24,14 +23,24 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// <param name="applicationContext">The application context containing the current state of the application.</param>
         public MonkeyIslandGamesList(ISitemapManager sitemapManager, IApplicationContext applicationContext)
         {
-            //var uri = sitemapManager.GetUri<RestList>(applicationContext);
-            //_formUri = uri?.SetFragment("myListForm")?.ToString();
         }
 
         /// <summary>
-        /// Retrieves a collection of options.
+        /// Returns a collection of REST API options available for the specified 
+        /// game and request context.
         /// </summary>
-        public override IEnumerable<RestApiOption> GetOptions(IRequest request, Game row)
+        /// <param name="row">
+        /// The game entity for which to retrieve available REST API options.
+        /// </param>
+        /// <param name="request">
+        /// The current request context that influences which options are generated.
+        /// </param>
+        /// <returns>
+        /// An enumerable collection representing the available actions for the
+        /// specified game and request. The collection may include options such as 
+        /// editing, deleting, or modifying settings.
+        /// </returns>
+        public override IEnumerable<RestApiOption> GetOptions(Game row, IRequest request)
         {
             yield return new RestApiOptionHeader(request)
             {
@@ -40,7 +49,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
 
             yield return new RestApiOptionEdit(request)
             {
-                Uri = _formUri
+                // Uri = _formUri
             };
 
             yield return new RestApiOptionSeperator(request);
@@ -48,17 +57,48 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         }
 
         /// <summary>
-        /// Retrieves a collection of games based on the specified filter.
+        /// Retrieves a queryable collection of index items that match the specified query criteria.
         /// </summary>
-        public override IEnumerable<Game> GetData(string filter, IRequest request)
+        /// <param name="query">
+        /// An object containing the query parameters used to filter and select index items. Cannot 
+        /// be null.
+        /// </param>
+        /// <returns>
+        /// An <see cref="IQueryable{TIndexItem}"/> representing the filtered set of index items. The 
+        /// result may be empty if no items match the query.
+        /// </returns>
+        protected override IEnumerable<Game> Retrieve(IQuery<Game> query)
+        {
+            return query.Apply(ViewModel.MonkeyIslandGames.AsQueryable());
+        }
+
+        /// <summary>
+        /// Applies the specified filter criteria to the given query object.
+        /// </summary>
+        /// <param name="filter">
+        /// A string representing the filter expression to apply. The format and supported 
+        /// operators depend on the implementation.
+        /// </param>
+        /// <param name="query">
+        /// The query object to which the filter will be applied.
+        /// </param>
+        /// <param name="request">
+        /// The request that provides the operational context for resolving
+        /// the appropriate REST API URI.
+        /// </param>
+        /// <returns>
+        /// A new query representing the result of applying the WQL filter to the input 
+        /// query. The returned query may be further composed or executed to retrieve 
+        /// filtered results.
+        /// </returns>
+        public override IQuery<Game> Filter(string filter, IQuery<Game> query, IRequest request)
         {
             if (string.IsNullOrEmpty(filter) || filter == "null")
             {
-                return ViewModel.MonkeyIslandGames;
+                return query;
             }
 
-            return ViewModel.MonkeyIslandGames
-                .Where(x => x.Name.Contains(filter));
+            return query.Where(x => x.Name.Contains(filter));
         }
     }
 }
