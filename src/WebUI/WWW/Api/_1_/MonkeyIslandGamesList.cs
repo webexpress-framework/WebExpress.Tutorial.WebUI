@@ -63,11 +63,15 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// An object containing the query parameters used to filter and select index items. Cannot 
         /// be null.
         /// </param>
+        /// <param name="context">
+        /// The context in which the query is executed. Provides additional information or constraints 
+        /// for the retrieval operation. Cannot be null.
+        /// </param>
         /// <returns>
         /// An <see cref="IQueryable{TIndexItem}"/> representing the filtered set of index items. The 
         /// result may be empty if no items match the query.
         /// </returns>
-        protected override IEnumerable<Game> Retrieve(IQuery<Game> query)
+        protected override IEnumerable<Game> Retrieve(IQuery<Game> query, IQueryContext context)
         {
             return query.Apply(ViewModel.MonkeyIslandGames.AsQueryable());
         }
@@ -86,19 +90,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// The request that provides the operational context for resolving
         /// the appropriate REST API URI.
         /// </param>
-        /// <returns>
-        /// A new query representing the result of applying the WQL filter to the input 
-        /// query. The returned query may be further composed or executed to retrieve 
-        /// filtered results.
-        /// </returns>
-        public override IQuery<Game> Filter(string filter, IQuery<Game> query, IRequest request)
+        protected override void Filter(string filter, IQuery<Game> query, IRequest request)
         {
             if (string.IsNullOrEmpty(filter) || filter == "null")
             {
-                return query;
+                return;
             }
 
-            return query.Where(x => x.Name.Contains(filter));
+            query.Where(x => x.Name.Contains(filter));
         }
     }
 }

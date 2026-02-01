@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebMessage;
+using WebExpress.WebIndex.Queries;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1
 {
@@ -21,29 +21,50 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         }
 
         /// <summary>
-        /// Retrieves a collection of objects based on the specified WQL statement and request.
+        /// Retrieves a queryable collection of index items that match the specified query criteria.
         /// </summary>
-        /// <param name="filter">
-        /// The filter used to query the data. This parameter defines the filtering and selection criteria.
+        /// <param name="query">
+        /// An object containing the query parameters used to filter and select index items. Cannot 
+        /// be null.
         /// </param>
-        /// <param name="request">
-        /// The request context containing additional information for the operation.
+        /// <param name="context">
+        /// The context in which the query is executed. Provides additional information or constraints 
+        /// for the retrieval operation. Cannot be null.
         /// </param>
         /// <returns>
-        /// An enumerable containing the objects that match the query criteria.
+        /// An <see cref="IQueryable{TIndexItem}"/> representing the filtered set of index items. The 
+        /// result may be empty if no items match the query.
         /// </returns>
-        public override IEnumerable<Location> GetData(string filter, IRequest request)
+        protected override IQueryable<Location> Retrieve(IQuery<Location> query, IQueryContext context)
+        {
+            return query.Apply(ViewModel.MonkeyIslandLocations.AsQueryable());
+        }
+
+        /// <summary>
+        /// Applies the specified filter criteria to the given query object.
+        /// </summary>
+        /// <param name="filter">
+        /// A string representing the filter expression to apply. The format and supported 
+        /// operators depend on the implementation.
+        /// </param>
+        /// <param name="query">
+        /// The query object to which the filter will be applied.
+        /// </param>
+        /// <param name="request">
+        /// The request that provides the operational context for resolving
+        /// the appropriate REST API URI.
+        /// </param>
+        protected override void Filter(string filter, IQuery<Location> query, IRequest request)
         {
             if (filter is null || filter == "null")
             {
-                return ViewModel.MonkeyIslandLocations;
+                return;
             }
 
-            return ViewModel.MonkeyIslandLocations
-                .Where
-                (
-                    x => x.Text.Contains(filter, System.StringComparison.InvariantCultureIgnoreCase)
-                );
+            query.WhereContainsIgnoreCase
+            (
+                x => x.Text, filter
+            );
         }
     }
 }

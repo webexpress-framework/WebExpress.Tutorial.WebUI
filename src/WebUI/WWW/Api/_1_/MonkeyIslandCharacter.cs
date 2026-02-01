@@ -29,11 +29,15 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// An object containing the query parameters used to filter and select index items. Cannot 
         /// be null.
         /// </param>
+        /// <param name="context">
+        /// The context in which the query is executed. Provides additional information or constraints 
+        /// for the retrieval operation. Cannot be null.
+        /// </param>
         /// <returns>
         /// A collection representing the filtered set of index items. 
         /// The collection may be empty if no items match the query.
         /// </returns>
-        protected override IEnumerable<Character> Retrieve(IQuery<Character> query)
+        protected override IEnumerable<Character> Retrieve(IQuery<Character> query, IQueryContext context)
         {
             return ViewModel.MonkeyIslandCharacters;
         }

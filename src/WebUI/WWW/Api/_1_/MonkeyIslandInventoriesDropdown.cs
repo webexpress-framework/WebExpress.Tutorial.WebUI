@@ -28,11 +28,15 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// An object containing the query parameters used to filter and select index items. Cannot 
         /// be null.
         /// </param>
+        /// <param name="context">
+        /// The context in which the query is executed. Provides additional information or constraints 
+        /// for the retrieval operation. Cannot be null.
+        /// </param>
         /// <returns>
         /// An <see cref="IQueryable{TIndexItem}"/> representing the filtered set of index items. The 
         /// result may be empty if no items match the query.
         /// </returns>
-        protected override IEnumerable<Inventory> Retrieve(IQuery<Inventory> query)
+        protected override IEnumerable<Inventory> Retrieve(IQuery<Inventory> query, IQueryContext context)
         {
             return query.Apply(ViewModel.MonkeyIslandInventories.AsQueryable());
         }
@@ -51,19 +55,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1
         /// The request that provides the operational context for resolving
         /// the appropriate REST API URI.
         /// </param>
-        /// <returns>
-        /// A new query representing the result of applying the WQL filter to the input 
-        /// query. The returned query may be further composed or executed to retrieve 
-        /// filtered results.
-        /// </returns>
-        public override IQuery<Inventory> Filter(string filter, IQuery<Inventory> query, IRequest request)
+        protected override void Filter(string filter, IQuery<Inventory> query, IRequest request)
         {
             if (filter is null || filter == "null")
             {
-                return query;
+                return;
             }
 
-            return query.Where
+            query.Where
             (
                 x => x.Text.Contains(filter, System.StringComparison.InvariantCultureIgnoreCase)
             );
