@@ -11,7 +11,7 @@ using WebExpress.WebCore.WebUri;
 using WebExpress.WebIndex.Queries;
 using WebExpress.WebUI.WebControl;
 
-namespace WebExpress.Tutorial.WebUI.WWW.Api._1
+namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 {
     /// <summary>
     /// Represents a REST API table for managing and retrieving data about Monkey Island characters.

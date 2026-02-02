@@ -8,7 +8,7 @@ using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebIndex.Queries;
 
-namespace WebExpress.Tutorial.WebUI.WWW.Api._1
+namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 {
     /// <summary>
     /// Represents a REST API table for managing and retrieving data about Monkey Island games.

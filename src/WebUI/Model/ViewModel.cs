@@ -916,5 +916,232 @@ namespace WebExpress.Tutorial.WebUI.Model
                 AppearsIn = "All Monkey Island games"
             };
         }
+
+        /// <summary>
+        /// Retrieves a complete collection of boats from the Monkey Island universe.
+        /// </summary>
+        /// <returns>A collection containing all known boats.</returns>
+        public static IEnumerable<Boat> GetMonkeyIslandBoats()
+        {
+            yield return new Boat
+            {
+                Name = "Sea Monkey",
+                BoatType = "Sailing Ship",
+                Affiliation = "Guybrush Threepwood",
+                Description = "A small but surprisingly resilient ship used by Guybrush on his early adventures.",
+                IsSupernatural = false,
+                AppearsIn = "The Secret of Monkey Island",
+                Crew = "Guybrush Threepwood and assorted temporary helpers"
+            };
+
+            yield return new Boat
+            {
+                Name = "Mad Monkey",
+                BoatType = "Galleon",
+                Affiliation = "Unknown Pirate Crew",
+                Description = "A large pirate vessel rumored to be cursed with terrible luck.",
+                IsSupernatural = true,
+                AppearsIn = "Monkey Island 2: LeChuck's Revenge",
+                Crew = "A superstitious pirate crew that abandoned ship after repeated misfortune"
+            };
+
+            yield return new Boat
+            {
+                Name = "Limping LeChuck",
+                BoatType = "Ghost Ship",
+                Affiliation = "LeChuck",
+                Description = "A spectral vessel that glows with eerie green flames.",
+                IsSupernatural = true,
+                AppearsIn = "The Secret of Monkey Island",
+                Crew = "LeChuck’s undead ghost pirates"
+            };
+
+            yield return new Boat
+            {
+                Name = "S.S. Pretentious Seagull",
+                BoatType = "Merchant Ship",
+                Affiliation = "Stan's Used Boats",
+                Description = "A flashy, overpriced ship with questionable seaworthiness.",
+                IsSupernatural = false,
+                AppearsIn = "Non‑canonical (Stan’s advertising fleet)",
+                Crew = "Rotating sales interns hired by Stan"
+            };
+
+            yield return new Boat
+            {
+                Name = "The Rum Runner",
+                BoatType = "Sloop",
+                Affiliation = "Rum Smugglers Guild",
+                Description = "Fast, agile, and always smelling faintly of spilled grog.",
+                IsSupernatural = false,
+                AppearsIn = "Monkey Island 2: LeChuck's Revenge",
+                Crew = "Three highly motivated rum smugglers"
+            };
+
+            yield return new Boat
+            {
+                Name = "The Salty Barnacle",
+                BoatType = "Fishing Boat",
+                Affiliation = "Mêlée Island Fishermen",
+                Description = "A weathered vessel used for deep‑sea fishing and occasional treasure hunting.",
+                IsSupernatural = false,
+                AppearsIn = "The Secret of Monkey Island",
+                Crew = "Two grumpy fishermen and one lazy deckhand"
+            };
+
+            yield return new Boat
+            {
+                Name = "The Screaming Oyster",
+                BoatType = "Warship",
+                Affiliation = "Pirate Brotherhood",
+                Description = "Known for its terrifying battle horn that sounds like a screaming mollusk.",
+                IsSupernatural = false,
+                AppearsIn = "Escape from Monkey Island",
+                Crew = "A disciplined crew of battle‑hardened pirates"
+            };
+
+            yield return new Boat
+            {
+                Name = "The Ghostly Pelican",
+                BoatType = "Phantom Ship",
+                Affiliation = "Wandering Spirits",
+                Description = "A translucent ship that appears only during foggy nights.",
+                IsSupernatural = true,
+                AppearsIn = "Return to Monkey Island",
+                Crew = "Silent spirits doomed to sail forever"
+            };
+
+            yield return new Boat
+            {
+                Name = "The Voodoo Canoe",
+                BoatType = "Canoe",
+                Affiliation = "Voodoo Lady",
+                Description = "A mystical canoe that moves without paddles when the spirits approve.",
+                IsSupernatural = true,
+                AppearsIn = "Curse of Monkey Island",
+                Crew = "The Voodoo Lady (when she feels like traveling)"
+            };
+
+            yield return new Boat
+            {
+                Name = "The Eternal Drifter",
+                BoatType = "Derelict Ship",
+                Affiliation = "Unknown",
+                Description = "A ship that endlessly drifts between islands with no crew aboard.",
+                IsSupernatural = true,
+                AppearsIn = "Monkey Island 2: LeChuck's Revenge",
+                Crew = "None — though eerie footsteps are sometimes heard"
+            };
+
+            yield return new Boat
+            {
+                Name = "The Moldy Mermaid",
+                BoatType = "Cargo Ship",
+                Affiliation = "Port of Phatt Island",
+                Description = "A damp and smelly vessel used for transporting questionable goods.",
+                IsSupernatural = false,
+                AppearsIn = "Monkey Island 2: LeChuck's Revenge",
+                Crew = "A bored cargo crew with low hygiene standards"
+            };
+
+            yield return new Boat
+            {
+                Name = "The Kraken’s Nap",
+                BoatType = "Exploration Vessel",
+                Affiliation = "Deep Sea Cartographers",
+                Description = "A sturdy ship built to map dangerous waters and avoid giant sea creatures.",
+                IsSupernatural = false,
+                AppearsIn = "Return to Monkey Island",
+                Crew = "A team of fearless cartographers"
+            };
+
+            yield return new Boat
+            {
+                Name = "The Soggy Biscuit",
+                BoatType = "Raft",
+                Affiliation = "Shipwreck Survivors",
+                Description = "Barely seaworthy, but surprisingly comfortable for short trips.",
+                IsSupernatural = false,
+                AppearsIn = "Escape from Monkey Island",
+                Crew = "Whoever is unlucky enough to be stranded"
+            };
+
+            yield return new Boat
+            {
+                Name = "The Unreliable Compass",
+                BoatType = "Schooner",
+                Affiliation = "Lost Navigators Guild",
+                Description = "A ship infamous for always ending up somewhere unexpected.",
+                IsSupernatural = false,
+                AppearsIn = "Curse of Monkey Island",
+                Crew = "Navigators who insist the ship is not the problem"
+            };
+
+            yield return new Boat
+            {
+                Name = "The Whispering Galleon",
+                BoatType = "Galleon",
+                Affiliation = "Ghostly Armada",
+                Description = "Its wooden hull whispers ancient pirate secrets during the night.",
+                IsSupernatural = true,
+                AppearsIn = "Return to Monkey Island",
+                Crew = "A cursed crew bound to eternal whispering"
+            };
+
+            yield return new Boat
+            {
+                Name = "The Flaming Manatee",
+                BoatType = "War Barge",
+                Affiliation = "Manatee Warriors",
+                Description = "A heavily armored vessel decorated with flaming manatee symbols.",
+                IsSupernatural = false,
+                AppearsIn = "Escape from Monkey Island",
+                Crew = "A proud clan of manatee‑themed warriors"
+            };
+
+            yield return new Boat
+            {
+                Name = "The Drunken Albatross",
+                BoatType = "Trading Ship",
+                Affiliation = "Traveling Merchants",
+                Description = "A ship that always seems to tilt slightly, even in calm waters.",
+                IsSupernatural = false,
+                AppearsIn = "Monkey Island 2: LeChuck's Revenge",
+                Crew = "Merchants who drink more than they trade"
+            };
+
+            yield return new Boat
+            {
+                Name = "The Coral Widow",
+                BoatType = "Reef Ship",
+                Affiliation = "Coral Cult",
+                Description = "A vessel grown from living coral, maintained through strange rituals.",
+                IsSupernatural = true,
+                AppearsIn = "Return to Monkey Island",
+                Crew = "Coral‑priests devoted to oceanic mysteries"
+            };
+
+            yield return new Boat
+            {
+                Name = "The Phantom Dinghy",
+                BoatType = "Dinghy",
+                Affiliation = "Unknown Spirit",
+                Description = "A tiny ghost boat that silently follows larger ships.",
+                IsSupernatural = true,
+                AppearsIn = "Curse of Monkey Island",
+                Crew = "A single lonely spirit"
+            };
+
+            yield return new Boat
+            {
+                Name = "The Barnacle Queen",
+                BoatType = "Flagship",
+                Affiliation = "Pirate Queen’s Fleet",
+                Description = "A majestic vessel covered in golden barnacles said to bring good fortune.",
+                IsSupernatural = false,
+                AppearsIn = "Return to Monkey Island",
+                Crew = "Elite pirates loyal to the Pirate Queen"
+            };
+        }
     }
 }

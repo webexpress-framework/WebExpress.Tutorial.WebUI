@@ -5,7 +5,7 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebIndex.Queries;
 
-namespace WebExpress.Tutorial.WebUI.WWW.Api._1
+namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 {
     /// <summary>
     /// Represents a REST API selection for managing and retrieving data about Monkey Island locations.
