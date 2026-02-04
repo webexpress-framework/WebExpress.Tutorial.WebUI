@@ -5,6 +5,7 @@ using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
 
@@ -22,8 +23,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
-        public GraphViewer()
+        /// <param name="pageContext">The context of the page.</param>
+        public GraphViewer(IPageContext pageContext)
         {
+            var uri = pageContext.Route.ToUri();
+
             Stage.Description = @"The `GraphViewer` control provides a visual container for rendering graphs consisting of nodes and edges. It is ideal for network diagrams, dependency structures, flow representations, or any data that benefits from a node‑edge visualization. The control acts as a flexible canvas that can be extended with custom rendering logic, layout algorithms, and interactive behaviors.";
 
             Stage.AddEvent(Event.CLICK_EVENT, Event.DOUBLE_CLICK_EVENT);
@@ -31,7 +35,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
             Stage.Control = new ControlGraphViewer()
             {
             }
-                .Add(new ControlGraphItemNode("A") { Label = "Node A", Point = new Point(10, 20), BackgroundColor = new PropertyColorBackgroundGraph(TypeColorBackgroundGraph.Primary) })
+                .Add(new ControlGraphItemNode("A") { Label = "Node A", Uri = uri, Point = new Point(10, 20), BackgroundColor = new PropertyColorBackgroundGraph(TypeColorBackgroundGraph.Primary) })
                 .Add(new ControlGraphItemNode("B") { Label = "Node B", Point = new Point(150, 180), BackgroundColor = new PropertyColorBackgroundGraph(TypeColorBackgroundGraph.Secondary) })
                 .Add(new ControlGraphItemNode("C") { Label = "Node C", Point = new Point(50, 280), BackgroundColor = new PropertyColorBackgroundGraph(TypeColorBackgroundGraph.Success) })
                 .Add(new ControlGraphItemNode("D") { Label = "Node D", Point = new Point(-10, 390), BackgroundColor = new PropertyColorBackgroundGraph(TypeColorBackgroundGraph.Warning) })
@@ -45,7 +49,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
             new ControlGraphViewer()
             {
             }
-                .Add(new ControlGraphItemNode(""A"") { Label = ""Node A"", Point = new Point(10, 20), BackgroundColor = new PropertyColorBackgroundGraph(TypeColorBackgroundGraph.Primary) })
+                .Add(new ControlGraphItemNode(""A"") { Label = ""Node A"", Uri = pageContext.Route.ToUri(), Point = new Point(10, 20), BackgroundColor = new PropertyColorBackgroundGraph(TypeColorBackgroundGraph.Primary) })
                 .Add(new ControlGraphItemNode(""B"") { Label = ""Node B"", Point = new Point(150, 180), BackgroundColor = new PropertyColorBackgroundGraph(TypeColorBackgroundGraph.Secondary) })
                 .Add(new ControlGraphItemNode(""C"") { Label = ""Node C"", Point = new Point(50, 280), BackgroundColor = new PropertyColorBackgroundGraph(TypeColorBackgroundGraph.Success) })
                 .Add(new ControlGraphItemNode(""D"") { Label = ""Node D"", Point = new Point(-10, 390), BackgroundColor = new PropertyColorBackgroundGraph(TypeColorBackgroundGraph.Warning) })

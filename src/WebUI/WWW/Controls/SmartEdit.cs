@@ -201,7 +201,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 {
                 }
                     .Add(new ControlFormItemInputRating()
-                        .Initialize(x => x.Value.Number = 3))
+                        .Initialize(x => x.Value.Number = 3)),
+                new ControlText()
+                {
+                    Text = "ControlFormItemInputColor",
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    TextColor = new PropertyColorText(TypeColorText.Info)
+                },
+                new ControlSmartEdit()
+                {
+                }
+                    .Add(new ControlFormItemInputColor().Initialize(x => x.Value.Text = "#008000"))
             );
         }
     }

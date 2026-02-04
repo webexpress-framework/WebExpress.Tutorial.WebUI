@@ -8,7 +8,7 @@ using WebExpress.WebUI.WebControl;
 namespace WebExpress.Tutorial.WebUI.WWW.Controls
 {
     /// <summary>  
-    /// Represents the text control for the tutorial.  
+    /// Represents the code control for the tutorial.  
     /// </summary>  
     [Title("Code")]
     [Scope<IScopeGeneral>]
