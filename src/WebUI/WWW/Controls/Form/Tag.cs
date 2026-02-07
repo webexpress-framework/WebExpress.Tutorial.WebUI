@@ -32,12 +32,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Form
             Stage.Description = @"The `Tag` control is an interactive user interface component that allows users to display, manage, and select multiple keyword-like items known as ""tags."" It’s ideal for organizing data, filtering content, or entering custom labels.";
 
             Stage.Control = new ControlForm()
-                .Add(new ControlFormItemInputTag())
+                .Add(new ControlFormItemInputTag()
+                    .Initialize(x => x.Value.Add("Tag-1;Tag-2;Tag-3")))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
             new ControlForm()
-                .Add(new ControlFormItemInputTag())
+                .Add(new ControlFormItemInputTag()
+                    .Initialize(x => x.Value.Add(""Tag-1;Tag-2;Tag-3""))))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
             Stage.AddProperty

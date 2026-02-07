@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
@@ -39,7 +40,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// </returns>
         protected override IEnumerable<Character> Retrieve(IQuery<Character> query, IQueryContext context)
         {
-            return ViewModel.MonkeyIslandCharacters;
+            return query.Apply(ViewModel.MonkeyIslandCharacters.AsQueryable());
         }
 
         /// <summary>

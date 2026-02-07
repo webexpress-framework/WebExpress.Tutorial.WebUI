@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using WebExpress.Tutorial.WebUI.WebConverter;
 using WebExpress.WebApp.WebAttribute;
+using WebExpress.WebApp.WebRestApi.WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebDomain;
 using WebExpress.WebIndex;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.Model
 {
@@ -35,9 +38,17 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// Returns or sets the name of the context or entity where this item appears.
         /// </summary>
         [RestTableColumnName("Appears in")]
-        [RestTableJoin(';')]
         [RestApiTableColumnTemplateTag(true, TypeColorTag.Warning, "appears in")]
-        public IEnumerable<string> AppearsIn { get; set; }
+        [RestConverter<AppearsConverter>()]
+        public IEnumerable<Game> AppearsIn { get; set; }
+
+        /// <summary>
+        /// Returns the icon associated with this character.
+        /// </summary>
+        [RestTableColumnHidden]
+        [RestTableRowIcon]
+        [RestConverter<RestValueConverterImageIcon>]
+        public ImageIcon Icon { get; set; }
 
         /// <summary>
         /// Returns a string representation of the object, including its name, description, and appearances.

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.Model
 {
@@ -44,7 +46,18 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Id = Guid.Parse("72030107-08B7-42F2-BD0A-7A1984DC385B"),
                 Name = "Guybrush Threepwood",
                 Description = "A determined yet clumsy wannabe pirate with sharp wit.",
-                AppearsIn = ["The Secret of Monkey Island", "Monkey Island 2: LeChuck’s Revenge", "The Curse of Monkey Island", "Escape from Monkey Island", "Tales of Monkey Island", "Return to Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "The Secret of Monkey Island" ||
+                        x.Name == "Monkey Island 2: LeChuck’s Revenge" ||
+                        x.Name == "The Curse of Monkey Island" ||
+                        x.Name == "Escape from Monkey Island" ||
+                        x.Name == "Tales of Monkey Island" ||
+                        x.Name == "Return to Monkey Island"
+                    )
             };
 
             yield return new Character
@@ -52,7 +65,18 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Id = Guid.Parse("ACA83ECD-7216-42F6-8D7B-08B4FF4A7F43"),
                 Name = "LeChuck",
                 Description = "A vengeful ghost/zombie/demon pirate obsessed with Elaine Marley.",
-                AppearsIn = ["The Secret of Monkey Island", "Monkey Island 2: LeChuck’s Revenge", "The Curse of Monkey Island", "Escape from Monkey Island", "Tales of Monkey Island", "Return to Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "The Secret of Monkey Island" ||
+                        x.Name == "Monkey Island 2: LeChuck’s Revenge" ||
+                        x.Name == "The Curse of Monkey Island" ||
+                        x.Name == "Escape from Monkey Island" ||
+                        x.Name == "Tales of Monkey Island" ||
+                        x.Name == "Return to Monkey Island"
+                    )
             };
 
             yield return new Character
@@ -60,7 +84,18 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Id = Guid.Parse("A15466E0-E5ED-4A26-8356-14EBC7AFE02E"),
                 Name = "Elaine Marley",
                 Description = "The intelligent and fearless governor of Mêlée Island.",
-                AppearsIn = ["The Secret of Monkey Island", "Monkey Island 2: LeChuck’s Revenge", "The Curse of Monkey Island", "Escape from Monkey Island", "Tales of Monkey Island", "Return to Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "The Secret of Monkey Island" ||
+                        x.Name == "Monkey Island 2: LeChuck’s Revenge" ||
+                        x.Name == "The Curse of Monkey Island" ||
+                        x.Name == "Escape from Monkey Island" ||
+                        x.Name == "Tales of Monkey Island" ||
+                        x.Name == "Return to Monkey Island"
+                    )
             };
 
             yield return new Character
@@ -68,7 +103,16 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Id = Guid.Parse("8FB14018-7702-420E-B71C-7D9EAABA18DF"),
                 Name = "Murray",
                 Description = "A talking skull with sinister world domination ambitions.",
-                AppearsIn = ["The Curse of Monkey Island", "Escape from Monkey Island", "Tales of Monkey Island", "Return to Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "The Curse of Monkey Island" ||
+                        x.Name == "Escape from Monkey Island" ||
+                        x.Name == "Tales of Monkey Island" ||
+                        x.Name == "Return to Monkey Island"
+                    )
             };
 
             yield return new Character
@@ -76,7 +120,18 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Id = Guid.Parse("42540604-8384-4C08-B743-95D10C3730CD"),
                 Name = "Stan S. Stanman",
                 Description = "An over-the-top salesman who can sell anything, even used coffins.",
-                AppearsIn = ["The Secret of Monkey Island", "Monkey Island 2: LeChuck’s Revenge", "The Curse of Monkey Island", "Escape from Monkey Island", "Tales of Monkey Island", "Return to Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "The Secret of Monkey Island" ||
+                        x.Name == "Monkey Island 2: LeChuck’s Revenge" ||
+                        x.Name == "The Curse of Monkey Island" ||
+                        x.Name == "Escape from Monkey Island" ||
+                        x.Name == "Tales of Monkey Island" ||
+                        x.Name == "Return to Monkey Island"
+                    )
             };
 
             yield return new Character
@@ -84,7 +139,17 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Id = Guid.Parse("F239022E-14B6-43CB-AD45-72E85B922849"),
                 Name = "Herman Toothrot",
                 Description = "An eccentric castaway who was stranded on Monkey Island for years.",
-                AppearsIn = ["The Secret of Monkey Island", "Monkey Island 2: LeChuck’s Revenge", "The Curse of Monkey Island", "Escape from Monkey Island", "Return to Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "The Secret of Monkey Island" ||
+                        x.Name == "Monkey Island 2: LeChuck’s Revenge" ||
+                        x.Name == "The Curse of Monkey Island" ||
+                        x.Name == "Escape from Monkey Island" ||
+                        x.Name == "Return to Monkey Island"
+                    )
             };
 
             yield return new Character
@@ -92,7 +157,15 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Id = Guid.Parse("E06E0CF0-F854-4993-A8F1-4ECFC3D25115"),
                 Name = "Carla",
                 Description = "A highly skilled swordmaster with an intimidating presence.",
-                AppearsIn = ["The Secret of Monkey Island", "The Curse of Monkey Island", "Return to Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "The Secret of Monkey Island" ||
+                        x.Name == "The Curse of Monkey Island" ||
+                        x.Name == "Return to Monkey Island"
+                    )
             };
 
             yield return new Character
@@ -100,7 +173,15 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Id = Guid.Parse("84DE0F83-4C23-4206-AD17-744823BA3F6B"),
                 Name = "Wally",
                 Description = "A timid cartographer who often gets caught up in adventures.",
-                AppearsIn = ["Monkey Island 2: LeChuck’s Revenge", "The Curse of Monkey Island", "Escape from Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Monkey Island 2: LeChuck’s Revenge" ||
+                        x.Name == "The Curse of Monkey Island" ||
+                        x.Name == "Escape from Monkey Island"
+                    )
             };
 
             yield return new Character
@@ -108,7 +189,13 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Id = Guid.Parse("4CED9F99-6153-4177-B2E1-F8C17192DAE5"),
                 Name = "Captain Madison",
                 Description = "A cunning member of the pirate council in Mêlée Island.",
-                AppearsIn = ["Return to Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Return to Monkey Island"
+                    )
             };
 
             yield return new Character
@@ -116,7 +203,14 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Id = Guid.Parse("032DF5FB-8DFD-4C82-B1EF-6CD2BBE61610"),
                 Name = "Otis",
                 Description = "A jail inmate with a weakness for mint candies.",
-                AppearsIn = ["The Secret of Monkey Island", "Return to Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                .Where
+                (
+                    x =>
+                    x.Name == "The Secret of Monkey Island" ||
+                    x.Name == "Return to Monkey Island"
+                )
             };
 
             yield return new Character
@@ -124,7 +218,13 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Id = Guid.Parse("21B39A1E-6369-4C91-8E90-052C856027D8"),
                 Name = "Fester Shinetop",
                 Description = "A corrupt sheriff of Mêlée Island secretly working with LeChuck.",
-                AppearsIn = ["The Secret of Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "The Secret of Monkey Island"
+                    )
             };
 
             yield return new Character
@@ -132,7 +232,18 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Id = Guid.Parse("B5A1C852-E503-4658-B00A-130464D24A04"),
                 Name = "The Voodoo Lady",
                 Description = "A mysterious woman with vast knowledge of magic and prophecies.",
-                AppearsIn = ["The Secret of Monkey Island", "Monkey Island 2: LeChuck’s Revenge", "The Curse of Monkey Island", "Escape from Monkey Island", "Tales of Monkey Island", "Return to Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "The Secret of Monkey Island" ||
+                        x.Name == "Monkey Island 2: LeChuck’s Revenge" ||
+                        x.Name == "The Curse of Monkey Island" ||
+                        x.Name == "Escape from Monkey Island" ||
+                        x.Name == "Tales of Monkey Island" ||
+                        x.Name == "Return to Monkey Island"
+                    )
             };
 
             yield return new Character
@@ -140,7 +251,14 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Id = Guid.Parse("DDB25077-4DE0-4687-AD89-4DD8974F20A5"),
                 Name = "Meathook",
                 Description = "A fearsome pirate with hooks instead of hands.",
-                AppearsIn = ["The Secret of Monkey Island", "Return to Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "The Secret of Monkey Island" ||
+                        x.Name == "Return to Monkey Island"
+                    )
             };
 
             yield return new Character
@@ -148,7 +266,13 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Id = Guid.Parse("D18784CB-E8E4-4C62-A2C9-39FDA7BABAB4"),
                 Name = "Bob the Ghost Pirate",
                 Description = "LeChuck’s loyal ghostly henchman.",
-                AppearsIn = ["The Secret of Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "The Secret of Monkey Island"
+                    )
             };
 
             yield return new Character
@@ -156,7 +280,13 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Id = Guid.Parse("70C1999C-D29A-486B-BEB2-AE04BAF57883"),
                 Name = "Kate Capsize",
                 Description = "A sharp businesswoman and boat captain.",
-                AppearsIn = ["Monkey Island 2: LeChuck’s Revenge"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Monkey Island 2: LeChuck’s Revenge"
+                    )
             };
 
             yield return new Character
@@ -164,7 +294,13 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Id = Guid.Parse("7D8D604B-103E-4E74-8EF4-4706968864B7"),
                 Name = "Griswold Goodsoup",
                 Description = "A hotel owner with a dark family history.",
-                AppearsIn = ["The Curse of Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "The Curse of Monkey Island"
+                    )
             };
 
             yield return new Character
@@ -172,7 +308,13 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Id = Guid.Parse("E6712AD6-CD85-438D-BC24-CF0C84B9CB87"),
                 Name = "Baron Saturday",
                 Description = "A mysterious character with voodoo-like abilities.",
-                AppearsIn = ["Escape from Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Escape from Monkey Island"
+                    )
             };
 
             yield return new Character
@@ -180,7 +322,13 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Id = Guid.Parse("1D74B4C5-BB00-4BB9-831A-22692E1101B1"),
                 Name = "Cutthroat Bill",
                 Description = "A tough and silent pirate with a menacing presence.",
-                AppearsIn = ["The Curse of Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "The Curse of Monkey Island"
+                    )
             };
 
             yield return new Character
@@ -188,7 +336,13 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Id = Guid.Parse("6027DA44-6FF4-4DE8-93CD-53D3E6D4F32F"),
                 Name = "Haggis McMutton",
                 Description = "A burly Scottish pirate who prefers caber tossing over sword fights.",
-                AppearsIn = ["The Curse of Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "The Curse of Monkey Island"
+                    )
             };
 
             yield return new Character
@@ -196,7 +350,13 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Id = Guid.Parse("4486F4CB-1368-4BF5-B943-E366376938A0"),
                 Name = "Edward Van Helgen",
                 Description = "A charismatic pirate who enjoys dueling and playing the banjo.",
-                AppearsIn = new[] { "The Curse of Monkey Island" }
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "The Curse of Monkey Island"
+                    )
             };
 
             yield return new Character
@@ -204,238 +364,442 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Id = Guid.Parse("24E9387C-6CF6-4EB7-B00A-07122081A378"),
                 Name = "Charles L. Charles",
                 Description = "LeChuck's alter ego as he runs for Governor.",
-                AppearsIn = ["Escape from Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Escape from Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Ignatius Cheese",
                 Description = "An eccentric chess player and owner of the pirate museum.",
-                AppearsIn = ["Escape from Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Escape from Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Marco De Pollo",
                 Description = "A skilled acrobat and champion of the Ultimate Insult contest.",
-                AppearsIn = ["Escape from Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Escape from Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "King André",
                 Description = "A ruthless smuggler who sells valuable loot, including a diamond.",
-                AppearsIn = ["The Curse of Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "The Curse of Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Kenny Falmouth",
                 Description = "A young aspiring pirate who sells lemonade for a living.",
-                AppearsIn = ["Monkey Island 2: LeChuck’s Revenge"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Monkey Island 2: LeChuck’s Revenge"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Mad Marty",
                 Description = "The energetic laundry operator who keeps the goods spinning.",
-                AppearsIn = ["Monkey Island 2: LeChuck’s Revenge"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Monkey Island 2: LeChuck’s Revenge"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Peepwind",
                 Description = "A shipwright who specializes in customizing pirate ships.",
-                AppearsIn = ["Return to Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Return to Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Deadeye Dave",
                 Description = "A blind jeweler who has an uncanny ability to appraise valuables.",
-                AppearsIn = ["The Curse of Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "The Curse of Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Madame Xima",
                 Description = "A fortune teller who speaks in riddles and cryptic messages.",
-                AppearsIn = ["Return to Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Return to Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "The Pirates of Low Moral Fiber",
                 Description = "A trio of dubious pirates with questionable integrity and drinking habits.",
-                AppearsIn = ["The Secret of Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "The Secret of Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "The Cook from Scabb Island",
                 Description = "An angry tavern cook who despises Guybrush and protects his stew fiercely.",
-                AppearsIn = ["Monkey Island 2: LeChuck’s Revenge"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Monkey Island 2: LeChuck’s Revenge"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Hellbeard",
                 Description = "A ghostly pirate captain with a sinister reputation.",
-                AppearsIn = ["Return to Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Return to Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Lila",
                 Description = "A mischievous thief known for stealing valuable artifacts.",
-                AppearsIn = ["Escape from Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Escape from Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Deep Gut",
                 Description = "A mysterious informant who helps Guybrush uncover secrets.",
-                AppearsIn = ["Tales of Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Tales of Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Trenchant Caprice",
                 Description = "A sharp-tongued pirate known for witty insults and dueling skills.",
-                AppearsIn = ["Return to Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Return to Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Gregory Percival",
                 Description = "An eccentric historian who collects tales of legendary pirates.",
-                AppearsIn = ["Tales of Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Tales of Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Captain Blondebeard",
                 Description = "An eccentric chicken-loving pirate chef.",
-                AppearsIn = ["The Curse of Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "The Curse of Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Lemonhead",
                 Description = "A cannibal from Monkey Island with a refined sense of etiquette.",
-                AppearsIn = ["The Secret of Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "The Secret of Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Franky",
                 Description = "A ghost pirate under LeChuck’s command.",
-                AppearsIn = ["The Secret of Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "The Secret of Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Mr. Fossey",
                 Description = "A creepy hotel manager obsessed with his establishment’s prestige.",
-                AppearsIn = ["The Curse of Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "The Curse of Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Horatio Torquemada Marley",
                 Description = "Elaine’s ancestor, a famous explorer and treasure hunter.",
-                AppearsIn = ["Escape from Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Escape from Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Brittany",
                 Description = "A fierce pirate with ambitions of ruling the seas.",
-                AppearsIn = ["Return to Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Return to Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Slappy Cromwell",
                 Description = "A playwright known for his terrible scripts.",
-                AppearsIn = ["Escape from Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Escape from Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Little LeChuck",
                 Description = "A mischievous young version of LeChuck haunting Guybrush.",
-                AppearsIn = ["Tales of Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Tales of Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Hank Plank",
                 Description = "A cursed sailor doomed to sink every ship he boards.",
-                AppearsIn = ["The Curse of Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "The Curse of Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Miss Rivers",
                 Description = "An outspoken bartender with extensive pirate knowledge.",
-                AppearsIn = ["Return to Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Return to Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Granny Weatherwax",
                 Description = "A fortune teller with a knack for vague predictions.",
-                AppearsIn = ["Escape from Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Escape from Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Horrible Hector",
                 Description = "A pirate who specializes in intimidation.",
-                AppearsIn = ["Monkey Island 2: LeChuck’s Revenge"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Monkey Island 2: LeChuck’s Revenge"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Wicked Wanda",
                 Description = "A notorious pirate feared across the Caribbean.",
-                AppearsIn = ["Return to Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Return to Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Captain Dread",
                 Description = "A laid-back Jamaican pirate with a love for reggae.",
-                AppearsIn = ["Monkey Island 2: LeChuck’s Revenge"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Monkey Island 2: LeChuck’s Revenge"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Largo LaGrande",
                 Description = "LeChuck’s thuggish enforcer with a mean streak.",
-                AppearsIn = ["Monkey Island 2: LeChuck’s Revenge"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Monkey Island 2: LeChuck’s Revenge"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Father Ignacio",
                 Description = "A priest turned pirate with questionable morals.",
-                AppearsIn = ["Tales of Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Tales of Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Mad Monty",
                 Description = "A pirate entertainer known for dangerous stunts.",
-                AppearsIn = ["Escape from Monkey Island"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Escape from Monkey Island"
+                    )
             };
 
             yield return new Character
             {
                 Name = "Rapp Scallion",
                 Description = "A ghost pirate who once ran the best weenie hut in town.",
-                AppearsIn = ["Monkey Island 2: LeChuck’s Revenge"]
+                Icon = new ImageIconWebExpress(Application.ApplicationContext),
+                AppearsIn = GetMonkeyIslandGames()
+                    .Where
+                    (
+                        x =>
+                        x.Name == "Monkey Island 2: LeChuck’s Revenge"
+                    )
             };
         }
 
