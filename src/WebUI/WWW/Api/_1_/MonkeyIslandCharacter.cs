@@ -34,11 +34,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// The context in which the query is executed. Provides additional information or constraints 
         /// for the retrieval operation. Cannot be null.
         /// </param>
+        /// <param name="request">
+        /// The request that provides the operational context.
+        /// </param>
         /// <returns>
         /// A collection representing the filtered set of index items. 
         /// The collection may be empty if no items match the query.
         /// </returns>
-        protected override IEnumerable<Character> Retrieve(IQuery<Character> query, IQueryContext context)
+        protected override IEnumerable<Character> Retrieve(IQuery<Character> query, IQueryContext context, IRequest request)
         {
             return query.Apply(ViewModel.MonkeyIslandCharacters.AsQueryable());
         }
