@@ -43,10 +43,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 {
                     RestUri = sitemapManager.GetUri<MonkeyIslandCharacterTable>(pageContext.ApplicationContext)
                 }
-                    .Add(new ControlModalRemoteForm("myTableFormEdit")
-                    {
-                        Header = "webexpress.tutorial.webui:character.edit.header"
-                    })
+                    //.Add(new ControlModalRemoteForm("myTableFormEdit")
+                    //{
+                    //    Header = "webexpress.tutorial.webui:character.edit.header"
+                    //})
             ];
 
             Stage.DarkControls =
@@ -66,12 +66,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
             new ControlRestTable(""myTable"")
                 {
                     RestUri = sitemapManager.GetUri<MonkeyIslandCharacters>(pageContext.ApplicationContext)
-                }
-                    .Add(new ControlRestFormCharacter(""myTableForm"")
-                    {
-                        RestUri = sitemapManager.GetUri<MonkeyIslandCharacters>(pageContext.ApplicationContext)
-                    })";
-
+                }";
         }
     }
 }
