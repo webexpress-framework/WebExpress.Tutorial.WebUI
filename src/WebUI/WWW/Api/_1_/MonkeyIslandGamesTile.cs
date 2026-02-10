@@ -11,17 +11,17 @@ using WebExpress.WebIndex.Queries;
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 {
     /// <summary>
-    /// Represents a REST API list for managing and retrieving data about Monkey Island games.
+    /// Represents a REST API tile for managing and retrieving data about Monkey Island games.
     /// </summary>
     [Title("Monkey Island Games")]
-    public sealed class MonkeyIslandGamesList : RestApiList<Game>
+    public sealed class MonkeyIslandGamesTile : RestApiTile<Game>
     {
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
         /// <param name="sitemapManager">The sitemap manager used to retrieve URIs for the application context.</param>
         /// <param name="applicationContext">The application context containing the current state of the application.</param>
-        public MonkeyIslandGamesList(ISitemapManager sitemapManager, IApplicationContext applicationContext)
+        public MonkeyIslandGamesTile(ISitemapManager sitemapManager, IApplicationContext applicationContext)
         {
         }
 
