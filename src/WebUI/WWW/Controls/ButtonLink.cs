@@ -287,13 +287,30 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
 
             Stage.AddProperty
             (
-                "Modal",
-                "Displays a dialog.",
-                "Modal = new ModalTarget(\"modal\")",
+                "PrimaryAction",
+                "Defines the primary user action, typically executed on a standard click to open a dialog or perform the main operation.",
+                "PrimaryAction = new ActionModal(\"modal\")",
                 new ControlButtonLink()
                 {
                     Text = "Click me!",
-                    Modal = new ModalTarget("modal"),
+                    PrimaryAction = new ActionModal("modal"),
+                    TextColor = new PropertyColorText(TypeColorText.Default),
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                },
+                new ControlModalExample("modal")
+                {
+                }
+            );
+
+            Stage.AddProperty
+            (
+                "SecondaryAction",
+                "Defines the secondary user action, often triggered by a double‑click to open a dialog or perform an alternative operation.",
+                "SecondaryAction = new ActionModal(\"modal\")",
+                new ControlButtonLink()
+                {
+                    Text = "Double-click me!",
+                    SecondaryAction = new ActionModal("modal"),
                     TextColor = new PropertyColorText(TypeColorText.Default),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },

@@ -85,7 +85,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
 
             Stage.AddItem
             (
-                "ControlSidebarItemHeader",
+                "ControlSidebarItemDivider",
                 @"Inserts a visual divider between sidebar items to improve structure and readability. The divider is purely decorative and does not respond to interaction. By setting `Mode = TypeSidebarMode.Hide`, the divider is automatically hidden when the sidebar enters reduced mode.",
                 @"
                 new ControlSidebar()
@@ -189,7 +189,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     {
                         Icon = new IconHome(),
                         IconEdit = true,
-                        Modal = new ModalTarget(""modalId""),
+                        PrimaryAction = new ActionModal(""modalId""),
                         Text = ""My Icon"",
                         // Mode = TypeSidebarMode.Default  // if needed
                     });",
@@ -198,7 +198,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                     {
                         Icon = new IconHome(),
                         IconEdit = true,
-                        Modal = new ModalTarget("modalId"),
+                        PrimaryAction = new ActionModal("modalId"),
                         Text = "My Icon"
                     })
             );

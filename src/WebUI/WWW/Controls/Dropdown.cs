@@ -23,7 +23,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
         private readonly IControlDropdownItem _item2 = new ControlDropdownItemLink() { Text = "First Entry", Icon = new IconWrench() };
         private readonly IControlDropdownItem _item3 = new ControlDropdownItemLink() { Text = "Second Entry" };
         private readonly IControlDropdownItem _item4 = new ControlDropdownItemDivider();
-        private readonly IControlDropdownItem _item5 = new ControlDropdownItemLink() { Text = "Third Entry", Modal = new ModalTarget("myModal") };
+        private readonly IControlDropdownItem _item5 = new ControlDropdownItemLink() { Text = "Third Entry", PrimaryAction = new ActionModal("myModal") };
 
         /// <summary>  
         /// Initializes a new instance of the class.  

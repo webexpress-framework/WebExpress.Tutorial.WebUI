@@ -85,15 +85,19 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 
             yield return new RestApiOptionEdit(request)
             {
-                Uri = restEditApi?.ToString(),
-                Modal = new ModalTarget("myTableFormEdit", TypeModalSize.ExtraLarge)
+                PrimaryAction = new ActionModal
+                (
+                    "myTableFormEdit",
+                    restEditApi,
+                    TypeModalSize.ExtraLarge
+                )
             };
 
             yield return new RestApiOptionSeperator(request);
             yield return new RestApiOptionDelete(request)
             {
                 Uri = restDeleteApi?.ToString(),
-                Modal = new ModalTarget("myTableFormEdit")
+                PrimaryAction = new ActionModal("myTableFormEdit")
             };
         }
 
