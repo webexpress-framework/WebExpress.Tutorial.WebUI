@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
+using WebExpress.Tutorial.WebUI.WebControl;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
@@ -149,7 +151,40 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                   }
                       .Add(GetCards())
               );
+
+            Stage.AddItem
+            (
+                "PrimaryAction",
+                "Defines the primary user action, typically executed on a standard click to open a dialog or perform the main operation.",
+                "PrimaryAction = new ActionModal(\"modal\")",
+                new ControlTile()
+                    .Add(GetCards().Select(x => new ControlTileCard()
+                    {
+                        Id = x.Id,
+                        PrimaryAction = new ActionModal("modal")
+                    }.Add(x.Content))),
+                new ControlModalExample("modal")
+                {
+                }
+            );
+
+            Stage.AddItem
+            (
+                "SecondaryAction",
+                "Defines the secondary user action, often triggered by a double‑click to open a dialog or perform an alternative operation.",
+                "SecondaryAction = new ActionModal(\"modal\")",
+                new ControlTile()
+                    .Add(GetCards().Select(x => new ControlTileCard()
+                    {
+                        Id = x.Id,
+                        SecondaryAction = new ActionModal("modal")
+                    }.Add(x.Content))),
+                new ControlModalExample("modal")
+                {
+                }
+            );
         }
+
         /// <summary>
         /// Returns the 20 influential pre‑1980 game cards as a lazy sequence.
         /// </summary>

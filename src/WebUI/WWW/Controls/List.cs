@@ -1,4 +1,5 @@
-﻿using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
+﻿using WebExpress.Tutorial.WebUI.WebControl;
+using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
@@ -206,6 +207,40 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls
                 )
                 {
                     Layout = TypeLayoutList.Group
+                }
+            );
+
+            Stage.AddItem
+            (
+                "PrimaryAction",
+                "Defines the primary user action, typically executed on a standard click to open a dialog or perform the main operation.",
+                "PrimaryAction = new ActionModal(\"modal\")",
+                new ControlList
+                (
+                    null,
+                    new ControlListItemLink() { Text = "First Element", PrimaryAction = new ActionModal("modal"), Icon = new IconAt() },
+                    new ControlListItemButton(null, new ControlText() { Text = "Second Element" }) { PrimaryAction = new ActionModal("modal") },
+                    new ControlListItemLink() { Text = "Third Element", PrimaryAction = new ActionModal("modal"), Title = "Title" }
+                ),
+                new ControlModalExample("modal")
+                {
+                }
+            );
+
+            Stage.AddItem
+            (
+                "SecondaryAction",
+                "Defines the secondary user action, often triggered by a double‑click to open a dialog or perform an alternative operation.",
+                "SecondaryAction = new ActionModal(\"modal\")",
+                new ControlList
+                (
+                    null,
+                    new ControlListItemLink() { Text = "First Element", SecondaryAction = new ActionModal("modal"), Icon = new IconAt() },
+                    new ControlListItemButton(null, new ControlText() { Text = "Second Element" }) { SecondaryAction = new ActionModal("modal") },
+                    new ControlListItemLink() { Text = "Third Element", SecondaryAction = new ActionModal("modal"), Title = "Title" }
+                ),
+                new ControlModalExample("modal")
+                {
                 }
             );
         }

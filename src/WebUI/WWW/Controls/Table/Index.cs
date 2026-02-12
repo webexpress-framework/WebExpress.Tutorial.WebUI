@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
+using WebExpress.Tutorial.WebUI.WebControl;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
@@ -166,6 +167,20 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Table
                     .AddColumns(_columns)
                     .AddRows(_rows)
 
+            );
+
+            Stage.AddProperty
+            (
+                "Selectable",
+                @"The `Selectable` property of a table control determines how users can select elements within the table. It defines whether selection applies to rows, columns, both, or is disabled entirely.",
+                @"Selectable = true",
+
+                new ControlTable()
+                {
+                    Selectable = true
+                }
+                    .AddColumns(_columns)
+                    .AddRows(_rows)
             );
 
             Stage.AddProperty
@@ -469,6 +484,80 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.Table
                             new ControlDropdownItemLink() { Text = "Third Entry" }
                         )
                     )
+            );
+
+            Stage.AddItem
+            (
+                "PrimaryAction",
+                "Defines the primary user action, typically executed on a standard click to open a dialog or perform the main operation.",
+                "PrimaryAction = new ActionModal(\"modal\")",
+                new ControlTable()
+                {
+                }
+                    .AddColumns(_columns)
+                    .AddColumns(new ControlTableColumnTemplate("myColumn4", new ControlTableTemplateDate()
+                    {
+                        Editable = true,
+                        Format = "yyyy-MM-dd"
+
+                    })
+                    {
+                        Title = "Column",
+                        Icon = new IconTableTennisPaddleBall(),
+                        Color = TypeColorTable.Warning
+                    })
+                    .AddRows(_rows.Select
+                    (
+                        x => new ControlTableRow()
+                        {
+                            PrimaryAction = new ActionModal("modal")
+                        }
+                            .Add(x.Cells)
+                            .Add(new ControlTableCell($"myDate_{i}")
+                            {
+                                Text = DateTime.Now.AddDays(i++).ToString("yyyy-MM-dd")
+                            })
+                    )),
+                new ControlModalExample("modal")
+                {
+                }
+            );
+
+            Stage.AddItem
+            (
+                "SecondaryAction",
+                "Defines the secondary user action, often triggered by a double‑click to open a dialog or perform an alternative operation.",
+                "SecondaryAction = new ActionModal(\"modal\")",
+                new ControlTable()
+                {
+                }
+                    .AddColumns(_columns)
+                    .AddColumns(new ControlTableColumnTemplate("myColumn4", new ControlTableTemplateDate()
+                    {
+                        Editable = true,
+                        Format = "yyyy-MM-dd"
+
+                    })
+                    {
+                        Title = "Column",
+                        Icon = new IconTableTennisPaddleBall(),
+                        Color = TypeColorTable.Warning
+                    })
+                    .AddRows(_rows.Select
+                    (
+                        x => new ControlTableRow()
+                        {
+                            SecondaryAction = new ActionModal("modal")
+                        }
+                            .Add(x.Cells)
+                            .Add(new ControlTableCell($"myDate_{i}")
+                            {
+                                Text = DateTime.Now.AddDays(i++).ToString("yyyy-MM-dd")
+                            })
+                    )),
+                new ControlModalExample("modal")
+                {
+                }
             );
         }
     }
