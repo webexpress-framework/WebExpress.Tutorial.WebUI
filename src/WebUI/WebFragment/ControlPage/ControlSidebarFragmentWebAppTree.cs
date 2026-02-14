@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using WebExpress.Tutorial.WebUI.WebScope;
-using WebExpress.Tutorial.WebUI.WWW.Controls;
 using WebExpress.WebApp.WebSection;
 using WebExpress.WebCore.Internationalization;
 using WebExpress.WebCore.WebAttribute;
@@ -57,7 +56,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
             RenderControl += (renderContext, visualTree) =>
             {
                 var indexContext = _componentHub.PageManager
-                .GetPages(typeof(Index), _fragmentContext.ApplicationContext)
+                .GetPages(typeof(WWW.Controls.WebApp.Index), _fragmentContext.ApplicationContext)
                 .FirstOrDefault();
                 var items = _componentHub.PageManager.Pages
                     .Where(x => x.ApplicationContext == _fragmentContext.ApplicationContext)

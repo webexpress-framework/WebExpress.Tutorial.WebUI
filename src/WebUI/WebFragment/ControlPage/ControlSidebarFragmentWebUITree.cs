@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using WebExpress.Tutorial.WebUI.WebScope;
-using WebExpress.Tutorial.WebUI.WWW.Controls;
+using WebExpress.Tutorial.WebUI.WWW.Controls.WebUi;
 using WebExpress.WebApp.WebSection;
 using WebExpress.WebCore.Internationalization;
 using WebExpress.WebCore.WebAttribute;

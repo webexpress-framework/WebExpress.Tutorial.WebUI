@@ -1,5 +1,5 @@
 ﻿using WebExpress.Tutorial.WebUI.WebPage;
-using WebExpress.Tutorial.WebUI.WWW.Controls;
+using WebExpress.Tutorial.WebUI.WWW.Controls.WebUi;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebApp.WebSection;
 using WebExpress.WebCore.WebAttribute;
