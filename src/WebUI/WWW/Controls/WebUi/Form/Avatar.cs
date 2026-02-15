@@ -64,7 +64,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Label",
                 "The `Label` property of the avatar input control serves as a short description and is displayed prominently next to the avatar icon. It helps identify the purpose or context of the avatar, such as representing a user or role.",
                 "Label = \"User\"",
-                new ControlForm(items: new ControlFormItemInputAvatar(null)
+                new ControlForm(null, new ControlFormItemInputAvatar(null)
                 {
                     Label = "User"
                 })
@@ -75,7 +75,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Help",
                 "The `Help` property provides a help text that gives the user additional guidance on how to interact with the avatar input control. It can clarify the purpose of the avatar, suggest what kind of identity or role to select, or explain how the control integrates with the form.",
                 "Help = \"Select or represent the user identity here.\"",
-                new ControlForm(items: new ControlFormItemInputAvatar(null)
+                new ControlForm(null, new ControlFormItemInputAvatar(null)
                 {
                     Help = "Select or represent the user identity here."
                 })
@@ -86,7 +86,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Icon",
                 "The `Icon` property defines the icon displayed alongside the avatar input control. It provides visual context and helps users quickly recognize the type of identity or role being represented, enhancing clarity and user experience.",
                 "Icon = new IconUserAstronaut()",
-                new ControlForm(items: new ControlFormItemInputAvatar(null)
+                new ControlForm(null, new ControlFormItemInputAvatar(null)
                 {
                     Icon = new IconUserAstronaut(),
                 })
@@ -97,7 +97,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Placeholder",
                 "The `Placeholder` property serves as a hint for the avatar input field. It provides a visual cue for the expected identity or role to be selected or entered, and supports internationalization, allowing it to be defined as a localized string for multilingual interfaces.\r\n",
                 "Placeholder = \"Choose a user\"",
-                new ControlForm(items: new ControlFormItemInputAvatar()
+                new ControlForm(null, new ControlFormItemInputAvatar()
                 {
                     Placeholder = "Choose a user",
                 })
@@ -108,7 +108,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Name",
                 "The `Name` property defines the identifier of the avatar input control. It is used to reference the control in form submissions and scripts.",
                 "Name = \"avatar\"",
-                new ControlForm(items: new ControlFormItemInputAvatar(null)
+                new ControlForm(null, new ControlFormItemInputAvatar(null)
                 {
                     Name = "avatar"
                 })

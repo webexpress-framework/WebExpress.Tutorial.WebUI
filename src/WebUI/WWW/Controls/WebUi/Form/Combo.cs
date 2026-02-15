@@ -56,7 +56,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Placeholder",
                 "The `Placeholder` property serves as a hint for the combo box input. It provides a clear label for the expected input and supports internationalization, allowing it to be used as an internationalization string.",
                 "Placeholder = \"Select an option\"",
-                new ControlForm(items: new ControlFormItemInputCombo(items: [.. _options])
+                new ControlForm(null, new ControlFormItemInputCombo(null, [.. _options])
                 {
                     Placeholder = "Select an option",
                 })

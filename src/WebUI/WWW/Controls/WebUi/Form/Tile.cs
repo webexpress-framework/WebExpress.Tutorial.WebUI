@@ -69,7 +69,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Label",
                 "The `Label` property of a tile picker control item serves as a short form of the input text and is displayed in the main area of the control. It ensures a concise and clear representation of the input.",
                 "Label = \"Label 1\"",
-                new ControlForm(items: new ControlFormItemInputTile() { Label = "Label 1" }.Add(GetCards()))
+                new ControlForm(null, new ControlFormItemInputTile() { Label = "Label 1" }.Add(GetCards()))
             );
 
             Stage.AddProperty
@@ -77,7 +77,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Icon",
                 "The `Icon` property defines the symbol assigned to a tile box. It provides a visual representation and identification of the input field, enhancing user guidance and recognition.",
                 "Icon = new IconHome()",
-                new ControlForm(items: new ControlFormItemInputTile() { Icon = new IconHome() }.Add(GetCards()))
+                new ControlForm(null, new ControlFormItemInputTile() { Icon = new IconHome() }.Add(GetCards()))
             );
 
             Stage.AddProperty
@@ -85,7 +85,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                "Help",
                "Provides additional guidance or context for the tile picker.",
                "Help = \"This is a help text.\"",
-               new ControlForm(items: new ControlFormItemInputTile() { Help = "This is a help text." }.Add(GetCards()))
+               new ControlForm(null, new ControlFormItemInputTile() { Help = "This is a help text." }.Add(GetCards()))
             );
         }
 
