@@ -80,7 +80,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 
             yield return new RestApiOptionHeader(request)
             {
-                Label = "webexpress.webapp:header.setting.label"
+                Text = "webexpress.webapp:header.setting.label"
             };
 
             yield return new RestApiOptionEdit(request)

@@ -18,7 +18,7 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// <summary>
         /// Returns or sets the identifier of the table data.
         /// </summary>
-        [RestTableColumnHidden()]
+        [RestHidden()]
         public Guid Id { get; set; } = Guid.NewGuid();
 
         /// <summary>
@@ -45,8 +45,8 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// <summary>
         /// Returns the icon associated with this character.
         /// </summary>
-        [RestTableColumnHidden]
-        [RestTableRowIcon]
+        [RestHidden]
+        [RestIcon]
         [RestConverter<RestValueConverterImageIcon>]
         public ImageIcon Icon { get; set; }
 

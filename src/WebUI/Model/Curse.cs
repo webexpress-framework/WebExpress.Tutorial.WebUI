@@ -12,7 +12,7 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// <summary>
         /// Returns or sets the identifier of the curse.
         /// </summary>
-        [RestTableColumnHidden()]
+        [RestHidden()]
         public Guid Id { get; set; } = Guid.NewGuid();
 
         /// <summary>

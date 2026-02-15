@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebControl;
@@ -8,6 +7,7 @@ using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebHtml;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
@@ -35,7 +35,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.Description = @"The `Tile` control class is perfectly suited for visualizing files and folders in a sleek, tile-based interface. It provides an intuitive and visually engaging way to present content, making it ideal for applications such as file managers, explorer views, or media libraries.";
 
-            Stage.Control = new ControlTile(Guid.NewGuid().ToString())
+            Stage.Control = new ControlTile(RandomId.Create())
             {
             }
                 .Add(GetCards());

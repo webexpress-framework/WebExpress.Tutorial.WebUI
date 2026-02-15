@@ -18,7 +18,7 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// <summary>
         /// Returns or sets the name associated with the object.
         /// </summary>
-        [RestDropdownText]
+        [RestText]
         public string Text { get; set; }
 
         /// <summary>

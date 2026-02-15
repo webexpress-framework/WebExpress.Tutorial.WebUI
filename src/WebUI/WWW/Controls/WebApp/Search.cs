@@ -32,7 +32,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.Controls =
             [
-                new WebExpress.WebApp.WebControl.ControlSearch("mySearch")
+                new WebExpress.WebApp.WebControl.ControlAdvancedSearch("mySearch")
                 {
                     RestUri = sitemapManager.GetUri<Api._1_.MonkeyIslandBoatWql>(pageContext.ApplicationContext)
                 }

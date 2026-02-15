@@ -17,7 +17,7 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// <summary>
         /// Returns or sets the display name of the location.
         /// </summary>
-        [RestSelectionText]
+        [RestText]
         public string Text { get; set; }
 
         /// <summary>

@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebHtml;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
@@ -47,7 +47,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.Description = @"The `Search` control is an input component where users can enter search commands to find specific information. It serves as an interface between the user and a search function, delivering relevant results based on the entered terms. With features like real-time suggestions, the search field enhances usability and allows for faster navigation.";
 
-            Stage.Control = new ControlSearch(Guid.NewGuid().ToString(), [.. _suggestions])
+            Stage.Control = new ControlSearch(RandomId.Create(), [.. _suggestions])
             {
                 Placeholder = "Enter search term...",
 
@@ -64,7 +64,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Placeholder",
                 "Sets the placeholder of the search field – a temporary text display that informs the user about the expected input. The placeholder disappears once the user starts typing a search query.",
                 "Placeholder = \"Enter search term...\"",
-                new ControlSearch(Guid.NewGuid().ToString(), [.. _suggestions])
+                new ControlSearch(RandomId.Create(), [.. _suggestions])
                 {
                     Placeholder = "Enter search term..."
                 }
@@ -75,7 +75,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "EnableFavorited",
                 "The `EnableFavorited` property allows for the prioritization of preferred search suggestions. When enabled, certain favorites can be highlighted and displayed more prominently within the search suggestions. This feature enhances the user experience by making frequently used or marked-as-relevant suggestions more accessible.",
                 "EnableFavorited = true",
-                new ControlSearch(Guid.NewGuid().ToString(), [.. _suggestions])
+                new ControlSearch(RandomId.Create(), [.. _suggestions])
                 {
                     EnableFavorited = true
                 }
@@ -86,7 +86,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Value",
                 "The `Value` property defines the initial search term used when a search function is initialized. By setting a predefined value, the search field can be populated with a starting term, guiding users and improving search efficiency.\r\n\r\nThis feature is particularly useful when frequently used or preselected terms should be readily available, allowing users to refine their searches more quickly without manually entering the term.",
                 @"Value = ""hello""",
-                new ControlSearch(Guid.NewGuid().ToString(), [.. _suggestions])
+                new ControlSearch(RandomId.Create(), [.. _suggestions])
                 {
                     Value = "hello"
                 }
@@ -97,7 +97,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Suggestion",
                 "Suggestions in a `SearchControl` are automatically generated or predefined input aids that offer users relevant search terms or options based on past inputs or data sources. They enhance usability by speeding up searches and reducing typos.",
                 "new ControlSearch(null, [new ControlSearchItemSuggestion(\"1\") { Icon = new IconHome(), Label = \"Home\", Favorited = true }])",
-                new ControlSearch(Guid.NewGuid().ToString(), [.. _suggestions])
+                new ControlSearch(RandomId.Create(), [.. _suggestions])
                 {
                     Placeholder = "Enter search term..."
                 }

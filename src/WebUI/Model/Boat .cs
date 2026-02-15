@@ -12,7 +12,7 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// <summary>
         /// The unique identifier of the boat.
         /// </summary>
-        [RestListHidden()]
+        [RestHidden()]
         public Guid Id { get; set; } = Guid.NewGuid();
 
         /// <summary>
