@@ -96,7 +96,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
             yield return new RestApiOptionSeperator(request);
             yield return new RestApiOptionDelete(request)
             {
-                Uri = restDeleteApi?.ToString(),
+                Uri = restDeleteApi,
                 PrimaryAction = new ActionModal("myTableFormEdit")
             };
         }

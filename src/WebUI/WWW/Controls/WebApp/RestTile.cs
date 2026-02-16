@@ -1,4 +1,5 @@
 ﻿using WebExpress.Tutorial.WebUI.Model;
+using WebExpress.Tutorial.WebUI.WebControl;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
@@ -37,6 +38,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlRestTile("myTile")
                 {
                     RestUri = sitemapManager.GetUri<MonkeyIslandGamesTile>(pageContext.ApplicationContext)
+                },
+                new ControlModalExample("modal")
+                {
                 }
             ];
 

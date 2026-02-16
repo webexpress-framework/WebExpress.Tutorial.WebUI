@@ -87,6 +87,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                "Help = \"This is a help text.\"",
                new ControlForm(null, new ControlFormItemInputTile() { Help = "This is a help text." }.Add(GetCards()))
             );
+
+            Stage.AddProperty
+            (
+                "LargeIcon",
+                @"The `LargeIcon` property controls whether tiles within the `Tile` control are displayed with an enlarged icon. When set to true, the icons appear significantly larger and gain more visual prominence, which is especially useful for image‑focused or highlighted elements.",
+                @"LargeIcon = true",
+                new ControlForm(null, new ControlFormItemInputTile() { LargeIcon = true }.Add(GetCards()))
+            );
         }
 
         /// <summary>
@@ -125,7 +133,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
         /// <returns>Configured ControlTileCard instance.</returns>
         private static ControlTileCard Card(string id, string text)
         {
-            var card = new ControlTileCard(id);
+            var card = new ControlTileCard(id)
+            {
+                Icon = new IconGamepad()
+            };
             // add main text element
             card.Add(new ControlText() { Text = text });
 

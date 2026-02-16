@@ -129,28 +129,40 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             );
 
             Stage.AddProperty
-              (
-                  "Movable",
-                  @"The `Movable` property in a tile control allows users to rearrange cards interactively. This improves usability by enabling custom ordering of data based on user preferences or workflow requirements.",
-                  @"Movable = true",
-                  new ControlTile()
-                  {
-                      Movable = true
-                  }
-                      .Add(GetCards())
-              );
+            (
+                "Movable",
+                @"The `Movable` property in a tile control allows users to rearrange cards interactively. This improves usability by enabling custom ordering of data based on user preferences or workflow requirements.",
+                @"Movable = true",
+                new ControlTile()
+                {
+                    Movable = true
+                }
+                    .Add(GetCards())
+            );
 
             Stage.AddProperty
-              (
-                  "AllowRemove",
-                  @"The `AllowRemove` property determines whether individual tiles within the `Tile` control can be removed by the user. When set to true, each tile displays a remove button or gesture, enabling interactive deletion of items directly from the interface.",
-                  @"AllowRemove = true",
-                  new ControlTile()
-                  {
-                      AllowRemove = true
-                  }
-                      .Add(GetCards())
-              );
+            (
+                "AllowRemove",
+                @"The `AllowRemove` property determines whether individual tiles within the `Tile` control can be removed by the user. When set to true, each tile displays a remove button or gesture, enabling interactive deletion of items directly from the interface.",
+                @"AllowRemove = true",
+                new ControlTile()
+                {
+                    AllowRemove = true
+                }
+                    .Add(GetCards())
+            );
+
+            Stage.AddProperty
+            (
+                "LargeIcon",
+                @"The `LargeIcon` property controls whether tiles within the `Tile` control are displayed with an enlarged icon. When set to true, the icons appear significantly larger and gain more visual prominence, which is especially useful for image‑focused or highlighted elements.",
+                @"LargeIcon = true",
+                new ControlTile()
+                {
+                    LargeIcon = true
+                }
+                    .Add(GetCards())
+            );
 
             Stage.AddItem
             (
@@ -221,9 +233,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
         /// <returns>Configured ControlTileCard instance.</returns>
         private static ControlTileCard Card(string id, string text)
         {
-            var card = new ControlTileCard(id);
+            var card = new ControlTileCard(id)
+            {
+                Header = "Game",
+                Icon = new IconGamepad()
+            };
+
             // add main text element
-            card.Add(new ControlText() { Text = text });
+            card.Add(new ControlText()
+            {
+                Text = text
+            });
 
             return card;
         }

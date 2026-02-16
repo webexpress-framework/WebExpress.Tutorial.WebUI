@@ -1,12 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
+using WebExpress.Tutorial.WebUI.WebParamter;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebApplication;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebSitemap;
+using WebExpress.WebCore.WebUri;
 using WebExpress.WebIndex.Queries;
+using WebExpress.WebUI.WebControl;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 {
@@ -16,6 +19,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     [Title("Monkey Island Games")]
     public sealed class MonkeyIslandGamesTile : RestApiTile<Game>
     {
+        private readonly IUri _formEditUri;
+
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
@@ -23,6 +28,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// <param name="applicationContext">The application context containing the current state of the application.</param>
         public MonkeyIslandGamesTile(ISitemapManager sitemapManager, IApplicationContext applicationContext)
         {
+            _formEditUri = sitemapManager.GetUri<Characters.Edit>(applicationContext);
         }
 
         /// <summary>
@@ -42,6 +48,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// </returns>
         public override IEnumerable<RestApiOption> GetOptions(Game row, IRequest request)
         {
+            var restEditApi = _formEditUri?.SetParameters
+            (
+                new CharacterIdParameter(row.Id.ToString())
+            );
+
             yield return new RestApiOptionHeader(request)
             {
                 Text = "webexpress.webapp:header.setting.label"
@@ -49,11 +60,46 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 
             yield return new RestApiOptionEdit(request)
             {
-                // Uri = _formUri
+                PrimaryAction = new ActionModal
+                (
+                    "myTableFormEdit",
+                    restEditApi,
+                    TypeModalSize.ExtraLarge
+                )
             };
 
             yield return new RestApiOptionSeperator(request);
             yield return new RestApiOptionDelete(request);
+        }
+
+        /// <summary>
+        /// Retrieves the secondary action associated with the specified game 
+        /// item, using the provided request context.
+        /// </summary>
+        /// <param name="item">
+        /// The game item for which to retrieve the secondary action. 
+        /// Cannot be null.
+        /// </param>
+        /// <param name="request">
+        /// The request context that may influence the retrieval of 
+        /// the secondary action. Cannot be null.
+        /// </param>
+        /// <returns>
+        /// An <see cref="IAction"/> representing the secondary action 
+        /// for the specified game item, or null if no secondary 
+        /// action is available.
+        /// </returns>
+        public override IAction GetSecondaryAction(Game item, IRequest request)
+        {
+            return new ActionModal
+            (
+                "modal",
+                _formEditUri?.SetParameters
+                (
+                    new CharacterIdParameter(item.Id.ToString())
+                ),
+                TypeModalSize.ExtraLarge
+            );
         }
 
         /// <summary>

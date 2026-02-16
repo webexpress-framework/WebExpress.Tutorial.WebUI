@@ -1,4 +1,5 @@
 ﻿using WebExpress.Tutorial.WebUI.Model;
+using WebExpress.Tutorial.WebUI.WebControl;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
@@ -43,6 +44,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                     RestUri = sitemapManager.GetUri<MonkeyIslandCharacterTable>(pageContext.ApplicationContext),
                     Infinite = true,
                     PageSize = 5
+                },
+                new ControlModalExample("modal")
+                {
                 }
             ];
 
