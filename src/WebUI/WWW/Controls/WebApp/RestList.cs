@@ -9,7 +9,6 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
-using WebExpress.WebUI.WebControl;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
@@ -39,35 +38,22 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlRestList("myList")
                 {
                     RestUri = sitemapManager.GetUri<MonkeyIslandGamesList>(pageContext.ApplicationContext)
+                },
+                new ControlModalExample("modal")
+                {
                 }
-                    .Add(new ControlRestFormGame("myListForm")
-                    {
-                        Uri = sitemapManager.GetUri<MonkeyIslandGamesList>(pageContext.ApplicationContext)
-                    })
             ];
 
-            Stage.DarkControls =
-            [
-                new ControlText()
-                //new ControlRestList("myListDark")
-                //{
-                //    RestUri = sitemapManager.GetUri<MonkeyIslandCharacters>(pageContext.ApplicationContext)
-                //}
-                //    .Add(new ControlRestFormCharacter("myListDarkForm")
-                //    {
-                //        Uri = sitemapManager.GetUri<MonkeyIslandCharacters>(pageContext.ApplicationContext)
-                //    })
-            ];
+            Stage.DarkControls = null;
 
             Stage.Code = @"
             new ControlRestList(""myList"")
             {
-                RestUri = sitemapManager.GetUri<MonkeyIslandGames>(pageContext.ApplicationContext)
-            }
-                .Add(new ControlRestFormGame(""myListForm"")
-                {
-                    Uri = sitemapManager.GetUri<MonkeyIslandGames>(pageContext.ApplicationContext)
-                })";
+                RestUri = sitemapManager.GetUri<MonkeyIslandGamesList>(pageContext.ApplicationContext)
+            },
+            new ControlModalExample(""modal"")
+            {
+            }";
         }
     }
 }

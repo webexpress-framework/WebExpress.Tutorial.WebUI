@@ -1,4 +1,5 @@
 ﻿using WebExpress.Tutorial.WebUI.Model;
+using WebExpress.Tutorial.WebUI.WebControl;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
@@ -47,8 +48,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                     .Add(new ControlDropdownItemLink()
                     {
                         Text = "Add Item",
-                        Icon = new IconPlus()
-                    })
+                        Icon = new IconPlus(),
+                        PrimaryAction = new ActionModal("modal")
+                    }),
+                new ControlModalExample("modal")
+                {
+                }
             ];
 
             // dark sample
@@ -66,13 +71,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             new ControlRestDropdown(""inventoryDropdown"")
             {
                 Text = ""Inventory"",
-                RestUri = sitemapManager.GetUri<MonkeyIslandInventory>(pageContext.ApplicationContext)
+                RestUri = sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext)
             }
                 .Add(new ControlDropdownItemLink()
                 {
                     Text = ""Add Item"",
-                    Icon = new IconPlus()
-                });";
+                    Icon = new IconPlus(),
+                    PrimaryAction = new ActionModal(""modal"")
+                }),
+            new ControlModalExample(""modal"")
+            {
+            }";
 
             // properties: Api
             Stage.AddProperty

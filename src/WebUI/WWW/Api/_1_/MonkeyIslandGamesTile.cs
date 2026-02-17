@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
-using WebExpress.Tutorial.WebUI.WebParamter;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebApplication;
 using WebExpress.WebCore.WebAttribute;
@@ -48,11 +47,6 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// </returns>
         public override IEnumerable<RestApiOption> GetOptions(Game row, IRequest request)
         {
-            var restEditApi = _formEditUri?.SetParameters
-            (
-                new CharacterIdParameter(row.Id.ToString())
-            );
-
             yield return new RestApiOptionHeader(request)
             {
                 Text = "webexpress.webapp:header.setting.label"
@@ -62,8 +56,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
             {
                 PrimaryAction = new ActionModal
                 (
-                    "myTableFormEdit",
-                    restEditApi,
+                    "modal",
                     TypeModalSize.ExtraLarge
                 )
             };
@@ -94,10 +87,6 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
             return new ActionModal
             (
                 "modal",
-                _formEditUri?.SetParameters
-                (
-                    new CharacterIdParameter(item.Id.ToString())
-                ),
                 TypeModalSize.ExtraLarge
             );
         }

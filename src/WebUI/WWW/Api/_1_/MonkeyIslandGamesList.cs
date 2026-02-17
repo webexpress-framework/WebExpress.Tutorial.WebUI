@@ -7,6 +7,7 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebIndex.Queries;
+using WebExpress.WebUI.WebControl;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 {
@@ -49,11 +50,41 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 
             yield return new RestApiOptionEdit(request)
             {
-                // Uri = _formUri
+                PrimaryAction = new ActionModal
+                (
+                    "modal",
+                    TypeModalSize.ExtraLarge
+                )
             };
 
             yield return new RestApiOptionSeperator(request);
             yield return new RestApiOptionDelete(request);
+        }
+
+        /// <summary>
+        /// Retrieves the secondary action associated with the specified game 
+        /// item, using the provided request context.
+        /// </summary>
+        /// <param name="item">
+        /// The game item for which to retrieve the secondary action. 
+        /// Cannot be null.
+        /// </param>
+        /// <param name="request">
+        /// The request context that may influence the retrieval of 
+        /// the secondary action. Cannot be null.
+        /// </param>
+        /// <returns>
+        /// An <see cref="IAction"/> representing the secondary action 
+        /// for the specified game item, or null if no secondary 
+        /// action is available.
+        /// </returns>
+        public override IAction GetSecondaryAction(Game item, IRequest request)
+        {
+            return new ActionModal
+            (
+                "modal",
+                TypeModalSize.ExtraLarge
+            );
         }
 
         /// <summary>
