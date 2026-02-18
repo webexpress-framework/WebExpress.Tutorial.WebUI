@@ -58,16 +58,20 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// The request that provides the operational context for resolving
         /// the appropriate REST API URI.
         /// </param>
-        protected override void Filter(string filter, IQuery<Inventory> query, IRequest request)
+        /// <returns>
+        /// A query representing the filtered set of items that match the criteria defined by 
+        /// the filter statement.
+        /// </returns>
+        protected override IQuery<Inventory> Filter(string filter, IQuery<Inventory> query, IRequest request)
         {
             if (filter is null || filter == "null")
             {
-                return;
+                return query;
             }
 
-            query.Where
+            return query.WhereContainsIgnoreCase
             (
-                x => x.Text.Contains(filter, System.StringComparison.InvariantCultureIgnoreCase)
+                x => x.Text, filter
             );
         }
     }

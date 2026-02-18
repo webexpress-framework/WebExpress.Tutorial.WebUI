@@ -128,14 +128,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// The request that provides the operational context for resolving
         /// the appropriate REST API URI.
         /// </param>
-        protected override void Filter(string filter, IQuery<Game> query, IRequest request)
+        /// <returns>
+        /// A query representing the filtered set of items that match the criteria defined by 
+        /// the filter statement.
+        /// </returns>
+        protected override IQuery<Game> Filter(string filter, IQuery<Game> query, IRequest request)
         {
             if (string.IsNullOrEmpty(filter) || filter == "null")
             {
-                return;
+                return query;
             }
 
-            query.Where(x => x.Name.Contains(filter));
+            return query.Where(x => x.Name.Contains(filter));
         }
     }
 }
