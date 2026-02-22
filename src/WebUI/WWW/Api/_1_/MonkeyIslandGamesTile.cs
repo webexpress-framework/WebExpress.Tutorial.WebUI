@@ -8,6 +8,7 @@ using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebCore.WebUri;
 using WebExpress.WebIndex.Queries;
+using WebExpress.WebIndex.Wql;
 using WebExpress.WebUI.WebControl;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
@@ -112,6 +113,34 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         protected override IEnumerable<Game> Retrieve(IQuery<Game> query, IQueryContext context, IRequest request)
         {
             return query.Apply(ViewModel.MonkeyIslandGames.AsQueryable());
+        }
+
+        /// <summary>
+        /// Applies filtering criteria to the specified query based on the provided WQL statement.
+        /// </summary>
+        /// <param name="wqlStatement">
+        /// The WQL statement that defines the filtering conditions to apply to the query. Cannot 
+        /// be null.
+        /// </param>
+        /// <param name="query">
+        /// The query object to which the filtering criteria will be applied. Cannot be null.
+        /// </param>
+        /// <param name="request">
+        /// The request that provides the operational context for resolving
+        /// the appropriate REST API URI.
+        /// </param>
+        /// <returns>
+        /// A query representing the filtered set of items that match the criteria defined by 
+        /// the WQL statement.
+        /// </returns>
+        protected override IQuery<Game> Filter(IWqlStatement<Game> wqlStatement, IQuery<Game> query, IRequest request)
+        {
+            if (wqlStatement is null || wqlStatement.HasErrors)
+            {
+                return query;
+            }
+
+            return wqlStatement.ToQuery();
         }
 
         /// <summary>
