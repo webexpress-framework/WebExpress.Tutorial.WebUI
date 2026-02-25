@@ -167,7 +167,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                         .Add(new ControlDropdownItemLink() { Text = $"Link {i}(1)" })
                         .Add(new ControlDropdownItemLink() { Text = $"Link {i}(2)" })
                         .Add(new ControlDropdownItemLink() { Text = $"Link {i}(3)" })
-                        .AddSeperator()
+                        .AddSeparator()
                         .Add(new ControlDropdownItemLink() { Text = $"Link {i}(4)" })
                         .Add(new ControlDropdownItemLink() { Text = $"Link {i}(5)" })
                         .Add(new ControlDropdownItemLink() { Text = $"Link {i}(6)" });
