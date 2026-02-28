@@ -41,5 +41,20 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
             yield return "BoatType ~ \"Ghost Ship\"";
             yield return "Name ~ \"Monkey\"";
         }
+
+        /// <summary>
+        /// Retrieves a collection of suggested strings that match the specified prefix 
+        /// and are influenced by the provided attribute.
+        /// </summary>
+        /// <param name="prefix">The prefix used to filter suggestions. This parameter must not be null or empty.</param>
+        /// <param name="attribute">An attribute that affects the context or criteria for generating suggestions.</param>
+        /// <returns>
+        /// An enumerable collection of strings containing suggestions that correspond 
+        /// to the given prefix and attribute. The collection will be empty if no suggestions are found.
+        /// </returns>
+        protected override IEnumerable<string> GetSuggestions(string prefix, string attribute)
+        {
+            return ["A item", "B item", "C item"];
+        }
     }
 }
