@@ -68,12 +68,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// </param>
         public override IEnumerable<RestApiOption> GetOptions(Character row, IRequest request)
         {
-            var restEditApi = _formEditUri?.SetParameters
+            var restEditApi = _formEditUri?.BindParameters
             (
                 new CharacterIdParameter(row.Id.ToString())
             );
 
-            var restDeleteApi = _formDeleteUri?.SetParameters
+            var restDeleteApi = _formDeleteUri?.BindParameters
             (
                 new CharacterIdParameter(row.Id.ToString())
             );
