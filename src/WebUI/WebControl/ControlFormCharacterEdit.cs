@@ -78,12 +78,11 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         /// <param name="renderContext">The context in which the control is rendered.</param>
         /// <param name="visualTree">The visual tree representing the control's structure.</param>
         /// <returns>An HTML node representing the rendered control.</returns>
-        /// <exception cref="NotImplementedException">Thrown when the method is not implemented.</exception>
-        public override IHtmlNode Render(IRenderControlContext renderContext, IVisualTreeControl visualTree)
+        public override IHtmlNode Render(IRenderControlFormContext renderContext, IVisualTreeControl visualTree)
         {
             var id = renderContext.Request.GetParameter<CharacterIdParameter>();
 
-            return base.Render(renderContext, visualTree, Items, id?.Value);
+            return base.Render(renderContext, visualTree, Items, id?.Value, Uri);
         }
     }
 }
