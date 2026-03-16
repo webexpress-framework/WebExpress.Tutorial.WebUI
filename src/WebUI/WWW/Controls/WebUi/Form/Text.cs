@@ -29,7 +29,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             Stage.Description = @"The `Text` control allows for an intuitive and dynamic input of text options. Users can easily type or edit text, creating a fluid and visually engaging interaction.";
 
             Stage.Control = new ControlForm()
-                .Add(new ControlFormItemInputText() { Format = TypeEditTextFormat.Wysiwyg })
+                .Add(new ControlFormItemInputText()
+                {
+                    Format = TypeEditTextFormat.Wysiwyg
+                }.Initialize(x => x.Value.Text = "Hello <b>WebExpress!</b>"))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"  
