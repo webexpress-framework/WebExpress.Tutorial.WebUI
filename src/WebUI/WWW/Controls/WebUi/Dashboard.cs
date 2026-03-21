@@ -33,9 +33,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             var dashboard = new ControlDashboard(RandomId.Create())
                 .Add(
-                    new ControlDashboardColumn("System Status", "25%"),
-                    new ControlDashboardColumn("Users", "50%"),
-                    new ControlDashboardColumn("Analytics", "*")
+                    new ControlDashboardColumn("state", "System Status", "25%"),
+                    new ControlDashboardColumn("users", "Users", "50%"),
+                    new ControlDashboardColumn("analytics", "Analytics", "*")
                 )
                 .Add(
                     new ControlDashboardWidget("widget1")
@@ -80,9 +80,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.Code = @"
             new ControlDashboard(RandomId.Create())
                 .AddColumns(
-                    new ControlDashboardColumn(""System Status"", ""25%""),
-                    new ControlDashboardColumn(""Users"", ""50%""),
-                    new ControlDashboardColumn(""Analytics"", ""*"")
+                    new ControlDashboardColumn(""state"", ""System Status"", ""25%""),
+                    new ControlDashboardColumn(""users"", ""Users"", ""50%""),
+                    new ControlDashboardColumn(""analytics"", ""Analytics"", ""*"")
                 )
                 .Add(
                     new ControlDashboardWidget(""widget1"")
