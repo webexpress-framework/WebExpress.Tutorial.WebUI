@@ -31,6 +31,12 @@ namespace WebExpress.Tutorial.WebUI.Model
         public static List<Game> MonkeyIslandGames { get; } = [.. GetMonkeyIslandGames()];
 
         /// <summary>
+        /// Returns a read-only list of quick filter games related to the 
+        /// Monkey Island series.
+        /// </summary>
+        public static List<QuickfilterGame> MonkeyIslandQuickfilterGames { get; } = [.. GetMonkeyIslandQuickfilterGames()];
+
+        /// <summary>
         /// Returns the list of curses associated with Monkey Island.
         /// </summary>
         public static List<Curse> MonkeyIslandCurses { get; } = [.. GetMonkeyIslandCurses()];
@@ -1171,6 +1177,50 @@ namespace WebExpress.Tutorial.WebUI.Model
                 ReleaseYear = 2010,
                 Description = "Remake of the second game with enhanced visuals and audio, plus commentary.",
                 IsRemake = true
+            };
+        }
+
+        /// <summary>
+        /// Returns all available quickfilters for Monkey Island games.
+        /// </summary>
+        /// <returns>
+        /// A collection of quickfilters for categorizing Monkey Island games.
+        /// </returns>
+        public static IEnumerable<QuickfilterGame> GetMonkeyIslandQuickfilterGames()
+        {
+            yield return new QuickfilterGame
+            {
+                Id = Guid.Parse("3E51F156-69D7-41B2-A5D3-EDE5ED0825E9"),
+                Name = "Classics",
+                Predicate = g => g.ReleaseYear < 2000
+            };
+
+            yield return new QuickfilterGame
+            {
+                Id = Guid.Parse("7AB3DD46-A6A1-419B-AE1E-5C499F6A1203"),
+                Name = "Modern",
+                Predicate = g => g.ReleaseYear >= 2000
+            };
+
+            yield return new QuickfilterGame
+            {
+                Id = Guid.Parse("F82A8737-5115-4455-A237-38EE5D0DCC46"),
+                Name = "Remakes",
+                Predicate = g => g.IsRemake
+            };
+
+            yield return new QuickfilterGame
+            {
+                Id = Guid.Parse("E9B45CDB-C05B-4B8B-AF48-0DC68503CC42"),
+                Name = "Originals",
+                Predicate = g => !g.IsRemake
+            };
+
+            yield return new QuickfilterGame
+            {
+                Id = Guid.Parse("CB37B02F-3D21-42E5-B467-A83AB5F4820B"),
+                Name = "Latest",
+                Predicate = g => g.ReleaseYear >= 2020
             };
         }
 

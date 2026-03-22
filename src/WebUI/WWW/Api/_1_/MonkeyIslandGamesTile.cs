@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
@@ -146,7 +147,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// <summary>
         /// Applies the specified filter criteria to the given query object.
         /// </summary>
-        /// <param name="filter">
+        /// <param name="search">
         /// A string representing the filter expression to apply. The format and supported 
         /// operators depend on the implementation.
         /// </param>
@@ -161,14 +162,44 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// A query representing the filtered set of items that match the criteria defined by 
         /// the filter statement.
         /// </returns>
-        protected override IQuery<Game> Filter(string filter, IQuery<Game> query, IRequest request)
+        protected override IQuery<Game> Filter(string search, IQuery<Game> query, IRequest request)
         {
-            if (string.IsNullOrEmpty(filter) || filter == "null")
+            if (string.IsNullOrEmpty(search) || search == "null")
             {
                 return query;
             }
 
-            return query.Where(x => x.Name.Contains(filter));
+            return query.Where(x => x.Name.Contains(search));
+        }
+
+        /// <summary>
+        /// Applies the specified filter criteria to the given query object.
+        /// </summary>
+        /// <param name="filters">
+        /// A collection of quickfilter identifiers that should be applied in addition to the WQL criteria.
+        /// </param>
+        /// <param name="query">
+        /// The query object to which the filter will be applied.
+        /// </param>
+        /// <param name="request">
+        /// The request that provides the operational context for resolving
+        /// the appropriate REST API URI.
+        /// </param>
+        /// <returns>
+        /// A query representing the filtered set of items that match the criteria defined by 
+        /// the filter statement.
+        /// </returns>
+        protected override IQuery<Game> Filter(IEnumerable<string> filters, IQuery<Game> query, IRequest request)
+        {
+            foreach (var filter in filters)
+            {
+                var qf = ViewModel.MonkeyIslandQuickfilterGames
+                    .Where(x => x.Id.ToString().Equals(filter, StringComparison.CurrentCultureIgnoreCase));
+
+                query = query.Where(x => qf.Any(f => f.Predicate(x)));
+            }
+
+            return query;
         }
     }
 }
