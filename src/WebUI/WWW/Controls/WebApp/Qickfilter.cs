@@ -49,14 +49,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.DarkControls = null;
 
             Stage.Code = @"
-            new ControlAdvancedSearch(""mySearch"")
+            new ControlRestQuickfilter(""myQickfilter"")
             {
-                RestUri = sitemapManager.GetUri<Api._1_.MonkeyIslandBoatWql>(pageContext.ApplicationContext)
-            },
-            new ControlRestTile(""myTile"")
-            {
-                RestUri = sitemapManager.GetUri<MonkeyIslandGamesTile>(pageContext.ApplicationContext),
-                Bind = new BindSearch() { Source = ""mySearch"" }
+                RestUri = sitemapManager.GetUri<Api._1_.MonkeyIslandGamesQuickfilter>(pageContext.ApplicationContext)
             }";
         }
     }
