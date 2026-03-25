@@ -101,7 +101,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
 
             foreach (var item in items.Where
             (
-                x => x.Uri.ToString().StartsWith(root.ToString()) &&
+                x => x.Uri.StartsWith(root) &&
                 x.Uri.PathSegments.Count() == root.PathSegments.Count() + 1)
             )
             {

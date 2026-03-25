@@ -183,7 +183,46 @@
         /// <summary>
         /// Event triggered when tiles are sorted by a specific criterion.
         /// </summary>
-        TILE_SORT_EVENT
+        TILE_SORT_EVENT,
+
+        /// <summary>
+        /// Event triggered when a responsive layout breakpoint changes.
+        /// </summary>
+        BREAKPOINT_CHANGE_EVENT,
+
+        /// <summary>
+        /// Event triggered when a WebSocket connection is opened.
+        /// </summary>
+        WS_OPEN_EVENT,
+
+        /// <summary>
+        /// Event triggered when a WebSocket receives a message.
+        /// </summary>
+        WS_MESSAGE_EVENT,
+
+        /// <summary>
+        /// Event triggered when a WebSocket connection is closed.
+        /// </summary>
+        WS_CLOSE_EVENT,
+
+        /// <summary>
+        /// Event triggered when a WebSocket error occurs.
+        /// </summary>
+        WS_ERROR_EVENT,
+
+        /// <summary>
+        /// Event triggered when an item is selected.
+        /// </summary>
+        SELECT_ITEM_EVENT,
+
+        /// <summary>
+        /// Event triggered to notify external pagination controls about current page/total.
+        UPDATE_PAGINATION_EVENT,
+
+        /// <summary>
+        /// Event triggered when a tab is selected.
+        /// </summary>
+        SELECTED_TAB_EVENT
     }
 
     /// <summary>
@@ -236,6 +275,14 @@
                 Event.UPLOAD_PROGRESS_EVENT => "webexpress.webui.upload.progress",
                 Event.TILE_SEARCH_EVENT => "webexpress.webui.tile.search",
                 Event.TILE_SORT_EVENT => "webexpress.webui.tile.sort",
+                Event.BREAKPOINT_CHANGE_EVENT => "webexpress.webui.breakpoint.change",
+                Event.WS_OPEN_EVENT => "webexpress.webui.websocket.open",
+                Event.WS_MESSAGE_EVENT => "webexpress.webui.websocket.message",
+                Event.WS_CLOSE_EVENT => "webexpress.webui.websocket.close",
+                Event.WS_ERROR_EVENT => "webexpress.webui.websocket.error",
+                Event.SELECT_ITEM_EVENT => "webexpress.webui.select.item",
+                Event.UPDATE_PAGINATION_EVENT => "webexpress.webui.update.pagination",
+                Event.SELECTED_TAB_EVENT => "webexpress.webui.tab.selected",
                 _ => ""
             };
         }
@@ -285,6 +332,14 @@
                 Event.UPLOAD_PROGRESS_EVENT => "Event triggered to indicate upload progress.",
                 Event.TILE_SEARCH_EVENT => "Event triggered when a tile search operation is performed.",
                 Event.TILE_SORT_EVENT => "Event triggered when tiles are sorted by a specific criterion.",
+                Event.BREAKPOINT_CHANGE_EVENT => "Event triggered when a responsive layout breakpoint changes.",
+                Event.WS_OPEN_EVENT => "Event triggered when a WebSocket connection is opened.",
+                Event.WS_MESSAGE_EVENT => "Event triggered when a WebSocket receives a message.",
+                Event.WS_CLOSE_EVENT => "Event triggered when a WebSocket connection is closed.",
+                Event.WS_ERROR_EVENT => "Event triggered when a WebSocket error occurs.",
+                Event.SELECT_ITEM_EVENT => "Event triggered when an item is selected.",
+                Event.UPDATE_PAGINATION_EVENT => "Event triggered to notify external pagination controls about current page/total.",
+                Event.SELECTED_TAB_EVENT => "Event triggered when a tab is selected.",
                 _ => ""
             };
         }
