@@ -186,9 +186,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     .Add(new ControlFormItemInputMove()
                         .Add
                         (
-                            new ControlFormItemInputMoveItem("a") { Label = "Item A" },
-                            new ControlFormItemInputMoveItem("b") { Label = "Item B" },
-                            new ControlFormItemInputMoveItem("c") { Label = "Item C" }
+                            new ControlFormItemInputMoveItem("a") { Text = "Item A" },
+                            new ControlFormItemInputMoveItem("b") { Text = "Item B" },
+                            new ControlFormItemInputMoveItem("c") { Text = "Item C" }
                         )
                         .Initialize(x => x.Value.Add("a;c"))),
                 new ControlText()

@@ -24,16 +24,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
     {
         private readonly IEnumerable<ControlFormItemInputMoveItem> _options =
         [
-            new ControlFormItemInputMoveItem("1") { Label = "Option 1", Icon = new IconSquare() },
-            new ControlFormItemInputMoveItem("2") { Label = "Option 2", Icon = new IconCar() },
-            new ControlFormItemInputMoveItem("3") { Label = "Option 3", Icon = new IconAsterisk() },
-            new ControlFormItemInputMoveItem("4") { Label = "Option 4", Icon = new IconBaseball() },
-            new ControlFormItemInputMoveItem("5") { Label = "Option 5", Icon = new IconFloppyDisk() },
-            new ControlFormItemInputMoveItem("6") { Label = "Option 6", Icon = new IconSeedling() },
-            new ControlFormItemInputMoveItem("7") { Label = "Option 7", Icon = new IconRoute() },
-            new ControlFormItemInputMoveItem("8") { Label = "Option 8", Icon = new IconReply() },
-            new ControlFormItemInputMoveItem("9") { Label = "Option 9", Icon = new IconClipboard() },
-            new ControlFormItemInputMoveItem("10") { Label = "Option 10", Icon = new IconGlobe() }
+            new ControlFormItemInputMoveItem("1") { Text = "Option 1", Icon = new IconSquare() },
+            new ControlFormItemInputMoveItem("2") { Text = "Option 2", Icon = new IconCar() },
+            new ControlFormItemInputMoveItem("3") { Text = "Option 3", Icon = new IconAsterisk() },
+            new ControlFormItemInputMoveItem("4") { Text = "Option 4", Icon = new IconBaseball() },
+            new ControlFormItemInputMoveItem("5") { Text = "Option 5", Icon = new IconFloppyDisk() },
+            new ControlFormItemInputMoveItem("6") { Text = "Option 6", Icon = new IconSeedling() },
+            new ControlFormItemInputMoveItem("7") { Text = "Option 7", Icon = new IconRoute() },
+            new ControlFormItemInputMoveItem("8") { Text = "Option 8", Icon = new IconReply() },
+            new ControlFormItemInputMoveItem("9") { Text = "Option 9", Icon = new IconClipboard() },
+            new ControlFormItemInputMoveItem("10") { Text = "Option 10", Icon = new IconGlobe() }
         ];
 
         /// <summary>    
@@ -102,8 +102,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "Label",
                 "The `Label` property of a `Move` control item serves as a short form of the option text and is displayed in the main area of the control once a selection is made. Instead of showing the full descriptive text of an option, the label ensures a concise and clear representation of the chosen selection. When the label is defined as an internationalization key.",
-                "new ControlFormItemInputMoveItem(\"1\") { Label = \"Label 1\" }",
-                new ControlForm(null, new ControlFormItemInputMove("a", new ControlFormItemInputMoveItem("1") { Label = "Label 1" })
+                "new ControlFormItemInputMoveItem(\"1\") { Text = \"Text 1\" }",
+                new ControlForm(null, new ControlFormItemInputMove("a", new ControlFormItemInputMoveItem("1") { Text = "Label 1" })
                 {
                 })
             );
