@@ -42,7 +42,6 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlRestTable("myTable")
                 {
                     RestUri = sitemapManager.GetUri<MonkeyIslandCharacterTable>(pageContext.ApplicationContext),
-                    Infinite = true,
                     PageSize = 5
                 },
                 new ControlModalExample("modal")
