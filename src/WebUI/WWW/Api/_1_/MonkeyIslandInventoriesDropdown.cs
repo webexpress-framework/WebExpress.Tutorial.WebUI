@@ -36,12 +36,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// The request that provides the operational context.
         /// </param>
         /// <returns>
-        /// An <see cref="IQueryable{TIndexItem}"/> representing the filtered set of index items. The 
-        /// result may be empty if no items match the query.
+        /// An enumerable collection of RestApiDropdownItem objects that match 
+        /// the specified query and context. The collection may be empty if no
+        /// items are found.
         /// </returns>
-        protected override IEnumerable<Inventory> Retrieve(IQuery<Inventory> query, IQueryContext context, IRequest request)
+        protected override IEnumerable<RestApiDropdownItem> RetrieveItems(IQuery<Inventory> query, IQueryContext context, IRequest request)
         {
-            return query.Apply(ViewModel.MonkeyIslandInventories.AsQueryable());
+            return query.Apply(ViewModel.MonkeyIslandInventories.AsQueryable())
+                .Select(x => new RestApiDropdownItem()
+                {
+                    Id = x.Id,
+                    Text = x.Text
+                });
         }
 
         /// <summary>

@@ -30,12 +30,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// The request that provides the operational context.
         /// </param>
         /// <returns>
-        /// An <see cref="IQueryable{TIndexItem}"/> representing the filtered set of index items. The 
-        /// result may be empty if no items match the query.
+        /// An enumerable collection of quick filter items that match the 
+        /// specified context and request. The collection may be empty if 
+        /// no items are found.
         /// </returns>
-        protected override IEnumerable<QuickfilterGame> Retrieve(IQueryContext context, IRequest request)
+        protected override IEnumerable<RestApiQuickfilterItem> RetrieveItems(IQueryContext context, IRequest request)
         {
-            return ViewModel.MonkeyIslandQuickfilterGames;
+            return ViewModel.MonkeyIslandQuickfilterGames
+                .Select(x => new RestApiQuickfilterItem()
+                {
+                    Id = x.Id.ToString(),
+                    Name = x.Name
+                });
         }
     }
 }

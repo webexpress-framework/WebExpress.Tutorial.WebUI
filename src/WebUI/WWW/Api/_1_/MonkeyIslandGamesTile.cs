@@ -7,7 +7,6 @@ using WebExpress.WebCore.WebApplication;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebSitemap;
-using WebExpress.WebCore.WebUri;
 using WebExpress.WebIndex.Queries;
 using WebExpress.WebIndex.Wql;
 using WebExpress.WebUI.WebControl;
@@ -20,8 +19,6 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     [Title("Monkey Island Games")]
     public sealed class MonkeyIslandGamesTile : RestApiTile<Game>
     {
-        private readonly IUri _formEditUri;
-
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
@@ -29,68 +26,6 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// <param name="applicationContext">The application context containing the current state of the application.</param>
         public MonkeyIslandGamesTile(ISitemapManager sitemapManager, IApplicationContext applicationContext)
         {
-            _formEditUri = sitemapManager.GetUri<Characters.Edit>(applicationContext);
-        }
-
-        /// <summary>
-        /// Returns a collection of REST API options available for the specified 
-        /// game and request context.
-        /// </summary>
-        /// <param name="row">
-        /// The game entity for which to retrieve available REST API options.
-        /// </param>
-        /// <param name="request">
-        /// The current request context that influences which options are generated.
-        /// </param>
-        /// <returns>
-        /// An enumerable collection representing the available actions for the
-        /// specified game and request. The collection may include options such as 
-        /// editing, deleting, or modifying settings.
-        /// </returns>
-        public override IEnumerable<RestApiOption> GetOptions(Game row, IRequest request)
-        {
-            yield return new RestApiOptionHeader(request)
-            {
-                Text = "webexpress.webapp:header.setting.label"
-            };
-
-            yield return new RestApiOptionEdit(request)
-            {
-                PrimaryAction = new ActionModal
-                (
-                    "modal",
-                    TypeModalSize.ExtraLarge
-                )
-            };
-
-            yield return new RestApiOptionSeparator(request);
-            yield return new RestApiOptionDelete(request);
-        }
-
-        /// <summary>
-        /// Retrieves the secondary action associated with the specified game 
-        /// item, using the provided request context.
-        /// </summary>
-        /// <param name="item">
-        /// The game item for which to retrieve the secondary action. 
-        /// Cannot be null.
-        /// </param>
-        /// <param name="request">
-        /// The request context that may influence the retrieval of 
-        /// the secondary action. Cannot be null.
-        /// </param>
-        /// <returns>
-        /// An <see cref="IAction"/> representing the secondary action 
-        /// for the specified game item, or null if no secondary 
-        /// action is available.
-        /// </returns>
-        public override IAction GetSecondaryAction(Game item, IRequest request)
-        {
-            return new ActionModal
-            (
-                "modal",
-                TypeModalSize.ExtraLarge
-            );
         }
 
         /// <summary>
@@ -111,9 +46,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// An <see cref="IQueryable{TIndexItem}"/> representing the filtered set of index items. The 
         /// result may be empty if no items match the query.
         /// </returns>
-        protected override IEnumerable<Game> Retrieve(IQuery<Game> query, IQueryContext context, IRequest request)
+        protected override IEnumerable<RestApiTileItem> RetrieveItems(IQuery<Game> query, IQueryContext context, IRequest request)
         {
-            return query.Apply(ViewModel.MonkeyIslandGames.AsQueryable());
+            return query.Apply(ViewModel.MonkeyIslandGames.AsQueryable())
+                .Select(x => new RestApiTileItem()
+                {
+                    Id = x.Id.ToString(),
+                    Title = x.Name,
+                    Text = x.Description,
+                    SecondaryAction = GetSecondaryAction(request).ToJson()
+                });
         }
 
         /// <summary>
@@ -200,6 +142,28 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
             }
 
             return query;
+        }
+
+        /// <summary>
+        /// Retrieves the secondary action associated with the specified game 
+        /// item, using the provided request context.
+        /// </summary>
+        /// <param name="request">
+        /// The request context that may influence the retrieval of 
+        /// the secondary action. Cannot be null.
+        /// </param>
+        /// <returns>
+        /// An <see cref="IAction"/> representing the secondary action 
+        /// for the specified game item, or null if no secondary 
+        /// action is available.
+        /// </returns>
+        private IAction GetSecondaryAction(IRequest request)
+        {
+            return new ActionModal
+            (
+                "modal",
+                TypeModalSize.ExtraLarge
+            );
         }
     }
 }

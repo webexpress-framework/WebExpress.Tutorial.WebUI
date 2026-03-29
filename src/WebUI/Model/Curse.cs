@@ -18,37 +18,31 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// <summary>
         /// Returns or sets the name of the curse.
         /// </summary>
-        [RestTableColumnName("Name")]
         public string Name { get; set; }
 
         /// <summary>
         /// Returns or sets the description of the curse.
         /// </summary>
-        [RestTableColumnName("Description")]
         public string Description { get; set; }
 
         /// <summary>
         /// Returns or sets the origin or source of the curse (e.g. Voodoo, Artifact, Myth).
         /// </summary>
-        [RestTableColumnName("Origin")]
         public string Origin { get; set; }
 
         /// <summary>
         /// Returns or sets the effect or consequence of the curse.
         /// </summary>
-        [RestTableColumnName("Effect")]
         public string Effect { get; set; }
 
         /// <summary>
         /// Returns or sets the method to lift or neutralize the curse.
         /// </summary>
-        [RestTableColumnName("Cure")]
         public string Cure { get; set; }
 
         /// <summary>
         /// Returns or sets the context or game part where the curse appears.
         /// </summary>
-        [RestTableColumnName("Appears in")]
         public string AppearsIn { get; set; }
 
         /// <summary>

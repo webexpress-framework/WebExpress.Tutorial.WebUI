@@ -10,6 +10,7 @@ using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebCore.WebUri;
 using WebExpress.WebIndex.Queries;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 {
@@ -40,64 +41,41 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         }
 
         /// <summary>
-        /// Gets the REST API endpoint URI associated with the specified request and index item.
+        /// Retrieves the collection of columns available for the specified 
+        /// REST API request.
         /// </summary>
-        /// <param name="row">
-        /// The index item that provides context for determining the appropriate REST API endpoint.
-        /// </param>
         /// <param name="request">
-        /// The request for which to retrieve the REST API endpoint.
+        /// The request for which to retrieve the available table columns.
         /// </param>
         /// <returns>
-        /// An <see cref="IUri"/> representing the REST API endpoint for the given request 
-        /// and index item, or null if no endpoint is available.
+        /// An enumerable collection of columns describing the structure of 
+        /// the data returned by the REST API for the specified request.
         /// </returns>
-        public override IUri GetRestApiForInlineEdit(Character row, IRequest request)
+        protected override IEnumerable<RestApiTableColumn> RetrieveColums(IRequest request)
         {
-            return _restApi?.Add(new UriQuery("id", row.Id.ToString()));
-        }
-
-        /// <summary>
-        /// Retrieves a collection of options.
-        /// </summary>
-        /// <param name="row">
-        /// The row object for which options are being retrieved. Cannot be null.
-        /// </param>
-        /// <param name="request">
-        /// The request object containing the criteria for retrieving options. Cannot be null.
-        /// </param>
-        public override IEnumerable<RestApiOption> GetOptions(Character row, IRequest request)
-        {
-            var restEditApi = _formEditUri?.BindParameters
-            (
-                new CharacterIdParameter(row.Id.ToString())
-            );
-
-            var restDeleteApi = _formDeleteUri?.BindParameters
-            (
-                new CharacterIdParameter(row.Id.ToString())
-            );
-
-            yield return new RestApiOptionHeader(request)
+            yield return new RestApiTableColumn()
             {
-                Text = "webexpress.webapp:header.setting.label"
+                Id = "name",
+                Name = "Name",
+                Label = "Name",
+                Visible = true
             };
 
-            yield return new RestApiOptionEdit(request)
+            yield return new RestApiTableColumn()
             {
-                PrimaryAction = new ActionModal
-                (
-                    "myTableFormEdit",
-                    restEditApi,
-                    TypeModalSize.ExtraLarge
-                )
+                Id = "description",
+                Name = "Description",
+                Label = "Description",
+                Visible = true
             };
 
-            yield return new RestApiOptionSeparator(request);
-            yield return new RestApiOptionDelete(request)
+            yield return new RestApiTableColumn()
             {
-                Uri = restDeleteApi,
-                PrimaryAction = new ActionModal("myTableFormEdit")
+                Id = "appearsin",
+                Name = "AppearsIn",
+                Label = "Appears in",
+                Visible = true,
+                Template = new RestApiTableColumnTemplateTag(true)
             };
         }
 
@@ -112,16 +90,43 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// The context in which the query is executed. Provides additional information or constraints 
         /// for the retrieval operation. Cannot be null.
         /// </param>
+        /// <param name="columns">
+        /// The collection of columns available for the specified REST API request.
+        /// </param>
         /// <param name="request">
         /// The request that provides the operational context.
         /// </param>
         /// <returns>
-        /// An <see cref="IQueryable{TIndexItem}"/> representing the filtered set of index items. The 
-        /// result may be empty if no items match the query.
+        /// An enumerable collection of table rows that satisfy the query and 
+        /// context. The collection may be empty if no rows match the criteria.
         /// </returns>
-        protected override IQueryable<Character> Retrieve(IQuery<Character> query, IQueryContext context, IRequest request)
+        protected override IQueryable<RestApiTableRow> RetrieveRows(IQuery<Character> query, IQueryContext context, IEnumerable<RestApiTableColumn> columns, IRequest request)
         {
-            return query.Apply(ViewModel.MonkeyIslandCharacters.AsQueryable());
+            return query.Apply(ViewModel.MonkeyIslandCharacters.AsQueryable())
+                .Select(x => new RestApiTableRow()
+                {
+                    Id = x.Id.ToString(),
+                    Cells = new[]
+                    {
+                        new RestApiTableCell()
+                        {
+                            Content = x.Name
+                        },
+                        new RestApiTableCell()
+                        {
+                            Content = x.Description
+                        },
+                        new RestApiTableCell()
+                        {
+                            Content = string.Join(";", x.AppearsIn.Select(x => x.Name))
+                        }
+                    },
+                    Options = GetOptions(x.Id.ToString(), request).Select(o => o.ToJson()),
+                    Image = (x.Icon is ImageIcon)
+                        ? x.Icon.Uri.ToString()
+                        : null,
+                    RestApi = GetRestApiForInlineEdit(x.Id.ToString(), request).ToString()
+                });
         }
 
         /// <summary>
@@ -153,6 +158,68 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
             (
                 x => x.Name, filter
             );
+        }
+
+        /// <summary>
+        /// Gets the REST API endpoint URI associated with the specified request and index item.
+        /// </summary>
+        /// <param name="id">
+        /// The id that provides context for determining the appropriate REST API endpoint.
+        /// </param>
+        /// <param name="request">
+        /// The request for which to retrieve the REST API endpoint.
+        /// </param>
+        /// <returns>
+        /// An <see cref="IUri"/> representing the REST API endpoint for the given request 
+        /// and index item, or null if no endpoint is available.
+        /// </returns>
+        private IUri GetRestApiForInlineEdit(string id, IRequest request)
+        {
+            return _restApi?.Add(new UriQuery("id", id));
+        }
+
+        /// <summary>
+        /// Retrieves a collection of options.
+        /// </summary>
+        /// <param name="id">
+        /// The id for which options are being retrieved. Cannot be null.
+        /// </param>
+        /// <param name="request">
+        /// The request object containing the criteria for retrieving options. Cannot be null.
+        /// </param>
+        private IEnumerable<RestApiOption> GetOptions(string id, IRequest request)
+        {
+            var restEditApi = _formEditUri?.BindParameters
+            (
+                new CharacterIdParameter(id)
+            );
+
+            var restDeleteApi = _formDeleteUri?.BindParameters
+            (
+                new CharacterIdParameter(id)
+            );
+
+            yield return new RestApiOptionHeader(request)
+            {
+                Text = "webexpress.webapp:header.setting.label"
+            };
+
+            yield return new RestApiOptionEdit(request)
+            {
+                PrimaryAction = new ActionModal
+                (
+                    "myTableFormEdit",
+                    restEditApi,
+                    TypeModalSize.ExtraLarge
+                )
+            };
+
+            yield return new RestApiOptionSeparator(request);
+            yield return new RestApiOptionDelete(request)
+            {
+                Uri = restDeleteApi,
+                PrimaryAction = new ActionModal("myTableFormEdit")
+            };
         }
     }
 }

@@ -35,12 +35,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// The request that provides the operational context.
         /// </param>
         /// <returns>
-        /// An <see cref="IQueryable{TIndexItem}"/> representing the filtered set of index items. The 
-        /// result may be empty if no items match the query.
+        /// An enumerable collection of selection items that satisfy the query 
+        /// criteria. The collection is empty if no items match.
         /// </returns>
-        protected override IQueryable<Location> Retrieve(IQuery<Location> query, IQueryContext context, IRequest request)
+        protected override IQueryable<RestApiSelectionItem> RetrieveItems(IQuery<Location> query, IQueryContext context, IRequest request)
         {
-            return query.Apply(ViewModel.MonkeyIslandLocations.AsQueryable());
+            return query.Apply(ViewModel.MonkeyIslandLocations.AsQueryable())
+                .Select(x => new RestApiSelectionItem()
+                {
+                    Id = x.Id,
+                    Text = x.Text
+                });
         }
 
         /// <summary>

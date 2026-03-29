@@ -22,7 +22,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// </summary>
         /// <param name="request">The incoming request context.</param>
         /// <returns>A sequence of configured dashboard columns.</returns>
-        public override IEnumerable<RestApiDashboardColumn> GetColumns(IRequest request)
+        public override IEnumerable<RestApiDashboardColumn> RetrieveColumns(IRequest request)
         {
             return
             [
