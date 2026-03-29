@@ -23,14 +23,15 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
+        /// <param name="pageContext">The context of the page.</param>
+        /// <param name="sitemapManager">The sitemap manager for URI generation.</param>
         public RestDashboard(IPageContext pageContext, ISitemapManager sitemapManager)
         {
             var uri = sitemapManager.GetUri<WebExpress.Tutorial.WebUI.WWW.Api._1_.MonkeyIslandDashboard>(pageContext);
 
             Stage.AddEvent(Event.MOVE_EVENT);
 
-            Stage.Description =
-                @"The `Dashboard` control organizes widgets into columns. Each widget provides metadata (title, icon, color, column) and can optionally contain content controls.";
+            Stage.Description = @"The `Dashboard` control organizes widgets into columns. Each widget provides metadata (title, icon, color, column) and can optionally contain content controls.";
 
             var dashboard = new ControlRestDashboard(RandomId.Create())
             {
