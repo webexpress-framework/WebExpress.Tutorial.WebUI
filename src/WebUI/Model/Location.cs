@@ -1,5 +1,4 @@
 ﻿using System;
-using WebExpress.WebApp.WebAttribute;
 using WebExpress.WebIndex;
 
 namespace WebExpress.Tutorial.WebUI.Model
@@ -17,7 +16,6 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// <summary>
         /// Returns or sets the display name of the location.
         /// </summary>
-        [RestText]
         public string Text { get; set; }
 
         /// <summary>

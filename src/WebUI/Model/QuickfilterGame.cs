@@ -1,5 +1,4 @@
 ﻿using System;
-using WebExpress.WebApp.WebAttribute;
 using WebExpress.WebIndex;
 using WebExpress.WebIndex.Queries;
 
@@ -18,7 +17,6 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// <summary>
         /// Returns or sets the name associated with the current filter.
         /// </summary>
-        [RestText]
         public string Name { get; set; }
 
         /// <summary>

@@ -222,7 +222,29 @@
         /// <summary>
         /// Event triggered when a tab is selected.
         /// </summary>
-        SELECTED_TAB_EVENT
+        SELECTED_TAB_EVENT,
+
+        ////////////////////////////
+
+        /// <summary>
+        /// Event triggered when the status of the MessageQueue changes
+        /// </summary>
+        CHANGE_STATUS_EVENT,
+
+        /// <summary>
+        /// Event triggered when UI components require a general update
+        /// </summary>
+        UPDATE_EVENT,
+
+        /// <summary>
+        /// Event triggered when a tab is added dynamically.
+        /// </summary>
+        TAB_ADDED_EVENT,
+
+        /// <summary>
+        /// Event triggered when a tab is closed dynamically.
+        /// </summary>
+        TAB_CLOSED_EVENT
     }
 
     /// <summary>
@@ -283,6 +305,11 @@
                 Event.SELECT_ITEM_EVENT => "webexpress.webui.select.item",
                 Event.UPDATE_PAGINATION_EVENT => "webexpress.webui.update.pagination",
                 Event.SELECTED_TAB_EVENT => "webexpress.webui.tab.selected",
+                ////////
+                Event.CHANGE_STATUS_EVENT => "webexpress.webapp.change.status",
+                Event.UPDATE_EVENT => "webexpress.webapp.update",
+                Event.TAB_ADDED_EVENT => "webexpress.webapp.tab.added",
+                Event.TAB_CLOSED_EVENT => "webexpress.webapp.tab.closed",
                 _ => ""
             };
         }
@@ -340,6 +367,11 @@
                 Event.SELECT_ITEM_EVENT => "Event triggered when an item is selected.",
                 Event.UPDATE_PAGINATION_EVENT => "Event triggered to notify external pagination controls about current page/total.",
                 Event.SELECTED_TAB_EVENT => "Event triggered when a tab is selected.",
+                ///////////////////////////////
+                Event.CHANGE_STATUS_EVENT => "Event triggered when the status of the MessageQueue changes",
+                Event.UPDATE_EVENT => "Event triggered when UI components require a general update",
+                Event.TAB_ADDED_EVENT => "Event triggered when a tab is added dynamically.",
+                Event.TAB_CLOSED_EVENT => "Event triggered when a tab is closed dynamically.",
                 _ => ""
             };
         }

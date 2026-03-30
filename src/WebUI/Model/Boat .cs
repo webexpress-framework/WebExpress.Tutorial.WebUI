@@ -1,5 +1,4 @@
 ﻿using System;
-using WebExpress.WebApp.WebAttribute;
 using WebExpress.WebIndex;
 
 namespace WebExpress.Tutorial.WebUI.Model
@@ -12,7 +11,6 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// <summary>
         /// The unique identifier of the boat.
         /// </summary>
-        [RestHidden()]
         public Guid Id { get; set; } = Guid.NewGuid();
 
         /// <summary>

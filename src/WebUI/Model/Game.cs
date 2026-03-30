@@ -1,5 +1,4 @@
 ﻿using System;
-using WebExpress.WebApp.WebAttribute;
 using WebExpress.WebIndex;
 
 namespace WebExpress.Tutorial.WebUI.Model
@@ -12,13 +11,11 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// <summary>
         /// The unique identifier of the game.
         /// </summary>
-        [RestHidden]
         public Guid Id { get; set; } = Guid.NewGuid();
 
         /// <summary>
         /// The title of the game.
         /// </summary>
-        [RestText]
         public string Name { get; set; }
 
         /// <summary>

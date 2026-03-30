@@ -1,5 +1,4 @@
 ﻿using System;
-using WebExpress.WebApp.WebAttribute;
 using WebExpress.WebCore.WebUri;
 using WebExpress.WebIndex;
 
@@ -18,7 +17,6 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// <summary>
         /// Returns or sets the name associated with the object.
         /// </summary>
-        [RestText]
         public string Text { get; set; }
 
         /// <summary>
