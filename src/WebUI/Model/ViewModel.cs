@@ -957,12 +957,14 @@ namespace WebExpress.Tutorial.WebUI.Model
             // melee island
             yield return new Location
             {
+                Id = Guid.Parse("28DF7324-0DDE-40B3-B6E4-0CDD107D324A"),
                 Text = "Lookout Point",
                 Description = "Clifftop vantage point where the Lookout keeps watch over Mêlée Island.",
                 Island = "Mêlée Island"
             };
             yield return new Location
             {
+                Id = Guid.Parse("64D99FDF-9828-40EB-92CA-D55DDA6BD9F4"),
                 Text = "Mêlée Island Village",
                 Description = "Central village street with shops and notable buildings.",
                 Island = "Mêlée Island"

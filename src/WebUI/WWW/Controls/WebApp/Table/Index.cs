@@ -10,7 +10,7 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 
-namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
+namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Table
 {
     /// <summary>    
     /// Represents the table control for the tutorial.    
@@ -20,7 +20,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     [Scope<IScopeControl>]
     [Scope<IScopeControlWebApp>]
     [Domain<Character>]
-    public sealed class RestTable : PageControl
+    public sealed class Index : PageControl
     {
         /// <summary>    
         /// Initializes a new instance of the class.    
@@ -31,7 +31,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         /// <param name="sitemapManager">
         /// The sitemap manager for managing site navigation.
         /// </param>
-        public RestTable(IPageContext pageContext, ISitemapManager sitemapManager)
+        public Index(IPageContext pageContext, ISitemapManager sitemapManager)
         {
             Stage.AddEvent(Event.TABLE_SORT_EVENT, Event.COLUMN_REORDER_EVENT);
 
@@ -55,45 +55,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             new ControlRestTable(""myTable"")
             {
                 RestUri = sitemapManager.GetUri<MonkeyIslandCharacterTable>(pageContext.ApplicationContext),
-                Infinite = true,
                 PageSize = 5
             }";
-
-            //Stage.AddProperty
-            //(
-            //    "RestUri",
-            //    "Defines the REST endpoint from which the table retrieves its data.",
-            //    "RestUri = sitemapManager.GetUri<MonkeyIslandCharacterTable>(pageContext.ApplicationContext)",
-            //    new ControlRestTable()
-            //    {
-            //        RestUri = sitemapManager.GetUri<MonkeyIslandCharacterTable>(pageContext.ApplicationContext)
-            //    }
-            //);
-
-            //Stage.AddProperty
-            //(
-            //    "PageSize",
-            //    "Specifies how many items are loaded per page or scroll request.",
-            //    "PageSize = 5",
-            //    new ControlRestTable()
-            //    {
-            //        RestUri = sitemapManager.GetUri<MonkeyIslandCharacterTable>(pageContext.ApplicationContext),
-            //        PageSize = 5
-            //    }
-            //);
-
-            //Stage.AddProperty
-            //(
-            //    "PageSize",
-            //    "Enables infinite scrolling, allowing continuous data loading without a final page.",
-            //    "Infinite = true",
-            //    new ControlRestTable()
-            //    {
-            //        RestUri = sitemapManager.GetUri<MonkeyIslandCharacterTable>(pageContext.ApplicationContext),
-            //        Infinite = true,
-            //        PageSize = 5
-            //    }
-            //);
         }
     }
 }

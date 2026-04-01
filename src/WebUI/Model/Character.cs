@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using WebExpress.Tutorial.WebUI.WebConverter;
 using WebExpress.WebApp.WebAttribute;
 using WebExpress.WebCore.WebDomain;
 using WebExpress.WebIndex;
@@ -31,6 +32,7 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// <summary>
         /// Returns or sets the name of the context or entity where this item appears.
         /// </summary>
+        [RestConverter<AppearsConverter>()]
         public IEnumerable<Game> AppearsIn { get; set; }
 
         /// <summary>
