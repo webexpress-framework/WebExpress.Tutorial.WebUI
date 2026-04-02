@@ -15,18 +15,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// <summary>
     /// Represents the tutorial page that demonstrates a REST-backed dropdown control with search and grouping.
     /// </summary>
-    [Title("RestSelection")]
+    [Title("RestInputSelection")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
     [Scope<IScopeControlWebApp>]
-    public sealed class RestSelection : PageControl
+    public sealed class RestInputSelection : PageControl
     {
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
         /// <param name="pageContext">The context of the page where the table control is used.</param>
         /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>
-        public RestSelection(IPageContext pageContext, ISitemapManager sitemapManager)
+        public RestInputSelection(IPageContext pageContext, ISitemapManager sitemapManager)
         {
             // register relevant ui events
             Stage.AddEvent(Event.DATA_ARRIVED_EVENT, Event.DATA_REQUESTED_EVENT, Event.CHANGE_VALUE_EVENT, Event.CHANGE_FILTER_EVENT, Event.DROPDOWN_SHOW_EVENT, Event.DROPDOWN_HIDDEN_EVENT);
