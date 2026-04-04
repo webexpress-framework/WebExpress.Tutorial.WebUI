@@ -174,6 +174,67 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     SwimlaneId = ""priority""
                 }
             );";
+
+            Stage.AddItem
+            (
+                "Expanded",
+                "Determines whether the swimlane is currently expanded or collapsed. When set to true, the swimlane displays all contained items and controls. When set to false, the swimlane is collapsed and only its header remains visible. This property is typically used to manage visual density, reduce clutter, and allow users to focus on selected sections within a Kanban board.",
+                "new ControlKanbanSwimlane(\"height\", \"Height\", true)",
+                new ControlText()
+                {
+                    Text = "None",
+                    TextColor = new PropertyColorText(TypeColorText.Info)
+                },
+                new ControlKanban(RandomId.Create())
+                .Add
+                (
+                    new ControlKanbanColumn("todo", "To Do", "33%"),
+                    new ControlKanbanColumn("progress", "In Progress", "33%"),
+                    new ControlKanbanColumn("done", "Done", "*")
+                )
+                .Add
+                (
+                    new ControlKanbanSwimlane("height", "Height"),
+                    new ControlKanbanSwimlane("priority", "Priority"),
+                    new ControlKanbanSwimlane("team", "Team")
+                ),
+                new ControlText()
+                {
+                    Text = "true",
+                    TextColor = new PropertyColorText(TypeColorText.Info)
+                },
+                new ControlKanban(RandomId.Create())
+                .Add
+                (
+                    new ControlKanbanColumn("todo", "To Do", "33%"),
+                    new ControlKanbanColumn("progress", "In Progress", "33%"),
+                    new ControlKanbanColumn("done", "Done", "*")
+                )
+                .Add
+                (
+                    new ControlKanbanSwimlane("height", "Height", true),
+                    new ControlKanbanSwimlane("priority", "Priority", true),
+                    new ControlKanbanSwimlane("team", "Team", true)
+                ),
+                new ControlText()
+                {
+                    Text = "false",
+                    TextColor = new PropertyColorText(TypeColorText.Info)
+                },
+                new ControlKanban(RandomId.Create())
+                .Add
+                (
+                    new ControlKanbanColumn("todo", "To Do", "33%"),
+                    new ControlKanbanColumn("progress", "In Progress", "33%"),
+                    new ControlKanbanColumn("done", "Done", "*")
+                )
+                .Add
+                (
+                    new ControlKanbanSwimlane("height", "Height", false),
+                    new ControlKanbanSwimlane("priority", "Priority", false),
+                    new ControlKanbanSwimlane("team", "Team", false)
+                )
+            );
         }
     }
 }
