@@ -72,145 +72,175 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 }.Initialize(args => args.Value.Text = "Hello World!"))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
-            Stage.Code = @"
-            new ControlForm(""myform"", new ControlFormItemInputTextBox(""regards"")
-            {
-                Label = ""Greetings"",
-                Value = ""Hello World!"",
-                Icon = new IconFont(),
-                Help = "" This is the associated help text.""
-            })
-            {
-            }.AddPrimaryButton(new ControlFormItemButtonSubmit());";
+            //Stage.Code = @"
+            //new ControlForm(""myform"", new ControlFormItemInputTextBox(""regards"")
+            //{
+            //    Label = ""Greetings"",
+            //    Value = ""Hello World!"",
+            //    Icon = new IconFont(),
+            //    Help = "" This is the associated help text.""
+            //})
+            //{
+            //}.AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
-            Stage.AddProperty
+            //Stage.AddProperty
+            //(
+            //    "FormLayout",
+            //    "This property defines the visual positioning of form elements relative to the submit button.",
+            //    "FormLayout = TypeLayoutForm.Inline",
+            //    new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+            //    new ControlForm(null, new ControlFormItemInputText("layout1") { Icon = new IconAlignLeft(), Label = "Arrangement", Help = "This is a help text" })
+            //    {
+            //        Border = new PropertyBorder(true),
+            //        Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+            //        Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
+            //        FormLayout = TypeLayoutForm.Default
+            //    }.AddPrimaryButton(new ControlFormItemButtonSubmit()),
+            //    new ControlText() { Text = "Inline", TextColor = new PropertyColorText(TypeColorText.Info) },
+            //    new ControlForm(null, new ControlFormItemInputText("layout1") { Icon = new IconAlignLeft(), Label = "Arrangement", Help = "This is a help text" })
+            //    {
+            //        Border = new PropertyBorder(true),
+            //        Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+            //        Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
+            //        FormLayout = TypeLayoutForm.Inline
+            //    }.AddPrimaryButton(new ControlFormItemButtonSubmit())
+            //);
+
+            //Stage.AddProperty
+            //(
+            //    "ItemLayout",
+            //    "This property defines how the form elements are arranged within the form, ensuring a structured and user-friendly layout.",
+            //    "ItemLayout = TypeLayoutFormItem.Horizontal",
+            //    new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+            //    new ControlForm(null, [.. _exampleFormItems])
+            //    {
+            //        Border = new PropertyBorder(true),
+            //        Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+            //        Padding = new PropertySpacingPadding(PropertySpacing.Space.Two)
+
+            //    }.AddPrimaryButton(new ControlFormItemButtonSubmit()),
+            //    new ControlText() { Text = "Horizontal", TextColor = new PropertyColorText(TypeColorText.Info) },
+            //    new ControlForm(null, [.. _exampleFormItems])
+            //    {
+            //        Border = new PropertyBorder(true),
+            //        Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+            //        Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
+            //        ItemLayout = TypeLayoutFormItem.Horizontal
+            //    }.AddPrimaryButton(new ControlFormItemButtonSubmit()),
+            //    new ControlText() { Text = "Vertical", TextColor = new PropertyColorText(TypeColorText.Info) },
+            //    new ControlForm(null, [.. _exampleFormItems])
+            //    {
+            //        Border = new PropertyBorder(true),
+            //        Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+            //        Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
+            //        ItemLayout = TypeLayoutFormItem.Vertical
+            //    }.AddPrimaryButton(new ControlFormItemButtonSubmit()),
+            //    new ControlText() { Text = "Mix", TextColor = new PropertyColorText(TypeColorText.Info) },
+            //    new ControlForm(null, [.. _exampleFormItems])
+            //    {
+            //        Border = new PropertyBorder(true),
+            //        Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+            //        Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
+            //        ItemLayout = TypeLayoutFormItem.Mix
+            //    }.AddPrimaryButton(new ControlFormItemButtonSubmit())
+            //);
+
+            //Stage.AddProperty
+            //(
+            //    "AddButton",
+            //    "This method enables adding buttons to control the behavior of the form, such as submitting, resetting, or canceling actions.",
+            //    "new ControlFormItemButtonSubmit(), new ControlFormItemButtonReset()",
+            //    new ControlText() { Text = "AddPreferencesButton", TextColor = new PropertyColorText(TypeColorText.Info) },
+            //    new ControlForm(null, [.. _exampleFormItems])
+            //    {
+            //        Border = new PropertyBorder(true),
+            //        Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+            //        Padding = new PropertySpacingPadding(PropertySpacing.Space.Two)
+
+            //    }.AddPreferencesButton(new ControlFormItemButtonSubmit(), new ControlFormItemButtonReset()),
+            //    new ControlText() { Text = "AddPrimaryButton", TextColor = new PropertyColorText(TypeColorText.Info) },
+            //    new ControlForm(null, [.. _exampleFormItems])
+            //    {
+            //        Border = new PropertyBorder(true),
+            //        Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+            //        Padding = new PropertySpacingPadding(PropertySpacing.Space.Two)
+            //    }.AddPrimaryButton(new ControlFormItemButtonSubmit(), new ControlFormItemButtonReset()),
+            //    new ControlText() { Text = "AddSecondaryButton", TextColor = new PropertyColorText(TypeColorText.Info) },
+            //    new ControlForm(null, [.. _exampleFormItems])
+            //    {
+            //        Border = new PropertyBorder(true),
+            //        Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+            //        Padding = new PropertySpacingPadding(PropertySpacing.Space.Two)
+            //    }.AddSecondaryButton(new ControlFormItemButtonSubmit(), new ControlFormItemButtonReset())
+            //);
+
+            //Stage.AddProperty
+            //(
+            //    "Conformation",
+            //    "The property represents the control that is displayed instead of the original form after the form has been successfully submitted. It provides visual feedback to the user by showing a confirmation element, indicating that the submission was successful. This enhances the user experience by offering clear acknowledgment of the completed action. For example, if the form involves a registration or an order, a thank-you message or a summary of the submitted data can appear in place of the form, allowing the user to immediately recognize that their input has been processed.",
+            //    @"
+            //    Conformation = new ControlAlert() 
+            //    { 
+            //        Text = ""Thank you!"", 
+            //        BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Success) 
+            //    }",
+            //    new ControlForm("conformationform", items: [.. _exampleFormItems])
+            //    {
+            //        Border = new PropertyBorder(true),
+            //        Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+            //        Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
+            //        Conformation = new ControlAlert()
+            //        {
+            //            Text = @"Thank you! Your submission has been successfully received. We have received your request and will process it as soon as possible. If you need any further information, feel free to reach out to us anytime.",
+            //            BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Success)
+            //        }
+
+            //    }.AddPreferencesButton(new ControlFormItemButtonSubmit())
+            //);
+
+            //Stage.AddProperty
+            //(
+            //    "RedirectUri",
+            //    "The `RedirectUri` property specifies the target address to which the user is redirected after the form has been successfully submitted. This can be used, for example, to direct the user to a welcome page after registration or to an order confirmation page after a purchase.",
+            //    @"RedirectUri = pageContext.ApplicationContext.Route.ToUri()",
+            //    new ControlForm(null, [.. _exampleFormItems])
+            //    {
+            //        Border = new PropertyBorder(true),
+            //        Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+            //        Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
+            //        RedirectUri = pageContext.ApplicationContext.Route.ToUri()
+
+            //    }.AddPreferencesButton(new ControlFormItemButtonSubmit())
+            //);
+
+            Stage.AddItem
             (
-                "FormLayout",
-                "This property defines the visual positioning of form elements relative to the submit button.",
-                "FormLayout = TypeLayoutForm.Inline",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputText("layout1") { Icon = new IconAlignLeft(), Label = "Arrangement", Help = "This is a help text" })
+                "ControlFormItemGroupTab",
+                "",
+                "Add(new ControlFormItemGroupTab())",
+                new ControlForm(null)
                 {
-                    Border = new PropertyBorder(true),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
-                    FormLayout = TypeLayoutForm.Default
-                }.AddPrimaryButton(new ControlFormItemButtonSubmit()),
-                new ControlText() { Text = "Inline", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputText("layout1") { Icon = new IconAlignLeft(), Label = "Arrangement", Help = "This is a help text" })
-                {
-                    Border = new PropertyBorder(true),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
-                    FormLayout = TypeLayoutForm.Inline
-                }.AddPrimaryButton(new ControlFormItemButtonSubmit())
-            );
 
-            Stage.AddProperty
-            (
-                "ItemLayout",
-                "This property defines how the form elements are arranged within the form, ensuring a structured and user-friendly layout.",
-                "ItemLayout = TypeLayoutFormItem.Horizontal",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, [.. _exampleFormItems])
-                {
-                    Border = new PropertyBorder(true),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two)
-
-                }.AddPrimaryButton(new ControlFormItemButtonSubmit()),
-                new ControlText() { Text = "Horizontal", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, [.. _exampleFormItems])
-                {
-                    Border = new PropertyBorder(true),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
-                    ItemLayout = TypeLayoutFormItem.Horizontal
-                }.AddPrimaryButton(new ControlFormItemButtonSubmit()),
-                new ControlText() { Text = "Vertical", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, [.. _exampleFormItems])
-                {
-                    Border = new PropertyBorder(true),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
-                    ItemLayout = TypeLayoutFormItem.Vertical
-                }.AddPrimaryButton(new ControlFormItemButtonSubmit()),
-                new ControlText() { Text = "Mix", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, [.. _exampleFormItems])
-                {
-                    Border = new PropertyBorder(true),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
-                    ItemLayout = TypeLayoutFormItem.Mix
-                }.AddPrimaryButton(new ControlFormItemButtonSubmit())
-            );
-
-            Stage.AddProperty
-            (
-                "AddButton",
-                "This method enables adding buttons to control the behavior of the form, such as submitting, resetting, or canceling actions.",
-                "new ControlFormItemButtonSubmit(), new ControlFormItemButtonReset()",
-                new ControlText() { Text = "AddPreferencesButton", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, [.. _exampleFormItems])
-                {
-                    Border = new PropertyBorder(true),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two)
-
-                }.AddPreferencesButton(new ControlFormItemButtonSubmit(), new ControlFormItemButtonReset()),
-                new ControlText() { Text = "AddPrimaryButton", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, [.. _exampleFormItems])
-                {
-                    Border = new PropertyBorder(true),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two)
-                }.AddPrimaryButton(new ControlFormItemButtonSubmit(), new ControlFormItemButtonReset()),
-                new ControlText() { Text = "AddSecondaryButton", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, [.. _exampleFormItems])
-                {
-                    Border = new PropertyBorder(true),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two)
-                }.AddSecondaryButton(new ControlFormItemButtonSubmit(), new ControlFormItemButtonReset())
-            );
-
-            Stage.AddProperty
-            (
-                "Conformation",
-                "The property represents the control that is displayed instead of the original form after the form has been successfully submitted. It provides visual feedback to the user by showing a confirmation element, indicating that the submission was successful. This enhances the user experience by offering clear acknowledgment of the completed action. For example, if the form involves a registration or an order, a thank-you message or a summary of the submitted data can appear in place of the form, allowing the user to immediately recognize that their input has been processed.",
-                @"
-                Conformation = new ControlAlert() 
-                { 
-                    Text = ""Thank you!"", 
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Success) 
-                }",
-                new ControlForm("conformationform", items: [.. _exampleFormItems])
-                {
-                    Border = new PropertyBorder(true),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
-                    Conformation = new ControlAlert()
-                    {
-                        Text = @"Thank you! Your submission has been successfully received. We have received your request and will process it as soon as possible. If you need any further information, feel free to reach out to us anytime.",
-                        BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Success)
-                    }
-
-                }.AddPreferencesButton(new ControlFormItemButtonSubmit())
-            );
-
-            Stage.AddProperty
-            (
-                "RedirectUri",
-                "The `RedirectUri` property specifies the target address to which the user is redirected after the form has been successfully submitted. This can be used, for example, to direct the user to a welcome page after registration or to an order confirmation page after a purchase.",
-                @"RedirectUri = pageContext.ApplicationContext.Route.ToUri()",
-                new ControlForm(null, [.. _exampleFormItems])
-                {
-                    Border = new PropertyBorder(true),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
-                    RedirectUri = pageContext.ApplicationContext.Route.ToUri()
-
-                }.AddPreferencesButton(new ControlFormItemButtonSubmit())
+                }
+                    .Add(new ControlFormItemGroupTab()
+                        .Add(new ControlFormItemGroupTabView() { Title = "Tab A" }
+                            .Add(new ControlFormItemInputText("regards")
+                            {
+                                Required = true,
+                                Label = "Greetings",
+                                Icon = new IconFont(),
+                                Help = "This is the associated help text."
+                            }))
+                        .Add(new ControlFormItemGroupTabView() { Title = "Tab B" }
+                            .Add(new ControlFormItemInputText("regards")
+                            {
+                                Required = true,
+                                Label = "Greetings",
+                                Icon = new IconFont(),
+                                Help = "This is the associated help text."
+                            }))
+                        )
+                    .AddPreferencesButton(new ControlFormItemButtonSubmit())
             );
         }
     }
