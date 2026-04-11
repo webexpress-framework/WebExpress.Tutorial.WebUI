@@ -161,6 +161,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.AddItem
             (
+                typeof(ControlListItem),
                 "ControlListItem",
                 "A simple list item.",
                 "new ControlListItem(...);",
@@ -178,6 +179,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.AddItem
             (
+                typeof(ControlListItemLink),
                 "ControlListItemLink",
                 "A link as a list entry.",
                 "new ControlListItemLink(...);",
@@ -195,6 +197,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.AddItem
             (
+                typeof(ControlListItemButton),
                 "ControlListItemButton",
                 "A button as a list entry.",
                 "new ControlListItemButton(...);",
@@ -210,8 +213,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 }
             );
 
-            Stage.AddItem
+            Stage.AddItemProperty
             (
+                typeof(ControlListItemButton),
                 "PrimaryAction",
                 "Defines the primary user action, typically executed on a standard click to open a dialog or perform the main operation.",
                 "PrimaryAction = new ActionModal(\"modal\")",
@@ -227,8 +231,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 }
             );
 
-            Stage.AddItem
+            Stage.AddItemProperty
             (
+                typeof(ControlListItemButton),
                 "SecondaryAction",
                 "Defines the secondary user action, often triggered by a double‑click to open a dialog or perform an alternative operation.",
                 "SecondaryAction = new ActionModal(\"modal\")",

@@ -75,7 +75,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 })
             );
 
-            Stage.AddItem
+            Stage.AddProperty
             (
                 "Label",
                 "The `Label` property of a `Rating` control item serves as a short form of the option text and is displayed in the main area of the control once a selection is made. Instead of showing the full descriptive text of an option, the label ensures a concise and clear representation of the chosen selection. When the label is defined as an internationalization key.",
@@ -86,7 +86,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 })
             );
 
-            Stage.AddItem
+            Stage.AddProperty
             (
                 "Icon",
                 "The `Icon` property defines the symbol assigned to a rating field.",

@@ -92,7 +92,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 }
             );
 
-            Stage.AddItem
+            Stage.AddProperty
             (
                 "Suggestion",
                 "Suggestions in a `SearchControl` are automatically generated or predefined input aids that offer users relevant search terms or options based on past inputs or data sources. They enhance usability by speeding up searches and reducing typos.",

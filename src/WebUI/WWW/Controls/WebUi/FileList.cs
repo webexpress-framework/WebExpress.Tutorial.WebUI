@@ -83,6 +83,19 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.AddItem
             (
+                typeof(ControlFileListItem),
+                "ControlFileListItem",
+                "A `ControlFileListItem` represents a single entry within a file list, encapsulating both the visual representation and metadata of a file. Each item can display an icon, name, size, or additional contextual information, making it easy for users to browse and identify files at a glance. File list items may also provide interactive actions such as opening, downloading, or previewing a file. By structuring file information into clear, consistent list items, `ControlFileListItem` enables intuitive navigation and efficient file management within user interfaces.",
+                @"new ControlFileListItem()",
+                new ControlFileList()
+                {
+                }
+                    .Add(new ControlFileListItem() { Icon = new IconFileWord() })
+            );
+
+            Stage.AddItemProperty
+            (
+                typeof(ControlFileListItem),
                 "Icon",
                 "The `Icon` property defines the visual symbol or graphic representation shown alongside the file for a given `ControlFileListItem`. It helps users quickly identify the file type.",
                 @"Icon = new IconFileWord()",
@@ -92,8 +105,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     .Add(new ControlFileListItem() { Icon = new IconFileWord() })
             );
 
-            Stage.AddItem
+            Stage.AddItemProperty
             (
+                typeof(ControlFileListItem),
                 "Name",
                 "The `Name` property represents the filename of an entry within a `ControlFileListItem`. It is used to uniquely identify the file and display it to the user.",
                 @"Name = ""ProjectProposal.pdf""",
@@ -103,8 +117,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     .Add(new ControlFileListItem() { Name = "ProjectProposal.pdf" })
             );
 
-            Stage.AddItem
+            Stage.AddItemProperty
             (
+                typeof(ControlFileListItem),
                 "Name",
                 "The `Size` property indicates the file size in bytes for a given `ControlFileListItem`. A value less than 0 means no size information is available.",
                 @"Size = 3535",
@@ -114,8 +129,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     .Add(new ControlFileListItem() { Size = 3535 })
             );
 
-            Stage.AddItem
+            Stage.AddItemProperty
             (
+                typeof(ControlFileListItem),
                 "Date",
                 "The `Date` property represents the date associated with a file for a given `ControlFileListItem`, typically indicating when the file was created, modified, or uploaded. If `Date = DateTime.MinValue` (default), no date will be displayed. This is used when the date is intentionally hidden or unavailable.",
                 @"Date = DateTime.Now",
@@ -125,8 +141,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     .Add(new ControlFileListItem() { Date = DateTime.Now })
             );
 
-            Stage.AddItem
+            Stage.AddItemProperty
             (
+                typeof(ControlFileListItem),
                 "Description",
                 "The `Description` property provides additional information or context about the file for a given `ControlFileListItem`. It’s typically used to display a short note, label, or comment that helps users understand the file’s purpose or contents.",
                 @"Description = ""Initial draft of the project proposal""",

@@ -75,7 +75,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             }
                 .Add(new ControlFormItemInputText().Initialize(x => x.Value = ""Hello WebExpress!""))";
 
-            Stage.AddItem
+            Stage.AddProperty
             (
                 "Add",
                 "Adds a form input element to the UI. The following input types are supported:",

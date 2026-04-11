@@ -116,6 +116,19 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.AddItem
             (
+                typeof(ControlToolbarItemButton),
+                "ControlToolbarItemButton",
+                "A `ControlToolbarItemButton` represents an interactive action element within a toolbar. It is typically used to trigger commands such as creating, saving, refreshing, or navigating. Each button can display an icon, a text label, or both, providing a clear and accessible way for users to understand the available actions. Toolbar buttons are designed to be compact, consistent, and easy to recognize, ensuring that frequently used operations remain quickly accessible across the interface. By combining visual cues with optional descriptive text, `ControlToolbarItemButton` supports intuitive and efficient user workflows.",
+                "new ControlToolbar().Add(new ControlToolbarItemButton() { Label = \"abc\" })",
+                new ControlToolbar().Add
+                (
+                    new ControlToolbarItemButton() { Text = "button label" }
+                )
+            );
+
+            Stage.AddItemProperty
+            (
+                typeof(ControlToolbarItemButton),
                 "Label",
                 "The `Label` property specifies the visible text accompanying a toolbar icon. It helps users understand the purpose of the toolbar item at a glance, especially when the icon alone may not be intuitive.",
                 "new ControlToolbar().Add(new ControlToolbarItemButton() { Label = \"abc\" })",
@@ -131,8 +144,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 )
             );
 
-            Stage.AddItem
+            Stage.AddItemProperty
             (
+                typeof(ControlToolbarItemButton),
                 "Icon",
                 "The `Icon` property defines the image shown within a toolbar item to visually represent its function. It enables users to quickly identify the intended action and contributes to an intuitive, user friendly interface.",
                 "new ControlToolbar().Add(new ControlToolbarItemButton() { Icon = new IconHome() })",
@@ -156,8 +170,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 )
             );
 
-            Stage.AddItem
+            Stage.AddItemProperty
             (
+                typeof(ControlToolbarItemButton),
                 "Tooltip",
                 "The `Tooltip` property provides a concise message that appears when a user hovers over a toolbar item. It offers additional context or instructions for the associated action, especially useful when the icon or label isn't entirely self-explanatory.",
                 "new ControlToolbar().Add(new ControlToolbarItemButton() { Tooltip = \"tooltip\" })",
@@ -173,8 +188,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 )
             );
 
-            Stage.AddItem
+            Stage.AddItemProperty
             (
+                typeof(ControlToolbarItemButton),
                 "Color",
                 "The `Color` property controls the visual appearance of a toolbar item by specifying its foreground (text/icon). It can be used to highlight important actions, indicate states (e.g. active/inactive), or harmonize the toolbar with the overall UI theme.",
                 "new ControlToolbar().Add(new ControlToolbarItemButton() { Color = new PropertyColorText(TypeColorText.Primary) })",
@@ -313,8 +329,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             );
 
-            Stage.AddItem
+            Stage.AddItemProperty
             (
+                typeof(ControlToolbarItemButton),
                 "Alignment",
                 "The `Alignment` property determines how a toolbar item is positioned inside its parent container or toolbar strip. It influences whether the item appears left-aligned or right-aligned.",
                 "new ControlToolbar().Add(new ControlToolbarItemButton() { Alignment = TypeToolbarItemAlignment.Right })",
@@ -330,8 +347,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 )
             );
 
-            Stage.AddItem
+            Stage.AddItemProperty
             (
+                typeof(ControlToolbarItemButton),
                 "Disabled",
                 "The `Active` property controls the interactivity state of a toolbar item. When set to disabled, the item appears visually dimmed and is functionally deactivated—meaning users cannot click or activate it. This is often used to reflect application state, user permissions, or conditional logic.",
                 "new ControlToolbar().Add(new ControlToolbarItemButton() { Active = TypeActive.Disabled })",
@@ -347,8 +365,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 )
             );
 
-            Stage.AddItem
+            Stage.AddItemProperty
             (
+                typeof(ControlToolbarItemButton),
                 "Active",
                 "The `Active` property reflects whether a toolbar item is currently selected or engaged.",
                 "new ControlToolbar().Add(new ControlToolbarItemButton() { Active = TypeActive.Active })",
@@ -362,8 +381,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 )
             );
 
-            Stage.AddItem
+            Stage.AddItemProperty
             (
+                typeof(ControlToolbarItemButton),
                 "Toggle",
                 "The toggle indicator is an interactive UI element that visually signals whether additional content is collapsed or expanded. It typically consists of a labeled button accompanied by a directional arrow icon. It's commonly used in dropdown menus.",
                 "new ControlToolbar().Add(new ControlToolbarItemDropdown() { Toggle = TypeToggleDropdown.Toggle })",
@@ -377,8 +397,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 )
             );
 
-            Stage.AddItem
+            Stage.AddItemProperty
             (
+                typeof(ControlToolbarItemButton),
                 "Add",
                 "The `Add` method allows insertion of toolbar elements into the toolbar.",
                 "new ControlToolbar().Add(new ControlToolbarItemButton() { Icon = new IconHome() })",
@@ -388,8 +409,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 )
             );
 
-            Stage.AddItem
+            Stage.AddItemProperty
             (
+                typeof(ControlToolbarItemButton),
                 "AddMore",
                 "The `AddMore` method enhances the toolbar by appending extra actions that are grouped behind a consolidated entry point \"…\".",
                 "new ControlToolbar().AddMore(new ControlDropdownItemLink() { Label = \"Calculator\", Icon = new IconCalculator()})",

@@ -63,6 +63,23 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.AddItem
             (
+                typeof(ControlFormItemInputSelectionItem),
+                "ControlFormItemInputSelectionItem",
+                "A `ControlFormItemInputSelectionItem` represents a single option within a selection input control. Each item defines the label, value, and visual presentation of a selectable choice, allowing users to pick from a predefined set of options. Selection items can highlight the currently chosen value, support custom styling, and carry additional metadata when needed. By encapsulating each option as an independent item, `ControlFormItemInputSelectionItem` ensures clear structure, consistent rendering, and intuitive interaction within selection-based form components.",
+                "new ControlFormItemInputSelectionItem(\"Default\") { Text = \"Default\" }",
+                new ControlSelection()
+                {
+                    Value = "Default"
+                }
+                    .Add(new ControlFormItemInputSelectionItem("Default")
+                    {
+                        Text = "Default"
+                    })
+            );
+
+            Stage.AddItemProperty
+            (
+                typeof(ControlFormItemInputSelectionItem),
                 "LabelColor",
                 "The `LabelColor` property defines the visual color applied to the item within the control. This uniform color enhances clarity, improves recognition, and ensures a cohesive user interface experience.",
                 "LabelColor = TypeColorSelection.Secondary",

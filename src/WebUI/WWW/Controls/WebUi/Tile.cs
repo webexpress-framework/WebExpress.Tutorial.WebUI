@@ -166,6 +166,24 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.AddItem
             (
+                typeof(ControlTileCard),
+                "ControlTileCard",
+                "A `ControlTileCard` represents an individual content block within a tile-based layout. Each card encapsulates a specific piece of information, an action, or a visual element, making it easy to present structured content in a clear and modular way. Tile cards can display text, icons, or custom components and often serve as entry points to more detailed views or operations. By supporting primary actions such as opening dialogs or triggering commands, `ControlTileCard` enables interactive and intuitive user experiences while maintaining a clean, grid‑oriented presentation.",
+                "new ControlTileCard()",
+                new ControlTile()
+                    .Add(GetCards().Select(x => new ControlTileCard()
+                    {
+                        Id = x.Id,
+                        PrimaryAction = new ActionModal("modal")
+                    }.Add(x.Content))),
+                new ControlModalExample("modal")
+                {
+                }
+            );
+
+            Stage.AddItemProperty
+            (
+                typeof(ControlTileCard),
                 "PrimaryAction",
                 "Defines the primary user action, typically executed on a standard click to open a dialog or perform the main operation.",
                 "PrimaryAction = new ActionModal(\"modal\")",
@@ -180,8 +198,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 }
             );
 
-            Stage.AddItem
+            Stage.AddItemProperty
             (
+                 typeof(ControlTileCard),
                 "SecondaryAction",
                 "Defines the secondary user action, often triggered by a double‑click to open a dialog or perform an alternative operation.",
                 "SecondaryAction = new ActionModal(\"modal\")",

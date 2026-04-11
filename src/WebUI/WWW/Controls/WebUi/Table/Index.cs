@@ -339,6 +339,19 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table
 
             Stage.AddItem
             (
+                typeof(ControlTableColumn),
+                "ControlTableColumn",
+                "A `ControlTableColumn` defines a vertical structure within a table, specifying how a particular type of data is presented across all rows. Each column can display text, numbers, icons, controls, or custom templates, depending on the table’s configuration. Columns determine alignment, formatting, editing behavior, and overall layout consistency. By separating data into clearly defined columns, `ControlTableColumn` ensures that information remains readable, comparable, and easy to scan, even in complex or data‑rich tables.",
+                "new ControlTableColumn()",
+                new ControlTable()
+                {
+                }
+                    .AddColumns(_columns)
+            );
+
+            Stage.AddItemProperty
+            (
+                typeof(ControlTableColumn),
                 "AddColumn",
                 "The `AddColumn` function is used to add new columns to a table, allowing for increased data representation and flexibility in table structure.",
                 @"
@@ -402,6 +415,32 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table
 
             Stage.AddItem
             (
+                typeof(ControlTableRow),
+                "ControlTableRow",
+                "A `ControlTableRow` represents a single horizontal entry within a table structure. Each row groups together the cell values that belong to the same record, making it possible to display structured data in a clear and consistent way. Rows can contain static content, interactive controls, or dynamically generated values, depending on the table’s configuration. By organizing information row by row, `ControlTableRow` provides a predictable layout that supports sorting, selection, editing, and other table‑based interactions.",
+                @"new ControlTableRow(""id"")",
+                new ControlTable()
+                {
+                }
+                    .AddColumns(_columns)
+                    .AddRows(_rows)
+                    .AddRows(new ControlTableRow("myRow4")
+                    {
+                        Color = TypeColorTable.Danger,
+                        ExpandState = TypeExpandState.Collapsed
+                    }
+                        .Add
+                        (
+                            new ControlTableCell() { Text = "Row 4 - Cell 1" },
+                            new ControlTableCell() { Text = "Row 4 - Cell 2" },
+                            new ControlTableCell() { Text = "Row 4 - Cell 3" }
+                        )
+                    )
+            );
+
+            Stage.AddItemProperty
+            (
+                typeof(ControlTableRow),
                 "AddRow",
                 "The `AddRow` function adds a new row to a table, ensuring structural consistency and proper data integration.",
                 @"
@@ -486,8 +525,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table
                     )
             );
 
-            Stage.AddItem
+            Stage.AddItemProperty
             (
+                typeof(ControlTableRow),
                 "PrimaryAction",
                 "Defines the primary user action, typically executed on a standard click to open a dialog or perform the main operation.",
                 "PrimaryAction = new ActionModal(\"modal\")",
@@ -523,8 +563,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table
                 }
             );
 
-            Stage.AddItem
+            Stage.AddItemProperty
             (
+                typeof(ControlTableRow),
                 "SecondaryAction",
                 "Defines the secondary user action, often triggered by a double‑click to open a dialog or perform an alternative operation.",
                 "SecondaryAction = new ActionModal(\"modal\")",

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using WebExpress.WebUI.WebControl;
 
@@ -13,6 +14,7 @@ namespace WebExpress.Tutorial.WebUI.Model
         private readonly Act _mainAct = new();
         private readonly List<Act> _propertyActs = [];
         private readonly List<Act> _itemActs = [];
+        private readonly List<Act> _itemPropertyActs = [];
         private readonly List<Event> _events = [];
 
         /// <summary>  
@@ -77,6 +79,11 @@ namespace WebExpress.Tutorial.WebUI.Model
         public IEnumerable<Act> ItemActs => _itemActs;
 
         /// <summary>  
+        /// Returns the collection of item acts associated with the stage.  
+        /// </summary>  
+        public IEnumerable<Act> ItemPropertyActs => _itemPropertyActs;
+
+        /// <summary>  
         /// Returns the collection of events associated with the stage.  
         /// </summary>  
         public IEnumerable<Event> Events => _events;
@@ -115,25 +122,31 @@ namespace WebExpress.Tutorial.WebUI.Model
 
         /// <summary>  
         /// Adds a new item act to the stage.  
-        /// </summary>  
+        /// </summary>
+        /// <param name="itemType">
+        /// The type of the item to which the property is associated.
+        /// </param>
         /// <param name="propertyName">The name of the property associated with the act.</param>  
         /// <param name="description">A description of the act, providing context or details.</param>  
         /// <param name="code">The example code or script associated with the act.</param>  
         /// <param name="controls">The controls that are part of this act.</param>  
-        public void AddItem(string propertyName, string description, string code, params IControl[] controls)
+        public void AddItem(Type itemType, string propertyName, string description, string code, params IControl[] controls)
         {
-            AddItem(propertyName, description, null, code, controls);
+            AddItem(itemType, propertyName, description, null, code, controls);
         }
 
         /// <summary>  
         /// Adds a new item act to the stage.  
         /// </summary>  
+        /// <param name="itemType">
+        /// The type of the item to which the property is associated.
+        /// </param>
         /// <param name="propertyName">The name of the property associated with the act.</param>  
         /// <param name="description">A description of the act, providing context or details.</param>  
         /// <param name="callout">The callout text providing additional information or hints.</param>  
         /// <param name="code">The example code or script associated with the act.</param>  
         /// <param name="controls">The controls that are part of this act.</param>  
-        public void AddItem(string propertyName, string description, string callout, string code, params IControl[] controls)
+        public void AddItem(Type itemType, string propertyName, string description, string callout, string code, params IControl[] controls)
         {
             _itemActs.Add(new Act()
             {
@@ -141,7 +154,76 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Description = description,
                 Callout = callout,
                 Code = code,
-                Controls = controls
+                Controls = controls,
+                Type = itemType
+            });
+        }
+
+        /// <summary>
+        /// Adds a property definition to the item, including metadata and 
+        /// associated controls.
+        /// </summary>
+        /// <param name="itemType">
+        /// The type of the item to which the property is associated.
+        /// </param>
+        /// <param name="propertyName">
+        /// The name of the property to add.
+        /// </param>
+        /// <param name="description">
+        /// A description of the property's purpose or usage.
+        /// </param>
+        /// <param name="code">
+        /// A code or identifier for the property.
+        /// </param>
+        /// <param name="controls">
+        /// An array of controls associated with the property. Can be empty if no 
+        /// controls are required.
+        /// </param>
+        public void AddItemProperty(Type itemType, string propertyName, string description, string code, params IControl[] controls)
+        {
+            _itemPropertyActs.Add(new Act()
+            {
+                Name = propertyName,
+                Description = description,
+                Code = code,
+                Controls = controls,
+                Type = itemType
+            });
+        }
+
+        /// <summary>
+        /// Adds a property definition to the item, including metadata and 
+        /// associated controls.
+        /// </summary>
+        /// <param name="itemType">
+        /// The type of the item to which the property is associated.
+        /// </param>
+        /// <param name="propertyName">
+        /// The name of the property to add.
+        /// </param>
+        /// <param name="description">
+        /// A description of the property's purpose or usage.
+        /// </param>
+        /// <param name="callout">
+        /// An optional callout or additional information related to the property.
+        /// </param>
+        /// <param name="code">
+        /// A code or identifier for the property.
+        /// </param>
+        /// <param name="controls">
+        /// An array of controls associated with the property. Can be empty if no 
+        /// controls are required.
+        /// </param>
+        public void AddItemProperty(Type itemType, string propertyName, string description, string callout, string code, params IControl[] controls)
+        {
+            _itemPropertyActs.Add(new Act()
+            {
+                Name = propertyName,
+                Description = description,
+                Callout = callout,
+                Code = code,
+                Controls = controls,
+                Type = itemType
             });
         }
 

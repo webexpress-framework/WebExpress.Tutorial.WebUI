@@ -177,6 +177,24 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.AddItem
             (
+                typeof(ControlKanbanSwimlane),
+                "ControlKanbanSwimlane",
+                "A `ControlKanbanSwimlane` represents a horizontal grouping within a Kanban board, used to organize items into meaningful categories such as teams, priorities, or workflow segments. Each swimlane can contain multiple columns and provides an additional layer of structure beyond the standard Kanban column layout. By visually separating items across lanes, `ControlKanbanSwimlane` helps users focus on specific subsets of work, compare progress across groups, and maintain clarity in complex boards. Swimlanes support expandable behavior, allowing users to collapse or expand sections to control visual density and streamline navigation.",
+                "new ControlKanbanSwimlane(\"height\", \"Height\", true)",
+                new ControlKanban(RandomId.Create())
+                .Add
+                (
+                    new ControlKanbanColumn("todo", "To Do", "100%")
+                )
+                .Add
+                (
+                    new ControlKanbanSwimlane("height", "Height")
+                )
+            );
+
+            Stage.AddItemProperty
+            (
+                typeof(ControlKanbanSwimlane),
                 "Expanded",
                 "Determines whether the swimlane is currently expanded or collapsed. When set to true, the swimlane displays all contained items and controls. When set to false, the swimlane is collapsed and only its header remains visible. This property is typically used to manage visual density, reduce clutter, and allow users to focus on selected sections within a Kanban board.",
                 "new ControlKanbanSwimlane(\"height\", \"Height\", true)",

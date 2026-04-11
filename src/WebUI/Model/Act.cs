@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using WebExpress.WebUI.WebControl;
 
 namespace WebExpress.Tutorial.WebUI.Model
@@ -39,5 +40,10 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// Gets or sets the example code associated with the control descriptor.
         /// </summary>
         public string Code { get; set; }
+
+        /// <summary>
+        /// Gets or sets the type associated with the current instance (null for default).
+        /// </summary>
+        public Type Type { get; set; }
     }
 }

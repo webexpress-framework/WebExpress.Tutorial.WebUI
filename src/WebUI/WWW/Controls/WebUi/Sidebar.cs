@@ -74,6 +74,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.AddItem
             (
+                typeof(ControlSidebarItemHeader),
                 "ControlSidebarItemHeader",
                 @"The `ControlSidebarItemHeader` component represents a static, non-interactive header element within the sidebar. It is typically used to visually separate groups of controls or to label sections for better orientation and readability. The header displays a simple text label and does not respond to user interaction. When the sidebar is in its default layout, usually on larger screens. The header is fully visible and helps structure the sidebar content. However, when the viewport width falls below the defined breakpoint, triggering the reduced layout mode, the header is automatically hidden.",
                 @"
@@ -85,6 +86,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.AddItem
             (
+                typeof(ControlSidebarItemDivider),
                 "ControlSidebarItemDivider",
                 @"Inserts a visual divider between sidebar items to improve structure and readability. The divider is purely decorative and does not respond to interaction. By setting `Mode = TypeSidebarMode.Hide`, the divider is automatically hidden when the sidebar enters reduced mode.",
                 @"
@@ -98,6 +100,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.AddItem
             (
+                typeof(ControlSidebarItemLink),
                 "ControlSidebarItemLink",
                 @"Adds clickable link items to the sidebar, typically used for navigation or external references. Each link includes an icon and label. Links can be conditionally hidden in reduced mode using `Mode = TypeSidebarMode.Hide`, or made dismissible by setting `Dismissibility = TypeDismissibilitySidebar.Dismissible`.",
                 @"
@@ -147,6 +150,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.AddItem
             (
+                typeof(ControlSidebarItemControl),
                 "ControlSidebarItemControl",
                 @"Embeds a custom content block into the sidebar. This item can host arbitrary controls such as text, buttons, sliders, or other UI elements, making it highly flexible for contextual content. An optional icon may be displayed alongside the content to provide visual cues or reinforce meaning. The Mode property controls how the item behaves in responsive layouts:
                   - `Mode = TypeSidebarModeExtended.Hide`: will hide the item when the sidebar enters reduced mode.
@@ -181,6 +185,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.AddItem
             (
+                typeof(ControlSidebarItemControl),
                 "ControlSidebarItemIcon",
                 @"Adds a freely placeable icon element to the sidebar, optionally combined with an edit button on hover and an optional modal. In compact mode the icon is displayed small, otherwise large. Optionally, a text label can be shown below the icon. The properties `IconClass`, `IconImage`, `IconText`, `IconEdit`, and `IconEditModal` control appearance and behavior.",
                 @"

@@ -246,6 +246,56 @@ namespace WebExpress.Tutorial.WebUI.WebPage
 
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
+
+                foreach (var subAct in Stage.ItemPropertyActs.Where(x => x.Type == supportedAct.Type))
+                {
+                    visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null)
+                    {
+                        BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light),
+                        Styles = ["max-width: 80em;"],
+                        Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                    }
+                        .Add
+                        (
+                            new ControlText()
+                            {
+                                Text = subAct.Name,
+                                Format = TypeFormatText.H5,
+                                Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                            },
+                            new ControlText()
+                            {
+                                Text = subAct.Description,
+                                Format = TypeFormatText.Markdown
+                            },
+                            !string.IsNullOrWhiteSpace(subAct.Callout)
+                                ? new ControlPanelCallout(null, new ControlText()
+                                {
+                                    Text = subAct.Callout
+                                })
+                                {
+                                    Color = new PropertyColorCallout(TypeColorCallout.Info),
+                                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                                }
+                                : null,
+                            new ControlPanelCard(null, [.. subAct.Controls])
+                            {
+                                BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light),
+                                Styles = ["max-width: 80em;"],
+                                Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                            },
+                            new ControlCode()
+                            {
+                                Code = TrimIndentation(subAct.Code),
+                                LineNumbers = true,
+                                Styles = ["max-width: 91em;"],
+                                Language = TypeLanguage.CSharp,
+
+                                Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                            }
+                        )
+                    );
+                }
             }
 
             if (Stage.Events.Any())

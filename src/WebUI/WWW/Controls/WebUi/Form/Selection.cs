@@ -80,6 +80,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
 
             Stage.AddItem
             (
+                typeof(ControlFormItemInputSelectionItem),
+                "ControlFormItemInputSelectionItem",
+                "A `ControlFormItemInputSelectionItem` represents a single selectable option within a selection input control. Each item defines the label, value, and visual appearance used to present choices to the user. Selection items can indicate the currently chosen option, apply custom styling, and provide additional metadata when needed.",
+                "new ControlFormItemInputSelectionItem() { Label = \"Label\", LabelColor = TypeColorSelection.Primary, Selected = true }",
+                new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = "Label", LabelColor = TypeColorSelection.Default, Selected = true })
+                {
+                })
+            );
+
+            Stage.AddItemProperty
+            (
+                typeof(ControlFormItemInputSelectionItem),
                 "Text",
                 "The `Text` property of a `Select` control item serves as a short form of the option text and is displayed in the main area of the control once a selection is made. Instead of showing the full descriptive text of an option, the label ensures a concise and clear representation of the chosen selection. When the label is defined as an internationalization key.",
                 "new ControlFormItemInputSelectionItem() { Text = \"Text 1\" }",
@@ -88,8 +100,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 })
             );
 
-            Stage.AddItem
+            Stage.AddItemProperty
             (
+                typeof(ControlFormItemInputSelectionItem),
                 "Content",
                 "The `Content` property of a `Select` control item represents the full description of the selection option in the dropdown list. Unlike the Label property, which provides a shortened display in the main area of the control, Content contains the complete text of the option.",
                 "new ControlFormItemInputSelectionItem() { Text=\"Text 2\", Content = new ControlText() { Text = \"Full **description** of the selection option\", Format = TypeFormatText.Markdown } }",
@@ -98,8 +111,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 })
             );
 
-            Stage.AddItem
+            Stage.AddItemProperty
             (
+                typeof(ControlFormItemInputSelectionItem),
                 "Icon",
                 "The `Icon` property defines the symbol assigned to a item. It provides a visual representation and identification of a option within the list structure, enhancing user guidance and recognition. Icons can be either system icons or custom icons, allowing flexibility in design and functionality. System icons offer a standardized visual language, ensuring consistency across applications, while custom icons enable tailored representations to meet specific user needs.",
                 "new ControlFormItemInputSelectionItem() { Icon = new IconHome() }",
@@ -108,8 +122,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 })
             );
 
-            Stage.AddItem
+            Stage.AddItemProperty
             (
+                typeof(ControlFormItemInputSelectionItem),
                 "Selected",
                 "The `Icon` property defines the symbol assigned to a item. It provides a visual representation and identification of a option within the list structure, enhancing user guidance and recognition. Icons can be either system icons or custom icons, allowing flexibility in design and functionality. System icons offer a standardized visual language, ensuring consistency across applications, while custom icons enable tailored representations to meet specific user needs.",
                 "new ControlFormItemInputSelectionItem() { Label = \"Label\", Selected = true }",
@@ -118,8 +133,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 })
             );
 
-            Stage.AddItem
+            Stage.AddItemProperty
             (
+                typeof(ControlFormItemInputSelectionItem),
                 "LabelColor",
                 "The `LabelColor` property defines the signature color of a `Select` control item’s label, visually highlighting the selected option. By customizing the color, the label can be styled to match the user interface or a specific design scheme, ensuring a consistent and appealing presentation.",
                 "new ControlFormItemInputSelectionItem() { Label = \"Label\", LabelColor = TypeColorSelection.Primary, Selected = true }",
