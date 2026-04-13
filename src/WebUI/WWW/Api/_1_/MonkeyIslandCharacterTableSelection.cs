@@ -103,7 +103,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                         },
                         new RestApiTableCell()
                         {
-                            Content = string.Join(";", ViewModel.GetMonkeyIslandLocations().Take(1).Select(x => x.Id))
+                            Content = string.Join(";", ViewModel.MonkeyIslandLocations.Take(1).Select(x => x.Id))
                         }
                     },
                     Image = (x.Icon is ImageIcon)

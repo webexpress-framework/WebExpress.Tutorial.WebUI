@@ -1,4 +1,5 @@
-﻿using WebExpress.WebCore.WebApplication;
+﻿using WebExpress.WebCore;
+using WebExpress.WebCore.WebApplication;
 using WebExpress.WebCore.WebAttribute;
 
 namespace WebExpress.Tutorial.WebUI
@@ -23,6 +24,8 @@ namespace WebExpress.Tutorial.WebUI
         public Application(IApplicationContext applicationContext)
         {
             ApplicationContext = applicationContext;
+
+            WebEx.ComponentHub.IdentityManager.RegisterIdentityProvider(new WebIdentity.IdentityProvider(), applicationContext);
         }
 
         /// <summary>
@@ -30,6 +33,7 @@ namespace WebExpress.Tutorial.WebUI
         /// </summary>
         public void Run()
         {
+
         }
     }
 }

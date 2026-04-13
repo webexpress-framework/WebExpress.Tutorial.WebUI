@@ -42,6 +42,11 @@ namespace WebExpress.Tutorial.WebUI.Model
         public static List<Curse> MonkeyIslandCurses { get; } = [.. GetMonkeyIslandCurses()];
 
         /// <summary>
+        /// Returns the list of groups associated with Monkey Island.
+        /// </summary>
+        public static List<Group> MonkeyIslandGroups { get; } = [.. GetMonkeyIslandGroups()];
+
+        /// <summary>
         /// Retrieves a collection of characters from the Monkey Island universe.
         /// </summary>
         /// <returns>An enumerable of objects, each representing a notable character from the Monkey Island series.</returns>
@@ -63,7 +68,8 @@ namespace WebExpress.Tutorial.WebUI.Model
                         x.Name == "Escape from Monkey Island" ||
                         x.Name == "Tales of Monkey Island" ||
                         x.Name == "Return to Monkey Island"
-                    )
+                    ),
+                Groups = GetMonkeyIslandGroups().Where(g => g.Name == "Crew of the Sea Monkey")
             };
 
             yield return new Character
@@ -813,7 +819,7 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// Retrieves a collection of inventory items.
         /// </summary>
         /// <returns>An collection containing the inventory items.</returns>
-        public static IEnumerable<Inventory> GetMonkeyIslandInventories()
+        private static IEnumerable<Inventory> GetMonkeyIslandInventories()
         {
             // preferences / key items
             yield return new Inventory
@@ -951,7 +957,7 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// Retrieves a collection of locations.
         /// </summary>
         /// <returns>An collection containing the locations.</returns>
-        public static IEnumerable<Location> GetMonkeyIslandLocations()
+        private static IEnumerable<Location> GetMonkeyIslandLocations()
         {
             // locations from "The Secret of Monkey Island"
             // melee island
@@ -1115,7 +1121,7 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// Retrieves a collection of Monkey Island games.
         /// </summary>
         /// <returns>A collection containing the games.</returns>
-        public static IEnumerable<Game> GetMonkeyIslandGames()
+        private static IEnumerable<Game> GetMonkeyIslandGames()
         {
             yield return new Game
             {
@@ -1188,7 +1194,7 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// <returns>
         /// A collection of quickfilters for categorizing Monkey Island games.
         /// </returns>
-        public static IEnumerable<QuickfilterGame> GetMonkeyIslandQuickfilterGames()
+        private static IEnumerable<QuickfilterGame> GetMonkeyIslandQuickfilterGames()
         {
             yield return new QuickfilterGame
             {
@@ -1230,7 +1236,7 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// Retrieves a complete collection of curses from the Monkey Island universe.
         /// </summary>
         /// <returns>A collection containing all known curses.</returns>
-        public static IEnumerable<Curse> GetMonkeyIslandCurses()
+        private static IEnumerable<Curse> GetMonkeyIslandCurses()
         {
             yield return new Curse
             {
@@ -1337,7 +1343,7 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// Retrieves a complete collection of boats from the Monkey Island universe.
         /// </summary>
         /// <returns>A collection containing all known boats.</returns>
-        public static IEnumerable<Boat> GetMonkeyIslandBoats()
+        private static IEnumerable<Boat> GetMonkeyIslandBoats()
         {
             yield return new Boat
             {
@@ -1557,6 +1563,126 @@ namespace WebExpress.Tutorial.WebUI.Model
                 IsSupernatural = false,
                 AppearsIn = "Return to Monkey Island",
                 Crew = "Elite pirates loyal to the Pirate Queen"
+            };
+        }
+
+        /// <summary>
+        /// Retrieves a collection of all known groups from the Monkey Island universe,
+        /// including crews, factions, island communities, and special organizations.
+        /// </summary>
+        /// <returns>A collection containing all Monkey Island groups.</returns>
+        private static IEnumerable<Group> GetMonkeyIslandGroups()
+        {
+            yield return new Group
+            {
+                Id = Guid.Parse("A1A3F8C7-0F3E-4F1E-9C1C-1A2B3C4D5E6F"),
+                Name = "Crew of the Sea Monkey",
+                Policies = ["WebExpress.WebCore.WebPolicies.AuthenticatedAccessPolicy"]
+            };
+
+            yield return new Group
+            {
+                Id = Guid.Parse("B2B4E9D8-1A4F-4A2E-8D2D-2B3C4D5E6F70"),
+                Name = "Crew of the Sea Cucumber",
+                Policies = ["WebExpress.WebCore.WebPolicies.AuthenticatedAccessPolicy"]
+            };
+
+            yield return new Group
+            {
+                Id = Guid.Parse("C3C5F0E9-2B5F-4B3E-9E3E-3C4D5E6F7081"),
+                Name = "International Pirate Association (IPA)",
+                Policies = ["WebExpress.WebCore.WebPolicies.AuthenticatedAccessPolicy"]
+            };
+
+            yield return new Group
+            {
+                Id = Guid.Parse("D4D601FA-3C6F-4C4E-A04F-4D5E6F708192"),
+                Name = "Monkey Island Cannibals",
+                Policies = ["WebExpress.WebCore.WebPolicies.AuthenticatedAccessPolicy"]
+            };
+
+            yield return new Group
+            {
+                Id = Guid.Parse("E5E7120B-4D7F-4D5E-B15F-5E6F708192A3"),
+                Name = "Scumm Bar Pirates",
+                Policies = ["WebExpress.WebCore.WebPolicies.AuthenticatedAccessPolicy"]
+            };
+
+            yield return new Group
+            {
+                Id = Guid.Parse("F6F8231C-5E80-4E6E-C26F-6F708192A3B4"),
+                Name = "Booty Island Pirates",
+                Policies = ["WebExpress.WebCore.WebPolicies.AuthenticatedAccessPolicy"]
+            };
+
+            yield return new Group
+            {
+                Id = Guid.Parse("07A9342D-6F91-4F7E-D37F-708192A3B4C5"),
+                Name = "Phatt Island Pirates",
+                Policies = ["WebExpress.WebCore.WebPolicies.AuthenticatedAccessPolicy"]
+            };
+
+            yield return new Group
+            {
+                Id = Guid.Parse("18BA453E-70A2-408E-E48F-8192A3B4C5D6"),
+                Name = "Plunder Island Pirates",
+                Policies = ["WebExpress.WebCore.WebPolicies.AuthenticatedAccessPolicy"]
+            };
+
+            yield return new Group
+            {
+                Id = Guid.Parse("29CB564F-81B3-419E-F59F-92A3B4C5D6E7"),
+                Name = "LeChuck's Ghost Pirates",
+                Policies = ["WebExpress.WebCore.WebPolicies.AuthenticatedAccessPolicy"]
+            };
+
+            yield return new Group
+            {
+                Id = Guid.Parse("3ADC6750-92C4-42AE-069F-A3B4C5D6E7F8"),
+                Name = "LeChuck's Zombie Pirates",
+                Policies = ["WebExpress.WebCore.WebPolicies.AuthenticatedAccessPolicy"]
+            };
+
+            yield return new Group
+            {
+                Id = Guid.Parse("4BED7861-A3D5-43BE-17AF-B4C5D6E7F809"),
+                Name = "LeChuck's Demon Pirates",
+                Policies = ["WebExpress.WebCore.WebPolicies.AuthenticatedAccessPolicy"]
+            };
+
+            yield return new Group
+            {
+                Id = Guid.Parse("5CFE8972-B4E6-44CE-28BF-C5D6E7F8091A"),
+                Name = "Mêlée Island Guards",
+                Policies = ["WebExpress.WebCore.WebPolicies.AuthenticatedAccessPolicy"]
+            };
+
+            yield return new Group
+            {
+                Id = Guid.Parse("6D0F9A83-C5F7-45DE-39CF-D6E7F8091A2B"),
+                Name = "Citizens of Mêlée Island",
+                Policies = ["WebExpress.WebCore.WebPolicies.AuthenticatedAccessPolicy"]
+            };
+
+            yield return new Group
+            {
+                Id = Guid.Parse("7E10AB94-D608-46EE-4ADF-E7F8091A2B3C"),
+                Name = "Fettuccini Brothers Circus",
+                Policies = ["WebExpress.WebCore.WebPolicies.AuthenticatedAccessPolicy"]
+            };
+
+            yield return new Group
+            {
+                Id = Guid.Parse("8F21BCA5-E719-47FE-5BEF-F8091A2B3C4D"),
+                Name = "Men of Low Moral Fiber",
+                Policies = ["WebExpress.WebCore.WebPolicies.AuthenticatedAccessPolicy"]
+            };
+
+            yield return new Group
+            {
+                Id = Guid.Parse("9032CDB6-F82A-480E-6CFF-091A2B3C4D5E"),
+                Name = "Spitting Contest Competitors",
+                Policies = ["WebExpress.WebCore.WebPolicies.AuthenticatedAccessPolicy"]
             };
         }
     }

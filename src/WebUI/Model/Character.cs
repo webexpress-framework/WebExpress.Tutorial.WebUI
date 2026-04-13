@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using WebExpress.Tutorial.WebUI.WebConverter;
 using WebExpress.WebApp.WebAttribute;
 using WebExpress.WebCore.WebDomain;
+using WebExpress.WebCore.WebIdentity;
 using WebExpress.WebIndex;
 using WebExpress.WebUI.WebIcon;
 
@@ -11,7 +12,7 @@ namespace WebExpress.Tutorial.WebUI.Model
     /// <summary>
     /// Represents a data entity for a table.
     /// </summary>
-    public class Character : IIndexItem, IDomain
+    public class Character : IIndexItem, IDomain, IIdentity
     {
         /// <summary>
         /// Returns or sets the identifier of the table data.
@@ -39,6 +40,21 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// Returns the icon associated with this character.
         /// </summary>
         public ImageIcon Icon { get; set; }
+
+        /// <summary>
+        /// Returns the email address associated with the user.
+        /// </summary>
+        public string Email => "";
+
+        /// <summary>
+        /// Returns the hashed representation of the user's password.
+        /// </summary>
+        public string PasswordHash => "";
+
+        /// <summary>
+        /// Returns or sets the collection of identity groups associated with the current user.
+        /// </summary>
+        public IEnumerable<IIdentityGroup> Groups { get; set; }
 
         /// <summary>
         /// Returns a string representation of the object, including its name, description, and appearances.

@@ -69,6 +69,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
 
             Stage.AddProperty
             (
+                "StickySelection",
+                "Enables the sticky selection mode. The control may start empty, but once a value has been selected, it can no longer be cleared through the UI. The selected item becomes persistent and can only be replaced, not removed. The remove icon and clear actions are disabled, while programmatic clearing remains possible.",
+                "StickySelection = true",
+                new ControlForm(null, new ControlFormItemInputSelection(null, [.. _options])
+                {
+                    StickySelection = true
+                })
+            );
+
+            Stage.AddProperty
+            (
                 "Placeholder",
                 "Sets the placeholder of the search field – a temporary text display that informs the user about the expected input. The placeholder disappears once the user starts typing a search query.",
                 "Placeholder = \"Placeholder\"",
