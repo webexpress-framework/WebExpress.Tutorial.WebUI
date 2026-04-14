@@ -30,7 +30,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
         private readonly IFragmentContext _fragmentContext;
 
         /// <summary>
-        /// Returns the control tree used to manage and organize UI controls.
+        /// Gets the control tree used to manage and organize UI controls.
         /// </summary>
         public ControlTree Tree { get; } = new ControlTree("webui-control-tree")
         {

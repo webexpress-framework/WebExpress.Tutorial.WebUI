@@ -9,22 +9,22 @@ namespace WebExpress.Tutorial.WebUI.Model
     public class Location : IIndexItem
     {
         /// <summary>
-        /// Returns or sets the unique identifier of the location.
+        /// Gets or sets the unique identifier of the location.
         /// </summary>
         public Guid Id { get; set; } = Guid.NewGuid();
 
         /// <summary>
-        /// Returns or sets the display name of the location.
+        /// Gets or sets the display name of the location.
         /// </summary>
         public string Text { get; set; }
 
         /// <summary>
-        /// Returns or sets a short description of the location.
+        /// Gets or sets a short description of the location.
         /// </summary>
         public string Description { get; set; }
 
         /// <summary>
-        /// Returns or sets the island the location belongs to (e.g., "Melee Island", "Monkey Island").
+        /// Gets or sets the island the location belongs to (e.g., "Melee Island", "Monkey Island").
         /// </summary>
         public string Island { get; set; }
 

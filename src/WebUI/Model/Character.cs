@@ -15,44 +15,44 @@ namespace WebExpress.Tutorial.WebUI.Model
     public class Character : IIndexItem, IDomain, IIdentity
     {
         /// <summary>
-        /// Returns or sets the identifier of the table data.
+        /// Gets or sets the identifier of the table data.
         /// </summary>
         public Guid Id { get; set; } = Guid.NewGuid();
 
         /// <summary>
-        /// Returns or sets the name associated with the object.
+        /// Gets or sets the name associated with the object.
         /// </summary>
         [ValidateRequired()]
         public string Name { get; set; }
 
         /// <summary>
-        /// Returns or sets the description associated with the object.
+        /// Gets or sets the description associated with the object.
         /// </summary>
         public string Description { get; set; }
 
         /// <summary>
-        /// Returns or sets the name of the context or entity where this item appears.
+        /// Gets or sets the name of the context or entity where this item appears.
         /// </summary>
         [RestConverter<AppearsConverter>()]
         public IEnumerable<Game> AppearsIn { get; set; }
 
         /// <summary>
-        /// Returns the icon associated with this character.
+        /// Gets or sets the icon associated with this character.
         /// </summary>
         public ImageIcon Icon { get; set; }
 
         /// <summary>
-        /// Returns the email address associated with the user.
+        /// Gets the email address associated with the user.
         /// </summary>
         public string Email => "";
 
         /// <summary>
-        /// Returns the hashed representation of the user's password.
+        /// Gets the hashed representation of the user's password.
         /// </summary>
         public string PasswordHash => "";
 
         /// <summary>
-        /// Returns or sets the collection of identity groups associated with the current user.
+        /// Gets or sets the collection of identity groups associated with the current user.
         /// </summary>
         public IEnumerable<IIdentityGroup> Groups { get; set; }
 

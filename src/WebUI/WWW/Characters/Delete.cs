@@ -17,7 +17,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Characters
     public sealed class Delete : IPage<VisualTreeWebApp>
     {
         /// <summary>
-        /// Returns the form control used to manage character rest settings.
+        /// Gets the form control used to manage character rest settings.
         /// </summary>
         public ControlFormCharacterDelete Form { get; } = new ControlFormCharacterDelete(null)
         {

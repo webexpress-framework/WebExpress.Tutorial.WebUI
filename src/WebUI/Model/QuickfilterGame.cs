@@ -10,17 +10,17 @@ namespace WebExpress.Tutorial.WebUI.Model
     public class QuickfilterGame : IIndexItem
     {
         /// <summary>
-        /// Returns or sets the unique identifier for the filter.
+        /// Gets or sets the unique identifier for the filter.
         /// </summary>
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Returns or sets the name associated with the current filter.
+        /// Gets or sets the name associated with the current filter.
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// Returns or sets the filter logic applied to a game.
+        /// Gets or sets the filter logic applied to a game.
         /// </summary>
         public Func<Game, bool> Predicate { get; set; }
 

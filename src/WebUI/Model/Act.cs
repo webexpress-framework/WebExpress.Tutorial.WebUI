@@ -11,17 +11,17 @@ namespace WebExpress.Tutorial.WebUI.Model
     public class Act
     {
         /// <summary>
-        /// Returns or sets the name of the act.
+        /// Gets or sets the name of the act.
         /// </summary>
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
-        /// Returns the list of controls associated with this descriptor.
+        /// Gets or sets the list of controls associated with this descriptor.
         /// </summary>
         public IEnumerable<IControl> Controls { get; set; } = [];
 
         /// <summary>  
-        /// Returns or sets the dark mode controls of the main act.  
+        /// Gets or sets the dark mode controls of the main act.  
         /// This property allows access to the controls in the main act or assigns a new control to it.  
         /// </summary>  
         public IEnumerable<IControl> DarkControls { get; set; } = [];

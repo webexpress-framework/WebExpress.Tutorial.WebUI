@@ -16,7 +16,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
     public abstract class PageControl : IPage<VisualTreeWebApp>, IScopeControl, IScopeGeneral
     {
         /// <summary>
-        /// Returns the stage where the acts (Main Act and Supporting Acts) come to life.
+        /// Gets the stage where the acts (Main Act and Supporting Acts) come to life.
         /// </summary>
         protected Stage Stage { get; } = new Stage();
 

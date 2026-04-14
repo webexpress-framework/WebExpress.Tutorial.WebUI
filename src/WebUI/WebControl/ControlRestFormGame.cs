@@ -10,7 +10,7 @@ namespace WebExpress.Tutorial.WebUI.WebControl
     public class ControlRestFormGame : ControlForm
     {
         /// <summary>
-        /// Returns or sets the title of the game.
+        /// Gets or sets the title of the game.
         /// </summary>
         public ControlFormItemInputText GameTitle { get; } = new ControlFormItemInputText
         {
@@ -23,7 +23,7 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         };
 
         /// <summary>
-        /// Returns or sets the description of the game.
+        /// Gets or sets the description of the game.
         /// </summary>
         public ControlFormItemInputText Description { get; } = new ControlFormItemInputText
         {
@@ -37,7 +37,7 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         };
 
         /// <summary>
-        /// Returns or sets the release year of the game.
+        /// Gets or sets the release year of the game.
         /// </summary>
         public ControlFormItemInputText ReleaseYear { get; } = new ControlFormItemInputText
         {
@@ -61,7 +61,7 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         };
 
         /// <summary>
-        /// Returns the submit button control for the form.
+        /// Gets the submit button control for the form.
         /// </summary>
         public ControlFormItemButtonSubmit Submit { get; } = new ControlFormItemButtonSubmit
         {

@@ -19,7 +19,7 @@ namespace WebExpress.Tutorial.WebUI.WebControl
     public class ControlFormCharacterEdit : ControlRestFormEdit
     {
         /// <summary>
-        /// Returns or sets the name associated with the object.
+        /// Gets or sets the name associated with the object.
         /// </summary>
         public ControlFormItemInputText CharacterName { get; } = new ControlFormItemInputText
         {
@@ -33,7 +33,7 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         };
 
         /// <summary>
-        /// Returns or sets the description associated with the object.
+        /// Gets or sets the description associated with the object.
         /// </summary>
         public ControlFormItemInputText Description { get; } = new ControlFormItemInputText
         {
@@ -47,7 +47,7 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         };
 
         /// <summary>
-        /// Returns or sets the name of the context or entity where this item appears.
+        /// Gets or sets the name of the context or entity where this item appears.
         /// </summary>
         public ControlFormItemInputTag AppearsIn { get; } = new ControlFormItemInputTag
         {

@@ -11,38 +11,38 @@ namespace WebExpress.Tutorial.WebUI.Model
     public static class ViewModel
     {
         /// <summary>
-        /// Returns a collection of sample table data.
+        /// Gets a collection of sample table data.
         /// </summary>
         public static List<Character> MonkeyIslandCharacters { get; } = [.. GetMonkeyIslandCharacters()];
 
         /// <summary>
-        /// Returns the list of inventories available in Monkey Island.
+        /// Gets the list of inventories available in Monkey Island.
         /// </summary>
         public static List<Inventory> MonkeyIslandInventories { get; } = [.. GetMonkeyIslandInventories()];
 
         /// <summary>
-        /// Returns the list of predefined locations in Monkey Island.
+        /// Gets the list of predefined locations in Monkey Island.
         /// </summary>
         public static List<Location> MonkeyIslandLocations { get; } = [.. GetMonkeyIslandLocations()];
 
         /// <summary>
-        /// Returns a list of Monkey Island games.
+        /// Gets a list of Monkey Island games.
         /// </summary>
         public static List<Game> MonkeyIslandGames { get; } = [.. GetMonkeyIslandGames()];
 
         /// <summary>
-        /// Returns a read-only list of quick filter games related to the 
+        /// Gets a read-only list of quick filter games related to the 
         /// Monkey Island series.
         /// </summary>
         public static List<QuickfilterGame> MonkeyIslandQuickfilterGames { get; } = [.. GetMonkeyIslandQuickfilterGames()];
 
         /// <summary>
-        /// Returns the list of curses associated with Monkey Island.
+        /// Gets the list of curses associated with Monkey Island.
         /// </summary>
         public static List<Curse> MonkeyIslandCurses { get; } = [.. GetMonkeyIslandCurses()];
 
         /// <summary>
-        /// Returns the list of groups associated with Monkey Island.
+        /// Gets the list of groups associated with Monkey Island.
         /// </summary>
         public static List<Group> MonkeyIslandGroups { get; } = [.. GetMonkeyIslandGroups()];
 

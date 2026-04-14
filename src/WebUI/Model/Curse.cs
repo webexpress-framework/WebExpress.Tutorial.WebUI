@@ -9,37 +9,37 @@ namespace WebExpress.Tutorial.WebUI.Model
     public class Curse : IIndexItem
     {
         /// <summary>
-        /// Returns or sets the identifier of the curse.
+        /// Gets or sets the identifier of the curse.
         /// </summary>
         public Guid Id { get; set; } = Guid.NewGuid();
 
         /// <summary>
-        /// Returns or sets the name of the curse.
+        /// Gets or sets the name of the curse.
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// Returns or sets the description of the curse.
+        /// Gets or sets the description of the curse.
         /// </summary>
         public string Description { get; set; }
 
         /// <summary>
-        /// Returns or sets the origin or source of the curse (e.g. Voodoo, Artifact, Myth).
+        /// Gets or sets the origin or source of the curse (e.g. Voodoo, Artifact, Myth).
         /// </summary>
         public string Origin { get; set; }
 
         /// <summary>
-        /// Returns or sets the effect or consequence of the curse.
+        /// Gets or sets the effect or consequence of the curse.
         /// </summary>
         public string Effect { get; set; }
 
         /// <summary>
-        /// Returns or sets the method to lift or neutralize the curse.
+        /// Gets or sets the method to lift or neutralize the curse.
         /// </summary>
         public string Cure { get; set; }
 
         /// <summary>
-        /// Returns or sets the context or game part where the curse appears.
+        /// Gets or sets the context or game part where the curse appears.
         /// </summary>
         public string AppearsIn { get; set; }
 

@@ -10,22 +10,22 @@ namespace WebExpress.Tutorial.WebUI.Model
     public class Inventory : IIndexItem
     {
         /// <summary>
-        /// Returns or sets the identifier of the table data.
+        /// Gets or sets the identifier of the table data.
         /// </summary>
         public Guid Id { get; set; } = Guid.NewGuid();
 
         /// <summary>
-        /// Returns or sets the name associated with the object.
+        /// Gets or sets the name associated with the object.
         /// </summary>
         public string Text { get; set; }
 
         /// <summary>
-        /// Returns or sets the description associated with the object.
+        /// Gets or sets the description associated with the object.
         /// </summary>
         public string Description { get; set; }
 
         /// <summary>
-        /// Returns or sets the URI as a string.
+        /// Gets or sets the URI as a string.
         /// </summary>
         public IUri Uri { get; set; }
 

@@ -18,7 +18,7 @@ namespace WebExpress.Tutorial.WebUI.Model
         private readonly List<Event> _events = [];
 
         /// <summary>  
-        /// Returns or sets the description of the main act.  
+        /// Gets or sets the description of the main act.  
         /// This property provides a convenient way to access or modify the description of the Main Act directly.  
         /// </summary>  
         public string Description
@@ -28,7 +28,7 @@ namespace WebExpress.Tutorial.WebUI.Model
         }
 
         /// <summary>  
-        /// Returns or sets the controls of the main act.  
+        /// Gets or sets the controls of the main act.  
         /// This property allows access to the controls in the Main Act or assigns a new control to it.  
         /// </summary>  
         public IEnumerable<IControl> Controls
@@ -38,7 +38,7 @@ namespace WebExpress.Tutorial.WebUI.Model
         }
 
         /// <summary>  
-        /// Returns or sets the primary control of the main act.  
+        /// Gets or sets the primary control of the main act.  
         /// This property allows access to the first control in the main act or assigns a new control to it.  
         /// </summary>  
         public IControl Control
@@ -48,7 +48,7 @@ namespace WebExpress.Tutorial.WebUI.Model
         }
 
         /// <summary>  
-        /// Returns or sets the dark mode controls of the main act.  
+        /// Gets or sets the dark mode controls of the main act.  
         /// This property allows access to the controls in the main act or assigns a new control to it.  
         /// </summary>  
         public IEnumerable<IControl> DarkControls
@@ -58,7 +58,7 @@ namespace WebExpress.Tutorial.WebUI.Model
         }
 
         /// <summary>  
-        /// Returns or sets the example code associated with the main act.  
+        /// Gets or sets the example code associated with the main act.  
         /// This property allows for the retrieval or assignment of the code snippet  
         /// that represents the Main Act's functionality or behavior.  
         /// </summary>  
@@ -69,22 +69,22 @@ namespace WebExpress.Tutorial.WebUI.Model
         }
 
         /// <summary>  
-        /// Returns the collection of property acts associated with the stage.  
+        /// Gets the collection of property acts associated with the stage.  
         /// </summary>  
         public IEnumerable<Act> PropertyActs => _propertyActs;
 
         /// <summary>  
-        /// Returns the collection of item acts associated with the stage.  
+        /// Gets the collection of item acts associated with the stage.  
         /// </summary>  
         public IEnumerable<Act> ItemActs => _itemActs;
 
         /// <summary>  
-        /// Returns the collection of item acts associated with the stage.  
+        /// Gets the collection of item acts associated with the stage.  
         /// </summary>  
         public IEnumerable<Act> ItemPropertyActs => _itemPropertyActs;
 
         /// <summary>  
-        /// Returns the collection of events associated with the stage.  
+        /// Gets the collection of events associated with the stage.  
         /// </summary>  
         public IEnumerable<Event> Events => _events;
 

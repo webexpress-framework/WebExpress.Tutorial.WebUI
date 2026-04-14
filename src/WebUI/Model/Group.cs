@@ -10,17 +10,17 @@ namespace WebExpress.Tutorial.WebUI.Model
     public class Group : IIdentityGroup
     {
         /// <summary>
-        /// Returns or sets the unique identifier for this instance.
+        /// Gets or sets the unique identifier for this instance.
         /// </summary>
         public Guid Id { get; set; } = Guid.NewGuid();
 
         /// <summary>
-        /// Returns or sets the name associated with this instance.
+        /// Gets or sets the name associated with this instance.
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// Returns or sets the collection of policy names that are required for access.
+        /// Gets or sets the collection of policy names that are required for access.
         /// </summary>
         public IEnumerable<string> Policies { get; set; }
     }
