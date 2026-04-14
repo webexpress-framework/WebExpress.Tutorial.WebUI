@@ -11,7 +11,7 @@ using WebExpress.WebUI.WebFragment;
 using WebExpress.WebUI.WebIcon;
 using WebExpress.WebUI.WebPage;
 
-namespace WebExpress.Tutorial.WebUI.WebFragment.LoginPage
+namespace WebExpress.Tutorial.WebUI.WebFragment.ForbiddenPage
 {
     /// <summary>
     /// Represents a navigation item link for the info page.
@@ -23,20 +23,21 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.LoginPage
     [Scope<IScopeGeneral>]
     [Scope<IScopeAdmin>]
     [Scope<IScopeStatusPage>]
+    [Scope<IScopeLogin>]
     [Cache]
-    public sealed class LoginLinkFragment : FragmentControlNavigationItemLink
+    public sealed class ForbiddenFragment : FragmentControlNavigationItemLink
     {
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
         /// <param name="componentHub">The component hub used to manage components.</param>
         /// <param name="fragmentContext">The context in which the fragment is used.</param>
-        public LoginLinkFragment(IComponentHub componentHub, IFragmentContext fragmentContext)
+        public ForbiddenFragment(IComponentHub componentHub, IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "webexpress.tutorial.webui:loginpage.label";
-            Uri = componentHub.SitemapManager.GetUri<Login>(fragmentContext.ApplicationContext);
-            Icon = new IconPowerOff();
+            Text = "webexpress.tutorial.webui:forbiddenpage.label";
+            Uri = componentHub.SitemapManager.GetUri<Forbidden>(fragmentContext.ApplicationContext);
+            Icon = new IconLock();
         }
 
         /// <summary>
@@ -47,7 +48,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.LoginPage
         /// <returns>An HTML node representing the rendered control.</returns>
         public override IHtmlNode Render(IRenderControlContext renderContext, IVisualTreeControl visualTree)
         {
-            Active = renderContext.Endpoint is Login ? TypeActive.Active : TypeActive.None;
+            Active = renderContext.Endpoint is Forbidden ? TypeActive.Active : TypeActive.None;
 
             return base.Render(renderContext, visualTree);
         }
