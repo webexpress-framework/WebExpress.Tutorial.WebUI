@@ -380,7 +380,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     null,
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                     {
-                        Text = "None",
+                        Text = "Default",
                         AlignmentMenu = TypeAlignmentDropdownMenu.Default,
                         Color = new PropertyColorButton(TypeColorButton.Primary),
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
@@ -397,6 +397,54 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Layout = TypeLayoutFlex.Default,
                     Align = TypeAlignFlex.Center
                 }
+            );
+
+            Stage.AddItem
+            (
+                typeof(ControlDropdownItemLink),
+                "ControlDropdownItemLink",
+                "This item is displayed inside the dropdown menu and represents a selectable link that triggers a navigation or action.",
+                "new ControlDropdownItemLink()",
+                new ControlDropdown(null)
+                {
+                    Text = "ItemLink",
+                    AlignmentMenu = TypeAlignmentDropdownMenu.Default,
+                    Color = new PropertyColorButton(TypeColorButton.Primary),
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
+                }
+                    .Add(new ControlDropdownItemLink() { Text = "First Entry", Icon = new IconWrench() })
+            );
+
+            Stage.AddItem
+            (
+                typeof(ControlDropdownItemHeader),
+                "ControlDropdownItemHeader",
+                "This item is displayed inside the dropdown menu and serves as a non-interactive header used to group related actions.",
+                "new ControlDropdownItemHeader()",
+                new ControlDropdown(null)
+                {
+                    Text = "ItemHeader",
+                    AlignmentMenu = TypeAlignmentDropdownMenu.Default,
+                    Color = new PropertyColorButton(TypeColorButton.Primary),
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
+                }
+                    .Add(new ControlDropdownItemHeader() { Text = "Header" })
+            );
+
+            Stage.AddItem
+            (
+                typeof(ControlDropdownItemDivider),
+                "ControlDropdownItemDivider",
+                "This item is displayed inside the dropdown menu and is used as a visual divider to separate groups of related actions.",
+                "new ControlDropdownItemDivider()",
+                new ControlDropdown(null)
+                {
+                    Text = "ItemDivider",
+                    AlignmentMenu = TypeAlignmentDropdownMenu.Default,
+                    Color = new PropertyColorButton(TypeColorButton.Primary),
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
+                }
+                    .Add(new ControlDropdownItemDivider() { })
             );
         }
     }

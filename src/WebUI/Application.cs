@@ -1,4 +1,5 @@
-﻿using WebExpress.WebCore;
+﻿using WebExpress.Tutorial.WebUI.WWW.Api._1_;
+using WebExpress.WebCore;
 using WebExpress.WebCore.WebApplication;
 using WebExpress.WebCore.WebAttribute;
 
@@ -26,6 +27,8 @@ namespace WebExpress.Tutorial.WebUI
             ApplicationContext = applicationContext;
 
             WebEx.ComponentHub.IdentityManager.RegisterIdentityProvider(new WebIdentity.IdentityProvider(), applicationContext);
+
+            var uri = WebEx.ComponentHub.SitemapManager.GetUri<AvatarDropdown>(applicationContext);
         }
 
         /// <summary>

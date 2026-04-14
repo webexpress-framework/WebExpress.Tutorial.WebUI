@@ -1,17 +1,14 @@
-﻿using WebExpress.Tutorial.WebUI.WWW;
-using WebExpress.WebApp.WebScope;
+﻿using WebExpress.WebApp.WebScope;
 using WebExpress.WebApp.WebSection;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebFragment;
 using WebExpress.WebCore.WebHtml;
 using WebExpress.WebCore.WebScope;
-using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebFragment;
-using WebExpress.WebUI.WebIcon;
 using WebExpress.WebUI.WebPage;
 
-namespace WebExpress.Tutorial.WebUI.WebFragment.LoginPage
+namespace WebExpress.Tutorial.WebUI.WebFragment
 {
     /// <summary>
     /// Represents a navigation item link for the info page.
@@ -19,12 +16,12 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.LoginPage
     /// <remarks>
     /// This fragment is used to create a navigation link to the Info page with an icon and label.
     /// </remarks>
-    [Section<SectionAppNavigationSecondary>]
+    [Section<SectionAppAvatar>]
     [Scope<IScopeGeneral>]
     [Scope<IScopeAdmin>]
     [Scope<IScopeStatusPage>]
     [Cache]
-    public sealed class AvatarFragment : FragmentControlNavigationItemLink
+    public sealed class AvatarFragment : FragmentControlAvatar
     {
         /// <summary>
         /// Initializes a new instance of the class.
@@ -34,9 +31,6 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.LoginPage
         public AvatarFragment(IComponentHub componentHub, IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "webexpress.tutorial.webui:loginpage.label";
-            Uri = componentHub.SitemapManager.GetUri<Login>(fragmentContext.ApplicationContext);
-            Icon = new IconPowerOff();
         }
 
         /// <summary>
@@ -47,8 +41,6 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.LoginPage
         /// <returns>An HTML node representing the rendered control.</returns>
         public override IHtmlNode Render(IRenderControlContext renderContext, IVisualTreeControl visualTree)
         {
-            Active = renderContext.Endpoint is Login ? TypeActive.Active : TypeActive.None;
-
             return base.Render(renderContext, visualTree);
         }
     }

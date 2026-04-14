@@ -53,17 +53,17 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
                 .Where(x => x.ApplicationContext == _fragmentContext.ApplicationContext)
                 .Where(x => x.Scopes.Contains(typeof(IScopeControl)))
                 .Where(x => x.EndpointId != indexContext?.EndpointId)
-                .OrderBy(x => x.PageTitle)
+                .OrderBy(x => x.EndpointId.ToString())
                 .Select(x => new ControlListItemLink()
                 {
-                    Text = I18N.Translate(renderContext, x.PageTitle),
+                    Text = $"{I18N.Translate(renderContext, x.PageTitle)} ({x.EndpointId})",
                     Uri = x.Route.ToUri(),
                     Active = renderContext.PageContext.EndpointId == x.EndpointId
                         ? TypeActive.Active
                         : TypeActive.None
                 });
 
-            // Render the control list with the filtered items.
+            // render the control list with the filtered items.
             return base.Render(renderContext, visualTree, items);
         }
     }
