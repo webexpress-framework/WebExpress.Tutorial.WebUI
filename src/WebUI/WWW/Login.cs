@@ -1,5 +1,6 @@
 ﻿using WebExpress.WebApp.WebPage;
 using WebExpress.WebApp.WebScope;
+using WebExpress.WebCore;
 using WebExpress.WebCore.Internationalization;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
@@ -48,6 +49,14 @@ namespace WebExpress.Tutorial.WebUI.WWW
             {
                 Text = I18N.Translate(renderContext, "webexpress.Tutorial.webui:app.description"),
                 Format = TypeFormatText.Paragraph
+            });
+
+            card.Add(new ControlText()
+            {
+                Text = $"You are logged in as <b>{WebEx.ComponentHub.IdentityManager
+                    .GetCurrentIdentity(renderContext.Request)?.Name}</b>",
+                Format = TypeFormatText.Paragraph,
+                TextColor = new PropertyColorText(TypeColorText.Success)
             });
 
             visualTree.Content.MainPanel.AddPrimary(card);

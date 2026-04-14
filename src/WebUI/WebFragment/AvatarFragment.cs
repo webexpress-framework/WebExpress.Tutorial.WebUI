@@ -1,11 +1,14 @@
 ﻿using WebExpress.WebApp.WebScope;
 using WebExpress.WebApp.WebSection;
+using WebExpress.WebCore;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebFragment;
 using WebExpress.WebCore.WebHtml;
 using WebExpress.WebCore.WebScope;
+using WebExpress.WebCore.WebUri;
 using WebExpress.WebUI.WebFragment;
+using WebExpress.WebUI.WebIcon;
 using WebExpress.WebUI.WebPage;
 
 namespace WebExpress.Tutorial.WebUI.WebFragment
@@ -42,6 +45,29 @@ namespace WebExpress.Tutorial.WebUI.WebFragment
         public override IHtmlNode Render(IRenderControlContext renderContext, IVisualTreeControl visualTree)
         {
             return base.Render(renderContext, visualTree);
+        }
+
+        /// <summary>
+        /// Retrieves the URI for the default avatar image used in the application.
+        /// </summary>
+        /// <param name="renderContext">
+        /// The rendering context that provides access to the current page and application context. 
+        /// Cannot be null.
+        /// </param>
+        /// <returns>
+        /// An object representing the URI of the default avatar image. Returns null if the application 
+        /// context is unavailable.
+        /// </returns>
+        public override IUri GetImage(IRenderControlContext renderContext)
+        {
+            var identity = WebEx.ComponentHub.IdentityManager.GetCurrentIdentity(renderContext.Request);
+
+            if (identity is not null)
+            {
+                return new ImageIconWebExpress(renderContext?.PageContext?.ApplicationContext)?.Uri;
+            }
+
+            return base.GetImage(renderContext);
         }
     }
 }

@@ -23,7 +23,6 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ForbiddenPage
     [Scope<IScopeGeneral>]
     [Scope<IScopeAdmin>]
     [Scope<IScopeStatusPage>]
-    [Scope<IScopeLogin>]
     [Cache]
     public sealed class ForbiddenFragment : FragmentControlNavigationItemLink
     {
