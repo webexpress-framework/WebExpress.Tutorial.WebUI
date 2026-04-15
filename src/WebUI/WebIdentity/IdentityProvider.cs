@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
-using WebExpress.WebCore.WebEndpoint;
+using WebExpress.Tutorial.WebUI.WWW.Api._1_;
+using WebExpress.WebCore;
 using WebExpress.WebCore.WebIdentity;
 using WebExpress.WebCore.WebMessage;
+using WebExpress.WebCore.WebPage;
 
 namespace WebExpress.Tutorial.WebUI.WebIdentity
 {
@@ -30,41 +31,6 @@ namespace WebExpress.Tutorial.WebUI.WebIdentity
         }
 
         /// <summary>
-        /// Validates basic authentication credentials.
-        /// </summary>
-        /// <param name="username">The provided username.</param>
-        /// <param name="password">The provided password.</param>
-        /// <returns>The authenticated identity, or null if invalid.</returns>
-        protected override IIdentity ValidateBasicCredentials(string username, string password)
-        {
-            return GetIdentities().FirstOrDefault(x => x.Name == "Guybrush Threepwood");
-        }
-
-        /// <summary>
-        /// Validates a token for authentication.
-        /// </summary>
-        /// <param name="token">The provided token.</param>
-        /// <returns>The authenticated identity, or null if invalid.</returns>
-        protected override IIdentity ValidateToken(string token)
-        {
-            return null;
-        }
-
-        /// <summary>
-        /// Authenticates the specified request and returns the associated identity.
-        /// </summary>
-        /// <param name="request">
-        /// The request to authenticate. Cannot be null.
-        /// </param>
-        /// <returns>
-        /// An identity representing the authenticated user if authentication is successful; otherwise, null.
-        /// </returns>
-        public override IIdentity Authenticate(IRequest request)
-        {
-            return base.Authenticate(request);
-        }
-
-        /// <summary>
         /// Displays a login dialog using the specified request and identity information.
         /// </summary>
         /// <param name="request">
@@ -81,9 +47,11 @@ namespace WebExpress.Tutorial.WebUI.WebIdentity
         /// An object that represents the response to the login dialog, including authentication results and any
         /// relevant status information.
         /// </returns>
-        public override IResponse CreateAuthenticationPrompt(IRequest request, IEndpointContext initiator, IIdentity identity)
+        public override IResponse CreateAuthenticationPrompt(IRequest request, IPageContext initiator, IIdentity identity)
         {
-            return base.CreateAuthenticationPrompt(request, initiator, identity);
+            var sessionUri = WebEx.ComponentHub.SitemapManager.GetUri<Session>(initiator);
+
+            return base.CreateAuthenticationPrompt(request, initiator, identity, sessionUri);
         }
     }
 }

@@ -32,7 +32,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.HomePage
         public LogOffLinkFragment(IComponentHub componentHub, IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "webexpress.tutorial.webui:logoff.label";
+            Text = "webexpress.tutorial.webui:logout.label";
             Icon = new IconPowerOff();
         }
 

@@ -11,9 +11,9 @@ app.version.label={0} version {1} created with {2} version {3}.
 
 homepage.label=Home page
 infopage.label=Info
-loginpage.label=Login
+loginpage.label=Log in
 forbiddenpage.label=Forbidden
-logoff.label=Logoff
+logout.label=Log out
 controlpage.label=Controls
 
 character.edit.header=Edit Monkey Island Character
