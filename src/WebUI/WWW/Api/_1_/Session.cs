@@ -45,5 +45,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
             return WebEx.ComponentHub.IdentityManager.Login(identity, request)?
                 .Id.ToString();
         }
+
+        /// <summary>
+        /// Invalidates the authentication token or session for the given request.
+        /// </summary>
+        /// <param name="request">The original request.</param>
+        protected override void InvalidateSession(IRequest request)
+        {
+            WebEx.ComponentHub.IdentityManager.Logout(request);
+        }
     }
 }
