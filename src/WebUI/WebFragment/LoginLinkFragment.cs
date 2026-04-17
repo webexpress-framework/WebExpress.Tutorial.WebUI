@@ -1,6 +1,4 @@
-﻿using WebExpress.Tutorial.WebUI.WWW.Api._1_;
-using WebExpress.WebApp.WebCondition;
-using WebExpress.WebApp.WebFragment;
+﻿using WebExpress.WebApp.WebCondition;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebApp.WebSection;
 using WebExpress.WebCore.WebAttribute;
@@ -8,6 +6,7 @@ using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebFragment;
 using WebExpress.WebCore.WebHtml;
 using WebExpress.WebCore.WebScope;
+using WebExpress.WebUI.WebFragment;
 using WebExpress.WebUI.WebPage;
 
 namespace WebExpress.Tutorial.WebUI.WebFragment.HomePage
@@ -16,15 +15,15 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.HomePage
     /// Represents a navigation item link for the home page.
     /// </summary>
     /// <remarks>
-    /// This fragment is used to create a log out link to the home page (Index) with an icon and label.
+    /// This fragment is used to create a log in link to the home page (Index) with an icon and label.
     /// </remarks>
     [Section<SectionAppAvatarPrimary>]
     [Scope<IScopeGeneral>]
     [Scope<IScopeAdmin>]
     [Scope<IScopeStatusPage>]
-    [Condition<ConditionLogin>]
+    [Condition<ConditionLogout>]
     [Cache]
-    public sealed class LogoutLinkFragment : FragmentControlDropdownItemLinkLogout
+    public sealed class LoginLinkFragment : FragmentControlDropdownItemLink
     {
         private readonly IComponentHub _componentHub;
 
@@ -33,7 +32,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.HomePage
         /// </summary>
         /// <param name="componentHub">The component hub used to manage components.</param>
         /// <param name="fragmentContext">The context in which the fragment is used.</param>
-        public LogoutLinkFragment(IComponentHub componentHub, IFragmentContext fragmentContext)
+        public LoginLinkFragment(IComponentHub componentHub, IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
             _componentHub = componentHub;
@@ -47,9 +46,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.HomePage
         /// <returns>An HTML node representing the rendered control.</returns>
         public override IHtmlNode Render(IRenderControlContext renderContext, IVisualTreeControl visualTree)
         {
-            var logoutUri = _componentHub.SitemapManager.GetUri<Session>(renderContext?.PageContext.ApplicationContext);
-
-            return base.Render(renderContext, visualTree, logoutUri);
+            return base.Render(renderContext, visualTree);
         }
     }
 }

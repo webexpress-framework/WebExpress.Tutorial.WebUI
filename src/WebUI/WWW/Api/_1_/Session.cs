@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
-using WebExpress.WebCore;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebIdentity;
 using WebExpress.WebCore.WebMessage;
@@ -42,8 +41,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// <returns>A randomly generated token string.</returns>
         protected override string GenerateSession(IIdentity identity, IRequest request)
         {
-            return WebEx.ComponentHub.IdentityManager.Login(identity, request)?
-                .Id.ToString();
+            return base.GenerateSession(identity, request);
         }
 
         /// <summary>
@@ -52,7 +50,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// <param name="request">The original request.</param>
         protected override void InvalidateSession(IRequest request)
         {
-            WebEx.ComponentHub.IdentityManager.Logout(request);
+            base.InvalidateSession(request);
         }
     }
 }
