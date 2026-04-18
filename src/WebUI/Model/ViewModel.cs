@@ -1125,6 +1125,7 @@ namespace WebExpress.Tutorial.WebUI.Model
         {
             yield return new Game
             {
+                Id = Guid.Parse("BB096510-1E5A-4D8D-AFE5-C42CCA06220C"),
                 Name = "The Secret of Monkey Island",
                 ReleaseYear = 1990,
                 Description = "Guybrush Threepwood begins his pirate journey on Mêlée Island and faces the ghost pirate LeChuck.",
@@ -1133,6 +1134,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Game
             {
+                Id = Guid.Parse("70382EC8-CC2D-4EE5-8D13-00A04656D6DF"),
                 Name = "Monkey Island 2: LeChuck’s Revenge",
                 ReleaseYear = 1991,
                 Description = "Guybrush searches for the legendary treasure Big Whoop while LeChuck returns as a zombie.",
@@ -1141,6 +1143,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Game
             {
+                Id = Guid.Parse("EAE4958B-545A-4BF6-B5E2-314D29041EB0"),
                 Name = "The Curse of Monkey Island",
                 ReleaseYear = 1997,
                 Description = "Guybrush must lift a curse from Elaine and defeat LeChuck once again, now in skeletal form.",
@@ -1149,6 +1152,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Game
             {
+                Id = Guid.Parse("F858AEDD-23E9-4530-A98C-6CBA54688505"),
                 Name = "Escape from Monkey Island",
                 ReleaseYear = 2000,
                 Description = "Guybrush battles corporate villain Ozzie Mandrill to save the pirate way of life.",
@@ -1157,6 +1161,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Game
             {
+                Id = Guid.Parse("7A700FA5-B12D-4F0B-9B35-5F87226F6591"),
                 Name = "Tales of Monkey Island",
                 ReleaseYear = 2009,
                 Description = "Episodic adventure where Guybrush accidentally unleashes a voodoo plague and must stop it.",
@@ -1165,6 +1170,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Game
             {
+                Id = Guid.Parse("6C06AC88-A774-4D68-9A70-4BBF30B97351"),
                 Name = "Return to Monkey Island",
                 ReleaseYear = 2022,
                 Description = "Guybrush finally uncovers the true secret of Monkey Island in a modern, stylized adventure.",
@@ -1173,6 +1179,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Game
             {
+                Id = Guid.Parse("6D5E3C72-3C98-47DF-B36A-B5400670185F"),
                 Name = "The Secret of Monkey Island: Special Edition",
                 ReleaseYear = 2009,
                 Description = "Remake of the original with updated graphics, voice acting, and music.",
@@ -1181,6 +1188,7 @@ namespace WebExpress.Tutorial.WebUI.Model
 
             yield return new Game
             {
+                Id = Guid.Parse("6BF821CC-B89C-43AC-9ACD-9AC98B7DE2DC"),
                 Name = "Monkey Island 2: LeChuck’s Revenge – Special Edition",
                 ReleaseYear = 2010,
                 Description = "Remake of the second game with enhanced visuals and audio, plus commentary.",

@@ -35,7 +35,7 @@ namespace WebExpress.Tutorial.WebUI.WebConverter
                 var split = rawValue?.ToString().Split(";");
 
                 return ViewModel.MonkeyIslandGames
-                    .Where(x => split.Contains(x.Name));
+                    .Where(x => split.Contains(x.Id.ToString()));
 
             }
 

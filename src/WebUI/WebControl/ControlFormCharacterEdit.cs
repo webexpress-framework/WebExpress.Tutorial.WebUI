@@ -1,4 +1,5 @@
-﻿using WebExpress.Tutorial.WebUI.Model;
+﻿using System.Linq;
+using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebParamter;
 using WebExpress.WebApp.WebControl;
 using WebExpress.WebCore.WebHtml;
@@ -49,14 +50,20 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         /// <summary>
         /// Gets or sets the name of the context or entity where this item appears.
         /// </summary>
-        public ControlFormItemInputTag AppearsIn { get; } = new ControlFormItemInputTag
+        public IControlFormItemInputSelection AppearsIn { get; } = new ControlFormItemInputSelection
         {
             Label = "Appears In",
+            MultiSelect = true,
             Name = nameof(Character.AppearsIn),
             Placeholder = "Enter the name of the game or context where this character appears",
             Required = true,
             Help = "The name of the game or context where this character appears. This field is required and should specify the game or narrative context in which the character is involved."
-        };
+        }
+            .Add(ViewModel.MonkeyIslandGames.Select(x => new ControlFormItemInputSelectionItem(x.Id.ToString())
+            {
+                Text = x.Name,
+                LabelColor = TypeColorSelection.Primary
+            }));
 
         /// <summary>
         /// Initializes a new instance of the class.
