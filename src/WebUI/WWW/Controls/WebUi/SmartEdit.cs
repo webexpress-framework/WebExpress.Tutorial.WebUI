@@ -165,12 +165,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                             new ControlFormItemInputSelectionItem("a")
                             {
                                 Text = "Selection A",
-                                LabelColor = TypeColorSelection.Warning
+                                Color = TypeColorSelection.Warning
                             },
                             new ControlFormItemInputSelectionItem("b")
                             {
                                 Text = "Selection B",
-                                LabelColor = TypeColorSelection.Warning
+                                Color = TypeColorSelection.Warning
                             }
                         )
                         .Initialize(x => x.Value.Text = "a")),

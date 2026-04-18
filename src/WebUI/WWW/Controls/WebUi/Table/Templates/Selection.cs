@@ -103,10 +103,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
                 Placeholder = placeholder,
                 MultiSelect = multiSelect
             }
-                .Add(new ControlFormItemInputSelectionItem("a") { Text = "Option A", Content = new ControlText() { Text = "Option A" }, LabelColor = TypeColorSelection.Primary })
-                .Add(new ControlFormItemInputSelectionItem("b") { Text = "Option B", Content = new ControlText() { Text = "Option B" }, LabelColor = TypeColorSelection.Success })
-                .Add(new ControlFormItemInputSelectionItem("c") { Text = "Option C", Content = new ControlText() { Text = "Option C" }, LabelColor = TypeColorSelection.Info })
-                .Add(new ControlFormItemInputSelectionItem("d") { Text = "Option D", Content = new ControlText() { Text = "Option D" }, LabelColor = TypeColorSelection.Warning }))
+                .Add(new ControlFormItemInputSelectionItem("a") { Text = "Option A", Content = new ControlText() { Text = "Option A" }, Color = TypeColorSelection.Primary })
+                .Add(new ControlFormItemInputSelectionItem("b") { Text = "Option B", Content = new ControlText() { Text = "Option B" }, Color = TypeColorSelection.Success })
+                .Add(new ControlFormItemInputSelectionItem("c") { Text = "Option C", Content = new ControlText() { Text = "Option C" }, Color = TypeColorSelection.Info })
+                .Add(new ControlFormItemInputSelectionItem("d") { Text = "Option D", Content = new ControlText() { Text = "Option D" }, Color = TypeColorSelection.Warning }))
             {
                 Title = "My column",
                 Icon = new IconBowlingBall()

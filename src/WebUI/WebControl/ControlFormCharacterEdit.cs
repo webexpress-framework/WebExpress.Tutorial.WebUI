@@ -62,7 +62,7 @@ namespace WebExpress.Tutorial.WebUI.WebControl
             .Add(ViewModel.MonkeyIslandGames.Select(x => new ControlFormItemInputSelectionItem(x.Id.ToString())
             {
                 Text = x.Name,
-                LabelColor = TypeColorSelection.Primary
+                Color = TypeColorSelection.Primary
             }));
 
         /// <summary>

@@ -95,7 +95,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "ControlFormItemInputSelectionItem",
                 "A `ControlFormItemInputSelectionItem` represents a single selectable option within a selection input control. Each item defines the label, value, and visual appearance used to present choices to the user. Selection items can indicate the currently chosen option, apply custom styling, and provide additional metadata when needed.",
                 "new ControlFormItemInputSelectionItem() { Label = \"Label\", LabelColor = TypeColorSelection.Primary, Selected = true }",
-                new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = "Label", LabelColor = TypeColorSelection.Default, Selected = true })
+                new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = "Label", Color = TypeColorSelection.Default, Selected = true })
                 {
                 })
             );
@@ -151,39 +151,39 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "The `LabelColor` property defines the signature color of a `Select` control item’s label, visually highlighting the selected option. By customizing the color, the label can be styled to match the user interface or a specific design scheme, ensuring a consistent and appealing presentation.",
                 "new ControlFormItemInputSelectionItem() { Label = \"Label\", LabelColor = TypeColorSelection.Primary, Selected = true }",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = "Label", LabelColor = TypeColorSelection.Default, Selected = true })
+                new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = "Label", Color = TypeColorSelection.Default, Selected = true })
                 {
                 }),
                 new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = "Label", LabelColor = TypeColorSelection.Primary, Selected = true })
+                new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = "Label", Color = TypeColorSelection.Primary, Selected = true })
                 {
                 }),
                 new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = "Label", LabelColor = TypeColorSelection.Secondary, Selected = true })
+                new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = "Label", Color = TypeColorSelection.Secondary, Selected = true })
                 {
                 }),
                 new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = "Label", LabelColor = TypeColorSelection.Info, Selected = true })
+                new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = "Label", Color = TypeColorSelection.Info, Selected = true })
                 {
                 }),
                 new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = "Label", LabelColor = TypeColorSelection.Success, Selected = true })
+                new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = "Label", Color = TypeColorSelection.Success, Selected = true })
                 {
                 }),
                 new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = "Label", LabelColor = TypeColorSelection.Warning, Selected = true })
+                new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = "Label", Color = TypeColorSelection.Warning, Selected = true })
                 {
                 }),
                 new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = "Label", LabelColor = TypeColorSelection.Danger, Selected = true })
+                new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = "Label", Color = TypeColorSelection.Danger, Selected = true })
                 {
                 }),
                 new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = "Label", LabelColor = TypeColorSelection.Light, Selected = true })
+                new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = "Label", Color = TypeColorSelection.Light, Selected = true })
                 {
                 }),
                 new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = "Label", LabelColor = TypeColorSelection.Dark, Selected = true })
+                new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = "Label", Color = TypeColorSelection.Dark, Selected = true })
                 {
                 })
             );
