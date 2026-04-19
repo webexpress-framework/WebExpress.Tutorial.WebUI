@@ -244,7 +244,12 @@
         /// <summary>
         /// Event triggered when a tab is closed dynamically.
         /// </summary>
-        TAB_CLOSED_EVENT
+        TAB_CLOSED_EVENT,
+
+        /// <summary>
+        /// Event triggered when dark mode is toggled.
+        /// </summary>
+        CHANGE_DARKMODE_EVENT
     }
 
     /// <summary>
@@ -305,6 +310,7 @@
                 Event.SELECT_ITEM_EVENT => "webexpress.webui.select.item",
                 Event.UPDATE_PAGINATION_EVENT => "webexpress.webui.update.pagination",
                 Event.SELECTED_TAB_EVENT => "webexpress.webui.tab.selected",
+                Event.CHANGE_DARKMODE_EVENT => "webexpress.webui.change.darkmode",
                 ////////
                 Event.CHANGE_STATUS_EVENT => "webexpress.webapp.change.status",
                 Event.UPDATE_EVENT => "webexpress.webapp.update",
@@ -367,6 +373,7 @@
                 Event.SELECT_ITEM_EVENT => "Event triggered when an item is selected.",
                 Event.UPDATE_PAGINATION_EVENT => "Event triggered to notify external pagination controls about current page/total.",
                 Event.SELECTED_TAB_EVENT => "Event triggered when a tab is selected.",
+                Event.CHANGE_DARKMODE_EVENT => "Event triggered when dark mode is toggled.",
                 ///////////////////////////////
                 Event.CHANGE_STATUS_EVENT => "Event triggered when the status of the MessageQueue changes",
                 Event.UPDATE_EVENT => "Event triggered when UI components require a general update",

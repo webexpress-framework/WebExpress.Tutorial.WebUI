@@ -63,7 +63,6 @@ namespace WebExpress.Tutorial.WebUI.WebPage
             }
             visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. Stage.Controls])
             {
-                BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light),
                 Classes = ["wx-resizable"],
                 Styles = ["max-width: 80em;"],
                 Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
@@ -171,7 +170,6 @@ namespace WebExpress.Tutorial.WebUI.WebPage
 
                 visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. supportedAct.Controls])
                 {
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light),
                     Styles = ["max-width: 80em;"],
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
@@ -232,7 +230,6 @@ namespace WebExpress.Tutorial.WebUI.WebPage
 
                 visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. supportedAct.Controls])
                 {
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light),
                     Styles = ["max-width: 80em;"],
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
@@ -251,7 +248,6 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                 {
                     visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null)
                     {
-                        BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light),
                         Styles = ["max-width: 80em;"],
                         Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
                     }
@@ -280,7 +276,6 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                                 : null,
                             new ControlPanelCard(null, [.. subAct.Controls])
                             {
-                                BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light),
                                 Styles = ["max-width: 80em;"],
                                 Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
                             },
