@@ -1,6 +1,6 @@
-﻿using WebExpress.Tutorial.WebUI.WWW;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebApp.WebSection;
+using WebExpress.WebCore.Internationalization;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebFragment;
@@ -14,29 +14,32 @@ using WebExpress.WebUI.WebPage;
 namespace WebExpress.Tutorial.WebUI.WebFragment.LoginPage
 {
     /// <summary>
-    /// Represents a navigation item link for the info page.
+    /// Fragment that renders a dark mode toggle button next to the login link.
     /// </summary>
     /// <remarks>
-    /// This fragment is used to create a navigation link to the Info page with an icon and label.
+    /// The button is wired up via the client-side "darkmode" action
+    /// registered in `action/default.js`. The action reads the current mode
+    /// from <c>webexpress.webui.DarkMode</c>, swaps the icon between moon
+    /// and sun, and toggles the mode on click.
     /// </remarks>
-    [Section<SectionAppAvatarPreferences>]
+    [Section<SectionAppAvatarPrimary>]
     [Scope<IScopeGeneral>]
     [Scope<IScopeAdmin>]
     [Scope<IScopeStatusPage>]
     [Cache]
-    public sealed class LoginLinkFragment : FragmentControlNavigationItemLink
+    public sealed class DarkModeFragment : FragmentControlDropdownItemLink
     {
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
         /// <param name="componentHub">The component hub used to manage components.</param>
         /// <param name="fragmentContext">The context in which the fragment is used.</param>
-        public LoginLinkFragment(IComponentHub componentHub, IFragmentContext fragmentContext)
+        public DarkModeFragment(IComponentHub componentHub, IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "webexpress.tutorial.webui:loginpage.label";
-            Uri = componentHub.SitemapManager.GetUri<Login>(fragmentContext.ApplicationContext);
-            Icon = new IconPowerOff();
+            Icon = new IconMoon();
+            PrimaryAction = new ActionDarkmode();
+            Text = "webexpress.tutorial.webui:darkmode.label";
         }
 
         /// <summary>
@@ -47,7 +50,17 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.LoginPage
         /// <returns>An HTML node representing the rendered control.</returns>
         public override IHtmlNode Render(IRenderControlContext renderContext, IVisualTreeControl visualTree)
         {
-            Active = renderContext.Endpoint is Login ? TypeActive.Active : TypeActive.None;
+            if (!FragmentContext.Conditions.Check(renderContext?.Request))
+            {
+                return null;
+            }
+
+            var textLight = I18N.Translate(renderContext, "webexpress.webui:darkmode.text.light");
+            var textDark = I18N.Translate(renderContext, "webexpress.webui:darkmode.text.dark");
+
+            Text = textLight;
+            ((ActionDarkmode)PrimaryAction).TextLight = textLight;
+            ((ActionDarkmode)PrimaryAction).TextDark = textDark;
 
             return base.Render(renderContext, visualTree);
         }
