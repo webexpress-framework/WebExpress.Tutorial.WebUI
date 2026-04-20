@@ -18,7 +18,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.HomePage
     /// <remarks>
     /// This fragment is used to create a log out link to the home page (Index) with an icon and label.
     /// </remarks>
-    [Section<SectionAppAvatarPrimary>]
+    [Section<SectionAppAvatarSecondary>]
     [Scope<IScopeGeneral>]
     [Scope<IScopeAdmin>]
     [Scope<IScopeStatusPage>]

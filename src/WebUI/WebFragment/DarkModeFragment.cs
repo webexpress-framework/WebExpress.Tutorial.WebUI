@@ -1,6 +1,5 @@
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebApp.WebSection;
-using WebExpress.WebCore.Internationalization;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebFragment;
@@ -11,7 +10,7 @@ using WebExpress.WebUI.WebFragment;
 using WebExpress.WebUI.WebIcon;
 using WebExpress.WebUI.WebPage;
 
-namespace WebExpress.Tutorial.WebUI.WebFragment.LoginPage
+namespace WebExpress.Tutorial.WebUI.WebFragment
 {
     /// <summary>
     /// Fragment that renders a dark mode toggle button next to the login link.
@@ -40,6 +39,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.LoginPage
             Icon = new IconMoon();
             PrimaryAction = new ActionDarkmode();
             Text = "webexpress.tutorial.webui:darkmode.label";
+            Bind = new Binding().Add(new BindDarkmode());
         }
 
         /// <summary>
@@ -54,13 +54,6 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.LoginPage
             {
                 return null;
             }
-
-            var textLight = I18N.Translate(renderContext, "webexpress.webui:darkmode.text.light");
-            var textDark = I18N.Translate(renderContext, "webexpress.webui:darkmode.text.dark");
-
-            Text = textLight;
-            ((ActionDarkmode)PrimaryAction).TextLight = textLight;
-            ((ActionDarkmode)PrimaryAction).TextDark = textDark;
 
             return base.Render(renderContext, visualTree);
         }

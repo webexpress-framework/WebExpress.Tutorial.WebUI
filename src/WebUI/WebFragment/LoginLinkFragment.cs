@@ -1,4 +1,5 @@
-﻿using WebExpress.WebApp.WebCondition;
+﻿using WebExpress.Tutorial.WebUI.WWW;
+using WebExpress.WebApp.WebCondition;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebApp.WebSection;
 using WebExpress.WebCore.WebAttribute;
@@ -6,7 +7,9 @@ using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebFragment;
 using WebExpress.WebCore.WebHtml;
 using WebExpress.WebCore.WebScope;
+using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebFragment;
+using WebExpress.WebUI.WebIcon;
 using WebExpress.WebUI.WebPage;
 
 namespace WebExpress.Tutorial.WebUI.WebFragment.HomePage
@@ -17,7 +20,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.HomePage
     /// <remarks>
     /// This fragment is used to create a log in link to the home page (Index) with an icon and label.
     /// </remarks>
-    [Section<SectionAppAvatarPrimary>]
+    [Section<SectionAppAvatarSecondary>]
     [Scope<IScopeGeneral>]
     [Scope<IScopeAdmin>]
     [Scope<IScopeStatusPage>]
@@ -36,6 +39,8 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.HomePage
             : base(fragmentContext)
         {
             _componentHub = componentHub;
+            Text = "webexpress.webapp:login.label";
+            Icon = new IconRightToBracket();
         }
 
         /// <summary>
@@ -46,7 +51,10 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.HomePage
         /// <returns>An HTML node representing the rendered control.</returns>
         public override IHtmlNode Render(IRenderControlContext renderContext, IVisualTreeControl visualTree)
         {
-            return base.Render(renderContext, visualTree);
+            var loginUri = _componentHub.SitemapManager.GetUri<Login>(renderContext?.PageContext.ApplicationContext);
+            var primaryAction = new ActionModal("modal-form", loginUri, TypeModalSize.Default);
+
+            return base.Render(renderContext, visualTree, Text, Tooltip, Icon, Color, Uri, Target, primaryAction, SecondaryAction);
         }
     }
 }
