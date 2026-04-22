@@ -36,23 +36,26 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.Description = @"The `List` control is a powerful component used to present a collection of items in a structured and organized way. It supports various display styles, such as ordered and unordered lists, and offers extensive customization options for layout and design. The List control can also handle dynamic content, providing developers with the flexibility to adapt to changing data.";
 
             Stage.Controls = [
-                new ControlList
-                (
-                    "myList",
-                    new ControlListItem(null, new ControlText() { Text = "First Element" }),
-                    new ControlListItem(null, new ControlText() { Text = "Second Element" }),
-                    new ControlListItem(null, new ControlText() { Text = "Third Element" })
-                )
+                new ControlList()
+                {
+                    Title = "List Control Example",
+                    Sortable = true
+                }
+                    .Add(new ControlListItem(null) { Text = "First Element" ,
+                    BackgroundColor = new PropertyColorBackgroundList(TypeColorBackgroundList.Primary) })
+                    .Add(new ControlListItem(null) { Text = "Second Element" })
+                    .Add(new ControlListItem(null) { Text = "Third Element" })
             ];
 
             Stage.Code = @"
-            new ControlList
-            (
-                ""myList"",
-                new ControlListItem(null, new ControlText() { Text = ""First Element"" }),
-                new ControlListItem(null, new ControlText() { Text = ""Second Element"" }),
-                new ControlListItem(null, new ControlText() { Text = ""Third Element"" })
-            );";
+            new ControlList()
+            {
+                Title = ""List Control Example"",
+                Sortable = true
+            }
+                .Add(new ControlListItem(null) { Text = ""First Element"" })
+                .Add(new ControlListItem(null) { Text = ""Second Element"" })
+                .Add(new ControlListItem(null) { Text = ""Third Element"" })";
 
             Stage.AddProperty
             (
@@ -60,60 +63,45 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Determines the layout",
                 "Layout = TypeLayoutList.Group",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlList
-                (
-                    null,
-                    new ControlListItem(null, new ControlText() { Text = "First Element" }),
-                    new ControlListItem(null, new ControlText() { Text = "Second Element" }),
-                    new ControlListItem(null, new ControlText() { Text = "Third Element" })
-                )
+                new ControlList()
                 {
                     Layout = TypeLayoutList.Default
-                },
+                }
+                    .Add(new ControlListItem(null) { Text = "First Element" })
+                    .Add(new ControlListItem(null) { Text = "Second Element" })
+                    .Add(new ControlListItem(null) { Text = "Third Element" }),
                 new ControlText() { Text = "Simple", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlList
-                (
-                    null,
-                    new ControlListItem(null, new ControlText() { Text = "First Element" }),
-                    new ControlListItem(null, new ControlText() { Text = "Second Element" }),
-                    new ControlListItem(null, new ControlText() { Text = "Third Element" })
-                )
+                new ControlList()
                 {
                     Layout = TypeLayoutList.Simple
-                },
+                }
+                    .Add(new ControlListItem(null) { Text = "First Element" })
+                    .Add(new ControlListItem(null) { Text = "Second Element" })
+                    .Add(new ControlListItem(null) { Text = "Third Element" }),
                 new ControlText() { Text = "Group", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlList
-                (
-                    null,
-                    new ControlListItem(null, new ControlText() { Text = "First Element" }),
-                    new ControlListItem(null, new ControlText() { Text = "Second Element" }),
-                    new ControlListItem(null, new ControlText() { Text = "Third Element" })
-                )
+                new ControlList()
                 {
                     Layout = TypeLayoutList.Group
-                },
+                }
+                    .Add(new ControlListItem(null) { Text = "First Element" })
+                    .Add(new ControlListItem(null) { Text = "Second Element" })
+                    .Add(new ControlListItem(null) { Text = "Third Element" }),
                 new ControlText() { Text = "Flush", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlList
-                (
-                    null,
-                    new ControlListItem(null, new ControlText() { Text = "First Element" }),
-                    new ControlListItem(null, new ControlText() { Text = "Second Element" }),
-                    new ControlListItem(null, new ControlText() { Text = "Third Element" })
-                )
+                new ControlList()
                 {
                     Layout = TypeLayoutList.Flush
-                },
+                }
+                    .Add(new ControlListItem(null) { Text = "First Element" })
+                    .Add(new ControlListItem(null) { Text = "Second Element" })
+                    .Add(new ControlListItem(null) { Text = "Third Element" }),
                 new ControlText() { Text = "Horizontal", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlList
-                (
-                    null,
-                    new ControlListItem(null, new ControlText() { Text = "First Element" }),
-                    new ControlListItem(null, new ControlText() { Text = "Second Element" }),
-                    new ControlListItem(null, new ControlText() { Text = "Third Element" })
-                )
+                new ControlList()
                 {
                     Layout = TypeLayoutList.Horizontal
                 }
+                    .Add(new ControlListItem(null) { Text = "First Element" })
+                    .Add(new ControlListItem(null) { Text = "Second Element" })
+                    .Add(new ControlListItem(null) { Text = "Third Element" })
             );
 
             Stage.AddProperty
@@ -121,42 +109,84 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Active",
                 "Determines the active status of a list item. Note: Only applied for Group, Flush, and Horizontal.",
                 "Active = TypeActive.Active",
-                new ControlList
-                (
-                    null,
-                    new ControlListItem(null, new ControlText() { Text = "None" }) { Active = TypeActive.None },
-                    new ControlListItem(null, new ControlText() { Text = "Activated" }) { Active = TypeActive.Active },
-                    new ControlListItem(null, new ControlText() { Text = "Disabled" }) { Active = TypeActive.Disabled }
-                )
+                new ControlList()
                 {
                     Layout = TypeLayoutList.Group
                 }
+                    .Add(new ControlListItem(null) { Text = "First Element" })
+                    .Add(new ControlListItem(null) { Text = "Second Element" })
+                    .Add(new ControlListItem(null) { Text = "Third Element" })
             );
 
             Stage.AddProperty
             (
                 "BackgroundColor",
                 "Determines the background color of a list item.",
-                "BackgroundColor = new PropertyColorBackgroundList(TypeColorBackground.Primary)",
-                new ControlList
-                (
-                    null,
-                    new ControlListItem(null, new ControlText() { Text = "Default Background" }),
-                    new ControlListItem(null, new ControlText() { Text = "Primary Background" }) { BackgroundColor = new PropertyColorBackgroundList(TypeColorBackground.Primary) },
-                    new ControlListItem(null, new ControlText() { Text = "Secondary Background" }) { BackgroundColor = new PropertyColorBackgroundList(TypeColorBackground.Light) },
-                    new ControlListItem(null, new ControlText() { Text = "Info Background" }) { BackgroundColor = new PropertyColorBackgroundList(TypeColorBackground.Secondary) },
-                    new ControlListItem(null, new ControlText() { Text = "Success Background" }) { BackgroundColor = new PropertyColorBackgroundList(TypeColorBackground.Info) },
-                    new ControlListItem(null, new ControlText() { Text = "Warning Background" }) { BackgroundColor = new PropertyColorBackgroundList(TypeColorBackground.Success) },
-                    new ControlListItem(null, new ControlText() { Text = "Error Background" }) { BackgroundColor = new PropertyColorBackgroundList(TypeColorBackground.Warning) },
-                    new ControlListItem(null, new ControlText() { Text = "Dark Background" }) { BackgroundColor = new PropertyColorBackgroundList(TypeColorBackground.Danger) },
-                    new ControlListItem(null, new ControlText() { Text = "Light Background" }) { BackgroundColor = new PropertyColorBackgroundList(TypeColorBackground.Dark) },
-                    new ControlListItem(null, new ControlText() { Text = "White Background" }) { BackgroundColor = new PropertyColorBackgroundList(TypeColorBackground.White) },
-                    new ControlListItem(null, new ControlText() { Text = "Transparent Background" }) { BackgroundColor = new PropertyColorBackgroundList(TypeColorBackground.Transparent) },
-                    new ControlListItem(null, new ControlText() { Text = "Custom Background" }) { BackgroundColor = new PropertyColorBackgroundList("gold"), TextColor = new PropertyColorText("red") }
-                )
+                "BackgroundColor = new PropertyColorBackgroundList(TypeColorBackgroundList.Primary)",
+                new ControlList()
                 {
                     Layout = TypeLayoutList.Group
                 }
+                    .Add(new ControlListItem(null)
+                    {
+                        Text = "Default Background"
+                    })
+                    .Add(new ControlListItem(null)
+                    {
+                        Text = "Primary Background",
+                        BackgroundColor = new PropertyColorBackgroundList(TypeColorBackgroundList.Primary)
+                    })
+                    .Add(new ControlListItem(null)
+                    {
+                        Text = "Secondary Background",
+                        BackgroundColor = new PropertyColorBackgroundList(TypeColorBackgroundList.Light)
+                    })
+                    .Add(new ControlListItem(null)
+                    {
+                        Text = "Info Background",
+                        BackgroundColor = new PropertyColorBackgroundList(TypeColorBackgroundList.Secondary)
+                    })
+                    .Add(new ControlListItem(null)
+                    {
+                        Text = "Success Background",
+                        BackgroundColor = new PropertyColorBackgroundList(TypeColorBackgroundList.Info)
+                    })
+                    .Add(new ControlListItem(null)
+                    {
+                        Text = "Warning Background",
+                        BackgroundColor = new PropertyColorBackgroundList(TypeColorBackgroundList.Success)
+                    })
+                    .Add(new ControlListItem(null)
+                    {
+                        Text = "Error Background",
+                        BackgroundColor = new PropertyColorBackgroundList(TypeColorBackgroundList.Warning)
+                    })
+                    .Add(new ControlListItem(null)
+                    {
+                        Text = "Dark Background",
+                        BackgroundColor = new PropertyColorBackgroundList(TypeColorBackgroundList.Danger)
+                    })
+                    .Add(new ControlListItem(null)
+                    {
+                        Text = "Light Background",
+                        BackgroundColor = new PropertyColorBackgroundList(TypeColorBackgroundList.Dark)
+                    })
+                    .Add(new ControlListItem(null)
+                    {
+                        Text = "White Background",
+                        BackgroundColor = new PropertyColorBackgroundList(TypeColorBackgroundList.White)
+                    })
+                    .Add(new ControlListItem(null)
+                    {
+                        Text = "Transparent Background",
+                        BackgroundColor = new PropertyColorBackgroundList(TypeColorBackgroundList.Transparent)
+                    })
+                    .Add(new ControlListItem(null)
+                    {
+                        Text = "Custom Background",
+                        BackgroundColor = new PropertyColorBackgroundList("gold"),
+                        Color = new PropertyColorText("red")
+                    })
             );
 
             Stage.AddItem
@@ -165,16 +195,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "ControlListItem",
                 "A simple list item.",
                 "new ControlListItem(...);",
-                new ControlList
-                (
-                    null,
-                    new ControlListItem(null, new ControlText() { Text = "First Element" }),
-                    new ControlListItem(null, new ControlText() { Text = "Second Element" }),
-                    new ControlListItem(null, new ControlText() { Text = "Third Element" })
-                )
+                new ControlList()
                 {
                     Layout = TypeLayoutList.Group
                 }
+                    .Add(new ControlListItem(null) { Text = "First Element" })
+                    .Add(new ControlListItem(null) { Text = "Second Element" })
+                    .Add(new ControlListItem(null) { Text = "Third Element" })
             );
 
             Stage.AddItem
@@ -204,9 +231,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlList
                 (
                     null,
-                    new ControlListItemButton(null, new ControlText() { Text = "First Element" }),
-                    new ControlListItemButton(null, new ControlText() { Text = "Second Element" }),
-                    new ControlListItemButton(null, new ControlText() { Text = "Third Element" })
+                    new ControlListItemButton(null) { Text = "First Element" },
+                    new ControlListItemButton(null) { Text = "Second Element" },
+                    new ControlListItemButton(null) { Text = "Third Element" }
                 )
                 {
                     Layout = TypeLayoutList.Group
@@ -222,9 +249,22 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlList
                 (
                     null,
-                    new ControlListItemLink() { Text = "First Element", PrimaryAction = new ActionModal("modal"), Icon = new IconAt() },
-                    new ControlListItemButton(null, new ControlText() { Text = "Second Element" }) { PrimaryAction = new ActionModal("modal") },
-                    new ControlListItemLink() { Text = "Third Element", PrimaryAction = new ActionModal("modal"), Title = "Title" }
+                    new ControlListItemButton()
+                    {
+                        Text = "First Element",
+                        PrimaryAction = new ActionModal("modal"),
+                        Icon = new IconAt()
+                    },
+                    new ControlListItemButton(null)
+                    {
+                        Text = "Second Element",
+                        PrimaryAction = new ActionModal("modal")
+                    },
+                    new ControlListItemButton()
+                    {
+                        Text = "Third Element",
+                        PrimaryAction = new ActionModal("modal")
+                    }
                 ),
                 new ControlModalExample("modal")
                 {
@@ -240,9 +280,22 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlList
                 (
                     null,
-                    new ControlListItemLink() { Text = "First Element", SecondaryAction = new ActionModal("modal"), Icon = new IconAt() },
-                    new ControlListItemButton(null, new ControlText() { Text = "Second Element" }) { SecondaryAction = new ActionModal("modal") },
-                    new ControlListItemLink() { Text = "Third Element", SecondaryAction = new ActionModal("modal"), Title = "Title" }
+                    new ControlListItemButton()
+                    {
+                        Text = "First Element",
+                        SecondaryAction = new ActionModal("modal"),
+                        Icon = new IconAt()
+                    },
+                    new ControlListItemButton(null)
+                    {
+                        Text = "Second Element",
+                        SecondaryAction = new ActionModal("modal")
+                    },
+                    new ControlListItemButton()
+                    {
+                        Text = "Third Element",
+                        SecondaryAction = new ActionModal("modal")
+                    }
                 ),
                 new ControlModalExample("modal")
                 {

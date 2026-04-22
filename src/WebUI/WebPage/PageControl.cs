@@ -307,7 +307,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                 });
                 visualTree.Content.MainPanel.AddPrimary(new ControlList(null,
                 [..
-                    Stage.Events.Select(x => new ControlListItem(null, new ControlText()
+                    Stage.Events.Select(x => (ControlListItem)new ControlListItem(null).Add(new ControlText()
                     {
                         Text = $"`{x.GetEventName()}` - {x.GetDescription()}",
                         Format = TypeFormatText.Markdown
