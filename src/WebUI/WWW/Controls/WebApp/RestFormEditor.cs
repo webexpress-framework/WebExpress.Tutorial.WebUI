@@ -2,6 +2,7 @@ using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
+using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.WebApp.WebControl;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
@@ -30,14 +31,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         {
             Stage.AddEvent(Event.ADD_EVENT, Event.REMOVE_EVENT, Event.MOVE_EVENT, Event.UPDATED_EVENT);
 
-            Stage.Description = @"The REST-backed `FormEditor` wires the visual form editor to the WebExpress.WebApp REST endpoints (`/api/1/FormDefinition`, `/api/1/FormStructure`, `/api/1/FormFieldCatalog`). Every mutation in the editor (add / remove / rename / drag-and-drop) is persisted via a debounced PUT against the structure endpoint; the field catalog is loaded from the server on startup. The same control runs in offline-mock mode when no `RestUrl` is configured (see the [FormEditor](../WebUi/FormEditor) page for offline examples).";
+            Stage.Description = @"The REST-backed `FormEditor` wires the visual form editor to the WebExpress.WebApp REST endpoints (`/api/1/FormEditor`, `/api/1/FormFieldCatalog`). Every mutation in the editor (add / remove / rename / drag-and-drop) is persisted via a debounced PUT against the structure endpoint; the field catalog is loaded from the server on startup. The same control runs in offline-mock mode when no `RestUrl` is configured (see the [FormEditor](../WebUi/FormEditor) page for offline examples).";
 
             Stage.Control = new ControlRestFormEditor(RandomId.Create())
             {
                 FormId = "00000000-0000-0000-0000-000000000001",
-                RestUrl = "/api/1/FormStructure",
-                FieldCatalogUrl = "/api/1/FormFieldCatalog",
-                Layout = "two-pane",
+                RestUri = sitemapManager.GetUri<FormEditor>(pageContext),
+                FieldCatalogUri = sitemapManager.GetUri<FormFieldCatalog>(pageContext),
                 Preview = true,
                 Indent = 18
             };
@@ -46,9 +46,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             new ControlFormEditor(""my-form-editor"")
             {
                 FormId = ""00000000-0000-0000-0000-000000000001"",
-                RestUrl = ""/api/1/FormStructure"",
-                FieldCatalogUrl = ""/api/1/FormFieldCatalog"",
-                Layout = ""two-pane"",
+                RestUri = sitemapManager.GetUri<FormEditor>(pageContext),
+                FieldCatalogUri = sitemapManager.GetUri<FormFieldCatalog>(pageContext),
                 Preview = true,
                 Indent = 18
             };";
@@ -61,8 +60,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlRestFormEditor(RandomId.Create())
                 {
                     FormId = "00000000-0000-0000-0000-000000000001",
-                    RestUrl = "/api/1/FormStructure",
-                    FieldCatalogUrl = "/api/1/FormFieldCatalog",
+                    RestUri = sitemapManager.GetUri<FormEditor>(pageContext),
+                    FieldCatalogUri = sitemapManager.GetUri<FormFieldCatalog>(pageContext),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 }
             );
@@ -75,8 +74,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlRestFormEditor(RandomId.Create())
                 {
                     FormId = "00000000-0000-0000-0000-000000000001",
-                    RestUrl = "/api/1/FormStructure",
-                    FieldCatalogUrl = "/api/1/FormFieldCatalog",
+                    RestUri = sitemapManager.GetUri<FormEditor>(pageContext),
+                    FieldCatalogUri = sitemapManager.GetUri<FormFieldCatalog>(pageContext),
                     Readonly = true,
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 }
