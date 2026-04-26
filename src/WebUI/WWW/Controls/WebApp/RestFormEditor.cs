@@ -9,6 +9,7 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebHtml;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
+using WebExpress.WebCore.WebUri;
 using WebExpress.WebUI.WebControl;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
@@ -36,7 +37,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Control = new ControlRestFormEditor(RandomId.Create())
             {
                 FormId = "00000000-0000-0000-0000-000000000001",
-                RestUri = sitemapManager.GetUri<FormEditor>(pageContext),
+                RestUri = sitemapManager.GetUri<FormEditor>(pageContext).Add(new UriQuery("id", "00000000-0000-0000-0000-000000000001")),
                 FieldCatalogUri = sitemapManager.GetUri<FormFieldCatalog>(pageContext),
                 Preview = true,
                 Indent = 18
@@ -46,7 +47,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             new ControlFormEditor(""my-form-editor"")
             {
                 FormId = ""00000000-0000-0000-0000-000000000001"",
-                RestUri = sitemapManager.GetUri<FormEditor>(pageContext),
+                RestUri = sitemapManager.GetUri<FormEditor>(pageContext).Add(new UriQuery(""id"", ""00000000-0000-0000-0000-000000000001"")),
                 FieldCatalogUri = sitemapManager.GetUri<FormFieldCatalog>(pageContext),
                 Preview = true,
                 Indent = 18
@@ -60,7 +61,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlRestFormEditor(RandomId.Create())
                 {
                     FormId = "00000000-0000-0000-0000-000000000001",
-                    RestUri = sitemapManager.GetUri<FormEditor>(pageContext),
+                    RestUri = sitemapManager.GetUri<FormEditor>(pageContext).Add(new UriQuery("id", "00000000-0000-0000-0000-000000000001")),
                     FieldCatalogUri = sitemapManager.GetUri<FormFieldCatalog>(pageContext),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 }
@@ -74,7 +75,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlRestFormEditor(RandomId.Create())
                 {
                     FormId = "00000000-0000-0000-0000-000000000001",
-                    RestUri = sitemapManager.GetUri<FormEditor>(pageContext),
+                    RestUri = sitemapManager.GetUri<FormEditor>(pageContext).Add(new UriQuery("id", "00000000-0000-0000-0000-000000000001")),
                     FieldCatalogUri = sitemapManager.GetUri<FormFieldCatalog>(pageContext),
                     Readonly = true,
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
