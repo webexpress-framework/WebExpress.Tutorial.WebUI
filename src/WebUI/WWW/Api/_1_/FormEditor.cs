@@ -10,8 +10,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 {
     /// <summary>
     /// REST API for loading and persisting form structures used by the visual
-    /// form editor. Responds at <c>/api/1/FormStructure/item/{id}</c>.
-    /// GET returns the structure; PUT saves it and increments the version.
+    /// form editor. GET returns the structure; PUT saves it and increments the version.
     /// </summary>
     [Title("Form structure")]
     public sealed class FormEditor : RestApiFormEditor<Game>
@@ -46,6 +45,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// <summary>
         /// Retrieves a catalog of form editor field items based on the specified query context and request parameters.
         /// </summary>
+        /// <param name="formId">
+        /// The id of the form to load. Never null or whitespace.
+        /// </param>
         /// <param name="context">
         /// The query context that provides information about the current data retrieval operation. Cannot be null.
         /// </param>
@@ -56,7 +58,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// An enumerable collection of catalog field items that match the specified context and request. The 
         /// collection may be empty if no items are found.
         /// </returns>
-        protected override IEnumerable<RestApiFormEditorFieldItem> RetrieveCatalog(IQueryContext context, IRequest request)
+        protected override IEnumerable<RestApiFormEditorFieldItem> RetrieveCatalog(string formId, IQueryContext context, IRequest request)
         {
             return _fields;
         }
@@ -125,86 +127,86 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 Version = 1,
                 Tabs =
                 [
-                    new RestApiFormEditorTabItem
-                    {
-                        Id = "t_details",
-                        Name = "Details",
-                        Children =
-                        [
-                            new RestApiFormEditorFieldItem
-                            {
-                                Id = "n_name",
-                                Label = "Name",
-                                Type = "string",
-                                Required = true,
-                                Help = "Full pirate name of the character."
-                            },
-                            new RestApiFormEditorFieldItem
-                            {
-                                Id = "n_description",
-                                Label = "Description",
-                                Type = "text",
-                                Required = false,
-                                Help = "A short characterization of the pirate."
-                            },
-                            new RestApiFormEditorGroupItem
-                            {
-                                Id = "n_contact_group",
-                                Label = "Contact",
-                                Layout = "vertical",
-                                Children =
-                                [
-                                    new RestApiFormEditorFieldItem
-                                    {
-                                        Id = "n_email",
-                                        Label = "Email",
-                                        Type = "string",
-                                        Required = false
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    new RestApiFormEditorTabItem
-                    {
-                        Id = "t_relations",
-                        Name = "Relations",
-                        Children =
-                        [
-                            new RestApiFormEditorFieldItem
-                            {
-                                Id = "n_appears_in",
-                                Label = "AppearsIn",
-                                Type = "ref",
-                                Required = false,
-                                Help = "Games the character appears in."
-                            },
-                            new RestApiFormEditorFieldItem
-                            {
-                                Id = "n_groups",
-                                Label = "Groups",
-                                Type = "tags",
-                                Required = false,
-                                Help = "Pirate factions this character belongs to."
-                            }
-                        ]
-                    },
-                    new RestApiFormEditorTabItem
-                    {
-                        Id = "t_assets",
-                        Name = "Assets",
-                        Children =
-                        [
-                            new RestApiFormEditorFieldItem
-                            {
-                                Id = "n_icon",
-                                Label = "Icon",
-                                Type = "file",
-                                Required = false,
-                                Help = "Portrait image of the character."
-                            }
-                        ]
-                    }
+                    //new RestApiFormEditorTabItem
+                    //{
+                    //    Id = "t_details",
+                    //    Name = "Details",
+                    //    Children =
+                    //    [
+                    //        new RestApiFormEditorFieldItem
+                    //        {
+                    //            Id = "n_name",
+                    //            Label = "Name",
+                    //            Type = "string",
+                    //            Required = true,
+                    //            Help = "Full pirate name of the character."
+                    //        },
+                    //        new RestApiFormEditorFieldItem
+                    //        {
+                    //            Id = "n_description",
+                    //            Label = "Description",
+                    //            Type = "text",
+                    //            Required = false,
+                    //            Help = "A short characterization of the pirate."
+                    //        },
+                    //        new RestApiFormEditorGroupItem
+                    //        {
+                    //            Id = "n_contact_group",
+                    //            Label = "Contact",
+                    //            Layout = "vertical",
+                    //            Children =
+                    //            [
+                    //                new RestApiFormEditorFieldItem
+                    //                {
+                    //                    Id = "n_email",
+                    //                    Label = "Email",
+                    //                    Type = "string",
+                    //                    Required = false
+                    //                }
+                    //            ]
+                    //        }
+                    //    ]
+                    //},
+                    //new RestApiFormEditorTabItem
+                    //{
+                    //    Id = "t_relations",
+                    //    Name = "Relations",
+                    //    Children =
+                    //    [
+                    //        new RestApiFormEditorFieldItem
+                    //        {
+                    //            Id = "n_appears_in",
+                    //            Label = "AppearsIn",
+                    //            Type = "ref",
+                    //            Required = false,
+                    //            Help = "Games the character appears in."
+                    //        },
+                    //        new RestApiFormEditorFieldItem
+                    //        {
+                    //            Id = "n_groups",
+                    //            Label = "Groups",
+                    //            Type = "tags",
+                    //            Required = false,
+                    //            Help = "Pirate factions this character belongs to."
+                    //        }
+                    //    ]
+                    //},
+                    //new RestApiFormEditorTabItem
+                    //{
+                    //    Id = "t_assets",
+                    //    Name = "Assets",
+                    //    Children =
+                    //    [
+                    //        new RestApiFormEditorFieldItem
+                    //        {
+                    //            Id = "n_icon",
+                    //            Label = "Icon",
+                    //            Type = "file",
+                    //            Required = false,
+                    //            Help = "Portrait image of the character."
+                    //        }
+                    //    ]
+                    //}
                 ]
             };
         }

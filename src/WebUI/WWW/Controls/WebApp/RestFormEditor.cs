@@ -36,7 +36,6 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.Control = new ControlRestFormEditor(RandomId.Create())
             {
-                FormId = "00000000-0000-0000-0000-000000000001",
                 RestUri = sitemapManager.GetUri<FormEditor>(pageContext).Add(new UriQuery("id", "00000000-0000-0000-0000-000000000001")),
                 Preview = true,
                 Indent = 18
@@ -45,24 +44,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Code = @"
             new ControlFormEditor(""my-form-editor"")
             {
-                FormId = ""00000000-0000-0000-0000-000000000001"",
                 RestUri = sitemapManager.GetUri<FormEditor>(pageContext).Add(new UriQuery(""id"", ""00000000-0000-0000-0000-000000000001"")),
                 Preview = true,
                 Indent = 18
             };";
-
-            Stage.AddProperty
-            (
-                "FormId",
-                "Identifier of the form to load on startup. The editor issues `GET {RestUrl}/item/{FormId}` to fetch the structure and `PUT {RestUrl}/item/{FormId}` to persist mutations.",
-                @"FormId = ""00000000-0000-0000-0000-000000000001""",
-                new ControlRestFormEditor(RandomId.Create())
-                {
-                    FormId = "00000000-0000-0000-0000-000000000001",
-                    RestUri = sitemapManager.GetUri<FormEditor>(pageContext).Add(new UriQuery("id", "00000000-0000-0000-0000-000000000001")),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
-                }
-            );
 
             Stage.AddProperty
             (
@@ -71,7 +56,6 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 "Readonly = true",
                 new ControlRestFormEditor(RandomId.Create())
                 {
-                    FormId = "00000000-0000-0000-0000-000000000001",
                     RestUri = sitemapManager.GetUri<FormEditor>(pageContext).Add(new UriQuery("id", "00000000-0000-0000-0000-000000000001")),
                     Readonly = true,
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
