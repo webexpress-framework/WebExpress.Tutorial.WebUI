@@ -16,6 +16,21 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     [Title("Form structure")]
     public sealed class FormEditor : RestApiFormEditor<Game>
     {
+        private static readonly RestApiFormEditorFieldItem[] _fields =
+        [
+            new RestApiFormEditorFieldItem{ Id = "Name",        Label = "Name",        Type = "string"    },
+            new RestApiFormEditorFieldItem{ Id = "Description", Label = "Description", Type = "text"      },
+            new RestApiFormEditorFieldItem{ Id = "Email",       Label = "Email",       Type = "string"    },
+            new RestApiFormEditorFieldItem{ Id = "AppearsIn",   Label = "AppearsIn",   Type = "ref"       },
+            new RestApiFormEditorFieldItem{ Id = "Groups",      Label = "Groups",      Type = "tags"      },
+            new RestApiFormEditorFieldItem{ Id = "Icon",        Label = "Icon",        Type = "file"      },
+            new RestApiFormEditorFieldItem{ Id = "Status",      Label = "Status",      Type = "enum"      },
+            new RestApiFormEditorFieldItem{ Id = "Affiliation", Label = "Affiliation", Type = "enum"      },
+            new RestApiFormEditorFieldItem{ Id = "DueDate",     Label = "DueDate",     Type = "timestamp" },
+            new RestApiFormEditorFieldItem{ Id = "Weapon",      Label = "Weapon",      Type = "string"    },
+            new RestApiFormEditorFieldItem{ Id = "IslandOrigin",Label = "IslandOrigin",Type = "ref"       }
+        ];
+
         private static readonly Dictionary<string, RestApiFormEditorItem> _store = new(StringComparer.OrdinalIgnoreCase)
         {
             ["00000000-0000-0000-0000-000000000001"] = CreateSampleStructure()
@@ -26,6 +41,24 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// </summary>
         public FormEditor()
         {
+        }
+
+        /// <summary>
+        /// Retrieves a catalog of form editor field items based on the specified query context and request parameters.
+        /// </summary>
+        /// <param name="context">
+        /// The query context that provides information about the current data retrieval operation. Cannot be null.
+        /// </param>
+        /// <param name="request">
+        /// The request containing parameters that influence which catalog items are retrieved. Cannot be null.
+        /// </param>
+        /// <returns>
+        /// An enumerable collection of catalog field items that match the specified context and request. The 
+        /// collection may be empty if no items are found.
+        /// </returns>
+        protected override IEnumerable<RestApiFormEditorFieldItem> RetrieveCatalog(IQueryContext context, IRequest request)
+        {
+            return _fields;
         }
 
         /// <summary>
@@ -101,7 +134,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                             new RestApiFormEditorFieldItem
                             {
                                 Id = "n_name",
-                                Name = "Name",
+                                Label = "Name",
                                 Type = "string",
                                 Required = true,
                                 Help = "Full pirate name of the character."
@@ -109,7 +142,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                             new RestApiFormEditorFieldItem
                             {
                                 Id = "n_description",
-                                Name = "Description",
+                                Label = "Description",
                                 Type = "text",
                                 Required = false,
                                 Help = "A short characterization of the pirate."
@@ -124,7 +157,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                                     new RestApiFormEditorFieldItem
                                     {
                                         Id = "n_email",
-                                        Name = "Email",
+                                        Label = "Email",
                                         Type = "string",
                                         Required = false
                                     }
@@ -141,7 +174,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                             new RestApiFormEditorFieldItem
                             {
                                 Id = "n_appears_in",
-                                Name = "AppearsIn",
+                                Label = "AppearsIn",
                                 Type = "ref",
                                 Required = false,
                                 Help = "Games the character appears in."
@@ -149,7 +182,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                             new RestApiFormEditorFieldItem
                             {
                                 Id = "n_groups",
-                                Name = "Groups",
+                                Label = "Groups",
                                 Type = "tags",
                                 Required = false,
                                 Help = "Pirate factions this character belongs to."
@@ -165,7 +198,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                             new RestApiFormEditorFieldItem
                             {
                                 Id = "n_icon",
-                                Name = "Icon",
+                                Label = "Icon",
                                 Type = "file",
                                 Required = false,
                                 Help = "Portrait image of the character."
