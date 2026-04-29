@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebMessage;
+using WebExpress.WebIndex.Queries;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 {
@@ -21,6 +22,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// <summary>
         /// Retrieves the collection of workflow states associated with the specified request.
         /// </summary>
+        /// <param name="workflowId">
+        /// The unique identifier of the workflow whose states are to be retrieved.
+        /// </param>
+        /// <param name="context">
+        /// The query context providing access to the underlying data store. Cannot be null.
+        /// </param>
         /// <param name="request">
         /// The request for which to retrieve workflow states. Must not be null.
         /// </param>
@@ -28,7 +35,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// An enumerable collection of workflow states for the specified request. Returns 
         /// an empty collection if no states are available.
         /// </returns>
-        public override IEnumerable<RestApiWorkflowState> RetrieveStates(IRequest request)
+        protected override IEnumerable<RestApiWorkflowState> RetrieveStates(string workflowId, IQueryContext context, IRequest request)
         {
             return
             [
@@ -86,6 +93,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// <summary>
         /// Retrieves the collection of workflow transitions available for the specified request.
         /// </summary>
+        /// <param name="workflowId">
+        /// The unique identifier of the workflow whose states are to be retrieved.
+        /// </param>
+        /// <param name="context">
+        /// The query context providing access to the underlying data store. Cannot be null.
+        /// </param>
         /// <param name="request">
         /// The request for which to retrieve workflow transitions. Cannot be null.
         /// </param>
@@ -93,7 +106,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// An enumerable collection of workflow transitions associated with the request. Returns 
         /// an empty collection if no transitions are available.
         /// </returns>
-        public override IEnumerable<RestApiWorkflowTransition> RetrieveTransitions(IRequest request)
+        protected override IEnumerable<RestApiWorkflowTransition> RetrieveTransitions(string workflowId, IQueryContext context, IRequest request)
         {
             return
             [
