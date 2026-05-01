@@ -41,8 +41,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Title = "List Control Example",
                     Sortable = true
                 }
-                    .Add(new ControlListItem(null) { Text = "First Element" ,
-                    BackgroundColor = new PropertyColorBackgroundList(TypeColorBackgroundList.Primary) })
+                    .Add(new ControlListItem(null) { Text = "First Element" })
                     .Add(new ControlListItem(null) { Text = "Second Element" })
                     .Add(new ControlListItem(null) { Text = "Third Element" })
             ];
@@ -106,12 +105,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.AddProperty
             (
-                "Active",
-                "Determines the active status of a list item. Note: Only applied for Group, Flush, and Horizontal.",
-                "Active = TypeActive.Active",
+                "Selectable",
+                "Enables item selection within the list. When `Selectable` is set to true, each list item becomes interactive and can be highlighted or chosen by the user. This mode is typically used when the list represents actionable entries, supports navigation, or triggers detail views based on the selected element.",
+                "Selectable = true",
                 new ControlList()
                 {
-                    Layout = TypeLayoutList.Group
+                    Selectable = true
                 }
                     .Add(new ControlListItem(null) { Text = "First Element" })
                     .Add(new ControlListItem(null) { Text = "Second Element" })
