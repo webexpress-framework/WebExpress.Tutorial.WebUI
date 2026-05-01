@@ -245,6 +245,31 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.AddProperty
             (
+                "Theme",
+                "Switches the icon between the default FontAwesome theme and the lightweight SVG-based light theme. Pass the desired TypeIconTheme to the icon's constructor. The light theme is only available for icons that ship a dedicated light SVG variant.",
+                "Icon = new IconAddressBook(TypeIconTheme.Light)",
+                [
+                    new ControlText() { Text = "Default", Format = TypeFormatText.Paragraph, TextColor = new PropertyColorText(TypeColorText.Info) },
+                    .. GetAllIcons(TypeIconTheme.Default).Select(x => new ControlIcon()
+                    {
+                        Icon = x,
+                        Margin = new PropertySpacingMargin(PropertySpacing.Space.Two),
+                        TextColor = new PropertyColorText(TypeColorText.Info),
+                        Title = x.GetType().Name,
+                    }),
+                    new ControlText() { Text = "Light", Format = TypeFormatText.Paragraph, TextColor = new PropertyColorText(TypeColorText.Info) },
+                    .. GetAllIcons(TypeIconTheme.Light).Select(x => new ControlIcon()
+                    {
+                        Icon = x,
+                        Margin = new PropertySpacingMargin(PropertySpacing.Space.Two),
+                        TextColor = new PropertyColorText(TypeColorText.Info),
+                        Title = x.GetType().Name,
+                    })
+                ]
+            );
+
+            Stage.AddProperty
+            (
                 "BackgroundColor",
                 "Sets the background color.",
                 "BackgroundColor = new PropertyColorBackground(TypeColorBackground.Success)",
@@ -279,13 +304,33 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
         /// <returns>A list of instantiated icons.</returns>
         private static IEnumerable<IIcon> GetAllIcons()
         {
+            return GetAllIcons(TypeIconTheme.Default);
+        }
+
+        /// <summary>
+        /// Retrieves all icon types from the namespace "WebExpress.WebUI.WebIcon" and creates
+        /// instances using the specified theme. For <see cref="TypeIconTheme.Light"/> only icons
+        /// that declare a constructor accepting <see cref="TypeIconTheme"/> are returned, since
+        /// those are the icons that ship a dedicated light SVG variant.
+        /// </summary>
+        /// <param name="theme">The theme to construct the icons with.</param>
+        /// <returns>A list of instantiated icons.</returns>
+        private static IEnumerable<IIcon> GetAllIcons(TypeIconTheme theme)
+        {
             var iconType = typeof(WebExpress.WebUI.WebIcon.Icon);
             var assembly = Assembly.GetAssembly(iconType);
 
-            return assembly.GetTypes()
-                .Where(t => iconType.IsAssignableFrom(t) && !t.IsInterface && !t.IsAbstract)
-                .Select(Activator.CreateInstance)
-                .Cast<IIcon>();
+            var types = assembly.GetTypes()
+                .Where(t => iconType.IsAssignableFrom(t) && !t.IsInterface && !t.IsAbstract);
+
+            if (theme == TypeIconTheme.Default)
+            {
+                return types.Select(Activator.CreateInstance).Cast<IIcon>();
+            }
+
+            return types
+                .Where(t => t.GetConstructor([typeof(TypeIconTheme)]) != null)
+                .Select(t => (IIcon)Activator.CreateInstance(t, theme));
         }
     }
 }
