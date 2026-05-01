@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -248,24 +248,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Theme",
                 "Switches the icon between the default FontAwesome theme and the lightweight SVG-based light theme. Pass the desired TypeIconTheme to the icon's constructor. The light theme is only available for icons that ship a dedicated light SVG variant.",
                 "Icon = new IconAddressBook(TypeIconTheme.Light)",
-                [
-                    new ControlText() { Text = "Default", Format = TypeFormatText.Paragraph, TextColor = new PropertyColorText(TypeColorText.Info) },
-                    .. GetAllIcons(TypeIconTheme.Default).Select(x => new ControlIcon()
-                    {
-                        Icon = x,
-                        Margin = new PropertySpacingMargin(PropertySpacing.Space.Two),
-                        TextColor = new PropertyColorText(TypeColorText.Info),
-                        Title = x.GetType().Name,
-                    }),
-                    new ControlText() { Text = "Light", Format = TypeFormatText.Paragraph, TextColor = new PropertyColorText(TypeColorText.Info) },
-                    .. GetAllIcons(TypeIconTheme.Light).Select(x => new ControlIcon()
-                    {
-                        Icon = x,
-                        Margin = new PropertySpacingMargin(PropertySpacing.Space.Two),
-                        TextColor = new PropertyColorText(TypeColorText.Info),
-                        Title = x.GetType().Name,
-                    })
-                ]
+                [.. GetThemeIcons()]
             );
 
             Stage.AddProperty
@@ -299,6 +282,72 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
         }
 
         /// <summary>
+        /// Retrieves all icon types and categorizes them by their supported themes.
+        /// </summary>
+        /// <returns>A list of controls representing the categorized icons.</returns>
+        private static IEnumerable<IControl> GetThemeIcons()
+        {
+            var iconType = typeof(WebExpress.WebUI.WebIcon.Icon);
+            var assembly = Assembly.GetAssembly(iconType);
+
+            var types = assembly.GetTypes()
+                .Where(t => iconType.IsAssignableFrom(t) && !t.IsInterface && !t.IsAbstract)
+                .OrderBy(t => t.Name)
+                .ToList();
+
+            var onlyDefault = new List<IIcon>();
+            var both = new List<(IIcon Default, IIcon Light)>();
+            var onlyLight = new List<IIcon>();
+
+            foreach (var t in types)
+            {
+                var hasThemeConstructor = t.GetConstructor([typeof(TypeIconTheme)]) != null;
+                if (hasThemeConstructor)
+                {
+                    both.Add(((IIcon)Activator.CreateInstance(t, TypeIconTheme.Default), (IIcon)Activator.CreateInstance(t, TypeIconTheme.Light)));
+                }
+                else
+                {
+                    var instance = (WebExpress.WebUI.WebIcon.Icon)Activator.CreateInstance(t);
+                    if (instance.Theme == TypeIconTheme.Default)
+                    {
+                        onlyDefault.Add(instance);
+                    }
+                    else
+                    {
+                        onlyLight.Add(instance);
+                    }
+                }
+            }
+
+            var controls = new List<IControl>();
+
+            if (onlyDefault.Count != 0)
+            {
+                controls.Add(new ControlText() { Text = "Default only", Format = TypeFormatText.Paragraph, TextColor = new PropertyColorText(TypeColorText.Info) });
+                controls.AddRange(onlyDefault.Select(x => new ControlIcon() { Icon = x, TextColor = new PropertyColorText(TypeColorText.Warning), Title = x.GetType().Name }));
+            }
+
+            if (both.Count != 0)
+            {
+                controls.Add(new ControlText() { Text = "Default and Light", Format = TypeFormatText.Paragraph, TextColor = new PropertyColorText(TypeColorText.Info) });
+                foreach (var b in both)
+                {
+                    controls.Add(new ControlIcon() { Icon = b.Default, TextColor = new PropertyColorText(TypeColorText.Warning), Title = b.Default.GetType().Name });
+                    controls.Add(new ControlIcon() { Icon = b.Light, TextColor = new PropertyColorText(TypeColorText.Warning), Title = b.Light.GetType().Name });
+                }
+            }
+
+            if (onlyLight.Count != 0)
+            {
+                controls.Add(new ControlText() { Text = "Light only", Format = TypeFormatText.Paragraph, TextColor = new PropertyColorText(TypeColorText.Info) });
+                controls.AddRange(onlyLight.Select(x => new ControlIcon() { Icon = x, TextColor = new PropertyColorText(TypeColorText.Warning), Title = x.GetType().Name }));
+            }
+
+            return controls;
+        }
+
+        /// <summary>
         /// Retrieves all icon types from the namespace "WebExpress.WebUI.WebIcon" and creates instances.
         /// </summary>
         /// <returns>A list of instantiated icons.</returns>
@@ -329,7 +378,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             }
 
             return types
-                .Where(t => t.GetConstructor([typeof(TypeIconTheme)]) != null)
+                .Where(t => t.GetConstructor(new Type[] { typeof(TypeIconTheme) }) != null)
                 .Select(t => (IIcon)Activator.CreateInstance(t, theme));
         }
     }
