@@ -124,6 +124,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 }.Add(new ControlText() { Text = "Transparent" })),
                 new ControlTile().Add(new ControlTileCard()
                 {
+                    Color = new PropertyColorTile(TypeColorTile.Highlight)
+                }.Add(new ControlText() { Text = "Highlight (--wx-highlight)" })),
+                new ControlTile().Add(new ControlTileCard()
+                {
                     Color = new PropertyColorTile("gold")
                 }.Add(new ControlText() { Text = "Custom" }))
             );

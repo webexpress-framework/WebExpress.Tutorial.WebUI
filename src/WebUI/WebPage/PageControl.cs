@@ -331,7 +331,6 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 })
                 {
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light)
                 });
             }
         }

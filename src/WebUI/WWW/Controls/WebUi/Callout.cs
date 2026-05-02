@@ -123,6 +123,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     .Add(new ControlText() { Text = "Hello World!" }),
                 new ControlPanelCallout()
                 {
+                    Title = "Highlight",
+                    Color = new PropertyColorCallout(TypeColorCallout.Highlight),
+                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                }
+                    .Add(new ControlText() { Text = "Color is supplied exclusively via --wx-highlight." }),
+                new ControlPanelCallout()
+                {
                     Title = "Custom",
                     Color = new PropertyColorCallout("gold"),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)

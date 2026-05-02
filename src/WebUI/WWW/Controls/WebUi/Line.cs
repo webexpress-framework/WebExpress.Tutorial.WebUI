@@ -86,6 +86,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Color = new PropertyColorLine(TypeColorLine.Light)
                 },
+                new ControlText() { Text = "Highlight", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlLine()
+                {
+                    Color = new PropertyColorLine(TypeColorLine.Highlight)
+                },
                 new ControlText() { Text = "Custom", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlLine()
                 {

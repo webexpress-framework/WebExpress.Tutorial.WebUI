@@ -72,6 +72,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 },
                 new ControlBadge()
                 {
+                    Value = "100",
+                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Highlight)
+                },
+                new ControlBadge()
+                {
                     Value = "200",
                     TextColor = new PropertyColorText("red"),
                     BackgroundColor = new PropertyColorBackgroundBadge("gold")
@@ -145,6 +150,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 },
                 new ControlBadge()
                 {
+                    Value = "Highlight",
+                    Pill = TypePillBadge.Pill,
+                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Highlight)
+                },
+                new ControlBadge()
+                {
                     Value = "User defined",
                     Pill = TypePillBadge.Pill,
                     TextColor = new PropertyColorText("red"),
@@ -209,6 +220,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Value = "Light",
                     Uri = pageContext.Route.ToUri(),
                     BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Light)
+                },
+                new ControlBadge()
+                {
+                    Value = "Highlight",
+                    Uri = pageContext.Route.ToUri(),
+                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Highlight)
                 },
                 new ControlBadge()
                 {

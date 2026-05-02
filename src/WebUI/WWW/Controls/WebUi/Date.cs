@@ -78,6 +78,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlDate() { Date = DateTime.Now, Color = new PropertyColorDate(TypeColorDate.Light) },
                 new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlDate() { Date = DateTime.Now, Color = new PropertyColorDate(TypeColorDate.Dark) },
+                new ControlText() { Text = "Highlight", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlDate() { Date = DateTime.Now, Color = new PropertyColorDate(TypeColorDate.Highlight) },
                 new ControlText() { Text = "User defind", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlDate() { Date = DateTime.Now, Color = new PropertyColorDate("gold") }
             );

@@ -159,6 +159,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Format = TypeFormatProgress.Animated,
                     Color = new PropertyColorProgress(TypeColorProgress.Danger)
                 },
+                new ControlText() { Text = "Highlight", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlProgress()
+                {
+                    Value = 50,
+                    Format = TypeFormatProgress.Animated,
+                    Color = new PropertyColorProgress(TypeColorProgress.Highlight)
+                },
                 new ControlText() { Text = "Custom", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {

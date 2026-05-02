@@ -258,6 +258,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = _text,
                     TextColor = new PropertyColorText(TypeColorText.White)
                 },
+                new ControlText() { Text = "Highlight", Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText()
+                {
+                    Text = _text,
+                    TextColor = new PropertyColorText(TypeColorText.Highlight)
+                },
                 new ControlText() { Text = "Custom", Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {

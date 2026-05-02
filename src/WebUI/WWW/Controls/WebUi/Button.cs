@@ -102,6 +102,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 },
                 new ControlButton()
                 {
+                    Text = "Highlight",
+                    BackgroundColor = new PropertyColorButton(TypeColorButton.Highlight)
+                },
+                new ControlButton()
+                {
                     Text = "Custom",
                     BackgroundColor = new PropertyColorButton("gold")
                 }
@@ -163,6 +168,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Text = "Light",
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Light),
+                    Outline = true
+                },
+                new ControlButton()
+                {
+                    Text = "Highlight",
+                    BackgroundColor = new PropertyColorButton(TypeColorButton.Highlight),
                     Outline = true
                 },
                 new ControlButton()

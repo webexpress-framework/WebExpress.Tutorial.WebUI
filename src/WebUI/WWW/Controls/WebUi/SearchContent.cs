@@ -80,11 +80,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.AddProperty
             (
                 "HighlightColor",
-                "Defines the color used to highlight matching search terms in the target content. Accepts any valid CSS color value.",
+                "Defines the color used to highlight matching search terms in the target content. Accepts any valid CSS color value, or the literal token \"highlight\" which resolves to the central CSS variable --wx-highlight defined in webexpress.webui.css and cannot be overridden by the user.",
                 "HighlightColor = \"green\"",
                 new ControlSearchContent()
                 {
                     HighlightColor = "green",
+                    TargetIds = ["wx-content-main"]
+                },
+                new ControlSearchContent()
+                {
+                    HighlightColor = "highlight",
                     TargetIds = ["wx-content-main"]
                 }
             );

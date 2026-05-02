@@ -61,6 +61,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlTag() { Value = "Light", Color = new PropertyColorTag(TypeColorTag.Light) },
                 new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlTag() { Value = "Dark", Color = new PropertyColorTag(TypeColorTag.Dark) },
+                new ControlText() { Text = "Highlight", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlTag() { Value = "Highlight", Color = new PropertyColorTag(TypeColorTag.Highlight) },
                 new ControlText() { Text = "User defind", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlTag() { Value = "gold", Color = new PropertyColorTag("gold") }
             );
