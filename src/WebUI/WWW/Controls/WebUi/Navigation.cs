@@ -557,19 +557,15 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
         /// <param name="text">The display text for the link.</param>
         /// <param name="active">The active state of the link. The default value is None.</param>
         /// <returns>A <see cref="ControlNavigationItemLink"/> instance initialized with the specified parameters.</returns>
-        private ControlNavigationItemLink CreateLink
-        (
-            string text,
-            TypeActive active = TypeActive.None
-        )
+        private ControlNavigationItemLink CreateLink(string text, TypeActive active = TypeActive.None)
         {
             var link = new ControlNavigationItemLink()
             {
-                Text = text,
-                Uri = _pageContext.Route.ToUri(),
-                Active = active
+                Text = _ => text,
+                Uri = _ => _pageContext.Route.ToUri(),
+                Active = _ => active,
+                Params = _ => new System.Collections.Generic.List<Parameter>() { new Parameter("link", text.ToLower(), ParameterScope.Parameter) }
             };
-            link.Params.Add(new Parameter("link", text.ToLower(), ParameterScope.Parameter));
 
             return link;
         }

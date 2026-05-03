@@ -20,7 +20,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.FragmentPage
         public SectionAppQuickcreateSecondaryFragment(IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "SectionAppQuickcreateSecondary";
+            Text = _ => "SectionAppQuickcreateSecondary";
         }
     }
 }

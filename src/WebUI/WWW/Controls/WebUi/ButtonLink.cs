@@ -32,87 +32,87 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.Controls = [
                 new ControlButtonLink()
                 {
-                    Text = (c) =>"Hello World!",
-                    Uri = pageContext.Route.ToUri()
+                    Text = _ => "Hello World!",
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
-                    Text = (c) =>"Hello World!",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Info),
-                    Uri = pageContext.Route.ToUri()
+                    Text = _ => "Hello World!",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Info),
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
-                    Text = (c) =>"Hello World!",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Warning),
-                    Uri = pageContext.Route.ToUri()
+                    Text = _ => "Hello World!",
+                    BackgroundColor =_ =>  new PropertyColorButton(TypeColorButton.Warning),
+                    Uri = _ => pageContext.Route.ToUri()
                 }
             ];
 
             Stage.Code = @"
             new ControlButtonLink()  
             {  
-                Text = (c) => ""Hello World!"",
-                Uri = pageContext.Route.ToUri()
+                Text = _ => ""Hello World!"",
+                Uri = _ => pageContext.Route.ToUri()
             };";
 
             Stage.AddProperty
             (
                 "BackgroundColor",
                 "Sets the background color of the button.",
-                "BackgroundColor = new PropertyColorButton(TypeColorButton.Primary)",
+                "BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary)",
                 new ControlButtonLink()
                 {
-                    Text = (c) => "Default",
-                    Uri = pageContext.Route.ToUri()
+                    Text = _ => "Default",
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
-                    Text = (c) => "Primary",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    Uri = pageContext.Route.ToUri()
+                    Text = _ => "Primary",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
-                    Text = (c) => "Info",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Info),
-                    Uri = pageContext.Route.ToUri()
+                    Text = _ => "Info",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Info),
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
-                    Text = (c) => "Success",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Success),
-                    Uri = pageContext.Route.ToUri()
+                    Text = _ => "Success",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Success),
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
-                    Text = (c) => "Warning",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Warning),
-                    Uri = pageContext.Route.ToUri()
+                    Text = _ => "Warning",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Warning),
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
-                    Text = (c) => "Danger",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Danger),
-                    Uri = pageContext.Route.ToUri()
+                    Text = _ => "Danger",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Danger),
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
-                    Text = (c) => "Dark",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Dark),
-                    Uri = pageContext.Route.ToUri()
+                    Text = _ => "Dark",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Dark),
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
-                    Text = (c) => "Light",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Light),
-                    Uri = pageContext.Route.ToUri()
+                    Text = _ => "Light",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Light),
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
-                    Text = (c) => "Custom",
-                    BackgroundColor = new PropertyColorButton("gold"),
-                    Uri = pageContext.Route.ToUri()
+                    Text = _ => "Custom",
+                    BackgroundColor = _ => new PropertyColorButton("gold"),
+                    Uri = _ => pageContext.Route.ToUri()
                 }
             );
 
@@ -123,71 +123,71 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Outline = _ => true",
                 new ControlButtonLink()
                 {
-                    Text = (c) => "Default",
+                    Text = _ => "Default",
                     Outline = _ => true,
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
-                    Text = (c) => "Primary",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                    Text = _ => "Primary",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                     Outline = _ => true,
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlButton()
                 {
-                    Text = (c) => "Secondary",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Secondary),
+                    Text = _ => "Secondary",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Secondary),
                     Outline = _ => true
                 },
                 new ControlButtonLink()
                 {
-                    Text = (c) => "Info",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Info),
+                    Text = _ => "Info",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Info),
                     Outline = _ => true,
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
-                    Text = (c) => "Success",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Success),
+                    Text = _ => "Success",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Success),
                     Outline = _ => true,
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
-                    Text = (c) => "Warning",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Warning),
+                    Text = _ => "Warning",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Warning),
                     Outline = _ => true,
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
-                    Text = (c) => "Danger",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Danger),
+                    Text = _ => "Danger",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Danger),
                     Outline = _ => true,
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
-                    Text = (c) => "Dark",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Dark),
+                    Text = _ => "Dark",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Dark),
                     Outline = _ => true,
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
-                    Text = (c) => "Light",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Light),
+                    Text = _ => "Light",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Light),
                     Outline = _ => true,
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
-                    Text = (c) => "Custom",
-                    BackgroundColor = new PropertyColorButton("gold"),
+                    Text = _ => "Custom",
+                    BackgroundColor = _ => new PropertyColorButton("gold"),
                     Outline = _ => true,
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 }
             );
 
@@ -195,27 +195,27 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Size",
                 "Determines the size of the button.",
-                "Size = TypeSizeButton.Small",
+                "Size = _ => TypeSizeButton.Small",
                 new ControlButtonLink()
                 {
-                    Text = (c) => "Small",
-                    Size = TypeSizeButton.Small,
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    Uri = pageContext.Route.ToUri()
+                    Text = _ => "Small",
+                    Size = _ => TypeSizeButton.Small,
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
-                    Text = (c) => "Default",
-                    Size = TypeSizeButton.Default,
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    Uri = pageContext.Route.ToUri()
+                    Text = _ => "Default",
+                    Size = _ => TypeSizeButton.Default,
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
-                    Text = (c) => "Large",
-                    Size = TypeSizeButton.Large,
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    Uri = pageContext.Route.ToUri()
+                    Text = _ => "Large",
+                    Size = _ => TypeSizeButton.Large,
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
+                    Uri = _ => pageContext.Route.ToUri()
                 }
             );
 
@@ -223,20 +223,20 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Icon",
                 "Adds an icon to the button.",
-                "Icon = new IconHome()",
+                "Icon = _ => new IconHome()",
                 new ControlButtonLink()
                 {
-                    Text = (c) => "Home",
+                    Text = _ => "Home",
                     Icon = _ => new IconHome(),
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Warning),
-                    Uri = pageContext.ApplicationContext.Route.ToUri()
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Warning),
+                    Uri = _ => pageContext.ApplicationContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
-                    Text = (c) => "Custom",
+                    Text = _ => "Custom",
                     Icon = _ => new ImageIcon(pageContext.ApplicationContext.Route.Concat("assets/img/webui.svg").ToUri(), new PropertySizeIcon(1, TypeSizeUnit.Em)),
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Warning),
-                    Uri = pageContext.Route.ToUri()
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Warning),
+                    Uri = _ => pageContext.Route.ToUri()
                 }
             );
 
@@ -244,13 +244,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                "Block",
                "Spans the button across the entire width.",
-               "Block = TypeBlockButton.Block",
+               "Block = _ => TypeBlockButton.Block",
                new ControlButtonLink()
                {
-                   Text = (c) => "Block",
-                   Block = TypeBlockButton.Block,
-                   BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                   Uri = pageContext.Route.ToUri()
+                   Text = _ => "Block",
+                   Block = _ => TypeBlockButton.Block,
+                   BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
+                   Uri = _ => pageContext.Route.ToUri()
                }
             );
 
@@ -261,27 +261,27 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Active = _ => TypeActive.Active",
                 new ControlButtonLink()
                 {
-                    Text = (c) => "None",
-                    Active = TypeActive.None,
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                    Text = _ => "None",
+                    Active = _ => TypeActive.None,
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two),
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
-                    Text = (c) => "Active",
-                    Active = TypeActive.Active,
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                    Text = _ => "Active",
+                    Active = _ => TypeActive.Active,
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two),
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
-                    Text = (c) => "Disabled",
-                    Active = TypeActive.Disabled,
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                    Text = _ => "Disabled",
+                    Active = _ => TypeActive.Disabled,
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two),
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 }
             );
 

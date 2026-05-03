@@ -20,7 +20,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.FragmentPage
         public SectionAppQuickcreatePreferencesFragment(IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "SectionAppQuickcreatePreferences";
+            Text = _ => "SectionAppQuickcreatePreferences";
         }
     }
 }

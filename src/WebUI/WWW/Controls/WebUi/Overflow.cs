@@ -151,8 +151,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     yield return new ControlLink()
                     {
-                        Text = $"Link {i}",
-                        Icon = new IconLink()
+                        Text = _ => $"Link {i}",
+                        Icon = _ => new IconLink()
                     };
                 }
                 else

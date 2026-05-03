@@ -37,19 +37,19 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 }
                     .Add(new ControlSplitButtonItemLink()
                     {
-                        Text = "Action"
+                        Text = _ => "Action"
                     })
             ];
 
             Stage.Code = @"
             new ControlSplitButtonLink()
                 {
-                    Text = ""Hello World!"",
-                    Uri = pageContext.Route.ToUri()
+                    Text = _ => ""Hello World!"",
+                    Uri = _ => pageContext.Route.ToUri()
                 }
                     .Add(new ControlSplitButtonItemLink()
                     {
-                        Text = ""Action 1""
+                        Text = _ => ""Action 1""
                     })";
 
             Stage.AddProperty
@@ -328,7 +328,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 }
                     .Add(new ControlSplitButtonItemLink()
                     {
-                        Text = "Action"
+                        Text = _ => "Action"
                     })
             );
 

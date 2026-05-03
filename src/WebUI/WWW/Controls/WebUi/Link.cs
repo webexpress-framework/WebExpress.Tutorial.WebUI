@@ -34,9 +34,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.Controls = [
                 new ControlLink()
                    {
-                       Text = pageContext.PageTitle,
-                       Icon = new IconClone(),
-                       Uri = pageContext.Route.ToUri()
+                       Text = _ => pageContext.PageTitle,
+                       Icon = _ => new IconClone(),
+                       Uri = _ => pageContext.Route.ToUri()
                    }
             ];
 
@@ -49,8 +49,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Text = _ => \"Hello World!\"",
                 new ControlLink()
                 {
-                    Text = "Hello World!",
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Hello World!",
+                    Uri = _ => pageContext.Route.ToUri(),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 }
             );
@@ -59,10 +59,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Content",
                 "Sets the content of the link",
-                "new ControlLink(this, new ControlText(this) { Text = \"Hello World!\", Format = TypeFormatText.Italic }, new ControlBadge(this) { Value = \"1\", BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger) })",
+                "new ControlLink(this, new ControlText(this) { Text = _ => \"Hello World!\", Format = _ => TypeFormatText.Italic }, new ControlBadge(this) { Value = _ => \"1\", BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger) })",
                 new ControlLink(null, new ControlText() { Text = "Hello World!", Format = TypeFormatText.Italic }, new ControlBadge() { Value = "1", BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger) })
                 {
-                    Uri = pageContext.Route.ToUri(),
+                    Uri = _ => pageContext.Route.ToUri(),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 }
             );
@@ -74,9 +74,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Title = _ => \"Hello World!\"",
                 new ControlLink()
                 {
-                    Text = "Try it out",
-                    Uri = pageContext.Route.ToUri(),
-                    Title = "Hello World!",
+                    Text = _ => "Try it out",
+                    Uri = _ => pageContext.Route.ToUri(),
+                    Title = _ => "Hello World!",
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 }
             );
@@ -88,9 +88,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Target = _ => TypeTarget.Blank",
                 new ControlLink()
                 {
-                    Text = "Try it out",
-                    Uri = pageContext.Route.ToUri(),
-                    Target = TypeTarget.Blank,
+                    Text = _ => "Try it out",
+                    Uri = _ => pageContext.Route.ToUri(),
+                    Target = _ => TypeTarget.Blank,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 }
             );
@@ -102,13 +102,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Uri = _ => pageContext.Route.ToUri()",
                 new ControlLink()
                 {
-                    Text = "With URI",
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "With URI",
+                    Uri = _ => pageContext.Route.ToUri(),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
-                    Text = "Without URI",
+                    Text = _ => "Without URI",
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 }
             );
@@ -120,30 +120,30 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Icon = _ => new IconHome()",
                 new ControlLink()
                 {
-                    Text = "Home",
-                    Icon = new IconHome(),
-                    Uri = pageContext.ApplicationContext.Route.ToUri(),
+                    Text = _ => "Home",
+                    Icon = _ => new IconHome(),
+                    Uri = _ => pageContext.ApplicationContext.Route.ToUri(),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
-                    Text = "Controls",
-                    Icon = new IconClone(),
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Controls",
+                    Icon = _ => new IconClone(),
+                    Uri = _ => pageContext.Route.ToUri(),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
-                    Text = "Info",
-                    Icon = new IconInfoCircle(),
-                    Uri = sitemapManager.GetUri<Info>(pageContext.ApplicationContext),
+                    Text = _ => "Info",
+                    Icon = _ => new IconInfoCircle(),
+                    Uri = _ => sitemapManager.GetUri<Info>(pageContext.ApplicationContext),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
-                    Text = "Custom",
-                    Icon = new ImageIcon(pageContext.ApplicationContext.Route.Concat("assets/img/webui.svg").ToUri(), new PropertySizeIcon(1, TypeSizeUnit.Em)),
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Custom",
+                    Icon = _ => new ImageIcon(pageContext.ApplicationContext.Route.Concat("assets/img/webui.svg").ToUri(), new PropertySizeIcon(1, TypeSizeUnit.Em)),
+                    Uri = _ => pageContext.Route.ToUri(),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 }
             );
@@ -156,23 +156,23 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Active = _ => TypeActive.Active",
                 new ControlLink()
                 {
-                    Text = "None",
-                    Active = TypeActive.None,
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "None",
+                    Active = _ => TypeActive.None,
+                    Uri = _ => pageContext.Route.ToUri(),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
-                    Text = "Active",
-                    Active = TypeActive.Active,
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Active",
+                    Active = _ => TypeActive.Active,
+                    Uri = _ => pageContext.Route.ToUri(),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
-                    Text = "Disabled",
-                    Active = TypeActive.Disabled,
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Disabled",
+                    Active = _ => TypeActive.Disabled,
+                    Uri = _ => pageContext.Route.ToUri(),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 }
             );
@@ -184,16 +184,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Decoration = _ => TypeTextDecoration.None",
                 new ControlLink()
                 {
-                    Text = "Default",
-                    Decoration = TypeTextDecoration.Default,
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Default",
+                    Decoration = _ => TypeTextDecoration.Default,
+                    Uri = _ => pageContext.Route.ToUri(),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
-                    Text = "None",
-                    Decoration = TypeTextDecoration.None,
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "None",
+                    Decoration = _ => TypeTextDecoration.None,
+                    Uri = _ => pageContext.Route.ToUri(),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 }
             );
@@ -205,44 +205,44 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Size = _ => TypeSizeButton.Small",
                 new ControlLink()
                 {
-                    Text = "Extra Small",
-                    Uri = pageContext.Route.ToUri(),
-                    Size = new PropertySizeText(TypeSizeText.ExtraSmall),
+                    Text = _ => "Extra Small",
+                    Uri = _ => pageContext.Route.ToUri(),
+                    Size = _ => new PropertySizeText(TypeSizeText.ExtraSmall),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
-                    Text = "Small",
-                    Uri = pageContext.Route.ToUri(),
-                    Size = new PropertySizeText(TypeSizeText.Small),
+                    Text = _ => "Small",
+                    Uri = _ => pageContext.Route.ToUri(),
+                    Size = _ => new PropertySizeText(TypeSizeText.Small),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
-                    Text = "Standard",
-                    Uri = pageContext.Route.ToUri(),
-                    Size = new PropertySizeText(TypeSizeText.Default),
+                    Text = _ => "Standard",
+                    Uri = _ => pageContext.Route.ToUri(),
+                    Size = _ => new PropertySizeText(TypeSizeText.Default),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
-                    Text = "Large",
-                    Uri = pageContext.Route.ToUri(),
-                    Size = new PropertySizeText(TypeSizeText.Large),
+                    Text = _ => "Large",
+                    Uri = _ => pageContext.Route.ToUri(),
+                    Size = _ => new PropertySizeText(TypeSizeText.Large),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
-                    Text = "Extra Large",
-                    Uri = pageContext.Route.ToUri(),
-                    Size = new PropertySizeText(TypeSizeText.ExtraLarge),
+                    Text = _ => "Extra Large",
+                    Uri = _ => pageContext.Route.ToUri(),
+                    Size = _ => new PropertySizeText(TypeSizeText.ExtraLarge),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
-                    Text = "Custom",
-                    Uri = pageContext.Route.ToUri(),
-                    Size = new PropertySizeText(3.1f),
+                    Text = _ => "Custom",
+                    Uri = _ => pageContext.Route.ToUri(),
+                    Size = _ => new PropertySizeText(3.1f),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 }
             );
@@ -254,77 +254,77 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "TextColor = _ => new PropertyColorText(TypeColorText.Primary)",
                 new ControlLink()
                 {
-                    Text = "Default",
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Default",
+                    Uri = _ => pageContext.Route.ToUri(),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
-                    Text = "Primary",
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Primary",
+                    Uri = _ => pageContext.Route.ToUri(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Primary),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
-                    Text = "Info",
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Info",
+                    Uri = _ => pageContext.Route.ToUri(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Info),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
-                    Text = "Success",
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Success",
+                    Uri = _ => pageContext.Route.ToUri(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Success),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
-                    Text = "Warning",
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Warning",
+                    Uri = _ => pageContext.Route.ToUri(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Warning),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
-                    Text = "Danger",
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Danger",
+                    Uri = _ => pageContext.Route.ToUri(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Danger),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
-                    Text = "Dark",
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Dark",
+                    Uri = _ => pageContext.Route.ToUri(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Dark),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
-                    Text = "Light",
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Light",
+                    Uri = _ => pageContext.Route.ToUri(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Light),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
-                    Text = "Muted",
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Muted",
+                    Uri = _ => pageContext.Route.ToUri(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Muted),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
-                    Text = "White",
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "White",
+                    Uri = _ => pageContext.Route.ToUri(),
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
-                    Text = "Custom",
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Custom",
+                    Uri = _ => pageContext.Route.ToUri(),
                     TextColor = _ => new PropertyColorText("red"),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 }
@@ -338,16 +338,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Primary)",
                 new ControlLink()
                 {
-                    Text = "Default",
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Default",
+                    Uri = _ => pageContext.Route.ToUri(),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Default),
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Auto)
                 },
                 new ControlLink()
                 {
-                    Text = "Primary",
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Primary",
+                    Uri = _ => pageContext.Route.ToUri(),
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Primary),
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
@@ -355,8 +355,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 },
                 new ControlLink()
                 {
-                    Text = "Secondary",
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Secondary",
+                    Uri = _ => pageContext.Route.ToUri(),
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Secondary),
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
@@ -364,8 +364,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 },
                 new ControlLink()
                 {
-                    Text = "Info",
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Info",
+                    Uri = _ => pageContext.Route.ToUri(),
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Info),
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
@@ -373,8 +373,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 },
                 new ControlLink()
                 {
-                    Text = "Success",
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Success",
+                    Uri = _ => pageContext.Route.ToUri(),
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success),
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
@@ -382,8 +382,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 },
                 new ControlLink()
                 {
-                    Text = "Warning",
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Warning",
+                    Uri = _ => pageContext.Route.ToUri(),
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Warning),
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
@@ -391,8 +391,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 },
                 new ControlLink()
                 {
-                    Text = "Danger",
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Danger",
+                    Uri = _ => pageContext.Route.ToUri(),
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Danger),
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
@@ -400,8 +400,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 },
                 new ControlLink()
                 {
-                    Text = "Dark",
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Dark",
+                    Uri = _ => pageContext.Route.ToUri(),
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Dark),
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
@@ -409,8 +409,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 },
                 new ControlLink()
                 {
-                    Text = "Light",
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Light",
+                    Uri = _ => pageContext.Route.ToUri(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Dark),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Light),
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
@@ -418,8 +418,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 },
                 new ControlLink()
                 {
-                    Text = "White",
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "White",
+                    Uri = _ => pageContext.Route.ToUri(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Dark),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.White),
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
@@ -427,8 +427,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 },
                 new ControlLink()
                 {
-                    Text = "Transparent",
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Transparent",
+                    Uri = _ => pageContext.Route.ToUri(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Dark),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Transparent),
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
@@ -436,8 +436,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 },
                 new ControlLink()
                 {
-                    Text = "Custom",
-                    Uri = pageContext.Route.ToUri(),
+                    Text = _ => "Custom",
+                    Uri = _ => pageContext.Route.ToUri(),
                     TextColor = _ => new PropertyColorText("red"),
                     BackgroundColor = _ => new PropertyColorBackground("gold"),
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
@@ -447,12 +447,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             var linkParam = new ControlLink()
             {
-                Text = "With Parameters",
-                Uri = pageContext.Route.ToUri(),
-                Active = TypeActive.Active
+                Text = _ => "With Parameters",
+                Uri = _ => pageContext.Route.ToUri(),
+                Active = _ => TypeActive.Active,
+                Params = _ => [
+                    new Parameter("param1", 1, ParameterScope.Parameter),
+                    new Parameter("param2", "two", ParameterScope.Parameter)
+                ]
             };
-            linkParam.Params.Add(new Parameter("param1", 1, ParameterScope.Parameter));
-            linkParam.Params.Add(new Parameter("param2", "two", ParameterScope.Parameter));
 
             Stage.AddProperty
             (
@@ -469,8 +471,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "PrimaryAction = _ => new ActionModal(\"modal\")",
                 new ControlLink()
                 {
-                    Text = "Click me!",
-                    PrimaryAction = new ActionModal("modal"),
+                    Text = _ => "Click me!",
+                    PrimaryAction = _ => new ActionModal("modal"),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlModalExample("modal")
@@ -485,8 +487,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "SecondaryAction = _ => new ActionModal(\"modal\")",
                 new ControlLink()
                 {
-                    Text = "Double-click me!",
-                    SecondaryAction = new ActionModal("modal"),
+                    Text = _ => "Double-click me!",
+                    SecondaryAction = _ => new ActionModal("modal"),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlModalExample("modal")

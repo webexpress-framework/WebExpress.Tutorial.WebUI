@@ -37,7 +37,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 {
                     Text = _ => "Activator",
                     Icon = _ => new IconPenToSquare(),
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                     PrimaryAction = _ => new ActionModal("myModal")
                 },
                 new ControlModalRemotePage("myModal")
@@ -53,14 +53,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
             {
                 Text = _ => ""Activator"",
                 Icon = _ => new IconPenToSquare(),
-                BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                 PrimaryAction = _ => new ActionModal(""myModal"")
             },
             new ControlModalPage(""myModal"")
             {
-                Header = ""My modal"",
-                Size = TypeModalSize.ExtraLarge,
-                Uri = sitemapManager.GetUri<Info>(pageContext.ApplicationContext)
+                Header = _ => ""My modal"",
+                Size = _ => TypeModalSize.ExtraLarge,
+                Uri = _ => sitemapManager.GetUri<Info>(pageContext.ApplicationContext)
             }";
 
             Stage.AddProperty
@@ -68,12 +68,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                "Uri",
                 @"The `Uri` property in the context of ModalPage defines the external source from which content is retrieved. It enables dynamically loading and displaying information from another page within a modal dialog.",
                 "When loading remote content from a different domain, browsers may reject the request due to security restrictions if the target server does not provide the appropriate CORS (Cross-Origin Resource Sharing) headers. Specifically, the server must return Access-Control-Allow-Origin: * or explicitly allow the requesting domain in its response headers. Without this configuration, the browser blocks the request to protect against potential security vulnerabilities. If external content needs to be integrated, ensure that the remote server is properly set up to permit cross-origin access.",
-                "Uri = sitemapManager.GetUri<Info>(pageContext.ApplicationContext)",
+                "Uri = _ => sitemapManager.GetUri<Info>(pageContext.ApplicationContext)",
                 new ControlButton()
                 {
                     Text = _ => "Activator",
                     Icon = _ => new IconPenToSquare(),
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                     PrimaryAction = _ => new ActionModal("myModalUri")
                 },
                 new ControlModalRemotePage("myModalUri")
@@ -88,12 +88,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
             (
                "Selector",
                 @"The Selector property defines the element or identifier used to locate and load content into the modal. It allows specifying a target source, such as a CSS selector or element reference, from which data will be retrieved and displayed dynamically within the modal dialog.",
-                "Selector = \"wx-content\"",
+                "Selector = _ => \"wx-content\"",
                 new ControlButton()
                 {
                     Text = (c) => "Activator",
                     Icon = _ => new IconPenToSquare(),
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                     PrimaryAction = _ => new ActionModal("myModalSelector")
                 },
                 new ControlModalRemotePage("myModalSelector")

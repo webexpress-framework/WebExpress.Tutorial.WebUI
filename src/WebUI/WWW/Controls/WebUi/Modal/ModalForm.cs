@@ -74,7 +74,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 {
                     Text = _ => "Activator",
                     Icon = _ => new IconPenToSquare(),
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                     PrimaryAction = _ => new ActionModal("myModal")
                 },
                 new ControlModalForm("myModal")
@@ -94,9 +94,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
             [
                 new ControlButton()
                 {
-                    Text = (c) => "Activator",
+                    Text = _ =>  "Activator",
                     Icon = _ => new IconPenToSquare(),
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                     PrimaryAction = _ => new ActionModal("myDarkModal")
                 },
                 new ControlModalForm("myDarkModal")
@@ -115,18 +115,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
             Stage.Code = @"
             new ControlButton()
                 {
-                    Text = (c) => ""Activator"",
-                    Icon = new IconPenToSquare(),
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    PrimaryAction = new ActionModal(""myModal"")
+                    Text = _ => ""Activator"",
+                    Icon = _ => new IconPenToSquare(),
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
+                    PrimaryAction = _ => new ActionModal(""myModal"")
                 },
                 new ControlModalForm(""myModal"")
                 {
-                    Header = ""My modal"",
+                    Header = _ => ""My modal"",
                     Conformation = new ControlAlert() 
                     {
-                        Text = @""Thank you! Your submission has been successfully received. We have received your request and will process it as soon as possible. If you need any further information, feel free to reach out to us anytime."",
-                        BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Success)
+                        Text = _ => @""Thank you! Your submission has been successfully received. We have received your request and will process it as soon as possible. If you need any further information, feel free to reach out to us anytime."",
+                        BackgroundColor = _ => new PropertyColorBackgroundAlert(TypeColorBackground.Success)
                     }
                 }
                 .Add(_exampleFormItems)
@@ -136,12 +136,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
             (
                 "Header",
                  @"The modal header text serves as a descriptive title displayed at the top of the modal. It typically provides context for the modal's purpose or content, helping users quickly understand its function.",
-                 "Header = \"Header\"",
+                 "Header = _ => \"Header\"",
                  new ControlButton()
                  {
                      Text = _ => "Activator",
                      Icon = _ => new IconPenToSquare(),
-                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                     BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                      PrimaryAction = _ => new ActionModal("myModalHeader")
                  },
                  new ControlModalForm("myModalHeader")
@@ -156,12 +156,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
             (
                 "Size",
                 @"The size property defines the dimensions of the modal. It determines how large the modal appears and helps ensure that the available space fits the content and use case appropriately.",
-                 "Size = TypeModalSize.Small",
+                 "Size = _ => TypeModalSize.Small",
                  new ControlButton()
                  {
                      Text = _ => "Default",
                      Icon = _ => new IconPenToSquare(),
-                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                     BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                      PrimaryAction = _ => new ActionModal("myModalDefault")
                  },
                  new ControlModalForm("myModalDefault")
@@ -175,7 +175,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  {
                      Text = _ => "Small",
                      Icon = _ => new IconPenToSquare(),
-                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                     BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                      PrimaryAction = _ => new ActionModal("myModalSmall")
                  },
                  new ControlModalForm("myModalSmall")
@@ -189,7 +189,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  {
                      Text = _ => "Large",
                      Icon = _ => new IconPenToSquare(),
-                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                     BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                      PrimaryAction = _ => new ActionModal("myModalLarge")
                  },
                  new ControlModalForm("myModalLarge")
@@ -201,9 +201,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                      .AddPreferencesButton(new ControlFormItemButtonSubmit()),
                  new ControlButton()
                  {
-                     Text = (c) => "ExtraLarge",
+                     Text = _ => "ExtraLarge",
                      Icon = _ => new IconPenToSquare(),
-                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                     BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                      PrimaryAction = _ => new ActionModal("myModalExtraLarge")
                  },
                  new ControlModalForm("myModalExtraLarge")
@@ -217,7 +217,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  {
                      Text = _ => "Fullscreen",
                      Icon = _ => new IconPenToSquare(),
-                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                     BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                      PrimaryAction = _ => new ActionModal("myModalFullscreen")
                  },
                  new ControlModalForm("myModalFullscreen")

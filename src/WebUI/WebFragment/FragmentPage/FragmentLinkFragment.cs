@@ -34,9 +34,9 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.FragmentPage
         public FragmentLinkFragment(IComponentHub componentHub, IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "webexpress.tutorial.webui:fragmentpage.label";
-            Uri = componentHub.SitemapManager.GetUri<Fragment>(fragmentContext.ApplicationContext);
-            Icon = new IconExpand();
+            Text = _ => "webexpress.tutorial.webui:fragmentpage.label";
+            Uri = _ => componentHub.SitemapManager.GetUri<Fragment>(fragmentContext.ApplicationContext);
+            Icon = _ => new IconExpand();
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.FragmentPage
         /// <returns>An HTML node representing the rendered control.</returns>
         public override IHtmlNode Render(IRenderControlContext renderContext, IVisualTreeControl visualTree)
         {
-            Active = renderContext.Endpoint is Fragment ? TypeActive.Active : TypeActive.None;
+            Active = _ => renderContext.Endpoint is Fragment ? TypeActive.Active : TypeActive.None;
 
             return base.Render(renderContext, visualTree);
         }

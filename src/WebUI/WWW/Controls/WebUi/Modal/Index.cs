@@ -51,9 +51,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
             [
                 new ControlButton()
                 {
-                    Text = (c) =>"Activator",
+                    Text = _ => "Activator",
                     Icon = _ => new IconPenToSquare(),
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                     PrimaryAction = _ => new ActionModal("myModal")
                 },
                 new ControlModal("myModal") { Header = "My modal" }
@@ -63,24 +63,24 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
             Stage.Code = @"
             new ControlButton()
             {
-                Text = (c) => ""Activator"",
-                Icon = new IconPenToSquare(),
-                BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                PrimaryAction = new ActionModal(""myModal"")
+                Text = _ => ""Activator"",
+                Icon = _ => new IconPenToSquare(),
+                BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
+                PrimaryAction = _ => new ActionModal(""myModal"")
             },
-            new ControlModal(""myModal"") { Header = ""My modal"" }
-                .Add(new ControlText() { Text = ""I'm sure that in 1985...""} )";
+            new ControlModal(""myModal"") { Header = _ => ""My modal"" }
+                .Add(new ControlText() { Text = _ => ""I'm sure that in 1985...""} )";
 
             Stage.AddProperty
             (
                 "Header",
                  @"The modal header text serves as a descriptive title displayed at the top of the modal. It typically provides context for the modal's purpose or content, helping users quickly understand its function.",
-                 "Header = \"Header\"",
+                 "Header = _ => \"Header\"",
                  new ControlButton()
                  {
-                     Text = (c) => "Activator",
+                     Text = _ => "Activator",
                      Icon = _ => new IconPenToSquare(),
-                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                     BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                      PrimaryAction = _ => new ActionModal("myModalHeader")
                  },
                  new ControlModal("myModalHeader")
@@ -93,12 +93,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
             (
                 "Size",
                 @"The size property defines the dimensions of the modal. It determines how large the modal appears and helps ensure that the available space fits the content and use case appropriately.",
-                 "Size = TypeModalSize.Small",
+                 "Size = _ => TypeModalSize.Small",
                  new ControlButton()
                  {
-                     Text = (c) => "Default",
+                     Text = _ => "Default",
                      Icon = _ => new IconPenToSquare(),
-                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                     BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                      PrimaryAction = _ => new ActionModal("myModalDefault")
                  },
                  new ControlModal("myModalDefault")
@@ -108,9 +108,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  }.Add(_content),
                  new ControlButton()
                  {
-                     Text = (c) => "Small",
+                     Text = _ => "Small",
                      Icon = _ => new IconPenToSquare(),
-                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                     BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                      PrimaryAction = _ => new ActionModal("myModalSmall")
                  },
                  new ControlModal("myModalSmall")
@@ -120,9 +120,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  }.Add(_content),
                  new ControlButton()
                  {
-                     Text = (c) => "Large",
+                     Text = _ => "Large",
                      Icon = _ => new IconPenToSquare(),
-                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                     BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                      PrimaryAction = _ => new ActionModal("myModalLarge")
                  },
                  new ControlModal("myModalLarge")
@@ -132,9 +132,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  }.Add(_content),
                  new ControlButton()
                  {
-                     Text = (c) => "ExtraLarge",
+                     Text = _ => "ExtraLarge",
                      Icon = _ => new IconPenToSquare(),
-                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                     BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                      PrimaryAction = _ => new ActionModal("myModalExtraLarge")
                  },
                  new ControlModal("myModalExtraLarge")
@@ -144,9 +144,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  }.Add(_content),
                  new ControlButton()
                  {
-                     Text = (c) => "Fullscreen",
+                     Text = _ => "Fullscreen",
                      Icon = _ => new IconPenToSquare(),
-                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                     BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                      PrimaryAction = _ => new ActionModal("myModalFullscreen")
                  },
                  new ControlModal("myModalFullscreen")

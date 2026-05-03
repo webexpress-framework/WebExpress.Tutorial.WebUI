@@ -35,9 +35,9 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
         public ControlLinkFragment(IComponentHub componentHub, IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "webexpress.tutorial.webui:controlpage.label";
-            Uri = componentHub.SitemapManager.GetUri<Index>(fragmentContext.ApplicationContext);
-            Icon = new IconClone();
+            Text = _ => "webexpress.tutorial.webui:controlpage.label";
+            Uri = _ => componentHub.SitemapManager.GetUri<Index>(fragmentContext.ApplicationContext);
+            Icon = _ => new IconClone();
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
         /// <returns>An HTML node representing the rendered control.</returns>
         public override IHtmlNode Render(IRenderControlContext renderContext, IVisualTreeControl visualTree)
         {
-            Active = renderContext.Endpoint is PageControl || renderContext.Endpoint is Index ? TypeActive.Active : TypeActive.None;
+            Active = _ => renderContext.Endpoint is PageControl || renderContext.Endpoint is Index ? TypeActive.Active : TypeActive.None;
 
             return base.Render(renderContext, visualTree);
         }

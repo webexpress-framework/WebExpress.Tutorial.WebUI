@@ -34,9 +34,9 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.LoginPage
         public LoginLinkFragment(IComponentHub componentHub, IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "webexpress.tutorial.webui:loginpage.label";
-            Uri = componentHub.SitemapManager.GetUri<Login>(fragmentContext.ApplicationContext);
-            Icon = new IconPowerOff();
+            Text = _ => "webexpress.tutorial.webui:loginpage.label";
+            Uri = _ => componentHub.SitemapManager.GetUri<Login>(fragmentContext.ApplicationContext);
+            Icon = _ => new IconPowerOff();
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.LoginPage
         /// <returns>An HTML node representing the rendered control.</returns>
         public override IHtmlNode Render(IRenderControlContext renderContext, IVisualTreeControl visualTree)
         {
-            Active = renderContext.Endpoint is Login ? TypeActive.Active : TypeActive.None;
+            Active = _ => renderContext.Endpoint is Login ? TypeActive.Active : TypeActive.None;
 
             return base.Render(renderContext, visualTree);
         }
