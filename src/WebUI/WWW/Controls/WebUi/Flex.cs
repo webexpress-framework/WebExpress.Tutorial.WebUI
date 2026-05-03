@@ -179,7 +179,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Align",
                 "Defines the vertical alignment of items within a Flexbox panel.",
-                "Align = TypeAlignFlex.Start",
+                "Align = _ => TypeAlignFlex.Start",
                 new ControlText()
                 {
                     Text = "None",
@@ -190,7 +190,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Layout = TypeLayoutFlex.Default,
                     Align = TypeAlignFlex.None,
                     Styles = ["height: 100px"],
-                    Border = new PropertyBorder(true)
+                    Border = _ => new PropertyBorder(true)
                 }
                     .Add(CreateWrapControls(3)),
                 new ControlText()
@@ -203,7 +203,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Layout = TypeLayoutFlex.Default,
                     Align = TypeAlignFlex.Start,
                     Styles = ["height: 100px"],
-                    Border = new PropertyBorder(true)
+                    Border = _ => new PropertyBorder(true)
                 }
                     .Add(CreateWrapControls(3)),
                 new ControlText()
@@ -216,7 +216,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Layout = TypeLayoutFlex.Default,
                     Align = TypeAlignFlex.End,
                     Styles = ["height: 100px"],
-                    Border = new PropertyBorder(true)
+                    Border = _ => new PropertyBorder(true)
                 }
                     .Add(CreateWrapControls(3)),
                 new ControlText()
@@ -229,7 +229,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Layout = TypeLayoutFlex.Default,
                     Align = TypeAlignFlex.Center,
                     Styles = ["height: 100px"],
-                    Border = new PropertyBorder(true)
+                    Border = _ => new PropertyBorder(true)
                 }
                     .Add(CreateWrapControls(3)),
                 new ControlText()
@@ -242,7 +242,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Layout = TypeLayoutFlex.Default,
                     Align = TypeAlignFlex.Baseline,
                     Styles = ["height: 100px"],
-                    Border = new PropertyBorder(true)
+                    Border = _ => new PropertyBorder(true)
                 }
                     .Add(CreateWrapControls(3)),
                 new ControlText()
@@ -255,7 +255,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Layout = TypeLayoutFlex.Default,
                     Align = TypeAlignFlex.Stretch,
                     Styles = ["height: 100px"],
-                    Border = new PropertyBorder(true)
+                    Border = _ => new PropertyBorder(true)
                 }
                     .Add(CreateWrapControls(3))
             );
@@ -264,7 +264,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Wrap",
                 "Defines how items behave when they overflow the available space.",
-                "Wrap = TypeWrap.None",
+                "Wrap = _ => TypeWrap.None",
 
                 new ControlText()
                 {
@@ -275,7 +275,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Layout = TypeLayoutFlex.Default,
                     Wrap = TypeWrap.None,
-                    Border = new PropertyBorder(true)
+                    Border = _ => new PropertyBorder(true)
                 }
                     .Add(CreateWrapControls(15)),
 
@@ -288,7 +288,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Layout = TypeLayoutFlex.Default,
                     Wrap = TypeWrap.Nowrap,
-                    Border = new PropertyBorder(true)
+                    Border = _ => new PropertyBorder(true)
                 }
                     .Add(CreateWrapControls(15)),
                 new ControlText()
@@ -300,7 +300,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Layout = TypeLayoutFlex.Default,
                     Wrap = TypeWrap.Wrap,
-                    Border = new PropertyBorder(true)
+                    Border = _ => new PropertyBorder(true)
                 }
                     .Add(CreateWrapControls(15)),
                 new ControlText()
@@ -312,7 +312,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Layout = TypeLayoutFlex.Default,
                     Wrap = TypeWrap.Reverse,
-                    Border = new PropertyBorder(true)
+                    Border = _ => new PropertyBorder(true)
                 }
                     .Add(CreateWrapControls(15))
             );
@@ -344,8 +344,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             {
                 Text = text,
                 Format = TypeFormatText.Default,
-                Border = new PropertyBorder(true),
-                Padding = new PropertySpacingPadding(PropertySpacing.Space.Two)
+                Border = _ => new PropertyBorder(true),
+                Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two)
             })];
         }
     }

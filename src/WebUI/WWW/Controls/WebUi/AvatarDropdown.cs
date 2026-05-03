@@ -73,14 +73,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "MenuAlignment",
                 "Determines how the menu should be aligned relative to the button.",
-                "AlignmentMenu = TypeAlignmentDropdownMenu.Right",
+                "AlignmentMenu = _ => TypeAlignmentDropdownMenu.Right",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatarDropdown(null)
                 {
                     User = "Dex Zogbert",
                     AlignmentMenu = TypeAlignmentDropdownMenu.Default,
                     Color = new PropertyColorButton(TypeColorButton.Primary),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                 },
                 new ControlText() { Text = "Right", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatarDropdown(null)
@@ -88,7 +88,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     User = "Dex Zogbert",
                     AlignmentMenu = TypeAlignmentDropdownMenu.Right,
                     Color = new PropertyColorButton(TypeColorButton.Primary),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                 }
             );
 

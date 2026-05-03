@@ -36,7 +36,7 @@ namespace WebExpress.Tutorial.WebUI.WWW
         {
             var card = new ControlPanelCard()
             {
-                Margin = new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
+                Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
             };
 
             card.Add(new ControlText()

@@ -38,7 +38,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.Controls = [.. icons.Select(x => new ControlIcon()
             {
                 Icon = x,
-                Margin = new PropertySpacingMargin(PropertySpacing.Space.Two),
+                Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two),
                 TextColor = _ => new PropertyColorText(TypeColorText.Info),
                 Title = x.GetType().Name,
             })];
@@ -47,20 +47,20 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             new ControlIcon() 
             { 
                 Icon = new IconClone(), 
-                TextColor = new PropertyColorText(TypeColorText.Info), 
-                Title = \""IconClone\"" 
+                TextColor = _ => new PropertyColorText(TypeColorText.Info), 
+                Title = _ => \""IconClone\"" 
             };";
 
             Stage.AddProperty
             (
                "Icon (System)",
                "Adds a system icon.",
-               "Icon = new IconHome()",
+               "Icon = _ => new IconHome()",
                new ControlIcon()
                {
                    Icon = new IconHome(),
                    Title = "Home",
-                   Margin = new PropertySpacingMargin(PropertySpacing.Space.Two),
+                   Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two),
                    TextColor = _ => new PropertyColorText(TypeColorText.Warning)
                }
             );
@@ -69,12 +69,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                "Icon (Custom)",
                "Adds a custom icon.",
-               "Icon = new ImageIcon(pageContext.ApplicationContext.ContextPath.Concat(\"assets/img/webui.svg\").ToUri(), new PropertySizeIcon(1, TypeSizeUnit.Em))",
+               "Icon = _ => new ImageIcon(pageContext.ApplicationContext.ContextPath.Concat(\"assets/img/webui.svg\").ToUri(), new PropertySizeIcon(1, TypeSizeUnit.Em))",
                new ControlIcon()
                {
                    Icon = new ImageIcon(pageContext.ApplicationContext.Route.Concat("assets/img/webui.svg").ToUri(), new PropertySizeIcon(1, TypeSizeUnit.Em)),
                    Title = "Custom",
-                   Margin = new PropertySpacingMargin(PropertySpacing.Space.Two),
+                   Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two),
                    TextColor = _ => new PropertyColorText(TypeColorText.Primary)
                }
             );
@@ -83,7 +83,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Size",
                 "Sets the size of the icon.",
-                "Size = new PropertySizeText(TypeSizeText.Small)",
+                "Size = _ => new PropertySizeText(TypeSizeText.Small)",
                 new ControlText() { Text = "Extra Small", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
                 {
@@ -91,7 +91,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Size = new PropertySizeText(TypeSizeText.ExtraSmall),
                     Icon = new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Default),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlText() { Text = "Small", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
@@ -100,7 +100,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Size = new PropertySizeText(TypeSizeText.Small),
                     Icon = new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Default),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlText() { Text = "Standard", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
@@ -109,7 +109,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Size = new PropertySizeText(TypeSizeText.Default),
                     Icon = new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Default),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlText() { Text = "Large", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
@@ -118,7 +118,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Size = new PropertySizeText(TypeSizeText.Large),
                     Icon = new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Default),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlText() { Text = "Extra Large", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
@@ -127,7 +127,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Size = new PropertySizeText(TypeSizeText.ExtraLarge),
                     Icon = new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Default),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlText() { Text = "Custom", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
@@ -136,7 +136,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Size = new PropertySizeText(3.1f),
                     Icon = new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Default),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 }
             );
 
@@ -151,7 +151,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Title = "Default",
                     Icon = new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Default),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlText() { Text = "Primary", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
@@ -159,7 +159,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Title = "Primary",
                     Icon = new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Primary),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlText() { Text = "Secondary", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
@@ -167,7 +167,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Title = "Secondary",
                     Icon = new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Secondary),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlText() { Text = "Info", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
@@ -175,7 +175,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Title = "Info",
                     Icon = new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Info),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlText() { Text = "Success", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
@@ -183,7 +183,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Title = "Success",
                     Icon = new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Success),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlText() { Text = "Warning", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
@@ -191,7 +191,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Title = "Warning",
                     Icon = new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Warning),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlText() { Text = "Danger", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
@@ -199,7 +199,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Title = "Danger",
                     Icon = new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Danger),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlText() { Text = "Light", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
@@ -207,7 +207,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Title = "Light",
                     Icon = new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Light),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlText() { Text = "Dark", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
@@ -215,7 +215,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Title = "Dark",
                     Icon = new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Dark),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlText() { Text = "Muted", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
@@ -223,7 +223,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Title = "Muted",
                     Icon = new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Muted),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlText() { Text = "White", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
@@ -231,7 +231,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Title = "White",
                     Icon = new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlText() { Text = "Custom", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
@@ -239,7 +239,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Title = "Custom",
                     Icon = new IconHome(),
                     TextColor = _ => new PropertyColorText("gold"),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 }
             );
 
@@ -247,7 +247,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Theme",
                 "Switches the icon between the default FontAwesome theme and the lightweight SVG-based light theme. Pass the desired TypeIconTheme to the icon's constructor. The light theme is only available for icons that ship a dedicated light SVG variant.",
-                "Icon = new IconAddressBook(TypeIconTheme.Light)",
+                "Icon = _ => new IconAddressBook(TypeIconTheme.Light)",
                 [.. GetThemeIcons()]
             );
 
@@ -255,14 +255,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "BackgroundColor",
                 "Sets the background color.",
-                "BackgroundColor = new PropertyColorBackground(TypeColorBackground.Success)",
+                "BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)",
                 [.. GetAllIcons().Take(5).Select(x => new ControlIcon()
                 {
                     Icon = x,
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Three),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two),
+                    Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Three),
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Success)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 })]
             );
 
@@ -270,12 +270,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Title",
                 "Specifies a text to be displayed as a tooltip.",
-                "Title = \"Hello World!\"",
+                "Title = _ => \"Hello World!\"",
                 [.. GetAllIcons().Take(5).Select(x => new ControlIcon()
                 {
                     Icon = x,
                     Title = x.GetType().Name,
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two),
+                    Margin =_ =>  new PropertySpacingMargin(PropertySpacing.Space.Two),
                     TextColor = _ => new PropertyColorText(TypeColorText.Danger),
                 })]
             );

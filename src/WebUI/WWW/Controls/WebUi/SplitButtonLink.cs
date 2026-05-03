@@ -254,13 +254,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Active",
                 "Sets the active state of the button.",
-                "Active = TypeActive.Active",
+                "Active = _ => TypeActive.Active",
                 new ControlSplitButtonLink()
                 {
                     Text = "None",
                     Active = TypeActive.None,
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two),
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlSplitButtonLink()
@@ -268,7 +268,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = "Active",
                     Active = TypeActive.Active,
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two),
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlSplitButtonLink()
@@ -276,7 +276,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = "Disabled",
                     Active = TypeActive.Disabled,
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two),
                     Uri = pageContext.Route.ToUri()
                 }
             );
@@ -285,13 +285,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "PrimaryAction",
                 "Defines the primary user action, typically executed on a standard click to open a dialog or perform the main operation.",
-                "PrimaryAction = new ActionModal(\"modal\")",
+                "PrimaryAction = _ => new ActionModal(\"modal\")",
                 new ControlSplitButtonLink()
                 {
                     Text = "Click me!",
                     PrimaryAction = new ActionModal("modal"),
                     TextColor = _ => new PropertyColorText(TypeColorText.Default),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlModalExample("modal")
                 {
@@ -302,13 +302,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "SecondaryAction",
                 "Defines the secondary user action, often triggered by a double‑click to open a dialog or perform an alternative operation.",
-                "SecondaryAction = new ActionModal(\"modal\")",
+                "SecondaryAction = _ => new ActionModal(\"modal\")",
                 new ControlSplitButtonLink()
                 {
                     Text = "Double-click me!",
                     SecondaryAction = new ActionModal("modal"),
                     TextColor = _ => new PropertyColorText(TypeColorText.Default),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlModalExample("modal")
                 {

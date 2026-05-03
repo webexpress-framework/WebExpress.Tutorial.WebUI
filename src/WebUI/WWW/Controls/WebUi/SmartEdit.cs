@@ -83,7 +83,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText()
                 {
                     Text = "ControlFormItemInputText",
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
                     TextColor = new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlSmartEdit()
@@ -93,7 +93,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText()
                 {
                     Text = "ControlFormItemInputText (Wysiwyg)",
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
                     TextColor = new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlSmartEdit()
@@ -104,7 +104,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText()
                 {
                     Text = "ControlFormItemInputDate",
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
                     TextColor = new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlSmartEdit()
@@ -117,7 +117,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText()
                 {
                     Text = "ControlFormItemInputCalendar",
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
                     TextColor = new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlSmartEdit()
@@ -127,7 +127,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText()
                 {
                     Text = "ControlFormItemInputTag",
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
                     TextColor = new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlSmartEdit()
@@ -137,7 +137,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText()
                 {
                     Text = "ControlFormItemInputCombo",
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
                     TextColor = new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlSmartEdit()
@@ -153,7 +153,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText()
                 {
                     Text = "ControlFormItemInputSelection",
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
                     TextColor = new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlSmartEdit()
@@ -177,7 +177,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText()
                 {
                     Text = "ControlFormItemInputMove",
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
                     TextColor = new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlSmartEdit()
@@ -194,7 +194,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText()
                 {
                     Text = "ControlFormItemInputRating",
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
                     TextColor = new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlSmartEdit()
@@ -205,7 +205,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText()
                 {
                     Text = "ControlFormItemInputColor",
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
                     TextColor = new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlSmartEdit()

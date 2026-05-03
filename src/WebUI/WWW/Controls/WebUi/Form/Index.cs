@@ -87,21 +87,21 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "FormLayout",
                 "This property defines the visual positioning of form elements relative to the submit button.",
-                "FormLayout = TypeLayoutForm.Inline",
+                "FormLayout = _ => TypeLayoutForm.Inline",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputText("layout1") { Icon = new IconAlignLeft(), Label = "Arrangement", Help = "This is a help text" })
                 {
-                    Border = new PropertyBorder(true),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
+                    Border = _ => new PropertyBorder(true),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
                     FormLayout = TypeLayoutForm.Default
                 }.AddPrimaryButton(new ControlFormItemButtonSubmit()),
                 new ControlText() { Text = "Inline", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputText("layout1") { Icon = new IconAlignLeft(), Label = "Arrangement", Help = "This is a help text" })
                 {
-                    Border = new PropertyBorder(true),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
+                    Border = _ => new PropertyBorder(true),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
                     FormLayout = TypeLayoutForm.Inline
                 }.AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
@@ -110,37 +110,37 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "ItemLayout",
                 "This property defines how the form elements are arranged within the form, ensuring a structured and user-friendly layout.",
-                "ItemLayout = TypeLayoutFormItem.Horizontal",
+                "ItemLayout = _ => TypeLayoutFormItem.Horizontal",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, [.. _exampleFormItems])
                 {
-                    Border = new PropertyBorder(true),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two)
+                    Border = _ => new PropertyBorder(true),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two)
 
                 }.AddPrimaryButton(new ControlFormItemButtonSubmit()),
                 new ControlText() { Text = "Horizontal", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, [.. _exampleFormItems])
                 {
-                    Border = new PropertyBorder(true),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
+                    Border = _ => new PropertyBorder(true),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
                     ItemLayout = TypeLayoutFormItem.Horizontal
                 }.AddPrimaryButton(new ControlFormItemButtonSubmit()),
                 new ControlText() { Text = "Vertical", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, [.. _exampleFormItems])
                 {
-                    Border = new PropertyBorder(true),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
+                    Border = _ => new PropertyBorder(true),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
                     ItemLayout = TypeLayoutFormItem.Vertical
                 }.AddPrimaryButton(new ControlFormItemButtonSubmit()),
                 new ControlText() { Text = "Mix", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, [.. _exampleFormItems])
                 {
-                    Border = new PropertyBorder(true),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
+                    Border = _ => new PropertyBorder(true),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
                     ItemLayout = TypeLayoutFormItem.Mix
                 }.AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
@@ -153,24 +153,24 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 new ControlText() { Text = "AddPreferencesButton", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, [.. _exampleFormItems])
                 {
-                    Border = new PropertyBorder(true),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two)
+                    Border = _ => new PropertyBorder(true),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two)
 
                 }.AddPreferencesButton(new ControlFormItemButtonSubmit(), new ControlFormItemButtonReset()),
                 new ControlText() { Text = "AddPrimaryButton", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, [.. _exampleFormItems])
                 {
-                    Border = new PropertyBorder(true),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two)
+                    Border = _ => new PropertyBorder(true),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two)
                 }.AddPrimaryButton(new ControlFormItemButtonSubmit(), new ControlFormItemButtonReset()),
                 new ControlText() { Text = "AddSecondaryButton", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, [.. _exampleFormItems])
                 {
-                    Border = new PropertyBorder(true),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two)
+                    Border = _ => new PropertyBorder(true),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two)
                 }.AddSecondaryButton(new ControlFormItemButtonSubmit(), new ControlFormItemButtonReset())
             );
 
@@ -181,14 +181,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 @"
                 Conformation = new ControlAlert() 
                 { 
-                    Text = ""Thank you!"", 
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Success) 
+                    Text = _ => ""Thank you!"", 
+                    BackgroundColor = _ => new PropertyColorBackgroundAlert(TypeColorBackground.Success) 
                 }",
                 new ControlForm("conformationform", items: [.. _exampleFormItems])
                 {
-                    Border = new PropertyBorder(true),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
+                    Border = _ => new PropertyBorder(true),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
                     Conformation = new ControlAlert()
                     {
                         Text = @"Thank you! Your submission has been successfully received. We have received your request and will process it as soon as possible. If you need any further information, feel free to reach out to us anytime.",
@@ -205,9 +205,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 @"RedirectUri = pageContext.ApplicationContext.Route.ToUri()",
                 new ControlForm(null, [.. _exampleFormItems])
                 {
-                    Border = new PropertyBorder(true),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
+                    Border = _ => new PropertyBorder(true),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
                     RedirectUri = pageContext.ApplicationContext.Route.ToUri()
 
                 }.AddPreferencesButton(new ControlFormItemButtonSubmit())

@@ -39,7 +39,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
             {
                 Text = "Example",
                 Format = TypeFormatText.H3,
-                Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
             });
             visualTree.Content.MainPanel.AddPrimary(new ControlText()
             {
@@ -52,20 +52,20 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                 {
                     Text = "Light Mode",
                     Format = TypeFormatText.H5,
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
                     Text = @"Designed for bright and well-lit environments, light mode offers a clear and vibrant presentation of the control, making it ideal for applications that prioritize brightness and clarity.",
                     Format = TypeFormatText.Markdown,
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
             }
             visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. Stage.Controls])
             {
                 Classes = ["wx-resizable"],
                 Styles = ["max-width: 80em;"],
-                Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
             });
 
             if (Stage.DarkControls is not null)
@@ -74,19 +74,19 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                 {
                     Text = "Dark Mode",
                     Format = TypeFormatText.H5,
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
                     Text = @"Optimized for dim settings, dark mode delivers a high-contrast theme that enhances readability and reduces eye strain, while maintaining the control’s core functionalities.",
                     Format = TypeFormatText.Markdown,
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
                 visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. Stage.DarkControls.Any() ? Stage.DarkControls : Stage.Controls])
                 {
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Dark),
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Dark),
                     Styles = ["max-width: 80em;"],
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None,
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None,
                     PropertySpacing.Space.None, PropertySpacing.Space.Two),
                     Theme = TypeTheme.Dark
                 });
@@ -95,7 +95,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
             {
                 Text = "Code",
                 Format = TypeFormatText.H3,
-                Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
             });
             visualTree.Content.MainPanel.AddPrimary(new ControlText()
             {
@@ -109,7 +109,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                 Styles = ["max-width: 91em;"],
                 Language = TypeLanguage.CSharp,
 
-                Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
             });
             visualTree.Content.MainPanel.AddPrimary(new ControlText()
             {
@@ -122,7 +122,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                 LineNumbers = true,
                 Styles = ["max-width: 91em;"],
                 Language = TypeLanguage.Xml,
-                Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
             });
 
             if (Stage.PropertyActs.Any())
@@ -131,7 +131,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                 {
                     Text = "Properties",
                     Format = TypeFormatText.H3,
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
 
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
@@ -147,7 +147,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                 {
                     Text = supportedAct.Name,
                     Format = TypeFormatText.H4,
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
 
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
@@ -164,14 +164,14 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                     })
                     {
                         Color = new PropertyColorCallout(TypeColorCallout.Info),
-                        Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                        Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                     });
                 }
 
                 visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. supportedAct.Controls])
                 {
                     Styles = ["max-width: 80em;"],
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
 
                 visualTree.Content.MainPanel.AddPrimary(new ControlCode()
@@ -181,7 +181,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                     Styles = ["max-width: 91em;"],
                     Language = TypeLanguage.CSharp,
 
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
             }
 
@@ -191,7 +191,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                 {
                     Text = "Item types",
                     Format = TypeFormatText.H3,
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
 
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
@@ -207,7 +207,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                 {
                     Text = supportedAct.Name,
                     Format = TypeFormatText.H4,
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
 
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
@@ -224,14 +224,14 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                     })
                     {
                         Color = new PropertyColorCallout(TypeColorCallout.Info),
-                        Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                        Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                     });
                 }
 
                 visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. supportedAct.Controls])
                 {
                     Styles = ["max-width: 80em;"],
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
 
                 visualTree.Content.MainPanel.AddPrimary(new ControlCode()
@@ -241,7 +241,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                     Styles = ["max-width: 91em;"],
                     Language = TypeLanguage.CSharp,
 
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
 
                 foreach (var subAct in Stage.ItemPropertyActs.Where(x => x.Type == supportedAct.Type))
@@ -249,7 +249,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                     visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null)
                     {
                         Styles = ["max-width: 80em;"],
-                        Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                        Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
                     }
                         .Add
                         (
@@ -257,7 +257,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                             {
                                 Text = subAct.Name,
                                 Format = TypeFormatText.H5,
-                                Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                                Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                             },
                             new ControlText()
                             {
@@ -271,13 +271,13 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                                 })
                                 {
                                     Color = new PropertyColorCallout(TypeColorCallout.Info),
-                                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                                 }
                                 : null,
                             new ControlPanelCard(null, [.. subAct.Controls])
                             {
                                 Styles = ["max-width: 80em;"],
-                                Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                                Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
                             },
                             new ControlCode()
                             {
@@ -286,7 +286,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                                 Styles = ["max-width: 91em;"],
                                 Language = TypeLanguage.CSharp,
 
-                                Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                                Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                             }
                         )
                     );
@@ -328,7 +328,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                 )
                 {
                     Styles = ["max-width: 80em;"],
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 })
                 {
                 });

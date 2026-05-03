@@ -40,7 +40,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "BackgroundColor",
                 "The `BackgroundColor` property defines the background fill color of the component. It plays a key role in determining the visual appearance and helps visually separate the component from surrounding content or reinforce semantic meaning (e.g., success, warning, error).",
-                "BackgroundColor = new PropertyColorBackground(TypeColorBackground.Primary)",
+                "BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Primary)",
                 new ControlPanelCard()
                 {
 
@@ -48,69 +48,69 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     .Add(new ControlText() { Text = "Without specifying a background color." }),
                 new ControlPanelCard()
                 {
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Primary),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Primary),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
                 }
                     .Add(new ControlText() { Text = "The primary background color." }),
                 new ControlPanelCard()
                 {
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Secondary),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Secondary),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
                 }
                     .Add(new ControlText() { Text = "The secondary background color." }),
                 new ControlPanelCard()
                 {
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Info),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Info),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
                 }
                     .Add(new ControlText() { Text = "The info background color." }),
                 new ControlPanelCard()
                 {
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Success),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
                 }
                     .Add(new ControlText() { Text = "The success background color." }),
                 new ControlPanelCard()
                 {
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Warning),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Warning),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
                 }
                     .Add(new ControlText() { Text = "The warning background color." }),
                 new ControlPanelCard()
                 {
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Danger),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Danger),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
                 }
                     .Add(new ControlText() { Text = "The danger background color." }),
                 new ControlPanelCard()
                 {
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Dark),
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Dark),
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
                 }
                     .Add(new ControlText() { Text = "The dark background color." }),
                 new ControlPanelCard()
                 {
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Light),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
                 }
                     .Add(new ControlText() { Text = "The light background color." }),
                 new ControlPanelCard()
                 {
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.White),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.White),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
                 }
                     .Add(new ControlText() { Text = "The white background color." }),
                 new ControlPanelCard()
                 {
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Transparent),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Transparent),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
                 }
                     .Add(new ControlText() { Text = "The transparent background color." }),
                 new ControlPanelCard()
                 {
-                    BackgroundColor = new PropertyColorBackground("gold"),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
+                    BackgroundColor = _ => new PropertyColorBackground("gold"),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
                 }
                     .Add(new ControlText() { Text = "The custom background color." })
             );
@@ -119,12 +119,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Header",
                 "The `Header` property defines the content displayed in the top section of the component. It typically serves as a title bar or introductory element that summarizes or labels the component’s purpose.",
-                "Header = \"Header\"",
+                "Header = _ => \"Header\"",
                 new ControlPanelCard()
                 {
                     Header = "Header",
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Success)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 }
                     .Add(new ControlText() { Text = "With a specified header text." })
             );
@@ -133,13 +133,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "HeaderImage",
                 "The `HeaderImage` property specifies an image resource that is displayed in the top section of the component. It enhances visual appeal and can provide contextual, thematic, or branding value.",
-                "HeaderImage = applicationContext.Route.Concat(\"/assets/img/ufo.png\").ToUri()",
+                "HeaderImage = _ => applicationContext.Route.Concat(\"/assets/img/ufo.png\").ToUri()",
                 new ControlPanelCard()
                 {
                     Header = "Header",
                     HeaderImage = applicationContext.Route.Concat("/assets/img/ufo.png").ToUri(),
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Success)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 }
                     .Add(new ControlText() { Text = "With a specified header text." })
             );
@@ -148,12 +148,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Headline",
                 "The `Headline` property defines a prominent title element that draws the user's attention and communicates the primary message or purpose of the component at a glance.",
-                "Headline = \"Headline\"",
+                "Headline = _ => \"Headline\"",
                 new ControlPanelCard()
                 {
                     Headline = "Headline",
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Success)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 }
                     .Add(new ControlText() { Text = "With a specified headline text." })
             );
@@ -162,12 +162,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Footer",
                 "The `Footer` property defines the content area displayed at the bottom of the component. It is typically used to present supplementary information or actionable elements that relate to the overall content.",
-                "Footer = \"Footer\"",
+                "Footer = _ => \"Footer\"",
                 new ControlPanelCard()
                 {
                     Footer = "Footer",
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Success)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 }
                     .Add(new ControlText() { Text = "With a specified footer text." })
             );
@@ -176,13 +176,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "FooterImage",
                 "The `Footer` property defines the content area displayed at the bottom of the component. It is typically used to present supplementary information or actionable elements that relate to the overall content.",
-                "FooterImage = applicationContext.Route.Concat(\"/assets/img/ufo.png\").ToUri()",
+                "FooterImage = _ => applicationContext.Route.Concat(\"/assets/img/ufo.png\").ToUri()",
                 new ControlPanelCard()
                 {
                     Footer = "Footer",
                     FooterImage = applicationContext.Route.Concat("/assets/img/ufo.png").ToUri(),
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Success)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 }
                     .Add(new ControlText() { Text = "With a specified footer text." })
             );

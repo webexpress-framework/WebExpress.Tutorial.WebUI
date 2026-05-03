@@ -27,7 +27,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.Control = new ControlCarousel("myCarousel")
             {
-                Width = TypeWidth.Fifty
+                Width = _ => TypeWidth.Fifty
             }
                 .Add(new ControlCarouselItem()
                 {
@@ -87,8 +87,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 })
                 .Add(new ControlCarouselItem()
                 {
-                    Headline = ""Item 3"",
-                    Text = ""Text for item 3"",
+                    Headline =_ =>  ""Item 3"",
+                    Text = _ =>  ""Text for item 3"",
                     Control = new ControlImage()
                     {
                         Classes = [""w-100""],
@@ -100,7 +100,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 [
                     new ControlCarousel("myDarkCarousel")
                     {
-                        Width = TypeWidth.Fifty
+                        Width = _ => TypeWidth.Fifty
                     }
                         .Add(new ControlCarouselItem()
                         {

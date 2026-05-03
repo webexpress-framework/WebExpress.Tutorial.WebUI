@@ -127,7 +127,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 @"
                 new ControlAvatar()
                 {
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Primary)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Primary)
                 };",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
@@ -138,61 +138,61 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlAvatar()
                 {
                     Username = "Dex Zogbert",
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Primary)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Primary)
                 },
                 new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
                     Username = "Dex Zogbert",
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Secondary)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Secondary)
                 },
                 new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
                     Username = "Dex Zogbert",
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Info)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Info)
                 },
                 new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
                     Username = "Dex Zogbert",
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Success)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 },
                 new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
                     Username = "Dex Zogbert",
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Warning)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Warning)
                 },
                 new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
                     Username = "Dex Zogbert",
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Danger)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Danger)
                 },
                 new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
                     Username = "Dex Zogbert",
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Dark)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Dark)
                 },
                 new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
                     Username = "Dex Zogbert",
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Light)
                 },
                 new ControlText() { Text = "Transparent", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
                     Username = "Dex Zogbert",
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Transparent)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Transparent)
                 },
                 new ControlText() { Text = "Custom", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
                     Username = "Dex Zogbert",
-                    BackgroundColor = new PropertyColorBackground("gold")
+                    BackgroundColor = _ => new PropertyColorBackground("gold")
                 }
             );
 

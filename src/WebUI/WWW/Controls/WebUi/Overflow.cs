@@ -40,7 +40,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "BackgroundColor",
                 "Sets the background color of the overflow control.",
-                "BackgroundColor = new PropertyColorBackground(TypeColorBackground.Primary)",
+                "BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Primary)",
                 new ControlText()
                 {
                     Text = "Default",
@@ -56,7 +56,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 },
                 new ControlPanelOverflow()
                 {
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Primary)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Primary)
                 }.Add(CreateControl(30)),
                 new ControlText()
                 {
@@ -65,7 +65,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 },
                 new ControlPanelOverflow()
                 {
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Secondary)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Secondary)
                 }.Add(CreateControl(30)),
                 new ControlText()
                 {
@@ -74,7 +74,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 },
                 new ControlPanelOverflow()
                 {
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Info)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Info)
                 }.Add(CreateControl(30)),
                 new ControlText()
                 {
@@ -83,7 +83,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 },
                 new ControlPanelOverflow()
                 {
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Success)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 }.Add(CreateControl(30)),
                 new ControlText()
                 {
@@ -92,7 +92,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 },
                 new ControlPanelOverflow()
                 {
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Warning)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Warning)
                 }.Add(CreateControl(30)),
                 new ControlText()
                 {
@@ -101,7 +101,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 },
                 new ControlPanelOverflow()
                 {
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Danger)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Danger)
                 }.Add(CreateControl(30)),
                 new ControlText()
                 {
@@ -110,7 +110,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 },
                 new ControlPanelOverflow()
                 {
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Dark)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Dark)
                 }.Add(CreateControl(30)),
                 new ControlText()
                 {
@@ -119,7 +119,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 },
                 new ControlPanelOverflow()
                 {
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Light)
                 }.Add(CreateControl(30)),
                 new ControlText()
                 {
@@ -128,7 +128,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 },
                 new ControlPanelOverflow()
                 {
-                    BackgroundColor = new PropertyColorBackground("gold")
+                    BackgroundColor = _ => new PropertyColorBackground("gold")
                 }.Add(CreateControl(30))
             );
         }
@@ -160,7 +160,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     yield return new ControlDropdown()
                     {
                         Text = $"Dropdown {i}",
-                        Margin = new PropertySpacingMargin(PropertySpacing.Space.One),
+                        Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.One),
                         Icon = new IconSpider()
                     }
                         .AddHeader($"Header {i}")

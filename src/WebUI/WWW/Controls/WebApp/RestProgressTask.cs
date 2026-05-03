@@ -87,10 +87,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             (
                 "ShowOnStart",
                 "The `ShowOnStart` property indicates whether the control should become visible when the task begins. This is useful for deferred UI activation based on progress.",
-                "ShowOnStart = true",
+                "ShowOnStart = _ => true",
                 new ControlRestProgressTask("showonstart")
                 {
-                    Display = TypeDisplay.None,
+                    Display = _ => TypeDisplay.None,
                     TaskId = CreateTask(),
                     ShowOnStart = true
                 }
@@ -100,7 +100,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             (
                 "HideOnFinish",
                 "The `HideOnFinish` property controls whether the associated element should be hidden once the task is complete. It helps declutter the UI after successful execution.",
-                "HideOnFinish = true",
+                "HideOnFinish = _ => true",
                 new ControlRestProgressTask("hideonfinish")
                 {
                     TaskId = CreateTask(),

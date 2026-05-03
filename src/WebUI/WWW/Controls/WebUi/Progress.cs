@@ -65,7 +65,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Format",
                 "Defines visual layout of the progress bar.",
-                "Format = TypeFormatProgress.Striped",
+                "Format = _ => TypeFormatProgress.Striped",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
@@ -73,7 +73,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = "Default",
                     Color = new PropertyColorProgress(TypeColorProgress.Primary),
                     Format = TypeFormatProgress.Default,
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
                 },
                 new ControlText() { Text = "Colored", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
@@ -82,7 +82,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = "Colored",
                     Color = new PropertyColorProgress(TypeColorProgress.Secondary),
                     Format = TypeFormatProgress.Colored,
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
                 },
                 new ControlText() { Text = "Striped", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
@@ -91,7 +91,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = "Striped",
                     Color = new PropertyColorProgress(TypeColorProgress.Info),
                     Format = TypeFormatProgress.Striped,
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
                 },
                 new ControlText() { Text = "Animated", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
@@ -100,7 +100,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = "Animated",
                     Color = new PropertyColorProgress(TypeColorProgress.Success),
                     Format = TypeFormatProgress.Animated,
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
                 }
 
             );
@@ -109,7 +109,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Color",
                 "Sets the color of the progress bar.",
-                "Color = new PropertyColorProgress(TypeColorProgress.Primary)",
+                "Color = _ => new PropertyColorProgress(TypeColorProgress.Primary)",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
@@ -302,7 +302,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = "Default",
                     Format = TypeFormatProgress.Animated,
                     Color = new PropertyColorProgress(TypeColorProgress.Primary),
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Default)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Default)
                 },
                 new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
@@ -311,7 +311,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = "Primary",
                     Format = TypeFormatProgress.Animated,
                     Color = new PropertyColorProgress(TypeColorProgress.Primary),
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Primary)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Primary)
                 },
                 new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
@@ -320,7 +320,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = "Secondary",
                     Format = TypeFormatProgress.Animated,
                     Color = new PropertyColorProgress(TypeColorProgress.Primary),
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Secondary)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Secondary)
                 },
                 new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
@@ -329,7 +329,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = "Info",
                     Format = TypeFormatProgress.Animated,
                     Color = new PropertyColorProgress(TypeColorProgress.Primary),
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Info)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Info)
                 },
                 new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
@@ -338,7 +338,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = "Success",
                     Format = TypeFormatProgress.Animated,
                     Color = new PropertyColorProgress(TypeColorProgress.Primary),
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Success)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 },
                 new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
@@ -347,7 +347,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = "Warning",
                     Format = TypeFormatProgress.Animated,
                     Color = new PropertyColorProgress(TypeColorProgress.Primary),
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Warning)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Warning)
                 },
                 new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
@@ -356,7 +356,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = "Danger",
                     Format = TypeFormatProgress.Animated,
                     Color = new PropertyColorProgress(TypeColorProgress.Primary),
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Danger)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Danger)
                 },
                 new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
@@ -365,7 +365,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = "Light",
                     Format = TypeFormatProgress.Animated,
                     Color = new PropertyColorProgress(TypeColorProgress.Primary),
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Light)
                 },
                 new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
@@ -374,7 +374,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = "Dark",
                     Format = TypeFormatProgress.Animated,
                     Color = new PropertyColorProgress(TypeColorProgress.Primary),
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Dark)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Dark)
                 },
                 new ControlText() { Text = "White", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
@@ -383,7 +383,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = "White",
                     Format = TypeFormatProgress.Animated,
                     Color = new PropertyColorProgress(TypeColorProgress.Primary),
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.White)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.White)
                 },
                 new ControlText() { Text = "Transparent", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
@@ -392,7 +392,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = "Transparent",
                     Format = TypeFormatProgress.Animated,
                     Color = new PropertyColorProgress(TypeColorProgress.Primary),
-                    BackgroundColor = new PropertyColorBackground(TypeColorBackground.Transparent)
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Transparent)
                 },
                 new ControlText() { Text = "Custom", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
@@ -401,7 +401,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = "Custom",
                     Format = TypeFormatProgress.Animated,
                     Color = new PropertyColorProgress(TypeColorProgress.Primary),
-                    BackgroundColor = new PropertyColorBackground("gold")
+                    BackgroundColor = _ => new PropertyColorBackground("gold")
                 }
             );
 
@@ -409,7 +409,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Size",
                 "Specifies the vertical dimension of the progress bar.",
-                "Size = TypeSizeProgress.ExtraSmall",
+                "Size = _ => TypeSizeProgress.ExtraSmall",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
@@ -418,7 +418,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Size = TypeSizeProgress.Default,
                     Color = new PropertyColorProgress(TypeColorProgress.Success),
                     Format = TypeFormatProgress.Animated,
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
                 },
                 new ControlText() { Text = "ExtraSmall", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
@@ -428,7 +428,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Size = TypeSizeProgress.ExtraSmall,
                     Color = new PropertyColorProgress(TypeColorProgress.Success),
                     Format = TypeFormatProgress.Animated,
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
                 },
                 new ControlText() { Text = "Small", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
@@ -438,7 +438,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Size = TypeSizeProgress.Small,
                     Color = new PropertyColorProgress(TypeColorProgress.Success),
                     Format = TypeFormatProgress.Animated,
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
                 },
                 new ControlText() { Text = "Large", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
@@ -448,7 +448,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Size = TypeSizeProgress.Large,
                     Color = new PropertyColorProgress(TypeColorProgress.Success),
                     Format = TypeFormatProgress.Animated,
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
                 },
                 new ControlText() { Text = "ExtraLarge", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
@@ -458,7 +458,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Size = TypeSizeProgress.ExtraLarge,
                     Color = new PropertyColorProgress(TypeColorProgress.Success),
                     Format = TypeFormatProgress.Animated,
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
                 }
 
             );

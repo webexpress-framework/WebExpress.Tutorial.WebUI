@@ -258,13 +258,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Active",
                 "Sets the active state of the button.",
-                "Active = TypeActive.Active",
+                "Active = _ => TypeActive.Active",
                 new ControlButtonLink()
                 {
                     Text = (c) => "None",
                     Active = TypeActive.None,
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two),
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
@@ -272,7 +272,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = (c) => "Active",
                     Active = TypeActive.Active,
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two),
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
@@ -280,7 +280,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = (c) => "Disabled",
                     Active = TypeActive.Disabled,
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two),
                     Uri = pageContext.Route.ToUri()
                 }
             );
@@ -295,7 +295,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = (c) => "Click me!",
                     PrimaryAction = _ => new ActionModal("modal"),
                     TextColor = _ => new PropertyColorText(TypeColorText.Default),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlModalExample("modal")
                 {
@@ -312,7 +312,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = (c) => "Double-click me!",
                     SecondaryAction = _ => new ActionModal("modal"),
                     TextColor = _ => new PropertyColorText(TypeColorText.Default),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlModalExample("modal")
                 {

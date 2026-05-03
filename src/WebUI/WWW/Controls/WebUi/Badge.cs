@@ -241,48 +241,48 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Size",
                 "Sets the size",
                 "",
-                "Size = new PropertySizeText(TypeSizeText.Small)",
+                "Size = _ => new PropertySizeText(TypeSizeText.Small)",
                 new ControlBadge()
                 {
                     Value = "ExtraSmall",
                     Size = new PropertySizeText(TypeSizeText.ExtraSmall),
                     BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Dark),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlBadge()
                 {
                     Value = "Small",
                     Size = new PropertySizeText(TypeSizeText.Small),
                     BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Dark),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlBadge()
                 {
                     Value = "Default",
                     Size = new PropertySizeText(TypeSizeText.Default),
                     BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Dark),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlBadge()
                 {
                     Value = "Large",
                     Size = new PropertySizeText(TypeSizeText.Large),
                     BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Dark),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlBadge()
                 {
                     Value = "ExtraLarge",
                     Size = new PropertySizeText(TypeSizeText.ExtraLarge),
                     BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Dark),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlBadge()
                 {
                     Value = "3.1f",
                     Size = new PropertySizeText(3.1f),
                     BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Dark),
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 }
             );
         }

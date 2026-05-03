@@ -58,7 +58,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 {
                     RestUri = sitemapManager.GetUri<FormEditor>(pageContext).Add(new UriQuery("id", "00000000-0000-0000-0000-000000000001")),
                     Readonly = true,
-                    Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 }
             );
         }
