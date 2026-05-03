@@ -35,10 +35,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
             [
                 new ControlButton()
                 {
-                    Text = (c) => "Activator",
-                    Icon = new IconPenToSquare(),
+                    Text = _ => "Activator",
+                    Icon = _ => new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    PrimaryAction = new ActionModal("myModal")
+                    PrimaryAction = _ => new ActionModal("myModal")
                 },
                 new ControlModalRemotePage("myModal")
                 {
@@ -51,10 +51,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
             Stage.Code = @"
             new ControlButton()
             {
-                Text = (c) => ""Activator"",
-                Icon = new IconPenToSquare(),
+                Text = _ => ""Activator"",
+                Icon = _ => new IconPenToSquare(),
                 BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                PrimaryAction = new ActionModal(""myModal"")
+                PrimaryAction = _ => new ActionModal(""myModal"")
             },
             new ControlModalPage(""myModal"")
             {
@@ -71,10 +71,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 "Uri = sitemapManager.GetUri<Info>(pageContext.ApplicationContext)",
                 new ControlButton()
                 {
-                    Text = (c) => "Activator",
-                    Icon = new IconPenToSquare(),
+                    Text = _ => "Activator",
+                    Icon = _ => new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    PrimaryAction = new ActionModal("myModalUri")
+                    PrimaryAction = _ => new ActionModal("myModalUri")
                 },
                 new ControlModalRemotePage("myModalUri")
                 {
@@ -92,9 +92,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 new ControlButton()
                 {
                     Text = (c) => "Activator",
-                    Icon = new IconPenToSquare(),
+                    Icon = _ => new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    PrimaryAction = new ActionModal("myModalSelector")
+                    PrimaryAction = _ => new ActionModal("myModalSelector")
                 },
                 new ControlModalRemotePage("myModalSelector")
                 {

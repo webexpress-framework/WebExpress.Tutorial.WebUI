@@ -72,10 +72,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
             [
                 new ControlButton()
                 {
-                    Text = (c) => "Activator",
-                    Icon = new IconPenToSquare(),
+                    Text = _ => "Activator",
+                    Icon = _ => new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    PrimaryAction = new ActionModal("myModal")
+                    PrimaryAction = _ => new ActionModal("myModal")
                 },
                 new ControlModalForm("myModal")
                 {
@@ -95,9 +95,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 new ControlButton()
                 {
                     Text = (c) => "Activator",
-                    Icon = new IconPenToSquare(),
+                    Icon = _ => new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    PrimaryAction = new ActionModal("myDarkModal")
+                    PrimaryAction = _ => new ActionModal("myDarkModal")
                 },
                 new ControlModalForm("myDarkModal")
                 {
@@ -139,10 +139,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  "Header = \"Header\"",
                  new ControlButton()
                  {
-                     Text = (c) => "Activator",
-                     Icon = new IconPenToSquare(),
+                     Text = _ => "Activator",
+                     Icon = _ => new IconPenToSquare(),
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                     PrimaryAction = new ActionModal("myModalHeader")
+                     PrimaryAction = _ => new ActionModal("myModalHeader")
                  },
                  new ControlModalForm("myModalHeader")
                  {
@@ -159,10 +159,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  "Size = TypeModalSize.Small",
                  new ControlButton()
                  {
-                     Text = (c) => "Default",
-                     Icon = new IconPenToSquare(),
+                     Text = _ => "Default",
+                     Icon = _ => new IconPenToSquare(),
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                     PrimaryAction = new ActionModal("myModalDefault")
+                     PrimaryAction = _ => new ActionModal("myModalDefault")
                  },
                  new ControlModalForm("myModalDefault")
                  {
@@ -173,10 +173,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                      .AddPreferencesButton(new ControlFormItemButtonSubmit()),
                  new ControlButton()
                  {
-                     Text = (c) => "Small",
-                     Icon = new IconPenToSquare(),
+                     Text = _ => "Small",
+                     Icon = _ => new IconPenToSquare(),
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                     PrimaryAction = new ActionModal("myModalSmall")
+                     PrimaryAction = _ => new ActionModal("myModalSmall")
                  },
                  new ControlModalForm("myModalSmall")
                  {
@@ -187,10 +187,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                      .AddPreferencesButton(new ControlFormItemButtonSubmit()),
                  new ControlButton()
                  {
-                     Text = (c) => "Large",
-                     Icon = new IconPenToSquare(),
+                     Text = _ => "Large",
+                     Icon = _ => new IconPenToSquare(),
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                     PrimaryAction = new ActionModal("myModalLarge")
+                     PrimaryAction = _ => new ActionModal("myModalLarge")
                  },
                  new ControlModalForm("myModalLarge")
                  {
@@ -202,9 +202,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  new ControlButton()
                  {
                      Text = (c) => "ExtraLarge",
-                     Icon = new IconPenToSquare(),
+                     Icon = _ => new IconPenToSquare(),
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                     PrimaryAction = new ActionModal("myModalExtraLarge")
+                     PrimaryAction = _ => new ActionModal("myModalExtraLarge")
                  },
                  new ControlModalForm("myModalExtraLarge")
                  {
@@ -215,10 +215,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                      .AddPreferencesButton(new ControlFormItemButtonSubmit()),
                  new ControlButton()
                  {
-                     Text = (c) => "Fullscreen",
-                     Icon = new IconPenToSquare(),
+                     Text = _ => "Fullscreen",
+                     Icon = _ => new IconPenToSquare(),
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                     PrimaryAction = new ActionModal("myModalFullscreen")
+                     PrimaryAction = _ => new ActionModal("myModalFullscreen")
                  },
                  new ControlModalForm("myModalFullscreen")
                  {

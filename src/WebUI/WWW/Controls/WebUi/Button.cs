@@ -53,6 +53,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.AddProperty
             (
+                "Text",
+                "Sets the text of the button.",
+                "Text = (c) => \"WebExpress\"",
+                new ControlButton()
+                {
+                    Text = (c) => "WebExpress"
+                }
+            );
+
+            Stage.AddProperty
+            (
                 "BackgroundColor",
                 "Sets the background color of the button.",
                 "BackgroundColor = new PropertyColorButton(TypeColorButton.Primary)",
@@ -116,71 +127,71 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Outline",
                 "Removes the background color from the button.",
-                "Outline = true",
+                "Outline = _ => true",
                 new ControlButton()
                 {
                     Text = (c) => "Default",
-                    Outline = true
+                    Outline = _ => true
                 },
                 new ControlButton()
                 {
                     Text = (c) => "Primary",
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    Outline = true
+                    Outline = _ => true
                 },
                 new ControlButton()
                 {
                     Text = (c) => "Secondary",
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Secondary),
-                    Outline = true
+                    Outline = _ => true
                 },
                 new ControlButton()
                 {
                     Text = (c) => "Info",
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Info),
-                    Outline = true
+                    Outline = _ => true
                 },
                 new ControlButton()
                 {
                     Text = (c) => "Success",
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Success),
-                    Outline = true
+                    Outline = _ => true
                 },
                 new ControlButton()
                 {
                     Text = (c) => "Warning",
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Warning),
-                    Outline = true
+                    Outline = _ => true
                 },
                 new ControlButton()
                 {
                     Text = (c) => "Danger",
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Danger),
-                    Outline = true
+                    Outline = _ => true
                 },
                 new ControlButton()
                 {
                     Text = (c) => "Dark",
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Dark),
-                    Outline = true
+                    Outline = _ => true
                 },
                 new ControlButton()
                 {
                     Text = (c) => "Light",
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Light),
-                    Outline = true
+                    Outline = _ => true
                 },
                 new ControlButton()
                 {
                     Text = (c) => "Highlight",
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Highlight),
-                    Outline = true
+                    Outline = _ => true
                 },
                 new ControlButton()
                 {
                     Text = (c) => "Custom",
                     BackgroundColor = new PropertyColorButton("gold"),
-                    Outline = true
+                    Outline = _ => true
                 }
             );
 
@@ -220,13 +231,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlButton()
                 {
                     Text = (c) => "Home",
-                    Icon = new IconHome(),
+                    Icon = _ => new IconHome(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
                 },
                 new ControlButton()
                 {
                     Text = (c) => "Custom",
-                    Icon = new ImageIconWebExpress(pageContext.ApplicationContext),
+                    Icon = _ => new ImageIconWebExpress(pageContext.ApplicationContext),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary)
                 }
             );
@@ -280,7 +291,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlButton()
                 {
                     Text = (c) => "Click me!",
-                    PrimaryAction = new ActionModal("modal"),
+                    PrimaryAction = _ => new ActionModal("modal"),
                     TextColor = new PropertyColorText(TypeColorText.Default),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
@@ -298,7 +309,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlButton()
                 {
                     Text = (c) => "Double-click me!",
-                    SecondaryAction = new ActionModal("modal"),
+                    SecondaryAction = _ => new ActionModal("modal"),
                     TextColor = new PropertyColorText(TypeColorText.Default),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)

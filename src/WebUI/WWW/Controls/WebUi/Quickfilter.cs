@@ -35,8 +35,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlButton("onbutton")
                 {
                     Text = (c) => "On",
-                    Icon = new IconPowerOff(),
-                    PrimaryAction = new ActionFilter()
+                    Icon = _ => new IconPowerOff(),
+                    PrimaryAction = _ => new ActionFilter()
                     {
                         Group = "powerbutton",
                         Exclusive = true
@@ -45,8 +45,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlButton("offbutton")
                 {
                     Text = (c) => "Off",
-                    Icon = new IconPowerOff(),
-                    PrimaryAction = new ActionFilter()
+                    Icon = _ => new IconPowerOff(),
+                    PrimaryAction = _ => new ActionFilter()
                     {
                         Group = "powerbutton",
                         Exclusive = true

@@ -52,9 +52,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 new ControlButton()
                 {
                     Text = (c) =>"Activator",
-                    Icon = new IconPenToSquare(),
+                    Icon = _ => new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    PrimaryAction = new ActionModal("myModal")
+                    PrimaryAction = _ => new ActionModal("myModal")
                 },
                 new ControlModal("myModal") { Header = "My modal" }
                     .Add(_content)
@@ -79,9 +79,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  new ControlButton()
                  {
                      Text = (c) => "Activator",
-                     Icon = new IconPenToSquare(),
+                     Icon = _ => new IconPenToSquare(),
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                     PrimaryAction = new ActionModal("myModalHeader")
+                     PrimaryAction = _ => new ActionModal("myModalHeader")
                  },
                  new ControlModal("myModalHeader")
                  {
@@ -97,9 +97,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  new ControlButton()
                  {
                      Text = (c) => "Default",
-                     Icon = new IconPenToSquare(),
+                     Icon = _ => new IconPenToSquare(),
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                     PrimaryAction = new ActionModal("myModalDefault")
+                     PrimaryAction = _ => new ActionModal("myModalDefault")
                  },
                  new ControlModal("myModalDefault")
                  {
@@ -109,9 +109,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  new ControlButton()
                  {
                      Text = (c) => "Small",
-                     Icon = new IconPenToSquare(),
+                     Icon = _ => new IconPenToSquare(),
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                     PrimaryAction = new ActionModal("myModalSmall")
+                     PrimaryAction = _ => new ActionModal("myModalSmall")
                  },
                  new ControlModal("myModalSmall")
                  {
@@ -121,9 +121,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  new ControlButton()
                  {
                      Text = (c) => "Large",
-                     Icon = new IconPenToSquare(),
+                     Icon = _ => new IconPenToSquare(),
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                     PrimaryAction = new ActionModal("myModalLarge")
+                     PrimaryAction = _ => new ActionModal("myModalLarge")
                  },
                  new ControlModal("myModalLarge")
                  {
@@ -133,9 +133,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  new ControlButton()
                  {
                      Text = (c) => "ExtraLarge",
-                     Icon = new IconPenToSquare(),
+                     Icon = _ => new IconPenToSquare(),
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                     PrimaryAction = new ActionModal("myModalExtraLarge")
+                     PrimaryAction = _ => new ActionModal("myModalExtraLarge")
                  },
                  new ControlModal("myModalExtraLarge")
                  {
@@ -145,9 +145,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  new ControlButton()
                  {
                      Text = (c) => "Fullscreen",
-                     Icon = new IconPenToSquare(),
+                     Icon = _ => new IconPenToSquare(),
                      BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                     PrimaryAction = new ActionModal("myModalFullscreen")
+                     PrimaryAction = _ => new ActionModal("myModalFullscreen")
                  },
                  new ControlModal("myModalFullscreen")
                  {

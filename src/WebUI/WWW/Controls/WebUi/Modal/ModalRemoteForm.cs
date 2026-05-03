@@ -36,9 +36,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 new ControlButton()
                 {
                     Text = (c) => "Activator",
-                    Icon = new IconPenToSquare(),
+                    Icon = _ => new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    PrimaryAction = new ActionModal("myModal")
+                    PrimaryAction = _ => new ActionModal("myModal")
                 },
                 new ControlModalRemoteForm("myModal")
                 {
@@ -54,9 +54,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 new ControlButton()
                 {
                     Text = (c) =>"Activator",
-                    Icon = new IconPenToSquare(),
+                    Icon = _ => new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    PrimaryAction = new ActionModal("myDarkModal")
+                    PrimaryAction = _ => new ActionModal("myDarkModal")
                 },
                 new ControlModalRemoteForm("myDarkModal")
                 {
@@ -92,9 +92,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 new ControlButton()
                 {
                     Text = (c) => "Activator",
-                    Icon = new IconPenToSquare(),
+                    Icon = _ => new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    PrimaryAction = new ActionModal("myModalUri")
+                    PrimaryAction = _ => new ActionModal("myModalUri")
                 },
                 new ControlModalRemoteForm("myModalUri")
                 {
@@ -113,9 +113,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 new ControlButton()
                 {
                     Text = (c) => "Activator",
-                    Icon = new IconPenToSquare(),
+                    Icon = _ => new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    PrimaryAction = new ActionModal("myModalSelector")
+                    PrimaryAction = _ => new ActionModal("myModalSelector")
                 },
                 new ControlModalRemoteForm("myModalSelector")
                 {

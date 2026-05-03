@@ -120,73 +120,73 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Outline",
                 "Removes the background color from the button.",
-                "Outline = true",
+                "Outline = _ => true",
                 new ControlButtonLink()
                 {
                     Text = (c) => "Default",
-                    Outline = true,
+                    Outline = _ => true,
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
                     Text = (c) => "Primary",
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    Outline = true,
+                    Outline = _ => true,
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlButton()
                 {
                     Text = (c) => "Secondary",
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Secondary),
-                    Outline = true
+                    Outline = _ => true
                 },
                 new ControlButtonLink()
                 {
                     Text = (c) => "Info",
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Info),
-                    Outline = true,
+                    Outline = _ => true,
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
                     Text = (c) => "Success",
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Success),
-                    Outline = true,
+                    Outline = _ => true,
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
                     Text = (c) => "Warning",
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Warning),
-                    Outline = true,
+                    Outline = _ => true,
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
                     Text = (c) => "Danger",
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Danger),
-                    Outline = true,
+                    Outline = _ => true,
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
                     Text = (c) => "Dark",
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Dark),
-                    Outline = true,
+                    Outline = _ => true,
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
                     Text = (c) => "Light",
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Light),
-                    Outline = true,
+                    Outline = _ => true,
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
                     Text = (c) => "Custom",
                     BackgroundColor = new PropertyColorButton("gold"),
-                    Outline = true,
+                    Outline = _ => true,
                     Uri = pageContext.Route.ToUri()
                 }
             );
@@ -227,14 +227,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlButtonLink()
                 {
                     Text = (c) => "Home",
-                    Icon = new IconHome(),
+                    Icon = _ => new IconHome(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Warning),
                     Uri = pageContext.ApplicationContext.Route.ToUri()
                 },
                 new ControlButtonLink()
                 {
                     Text = (c) => "Custom",
-                    Icon = new ImageIcon(pageContext.ApplicationContext.Route.Concat("assets/img/webui.svg").ToUri(), new PropertySizeIcon(1, TypeSizeUnit.Em)),
+                    Icon = _ => new ImageIcon(pageContext.ApplicationContext.Route.Concat("assets/img/webui.svg").ToUri(), new PropertySizeIcon(1, TypeSizeUnit.Em)),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Warning),
                     Uri = pageContext.Route.ToUri()
                 }
@@ -289,11 +289,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "PrimaryAction",
                 "Defines the primary user action, typically executed on a standard click to open a dialog or perform the main operation.",
-                "PrimaryAction = new ActionModal(\"modal\")",
+                "PrimaryAction = _ => new ActionModal(\"modal\")",
                 new ControlButtonLink()
                 {
                     Text = (c) => "Click me!",
-                    PrimaryAction = new ActionModal("modal"),
+                    PrimaryAction = _ => new ActionModal("modal"),
                     TextColor = new PropertyColorText(TypeColorText.Default),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
@@ -306,11 +306,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "SecondaryAction",
                 "Defines the secondary user action, often triggered by a double‑click to open a dialog or perform an alternative operation.",
-                "SecondaryAction = new ActionModal(\"modal\")",
+                "SecondaryAction = _ => new ActionModal(\"modal\")",
                 new ControlButtonLink()
                 {
                     Text = (c) => "Double-click me!",
-                    SecondaryAction = new ActionModal("modal"),
+                    SecondaryAction = _ => new ActionModal("modal"),
                     TextColor = new PropertyColorText(TypeColorText.Default),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
