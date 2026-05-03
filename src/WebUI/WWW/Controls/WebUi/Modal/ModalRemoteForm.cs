@@ -35,7 +35,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
             [
                 new ControlButton()
                 {
-                    Text = "Activator",
+                    Text = (c) => "Activator",
                     Icon = new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
                     PrimaryAction = new ActionModal("myModal")
@@ -53,7 +53,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
             [
                 new ControlButton()
                 {
-                    Text = "Activator",
+                    Text = (c) =>"Activator",
                     Icon = new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
                     PrimaryAction = new ActionModal("myDarkModal")
@@ -70,7 +70,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
             Stage.Code = @"
             new ControlButton()
             {
-                Text = ""Activator"",
+                Text = (c) => ""Activator"",
                 Icon = new IconPenToSquare(),
                 BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
                 PrimaryAction = new ActionModal(""myModal"")
@@ -91,7 +91,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 "Uri = sitemapManager.GetUri<Info>(pageContext.ApplicationContext)",
                 new ControlButton()
                 {
-                    Text = "Activator",
+                    Text = (c) => "Activator",
                     Icon = new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
                     PrimaryAction = new ActionModal("myModalUri")
@@ -112,7 +112,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 "Selector = \"conformationform\"",
                 new ControlButton()
                 {
-                    Text = "Activator",
+                    Text = (c) => "Activator",
                     Icon = new IconPenToSquare(),
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
                     PrimaryAction = new ActionModal("myModalSelector")

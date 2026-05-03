@@ -252,7 +252,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 Icon = new IconGift(),
                 Content = new ControlButton()
                 {
-                    Text = "button",
+                    Text = (c) => "button",
                     BackgroundColor = new PropertyColorButton(TypeColorButton.Primary)
                 },
                 Mode = TypeSidebarModeExtended.Overlay

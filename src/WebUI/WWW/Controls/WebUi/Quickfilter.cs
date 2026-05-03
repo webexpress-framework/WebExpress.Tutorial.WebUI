@@ -34,7 +34,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText() { Text = "ControlButton", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlButton("onbutton")
                 {
-                    Text = "On",
+                    Text = (c) => "On",
                     Icon = new IconPowerOff(),
                     PrimaryAction = new ActionFilter()
                     {
@@ -44,7 +44,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 },
                 new ControlButton("offbutton")
                 {
-                    Text = "Off",
+                    Text = (c) => "Off",
                     Icon = new IconPowerOff(),
                     PrimaryAction = new ActionFilter()
                     {
