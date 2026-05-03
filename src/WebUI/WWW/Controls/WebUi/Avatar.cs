@@ -57,65 +57,65 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "TextColor",
                 "Reteuns or sets the text color of the user name.",
-                "TextColor = new PropertyColorText(TypeColorText.Primary)",
+                "TextColor = _ => new PropertyColorText(TypeColorText.Primary)",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    TextColor = new PropertyColorText(TypeColorText.Default),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Default),
                     Username = "Dex Zogbert"
                 },
                 new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    TextColor = new PropertyColorText(TypeColorText.Primary),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Primary),
                     Username = "Dex Zogbert"
                 },
                 new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    TextColor = new PropertyColorText(TypeColorText.Secondary),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Secondary),
                     Username = "Dex Zogbert"
                 },
                 new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    TextColor = new PropertyColorText(TypeColorText.Info),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info),
                     Username = "Dex Zogbert"
                 },
                 new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    TextColor = new PropertyColorText(TypeColorText.Success),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Success),
                     Username = "Dex Zogbert"
                 },
                 new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    TextColor = new PropertyColorText(TypeColorText.Warning),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Warning),
                     Username = "Dex Zogbert"
                 },
                 new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    TextColor = new PropertyColorText(TypeColorText.Danger),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Danger),
                     Username = "Dex Zogbert"
                 },
                 new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    TextColor = new PropertyColorText(TypeColorText.Dark),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Dark),
                     Username = "Dex Zogbert"
                 },
                 new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    TextColor = new PropertyColorText(TypeColorText.Light),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Light),
                     Username = "Dex Zogbert"
                 },
                 new ControlText() { Text = "Custom", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    TextColor = new PropertyColorText("gold"),
+                    TextColor = _ => new PropertyColorText("gold"),
                     Username = "Dex Zogbert"
                 }
             );

@@ -42,7 +42,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlDropdown()
                 {
                     Text = "Dropdown",
-                    TextColor = new PropertyColorText(TypeColorText.Default),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Default),
                     Color = new PropertyColorButton(TypeColorButton.Primary),
                 }
                     .Add(_item1)
@@ -63,7 +63,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
                 {
                     Text = "Dropdown",
-                    TextColor = new PropertyColorText(TypeColorText.Default),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Default),
                     Color = new PropertyColorButton(TypeColorButton.Primary),
                 }
            ];

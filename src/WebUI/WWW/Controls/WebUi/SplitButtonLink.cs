@@ -290,7 +290,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Text = "Click me!",
                     PrimaryAction = new ActionModal("modal"),
-                    TextColor = new PropertyColorText(TypeColorText.Default),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Default),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlModalExample("modal")
@@ -307,7 +307,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Text = "Double-click me!",
                     SecondaryAction = new ActionModal("modal"),
-                    TextColor = new PropertyColorText(TypeColorText.Default),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Default),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlModalExample("modal")

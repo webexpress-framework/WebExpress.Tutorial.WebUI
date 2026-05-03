@@ -50,61 +50,61 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    TextColor = new PropertyColorText(TypeColorText.Default),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Default),
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    TextColor = new PropertyColorText(TypeColorText.Primary),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Primary),
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    TextColor = new PropertyColorText(TypeColorText.Secondary),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Secondary),
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    TextColor = new PropertyColorText(TypeColorText.Info),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info),
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    TextColor = new PropertyColorText(TypeColorText.Success),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Success),
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    TextColor = new PropertyColorText(TypeColorText.Warning),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Warning),
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    TextColor = new PropertyColorText(TypeColorText.Danger),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Danger),
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    TextColor = new PropertyColorText(TypeColorText.Dark),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Dark),
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    TextColor = new PropertyColorText(TypeColorText.Light),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Light),
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlText() { Text = "Custom", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    TextColor = new PropertyColorText("gold"),
+                    TextColor = _ => new PropertyColorText("gold"),
                     Uri = pageContext.Route.ToUri()
                 }
             );

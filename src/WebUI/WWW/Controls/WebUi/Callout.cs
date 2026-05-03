@@ -141,12 +141,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "TextColor",
                 "The textColor property defines the foreground color used for the text content of a callout control. This allows for tailored styling, accessibility enhancements, and clear emphasis of the message being displayed.",
-                "TextColor = new PropertyColorText(TypeColorText.Success)",
+                "TextColor = _ => new PropertyColorText(TypeColorText.Success)",
                 new ControlPanelCallout()
                 {
                     Title = "Success",
                     Color = new PropertyColorCallout(TypeColorCallout.Primary),
-                    TextColor = new PropertyColorText(TypeColorText.Success),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Success),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 }
                     .Add(new ControlText() { Text = "With a success text color." })

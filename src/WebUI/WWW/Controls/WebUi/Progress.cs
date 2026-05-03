@@ -179,7 +179,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "TextColor",
                 "Sets the text color of the progress bar.",
-                "TextColor = new PropertyColorText(TypeColorText.Primary)",
+                "TextColor = _ => new PropertyColorText(TypeColorText.Primary)",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
@@ -294,7 +294,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "BackgroundColor",
                 "Defines the background color of the component.",
-                "TextColor = new PropertyColorText(TypeColorText.Primary)",
+                "TextColor = _ => new PropertyColorText(TypeColorText.Primary)",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {

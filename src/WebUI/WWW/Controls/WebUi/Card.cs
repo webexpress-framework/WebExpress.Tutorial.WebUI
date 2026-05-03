@@ -85,7 +85,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlPanelCard()
                 {
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Dark),
-                    TextColor = new PropertyColorText(TypeColorText.White),
+                    TextColor = _ => new PropertyColorText(TypeColorText.White),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
                 }
                     .Add(new ControlText() { Text = "The dark background color." }),
@@ -123,7 +123,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlPanelCard()
                 {
                     Header = "Header",
-                    TextColor = new PropertyColorText(TypeColorText.White),
+                    TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Success)
                 }
                     .Add(new ControlText() { Text = "With a specified header text." })
@@ -138,7 +138,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Header = "Header",
                     HeaderImage = applicationContext.Route.Concat("/assets/img/ufo.png").ToUri(),
-                    TextColor = new PropertyColorText(TypeColorText.White),
+                    TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Success)
                 }
                     .Add(new ControlText() { Text = "With a specified header text." })
@@ -152,7 +152,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlPanelCard()
                 {
                     Headline = "Headline",
-                    TextColor = new PropertyColorText(TypeColorText.White),
+                    TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Success)
                 }
                     .Add(new ControlText() { Text = "With a specified headline text." })
@@ -166,7 +166,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlPanelCard()
                 {
                     Footer = "Footer",
-                    TextColor = new PropertyColorText(TypeColorText.White),
+                    TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Success)
                 }
                     .Add(new ControlText() { Text = "With a specified footer text." })
@@ -181,7 +181,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Footer = "Footer",
                     FooterImage = applicationContext.Route.Concat("/assets/img/ufo.png").ToUri(),
-                    TextColor = new PropertyColorText(TypeColorText.White),
+                    TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Success)
                 }
                     .Add(new ControlText() { Text = "With a specified footer text." })

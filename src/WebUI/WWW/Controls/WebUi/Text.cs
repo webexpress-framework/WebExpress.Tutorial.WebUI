@@ -203,7 +203,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "TextColor",
                 "Defines the text color.",
-                "TextColor = new PropertyColorText(TypeColorText.Primary)",
+                "TextColor = _ => new PropertyColorText(TypeColorText.Primary)",
                 new ControlText() { Text = "Standard", Margin = new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {

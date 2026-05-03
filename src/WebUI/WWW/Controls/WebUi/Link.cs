@@ -251,7 +251,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "TextColor",
                 "Sets the text color.",
-                "TextColor = new PropertyColorText(TypeColorText.Primary)",
+                "TextColor = _ => new PropertyColorText(TypeColorText.Primary)",
                 new ControlLink()
                 {
                     Text = "Default",
@@ -262,70 +262,70 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Text = "Primary",
                     Uri = pageContext.Route.ToUri(),
-                    TextColor = new PropertyColorText(TypeColorText.Primary),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Primary),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
                     Text = "Info",
                     Uri = pageContext.Route.ToUri(),
-                    TextColor = new PropertyColorText(TypeColorText.Info),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
                     Text = "Success",
                     Uri = pageContext.Route.ToUri(),
-                    TextColor = new PropertyColorText(TypeColorText.Success),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Success),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
                     Text = "Warning",
                     Uri = pageContext.Route.ToUri(),
-                    TextColor = new PropertyColorText(TypeColorText.Warning),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Warning),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
                     Text = "Danger",
                     Uri = pageContext.Route.ToUri(),
-                    TextColor = new PropertyColorText(TypeColorText.Danger),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Danger),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
                     Text = "Dark",
                     Uri = pageContext.Route.ToUri(),
-                    TextColor = new PropertyColorText(TypeColorText.Dark),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Dark),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
                     Text = "Light",
                     Uri = pageContext.Route.ToUri(),
-                    TextColor = new PropertyColorText(TypeColorText.Light),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Light),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
                     Text = "Muted",
                     Uri = pageContext.Route.ToUri(),
-                    TextColor = new PropertyColorText(TypeColorText.Muted),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Muted),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
                     Text = "White",
                     Uri = pageContext.Route.ToUri(),
-                    TextColor = new PropertyColorText(TypeColorText.White),
+                    TextColor = _ => new PropertyColorText(TypeColorText.White),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlLink()
                 {
                     Text = "Custom",
                     Uri = pageContext.Route.ToUri(),
-                    TextColor = new PropertyColorText("red"),
+                    TextColor = _ => new PropertyColorText("red"),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Two)
                 }
             );
@@ -348,7 +348,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Text = "Primary",
                     Uri = pageContext.Route.ToUri(),
-                    TextColor = new PropertyColorText(TypeColorText.White),
+                    TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Primary),
                     Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Auto)
@@ -357,7 +357,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Text = "Secondary",
                     Uri = pageContext.Route.ToUri(),
-                    TextColor = new PropertyColorText(TypeColorText.White),
+                    TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Secondary),
                     Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Auto)
@@ -366,7 +366,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Text = "Info",
                     Uri = pageContext.Route.ToUri(),
-                    TextColor = new PropertyColorText(TypeColorText.White),
+                    TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Info),
                     Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Auto)
@@ -375,7 +375,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Text = "Success",
                     Uri = pageContext.Route.ToUri(),
-                    TextColor = new PropertyColorText(TypeColorText.White),
+                    TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Success),
                     Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Auto)
@@ -384,7 +384,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Text = "Warning",
                     Uri = pageContext.Route.ToUri(),
-                    TextColor = new PropertyColorText(TypeColorText.White),
+                    TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Warning),
                     Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Auto)
@@ -393,7 +393,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Text = "Danger",
                     Uri = pageContext.Route.ToUri(),
-                    TextColor = new PropertyColorText(TypeColorText.White),
+                    TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Danger),
                     Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Auto)
@@ -402,7 +402,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Text = "Dark",
                     Uri = pageContext.Route.ToUri(),
-                    TextColor = new PropertyColorText(TypeColorText.White),
+                    TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Dark),
                     Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Auto)
@@ -411,7 +411,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Text = "Light",
                     Uri = pageContext.Route.ToUri(),
-                    TextColor = new PropertyColorText(TypeColorText.Dark),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Dark),
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Light),
                     Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Auto)
@@ -420,7 +420,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Text = "White",
                     Uri = pageContext.Route.ToUri(),
-                    TextColor = new PropertyColorText(TypeColorText.Dark),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Dark),
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.White),
                     Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Auto)
@@ -429,7 +429,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Text = "Transparent",
                     Uri = pageContext.Route.ToUri(),
-                    TextColor = new PropertyColorText(TypeColorText.Dark),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Dark),
                     BackgroundColor = new PropertyColorBackground(TypeColorBackground.Transparent),
                     Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Auto)
@@ -438,7 +438,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Text = "Custom",
                     Uri = pageContext.Route.ToUri(),
-                    TextColor = new PropertyColorText("red"),
+                    TextColor = _ => new PropertyColorText("red"),
                     BackgroundColor = new PropertyColorBackground("gold"),
                     Padding = new PropertySpacingPadding(PropertySpacing.Space.Two),
                     Margin = new PropertySpacingMargin(PropertySpacing.Space.Auto)
