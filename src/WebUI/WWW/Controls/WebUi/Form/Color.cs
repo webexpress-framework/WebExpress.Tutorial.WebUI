@@ -53,10 +53,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "Help",
                 "The `Help` property provides additional guidance or context for the color field, helping users understand its purpose or usage.",
-                "Help = \"Choose your preferred highlight color.\"",
+                "Help = _ => \"Choose your preferred highlight color.\"",
                 new ControlForm(null, new ControlFormItemInputColor(null)
                 {
-                    Help = "Choose your preferred highlight color."
+                    Help = _ => "Choose your preferred highlight color."
                 })
             );
 
@@ -64,10 +64,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "Icon",
                 "The `Icon` property defines an icon displayed next to the color field, offering visual support and improving recognizability.",
-                "Icon = new IconPalette()",
+                "Icon = _ => new IconPalette()",
                 new ControlForm(null, new ControlFormItemInputColor(null)
                 {
-                    Icon = new IconPalette()
+                    Icon = _ => new IconPalette()
                 })
             );
 
@@ -75,14 +75,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "Disabled",
                 "The `Disabled` property makes the color field non-interactive and visually muted, indicating that the color cannot be changed.",
-                @"Disabled = true",
+                @"Disabled = _ => true",
                 new ControlForm()
                     .Add(new ControlFormItemInputColor
                     {
-                        Label = "Theme color",
-                        Icon = new IconPalette(),
-                        Help = "This setting is currently locked.",
-                        Disabled = true
+                        Label = _ => "Theme color",
+                        Icon = _ => new IconPalette(),
+                        Help = _ => "This setting is currently locked.",
+                        Disabled = _ => true
                     })
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );

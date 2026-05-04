@@ -24,16 +24,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
         [
             new ControlFormItemInputText("username")
             {
-                Label = "Username",
-                Required = true,
-                Icon = new IconFont(),
-                Help = "Enter your desired username."
+                Label = _ => "Username",
+                Required =_ =>  true,
+                Icon = _ => new IconFont(),
+                Help = _ => "Enter your desired username."
             }.Validate(x => x.Add(string.IsNullOrWhiteSpace(x.Value.Text), "Username is required. Please enter a valid name.")),
             new ControlFormItemInputText("email")
             {
-                Label = "Email Address",
-                Icon = new IconAt(),
-                Help = "Enter your email address."
+                Label =_ =>  "Email Address",
+                Icon = _ => new IconAt(),
+                Help = _ => "Enter your email address."
             },
             new ControlFormItemInputSelection("country",
             [
@@ -42,14 +42,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 new ControlFormItemInputSelectionItem("3") { Text = "Switzerland" }
             ])
             {
-                Label = "Country",
-                Icon = new IconMapLocationDot(),
-                Help = "Select your home country."
+                Label =_ =>  "Country",
+                Icon = _ => new IconMapLocationDot(),
+                Help = _ => "Select your home country."
             },
             new ControlFormItemInputCheck("terms")
             {
-                Label = "I accept the terms and conditions",
-                Help = "Please confirm that you have read the terms."
+                Label = _ => "I accept the terms and conditions",
+                Help = _ => "Please confirm that you have read the terms."
             }
         ];
 
@@ -65,20 +65,20 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             Stage.Control = new ControlForm("myform")
                 .Add(new ControlFormItemInputText("regards")
                 {
-                    Required = true,
-                    Label = "Greetings",
-                    Icon = new IconFont(),
-                    Help = "This is the associated help text."
+                    Required = _ => true,
+                    Label = _ => "Greetings",
+                    Icon = _ => new IconFont(),
+                    Help = _ => "This is the associated help text."
                 }.Initialize(args => args.Value.Text = "Hello World!"))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
             new ControlForm(""myform"", new ControlFormItemInputTextBox(""regards"")
             {
-                Label = ""Greetings"",
-                Value = ""Hello World!"",
-                Icon = new IconFont(),
-                Help = "" This is the associated help text.""
+                Label = _ => ""Greetings"",
+                Value = _ => ""Hello World!"",
+                Icon = _ => new IconFont(),
+                Help = _ => "" This is the associated help text.""
             })
             {
             }.AddPrimaryButton(new ControlFormItemButtonSubmit());";
@@ -89,20 +89,20 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "This property defines the visual positioning of form elements relative to the submit button.",
                 "FormLayout = _ => TypeLayoutForm.Inline",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputText("layout1") { Icon = new IconAlignLeft(), Label = "Arrangement", Help = "This is a help text" })
+                new ControlForm(null, new ControlFormItemInputText("layout1") { Icon = _ => new IconAlignLeft(), Label = _ => "Arrangement", Help = _ => "This is a help text" })
                 {
                     Border = _ => new PropertyBorder(true),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
-                    FormLayout = TypeLayoutForm.Default
+                    FormLayout = _ => TypeLayoutForm.Default
                 }.AddPrimaryButton(new ControlFormItemButtonSubmit()),
                 new ControlText() { Text = "Inline", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputText("layout1") { Icon = new IconAlignLeft(), Label = "Arrangement", Help = "This is a help text" })
+                new ControlForm(null, new ControlFormItemInputText("layout1") { Icon = _ => new IconAlignLeft(), Label = _ => "Arrangement", Help = _ => "This is a help text" })
                 {
                     Border = _ => new PropertyBorder(true),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
-                    FormLayout = TypeLayoutForm.Inline
+                    FormLayout = _ => TypeLayoutForm.Inline
                 }.AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
 
@@ -125,7 +125,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                     Border = _ => new PropertyBorder(true),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
-                    ItemLayout = TypeLayoutFormItem.Horizontal
+                    ItemLayout = _ => TypeLayoutFormItem.Horizontal
                 }.AddPrimaryButton(new ControlFormItemButtonSubmit()),
                 new ControlText() { Text = "Vertical", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, [.. _exampleFormItems])
@@ -133,7 +133,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                     Border = _ => new PropertyBorder(true),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
-                    ItemLayout = TypeLayoutFormItem.Vertical
+                    ItemLayout = _ => TypeLayoutFormItem.Vertical
                 }.AddPrimaryButton(new ControlFormItemButtonSubmit()),
                 new ControlText() { Text = "Mix", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, [.. _exampleFormItems])
@@ -141,7 +141,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                     Border = _ => new PropertyBorder(true),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
-                    ItemLayout = TypeLayoutFormItem.Mix
+                    ItemLayout = _ => TypeLayoutFormItem.Mix
                 }.AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
 
@@ -179,7 +179,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Conformation",
                 "The property represents the control that is displayed instead of the original form after the form has been successfully submitted. It provides visual feedback to the user by showing a confirmation element, indicating that the submission was successful. This enhances the user experience by offering clear acknowledgment of the completed action. For example, if the form involves a registration or an order, a thank-you message or a summary of the submitted data can appear in place of the form, allowing the user to immediately recognize that their input has been processed.",
                 @"
-                Conformation = new ControlAlert() 
+                Conformation = _ => new ControlAlert() 
                 { 
                     Text = _ => ""Thank you!"", 
                     BackgroundColor = _ => new PropertyColorBackgroundAlert(TypeColorBackground.Success) 
@@ -189,7 +189,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                     Border = _ => new PropertyBorder(true),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
-                    Conformation = new ControlAlert()
+                    Conformation = _ => new ControlAlert()
                     {
                         Text = @"Thank you! Your submission has been successfully received. We have received your request and will process it as soon as possible. If you need any further information, feel free to reach out to us anytime.",
                         BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Success)
@@ -202,13 +202,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "RedirectUri",
                 "The `RedirectUri` property specifies the target address to which the user is redirected after the form has been successfully submitted. This can be used, for example, to direct the user to a welcome page after registration or to an order confirmation page after a purchase.",
-                @"RedirectUri = pageContext.ApplicationContext.Route.ToUri()",
+                @"RedirectUri = _ => pageContext.ApplicationContext.Route.ToUri()",
                 new ControlForm(null, [.. _exampleFormItems])
                 {
                     Border = _ => new PropertyBorder(true),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
-                    RedirectUri = pageContext.ApplicationContext.Route.ToUri()
+                    RedirectUri = _ => pageContext.ApplicationContext.Route.ToUri()
 
                 }.AddPreferencesButton(new ControlFormItemButtonSubmit())
             );
@@ -224,21 +224,21 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
 
                 }
                     .Add(new ControlFormItemGroupTab()
-                        .Add(new ControlFormItemGroupTabView() { Title = "Tab A" }
+                        .AddView(new ControlFormItemGroupTabView() { Title = _ => "Tab A" }
                             .Add(new ControlFormItemInputText("regards")
                             {
-                                Required = true,
-                                Label = "Greetings",
-                                Icon = new IconFont(),
-                                Help = "This is the associated help text."
+                                Required = _ => true,
+                                Label = _ => "Greetings",
+                                Icon = _ => new IconFont(),
+                                Help = _ => "This is the associated help text."
                             }))
-                        .Add(new ControlFormItemGroupTabView() { Title = "Tab B" }
+                        .AddView(new ControlFormItemGroupTabView() { Title = _ => "Tab B" }
                             .Add(new ControlFormItemInputText("regards")
                             {
-                                Required = true,
-                                Label = "Greetings",
-                                Icon = new IconFont(),
-                                Help = "This is the associated help text."
+                                Required = _ => true,
+                                Label = _ => "Greetings",
+                                Icon = _ => new IconFont(),
+                                Help = _ => "This is the associated help text."
                             }))
                         )
                     .AddPreferencesButton(new ControlFormItemButtonSubmit())

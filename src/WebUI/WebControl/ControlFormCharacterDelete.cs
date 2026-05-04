@@ -35,7 +35,7 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         {
             var id = renderContext.Request.GetParameter<CharacterIdParameter>();
 
-            return base.Render(renderContext, visualTree, Items, id?.Value, Uri);
+            return base.Render(renderContext, visualTree);
         }
     }
 }

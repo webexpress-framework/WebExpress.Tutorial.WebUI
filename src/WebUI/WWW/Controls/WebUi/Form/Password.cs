@@ -31,9 +31,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             Stage.Control = new ControlForm()
                 .Add(new ControlFormItemInputPassword()
                 {
-                    Label = "Password",
-                    Icon = new IconLock(),
-                    Help = "Enter your password."
+                    Label = _ => "Password",
+                    Icon = _ => new IconLock(),
+                    Help = _ => "Enter your password."
                 })
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
@@ -41,9 +41,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 new ControlForm()
                     .Add(new ControlFormItemInputPassword()
                     {
-                        Label = ""Password"",
-                        Icon = new IconLock(),
-                        Help = ""Enter your password.""
+                        Label = _ => ""Password"",
+                        Icon = _ => new IconLock(),
+                        Help = _ => ""Enter your password.""
                     })
                     .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
@@ -51,7 +51,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "Placeholder",
                 "The `Placeholder` property serves as a hint for the password input. It provides a clear label for the expected input and supports internationalization, allowing it to be used as an internationalization string.",
-                "Placeholder = \"Enter your password\"",
+                "Placeholder = _ => \"Enter your password\"",
                 new ControlForm(null, new ControlFormItemInputPassword()
                 {
                     Placeholder = "Enter your password",
@@ -62,11 +62,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "MinLength",
                 "The `MinLength` property defines the minimum number of characters required in the password field. It ensures input validation and enforces a minimum input length.",
-                "MinLength = 8",
+                "MinLength = _ => 8",
                 new ControlForm()
                     .Add(new ControlFormItemInputPassword()
                     {
-                        Label = "Password",
+                        Label = _ => "Password",
                         MinLength = 8,
                     })
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
@@ -76,11 +76,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "MaxLength",
                 "The `MaxLength` property defines the maximum number of characters allowed in the password field. It ensures input validation and prevents excessive input.",
-                "MaxLength = 64",
+                "MaxLength = _ => 64",
                 new ControlForm()
                     .Add(new ControlFormItemInputPassword()
                     {
-                        Label = "Password",
+                        Label = _ => "Password",
                         MaxLength = 64,
                     })
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
@@ -90,11 +90,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "Pattern",
                 "Defines a regular expression to validate the password input.",
-                "Pattern = \"(?=.*[A-Z])(?=.*[0-9]).{8,}\"",
+                "Pattern = _ => \"(?=.*[A-Z])(?=.*[0-9]).{8,}\"",
                 new ControlForm()
                     .Add(new ControlFormItemInputPassword("pattern")
                     {
-                        Label = "Password",
+                        Label = _ => "Password",
                         Pattern = "(?=.*[A-Z])(?=.*[0-9]).{8,}"
                     })
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
@@ -104,38 +104,38 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "Label",
                 "The `Label` property of a password control item serves as a short form of the input and is displayed in the main area of the control. It ensures a concise and clear representation of the input.",
-                "Label = \"Password\"",
-                new ControlForm(null, new ControlFormItemInputPassword() { Label = "Password" })
+                "Label =_ =>  \"Password\"",
+                new ControlForm(null, new ControlFormItemInputPassword() { Label = _ => "Password" })
             );
 
             Stage.AddProperty
             (
                 "Icon",
                 "The `Icon` property defines the symbol assigned to a password field. It provides a visual representation and identification of the input field, enhancing user guidance and recognition.",
-                "Icon = new IconLock()",
-                new ControlForm(null, new ControlFormItemInputPassword() { Icon = new IconLock() })
+                "Icon = _ => new IconLock()",
+                new ControlForm(null, new ControlFormItemInputPassword() { Icon = _ => new IconLock() })
             );
 
             Stage.AddProperty
             (
                "Help",
                "The `Help` property provides additional guidance or information for the password field. It enhances user understanding by offering context or instructions.",
-               "Help = \"Your password must be at least 8 characters long.\"",
-               new ControlForm(null, new ControlFormItemInputPassword() { Help = "Your password must be at least 8 characters long." })
+               "Help = _ => \"Your password must be at least 8 characters long.\"",
+               new ControlForm(null, new ControlFormItemInputPassword() { Help = _ => "Your password must be at least 8 characters long." })
             );
 
             Stage.AddProperty
             (
                "Disabled",
                "The `Disabled` property is used to make a password field non-interactive and visually grayed out. It signals to users that the option is currently not available.",
-               @"Disabled = true",
+               @"Disabled = _ => true",
                new ControlForm()
                    .Add(new ControlFormItemInputPassword()
                    {
-                       Label = "Password",
-                       Icon = new IconLock(),
-                       Help = "This field is currently locked.",
-                       Disabled = true
+                       Label = _ => "Password",
+                       Icon = _ => new IconLock(),
+                       Help = _ => "This field is currently locked.",
+                       Disabled = _ => true
                    })
                    .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );

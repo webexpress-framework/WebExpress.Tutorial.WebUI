@@ -49,10 +49,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
 
             Stage.Control = new ControlForm("myform", new ControlFormItemInputMove(null, [.. _options])
             {
-                Icon = new IconShieldCat(),
-                Label = "Options",
-                Help = "Select the desired options here.",
-                Name = "myMoveCtrl"
+                Icon = _ => new IconShieldCat(),
+                Label = _ => "Options",
+                Help = _ => "Select the desired options here.",
+                Name = _ => "myMoveCtrl"
             }
                     .Initialize(args => args.Value.Add("2").Add("3"))
                     .Process(x => componentHub
@@ -64,10 +64,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             Stage.Code = @"
             new ControlFormItemInputMove(null, [.. _options])
             {
-                Icon = new IconShieldCat(),
-                Label = ""Options"",
-                Help = ""Select the desired options here."",
-                Name = ""myMoveCtrl""
+                Icon = _ => new IconShieldCat(),
+                Label = _ => ""Options"",
+                Help = _ => ""Select the desired options here."",
+                Name = _ => ""myMoveCtrl""
             }
                     .Initialize(args => args.Value.Add(""2"").Add(""3""))
                     .Process(x => componentHub
@@ -80,7 +80,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "AvailableHeader",
                 "The `AvailableHeader` property serves as a heading for the available options within the `Move` control. It provides a clear label for the selectable elements and supports internationalization, allowing it to be used as an internationalization string.",
-                "AvailableHeader = \"Available\"",
+                "AvailableHeader = _ => \"Available\"",
                 new ControlForm(null, new ControlFormItemInputMove(null, [.. _options])
                 {
                     AvailableHeader = "Available",
@@ -91,7 +91,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "SelectedHeader",
                 "The `SelectedHeader` property serves as a heading for the selected options within the `Move` control. It provides a clear label for the chosen elements and supports internationalization, allowing it to be used as an internationalization string.",
-                "SelectedHeader = \"Selected\"",
+                "SelectedHeader = _ => \"Selected\"",
                 new ControlForm(null, new ControlFormItemInputMove(null, [.. _options])
                 {
                     SelectedHeader = "Selected",

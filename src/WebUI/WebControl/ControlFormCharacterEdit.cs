@@ -24,13 +24,13 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         /// </summary>
         public ControlFormItemInputText CharacterName { get; } = new ControlFormItemInputText
         {
-            Label = "Name",
-            Name = nameof(Character.Name),
+            Label = _ => "Name",
+            Name = _ => nameof(Character.Name),
             Placeholder = "Enter the character's name",
-            Required = true,
+            Required = _ => true,
             MaxLength = 100,
-            Icon = new IconUser(),
-            Help = "The name of the character. This is a required field and should be unique."
+            Icon = _ => new IconUser(),
+            Help = _ => "The name of the character. This is a required field and should be unique."
         };
 
         /// <summary>
@@ -38,13 +38,13 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         /// </summary>
         public ControlFormItemInputText Description { get; } = new ControlFormItemInputText
         {
-            Label = "Description",
-            Name = nameof(Character.Description),
+            Label = _ => "Description",
+            Name = _ => nameof(Character.Description),
             Format = TypeEditTextFormat.Wysiwyg,
             Placeholder = "Enter a brief description of the character",
-            Required = true,
+            Required = _ => true,
             MaxLength = 500,
-            Help = "A brief description of the character. This field is required and can include details about the character's role, personality, and background."
+            Help = _ => "A brief description of the character. This field is required and can include details about the character's role, personality, and background."
         };
 
         /// <summary>
@@ -52,12 +52,12 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         /// </summary>
         public IControlFormItemInputSelection AppearsIn { get; } = new ControlFormItemInputSelection
         {
-            Label = "Appears In",
+            Label = _ => "Appears In",
             MultiSelect = true,
-            Name = nameof(Character.AppearsIn),
+            Name = _ => nameof(Character.AppearsIn),
             Placeholder = "Enter the name of the game or context where this character appears",
-            Required = true,
-            Help = "The name of the game or context where this character appears. This field is required and should specify the game or narrative context in which the character is involved."
+            Required = _ => true,
+            Help = _ => "The name of the game or context where this character appears. This field is required and should specify the game or narrative context in which the character is involved."
         }
             .Add(ViewModel.MonkeyIslandGames.Select(x => new ControlFormItemInputSelectionItem(x.Id.ToString())
             {
@@ -77,6 +77,8 @@ namespace WebExpress.Tutorial.WebUI.WebControl
             Add(CharacterName);
             Add(Description);
             Add(AppearsIn);
+
+            ItemId = renderContext => renderContext.Request.GetParameter<CharacterIdParameter>()?.Value;
         }
 
         /// <summary>
@@ -87,9 +89,7 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         /// <returns>An HTML node representing the rendered control.</returns>
         public override IHtmlNode Render(IRenderControlFormContext renderContext, IVisualTreeControl visualTree)
         {
-            var id = renderContext.Request.GetParameter<CharacterIdParameter>();
-
-            return base.Render(renderContext, visualTree, Items, id?.Value, Uri);
+            return base.Render(renderContext, visualTree);
         }
     }
 }

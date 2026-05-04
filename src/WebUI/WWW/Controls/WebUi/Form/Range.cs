@@ -31,7 +31,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             Stage.Control = new ControlForm()
                 .Add(new ControlFormItemInputRange
                 {
-                    Label = "Label",
+                    Label = _ => "Label",
                     Description = "Range description",
                     Min = 0,
                     Max = 10,

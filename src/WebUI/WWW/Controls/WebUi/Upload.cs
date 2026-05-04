@@ -33,7 +33,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.Control = new ControlUpload()
             {
-                Uri = pageContext.Route.ToUri()
+                Uri = _ => pageContext.Route.ToUri()
             }
                 .Process(x =>
                 {
@@ -44,13 +44,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.DarkControls = [new ControlUpload()
             {
-                Uri = pageContext.Route.ToUri()
+                Uri = _ =>pageContext.Route.ToUri()
             }];
 
             Stage.Code = @"
             new ControlUpload()
             {
-                Uri = pageContext.Route.ToUri()
+                Uri = _ => pageContext.Route.ToUri()
             };";
 
             Stage.AddProperty
@@ -60,7 +60,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Uri = _ => pageContext.Route.ToUri()",
                 new ControlUpload()
                 {
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 }
             );
 
@@ -72,14 +72,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText() { Text = "false", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlUpload()
                 {
-                    Uri = pageContext.Route.ToUri(),
-                    Multiple = false
+                    Uri = _ => pageContext.Route.ToUri(),
+                    Multiple = _ => false
                 },
                 new ControlText() { Text = "true", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlUpload()
                 {
-                    Uri = pageContext.Route.ToUri(),
-                    Multiple = true
+                    Uri = _ => pageContext.Route.ToUri(),
+                    Multiple = _ => true
                 }
             );
 
@@ -90,8 +90,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 @"Placeholder = _ => ""Placeholder""",
                 new ControlUpload()
                 {
-                    Uri = pageContext.Route.ToUri(),
-                    Placeholder = "Placeholder"
+                    Uri = _ => pageContext.Route.ToUri(),
+                    Placeholder = _ => "Placeholder"
                 }
             );
 
@@ -102,8 +102,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 @"Accept = _ => ""image/*""",
                 new ControlUpload()
                 {
-                    Uri = pageContext.Route.ToUri(),
-                    Accept = "image/*"
+                    Uri = _ => pageContext.Route.ToUri(),
+                    Accept = _ => "image/*"
                 }
             );
 
@@ -115,14 +115,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText() { Text = "false", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlUpload()
                 {
-                    Uri = pageContext.Route.ToUri(),
-                    AutoUpload = false
+                    Uri = _ => pageContext.Route.ToUri(),
+                    AutoUpload = _ => false
                 },
                 new ControlText() { Text = "true", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlUpload()
                 {
-                    Uri = pageContext.Route.ToUri(),
-                    AutoUpload = true
+                    Uri = _ => pageContext.Route.ToUri(),
+                    AutoUpload = _ => true
                 }
             );
 
@@ -134,14 +134,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText() { Text = "false", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlUpload()
                 {
-                    Uri = pageContext.Route.ToUri(),
-                    FullScreenDropzone = false
+                    Uri = _ => pageContext.Route.ToUri(),
+                    FullScreenDropzone = _ => false
                 },
                 new ControlText() { Text = "true", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlUpload()
                 {
-                    Uri = pageContext.Route.ToUri(),
-                    FullScreenDropzone = true
+                    Uri = _ => pageContext.Route.ToUri(),
+                    FullScreenDropzone = _ => true
                 }
             );
         }

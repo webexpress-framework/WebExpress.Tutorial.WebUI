@@ -32,7 +32,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.Controls = [
                 new ControlSplitButtonLink()
                 {
-                    Text = "Hello World!",
+                    Text = _ =>"Hello World!",
                     Uri = pageContext.Route.ToUri()
                 }
                     .Add(new ControlSplitButtonItemLink()
@@ -56,58 +56,58 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "BackgroundColor",
                 "Sets the background color of the button.",
-                "BackgroundColor = new PropertyColorButton(TypeColorButton.Primary)",
+                "BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary)",
                 new ControlSplitButtonLink()
                 {
-                    Text = "Default",
+                    Text = _ => "Default",
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlSplitButtonLink()
                 {
-                    Text = "Primary",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                    Text = _ => "Primary",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlSplitButtonLink()
                 {
-                    Text = "Info",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Info),
+                    Text = _ => "Info",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Info),
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlSplitButtonLink()
                 {
-                    Text = "Success",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Success),
+                    Text = _ => "Success",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Success),
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlSplitButtonLink()
                 {
-                    Text = "Warning",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Warning),
+                    Text = _ => "Warning",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Warning),
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlSplitButtonLink()
                 {
-                    Text = "Danger",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Danger),
+                    Text = _ => "Danger",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Danger),
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlSplitButtonLink()
                 {
-                    Text = "Dark",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Dark),
+                    Text = _ => "Dark",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Dark),
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlSplitButtonLink()
                 {
-                    Text = "Light",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Light),
+                    Text = _ => "Light",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Light),
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlSplitButtonLink()
                 {
-                    Text = "Custom",
-                    BackgroundColor = new PropertyColorButton("gold"),
+                    Text = _ => "Custom",
+                    BackgroundColor = _ => new PropertyColorButton("gold"),
                     Uri = pageContext.Route.ToUri()
                 }
             );
@@ -116,73 +116,73 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Outline",
                 "Removes the background color from the button.",
-                "Outline = true",
+                "Outline = _ => true",
                 new ControlSplitButtonLink()
                 {
-                    Text = "Default",
-                    Outline = true,
+                    Text = _ => "Default",
+                    Outline = _ => true,
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlSplitButtonLink()
                 {
-                    Text = "Primary",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
-                    Outline = true,
+                    Text = _ => "Primary",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
+                    Outline = _ => true,
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlSplitButtonLink()
                 {
-                    Text = "Secondary",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Secondary),
-                    Outline = true
+                    Text = _ => "Secondary",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Secondary),
+                    Outline = _ => true
                 },
                 new ControlSplitButtonLink()
                 {
-                    Text = "Info",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Info),
-                    Outline = true,
+                    Text = _ => "Info",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Info),
+                    Outline = _ => true,
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlSplitButtonLink()
                 {
-                    Text = "Success",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Success),
-                    Outline = true,
+                    Text = _ => "Success",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Success),
+                    Outline = _ => true,
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlSplitButtonLink()
                 {
-                    Text = "Warning",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Warning),
-                    Outline = true,
+                    Text = _ => "Warning",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Warning),
+                    Outline = _ => true,
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlSplitButtonLink()
                 {
-                    Text = "Danger",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Danger),
-                    Outline = true,
+                    Text = _ => "Danger",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Danger),
+                    Outline = _ => true,
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlSplitButtonLink()
                 {
-                    Text = "Dark",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Dark),
-                    Outline = true,
+                    Text = _ => "Dark",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Dark),
+                    Outline = _ => true,
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlSplitButtonLink()
                 {
-                    Text = "Light",
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Light),
-                    Outline = true,
+                    Text = _ => "Light",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Light),
+                    Outline = _ => true,
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlSplitButtonLink()
                 {
-                    Text = "Custom",
-                    BackgroundColor = new PropertyColorButton("gold"),
-                    Outline = true,
+                    Text = _ => "Custom",
+                    BackgroundColor = _ => new PropertyColorButton("gold"),
+                    Outline = _ => true,
                     Uri = pageContext.Route.ToUri()
                 }
             );
@@ -191,26 +191,26 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Size",
                 "Determines the size of the button.",
-                "Size = TypeSizeButton.Small",
+                "Size = _ => TypeSizeButton.Small",
                 new ControlSplitButtonLink()
                 {
-                    Text = "Small",
-                    Size = TypeSizeButton.Small,
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                    Text = _ => "Small",
+                    Size = _ => TypeSizeButton.Small,
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlSplitButtonLink()
                 {
-                    Text = "Default",
-                    Size = TypeSizeButton.Default,
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                    Text = _ => "Default",
+                    Size = _ => TypeSizeButton.Default,
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlSplitButtonLink()
                 {
-                    Text = "Large",
-                    Size = TypeSizeButton.Large,
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                    Text = _ => "Large",
+                    Size = _ => TypeSizeButton.Large,
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                     Uri = pageContext.Route.ToUri()
                 }
             );
@@ -219,19 +219,19 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Icon",
                 "Adds an icon to the button.",
-                "Icon = new IconHome()",
+                "Icon = _ => new IconHome()",
                 new ControlSplitButtonLink()
                 {
-                    Text = "Home",
-                    Icon = new IconHome(),
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Warning),
+                    Text = _ => "Home",
+                    Icon = _ => new IconHome(),
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Warning),
                     Uri = pageContext.ApplicationContext.Route.ToUri()
                 },
                 new ControlSplitButtonLink()
                 {
-                    Text = "Custom",
-                    Icon = new ImageIcon(pageContext.ApplicationContext.Route.Concat("assets/img/webui.svg").ToUri(), new PropertySizeIcon(1, TypeSizeUnit.Em)),
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Warning),
+                    Text = _ => "Custom",
+                    Icon = _ => new ImageIcon(pageContext.ApplicationContext.Route.Concat("assets/img/webui.svg").ToUri(), new PropertySizeIcon(1, TypeSizeUnit.Em)),
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Warning),
                     Uri = pageContext.Route.ToUri()
                 }
             );
@@ -240,12 +240,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                "Block",
                "Spans the button across the entire width.",
-               "Block = TypeBlockButton.Block",
+               "Block = _ => TypeBlockButton.Block",
                new ControlSplitButtonLink()
                {
-                   Text = "Block",
-                   Block = TypeBlockButton.Block,
-                   BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                   Text = _ => "Block",
+                   Block = _ => TypeBlockButton.Block,
+                   BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                    Uri = pageContext.Route.ToUri()
                }
             );
@@ -257,25 +257,25 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Active = _ => TypeActive.Active",
                 new ControlSplitButtonLink()
                 {
-                    Text = "None",
-                    Active = TypeActive.None,
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                    Text = _ => "None",
+                    Active = _ => TypeActive.None,
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two),
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlSplitButtonLink()
                 {
-                    Text = "Active",
-                    Active = TypeActive.Active,
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                    Text = _ => "Active",
+                    Active = _ => TypeActive.Active,
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two),
                     Uri = pageContext.Route.ToUri()
                 },
                 new ControlSplitButtonLink()
                 {
-                    Text = "Disabled",
-                    Active = TypeActive.Disabled,
-                    BackgroundColor = new PropertyColorButton(TypeColorButton.Primary),
+                    Text = _ => "Disabled",
+                    Active = _ => TypeActive.Disabled,
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two),
                     Uri = pageContext.Route.ToUri()
                 }
@@ -288,8 +288,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "PrimaryAction = _ => new ActionModal(\"modal\")",
                 new ControlSplitButtonLink()
                 {
-                    Text = "Click me!",
-                    PrimaryAction = new ActionModal("modal"),
+                    Text = _ => "Click me!",
+                    PrimaryAction = _ => new ActionModal("modal"),
                     TextColor = _ => new PropertyColorText(TypeColorText.Default),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
@@ -305,8 +305,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "SecondaryAction = _ => new ActionModal(\"modal\")",
                 new ControlSplitButtonLink()
                 {
-                    Text = "Double-click me!",
-                    SecondaryAction = new ActionModal("modal"),
+                    Text = _ => "Double-click me!",
+                    SecondaryAction = _ => new ActionModal("modal"),
                     TextColor = _ => new PropertyColorText(TypeColorText.Default),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
@@ -323,7 +323,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "new ControlSplitButtonItemLink()",
                 new ControlSplitButtonLink()
                 {
-                    Text = "Hello World!",
+                    Text = _ => "Hello World!",
                     Uri = pageContext.Route.ToUri()
                 }
                     .Add(new ControlSplitButtonItemLink()
@@ -340,7 +340,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "new ControlSplitButtonItemHeader()",
                 new ControlSplitButtonLink()
                 {
-                    Text = "Hello World!",
+                    Text = _ => "Hello World!",
                     Uri = pageContext.Route.ToUri()
                 }
                     .Add(new ControlSplitButtonItemHeader()
@@ -357,7 +357,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "new ControlSplitButtonItemDivider()",
                 new ControlSplitButtonLink()
                 {
-                    Text = "Hello World!",
+                    Text = _ => "Hello World!",
                     Uri = pageContext.Route.ToUri()
                 }
                     .Add(new ControlSplitButtonItemDivider())

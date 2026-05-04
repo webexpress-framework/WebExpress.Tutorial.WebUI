@@ -25,9 +25,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
         [
             new ControlFormItemInputText("username")
             {
-                Label = "Username",
-                Icon = new IconFont(),
-                Help = "Enter your desired username."
+                Label = _ => "Username",
+                Icon = _ => new IconFont(),
+                Help = _ => "Enter your desired username."
             }.Validate(x => x.Add
             (
                 string.IsNullOrWhiteSpace(x.Value.Text),
@@ -35,9 +35,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
             )),
             new ControlFormItemInputText("email")
             {
-                Label = "Email Address",
-                Icon = new IconAt(),
-                Help = "Enter your email address."
+                Label = _ => "Email Address",
+                Icon = _ => new IconAt(),
+                Help = _ => "Enter your email address."
             },
             new ControlFormItemInputSelection("country",
             [
@@ -46,14 +46,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 new ControlFormItemInputSelectionItem("3") { Text = "Switzerland" }
             ])
             {
-                Label = "Country",
-                Icon = new IconMapLocationDot(),
-                Help = "Select your home country."
+                Label = _ => "Country",
+                Icon = _ => new IconMapLocationDot(),
+                Help = _ => "Select your home country."
             },
             new ControlFormItemInputCheck("terms")
             {
-                Label = "I accept the terms and conditions",
-                Help = "Please confirm that you have read the terms."
+                Label = _ => "I accept the terms and conditions",
+                Help = _ => "Please confirm that you have read the terms."
             }
         ];
 
@@ -80,7 +80,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 new ControlModalForm("myModal")
                 {
                     Header = "My modal",
-                    Conformation = new ControlAlert()
+                    Conformation = _ =>new ControlAlert()
                     {
                         Text = @"Thank you! Your submission has been successfully received. We have received your request and will process it as soon as possible. If you need any further information, feel free to reach out to us anytime.",
                         BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Success)
@@ -102,7 +102,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 new ControlModalForm("myDarkModal")
                 {
                     Header = "My dark modal",
-                    Conformation = new ControlAlert()
+                    Conformation = _ =>new ControlAlert()
                     {
                         Text = @"Thank you! Your submission has been successfully received. We have received your request and will process it as soon as possible. If you need any further information, feel free to reach out to us anytime.",
                         BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Success)
@@ -123,7 +123,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 new ControlModalForm(""myModal"")
                 {
                     Header = _ => ""My modal"",
-                    Conformation = new ControlAlert() 
+                    Conformation = _ => new ControlAlert() 
                     {
                         Text = _ => @""Thank you! Your submission has been successfully received. We have received your request and will process it as soon as possible. If you need any further information, feel free to reach out to us anytime."",
                         BackgroundColor = _ => new PropertyColorBackgroundAlert(TypeColorBackground.Success)

@@ -48,13 +48,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                         (
                             new ControlFormItemInputText("char_name")
                             {
-                                Name = "Name",
+                                Name = _ => "Name",
                                 Placeholder = "Enter character name",
-                                Required = true
+                                Required = _ => true
                             },
                             new ControlFormItemInputText("char_desc")
                             {
-                                Name = "Description",
+                                Name = _ => "Description",
                                 Format = TypeEditTextFormat.Multiline,
                                 Placeholder = "Brief character description"
                             }
@@ -63,7 +63,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                         .Add(
                             new ControlFormItemInputSelection("appearsin")
                             {
-                                Name = "AppearsIn",
+                                Name = _ => "AppearsIn",
                                 Placeholder = "Select games",
                                 MultiSelect = true
                             }
@@ -74,7 +74,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                         (
                             new ControlFormItemInputAvatar("char_avatar")
                             {
-                                Name = "Icon"
+                                Name = _ => "Icon"
                                 // additional avatar config may be set here (Shape, Uri, etc.)
                             }
                         )
@@ -83,7 +83,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Code = @"
             new ControlRestWizard(""myform"")
             {
-                RestUri = sitemapManager.GetUri<MonkeyIslandCharacter>(pageContext),
+                RestUri = _ => sitemapManager.GetUri<MonkeyIslandCharacter>(pageContext),
             }";
         }
     }

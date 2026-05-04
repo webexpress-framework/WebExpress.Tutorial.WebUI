@@ -41,7 +41,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                     .Add(new ControlRestFormItemInputUnique("lightUnique")
                     {
                         RestUri = sitemapManager.GetUri<MonkeyIslandCurseUnique>(pageContext.ApplicationContext),
-                        Help = @"Enter a curse name to check its availability (e.g., ""Elaine's Statue Curse"")"
+                        Help = _ => @"Enter a curse name to check its availability (e.g., ""Elaine's Statue Curse"")"
                     }
                         .Initialize(x => x.Value.Text = "LeChuck's Ghost Curse"))
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
@@ -54,7 +54,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                     .Add(new ControlRestFormItemInputUnique("darkUnique")
                     {
                         RestUri = sitemapManager.GetUri<MonkeyIslandCurseUnique>(pageContext.ApplicationContext),
-                        Help = @"Enter a curse name to check its availability (e.g., ""Elaine's Statue Curse"")"
+                        Help =_ =>  @"Enter a curse name to check its availability (e.g., ""Elaine's Statue Curse"")"
                     }
                         .Initialize(x => x.Value.Text = "LeChuck's Ghost Curse"))
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
@@ -66,7 +66,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 .Add(new ControlRestFormItemInputUnique(""lightUnique"")
                 {
                     RestUri = sitemapManager.GetUri<MonkeyIslandCurse>(pageContext.ApplicationContext),
-                    Help = @""Enter a curse name to check its availability (e.g., """"Elaine's Statue Curse"""")""
+                    Help = _ => @""Enter a curse name to check its availability (e.g., """"Elaine's Statue Curse"""")""
                 }
                     .Initialize(x => x.Value.Text = ""LeChuck's Ghost Curse""))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit())";
@@ -76,7 +76,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             (
                 "RestUri",
                 "Defines the REST API endpoint that checks the uniqueness of a specified input value.",
-                "RestUri = sitemapManager.GetUri<MonkeyIslandCurse>(pageContext.ApplicationContext)",
+                "RestUri = _ => sitemapManager.GetUri<MonkeyIslandCurse>(pageContext.ApplicationContext)",
                 new ControlForm()
                     .Add(new ControlRestFormItemInputUnique("p_api")
                     {

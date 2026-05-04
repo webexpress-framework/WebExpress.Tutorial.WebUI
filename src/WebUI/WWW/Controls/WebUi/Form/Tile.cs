@@ -46,7 +46,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "MultiSelect",
                 "The `MultiSelect` property enables selecting more than one tile. " +
                 "When set to `true`, users can choose multiple cards; otherwise only a single tile is allowed.",
-                "MultiSelect = true",
+                "MultiSelect = _ => true",
                 new ControlForm()
                     .Add
                     (
@@ -68,31 +68,31 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "Label",
                 "The `Label` property of a tile picker control item serves as a short form of the input text and is displayed in the main area of the control. It ensures a concise and clear representation of the input.",
-                "Label = \"Label 1\"",
-                new ControlForm(null, new ControlFormItemInputTile() { Label = "Label 1" }.Add(GetCards()))
+                "Label = _ => \"Label 1\"",
+                new ControlForm(null, new ControlFormItemInputTile() { Label = _ => "Label 1" }.Add(GetCards()))
             );
 
             Stage.AddProperty
             (
                 "Icon",
                 "The `Icon` property defines the symbol assigned to a tile box. It provides a visual representation and identification of the input field, enhancing user guidance and recognition.",
-                "Icon = new IconHome()",
-                new ControlForm(null, new ControlFormItemInputTile() { Icon = new IconHome() }.Add(GetCards()))
+                "Icon = _ => new IconHome()",
+                new ControlForm(null, new ControlFormItemInputTile() { Icon = _ => new IconHome() }.Add(GetCards()))
             );
 
             Stage.AddProperty
             (
                "Help",
                "Provides additional guidance or context for the tile picker.",
-               "Help = \"This is a help text.\"",
-               new ControlForm(null, new ControlFormItemInputTile() { Help = "This is a help text." }.Add(GetCards()))
+               "Help =_ =>  \"This is a help text.\"",
+               new ControlForm(null, new ControlFormItemInputTile() { Help = _ => "This is a help text." }.Add(GetCards()))
             );
 
             Stage.AddProperty
             (
                 "LargeIcon",
                 @"The `LargeIcon` property controls whether tiles within the `Tile` control are displayed with an enlarged icon. When set to true, the icons appear significantly larger and gain more visual prominence, which is especially useful for image‑focused or highlighted elements.",
-                @"LargeIcon = true",
+                @"LargeIcon = _ => true",
                 new ControlForm(null, new ControlFormItemInputTile() { LargeIcon = true }.Add(GetCards()))
             );
         }

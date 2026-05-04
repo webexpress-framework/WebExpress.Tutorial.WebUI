@@ -37,14 +37,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
 
             Stage.Code = @"  
                new ControlForm()
-                .Add(new ControlFormItemInputText() { Format = TypeEditTextFormat.Wysiwyg })
+                .Add(new ControlFormItemInputText() { Format = _ => TypeEditTextFormat.Wysiwyg })
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
             Stage.AddProperty
             (
                 "Placeholder",
                 "The `Placeholder` property serves as a hint for the text box input. It provides a clear label for the expected input and supports internationalization, allowing it to be used as an internationalization string.",
-                "Placeholder = \"Enter text here\"",
+                "Placeholder = _ => \"Enter text here\"",
                 new ControlForm(null, new ControlFormItemInputText()
                 {
                     Placeholder = "Enter text here",
@@ -55,7 +55,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "MinLength",
                 "The `MinLength` property defines the minimum number of characters required in the text box. It ensures input validation and enforces a minimum input length.",
-                "MinLength = 5",
+                "MinLength = _ => 5",
                 new ControlForm()
                     .Add(new ControlFormItemInputText()
                     {
@@ -68,7 +68,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "MaxLength",
                 "The `MaxLength` property defines the maximum number of characters allowed in the text box. It ensures input validation and prevents excessive input.",
-                "MaxLength = 100",
+                "MaxLength = _ => 100",
                 new ControlForm()
                     .Add(new ControlFormItemInputText()
                     {
@@ -81,7 +81,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "Pattern",
                 "Defines a regular expression to validate input.",
-                "Pattern = \"[A-Za-z]{4}\"",
+                "Pattern = _ => \"[A-Za-z]{4}\"",
                 new ControlForm()
                     .Add(new ControlFormItemInputText("pattern")
                     {
@@ -94,31 +94,31 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "Label",
                 "The `Label` property of a text box control item serves as a short form of the input text and is displayed in the main area of the control. It ensures a concise and clear representation of the input.",
-                "Label = \"Label 1\"",
-                new ControlForm(null, new ControlFormItemInputText() { Label = "Label 1" })
+                "Label = _ => \"Label 1\"",
+                new ControlForm(null, new ControlFormItemInputText() { Label = _ => "Label 1" })
             );
 
             Stage.AddProperty
             (
                 "Icon",
                 "The `Icon` property defines the symbol assigned to a text box. It provides a visual representation and identification of the input field, enhancing user guidance and recognition.",
-                "Icon = new IconHome()",
-                new ControlForm(null, new ControlFormItemInputText() { Icon = new IconHome() })
+                "Icon = _ => new IconHome()",
+                new ControlForm(null, new ControlFormItemInputText() { Icon = _ => new IconHome() })
             );
 
             Stage.AddProperty
             (
                "Help",
                "The `Help` property provides additional guidance or information for the text box. It enhances user understanding by offering context or instructions.",
-               "Help = \"This is a help text.\"",
-               new ControlForm(null, new ControlFormItemInputText() { Help = "This is a help text." })
+               "Help = _ => \"This is a help text.\"",
+               new ControlForm(null, new ControlFormItemInputText() { Help = _ => "This is a help text." })
             );
 
             Stage.AddProperty
             (
                "Format",
                "The `Format` property controls the behavior of the text box, allowing it to be converted into a multi-line input box. When this property is configured, the TextBox supports line breaks and expands dynamically to accommodate longer text entries.",
-               "Format = TypeEditTextFormat.Wysiwyg",
+               "Format = _ => TypeEditTextFormat.Wysiwyg",
                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                new ControlForm(null, new ControlFormItemInputText() { Format = TypeEditTextFormat.Default }),
                new ControlText() { Text = "Multiline", TextColor = new PropertyColorText(TypeColorText.Info) },

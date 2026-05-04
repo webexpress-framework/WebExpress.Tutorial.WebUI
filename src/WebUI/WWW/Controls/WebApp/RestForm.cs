@@ -32,10 +32,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Control = new ControlRestForm("myform")
                 .Add(new ControlFormItemInputText("regards")
                 {
-                    Required = true,
-                    Label = "Greetings",
-                    Icon = new IconFont(),
-                    Help = "This is the associated help text."
+                    Required = _ => true,
+                    Label = _ => "Greetings",
+                    Icon = _ => new IconFont(),
+                    Help = _ => "This is the associated help text."
                 }
                     .Initialize(args => args.Value.Text = "Hello World!"))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
@@ -44,12 +44,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             new ControlRestForm(""myform"")
                 .Add(new ControlFormItemInputText(""regards"")
                 {
-                    Required = true,
-                    Label = ""Greetings"",
-                    Icon = new IconFont(),
-                    Help = ""This is the associated help text.""
+                    Required = _ => true,
+                    Label = _ => ""Greetings"",
+                    Icon = _ => new IconFont(),
+                    Help = _ => ""This is the associated help text.""
                 }
-                    .Initialize(args => args.Value.Text = ""Hello World!""))
+                    .Initialize(args => args.Value.Text = _ => ""Hello World!""))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());";
         }
     }

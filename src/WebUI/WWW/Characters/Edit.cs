@@ -34,8 +34,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Characters
         /// </param>
         public Edit(ISitemapManager sitemapManager, IApplicationContext applicationContext)
         {
-            Form.Mode = TypeRestFormMode.Edit;
-            Form.Uri = sitemapManager.GetUri<MonkeyIslandCharacter>(applicationContext);
+            Form.Mode = _ => TypeRestFormMode.Edit;
+            Form.Uri = _ => sitemapManager.GetUri<MonkeyIslandCharacter>(applicationContext);
         }
 
         /// <summary>

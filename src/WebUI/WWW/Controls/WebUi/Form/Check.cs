@@ -29,22 +29,22 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             Stage.Description = @"A `Check` control is a graphical user interface element that allows users to choose between two states: checked (selected) or unchecked (not selected).";
 
             Stage.Control = new ControlForm()
-                .Add(new ControlFormItemInputCheck { Label = "Label", Description = "Check box description" })
+                .Add(new ControlFormItemInputCheck { Label = _ => "Label", Description = "Check box description" })
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
             new ControlForm()
-                .Add(new ControlFormItemInputCheck { Label = ""Label"", Description = ""Check box description"" })
+                .Add(new ControlFormItemInputCheck { Label = _ => ""Label"", Description = _ => ""Check box description"" })
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
             Stage.AddProperty
             (
                 "Label",
                 "The `Label` property of the check box field serves as a short description and is displayed in the main area of the control. It ensures a clear and concise presentation of the check control.",
-                "Label = \"Subscribe to newsletter\"",
+                "Label = _ => \"Subscribe to newsletter\"",
                 new ControlForm(null, new ControlFormItemInputCheck(null)
                 {
-                    Label = "Subscribe to newsletter"
+                    Label = _ => "Subscribe to newsletter"
                 })
             );
 
@@ -52,10 +52,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "Help",
                 "The `Help` property provides a help text that gives the user additional information on how to use the check box field.",
-                "Help = \"You can unsubscribe anytime from your account settings.\"",
+                "Help = _ => \"You can unsubscribe anytime from your account settings.\"",
                 new ControlForm(null, new ControlFormItemInputCheck(null)
                 {
-                    Help = "You can unsubscribe anytime from your account settings."
+                    Help = _ => "You can unsubscribe anytime from your account settings."
                 })
             );
 
@@ -63,10 +63,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "Icon",
                 "The `Icon` property defines the icon associated with the check box field. It provides visual support and makes it easier to identify the field.",
-                "Icon = new IconPaperPlane()",
+                "Icon = _ => new IconPaperPlane()",
                 new ControlForm(null, new ControlFormItemInputCheck(null)
                 {
-                    Icon = new IconPaperPlane()
+                    Icon = _ => new IconPaperPlane()
                 })
             );
 
@@ -74,14 +74,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "Description",
                 "The `description` property provides a short, contextual explanation displayed directly to the right of the check box. It enhances clarity without increasing vertical space, making it ideal for clean, compact user interfaces.",
-                @"Description = ""Subscribe to newsletter – Receive monthly updates via email""",
+                @"Description = _ => ""Subscribe to newsletter – Receive monthly updates via email""",
                 new ControlForm()
                     .Add(new ControlFormItemInputCheck
                     {
-                        Label = "Subscribe to newsletter",
-                        Icon = new IconPaperPlane(),
+                        Label = _ => "Subscribe to newsletter",
+                        Icon = _ => new IconPaperPlane(),
                         Description = "Subscribe to newsletter – Receive monthly updates via email",
-                        Help = "You can unsubscribe anytime from your account settings.",
+                        Help = _ => "You can unsubscribe anytime from your account settings.",
                         Layout = TypeLayoutCheck.Default
                     })
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
@@ -91,16 +91,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "Disabled",
                 "The `disabled` property is used to make a check box non interactive and visually grayed out. It signals to users that the option is currently not available.",
-                @"Disabled = true",
+                @"Disabled = _ => true",
                 new ControlForm()
                     .Add(new ControlFormItemInputCheck
                     {
-                        Label = "Subscribe to newsletter",
-                        Icon = new IconPaperPlane(),
+                        Label = _ => "Subscribe to newsletter",
+                        Icon = _ => new IconPaperPlane(),
                         Description = "Subscribe to newsletter – Receive monthly updates via email",
-                        Help = "You can unsubscribe anytime from your account settings.",
+                        Help = _ => "You can unsubscribe anytime from your account settings.",
                         Layout = TypeLayoutCheck.Default,
-                        Disabled = true
+                        Disabled = _ => true
                     })
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
@@ -109,17 +109,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "Layout",
                 "The `layout` property defines how the check box is visually presented and how its content is arranged within the user interface. It does not affect the logic or functionality—only the appearance and positioning.",
-                "Layout = TypeLayoutCheck.Switch",
+                "Layout = _ => TypeLayoutCheck.Switch",
                 new ControlForm()
                     .Add(new ControlFormItemInputCheck
                     {
-                        Label = "Default",
+                        Label = _ => "Default",
                         Description = "Checkbox description",
                         Layout = TypeLayoutCheck.Default
                     })
                     .Add(new ControlFormItemInputCheck
                     {
-                        Label = "Switch",
+                        Label = _ => "Switch",
                         Description = "Checkbox description",
                         Layout = TypeLayoutCheck.Switch
                     })
@@ -130,7 +130,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "Inline",
                 "The `Inline` property arranges check box elements horizontally in a single row, rather than stacking them vertically. It's ideal for compact interfaces such as toolbars, input groups, or forms where side-by-side alignment improves clarity and flow.",
-                "Layout = TypeLayoutCheck.Switch",
+                "Layout = _ => TypeLayoutCheck.Switch",
                 new ControlForm()
                     .Add(new ControlFormItemInputCheck
                     {

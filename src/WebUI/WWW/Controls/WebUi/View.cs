@@ -103,11 +103,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Layout",
                 "Controls how view switching is rendered. The Default layout shows the title and description of the active view together with a dropdown for switching. The ToggleGroup layout omits title and description and exposes all views directly through a compact toggle bar.",
-                "Layout = TypeLayoutView.ToggleGroup",
+                "Layout = _ => TypeLayoutView.ToggleGroup",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlView(RandomId.Create())
                 {
-                    Layout = TypeLayoutView.Default
+                    Layout = _ => TypeLayoutView.Default
                 }
                     .Add(new ControlViewHeader().Add(new ControlSearch()))
                     .Add(new ControlViewItem() { Title = "View 1", Icon = new IconTable(), Description = "This is the first view" }.Add(new ControlText() { Text = "content of the view 1" }))
@@ -117,7 +117,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText() { Text = "ToggleGroup", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlView(RandomId.Create())
                 {
-                    Layout = TypeLayoutView.ToggleGroup
+                    Layout = _ => TypeLayoutView.ToggleGroup
                 }
                     .Add(new ControlViewHeader().Add(new ControlSearch()))
                     .Add(new ControlViewItem() { Title = "View 1", Icon = new IconTable() }.Add(new ControlText() { Text = "content of the view 1" }))
@@ -134,7 +134,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "new ControlViewItem(...);",
                 new ControlView(RandomId.Create())
                 {
-                    Layout = TypeLayoutView.Default
+                    Layout = _ => TypeLayoutView.Default
                 }
                     .Add(new ControlViewItem() { Title = "View 1", Icon = new IconTable(), Description = "This is the first view" }.Add(new ControlText() { Text = "content of the view 1" }))
                     .Add(new ControlViewItem() { Title = "View 2", Icon = new IconList(), Description = "This is the second view" }.Add(new ControlText() { Text = "content of the view 2" }))

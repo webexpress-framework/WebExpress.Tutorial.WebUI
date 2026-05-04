@@ -34,10 +34,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
 
             Stage.Control = new ControlForm("myform", new ControlFormItemInputRating(null)
             {
-                Icon = new IconShieldCat(),
-                Label = "Rating",
-                Help = "Select the desired options here.",
-                Name = "mRatingCtrl"
+                Icon = _ => new IconShieldCat(),
+                Label = _ => "Rating",
+                Help = _ => "Select the desired options here.",
+                Name = _ => "mRatingCtrl"
             }
                     .Initialize(args => args.Value.Number = 3)
                     .Process
@@ -51,10 +51,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             Stage.Code = @"
             new ControlFormItemInputRating(null)
             {
-                Icon = new IconShieldCat(),
-                Label = ""Rating"",
-                Help = ""Select the desired options here."",
-                Name = ""mRatingCtrl""
+                Icon = _ => new IconShieldCat(),
+                Label = _ => ""Rating"",
+                Help = _ => ""Select the desired options here."",
+                Name = _ => ""mRatingCtrl""
             }
                     .Initialize(args => args.Value.Number = 3)
                     .Process
@@ -82,7 +82,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "new ControlFormItemInputRating(\"a\") { Label = \"Rating Label\" }",
                 new ControlForm(null, new ControlFormItemInputRating("a")
                 {
-                    Label = "Rating Label"
+                    Label = _ => "Rating Label"
                 })
             );
 
@@ -93,7 +93,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "new ControlFormItemInputRating(\"a\") { Icon = new IconHome() }",
                 new ControlForm(null, new ControlFormItemInputRating("a")
                 {
-                    Icon = new IconHome()
+                    Icon = _ => new IconHome()
                 })
             );
         }
