@@ -16,9 +16,9 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         {
             Label = _ => "Title",
             Name = _ => nameof(Game.Name),
-            Placeholder = "Enter the game's title",
+            Placeholder = _ => "Enter the game's title",
             Required = _ => true,
-            MaxLength = 100,
+            MaxLength = _ => 100,
             Help = _ => "The official title of the Monkey Island game. This field is required."
         };
 
@@ -29,10 +29,10 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         {
             Label = _ => "Description",
             Name = _ => nameof(Game.Description),
-            Format = TypeEditTextFormat.Wysiwyg,
-            Placeholder = "Enter a brief description of the game",
+            Format = _ => TypeEditTextFormat.Wysiwyg,
+            Placeholder = _ => "Enter a brief description of the game",
             Required = _ => true,
-            MaxLength = 500,
+            MaxLength = _ => 500,
             Help = _ => "A short summary of the game's story, gameplay, or notable features."
         };
 
@@ -43,9 +43,9 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         {
             Label = _ => "Release Year",
             Name = _ => nameof(Game.ReleaseYear),
-            Placeholder = "Enter the year the game was released",
+            Placeholder = _ => "Enter the year the game was released",
             Required = _ => true,
-            MaxLength = 4,
+            MaxLength = _ => 4,
             Icon = _ => new IconCalendar(),
             Help = _ => "The year the game was first published. Use four digits (e.g., 1990)."
         };

@@ -41,27 +41,27 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 .Add(
                     new ControlDashboardWidget("widget1")
                     {
-                        Title = "System Status",
-                        Icon = new IconDiagramProject(),
-                        Color = "blue",
-                        Column = 0,
-                        Widget = "system"
+                        Title = _ => "System Status",
+                        Icon = _ => new IconDiagramProject(),
+                        Color = _ => "blue",
+                        Column = _ => 0,
+                        Widget = _ => "system"
                     },
                     new ControlDashboardWidget("widget2")
                     {
-                        Title = "User",
-                        Icon = new IconUser(),
-                        Color = "green",
-                        Column = 1,
-                        Widget = "users"
+                        Title = _ => "User",
+                        Icon = _ => new IconUser(),
+                        Color = _ => "green",
+                        Column = _ => 1,
+                        Widget = _ => "users"
                     },
                     new ControlDashboardWidget("widget3")
                     {
-                        Title = "Analytics",
-                        Icon = new IconChartDiagram(),
-                        Color = "orange",
-                        Column = 2,
-                        Widget = "analytics"
+                        Title = _ => "Analytics",
+                        Icon = _ => new IconChartDiagram(),
+                        Color = _ => "orange",
+                        Column = _ => 2,
+                        Widget = _ => "analytics"
                     }
                 );
 
@@ -89,27 +89,27 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 .Add(
                     new ControlDashboardWidget(""widget1"")
                     {
-                        Title = ""System Status"",
-                        Icon = new IconDiagramProject(),
-                        Color = ""blue"",
-                        Column = 0,
-                        Widget = ""system""
+                        Title = _ => ""System Status"",
+                        Icon = _ => new IconDiagramProject(),
+                        Color = _ => ""blue"",
+                        Column = _ => 0,
+                        Widget = _ => ""system""
                     },
                     new ControlDashboardWidget(""widget2"")
                     {
-                        Title = ""User"",
-                        Icon = new IconUser(),
-                        Color = ""green"",
-                        Column = 1,
-                        Widget = ""users""
+                        Title = _ => ""User"",
+                        Icon = _ => new IconUser(),
+                        Color = _ => ""green"",
+                        Column = _ => 1,
+                        Widget = _ => ""users""
                     },
                     new ControlDashboardWidget(""widget3"")
                     {
-                        Title = ""Analytics"",
-                        Icon = new IconChart(),
-                        Color = ""orange"",
-                        Column = 2,
-                        Widget = ""analytics""
+                        Title = _ => ""Analytics"",
+                        Icon = _ => new IconChart(),
+                        Color = _ => ""orange"",
+                        Column = _ => 2,
+                        Widget = _ => ""analytics""
                     }
                 );";
 
@@ -127,7 +127,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 typeof(ControlDashboardWidget),
                 "Title",
                 "The `Title` property defines the human‑readable heading displayed at the top of the widget. It serves as the primary label that identifies the widget’s purpose and helps users quickly understand the type of information or functionality it provides. A well‑chosen title improves scannability, supports intuitive navigation within dashboards, and ensures that widgets remain meaningful even when displayed in compact or multi‑column layouts.",
-                "Title = \"Title\"",
+                "Title = _ => \"Title\"",
                 new ControlDashboard(RandomId.Create())
                 .Add
                 (
@@ -137,9 +137,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 (
                     new ControlDashboardWidget("widget1")
                     {
-                        Title = "Title",
-                        Column = 0,
-                        Widget = "system"
+                        Title = _ => "Title",
+                        Column = _ => 0,
+                        Widget = _ => "system"
                     }
                 )
             );
@@ -149,7 +149,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 typeof(ControlDashboardWidget),
                 "Icon",
                 "The `Icon` property specifies the visual symbol displayed alongside the widget’s title. It provides an immediate visual cue that helps users recognize the widget’s purpose or category at a glance. Icons improve scannability, support intuitive navigation within dashboards, and contribute to a consistent and expressive visual language across the interface.",
-                "Title = \"Title\"",
+                "Title = _ => \"Title\"",
                 new ControlDashboard(RandomId.Create())
                 .Add
                 (
@@ -159,9 +159,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 (
                     new ControlDashboardWidget("widget1")
                     {
-                        Icon = new IconHome(),
-                        Column = 0,
-                        Widget = "system"
+                        Icon = _ => new IconHome(),
+                        Column = _ => 0,
+                        Widget = _ => "system"
                     }
                 )
             );
@@ -171,7 +171,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 typeof(ControlDashboardWidget),
                 "Movable",
                 "The `Movable` property determines whether a widget can be repositioned within the dashboard layout. When enabled, users can drag the widget to a different column or position, allowing flexible customization of the dashboard’s structure. When disabled, the widget remains fixed in place, ensuring a stable layout for essential or system‑defined components.",
-                "Movable = false",
+                "Movable = _ => false",
                 new ControlText() { Text = "default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlDashboard(RandomId.Create())
                 .Add
@@ -183,8 +183,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                     new ControlDashboardWidget("widget1")
                     {
-                        Column = 0,
-                        Widget = "system"
+                        Column = _ => 0,
+                        Widget = _ => "system"
                     }
                 ),
                 new ControlText() { Text = "false", TextColor = new PropertyColorText(TypeColorText.Info) },
@@ -198,9 +198,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                     new ControlDashboardWidget("widget1")
                     {
-                        Movable = false,
-                        Column = 0,
-                        Widget = "system"
+                        Movable = _ => false,
+                        Column = _ => 0,
+                        Widget = _ => "system"
                     }
                 ),
                 new ControlText() { Text = "true", TextColor = new PropertyColorText(TypeColorText.Info) },
@@ -214,9 +214,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                     new ControlDashboardWidget("widget1")
                     {
-                        Movable = true,
-                        Column = 0,
-                        Widget = "system"
+                        Movable = _ => true,
+                        Column = _ => 0,
+                        Widget = _ => "system"
                     }
                 )
             );
@@ -226,7 +226,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 typeof(ControlDashboardWidget),
                 "Closeable",
                 "The `Closeable` property determines whether a widget can be removed from the dashboard by the user. When enabled, the widget displays a close control that allows users to hide or dismiss it, providing flexibility for personalizing the dashboard layout. When disabled, the widget remains permanently visible, ensuring that essential or system‑defined components cannot be accidentally removed.",
-                "Closeable = false",
+                "Closeable = _ => false",
                 new ControlText() { Text = "default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlDashboard(RandomId.Create())
                 .Add
@@ -238,8 +238,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                     new ControlDashboardWidget("widget1")
                     {
-                        Column = 0,
-                        Widget = "system"
+                        Column = _ => 0,
+                        Widget = _ => "system"
                     }
                 ),
                 new ControlText() { Text = "false", TextColor = new PropertyColorText(TypeColorText.Info) },
@@ -253,9 +253,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                     new ControlDashboardWidget("widget1")
                     {
-                        Closeable = false,
-                        Column = 0,
-                        Widget = "system"
+                        Closeable = _ => false,
+                        Column = _ => 0,
+                        Widget = _ => "system"
                     }
                 ),
                 new ControlText() { Text = "true", TextColor = new PropertyColorText(TypeColorText.Info) },
@@ -269,9 +269,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                     new ControlDashboardWidget("widget1")
                     {
-                        Closeable = true,
-                        Column = 0,
-                        Widget = "system"
+                        Closeable = _ => true,
+                        Column = _ => 0,
+                        Widget = _ => "system"
                     }
                 )
             );
@@ -281,7 +281,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 typeof(ControlDashboardWidget),
                 "Color",
                 "The `Color` property defines the accent color used to visually distinguish the widget. It can be applied to elements such as the header, border, or icon, helping users quickly identify categories, priorities, or thematic groupings within the dashboard. By customizing the widget’s color, interfaces can achieve clearer visual hierarchy, improved scannability, and a more expressive overall design.",
-                "Color = \"#ff0000\"",
+                "Color = _ => \"#ff0000\"",
                 new ControlDashboard(RandomId.Create())
                 .Add
                 (
@@ -292,9 +292,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                     new ControlDashboardWidget("widget1")
                     {
-                        Color = "#ff0000",
-                        Column = 0,
-                        Widget = "system"
+                        Color = _ => "#ff0000",
+                        Column = _ => 0,
+                        Widget = _ => "system"
                     }
                 )
             );

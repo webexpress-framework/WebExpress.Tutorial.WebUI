@@ -22,19 +22,19 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     {
         private readonly IControlToolbarItem[] _items =
         [
-            new ControlToolbarItemButton("item1") { Text = "Home", Icon = new IconHome() },
+            new ControlToolbarItemButton("item1") { Text = _ => "Home", Icon =_ =>  new IconHome() },
             new ControlToolbarItemDivider(),
             new ControlToolbarItemButton("item2")
             {
-                Text = "Server",
-                Icon = new IconServer(),
-                Color = new PropertyColorText(TypeColorText.Warning)
+                Text = _ => "Server",
+                Icon = _ => new IconServer(),
+                Color = _ => new PropertyColorText(TypeColorText.Warning)
             },
             new ControlToolbarItemDropdown("item3")
             {
-                Text = "Users",
-                Icon = new IconUsers(),
-                Color = new PropertyColorText(TypeColorText.Danger),
+                Text = _ => "Users",
+                Icon = _ => new IconUsers(),
+                Color = _ => new PropertyColorText(TypeColorText.Danger),
             }
                 .Add
                 (
@@ -44,46 +44,46 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 ),
             new ControlToolbarItemButton("item4")
             {
-                Text = "Setting",
-                Icon = new IconCog(),
-                Alignment = TypeToolbarItemAlignment.Right
+                Text = _ => "Setting",
+                Icon = _ => new IconCog(),
+                Alignment = _ => TypeToolbarItemAlignment.Right
             },
-            new ControlToolbarItemButton("item5") { Text = "Item 5", Icon = new IconHome(), Alignment = TypeToolbarItemAlignment.Right},
-            new ControlToolbarItemButton("item6") { Text = "Item 6", Icon = new IconHome(), Alignment = TypeToolbarItemAlignment.Right},
-            new ControlToolbarItemButton("item7") { Text = "Item 7", Icon = new IconHome(), Alignment = TypeToolbarItemAlignment.Right},
-            new ControlToolbarItemButton("item8") { Text = "Item 8", Icon = new IconHome(), Alignment = TypeToolbarItemAlignment.Right },
-            new ControlToolbarItemButton("item9") { Text = "Item 9", Icon = new IconHome() , Alignment = TypeToolbarItemAlignment.Right},
-            new ControlToolbarItemButton("item10") { Text = "Item 10", Icon = new IconHome(), Alignment = TypeToolbarItemAlignment.Right },
-            new ControlToolbarItemButton("item11") { Text = "Item 11", Icon = new IconHome(), Alignment = TypeToolbarItemAlignment.Right },
-            new ControlToolbarItemButton("item12") { Text = "Item 12", Icon = new IconHome() , Alignment = TypeToolbarItemAlignment.Right},
-            new ControlToolbarItemButton("item13") { Text = "Item 13", Icon = new IconHome() , Alignment = TypeToolbarItemAlignment.Right},
-            new ControlToolbarItemButton("item14") { Text = "Item 14", Icon = new IconHome(), Alignment = TypeToolbarItemAlignment.Right },
-            new ControlToolbarItemButton("item15") { Text = "Item 15", Icon = new IconHome() , Alignment = TypeToolbarItemAlignment.Right},
-            new ControlToolbarItemButton("item16") { Text = "Item 16", Icon = new IconHome(), Alignment = TypeToolbarItemAlignment.Right },
+            new ControlToolbarItemButton("item5") { Text = _ => "Item 5", Icon =_ =>  new IconHome(), Alignment = _ => TypeToolbarItemAlignment.Right},
+            new ControlToolbarItemButton("item6") { Text = _ => "Item 6", Icon = _ => new IconHome(), Alignment = _ => TypeToolbarItemAlignment.Right},
+            new ControlToolbarItemButton("item7") { Text = _ => "Item 7", Icon = _ => new IconHome(), Alignment = _ => TypeToolbarItemAlignment.Right},
+            new ControlToolbarItemButton("item8") { Text = _ => "Item 8", Icon = _ => new IconHome(), Alignment  =_ => TypeToolbarItemAlignment.Right },
+            new ControlToolbarItemButton("item9") { Text = _ => "Item 9", Icon = _ => new IconHome() , Alignment = _ => TypeToolbarItemAlignment.Right},
+            new ControlToolbarItemButton("item10") { Text = _ => "Item 10", Icon = _ => new IconHome(), Alignment = _ => TypeToolbarItemAlignment.Right },
+            new ControlToolbarItemButton("item11") { Text = _ => "Item 11", Icon = _ => new IconHome(), Alignment = _ => TypeToolbarItemAlignment.Right },
+            new ControlToolbarItemButton("item12") { Text = _ => "Item 12", Icon = _ => new IconHome() , Alignment = _ => TypeToolbarItemAlignment.Right},
+            new ControlToolbarItemButton("item13") { Text = _ => "Item 13", Icon = _ => new IconHome() , Alignment = _ => TypeToolbarItemAlignment.Right},
+            new ControlToolbarItemButton("item14") { Text = _ => "Item 14", Icon =_ =>  new IconHome(), Alignment = _ => TypeToolbarItemAlignment.Right },
+            new ControlToolbarItemButton("item15") { Text = _ => "Item 15", Icon = _ => new IconHome() , Alignment = _ => TypeToolbarItemAlignment.Right},
+            new ControlToolbarItemButton("item16") { Text = _ => "Item 16", Icon = _ => new IconHome(), Alignment = _ => TypeToolbarItemAlignment.Right },
             new ControlToolbarItemCombo("item17")
             {
-                Text = "Vehicle",
-                Icon = new IconCar(),
-                Color = new PropertyColorText(TypeColorText.Primary),
-                Alignment = TypeToolbarItemAlignment.Right
+                Text = _ => "Vehicle",
+                Icon = _ => new IconCar(),
+                Color = _ => new PropertyColorText(TypeColorText.Primary),
+                Alignment = _ => TypeToolbarItemAlignment.Right
             }
                 .Add
                 (
-                    new ControlFormItemInputComboItem() { Text = "Car"},
-                    new ControlFormItemInputComboItem() { Text = "Bicycle"},
-                    new ControlFormItemInputComboItem() { Text = "Train"}
+                    new ControlFormItemInputComboItem() { Text = _ => "Car"},
+                    new ControlFormItemInputComboItem() { Text = _ => "Bicycle"},
+                    new ControlFormItemInputComboItem() { Text = _ => "Train"}
                 ),
-            new ControlToolbarItemDivider() { Alignment = TypeToolbarItemAlignment.Right },
+            new ControlToolbarItemDivider() { Alignment = _ => TypeToolbarItemAlignment.Right },
             new ControlToolbarItemLabel("item18")
             {
-                Text = "webexpress.WebUI:plugin.name",
-                Color = new PropertyColorText(TypeColorText.Success),
-                Alignment = TypeToolbarItemAlignment.Right
+                Text = _ => "webexpress.WebUI:plugin.name",
+                Color = _ => new PropertyColorText(TypeColorText.Success),
+                Alignment = _ => TypeToolbarItemAlignment.Right
             },
 
-             new ControlToolbarItemButton("item19") { Text = "Item 19", Icon = new IconHome() },
-             new ControlToolbarItemButton("item20") { Text = "Item 20", Icon = new IconHome() },
-             new ControlToolbarItemButton("item21") { Text = "Item 21", Icon = new IconHome() },
+             new ControlToolbarItemButton("item19") { Text = _ => "Item 19", Icon = _ => new IconHome() },
+             new ControlToolbarItemButton("item20") { Text = _ => "Item 20", Icon = _ => new IconHome() },
+             new ControlToolbarItemButton("item21") { Text = _ => "Item 21", Icon =_ =>  new IconHome() },
         ];
 
         /// <summary>  
@@ -112,17 +112,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.Code = @"
             new ControlToolbar(""myToolbar"")
                 .Add(CreateItems(25))
-                .AddMore(new ControlDropdownItemLink() { Text = ""Calculator"", Icon = new IconCalculator()})";
+                .AddMore(new ControlDropdownItemLink() { Text = _ => ""Calculator"", Icon = _ => new IconCalculator()})";
 
             Stage.AddItem
             (
                 typeof(ControlToolbarItemButton),
                 "ControlToolbarItemButton",
                 "A `ControlToolbarItemButton` represents an interactive action element within a toolbar. It is typically used to trigger commands such as creating, saving, refreshing, or navigating. Each button can display an icon, a text label, or both, providing a clear and accessible way for users to understand the available actions. Toolbar buttons are designed to be compact, consistent, and easy to recognize, ensuring that frequently used operations remain quickly accessible across the interface. By combining visual cues with optional descriptive text, `ControlToolbarItemButton` supports intuitive and efficient user workflows.",
-                "new ControlToolbar().Add(new ControlToolbarItemButton() { Label = \"abc\" })",
+                "new ControlToolbar().Add(new ControlToolbarItemButton() { Label = _ => \"abc\" })",
                 new ControlToolbar().Add
                 (
-                    new ControlToolbarItemButton() { Text = "button label" }
+                    new ControlToolbarItemButton() { Text = _ => "button label" }
                 )
             );
 
@@ -131,16 +131,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 typeof(ControlToolbarItemButton),
                 "Label",
                 "The `Label` property specifies the visible text accompanying a toolbar icon. It helps users understand the purpose of the toolbar item at a glance, especially when the icon alone may not be intuitive.",
-                "new ControlToolbar().Add(new ControlToolbarItemButton() { Label = \"abc\" })",
+                "new ControlToolbar().Add(new ControlToolbarItemButton() { Label = _ => \"abc\" })",
                 new ControlToolbar().Add
                 (
-                    new ControlToolbarItemButton() { Text = "button label" },
+                    new ControlToolbarItemButton() { Text = _ => "button label" },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemCombo() { Text = "combo label" }.Add(new ControlFormItemInputComboItem() { Text = "combo" }),
+                    new ControlToolbarItemCombo() { Text = _ => "combo label" }.Add(new ControlFormItemInputComboItem() { Text = _ => "combo" }),
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemDropdown() { Text = "dropdown label" },
+                    new ControlToolbarItemDropdown() { Text = _ => "dropdown label" },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemLabel() { Text = "label" }
+                    new ControlToolbarItemLabel() { Text = _ => "label" }
                 )
             );
 
@@ -149,24 +149,24 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 typeof(ControlToolbarItemButton),
                 "Icon",
                 "The `Icon` property defines the image shown within a toolbar item to visually represent its function. It enables users to quickly identify the intended action and contributes to an intuitive, user friendly interface.",
-                "new ControlToolbar().Add(new ControlToolbarItemButton() { Icon = new IconHome() })",
+                "new ControlToolbar().Add(new ControlToolbarItemButton() { Icon = _ => new IconHome() })",
                 new ControlText() { Text = "System", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
-                    new ControlToolbarItemButton() { Icon = new IconHome() },
+                    new ControlToolbarItemButton() { Icon = _ => new IconHome() },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemCombo() { Icon = new IconHome() }.Add(new ControlFormItemInputComboItem() { Text = "combo" }),
+                    new ControlToolbarItemCombo() { Icon = _ => new IconHome() }.Add(new ControlFormItemInputComboItem() { Text = _ => "combo" }),
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemDropdown() { Icon = new IconHome() }
+                    new ControlToolbarItemDropdown() { Icon = _ => new IconHome() }
                 ),
                 new ControlText() { Text = "Custom", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
-                    new ControlToolbarItemButton() { Icon = new ImageIconWebExpress(pageContext.ApplicationContext) },
+                    new ControlToolbarItemButton() { Icon = _ => new ImageIconWebExpress(pageContext.ApplicationContext) },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemCombo() { Icon = new ImageIconWebExpress(pageContext.ApplicationContext) }.Add(new ControlFormItemInputComboItem() { Text = "combo" }),
+                    new ControlToolbarItemCombo() { Icon = _ => new ImageIconWebExpress(pageContext.ApplicationContext) }.Add(new ControlFormItemInputComboItem() { Text = _ => "combo" }),
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemDropdown() { Icon = new ImageIconWebExpress(pageContext.ApplicationContext) }
+                    new ControlToolbarItemDropdown() { Icon = _ => new ImageIconWebExpress(pageContext.ApplicationContext) }
                 )
             );
 
@@ -175,16 +175,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 typeof(ControlToolbarItemButton),
                 "Tooltip",
                 "The `Tooltip` property provides a concise message that appears when a user hovers over a toolbar item. It offers additional context or instructions for the associated action, especially useful when the icon or label isn't entirely self-explanatory.",
-                "new ControlToolbar().Add(new ControlToolbarItemButton() { Tooltip = \"tooltip\" })",
+                "new ControlToolbar().Add(new ControlToolbarItemButton() { Tooltip = _ => \"tooltip\" })",
                 new ControlToolbar().Add
                 (
-                    new ControlToolbarItemButton() { Icon = new IconHome(), Tooltip = "tooltip" },
+                    new ControlToolbarItemButton() { Icon = _ => new IconHome(), Tooltip = _ => "tooltip" },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemCombo() { Icon = new IconHome(), Tooltip = "tooltip" }.Add(new ControlFormItemInputComboItem() { Text = "combo" }),
+                    new ControlToolbarItemCombo() { Icon = _ => new IconHome(), Tooltip = _ => "tooltip" }.Add(new ControlFormItemInputComboItem() { Text = _ => "combo" }),
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemDropdown() { Icon = new IconHome(), Tooltip = "tooltip" },
+                    new ControlToolbarItemDropdown() { Icon = _ => new IconHome(), Tooltip = _ => "tooltip" },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemLabel() { Text = "label", Tooltip = "tooltip" }
+                    new ControlToolbarItemLabel() { Text = _ => "label", Tooltip = _ => "tooltip" }
                 )
             );
 
@@ -193,138 +193,138 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 typeof(ControlToolbarItemButton),
                 "Color",
                 "The `Color` property controls the visual appearance of a toolbar item by specifying its foreground (text/icon). It can be used to highlight important actions, indicate states (e.g. active/inactive), or harmonize the toolbar with the overall UI theme.",
-                "new ControlToolbar().Add(new ControlToolbarItemButton() { Color = new PropertyColorText(TypeColorText.Primary) })",
+                "new ControlToolbar().Add(new ControlToolbarItemButton() { Color = _ => new PropertyColorText(TypeColorText.Primary) })",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
-                    new ControlToolbarItemButton() { Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Default) },
+                    new ControlToolbarItemButton() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Default) },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemCombo() { Text = "combo label", Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Default) }.Add(new ControlFormItemInputComboItem() { Text = "combo" }),
+                    new ControlToolbarItemCombo() { Text = _ => "combo label", Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Default) }.Add(new ControlFormItemInputComboItem() { Text = _ => "combo" }),
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemDropdown() { Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Default) },
+                    new ControlToolbarItemDropdown() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Default) },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemLabel() { Text = "label", Color = new PropertyColorText(TypeColorText.Default) }
+                    new ControlToolbarItemLabel() { Text = _ => "label", Color = _ => new PropertyColorText(TypeColorText.Default) }
                 ),
                 new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
-                    new ControlToolbarItemButton() { Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Primary) },
+                    new ControlToolbarItemButton() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Primary) },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemCombo() { Text = "combo label", Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Primary) }.Add(new ControlFormItemInputComboItem() { Text = "combo" }),
+                    new ControlToolbarItemCombo() { Text = _ => "combo label", Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Primary) }.Add(new ControlFormItemInputComboItem() { Text = _ => "combo" }),
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemDropdown() { Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Primary) },
+                    new ControlToolbarItemDropdown() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Primary) },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemLabel() { Text = "label", Color = new PropertyColorText(TypeColorText.Primary) }
+                    new ControlToolbarItemLabel() { Text = _ => "label", Color = _ => new PropertyColorText(TypeColorText.Primary) }
                 ),
                 new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
-                    new ControlToolbarItemButton() { Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Secondary) },
+                    new ControlToolbarItemButton() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Secondary) },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemCombo() { Text = "combo label", Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Secondary) }.Add(new ControlFormItemInputComboItem() { Text = "combo" }),
+                    new ControlToolbarItemCombo() { Text = _ => "combo label", Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Secondary) }.Add(new ControlFormItemInputComboItem() { Text = _ => "combo" }),
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemDropdown() { Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Secondary) },
+                    new ControlToolbarItemDropdown() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Secondary) },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemLabel() { Text = "label", Color = new PropertyColorText(TypeColorText.Secondary) }
+                    new ControlToolbarItemLabel() { Text = _ => "label", Color = _ => new PropertyColorText(TypeColorText.Secondary) }
                 ),
                 new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
-                    new ControlToolbarItemButton() { Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Info) },
+                    new ControlToolbarItemButton() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Info) },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemCombo() { Text = "combo label", Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Info) }.Add(new ControlFormItemInputComboItem() { Text = "combo" }),
+                    new ControlToolbarItemCombo() { Text = _ => "combo label", Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Info) }.Add(new ControlFormItemInputComboItem() { Text = _ => "combo" }),
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemDropdown() { Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Info) },
+                    new ControlToolbarItemDropdown() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Info) },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemLabel() { Text = "label", Color = new PropertyColorText(TypeColorText.Info) }
+                    new ControlToolbarItemLabel() { Text = _ => "label", Color = _ => new PropertyColorText(TypeColorText.Info) }
                 ),
                 new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
-                    new ControlToolbarItemButton() { Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Success) },
+                    new ControlToolbarItemButton() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Success) },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemCombo() { Text = "combo label", Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Success) }.Add(new ControlFormItemInputComboItem() { Text = "combo" }),
+                    new ControlToolbarItemCombo() { Text = _ => "combo label", Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Success) }.Add(new ControlFormItemInputComboItem() { Text = _ => "combo" }),
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemDropdown() { Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Success) },
+                    new ControlToolbarItemDropdown() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Success) },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemLabel() { Text = "label", Color = new PropertyColorText(TypeColorText.Success) }
+                    new ControlToolbarItemLabel() { Text = _ => "label", Color = _ => new PropertyColorText(TypeColorText.Success) }
                 ),
                 new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
-                    new ControlToolbarItemButton() { Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Warning) },
+                    new ControlToolbarItemButton() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Warning) },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemCombo() { Text = "combo label", Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Warning) }.Add(new ControlFormItemInputComboItem() { Text = "combo" }),
+                    new ControlToolbarItemCombo() { Text = _ => "combo label", Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Warning) }.Add(new ControlFormItemInputComboItem() { Text = _ => "combo" }),
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemDropdown() { Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Warning) },
+                    new ControlToolbarItemDropdown() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Warning) },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemLabel() { Text = "label", Color = new PropertyColorText(TypeColorText.Warning) }
+                    new ControlToolbarItemLabel() { Text = _ => "label", Color = _ => new PropertyColorText(TypeColorText.Warning) }
                 ),
                 new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
-                    new ControlToolbarItemButton() { Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Danger) },
+                    new ControlToolbarItemButton() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Danger) },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemCombo() { Text = "combo label", Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Danger) }.Add(new ControlFormItemInputComboItem() { Text = "combo" }),
+                    new ControlToolbarItemCombo() { Text = _ => "combo label", Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Danger) }.Add(new ControlFormItemInputComboItem() { Text = _ => "combo" }),
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemDropdown() { Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Danger) },
+                    new ControlToolbarItemDropdown() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Danger) },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemLabel() { Text = "label", Color = new PropertyColorText(TypeColorText.Danger) }
+                    new ControlToolbarItemLabel() { Text = _ => "label", Color = _ => new PropertyColorText(TypeColorText.Danger) }
                 ),
                 new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
-                    new ControlToolbarItemButton() { Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Light) },
+                    new ControlToolbarItemButton() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Light) },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemCombo() { Text = "combo label", Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Light) }.Add(new ControlFormItemInputComboItem() { Text = "combo" }),
+                    new ControlToolbarItemCombo() { Text = _ => "combo label", Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Light) }.Add(new ControlFormItemInputComboItem() { Text = _ => "combo" }),
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemDropdown() { Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Light) },
+                    new ControlToolbarItemDropdown() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Light) },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemLabel() { Text = "label", Color = new PropertyColorText(TypeColorText.Light) }
+                    new ControlToolbarItemLabel() { Text = _ => "label", Color = _ => new PropertyColorText(TypeColorText.Light) }
                 ),
                 new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
-                    new ControlToolbarItemButton() { Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Dark) },
+                    new ControlToolbarItemButton() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Dark) },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemCombo() { Text = "combo label", Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Dark) }.Add(new ControlFormItemInputComboItem() { Text = "combo" }),
+                    new ControlToolbarItemCombo() { Text = _ => "combo label", Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Dark) }.Add(new ControlFormItemInputComboItem() { Text = _ => "combo" }),
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemDropdown() { Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Dark) },
+                    new ControlToolbarItemDropdown() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Dark) },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemLabel() { Text = "label", Color = new PropertyColorText(TypeColorText.Dark) }
+                    new ControlToolbarItemLabel() { Text = _ => "label", Color = _ => new PropertyColorText(TypeColorText.Dark) }
                 ),
                 new ControlText() { Text = "White", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
-                    new ControlToolbarItemButton() { Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.White) },
+                    new ControlToolbarItemButton() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.White) },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemCombo() { Text = "combo label", Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.White) }.Add(new ControlFormItemInputComboItem() { Text = "combo" }),
+                    new ControlToolbarItemCombo() { Text = _ => "combo label", Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.White) }.Add(new ControlFormItemInputComboItem() { Text = _ => "combo" }),
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemDropdown() { Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.White) },
+                    new ControlToolbarItemDropdown() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.White) },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemLabel() { Text = "label", Color = new PropertyColorText(TypeColorText.White) }
+                    new ControlToolbarItemLabel() { Text = _ => "label", Color = _ => new PropertyColorText(TypeColorText.White) }
                 ),
                 new ControlText() { Text = "Muted", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
-                    new ControlToolbarItemButton() { Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Muted) },
+                    new ControlToolbarItemButton() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Muted) },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemCombo() { Text = "combo label", Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Muted) }.Add(new ControlFormItemInputComboItem() { Text = "combo" }),
+                    new ControlToolbarItemCombo() { Text = _ => "combo label", Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Muted) }.Add(new ControlFormItemInputComboItem() { Text = _ => "combo" }),
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemDropdown() { Icon = new IconHome(), Color = new PropertyColorText(TypeColorText.Muted) },
+                    new ControlToolbarItemDropdown() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Muted) },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemLabel() { Text = "label", Color = new PropertyColorText(TypeColorText.Muted) }
+                    new ControlToolbarItemLabel() { Text = _ => "label", Color = _ => new PropertyColorText(TypeColorText.Muted) }
                 ),
                 new ControlText() { Text = "Custom", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
-                    new ControlToolbarItemButton() { Icon = new IconHome(), Color = new PropertyColorText("gold") },
+                    new ControlToolbarItemButton() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText("gold") },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemCombo() { Text = "combo label", Icon = new IconHome(), Color = new PropertyColorText("gold") }.Add(new ControlFormItemInputComboItem() { Text = "combo" }),
+                    new ControlToolbarItemCombo() { Text = _ => "combo label", Icon = _ => new IconHome(), Color = _ => new PropertyColorText("gold") }.Add(new ControlFormItemInputComboItem() { Text = _ => "combo" }),
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemDropdown() { Icon = new IconHome(), Color = new PropertyColorText("gold") },
+                    new ControlToolbarItemDropdown() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText("gold") },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemLabel() { Text = "label", Color = new PropertyColorText("gold") }
+                    new ControlToolbarItemLabel() { Text = _ => "label", Color = _ => new PropertyColorText("gold") }
                 )
 
             );
@@ -334,16 +334,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 typeof(ControlToolbarItemButton),
                 "Alignment",
                 "The `Alignment` property determines how a toolbar item is positioned inside its parent container or toolbar strip. It influences whether the item appears left-aligned or right-aligned.",
-                "new ControlToolbar().Add(new ControlToolbarItemButton() { Alignment = TypeToolbarItemAlignment.Right })",
+                "new ControlToolbar().Add(new ControlToolbarItemButton() { Alignment = _ => TypeToolbarItemAlignment.Right })",
                 new ControlToolbar().Add
                 (
-                    new ControlToolbarItemButton() { Icon = new IconHome(), Alignment = TypeToolbarItemAlignment.Right },
-                    new ControlToolbarItemDivider() { Alignment = TypeToolbarItemAlignment.Right },
-                    new ControlToolbarItemCombo() { Text = "combo label", Alignment = TypeToolbarItemAlignment.Right }.Add(new ControlFormItemInputComboItem() { Text = "combo" }),
-                    new ControlToolbarItemDivider() { Alignment = TypeToolbarItemAlignment.Right },
-                    new ControlToolbarItemDropdown() { Icon = new IconHome(), Alignment = TypeToolbarItemAlignment.Right },
-                    new ControlToolbarItemDivider() { Alignment = TypeToolbarItemAlignment.Right },
-                    new ControlToolbarItemLabel() { Text = "label", Alignment = TypeToolbarItemAlignment.Right }
+                    new ControlToolbarItemButton() { Icon = _ => new IconHome(), Alignment = _ => TypeToolbarItemAlignment.Right },
+                    new ControlToolbarItemDivider() { Alignment = _ => TypeToolbarItemAlignment.Right },
+                    new ControlToolbarItemCombo() { Text = _ => "combo label", Alignment = _ => TypeToolbarItemAlignment.Right }.Add(new ControlFormItemInputComboItem() { Text = _ => "combo" }),
+                    new ControlToolbarItemDivider() { Alignment = _ => TypeToolbarItemAlignment.Right },
+                    new ControlToolbarItemDropdown() { Icon = _ => new IconHome(), Alignment = _ => TypeToolbarItemAlignment.Right },
+                    new ControlToolbarItemDivider() { Alignment = _ => TypeToolbarItemAlignment.Right },
+                    new ControlToolbarItemLabel() { Text = _ => "label", Alignment = _ => TypeToolbarItemAlignment.Right }
                 )
             );
 
@@ -352,16 +352,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 typeof(ControlToolbarItemButton),
                 "Disabled",
                 "The `Active` property controls the interactivity state of a toolbar item. When set to disabled, the item appears visually dimmed and is functionally deactivated—meaning users cannot click or activate it. This is often used to reflect application state, user permissions, or conditional logic.",
-                "new ControlToolbar().Add(new ControlToolbarItemButton() { Active = TypeActive.Disabled })",
+                "new ControlToolbar().Add(new ControlToolbarItemButton() { Active = _ => TypeActive.Disabled })",
                 new ControlToolbar().Add
                 (
-                    new ControlToolbarItemButton() { Icon = new IconHome(), Active = TypeActive.Disabled },
+                    new ControlToolbarItemButton() { Icon = _ => new IconHome(), Active = _ => TypeActive.Disabled },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemCombo() { Text = "combo label", Active = TypeActive.Disabled }.Add(new ControlFormItemInputComboItem() { Text = "combo" }),
+                    new ControlToolbarItemCombo() { Text = _ => "combo label", Active = _ => TypeActive.Disabled }.Add(new ControlFormItemInputComboItem() { Text = _ => "combo" }),
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemDropdown() { Icon = new IconHome(), Active = TypeActive.Disabled },
+                    new ControlToolbarItemDropdown() { Icon = _ => new IconHome(), Active = _ => TypeActive.Disabled },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemLabel() { Text = "label", Disabled = true }
+                    new ControlToolbarItemLabel() { Text = _ => "label", Disabled = _ => true }
                 )
             );
 
@@ -370,14 +370,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 typeof(ControlToolbarItemButton),
                 "Active",
                 "The `Active` property reflects whether a toolbar item is currently selected or engaged.",
-                "new ControlToolbar().Add(new ControlToolbarItemButton() { Active = TypeActive.Active })",
+                "new ControlToolbar().Add(new ControlToolbarItemButton() { Active = _ => TypeActive.Active })",
                 new ControlToolbar().Add
                 (
-                    new ControlToolbarItemButton() { Icon = new IconHome(), Active = TypeActive.Active },
+                    new ControlToolbarItemButton() { Icon = _ => new IconHome(), Active = _ => TypeActive.Active },
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemCombo() { Text = "combo label", Active = TypeActive.Active }.Add(new ControlFormItemInputComboItem() { Text = "combo" }),
+                    new ControlToolbarItemCombo() { Text = _ => "combo label", Active = _ => TypeActive.Active }.Add(new ControlFormItemInputComboItem() { Text = _ => "combo" }),
                     new ControlToolbarItemDivider(),
-                    new ControlToolbarItemDropdown() { Icon = new IconHome(), Active = TypeActive.Active }
+                    new ControlToolbarItemDropdown() { Icon = _ => new IconHome(), Active = _ => TypeActive.Active }
                 )
             );
 
@@ -386,13 +386,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 typeof(ControlToolbarItemButton),
                 "Toggle",
                 "The toggle indicator is an interactive UI element that visually signals whether additional content is collapsed or expanded. It typically consists of a labeled button accompanied by a directional arrow icon. It's commonly used in dropdown menus.",
-                "new ControlToolbar().Add(new ControlToolbarItemDropdown() { Toggle = TypeToggleDropdown.Toggle })",
+                "new ControlToolbar().Add(new ControlToolbarItemDropdown() { Toggle = _ => TypeToggleDropdown.Toggle })",
                 new ControlToolbar().Add
                 (
                     new ControlToolbarItemDropdown()
                     {
-                        Icon = new IconHome(),
-                        Toggle = TypeToggleDropdown.Toggle
+                        Icon = _ => new IconHome(),
+                        Toggle = _ => TypeToggleDropdown.Toggle
                     }
                 )
             );
@@ -402,10 +402,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 typeof(ControlToolbarItemButton),
                 "Add",
                 "The `Add` method allows insertion of toolbar elements into the toolbar.",
-                "new ControlToolbar().Add(new ControlToolbarItemButton() { Icon = new IconHome() })",
+                "new ControlToolbar().Add(new ControlToolbarItemButton() { Icon = _ => new IconHome() })",
                 new ControlToolbar().Add
                 (
-                    new ControlToolbarItemButton() { Icon = new IconHome() }
+                    new ControlToolbarItemButton() { Icon = _ => new IconHome() }
                 )
             );
 
@@ -414,7 +414,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 typeof(ControlToolbarItemButton),
                 "AddMore",
                 "The `AddMore` method enhances the toolbar by appending extra actions that are grouped behind a consolidated entry point \"…\".",
-                "new ControlToolbar().AddMore(new ControlDropdownItemLink() { Label = \"Calculator\", Icon = new IconCalculator()})",
+                "new ControlToolbar().AddMore(new ControlDropdownItemLink() { Label = _ => \"Calculator\", Icon = _ => new IconCalculator()})",
                 new ControlToolbar().AddMore
                 (
                     new ControlDropdownItemLink() { Text = "Calculator", Icon = new IconCalculator() }
@@ -438,13 +438,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                 if (i % 3 == 0)
                 {
-                    yield return new ControlToolbarItemDivider() { Alignment = alignment };
+                    yield return new ControlToolbarItemDivider() { Alignment = _ => alignment };
                 }
                 yield return new ControlToolbarItemButton($"item{i}")
                 {
-                    Text = $"Item {i}",
-                    Icon = i > count / 2 ? new IconCat() : new IconDog(),
-                    Alignment = alignment
+                    Text = _ => $"Item {i}",
+                    Icon = i > count / 2 ? _ => new IconCat() : _ => new IconDog(),
+                    Alignment = _ => alignment
                 };
             }
         }

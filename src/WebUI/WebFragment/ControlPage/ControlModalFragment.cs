@@ -20,7 +20,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
         public ControlModalFragment(IFragmentContext fragmentContext)
           : base(fragmentContext, "myTableFormEdit")
         {
-            Header = "webexpress.tutorial.webui:character.edit.header";
+            Header = _ => "webexpress.tutorial.webui:character.edit.header";
         }
     }
 }

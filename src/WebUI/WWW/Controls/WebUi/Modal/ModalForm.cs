@@ -41,9 +41,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
             },
             new ControlFormItemInputSelection("country",
             [
-                new ControlFormItemInputSelectionItem("1") { Text = "Germany" },
-                new ControlFormItemInputSelectionItem("2") { Text = "Austria" },
-                new ControlFormItemInputSelectionItem("3") { Text = "Switzerland" }
+                new ControlFormItemInputSelectionItem("1") { Text = _ => "Germany" },
+                new ControlFormItemInputSelectionItem("2") { Text = _ => "Austria" },
+                new ControlFormItemInputSelectionItem("3") { Text = _ => "Switzerland" }
             ])
             {
                 Label = _ => "Country",
@@ -79,7 +79,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 },
                 new ControlModalForm("myModal")
                 {
-                    Header = "My modal",
+                    Header = _ => "My modal",
                     Conformation = _ =>new ControlAlert()
                     {
                         Text = @"Thank you! Your submission has been successfully received. We have received your request and will process it as soon as possible. If you need any further information, feel free to reach out to us anytime.",
@@ -101,7 +101,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 },
                 new ControlModalForm("myDarkModal")
                 {
-                    Header = "My dark modal",
+                    Header = _ => "My dark modal",
                     Conformation = _ =>new ControlAlert()
                     {
                         Text = @"Thank you! Your submission has been successfully received. We have received your request and will process it as soon as possible. If you need any further information, feel free to reach out to us anytime.",
@@ -146,7 +146,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  },
                  new ControlModalForm("myModalHeader")
                  {
-                     Header = "Header"
+                     Header = _ => "Header"
                  }
                  .Add(_exampleFormItems)
                  .AddPreferencesButton(new ControlFormItemButtonSubmit())
@@ -166,7 +166,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  },
                  new ControlModalForm("myModalDefault")
                  {
-                     Header = "Default",
+                     Header = _ => "Default",
                      Size = TypeModalSize.Default
                  }
                      .Add(_exampleFormItems)
@@ -180,7 +180,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  },
                  new ControlModalForm("myModalSmall")
                  {
-                     Header = "Small",
+                     Header = _ => "Small",
                      Size = TypeModalSize.Small
                  }
                      .Add(_exampleFormItems)
@@ -194,7 +194,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  },
                  new ControlModalForm("myModalLarge")
                  {
-                     Header = "Large",
+                     Header = _ => "Large",
                      Size = TypeModalSize.Large
                  }
                      .Add(_exampleFormItems)
@@ -208,7 +208,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  },
                  new ControlModalForm("myModalExtraLarge")
                  {
-                     Header = "ExtraLarge",
+                     Header = _ => "ExtraLarge",
                      Size = TypeModalSize.ExtraLarge
                  }
                      .Add(_exampleFormItems)
@@ -222,7 +222,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  },
                  new ControlModalForm("myModalFullscreen")
                  {
-                     Header = "Fullscreen",
+                     Header = _ => "Fullscreen",
                      Size = TypeModalSize.Fullscreen
                  }
                      .Add(_exampleFormItems)

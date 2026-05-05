@@ -52,7 +52,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     .Add(_item5),
                 new ControlModalRemoteForm("myModal")
                 {
-                    Header = "My modal",
+                    Header = _ => "My modal",
                     Size = TypeModalSize.ExtraLarge,
                     Uri = sitemapManager.GetUri<Index>(pageContext.ApplicationContext),
                     Selector = "#conformationform"

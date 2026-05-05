@@ -38,7 +38,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             });
 
             Stage.Code = @"
-            new ControlForm(new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem(""1"") { Label = ""Option 1"" })  
+            new ControlForm(new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem(""1"") { Label = _ => ""Option 1"" })  
             {  
             });";
 
@@ -47,10 +47,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "Placeholder",
                 "Sets the placeholder of the search field – a temporary text display that informs the user about the expected input. The placeholder disappears once the user starts typing a search query.",
-                "Placeholder = \"Placeholder\"",
+                "Placeholder = _ => \"Placeholder\"",
                 new ControlForm(null, new ControlFormItemInputCascading(null, [.. GetOptions()])
                 {
-                    Placeholder = "Placeholder"
+                    Placeholder = _ => "Placeholder"
                 })
             );
 
@@ -60,8 +60,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 typeof(ControlFormItemInputCascadingItem),
                 "ControlFormItemInputCascadingItem",
                 "A `ControlFormItemInputCascadingItem` represents a single selectable option within a cascading input control. Each item defines the value, label, and optional metadata used to populate hierarchical or dependency‑based selections. Cascading items are typically used when choices depend on previous selections, enabling users to navigate structured option sets step by step. By encapsulating each option as an individual item, `ControlFormItemInputCascadingItem` ensures clear data separation, consistent rendering, and flexible internationalization within complex form inputs.",
-                "new ControlFormItemInputCascadingItem() { Text = \"Text 1\" }",
-                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = "Text 1" })
+                "new ControlFormItemInputCascadingItem() { Text = _ => \"Text 1\" }",
+                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = _ => "Text 1" })
                 {
                 })
             );
@@ -72,7 +72,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Text",
                 "The `Text` property of a `Cascading` control item serves as a short form of the option text and is displayed in the main area of the control once a selection is made. Instead of showing the full descriptive text of an option, the label ensures a concise and clear representation of the chosen selection. When the label is defined as an internationalization key.",
                 "new ControlFormItemInputCascadingItem() { Text = \"Text 1\" }",
-                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = "Text 1" })
+                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = _ => "Text 1" })
                 {
                 })
             );
@@ -83,7 +83,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Content",
                 "The `Content` property of a `Cascading` control item represents the full description of the selection option in the dropdown list. Unlike the Label property, which provides a shortened display in the main area of the control, Content contains the complete text of the option.",
                 "new ControlFormItemInputCascadingItem() { Text=\"Text 2\", Content = new ControlText() { Text = \"Full **description** of the selection option\", Format = TypeFormatText.Markdown } }",
-                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = "Text 2", Content = new ControlText() { Text = "Full **description** of the selection option", Format = TypeFormatText.Markdown } })
+                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = _ => "Text 2", Content = new ControlText() { Text = "Full **description** of the selection option", Format = TypeFormatText.Markdown } })
                 {
                 })
             );
@@ -93,8 +93,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 typeof(ControlFormItemInputCascadingItem),
                 "Icon",
                 "The `Icon` property defines the symbol assigned to a item. It provides a visual representation and identification of a option within the list structure, enhancing user guidance and recognition. Icons can be either system icons or custom icons, allowing flexibility in design and functionality. System icons offer a standardized visual language, ensuring consistency across applications, while custom icons enable tailored representations to meet specific user needs.",
-                "new ControlFormItemInputCascadingItem() { Icon = new IconHome() }",
-                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Icon = new IconHome() })
+                "new ControlFormItemInputCascadingItem() { Icon = _ => new IconHome() }",
+                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Icon = _ => new IconHome() })
                 {
                 })
             );
@@ -104,41 +104,41 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 typeof(ControlFormItemInputCascadingItem),
                 "LabelColor",
                 "The `LabelColor` property defines the signature color of a `Cascading` control item’s label, visually highlighting the selected option. By customizing the color, the label can be styled to match the user interface or a specific design scheme, ensuring a consistent and appealing presentation.",
-                "new ControlFormItemInputCascadingItem() { Label = \"Label\", LabelColor = TypeColorSelection.Primary, Selected = true }",
+                "new ControlFormItemInputCascadingItem() { Label = _ => \"Label\", LabelColor = _ => TypeColorSelection.Primary, Selected = _ => true }",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = "Label", LabelColor = TypeColorSelection.Default })
+                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = _ => "Label", LabelColor = _ => TypeColorSelection.Default })
                 {
                 }),
                 new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = "Label", LabelColor = TypeColorSelection.Primary })
+                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = _ => "Label", LabelColor = _ => TypeColorSelection.Primary })
                 {
                 }),
                 new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = "Label", LabelColor = TypeColorSelection.Secondary })
+                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = _ => "Label", LabelColor = _ => TypeColorSelection.Secondary })
                 {
                 }),
                 new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = "Label", LabelColor = TypeColorSelection.Info })
+                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = _ => "Label", LabelColor = _ => TypeColorSelection.Info })
                 {
                 }),
                 new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = "Label", LabelColor = TypeColorSelection.Success })
+                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = _ => "Label", LabelColor = _ => TypeColorSelection.Success })
                 {
                 }),
                 new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = "Label", LabelColor = TypeColorSelection.Warning })
+                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = _ => "Label", LabelColor = _ => TypeColorSelection.Warning })
                 {
                 }),
                 new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = "Label", LabelColor = TypeColorSelection.Danger })
+                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = _ => "Label", LabelColor = _ => TypeColorSelection.Danger })
                 {
                 }),
                 new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = "Label", LabelColor = TypeColorSelection.Light })
+                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = _ => "Label", LabelColor = _ => TypeColorSelection.Light })
                 {
                 }),
                 new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = "Label", LabelColor = TypeColorSelection.Dark })
+                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = _ => "Label", LabelColor = _ => TypeColorSelection.Dark })
                 {
                 })
             );
@@ -155,45 +155,45 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
         {
             yield return new ControlFormItemInputCascadingItem("1")
             {
-                Text = "Option 1",
-                Icon = new IconSquare()
+                Text = _ => "Option 1",
+                Icon = _ => new IconSquare()
             }
-                .Add(new ControlFormItemInputCascadingItem("1.1") { Text = "Option 1.1", Icon = new IconSquare() })
-                .Add(new ControlFormItemInputCascadingItem("1.2") { Text = "Option 1.2", Icon = new IconSquare() });
+                .Add(new ControlFormItemInputCascadingItem("1.1") { Text = _ => "Option 1.1", Icon = _ => new IconSquare() })
+                .Add(new ControlFormItemInputCascadingItem("1.2") { Text = _ => "Option 1.2", Icon = _ => new IconSquare() });
 
             yield return new ControlFormItemInputCascadingItem("2")
             {
-                Text = "Option 2",
-                Icon = new IconCar()
+                Text = _ => "Option 2",
+                Icon = _ => new IconCar()
             }
-                .Add(new ControlFormItemInputCascadingItem("2.1") { Text = "Option 2.1", Icon = new IconCar() });
+                .Add(new ControlFormItemInputCascadingItem("2.1") { Text = _ => "Option 2.1", Icon = _ => new IconCar() });
 
             yield return new ControlFormItemInputCascadingItem("3")
             {
-                Text = "Option 3",
-                Icon = new IconAsterisk()
+                Text = _ => "Option 3",
+                Icon = _ => new IconAsterisk()
             }
-                .Add(new ControlFormItemInputCascadingItem("3.1") { Text = "Option 3.1", Icon = new IconAsterisk() })
-                .Add(new ControlFormItemInputCascadingItem("3.2") { Text = "Option 3.2", Icon = new IconAsterisk() })
-                .Add(new ControlFormItemInputCascadingItem("3.3") { Text = "Option 3.3", Icon = new IconAsterisk() });
+                .Add(new ControlFormItemInputCascadingItem("3.1") { Text = _ => "Option 3.1", Icon = _ => new IconAsterisk() })
+                .Add(new ControlFormItemInputCascadingItem("3.2") { Text = _ => "Option 3.2", Icon = _ => new IconAsterisk() })
+                .Add(new ControlFormItemInputCascadingItem("3.3") { Text = _ => "Option 3.3", Icon = _ => new IconAsterisk() });
 
-            yield return new ControlFormItemInputCascadingItem("4") { Text = "Option 4", Icon = new IconBaseball() };
+            yield return new ControlFormItemInputCascadingItem("4") { Text = _ => "Option 4", Icon = _ => new IconBaseball() };
 
-            yield return new ControlFormItemInputCascadingItem("5") { Text = "Option 5", Icon = new IconFloppyDisk() };
+            yield return new ControlFormItemInputCascadingItem("5") { Text = _ => "Option 5", Icon = _ => new IconFloppyDisk() };
 
-            yield return new ControlFormItemInputCascadingItem("6") { Text = "Option 6", Icon = new IconSeedling() };
+            yield return new ControlFormItemInputCascadingItem("6") { Text = _ => "Option 6", Icon = _ => new IconSeedling() };
 
             yield return new ControlFormItemInputCascadingItem("7")
             {
-                Text = "Option 7",
-                Icon = new IconRoute()
+                Text = _ => "Option 7",
+                Icon = _ => new IconRoute()
             }
-                .Add(new ControlFormItemInputCascadingItem("7.1") { Text = "Option 7.1", Icon = new IconRoute() })
-                .Add(new ControlFormItemInputCascadingItem("7.2") { Text = "Option 7.2", Icon = new IconRoute() });
+                .Add(new ControlFormItemInputCascadingItem("7.1") { Text = _ => "Option 7.1", Icon = _ => new IconRoute() })
+                .Add(new ControlFormItemInputCascadingItem("7.2") { Text = _ => "Option 7.2", Icon = _ => new IconRoute() });
 
-            yield return new ControlFormItemInputCascadingItem("8") { Text = "Option 9", Icon = new IconClipboard() };
+            yield return new ControlFormItemInputCascadingItem("8") { Text = _ => "Option 9", Icon = _ => new IconClipboard() };
 
-            yield return new ControlFormItemInputCascadingItem("10") { Text = "Option 10", Icon = new IconGlobe() };
+            yield return new ControlFormItemInputCascadingItem("10") { Text = _ => "Option 10", Icon = _ => new IconGlobe() };
         }
     }
 }

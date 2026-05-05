@@ -28,16 +28,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.Control =
                 new ControlChart()
                 {
-                    Type = TypeChart.Bar,
-                    Title = "Sales Development",
-                    TitleX = "Month",
-                    TitleY = "Sales (k)",
-                    Height = 300,
-                    Responsive = true,
-                    MaintainAspectRatio = false,
-                    LegendDisplay = true,
-                    TitleDisplay = true,
-                    YBeginAtZero = true
+                    Type = _ => TypeChart.Bar,
+                    Title = _ => "Sales Development",
+                    TitleX = _ => "Month",
+                    TitleY = _ => "Sales (k)",
+                    Height = _ => 300,
+                    Responsive = _ => true,
+                    MaintainAspectRatio = _ => false,
+                    LegendDisplay = _ => true,
+                    TitleDisplay = _ => true,
+                    YBeginAtZero = _ => true
                 }
                     .AddLabel("Jan", "Feb", "Mar", "Apr", "May", "Jun")
                     .AddDataset(new ControlChartDataset
@@ -87,11 +87,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Type = TypeChart.Bar or Type = TypeChart.Line",
                 new ControlChart()
                 {
-                    Type = TypeChart.Bar,
-                    Title = "Bar",
-                    TitleDisplay = true,
-                    Height = 220,
-                    YBeginAtZero = true
+                    Type = _ => TypeChart.Bar,
+                    Title = _ => "Bar",
+                    TitleDisplay = _ => true,
+                    Height = _ => 220,
+                    YBeginAtZero = _ => true
                 }
                     .AddLabel("A", "B", "C", "D")
                     .AddDataset(new ControlChartDataset
@@ -101,11 +101,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     }),
                 new ControlChart()
                 {
-                    Type = TypeChart.Line,
-                    Title = "Line",
-                    TitleDisplay = true,
-                    Height = 220,
-                    YBeginAtZero = true
+                    Type = _ => TypeChart.Line,
+                    Title = _ => "Line",
+                    TitleDisplay = _ => true,
+                    Height = _ => 220,
+                    YBeginAtZero = _ => true
                 }
                     .AddLabel("A", "B", "C", "D")
                     .AddDataset(new ControlChartDataset
@@ -115,10 +115,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     }),
                 new ControlChart()
                 {
-                    Type = TypeChart.Pie,
-                    Title = "Pie",
-                    TitleDisplay = true,
-                    Height = 220
+                    Type = _ => TypeChart.Pie,
+                    Title = _ => "Pie",
+                    TitleDisplay = _ => true,
+                    Height = _ => 220
                 }
                     .AddLabel("Red", "Blue", "Yellow")
                     .AddDataset(new ControlChartDataset
@@ -128,11 +128,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     }),
                 new ControlChart()
                 {
-                    Type = TypeChart.Doughnut,
+                    Type = _ => TypeChart.Doughnut,
 
-                    Title = "Browser Usage",
-                    TitleDisplay = true,
-                    Height = 220
+                    Title = _ => "Browser Usage",
+                    TitleDisplay = _ => true,
+                    Height = _ => 220
                 }
                     .AddLabel("Chrome", "Firefox", "Edge")
                     .AddDataset(new ControlChartDataset
@@ -142,10 +142,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     }),
                 new ControlChart()
                 {
-                    Type = TypeChart.Radar,
-                    Title = "Car Comparison",
-                    TitleDisplay = true,
-                    Height = 220
+                    Type = _ => TypeChart.Radar,
+                    Title = _ => "Car Comparison",
+                    TitleDisplay = _ => true,
+                    Height = _ => 220
                 }
                     .AddLabel("Speed", "Reliability", "Comfort")
                     .AddDataset(new ControlChartDataset
@@ -160,10 +160,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     }),
                 new ControlChart()
                 {
-                    Type = TypeChart.PolarArea,
-                    Title = "Wind Strength",
-                    TitleDisplay = true,
-                    Height = 220
+                    Type = _ => TypeChart.PolarArea,
+                    Title = _ => "Wind Strength",
+                    TitleDisplay = _ => true,
+                    Height = _ => 220
                 }
                     .AddLabel("North", "East", "South")
                     .AddDataset(new ControlChartDataset
@@ -173,10 +173,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     }),
                 new ControlChart()
                 {
-                    Type = TypeChart.Bubble,
-                    Title = "Bubble Data",
-                    TitleDisplay = true,
-                    Height = 220
+                    Type = _ => TypeChart.Bubble,
+                    Title = _ => "Bubble Data",
+                    TitleDisplay = _ => true,
+                    Height = _ => 220
                 }
                     .AddDataset(new ControlChartDataset
                     {
@@ -189,10 +189,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     }),
                 new ControlChart()
                 {
-                    Type = TypeChart.Scatter,
-                    Title = "Scatter Data",
-                    TitleDisplay = true,
-                    Height = 220
+                    Type = _ => TypeChart.Scatter,
+                    Title = _ => "Scatter Data",
+                    TitleDisplay = _ => true,
+                    Height = _ => 220
                 }
                     .AddDataset(new ControlChartDataset
                     {
@@ -214,11 +214,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Labels = new List<string> { \"Q1\", \"Q2\", \"Q3\", \"Q4\" }",
                 new ControlChart()
                 {
-                    Type = TypeChart.Bar,
-                    Title = "Quarters",
-                    TitleDisplay = true,
-                    Height = 220,
-                    YBeginAtZero = true
+                    Type = _ => TypeChart.Bar,
+                    Title = _ => "Quarters",
+                    TitleDisplay = _ => true,
+                    Height = _ => 220,
+                    YBeginAtZero = _ => true
                 }
                     .AddLabel("Q1", "Q2", "Q3", "Q4")
                     .AddDataset(new ControlChartDataset
@@ -241,12 +241,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Title = \"Performance Overview\"; TitleX = \"Month\"; TitleY = \"Points\";",
                 new ControlChart()
                 {
-                    Type = TypeChart.Line,
-                    Title = "Performance Overview",
-                    TitleX = "Month",
-                    TitleY = "Points",
-                    TitleDisplay = true,
-                    Height = 220
+                    Type = _ => TypeChart.Line,
+                    Title = _ => "Performance Overview",
+                    TitleX = _ => "Month",
+                    TitleY = _ => "Points",
+                    TitleDisplay = _ => true,
+                    Height = _ => 220
                 }
                     .AddLabel("Jan", "Feb", "Mar", "Apr")
                     .AddDataset(new ControlChartDataset
@@ -264,14 +264,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Responsive = true; MaintainAspectRatio = false; LegendDisplay = true; TitleDisplay = true;",
                 new ControlChart()
                 {
-                    Type = TypeChart.Bar,
-                    Title = "Sizes",
-                    TitleDisplay = true,
-                    Responsive = true,
-                    MaintainAspectRatio = false,
-                    LegendDisplay = true,
-                    Height = 220,
-                    YBeginAtZero = true
+                    Type = _ => TypeChart.Bar,
+                    Title = _ => "Sizes",
+                    TitleDisplay = _ => true,
+                    Responsive = _ => true,
+                    MaintainAspectRatio = _ => false,
+                    LegendDisplay = _ => true,
+                    Height = _ => 220,
+                    YBeginAtZero = _ => true
                 }
                     .AddLabel("S", "M", "L", "XL")
                     .AddDataset(new ControlChartDataset
@@ -289,13 +289,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "YBeginAtZero = true; Minimum = 0; Maximum = 20;",
                 new ControlChart()
                 {
-                    Type = TypeChart.Bar,
-                    Title = "Scaling",
-                    TitleDisplay = true,
-                    Height = 220,
-                    YBeginAtZero = true,
-                    Minimum = 0,
-                    Maximum = 20
+                    Type = _ => TypeChart.Bar,
+                    Title = _ => "Scaling",
+                    TitleDisplay = _ => true,
+                    Height = _ => 220,
+                    YBeginAtZero = _ => true,
+                    Minimum = _ => 0,
+                    Maximum = _ => 20
                 }
                     .AddLabel("P1", "P2", "P3", "P4")
                     .AddDataset(new ControlChartDataset
@@ -321,11 +321,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 }",
                 new ControlChart()
                 {
-                    Type = TypeChart.Bar,
-                    Title = "Style",
-                    TitleDisplay = true,
-                    Height = 220,
-                    YBeginAtZero = true
+                    Type = _ => TypeChart.Bar,
+                    Title = _ => "Style",
+                    TitleDisplay = _ => true,
+                    Height = _ => 220,
+                    YBeginAtZero = _ => true
                 }
                     .AddLabel("K1", "K2", "K3")
                     .AddDataset(new ControlChartDataset
@@ -351,11 +351,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Height = 360",
                 new ControlChart()
                 {
-                    Type = TypeChart.Line,
-                    Title = "Height Example",
-                    TitleDisplay = true,
-                    Height = 360,
-                    YBeginAtZero = true
+                    Type = _ => TypeChart.Line,
+                    Title = _ => "Height Example",
+                    TitleDisplay = _ => true,
+                    Height = _ => 360,
+                    YBeginAtZero = _ => true
                 }
                     .AddLabel("T1", "T2", "T3", "T4", "T5")
                     .AddDataset(new ControlChartDataset

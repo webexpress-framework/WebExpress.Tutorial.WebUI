@@ -30,37 +30,37 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 [
                     new ControlTreeItem("1.1")
                     {
-                        Text = "Node 1.1",
-                        Uri = new UriEndpoint("http://example.com")
+                        Text = _ => "Node 1.1",
+                        Uri = _ => new UriEndpoint("http://example.com")
                     },
                     new ControlTreeItem("1.2")
                     {
-                        Text = "Node 1.2"
+                        Text = _ => "Node 1.2"
                     }
                 ])
             {
-                Text = "Node 1",
-                IconOpen = new IconFolderOpen(),
-                IconClose = new IconFolder(),
-                Expand = true
+                Text = _ => "Node 1",
+                IconOpen = _ => new IconFolderOpen(),
+                IconClose = _ => new IconFolder(),
+                Expand = _ => true
             },
             new ControlTreeItem("2",
                 [
                     new ControlTreeItem("2.1")
                     {
-                        Text = "Node 2.1"
+                        Text = _ => "Node 2.1"
                     },
                     new ControlTreeItem("2.2")
                     {
-                        Text = "Node 2.2"
+                        Text = _ => "Node 2.2"
                     }
                 ])
             {
-                Text = "Node 2",
-                IconOpen = new IconFolderOpen(),
-                IconClose = new IconFolder(),
-                Icon = new IconCog(),
-                Expand = false
+                Text = _ => "Node 2",
+                IconOpen = _ => new IconFolderOpen(),
+                IconClose = _ => new IconFolder(),
+                Icon = _ => new IconCog(),
+                Expand = _ => false
             }
         ];
 
@@ -153,14 +153,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 }
                     .Add(new ControlTreeItem(""1"", new ControlTreeItem(""1.1""))
                     {
-                        Expand = true
+                        Expand = _=> true
                     })",
                 new ControlTree(RandomId.Create())
                 {
                 }
                     .Add(new ControlTreeItem("1", new ControlTreeItem("1.1"))
                     {
-                        Expand = true
+                        Expand = _ => true
                     })
             );
 
@@ -175,14 +175,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 }
                     .Add(new ControlTreeItem(""1"", new ControlTreeItem(""1.1""))
                     {
-                        Expand = true
+                        Expand = _=> true
                     })",
                 new ControlTree(RandomId.Create())
                 {
                 }
                     .Add(new ControlTreeItem("1", new ControlTreeItem("1.1"))
                     {
-                        Expand = true
+                        Expand = _ => true
                     })
             );
 
@@ -194,7 +194,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 @"
                 new ControlTree() 
                 { 
-                    DisableIndicator = true 
+                    DisableIndicator = _=> true 
                 }
                     .Add(...)",
                 new ControlTree(RandomId.Create())
@@ -209,8 +209,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 typeof(ControlTreeItem),
                 "Uri",
                 "The `Uri` property enables the association of a node with a specific link address. These links can point to external websites or internal resources, allowing users to navigate directly to relevant content.",
-                "new ControlTreeItemLink(\"1\") { Uri = new UriEndpoint(\"http://example.com\") }",
-                new ControlTree(RandomId.Create(), new ControlTreeItem("1") { Uri = new UriEndpoint("http://example.com") })
+                "new ControlTreeItemLink(\"1\") { Uri = _=> new UriEndpoint(\"http://example.com\") }",
+                new ControlTree(RandomId.Create(), new ControlTreeItem("1") { Uri = _ => new UriEndpoint("http://example.com") })
                 {
                 }
             );
@@ -220,8 +220,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 typeof(ControlTreeItem),
                 "Target",
                 "The `Target` property controls how a link opens when clicked. It determines whether the destination page appears in the same tab, a new tab, or a specific window.",
-                "new ControlTreeItemLink(\"1\") { Uri = new UriEndpoint(\"http://example.com\"), Target = TypeTarget.Blank }",
-                new ControlTree(RandomId.Create(), new ControlTreeItem("1") { Uri = new UriEndpoint("http://example.com"), Target = TypeTarget.Blank })
+                "new ControlTreeItemLink(\"1\") { Uri = _=> new UriEndpoint(\"http://example.com\"), Target = _=> TypeTarget.Blank }",
+                new ControlTree(RandomId.Create(), new ControlTreeItem("1") { Uri = _ => new UriEndpoint("http://example.com"), Target = _ => TypeTarget.Blank })
                 {
                 }
             );
@@ -231,8 +231,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 typeof(ControlTreeItem),
                 "Tooltip",
                 "The `Tooltip` property provides additional information when hovering over a node. It displays a small pop-up text box, helping users understand the purpose or details of the node without clicking on it.",
-                "new ControlTreeItemLink(\"1\") { Tooltip = \"abc\" }",
-                new ControlTree(RandomId.Create(), new ControlTreeItem("1") { Tooltip = "abc" })
+                "new ControlTreeItemLink(\"1\") { Tooltip = _=> \"abc\" }",
+                new ControlTree(RandomId.Create(), new ControlTreeItem("1") { Tooltip = _ => "abc" })
                 {
                 }
             );
@@ -242,8 +242,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 typeof(ControlTreeItem),
                 "Icon",
                 "The `Icon` property defines the symbol assigned to a node. It provides a visual representation and identification of nodes within the tree structure, enhancing user guidance and recognition.\r\n\r\nIcons can be either system icons or custom icons, allowing flexibility in design and functionality. System icons offer a standardized visual language, ensuring consistency across applications, while custom icons enable tailored representations to meet specific user needs.",
-                "new ControlTreeItem(\"1\") { Icon = new IconHome() }",
-                new ControlTree(RandomId.Create(), new ControlTreeItem("1") { Icon = new IconHome() })
+                "new ControlTreeItem(\"1\") { Icon = _=> new IconHome() }",
+                new ControlTree(RandomId.Create(), new ControlTreeItem("1") { Icon = _ => new IconHome() })
                 {
                 }
             );
@@ -253,8 +253,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 typeof(ControlTreeItem),
                 "IconOpen and IconClose",
                 @"The `IconOpen` and `IconClose` property defines the symbols assigned to a node, representing its state within the tree structure. Each node can have two distinct icons: `IconOpen` – Displays when the node is expanded, indicating that its substructure is visible. `IconClose` – Appears when the node is collapsed, signaling that its substructure is hidden. Using separate icons for open and closed states enhances clarity and usability, allowing users to intuitively understand and interact with the tree structure.",
-                "new ControlTreeItem(\"1\", new ControlTreeItem(\"1.1\")) { Expand = true, IconOpen=new IconFolderOpen(), IconClose=new IconFolder() }",
-                new ControlTree(RandomId.Create(), new ControlTreeItem("1", new ControlTreeItem("1.1")) { Expand = true, IconOpen = new IconFolderOpen(), IconClose = new IconFolder() })
+                "new ControlTreeItem(\"1\", new ControlTreeItem(\"1.1\")) { Expand = _=> true, IconOpen = _=> new IconFolderOpen(), IconClose = _=> new IconFolder() }",
+                new ControlTree(RandomId.Create(), new ControlTreeItem("1", new ControlTreeItem("1.1")) { Expand = _ => true, IconOpen = _ => new IconFolderOpen(), IconClose = _ => new IconFolder() })
                 {
                 }
             );

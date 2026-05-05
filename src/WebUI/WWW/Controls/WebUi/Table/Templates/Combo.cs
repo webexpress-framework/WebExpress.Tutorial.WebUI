@@ -86,16 +86,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
         {
             yield return new ControlTableColumnTemplate("myColumn1", new ControlTableTemplateCombo()
             {
-                Editable = editable,
-                MultiSelect = multiSelect
+                Editable = _ => editable,
+                MultiSelect = _ => multiSelect
             }
-                .Add(new ControlFormItemInputComboItem() { Value = "a", Text = "Option A", })
-                .Add(new ControlFormItemInputComboItem() { Value = "b", Text = "Option B", })
-                .Add(new ControlFormItemInputComboItem() { Value = "c", Text = "Option C", })
-                .Add(new ControlFormItemInputComboItem() { Value = "d", Text = "Option D", }))
+                .Add(new ControlFormItemInputComboItem() { Value = _ => "a", Text = _ => "Option A", })
+                .Add(new ControlFormItemInputComboItem() { Value = _ => "b", Text = _ => "Option B", })
+                .Add(new ControlFormItemInputComboItem() { Value = _ => "c", Text = _ => "Option C", })
+                .Add(new ControlFormItemInputComboItem() { Value = _ => "d", Text = _ => "Option D", }))
             {
-                Title = "My column",
-                Icon = new IconBowlingBall()
+                Title = _ => "My column",
+                Icon = _ => new IconBowlingBall()
             };
         }
 
@@ -110,17 +110,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
             yield return new ControlTableRow("myRow1")
                 .Add
                 (
-                    new ControlTableCell() { Text = "a" }
+                    new ControlTableCell() { Text = _ => "a" }
                 );
             yield return new ControlTableRow("myRow2")
                 .Add
                 (
-                    new ControlTableCell() { Text = "b" }
+                    new ControlTableCell() { Text = _ => "b" }
                 );
             yield return new ControlTableRow("myRow3")
                 .Add
                 (
-                    new ControlTableCell() { Text = "c" }
+                    new ControlTableCell() { Text = _ => "c" }
                 );
         }
     }

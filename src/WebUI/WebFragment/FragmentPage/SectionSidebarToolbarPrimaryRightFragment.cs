@@ -21,8 +21,8 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.FragmentPage
         public SectionSidebarToolbarPrimaryRightFragment(IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Alignment = TypeToolbarItemAlignment.Right;
-            Text = "SectionSidebarToolbarPrimary (right)";
+            Alignment = _ => TypeToolbarItemAlignment.Right;
+            Text = _ => "SectionSidebarToolbarPrimary (right)";
         }
     }
 }

@@ -21,8 +21,8 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.FragmentPage
         public SectionToolbarPreferencesRightFragment(IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "SectionToolbarPreferences (Right)";
-            Alignment = TypeToolbarItemAlignment.Right;
+            Text = _ => "SectionToolbarPreferences (Right)";
+            Alignment = _ => TypeToolbarItemAlignment.Right;
         }
     }
 }

@@ -112,7 +112,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "NodeStyle = TypeStyleGraphNode.LabelBelow",
                 new ControlGraphViewer()
                 {
-                    NodeStyle = TypeStyleGraphNode.LabelBelow
+                    NodeStyle = _ => TypeStyleGraphNode.LabelBelow
                 }
                     .Add(new ControlGraphItemNode("A")
                     {

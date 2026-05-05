@@ -99,7 +99,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlSmartEdit()
                 {
                 }
-                    .Add(new ControlFormItemInputText() { Format = TypeEditTextFormat.Wysiwyg }
+                    .Add(new ControlFormItemInputText() { Format = _ => TypeEditTextFormat.Wysiwyg }
                         .Initialize(x => x.Value.Text = "Hello <b>WebExpress</b>!")),
                 new ControlText()
                 {
@@ -146,8 +146,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     .Add(new ControlFormItemInputCombo()
                         .Add
                         (
-                            new ControlFormItemInputComboItem() { Value = "a", Text = "Combo A" },
-                            new ControlFormItemInputComboItem() { Value = "b", Text = "Combo B" }
+                            new ControlFormItemInputComboItem() { Value = _ => "a", Text = _ => "Combo A" },
+                            new ControlFormItemInputComboItem() { Value = _ => "b", Text = _ => "Combo B" }
                         )
                         .Initialize(x => x.Value.Text = "Combo B")),
                 new ControlText()
@@ -164,13 +164,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                         (
                             new ControlFormItemInputSelectionItem("a")
                             {
-                                Text = "Selection A",
-                                Color = TypeColorSelection.Warning
+                                Text = _ => "Selection A",
+                                Color = _ => TypeColorSelection.Warning
                             },
                             new ControlFormItemInputSelectionItem("b")
                             {
-                                Text = "Selection B",
-                                Color = TypeColorSelection.Warning
+                                Text = _ => "Selection B",
+                                Color = _ => TypeColorSelection.Warning
                             }
                         )
                         .Initialize(x => x.Value.Text = "a")),
@@ -186,9 +186,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     .Add(new ControlFormItemInputMove()
                         .Add
                         (
-                            new ControlFormItemInputMoveItem("a") { Text = "Item A" },
-                            new ControlFormItemInputMoveItem("b") { Text = "Item B" },
-                            new ControlFormItemInputMoveItem("c") { Text = "Item C" }
+                            new ControlFormItemInputMoveItem("a") { Text = _ => "Item A" },
+                            new ControlFormItemInputMoveItem("b") { Text = _ => "Item B" },
+                            new ControlFormItemInputMoveItem("c") { Text = _ => "Item C" }
                         )
                         .Initialize(x => x.Value.Add("a;c"))),
                 new ControlText()

@@ -48,56 +48,56 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 new ControlKanbanCard("task1")
                 {
-                    Title = "Write Documentation",
-                    Icon = new IconFileCode(),
-                    Color = "blue",
-                    ColumnId = "progress",
-                    SwimlaneId = "height"
+                    Title = _ => "Write Documentation",
+                    Icon = _ => new IconFileCode(),
+                    Color = _ => "blue",
+                    ColumnId = _ => "progress",
+                    SwimlaneId = _ => "height"
                 },
 
                 new ControlKanbanCard("task2")
                 {
-                    Title = "Implement Feature X",
-                    Icon = new IconGears(),
-                    Color = "orange",
-                    ColumnId = "todo",
-                    SwimlaneId = "priority"
+                    Title = _ => "Implement Feature X",
+                    Icon = _ => new IconGears(),
+                    Color = _ => "orange",
+                    ColumnId = _ => "todo",
+                    SwimlaneId = _ => "priority"
                 },
 
                 new ControlKanbanCard("task3")
                 {
-                    Title = "Fix Bug #42",
-                    Icon = new IconBug(),
-                    Color = "green",
-                    ColumnId = "done",
-                    SwimlaneId = "team"
+                    Title = _ => "Fix Bug #42",
+                    Icon = _ => new IconBug(),
+                    Color = _ => "green",
+                    ColumnId = _ => "done",
+                    SwimlaneId = _ => "team"
                 },
 
                 new ControlKanbanCard("task4")
                 {
-                    Title = "Refactor Data Layer",
-                    Icon = new IconDatabase(),
-                    Color = "purple",
-                    ColumnId = "progress",
-                    SwimlaneId = "team"
+                    Title = _ => "Refactor Data Layer",
+                    Icon = _ => new IconDatabase(),
+                    Color = _ => "purple",
+                    ColumnId = _ => "progress",
+                    SwimlaneId = _ => "team"
                 },
 
                 new ControlKanbanCard("task5")
                 {
-                    Title = "Design UI Mockups",
-                    Icon = new IconPalette(),
-                    Color = "pink",
-                    ColumnId = "todo",
-                    SwimlaneId = "height"
+                    Title = _ => "Design UI Mockups",
+                    Icon = _ => new IconPalette(),
+                    Color = _ => "pink",
+                    ColumnId = _ => "todo",
+                    SwimlaneId = _ => "height"
                 },
 
                 new ControlKanbanCard("task6")
                 {
-                    Title = "Prepare Release Notes",
-                    Icon = new IconFilePdf(),
-                    Color = "cyan",
-                    ColumnId = "done",
-                    SwimlaneId = "priority"
+                    Title = _ => "Prepare Release Notes",
+                    Icon = _ => new IconFilePdf(),
+                    Color = _ => "cyan",
+                    ColumnId = _ => "done",
+                    SwimlaneId = _ => "priority"
                 }
             );
 

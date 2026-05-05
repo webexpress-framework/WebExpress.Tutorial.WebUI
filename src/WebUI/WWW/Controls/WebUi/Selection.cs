@@ -29,17 +29,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.Controls = [
                 new ControlSelection()
                 {
-                    Value = "1;2"
+                    Value = _ => "1;2"
                 }
                     .Add
                     (
                         new ControlFormItemInputSelectionItem("1")
                         {
-                            Text = "Hallo"
+                            Text = _ => "Hallo"
                         },
                         new ControlFormItemInputSelectionItem("2")
                         {
-                            Text = "WebExpress"
+                            Text = _ => "WebExpress"
                         }
                     )
             ];
@@ -69,11 +69,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "new ControlFormItemInputSelectionItem(\"Default\") { Text = \"Default\" }",
                 new ControlSelection()
                 {
-                    Value = "Default"
+                    Value = _ => "Default"
                 }
                     .Add(new ControlFormItemInputSelectionItem("Default")
                     {
-                        Text = "Default"
+                        Text = _ => "Default"
                     })
             );
 
@@ -84,23 +84,23 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "The `LabelColor` property defines the visual color applied to the item within the control. This uniform color enhances clarity, improves recognition, and ensures a cohesive user interface experience.",
                 "LabelColor = TypeColorSelection.Secondary",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlSelection() { Value = "Default" }.Add(new ControlFormItemInputSelectionItem("Default") { Text = "Default" }),
+                new ControlSelection() { Value = _ => "Default" }.Add(new ControlFormItemInputSelectionItem("Default") { Text = _ => "Default" }),
                 new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlSelection() { Value = "Primary" }.Add(new ControlFormItemInputSelectionItem("Primary") { Text = "Primary", Color = TypeColorSelection.Primary }),
+                new ControlSelection() { Value = _ => "Primary" }.Add(new ControlFormItemInputSelectionItem("Primary") { Text = _ => "Primary", Color = _ => TypeColorSelection.Primary }),
                 new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlSelection() { Value = "Secondary" }.Add(new ControlFormItemInputSelectionItem("Secondary") { Text = "Secondary", Color = TypeColorSelection.Secondary }),
+                new ControlSelection() { Value = _ => "Secondary" }.Add(new ControlFormItemInputSelectionItem("Secondary") { Text = _ => "Secondary", Color = _ => TypeColorSelection.Secondary }),
                 new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlSelection() { Value = "Info" }.Add(new ControlFormItemInputSelectionItem("Info") { Text = "Info", Color = TypeColorSelection.Info }),
+                new ControlSelection() { Value = _ => "Info" }.Add(new ControlFormItemInputSelectionItem("Info") { Text = _ => "Info", Color = _ => TypeColorSelection.Info }),
                 new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlSelection() { Value = "Success" }.Add(new ControlFormItemInputSelectionItem("Success") { Text = "Success", Color = TypeColorSelection.Success }),
+                new ControlSelection() { Value = _ => "Success" }.Add(new ControlFormItemInputSelectionItem("Success") { Text = _ => "Success", Color = _ => TypeColorSelection.Success }),
                 new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlSelection() { Value = "Warning" }.Add(new ControlFormItemInputSelectionItem("Warning") { Text = "Warning", Color = TypeColorSelection.Warning }),
+                new ControlSelection() { Value = _ => "Warning" }.Add(new ControlFormItemInputSelectionItem("Warning") { Text = _ => "Warning", Color = _ => TypeColorSelection.Warning }),
                 new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlSelection() { Value = "Danger" }.Add(new ControlFormItemInputSelectionItem("Danger") { Text = "Danger", Color = TypeColorSelection.Danger }),
+                new ControlSelection() { Value = _ => "Danger" }.Add(new ControlFormItemInputSelectionItem("Danger") { Text = _ => "Danger", Color = _ => TypeColorSelection.Danger }),
                 new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlSelection() { Value = "Light" }.Add(new ControlFormItemInputSelectionItem("Light") { Text = "Light", Color = TypeColorSelection.Light }),
+                new ControlSelection() { Value = _ => "Light" }.Add(new ControlFormItemInputSelectionItem("Light") { Text = _ => "Light", Color = _ => TypeColorSelection.Light }),
                 new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlSelection() { Value = "Dark" }.Add(new ControlFormItemInputSelectionItem("Dark") { Text = "Dark", Color = TypeColorSelection.Dark })
+                new ControlSelection() { Value = _ => "Dark" }.Add(new ControlFormItemInputSelectionItem("Dark") { Text = _ => "Dark", Color = _ => TypeColorSelection.Dark })
             );
         }
     }

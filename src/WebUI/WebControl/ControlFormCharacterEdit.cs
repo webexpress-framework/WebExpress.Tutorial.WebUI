@@ -26,9 +26,9 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         {
             Label = _ => "Name",
             Name = _ => nameof(Character.Name),
-            Placeholder = "Enter the character's name",
+            Placeholder = _ => "Enter the character's name",
             Required = _ => true,
-            MaxLength = 100,
+            MaxLength = _ => 100,
             Icon = _ => new IconUser(),
             Help = _ => "The name of the character. This is a required field and should be unique."
         };
@@ -40,10 +40,10 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         {
             Label = _ => "Description",
             Name = _ => nameof(Character.Description),
-            Format = TypeEditTextFormat.Wysiwyg,
-            Placeholder = "Enter a brief description of the character",
+            Format = _ => TypeEditTextFormat.Wysiwyg,
+            Placeholder = _ => "Enter a brief description of the character",
             Required = _ => true,
-            MaxLength = 500,
+            MaxLength = _ => 500,
             Help = _ => "A brief description of the character. This field is required and can include details about the character's role, personality, and background."
         };
 
@@ -53,16 +53,16 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         public IControlFormItemInputSelection AppearsIn { get; } = new ControlFormItemInputSelection
         {
             Label = _ => "Appears In",
-            MultiSelect = true,
+            MultiSelect = _ => true,
             Name = _ => nameof(Character.AppearsIn),
-            Placeholder = "Enter the name of the game or context where this character appears",
+            Placeholder = _ => "Enter the name of the game or context where this character appears",
             Required = _ => true,
             Help = _ => "The name of the game or context where this character appears. This field is required and should specify the game or narrative context in which the character is involved."
         }
             .Add(ViewModel.MonkeyIslandGames.Select(x => new ControlFormItemInputSelectionItem(x.Id.ToString())
             {
-                Text = x.Name,
-                Color = TypeColorSelection.Primary
+                Text = _ => x.Name,
+                Color = _ => TypeColorSelection.Primary
             }));
 
         /// <summary>

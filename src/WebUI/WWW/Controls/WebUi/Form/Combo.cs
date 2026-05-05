@@ -21,16 +21,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
     {
         private readonly IEnumerable<ControlFormItemInputComboItem> _options =
         [
-            new ControlFormItemInputComboItem { Value = "1", Text = "Option 1" },
-            new ControlFormItemInputComboItem { Value = "2", Text = "Option 2" },
-            new ControlFormItemInputComboItem { Value = "3", Text = "Option 3" },
-            new ControlFormItemInputComboItem { Value = "4", Text = "Option 4" },
-            new ControlFormItemInputComboItem { Value = "5", Text = "Option 5" },
-            new ControlFormItemInputComboItem { Value = "6", Text = "Option 6" },
-            new ControlFormItemInputComboItem { Value = "7", Text = "Option 7" },
-            new ControlFormItemInputComboItem { Value = "8", Text = "Option 8" },
-            new ControlFormItemInputComboItem { Value = "9", Text = "Option 9" },
-            new ControlFormItemInputComboItem { Value = "10", Text = "Option 10" }
+            new ControlFormItemInputComboItem { Value = _ => "1", Text = _ => "Option 1" },
+            new ControlFormItemInputComboItem { Value = _ => "2", Text = _ => "Option 2" },
+            new ControlFormItemInputComboItem { Value = _ => "3", Text = _ => "Option 3" },
+            new ControlFormItemInputComboItem { Value = _ => "4", Text = _ => "Option 4" },
+            new ControlFormItemInputComboItem { Value = _ => "5", Text = _ => "Option 5" },
+            new ControlFormItemInputComboItem { Value = _ => "6", Text = _ => "Option 6" },
+            new ControlFormItemInputComboItem { Value = _ => "7", Text = _ => "Option 7" },
+            new ControlFormItemInputComboItem { Value = _ => "8", Text = _ => "Option 8" },
+            new ControlFormItemInputComboItem { Value = _ => "9", Text = _ => "Option 9" },
+            new ControlFormItemInputComboItem { Value = _ => "10", Text = _ => "Option 10" }
         ];
 
         /// <summary>    
@@ -58,7 +58,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Placeholder = \"Select an option\"",
                 new ControlForm(null, new ControlFormItemInputCombo(null, [.. _options])
                 {
-                    Placeholder = "Select an option",
+                    Placeholder = _ => "Select an option",
                 })
             );
         }

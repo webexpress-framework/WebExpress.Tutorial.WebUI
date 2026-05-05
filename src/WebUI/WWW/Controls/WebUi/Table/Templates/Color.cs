@@ -93,11 +93,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
         {
             yield return new ControlTableColumnTemplate("myColumn1", new ControlTableTemplateColor()
             {
-                Editable = editable
+                Editable = _ => editable
             })
             {
-                Title = "My column",
-                Icon = new IconBowlingBall()
+                Title = _ => "My column",
+                Icon = _ => new IconBowlingBall()
             };
         }
 
@@ -112,17 +112,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
             yield return new ControlTableRow("myRow1")
                 .Add
                 (
-                    new ControlTableCell() { Text = "#23a256" }
+                    new ControlTableCell() { Text = _ => "#23a256" }
                 );
             yield return new ControlTableRow("myRow2")
                 .Add
                 (
-                    new ControlTableCell() { Text = "#b3a256" }
+                    new ControlTableCell() { Text = _ => "#b3a256" }
                 );
             yield return new ControlTableRow("myRow3")
                 .Add
                 (
-                    new ControlTableCell() { Text = "#23a2b6" }
+                    new ControlTableCell() { Text = _ => "#23a2b6" }
                 );
         }
     }

@@ -25,6 +25,14 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
     [Order(4)]
     public sealed class ControlSidebarFragmentWebAppTree : FragmentControlSidebarItemDynamic
     {
+        private readonly struct SidebarTreeItem
+        {
+            public string Id { get; init; }
+            public string Text { get; init; }
+            public IUri Uri { get; init; }
+            public bool Active { get; init; }
+        }
+
         private readonly IComponentHub _componentHub;
         private readonly IFragmentContext _fragmentContext;
 
@@ -63,12 +71,12 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
                     .Where(x => x.Scopes.Contains(typeof(IScopeControlWebApp)))
                     .Where(x => x.EndpointId != indexContext?.EndpointId)
                     .OrderBy(x => x.PageTitle)
-                    .Select(x => new ControlTreeItem
+                    .Select(x => new SidebarTreeItem
                     {
+                        Id = x.EndpointId?.ToString(),
                         Text = I18N.Translate(renderContext, x.PageTitle),
                         Uri = x.Route.ToUri(),
-                        Active = x.Route == renderContext.PageContext.Route,
-                        Expand = true
+                        Active = x.Route == renderContext.PageContext.Route
                     }).ToList();
 
                 var tree = BuildTree(items, indexContext.Route.ToUri());
@@ -94,7 +102,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
         /// <param name="items">The flat list of tree items.</param>
         /// <param name="root">The root URI to determine the hierarchy.</param>
         /// <returns>A collection of <see cref="ControlTreeItem"/> representing the hierarchical tree structure.</returns>
-        private static IEnumerable<ControlTreeItem> BuildTree(IEnumerable<ControlTreeItem> items, IUri root)
+        private static IEnumerable<ControlTreeItem> BuildTree(IEnumerable<SidebarTreeItem> items, IUri root)
         {
             var nodes = new List<ControlTreeItem>();
 
@@ -106,10 +114,10 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
             {
                 var node = new ControlTreeItem(item.Id, [.. BuildTree(items, item.Uri)])
                 {
-                    Text = item.Text,
-                    Uri = item.Uri,
-                    Active = item.Active,
-                    Expand = true
+                    Text = _ => item.Text,
+                    Uri = _ => item.Uri,
+                    Active = _ => item.Active,
+                    Expand = _ => true
                 };
                 nodes.Add(node);
             }

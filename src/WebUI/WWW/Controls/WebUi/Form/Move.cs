@@ -24,16 +24,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
     {
         private readonly IEnumerable<ControlFormItemInputMoveItem> _options =
         [
-            new ControlFormItemInputMoveItem("1") { Text = "Option 1", Icon = new IconSquare() },
-            new ControlFormItemInputMoveItem("2") { Text = "Option 2", Icon = new IconCar() },
-            new ControlFormItemInputMoveItem("3") { Text = "Option 3", Icon = new IconAsterisk() },
-            new ControlFormItemInputMoveItem("4") { Text = "Option 4", Icon = new IconBaseball() },
-            new ControlFormItemInputMoveItem("5") { Text = "Option 5", Icon = new IconFloppyDisk() },
-            new ControlFormItemInputMoveItem("6") { Text = "Option 6", Icon = new IconSeedling() },
-            new ControlFormItemInputMoveItem("7") { Text = "Option 7", Icon = new IconRoute() },
-            new ControlFormItemInputMoveItem("8") { Text = "Option 8", Icon = new IconReply() },
-            new ControlFormItemInputMoveItem("9") { Text = "Option 9", Icon = new IconClipboard() },
-            new ControlFormItemInputMoveItem("10") { Text = "Option 10", Icon = new IconGlobe() }
+            new ControlFormItemInputMoveItem("1") { Text = _ => "Option 1", Icon = _ => new IconSquare() },
+            new ControlFormItemInputMoveItem("2") { Text = _ => "Option 2", Icon = _ => new IconCar() },
+            new ControlFormItemInputMoveItem("3") { Text = _ => "Option 3", Icon = _ => new IconAsterisk() },
+            new ControlFormItemInputMoveItem("4") { Text = _ => "Option 4", Icon = _ => new IconBaseball() },
+            new ControlFormItemInputMoveItem("5") { Text = _ => "Option 5", Icon = _ => new IconFloppyDisk() },
+            new ControlFormItemInputMoveItem("6") { Text = _ => "Option 6", Icon = _ => new IconSeedling() },
+            new ControlFormItemInputMoveItem("7") { Text = _ => "Option 7", Icon = _ => new IconRoute() },
+            new ControlFormItemInputMoveItem("8") { Text = _ => "Option 8", Icon = _ => new IconReply() },
+            new ControlFormItemInputMoveItem("9") { Text = _ => "Option 9", Icon = _ => new IconClipboard() },
+            new ControlFormItemInputMoveItem("10") { Text = _ => "Option 10", Icon = _ => new IconGlobe() }
         ];
 
         /// <summary>    
@@ -83,7 +83,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "AvailableHeader = _ => \"Available\"",
                 new ControlForm(null, new ControlFormItemInputMove(null, [.. _options])
                 {
-                    AvailableHeader = "Available",
+                    AvailableHeader = _ => "Available",
                 })
             );
 
@@ -94,7 +94,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "SelectedHeader = _ => \"Selected\"",
                 new ControlForm(null, new ControlFormItemInputMove(null, [.. _options])
                 {
-                    SelectedHeader = "Selected",
+                    SelectedHeader = _ => "Selected",
                 })
             );
 
@@ -103,7 +103,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Label",
                 "The `Label` property of a `Move` control item serves as a short form of the option text and is displayed in the main area of the control once a selection is made. Instead of showing the full descriptive text of an option, the label ensures a concise and clear representation of the chosen selection. When the label is defined as an internationalization key.",
                 "new ControlFormItemInputMoveItem(\"1\") { Text = \"Text 1\" }",
-                new ControlForm(null, new ControlFormItemInputMove("a", new ControlFormItemInputMoveItem("1") { Text = "Label 1" })
+                new ControlForm(null, new ControlFormItemInputMove("a", new ControlFormItemInputMoveItem("1") { Text = _ => "Label 1" })
                 {
                 })
             );
@@ -112,8 +112,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "Icon",
                 "The `Icon` property defines the symbol assigned to a item. It provides a visual representation and identification of a option within the list structure, enhancing user guidance and recognition. Icons can be either system icons or custom icons, allowing flexibility in design and functionality. System icons offer a standardized visual language, ensuring consistency across applications, while custom icons enable tailored representations to meet specific user needs.",
-                "new ControlFormItemInputMoveItem(\"1\") { Icon = new IconHome() }",
-                new ControlForm(null, new ControlFormItemInputMove("a", new ControlFormItemInputMoveItem("1") { Icon = new IconHome() })
+                "new ControlFormItemInputMoveItem(\"1\") { Icon = _=> new IconHome() }",
+                new ControlForm(null, new ControlFormItemInputMove("a", new ControlFormItemInputMoveItem("1") { Icon = _ => new IconHome() })
                 {
                 })
             );

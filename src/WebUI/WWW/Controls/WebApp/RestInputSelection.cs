@@ -74,7 +74,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 "MultiSelect = true",
                 new ControlForm(null, new ControlRestFormItemInputSelection()
                 {
-                    MultiSelect = true,
+                    MultiSelect = _ => true,
                     RestUri = sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
                 })
             );
@@ -86,7 +86,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 "Placeholder = \"Placeholder\"",
                 new ControlForm(null, new ControlRestFormItemInputSelection()
                 {
-                    Placeholder = "Placeholder",
+                    Placeholder = _ => "Placeholder",
                     RestUri = sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
                 })
             );

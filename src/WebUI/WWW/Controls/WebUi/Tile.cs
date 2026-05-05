@@ -51,10 +51,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Header",
                 "The `Header` property defines the content displayed in the top section of the component. It typically serves as a title bar or introductory element that summarizes or labels the component’s purpose.",
-                "Header = \"Header\"",
+                "Header = _=> \"Header\"",
                 new ControlTile().Add(new ControlTileCard()
                 {
-                    Header = "Header",
+                    Header = _ => "Header",
                 }
                     .Add(new ControlText() { Text = "With a specified header text." }))
             );
@@ -66,11 +66,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 @"
                 new ControlTileCard()
                 {
-                    Icon = new IconHome()
+                    Icon = _=> new IconHome()
                 }",
                 new ControlTile().Add(new ControlTileCard()
                 {
-                    Icon = new IconHome()
+                    Icon = _ => new IconHome()
                 })
             );
 
@@ -84,51 +84,51 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 }.Add(new ControlText() { Text = "Default" })),
                 new ControlTile().Add(new ControlTileCard()
                 {
-                    Color = new PropertyColorTile(TypeColorTile.Primary)
+                    Color = _ => new PropertyColorTile(TypeColorTile.Primary)
                 }.Add(new ControlText() { Text = "Primary" })),
                 new ControlTile().Add(new ControlTileCard()
                 {
-                    Color = new PropertyColorTile(TypeColorTile.Secondary)
+                    Color = _ => new PropertyColorTile(TypeColorTile.Secondary)
                 }.Add(new ControlText() { Text = "Secondary" })),
                 new ControlTile().Add(new ControlTileCard()
                 {
-                    Color = new PropertyColorTile(TypeColorTile.Info)
+                    Color = _ => new PropertyColorTile(TypeColorTile.Info)
                 }.Add(new ControlText() { Text = "Info" })),
                 new ControlTile().Add(new ControlTileCard()
                 {
-                    Color = new PropertyColorTile(TypeColorTile.Success)
+                    Color = _ => new PropertyColorTile(TypeColorTile.Success)
                 }.Add(new ControlText() { Text = "Success" })),
                 new ControlTile().Add(new ControlTileCard()
                 {
-                    Color = new PropertyColorTile(TypeColorTile.Warning)
+                    Color = _ => new PropertyColorTile(TypeColorTile.Warning)
                 }.Add(new ControlText() { Text = "Warning" })),
                 new ControlTile().Add(new ControlTileCard()
                 {
-                    Color = new PropertyColorTile(TypeColorTile.Danger)
+                    Color = _ => new PropertyColorTile(TypeColorTile.Danger)
                 }.Add(new ControlText() { Text = "Danger" })),
                 new ControlTile().Add(new ControlTileCard()
                 {
-                    Color = new PropertyColorTile(TypeColorTile.Dark)
+                    Color = _ => new PropertyColorTile(TypeColorTile.Dark)
                 }.Add(new ControlText() { Text = "Dark" })),
                 new ControlTile().Add(new ControlTileCard()
                 {
-                    Color = new PropertyColorTile(TypeColorTile.Light)
+                    Color = _ => new PropertyColorTile(TypeColorTile.Light)
                 }.Add(new ControlText() { Text = "Light" })),
                 new ControlTile().Add(new ControlTileCard()
                 {
-                    Color = new PropertyColorTile(TypeColorTile.White)
+                    Color = _ => new PropertyColorTile(TypeColorTile.White)
                 }.Add(new ControlText() { Text = "White" })),
                 new ControlTile().Add(new ControlTileCard()
                 {
-                    Color = new PropertyColorTile(TypeColorTile.Transparent)
+                    Color = _ => new PropertyColorTile(TypeColorTile.Transparent)
                 }.Add(new ControlText() { Text = "Transparent" })),
                 new ControlTile().Add(new ControlTileCard()
                 {
-                    Color = new PropertyColorTile(TypeColorTile.Highlight)
+                    Color = _ => new PropertyColorTile(TypeColorTile.Highlight)
                 }.Add(new ControlText() { Text = "Highlight (--wx-highlight)" })),
                 new ControlTile().Add(new ControlTileCard()
                 {
-                    Color = new PropertyColorTile("gold")
+                    Color = _ => new PropertyColorTile("gold")
                 }.Add(new ControlText() { Text = "Custom" }))
             );
 
@@ -136,10 +136,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Movable",
                 @"The `Movable` property in a tile control allows users to rearrange cards interactively. This improves usability by enabling custom ordering of data based on user preferences or workflow requirements.",
-                @"Movable = true",
+                @"Movable = _=> true",
                 new ControlTile()
                 {
-                    Movable = true
+                    Movable = _ => true
                 }
                     .Add(GetCards())
             );
@@ -148,10 +148,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "AllowRemove",
                 @"The `AllowRemove` property determines whether individual tiles within the `Tile` control can be removed by the user. When set to true, each tile displays a remove button or gesture, enabling interactive deletion of items directly from the interface.",
-                @"AllowRemove = true",
+                @"AllowRemove = _=> true",
                 new ControlTile()
                 {
-                    AllowRemove = true
+                    AllowRemove = _ => true
                 }
                     .Add(GetCards())
             );
@@ -160,10 +160,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "LargeIcon",
                 @"The `LargeIcon` property controls whether tiles within the `Tile` control are displayed with an enlarged icon. When set to true, the icons appear significantly larger and gain more visual prominence, which is especially useful for image‑focused or highlighted elements.",
-                @"LargeIcon = true",
+                @"LargeIcon = _=> true",
                 new ControlTile()
                 {
-                    LargeIcon = true
+                    LargeIcon = _ => true
                 }
                     .Add(GetCards())
             );
@@ -178,7 +178,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     .Add(GetCards().Select(x => new ControlTileCard()
                     {
                         Id = x.Id,
-                        PrimaryAction = new ActionModal("modal")
+                        PrimaryAction = _ => new ActionModal("modal")
                     }.Add(x.Content))),
                 new ControlModalExample("modal")
                 {
@@ -190,12 +190,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 typeof(ControlTileCard),
                 "PrimaryAction",
                 "Defines the primary user action, typically executed on a standard click to open a dialog or perform the main operation.",
-                "PrimaryAction = new ActionModal(\"modal\")",
+                "PrimaryAction = _=> new ActionModal(\"modal\")",
                 new ControlTile()
                     .Add(GetCards().Select(x => new ControlTileCard()
                     {
                         Id = x.Id,
-                        PrimaryAction = new ActionModal("modal")
+                        PrimaryAction = _ => new ActionModal("modal")
                     }.Add(x.Content))),
                 new ControlModalExample("modal")
                 {
@@ -207,12 +207,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                  typeof(ControlTileCard),
                 "SecondaryAction",
                 "Defines the secondary user action, often triggered by a double‑click to open a dialog or perform an alternative operation.",
-                "SecondaryAction = new ActionModal(\"modal\")",
+                "SecondaryAction = _=> new ActionModal(\"modal\")",
                 new ControlTile()
                     .Add(GetCards().Select(x => new ControlTileCard()
                     {
                         Id = x.Id,
-                        SecondaryAction = new ActionModal("modal")
+                        SecondaryAction = _ => new ActionModal("modal")
                     }.Add(x.Content))),
                 new ControlModalExample("modal")
                 {
@@ -258,8 +258,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
         {
             var card = new ControlTileCard(id)
             {
-                Header = "Game",
-                Icon = new IconGamepad()
+                Header = _ => "Game",
+                Icon = _ => new IconGamepad()
             };
 
             // add main text element

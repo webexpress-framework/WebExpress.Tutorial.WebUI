@@ -56,7 +56,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                     BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                     PrimaryAction = _ => new ActionModal("myModal")
                 },
-                new ControlModal("myModal") { Header = "My modal" }
+                new ControlModal("myModal") { Header = _ => "My modal" }
                     .Add(_content)
             ];
 
@@ -85,7 +85,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  },
                  new ControlModal("myModalHeader")
                  {
-                     Header = "Header"
+                     Header = _ => "Header"
                  }.Add(_content)
             );
 
@@ -103,7 +103,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  },
                  new ControlModal("myModalDefault")
                  {
-                     Header = "Default",
+                     Header = _ => "Default",
                      Size = TypeModalSize.Default
                  }.Add(_content),
                  new ControlButton()
@@ -115,7 +115,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  },
                  new ControlModal("myModalSmall")
                  {
-                     Header = "Small",
+                     Header = _ => "Small",
                      Size = TypeModalSize.Small
                  }.Add(_content),
                  new ControlButton()
@@ -127,7 +127,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  },
                  new ControlModal("myModalLarge")
                  {
-                     Header = "Large",
+                     Header = _ => "Large",
                      Size = TypeModalSize.Large
                  }.Add(_content),
                  new ControlButton()
@@ -139,7 +139,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  },
                  new ControlModal("myModalExtraLarge")
                  {
-                     Header = "ExtraLarge",
+                     Header = _ => "ExtraLarge",
                      Size = TypeModalSize.ExtraLarge
                  }.Add(_content),
                  new ControlButton()
@@ -151,7 +151,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  },
                  new ControlModal("myModalFullscreen")
                  {
-                     Header = "Fullscreen",
+                     Header = _ => "Fullscreen",
                      Size = TypeModalSize.Fullscreen
                  }.Add(_content)
             );

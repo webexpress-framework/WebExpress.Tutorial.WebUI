@@ -89,17 +89,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Table.Templates
         {
             yield return new ControlTableColumnTemplate("myColumn1", new ControlTableTemplateSelection()
             {
-                Editable = editable,
-                Placeholder = placeholder,
-                MultiSelect = multiSelect
+                Editable = _ => editable,
+                Placeholder = _ => placeholder,
+                MultiSelect = _ => multiSelect
             }
-                .Add(new ControlFormItemInputSelectionItem("a") { Text = "Option A", Content = new ControlText() { Text = "Option A" }, Color = TypeColorSelection.Primary })
-                .Add(new ControlFormItemInputSelectionItem("b") { Text = "Option B", Content = new ControlText() { Text = "Option B" }, Color = TypeColorSelection.Success })
-                .Add(new ControlFormItemInputSelectionItem("c") { Text = "Option C", Content = new ControlText() { Text = "Option C" }, Color = TypeColorSelection.Info })
-                .Add(new ControlFormItemInputSelectionItem("d") { Text = "Option D", Content = new ControlText() { Text = "Option D" }, Color = TypeColorSelection.Warning }))
+                .Add(new ControlFormItemInputSelectionItem("a") { Text = _ => "Option A", Content = _ => new ControlText() { Text = "Option A" }, Color = _ => TypeColorSelection.Primary })
+                .Add(new ControlFormItemInputSelectionItem("b") { Text = _ => "Option B", Content = _ => new ControlText() { Text = "Option B" }, Color = _ => TypeColorSelection.Success })
+                .Add(new ControlFormItemInputSelectionItem("c") { Text = _ => "Option C", Content = _ => new ControlText() { Text = "Option C" }, Color = _ => TypeColorSelection.Info })
+                .Add(new ControlFormItemInputSelectionItem("d") { Text = _ => "Option D", Content = _ => new ControlText() { Text = "Option D" }, Color = _ => TypeColorSelection.Warning }))
             {
-                Title = "My column",
-                Icon = new IconBowlingBall()
+                Title = _ => "My column",
+                Icon = _ => new IconBowlingBall()
             };
         }
 
@@ -114,17 +114,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Table.Templates
             yield return new ControlTableRow("myRow1")
                 .Add
                 (
-                    new ControlTableCell() { Text = "a;d" }
+                    new ControlTableCell() { Text = _ => "a;d" }
                 );
             yield return new ControlTableRow("myRow2")
                 .Add
                 (
-                    new ControlTableCell() { Text = "b" }
+                    new ControlTableCell() { Text = _ => "b" }
                 );
             yield return new ControlTableRow("myRow3")
                 .Add
                 (
-                    new ControlTableCell() { Text = "c" }
+                    new ControlTableCell() { Text = _ => "c" }
                 );
         }
     }

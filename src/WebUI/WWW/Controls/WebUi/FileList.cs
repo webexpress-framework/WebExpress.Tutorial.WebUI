@@ -35,24 +35,24 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             }
                 .Add(new ControlFileListItem()
                 {
-                    Name = "ProjectProposal.pdf",
-                    Size = 2172,
-                    Date = DateTime.Now,
-                    Description = "Initial draft of the project proposal"
+                    Name = _ => "ProjectProposal.pdf",
+                    Size = _ => 2172,
+                    Date = _ => DateTime.Now,
+                    Description = _ => "Initial draft of the project proposal"
                 })
                 .Add(new ControlFileListItem()
                 {
-                    Name = "TeamPhoto.jpg",
-                    Size = 5120,
-                    Date = DateTime.Now.AddDays(-5),
-                    Description = "Group photo from the kickoff meeting"
+                    Name = _ => "TeamPhoto.jpg",
+                    Size = _ => 5120,
+                    Date = _ => DateTime.Now.AddDays(-5),
+                    Description = _ => "Group photo from the kickoff meeting"
                 })
                 .Add(new ControlFileListItem()
                 {
-                    Name = "Budget.xlsx",
-                    Size = 3480,
-                    Date = DateTime.Now.AddDays(-435),
-                    Description = "Estimated budget breakdown for Q4"
+                    Name = _ => "Budget.xlsx",
+                    Size = _ => 3480,
+                    Date = _ => DateTime.Now.AddDays(-435),
+                    Description = _ => "Estimated budget breakdown for Q4"
                 });
 
             Stage.Code = @"
@@ -61,24 +61,24 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             }
                 .Add(new ControlFileListItem()
                 {
-                    Name = ""ProjectProposal.pdf"",
-                    Size = 2172,
-                    Date = DateTime.Now,
-                    Description = ""Initial draft of the project proposal""
+                    Name = _=> ""ProjectProposal.pdf"",
+                    Size = _=> 2172,
+                    Date = _=> DateTime.Now,
+                    Description = _=> ""Initial draft of the project proposal""
                 })
                 .Add(new ControlFileListItem()
                 {
-                    Name = ""TeamPhoto.jpg"",
-                    Size = 5120,
-                    Date = DateTime.Now.AddDays(-5),
-                    Description = ""Group photo from the kickoff meeting""
+                    Name = _=> ""TeamPhoto.jpg"",
+                    Size = _=> 5120,
+                    Date = _=> DateTime.Now.AddDays(-5),
+                    Description = _=> ""Group photo from the kickoff meeting""
                 })
                 .Add(new ControlFileListItem()
                 {
-                    Name = ""Budget.xlsx"",
-                    Size = 3480,
-                    Date = DateTime.Now.AddDays(-435),
-                    Description = ""Estimated budget breakdown for Q4""
+                    Name = _=> ""Budget.xlsx"",
+                    Size = _=> 3480,
+                    Date = _=> DateTime.Now.AddDays(-435),
+                    Description = _=> ""Estimated budget breakdown for Q4""
                 });";
 
             Stage.AddItem
@@ -90,7 +90,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlFileList()
                 {
                 }
-                    .Add(new ControlFileListItem() { Icon = new IconFileWord() })
+                    .Add(new ControlFileListItem() { Icon = _ => new IconFileWord() })
             );
 
             Stage.AddItemProperty
@@ -102,7 +102,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlFileList()
                 {
                 }
-                    .Add(new ControlFileListItem() { Icon = new IconFileWord() })
+                    .Add(new ControlFileListItem() { Icon = _ => new IconFileWord() })
             );
 
             Stage.AddItemProperty
@@ -114,7 +114,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlFileList()
                 {
                 }
-                    .Add(new ControlFileListItem() { Name = "ProjectProposal.pdf" })
+                    .Add(new ControlFileListItem() { Name = _ => "ProjectProposal.pdf" })
             );
 
             Stage.AddItemProperty
@@ -126,7 +126,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlFileList()
                 {
                 }
-                    .Add(new ControlFileListItem() { Size = 3535 })
+                    .Add(new ControlFileListItem() { Size = _ => 3535 })
             );
 
             Stage.AddItemProperty
@@ -138,7 +138,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlFileList()
                 {
                 }
-                    .Add(new ControlFileListItem() { Date = DateTime.Now })
+                    .Add(new ControlFileListItem() { Date = _ => DateTime.Now })
             );
 
             Stage.AddItemProperty
@@ -150,7 +150,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlFileList()
                 {
                 }
-                    .Add(new ControlFileListItem() { Description = "Initial draft of the project proposal" })
+                    .Add(new ControlFileListItem() { Description = _ => "Initial draft of the project proposal" })
             );
         }
     }

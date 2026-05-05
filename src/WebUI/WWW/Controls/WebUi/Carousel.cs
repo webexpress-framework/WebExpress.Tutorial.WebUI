@@ -31,9 +31,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             }
                 .Add(new ControlCarouselItem()
                 {
-                    Headline = "Item 1",
-                    Text = "Text for item 1",
-                    Control = new ControlImage()
+                    Headline = _ => "Item 1",
+                    Text = _ => "Text for item 1",
+                    Control = _ => new ControlImage()
                     {
                         Classes = ["w-100"],
                         Uri = applicationContext.Route.Concat("assets/img/carousel1.png").ToUri()
@@ -41,9 +41,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 })
                 .Add(new ControlCarouselItem()
                 {
-                    Headline = "Item 2",
-                    Text = "Text for item 2",
-                    Control = new ControlImage()
+                    Headline = _ => "Item 2",
+                    Text = _ => "Text for item 2",
+                    Control = _ => new ControlImage()
                     {
                         Classes = ["w-100"],
                         Uri = applicationContext.Route.Concat("assets/img/carousel2.png").ToUri()
@@ -51,9 +51,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 })
                 .Add(new ControlCarouselItem()
                 {
-                    Headline = "Item 3",
-                    Text = "Text for item 3",
-                    Control = new ControlImage()
+                    Headline = _ => "Item 3",
+                    Text = _ => "Text for item 3",
+                    Control = _ => new ControlImage()
                     {
                         Classes = ["w-100"],
                         Uri = applicationContext.Route.Concat("assets/img/carousel3.png").ToUri()
@@ -104,9 +104,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     }
                         .Add(new ControlCarouselItem()
                         {
-                            Headline = "Item 1",
-                            Text = "Text for item 1",
-                            Control = new ControlImage()
+                            Headline = _ => "Item 1",
+                            Text = _ => "Text for item 1",
+                            Control = _ => new ControlImage()
                             {
                                 Classes = ["w-100"],
                                 Uri = applicationContext.Route.Concat("assets/img/carousel1.png").ToUri()
@@ -114,9 +114,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                         })
                         .Add(new ControlCarouselItem()
                         {
-                            Headline = "Item 2",
-                            Text = "Text for item 2",
-                            Control = new ControlImage()
+                            Headline = _ => "Item 2",
+                            Text = _ => "Text for item 2",
+                            Control = _ => new ControlImage()
                             {
                                 Classes = ["w-100"],
                                 Uri = applicationContext.Route.Concat("assets/img/carousel2.png").ToUri()
@@ -124,9 +124,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                         })
                         .Add(new ControlCarouselItem()
                         {
-                            Headline = "Item 3",
-                            Text = "Text for item 3",
-                            Control = new ControlImage()
+                            Headline = _ => "Item 3",
+                            Text = _ => "Text for item 3",
+                            Control = _ => new ControlImage()
                             {
                                 Classes = ["w-100"],
                                 Uri = applicationContext.Route.Concat("assets/img/carousel3.png").ToUri()
@@ -134,9 +134,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                         })
                         .Add(new ControlCarouselItem()
                         {
-                            Headline = "Item 4",
-                            Text = "Text for item 4",
-                            Control = new ControlImage()
+                            Headline = _ => "Item 4",
+                            Text = _ => "Text for item 4",
+                            Control = _ => new ControlImage()
                             {
                                 Classes = ["w-100"],
                                 Uri = applicationContext.Route.Concat("assets/img/carousel4.png").ToUri()
@@ -144,9 +144,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                         })
                         .Add(new ControlCarouselItem()
                         {
-                            Headline = "Item 5",
-                            Text = "Text for item 5",
-                            Control = new ControlImage()
+                            Headline = _ => "Item 5",
+                            Text = _ => "Text for item 5",
+                            Control = _ => new ControlImage()
                             {
                                 Classes = ["w-100"],
                                 Uri = applicationContext.Route.Concat("assets/img/carousel5.png").ToUri()
@@ -154,9 +154,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                         })
                         .Add(new ControlCarouselItem()
                         {
-                            Headline = "Item 6",
-                            Text = "Text for item 6",
-                            Control = new ControlImage()
+                            Headline = _ => "Item 6",
+                            Text = _ => "Text for item 6",
+                            Control = _ => new ControlImage()
                             {
                                 Classes = ["w-100"],
                                 Uri = applicationContext.Route.Concat("assets/img/carousel6.png").ToUri()

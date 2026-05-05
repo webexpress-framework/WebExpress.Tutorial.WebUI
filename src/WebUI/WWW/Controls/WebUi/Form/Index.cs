@@ -37,9 +37,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             },
             new ControlFormItemInputSelection("country",
             [
-                new ControlFormItemInputSelectionItem("1") { Text = "Germany" },
-                new ControlFormItemInputSelectionItem("2") { Text = "Austria" },
-                new ControlFormItemInputSelectionItem("3") { Text = "Switzerland" }
+                new ControlFormItemInputSelectionItem("1") { Text = _ => "Germany" },
+                new ControlFormItemInputSelectionItem("2") { Text = _ => "Austria" },
+                new ControlFormItemInputSelectionItem("3") { Text = _ => "Switzerland" }
             ])
             {
                 Label =_ =>  "Country",

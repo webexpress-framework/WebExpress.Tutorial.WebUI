@@ -31,7 +31,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             Stage.Control = new ControlForm()
                 .Add(new ControlFormItemInputText()
                 {
-                    Format = TypeEditTextFormat.Wysiwyg
+                    Format = _ => TypeEditTextFormat.Wysiwyg
                 }.Initialize(x => x.Value.Text = "Hello <b>WebExpress!</b>"))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
@@ -47,7 +47,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Placeholder = _ => \"Enter text here\"",
                 new ControlForm(null, new ControlFormItemInputText()
                 {
-                    Placeholder = "Enter text here",
+                    Placeholder = _ => "Enter text here",
                 })
             );
 
@@ -59,7 +59,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 new ControlForm()
                     .Add(new ControlFormItemInputText()
                     {
-                        MinLength = 5,
+                        MinLength = _ => 5,
                     }.Initialize(x => x.Value.Text = "01234"))
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
@@ -72,7 +72,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 new ControlForm()
                     .Add(new ControlFormItemInputText()
                     {
-                        MaxLength = 10,
+                        MaxLength = _ => 10,
                     }.Initialize(x => x.Value.Text = "0123456789"))
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
@@ -85,7 +85,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 new ControlForm()
                     .Add(new ControlFormItemInputText("pattern")
                     {
-                        Pattern = "[A-Za-z]{4}"
+                        Pattern = _ => "[A-Za-z]{4}"
                     }.Initialize(x => x.Value.Text = "Hello"))
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
@@ -120,11 +120,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                "The `Format` property controls the behavior of the text box, allowing it to be converted into a multi-line input box. When this property is configured, the TextBox supports line breaks and expands dynamically to accommodate longer text entries.",
                "Format = _ => TypeEditTextFormat.Wysiwyg",
                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
-               new ControlForm(null, new ControlFormItemInputText() { Format = TypeEditTextFormat.Default }),
+               new ControlForm(null, new ControlFormItemInputText() { Format = _ => TypeEditTextFormat.Default }),
                new ControlText() { Text = "Multiline", TextColor = new PropertyColorText(TypeColorText.Info) },
-               new ControlForm(null, new ControlFormItemInputText() { Format = TypeEditTextFormat.Multiline }),
+               new ControlForm(null, new ControlFormItemInputText() { Format = _ => TypeEditTextFormat.Multiline }),
                new ControlText() { Text = "Wysiwyg", TextColor = new PropertyColorText(TypeColorText.Info) },
-               new ControlForm(null, new ControlFormItemInputText() { Format = TypeEditTextFormat.Wysiwyg })
+               new ControlForm(null, new ControlFormItemInputText() { Format = _ => TypeEditTextFormat.Wysiwyg })
             );
         }
     }

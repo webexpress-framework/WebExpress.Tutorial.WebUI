@@ -56,9 +56,9 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
                 .OrderBy(x => x.EndpointId.ToString())
                 .Select(x => new ControlListItemLink()
                 {
-                    Text = $"{I18N.Translate(renderContext, x.PageTitle)} ({x.EndpointId})",
-                    Uri = x.Route.ToUri(),
-                    Active = renderContext.PageContext.EndpointId == x.EndpointId
+                    Text = _ => $"{I18N.Translate(renderContext, x.PageTitle)} ({x.EndpointId})",
+                    Uri = _ => x.Route.ToUri(),
+                    Active = _ => renderContext.PageContext.EndpointId == x.EndpointId
                         ? TypeActive.Active
                         : TypeActive.None
                 });

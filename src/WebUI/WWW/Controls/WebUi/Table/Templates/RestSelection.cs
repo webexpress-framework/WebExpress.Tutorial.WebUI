@@ -111,14 +111,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
         {
             yield return new ControlTableColumnTemplate("myColumn1", new ControlTableTemplateRestSelection()
             {
-                Editable = editable,
-                Placeholder = placeholder,
-                MultiSelect = multiSelect,
-                RestUri = _sitemapManager.GetUri<MonkeyIslandLocationsSelection>(_pageContext.ApplicationContext),
+                Editable = _ => editable,
+                Placeholder = _ => placeholder,
+                MultiSelect = _ => multiSelect,
+                RestUri = _ => _sitemapManager.GetUri<MonkeyIslandLocationsSelection>(_pageContext.ApplicationContext),
             })
             {
-                Title = "My column",
-                Icon = new IconBowlingBall()
+                Title = _ => "My column",
+                Icon = _ => new IconBowlingBall()
             };
         }
 
@@ -133,17 +133,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
             yield return new ControlTableRow("myRow1")
                 .Add
                 (
-                    new ControlTableCell() { Text = "28DF7324-0DDE-40B3-B6E4-0CDD107D324A;64D99FDF-9828-40EB-92CA-D55DDA6BD9F4" }
+                    new ControlTableCell() { Text = _ => "28DF7324-0DDE-40B3-B6E4-0CDD107D324A;64D99FDF-9828-40EB-92CA-D55DDA6BD9F4" }
                 );
             yield return new ControlTableRow("myRow2")
                 .Add
                 (
-                    new ControlTableCell() { Text = "28DF7324-0DDE-40B3-B6E4-0CDD107D324A" }
+                    new ControlTableCell() { Text = _ => "28DF7324-0DDE-40B3-B6E4-0CDD107D324A" }
                 );
             yield return new ControlTableRow("myRow3")
                 .Add
                 (
-                    new ControlTableCell() { Text = "28DF7324-0DDE-40B3-B6E4-0CDD107D324A" }
+                    new ControlTableCell() { Text = _ => "28DF7324-0DDE-40B3-B6E4-0CDD107D324A" }
                 );
         }
     }

@@ -78,15 +78,15 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
         {
             yield return new ControlTableColumnTemplate("myColumn1", new ControlTableTemplateMove()
             {
-                Editable = editable
+                Editable = _ => editable
             }
-                .Add(new ControlFormItemInputMoveItem("a") { Text = "Option A" })
-                .Add(new ControlFormItemInputMoveItem("b") { Text = "Option B" })
-                .Add(new ControlFormItemInputMoveItem("c") { Text = "Option C" })
-                .Add(new ControlFormItemInputMoveItem("d") { Text = "Option D" }))
+                .Add(new ControlFormItemInputMoveItem("a") { Text = _ => "Option A" })
+                .Add(new ControlFormItemInputMoveItem("b") { Text = _ => "Option B" })
+                .Add(new ControlFormItemInputMoveItem("c") { Text = _ => "Option C" })
+                .Add(new ControlFormItemInputMoveItem("d") { Text = _ => "Option D" }))
             {
-                Title = "My column",
-                Icon = new IconBowlingBall()
+                Title = _ => "My column",
+                Icon = _ => new IconBowlingBall()
             };
         }
 
@@ -105,17 +105,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
             yield return new ControlTableRow("myRow1")
                 .Add
                 (
-                    new ControlTableCell() { Text = !empty ? "a;b" : "" }
+                    new ControlTableCell() { Text = _ => !empty ? "a;b" : "" }
                 );
             yield return new ControlTableRow("myRow2")
                 .Add
                 (
-                    new ControlTableCell() { Text = !empty ? "c" : "" }
+                    new ControlTableCell() { Text = _ => !empty ? "c" : "" }
                 );
             yield return new ControlTableRow("myRow3")
                 .Add
                 (
-                    new ControlTableCell() { Text = !empty ? "d" : "" }
+                    new ControlTableCell() { Text = _ => !empty ? "d" : "" }
                 );
         }
     }

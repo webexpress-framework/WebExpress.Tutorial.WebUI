@@ -131,14 +131,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
         {
             yield return new ControlTableColumnTemplate("myColumn1", new ControlTableTemplateDate()
             {
-                Editable = editable,
-                Color = color,
-                Placeholder = placeholder,
-                Format = format
+                Editable = _ => editable,
+                Color = _ => color,
+                Placeholder = _ => placeholder,
+                Format = _ => format
             })
             {
-                Title = "My column",
-                Icon = new IconBowlingBall()
+                Title = _ => "My column",
+                Icon = _ => new IconBowlingBall()
             };
         }
 
@@ -154,17 +154,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
             yield return new ControlTableRow("myRow1")
                 .Add
                 (
-                    new ControlTableCell() { Text = DateTime.Now.AddDays(-5).ToString(format, CultureInfo.InvariantCulture) }
+                    new ControlTableCell() { Text = _ => DateTime.Now.AddDays(-5).ToString(format, CultureInfo.InvariantCulture) }
                 );
             yield return new ControlTableRow("myRow2")
                 .Add
                 (
-                    new ControlTableCell() { Text = DateTime.Now.ToString(format) }
+                    new ControlTableCell() { Text = _ => DateTime.Now.ToString(format) }
                 );
             yield return new ControlTableRow("myRow3")
                 .Add
                 (
-                    new ControlTableCell() { Text = DateTime.Now.AddDays(5).ToString(format) }
+                    new ControlTableCell() { Text = _ => DateTime.Now.AddDays(5).ToString(format) }
                 );
         }
     }

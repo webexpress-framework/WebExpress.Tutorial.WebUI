@@ -34,7 +34,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             var games = ViewModel.MonkeyIslandGames
                 .Select(x => new ControlFormItemInputSelectionItem(x.Id.ToString())
                 {
-                    Text = x.Name
+                    Text = _ => x.Name
                 });
 
             Stage.Control = new ControlRestWizard("myform")
@@ -49,14 +49,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                             new ControlFormItemInputText("char_name")
                             {
                                 Name = _ => "Name",
-                                Placeholder = "Enter character name",
+                                Placeholder = _ => "Enter character name",
                                 Required = _ => true
                             },
                             new ControlFormItemInputText("char_desc")
                             {
                                 Name = _ => "Description",
-                                Format = TypeEditTextFormat.Multiline,
-                                Placeholder = "Brief character description"
+                                Format = _ => TypeEditTextFormat.Multiline,
+                                Placeholder = _ => "Brief character description"
                             }
                         ),
                     new ControlRestWizardPage("page_appearsin")
@@ -64,8 +64,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                             new ControlFormItemInputSelection("appearsin")
                             {
                                 Name = _ => "AppearsIn",
-                                Placeholder = "Select games",
-                                MultiSelect = true
+                                Placeholder = _ => "Select games",
+                                MultiSelect = _ => true
                             }
                                 .Add(games)
                         ),

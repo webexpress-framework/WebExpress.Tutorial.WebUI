@@ -52,7 +52,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                     (
                         new ControlFormItemInputTile()
                         {
-                            MultiSelect = true
+                            MultiSelect = _ => true
                         }
                             .Add(GetCards())
                             .Initialize(x =>
@@ -93,7 +93,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "LargeIcon",
                 @"The `LargeIcon` property controls whether tiles within the `Tile` control are displayed with an enlarged icon. When set to true, the icons appear significantly larger and gain more visual prominence, which is especially useful for image‑focused or highlighted elements.",
                 @"LargeIcon = _ => true",
-                new ControlForm(null, new ControlFormItemInputTile() { LargeIcon = true }.Add(GetCards()))
+                new ControlForm(null, new ControlFormItemInputTile() { LargeIcon = _ => true }.Add(GetCards()))
             );
         }
 
@@ -135,7 +135,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
         {
             var card = new ControlTileCard(id)
             {
-                Icon = new IconGamepad()
+                Icon = _ => new IconGamepad()
             };
             // add main text element
             card.Add(new ControlText() { Text = text });

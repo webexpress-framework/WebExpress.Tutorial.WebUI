@@ -15,7 +15,7 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         public ControlModalExample(string id)
             : base(id)
         {
-            Header = "Modal dialog";
+            Header = _ => "Modal dialog";
 
             Add(new ControlText()
             {
