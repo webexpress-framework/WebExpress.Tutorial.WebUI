@@ -25,116 +25,116 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.Control = new ControlAlert()
             {
-                Text = "This is a sample alert!",
-                Dismissibility = TypeDismissibilityAlert.Dismissible,
-                Fade = TypeFade.FadeShow,
-                BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Info)
+                Text = _ => "This is a sample alert!",
+                Dismissibility = _ => TypeDismissibilityAlert.Dismissible,
+                Fade = _ => TypeFade.FadeShow,
+                BackgroundColor = _ => new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Info)
             };
 
             Stage.Code = @"
             new ControlAlert() 
             { 
-                Text = ""This is a sample alert!"", 
-                Dismissibility = TypeDismissibilityAlert.Dismissible, 
-                Fade = TypesFade.FadeShow, 
-                BackgroundColor = new PropertyColorBackground(TypeColorBackgroundAlert.Info) 
+                Text = _=> ""This is a sample alert!"", 
+                Dismissibility = _=> TypeDismissibilityAlert.Dismissible, 
+                Fade = _=> TypesFade.FadeShow, 
+                BackgroundColor = _=> new PropertyColorBackground(TypeColorBackgroundAlert.Info) 
             };";
 
             Stage.AddProperty
             (
                 "BackgroundColor",
                 "Sets the background color of the alert, allowing customization for different contexts.",
-                "BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackground.Primary)",
+                "BackgroundColor = _=> new PropertyColorBackgroundAlert(TypeColorBackground.Primary)",
                 new ControlAlert()
                 {
-                    Text = "This is a default alert!",
-                    Dismissibility = TypeDismissibilityAlert.Dismissible,
-                    Fade = TypeFade.FadeShow
+                    Text = _ => "This is a default alert!",
+                    Dismissibility = _ => TypeDismissibilityAlert.Dismissible,
+                    Fade = _ => TypeFade.FadeShow
                 },
                 new ControlAlert()
                 {
-                    Text = "This is a primary alert!",
-                    Dismissibility = TypeDismissibilityAlert.Dismissible,
-                    Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Primary)
+                    Text = _ => "This is a primary alert!",
+                    Dismissibility = _ => TypeDismissibilityAlert.Dismissible,
+                    Fade = _ => TypeFade.FadeShow,
+                    BackgroundColor = _ => new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Primary)
                 },
                 new ControlAlert()
                 {
-                    Text = "This is a secondary alert!",
-                    Dismissibility = TypeDismissibilityAlert.Dismissible,
-                    Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Secondary)
+                    Text = _ => "This is a secondary alert!",
+                    Dismissibility = _ => TypeDismissibilityAlert.Dismissible,
+                    Fade = _ => TypeFade.FadeShow,
+                    BackgroundColor = _ => new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Secondary)
                 },
                 new ControlAlert()
                 {
-                    Text = "This is an info alert!",
-                    Dismissibility = TypeDismissibilityAlert.Dismissible,
-                    Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Info)
+                    Text = _ => "This is an info alert!",
+                    Dismissibility = _ => TypeDismissibilityAlert.Dismissible,
+                    Fade = _ => TypeFade.FadeShow,
+                    BackgroundColor = _ => new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Info)
                 },
                 new ControlAlert()
                 {
-                    Text = "This is a success alert!",
-                    Dismissibility = TypeDismissibilityAlert.Dismissible,
-                    Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Success)
+                    Text = _ => "This is a success alert!",
+                    Dismissibility = _ => TypeDismissibilityAlert.Dismissible,
+                    Fade = _ => TypeFade.FadeShow,
+                    BackgroundColor = _ => new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Success)
                 },
                 new ControlAlert()
                 {
-                    Text = "This is a warning alert!",
-                    Dismissibility = TypeDismissibilityAlert.Dismissible,
-                    Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Warning)
+                    Text = _ => "This is a warning alert!",
+                    Dismissibility = _ => TypeDismissibilityAlert.Dismissible,
+                    Fade = _ => TypeFade.FadeShow,
+                    BackgroundColor = _ => new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Warning)
                 },
                 new ControlAlert()
                 {
-                    Text = "This is an error alert!",
-                    Dismissibility = TypeDismissibilityAlert.Dismissible,
-                    Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Danger)
+                    Text = _ => "This is an error alert!",
+                    Dismissibility = _ => TypeDismissibilityAlert.Dismissible,
+                    Fade = _ => TypeFade.FadeShow,
+                    BackgroundColor = _ => new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Danger)
                 },
                 new ControlAlert()
                 {
-                    Text = "This is a dark alert!",
-                    Dismissibility = TypeDismissibilityAlert.Dismissible,
-                    Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Dark)
+                    Text = _ => "This is a dark alert!",
+                    Dismissibility = _ => TypeDismissibilityAlert.Dismissible,
+                    Fade = _ => TypeFade.FadeShow,
+                    BackgroundColor = _ => new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Dark)
                 },
                 new ControlAlert()
                 {
-                    Text = "This is a light alert!",
-                    Dismissibility = TypeDismissibilityAlert.Dismissible,
-                    Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Light)
+                    Text = _ => "This is a light alert!",
+                    Dismissibility = _ => TypeDismissibilityAlert.Dismissible,
+                    Fade = _ => TypeFade.FadeShow,
+                    BackgroundColor = _ => new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Light)
                 },
                 new ControlAlert()
                 {
-                    Text = "This is a white alert!",
-                    Dismissibility = TypeDismissibilityAlert.Dismissible,
-                    Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.White)
+                    Text = _ => "This is a white alert!",
+                    Dismissibility = _ => TypeDismissibilityAlert.Dismissible,
+                    Fade = _ => TypeFade.FadeShow,
+                    BackgroundColor = _ => new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.White)
                 },
                 new ControlAlert()
                 {
-                    Text = "This is a transparent alert!",
-                    Dismissibility = TypeDismissibilityAlert.Dismissible,
-                    Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Transparent)
+                    Text = _ => "This is a transparent alert!",
+                    Dismissibility = _ => TypeDismissibilityAlert.Dismissible,
+                    Fade = _ => TypeFade.FadeShow,
+                    BackgroundColor = _ => new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Transparent)
                 },
                 new ControlAlert()
                 {
-                    Text = "This is a highlight alert!",
-                    Dismissibility = TypeDismissibilityAlert.Dismissible,
-                    Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Highlight)
+                    Text = _ => "This is a highlight alert!",
+                    Dismissibility = _ => TypeDismissibilityAlert.Dismissible,
+                    Fade = _ => TypeFade.FadeShow,
+                    BackgroundColor = _ => new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Highlight)
                 },
                 new ControlAlert()
                 {
-                    Text = "This is a custom alert!",
-                    Dismissibility = TypeDismissibilityAlert.Dismissible,
-                    Fade = TypeFade.FadeShow,
+                    Text = _ => "This is a custom alert!",
+                    Dismissibility = _ => TypeDismissibilityAlert.Dismissible,
+                    Fade = _ => TypeFade.FadeShow,
                     TextColor = _ => new PropertyColorText("red"),
-                    BackgroundColor = new PropertyColorBackgroundAlert("gold")
+                    BackgroundColor = _ => new PropertyColorBackgroundAlert("gold")
                 }
             );
 
@@ -142,20 +142,20 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Dismissibility",
                 "Determines whether the alert can be closed (hidden) by the user.",
-                "Dismissibility = TypeDismissibilityAlert.Dismissible",
+                "Dismissibility = _=> TypeDismissibilityAlert.Dismissible",
                 new ControlAlert()
                 {
-                    Text = "This is a success alert that cannot be dismissed.",
-                    Dismissibility = TypeDismissibilityAlert.None,
-                    Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Success)
+                    Text = _ => "This is a success alert that cannot be dismissed.",
+                    Dismissibility = _ => TypeDismissibilityAlert.None,
+                    Fade = _ => TypeFade.FadeShow,
+                    BackgroundColor = _ => new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Success)
                 },
                 new ControlAlert()
                 {
-                    Text = "This is a success alert that can be dismissed.",
-                    Dismissibility = TypeDismissibilityAlert.Dismissible,
-                    Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Success)
+                    Text = _ => "This is a success alert that can be dismissed.",
+                    Dismissibility = _ => TypeDismissibilityAlert.Dismissible,
+                    Fade = _ => TypeFade.FadeShow,
+                    BackgroundColor = _ => new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Success)
                 }
             );
 
@@ -163,20 +163,20 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Fade",
                 "Specifies the type of fade effect used to display the alert.",
-                "Fade = TypeFade.FadeShow",
+                "Fade = _=> TypeFade.FadeShow",
                 new ControlAlert()
                 {
-                    Text = "This is a success alert without animation.",
-                    Dismissibility = TypeDismissibilityAlert.Dismissible,
-                    Fade = TypeFade.None,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Success)
+                    Text = _ => "This is a success alert without animation.",
+                    Dismissibility = _ => TypeDismissibilityAlert.Dismissible,
+                    Fade = _ => TypeFade.None,
+                    BackgroundColor = _ => new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Success)
                 },
                 new ControlAlert()
                 {
-                    Text = "This is a success alert with full animation.",
-                    Dismissibility = TypeDismissibilityAlert.Dismissible,
-                    Fade = TypeFade.FadeShow,
-                    BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Success)
+                    Text = _ => "This is a success alert with full animation.",
+                    Dismissibility = _ => TypeDismissibilityAlert.Dismissible,
+                    Fade = _ => TypeFade.FadeShow,
+                    BackgroundColor = _ => new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Success)
                 }
             );
         }

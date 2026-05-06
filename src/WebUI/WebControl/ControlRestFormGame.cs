@@ -74,7 +74,7 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         public ControlRestFormGame(string id)
             : base(id)
         {
-            Enable = false;
+            Enable = _ => false;
 
             Add(GameTitle);
             Add(Description);

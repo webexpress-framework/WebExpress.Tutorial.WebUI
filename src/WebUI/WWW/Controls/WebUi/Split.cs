@@ -21,16 +21,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     {
         private readonly ControlAlert _sidePanel = new()
         {
-            Head = "Side panel",
-            Text = "Side panel content ...",
-            Dismissibility = TypeDismissibilityAlert.None
+            Head = _ => "Side panel",
+            Text = _ => "Side panel content ...",
+            Dismissibility = _ => TypeDismissibilityAlert.None
         };
 
         private readonly ControlAlert _mainPanel = new()
         {
-            Head = "Main panel ",
-            Text = "Main panel content ...",
-            Dismissibility = TypeDismissibilityAlert.None
+            Head = _ => "Main panel ",
+            Text = _ => "Main panel content ...",
+            Dismissibility = _ => TypeDismissibilityAlert.None
         };
 
 
@@ -55,8 +55,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlPanelSplit(""mySplit"")
                 {
                 }
-                    .AddSidePanel(new ControlAlert() { Head = ""Panel 1"", Text = ""Panel 1 content ..."", Dismissible = TypeDismissibleAlert.None })
-                    .AddMainPanel(new ControlAlert() { Head = ""Panel 2"", Text = ""Panel 2 content ..."", Dismissible = TypeDismissibleAlert.None });";
+                    .AddSidePanel(new ControlAlert() { Head = _=> ""Panel 1"", Text = _=> ""Panel 1 content ..."", Dismissible = TypeDismissibleAlert.None })
+                    .AddMainPanel(new ControlAlert() { Head = _=> ""Panel 2"", Text = _=> ""Panel 2 content ..."", Dismissible = TypeDismissibleAlert.None });";
 
 
             Stage.AddProperty

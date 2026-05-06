@@ -82,8 +82,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                     Header = _ => "My modal",
                     Conformation = _ =>new ControlAlert()
                     {
-                        Text = @"Thank you! Your submission has been successfully received. We have received your request and will process it as soon as possible. If you need any further information, feel free to reach out to us anytime.",
-                        BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Success)
+                        Text = _=> @"Thank you! Your submission has been successfully received. We have received your request and will process it as soon as possible. If you need any further information, feel free to reach out to us anytime.",
+                        BackgroundColor = _=> new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Success)
                     }
                 }
                 .Add(_exampleFormItems)
@@ -104,8 +104,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                     Header = _ => "My dark modal",
                     Conformation = _ =>new ControlAlert()
                     {
-                        Text = @"Thank you! Your submission has been successfully received. We have received your request and will process it as soon as possible. If you need any further information, feel free to reach out to us anytime.",
-                        BackgroundColor = new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Success)
+                        Text = _=> @"Thank you! Your submission has been successfully received. We have received your request and will process it as soon as possible. If you need any further information, feel free to reach out to us anytime.",
+                        BackgroundColor = _=> new PropertyColorBackgroundAlert(TypeColorBackgroundAlert.Success)
                     }
                 }
                 .Add(_exampleFormItems)

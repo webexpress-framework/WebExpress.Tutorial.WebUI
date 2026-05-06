@@ -72,7 +72,7 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         public ControlFormCharacterEdit(string id)
             : base(id)
         {
-            Enable = false;
+            Enable = _ => false;
 
             Add(CharacterName);
             Add(Description);

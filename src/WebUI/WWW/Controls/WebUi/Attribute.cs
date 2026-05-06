@@ -30,25 +30,25 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.Control = new ControlAttribute()
             {
-                Key = "Example",
-                Value = "This is an example of the ControlAttribute."
+                Key = _ => "Example",
+                Value = _ => "This is an example of the ControlAttribute."
             };
 
             Stage.Code = @"
             new ControlAttribute()
             {
-                Key = ""Example"",
-                Value = ""This is an example of the ControlAttribute.""
+                Key = _=> ""Example"",
+                Value = _=> ""This is an example of the ControlAttribute.""
             };";
 
             Stage.AddProperty
             (
                 "Key",
                 "Returns or sets the key of the attribute, representing the name or identifier in the key-value pair.",
-                @"Key = ""Example""",
+                @"Key = _=> ""Example""",
                 new ControlAttribute()
                 {
-                    Key = "Example"
+                    Key = _ => "Example"
                 }
             );
 
@@ -56,10 +56,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
            (
                "Value",
                "Returns or sets the value associated with the specified key.",
-               @"Value = ""This is an example of the ControlAttribute.""",
+               @"Value = _=> ""This is an example of the ControlAttribute.""",
                new ControlAttribute()
                {
-                   Value = "This is an example of the ControlAttribute."
+                   Value = _ => "This is an example of the ControlAttribute."
                }
            );
 
@@ -67,76 +67,76 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Color",
                 "Sets the color of the property.",
-                "Color = new PropertyColorText(TypeColorText.Primary)",
+                "Color = _=> new PropertyColorText(TypeColorText.Primary)",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    Color = new PropertyColorText(TypeColorText.Default),
-                    Key = "Example",
-                    Value = "This is an example of the ControlAttribute.",
+                    Color = _ => new PropertyColorText(TypeColorText.Default),
+                    Key = _ => "Example",
+                    Value = _ => "This is an example of the ControlAttribute.",
                 },
                 new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    Color = new PropertyColorText(TypeColorText.Primary),
-                    Key = "Example",
-                    Value = "This is an example of the ControlAttribute.",
+                    Color = _ => new PropertyColorText(TypeColorText.Primary),
+                    Key = _ => "Example",
+                    Value = _ => "This is an example of the ControlAttribute.",
                 },
                 new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    Color = new PropertyColorText(TypeColorText.Secondary),
-                    Key = "Example",
-                    Value = "This is an example of the ControlAttribute.",
+                    Color = _ => new PropertyColorText(TypeColorText.Secondary),
+                    Key = _ => "Example",
+                    Value = _ => "This is an example of the ControlAttribute.",
                 },
                 new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    Color = new PropertyColorText(TypeColorText.Info),
-                    Key = "Example",
-                    Value = "This is an example of the ControlAttribute.",
+                    Color = _ => new PropertyColorText(TypeColorText.Info),
+                    Key = _ => "Example",
+                    Value = _ => "This is an example of the ControlAttribute.",
                 },
                 new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    Color = new PropertyColorText(TypeColorText.Success),
-                    Key = "Example",
-                    Value = "This is an example of the ControlAttribute.",
+                    Color = _ => new PropertyColorText(TypeColorText.Success),
+                    Key = _ => "Example",
+                    Value = _ => "This is an example of the ControlAttribute.",
                 },
                 new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    Color = new PropertyColorText(TypeColorText.Warning),
-                    Key = "Example",
-                    Value = "This is an example of the ControlAttribute.",
+                    Color = _ => new PropertyColorText(TypeColorText.Warning),
+                    Key = _ => "Example",
+                    Value = _ => "This is an example of the ControlAttribute.",
                 },
                 new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    Color = new PropertyColorText(TypeColorText.Danger),
-                    Key = "Example",
-                    Value = "This is an example of the ControlAttribute.",
+                    Color = _ => new PropertyColorText(TypeColorText.Danger),
+                    Key = _ => "Example",
+                    Value = _ => "This is an example of the ControlAttribute.",
                 },
                 new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    Color = new PropertyColorText(TypeColorText.Dark),
-                    Key = "Example",
-                    Value = "This is an example of the ControlAttribute.",
+                    Color = _ => new PropertyColorText(TypeColorText.Dark),
+                    Key = _ => "Example",
+                    Value = _ => "This is an example of the ControlAttribute.",
                 },
                 new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    Color = new PropertyColorText(TypeColorText.Light),
-                    Key = "Example",
-                    Value = "This is an example of the ControlAttribute.",
+                    Color = _ => new PropertyColorText(TypeColorText.Light),
+                    Key = _ => "Example",
+                    Value = _ => "This is an example of the ControlAttribute.",
                 },
                 new ControlText() { Text = "Custom", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    Color = new PropertyColorText("gold"),
-                    Key = "Example",
-                    Value = "This is an example of the ControlAttribute.",
+                    Color = _ => new PropertyColorText("gold"),
+                    Key = _ => "Example",
+                    Value = _ => "This is an example of the ControlAttribute.",
                 }
             );
 
@@ -144,76 +144,76 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "KeyColor",
                 "Sets the color of the key property.",
-                "KeyColor = new PropertyColorText(TypeColorText.Primary)",
+                "KeyColor = _=> new PropertyColorText(TypeColorText.Primary)",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    KeyColor = new PropertyColorText(TypeColorText.Default),
-                    Key = "Example",
-                    Value = "This is an example of the ControlAttribute.",
+                    KeyColor = _ => new PropertyColorText(TypeColorText.Default),
+                    Key = _ => "Example",
+                    Value = _ => "This is an example of the ControlAttribute.",
                 },
                 new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    KeyColor = new PropertyColorText(TypeColorText.Primary),
-                    Key = "Example",
-                    Value = "This is an example of the ControlAttribute.",
+                    KeyColor = _ => new PropertyColorText(TypeColorText.Primary),
+                    Key = _ => "Example",
+                    Value = _ => "This is an example of the ControlAttribute.",
                 },
                 new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    KeyColor = new PropertyColorText(TypeColorText.Secondary),
-                    Key = "Example",
-                    Value = "This is an example of the ControlAttribute.",
+                    KeyColor = _ => new PropertyColorText(TypeColorText.Secondary),
+                    Key = _ => "Example",
+                    Value = _ => "This is an example of the ControlAttribute.",
                 },
                 new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    KeyColor = new PropertyColorText(TypeColorText.Info),
-                    Key = "Example",
-                    Value = "This is an example of the ControlAttribute.",
+                    KeyColor = _ => new PropertyColorText(TypeColorText.Info),
+                    Key = _ => "Example",
+                    Value = _ => "This is an example of the ControlAttribute.",
                 },
                 new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    KeyColor = new PropertyColorText(TypeColorText.Success),
-                    Key = "Example",
-                    Value = "This is an example of the ControlAttribute.",
+                    KeyColor = _ => new PropertyColorText(TypeColorText.Success),
+                    Key = _ => "Example",
+                    Value = _ => "This is an example of the ControlAttribute.",
                 },
                 new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    KeyColor = new PropertyColorText(TypeColorText.Warning),
-                    Key = "Example",
-                    Value = "This is an example of the ControlAttribute.",
+                    KeyColor = _ => new PropertyColorText(TypeColorText.Warning),
+                    Key = _ => "Example",
+                    Value = _ => "This is an example of the ControlAttribute.",
                 },
                 new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    KeyColor = new PropertyColorText(TypeColorText.Danger),
-                    Key = "Example",
-                    Value = "This is an example of the ControlAttribute.",
+                    KeyColor = _ => new PropertyColorText(TypeColorText.Danger),
+                    Key = _ => "Example",
+                    Value = _ => "This is an example of the ControlAttribute.",
                 },
                 new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    KeyColor = new PropertyColorText(TypeColorText.Dark),
-                    Key = "Example",
-                    Value = "This is an example of the ControlAttribute.",
+                    KeyColor = _ => new PropertyColorText(TypeColorText.Dark),
+                    Key = _ => "Example",
+                    Value = _ => "This is an example of the ControlAttribute.",
                 },
                 new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    KeyColor = new PropertyColorText(TypeColorText.Light),
-                    Key = "Example",
-                    Value = "This is an example of the ControlAttribute.",
+                    KeyColor = _ => new PropertyColorText(TypeColorText.Light),
+                    Key = _ => "Example",
+                    Value = _ => "This is an example of the ControlAttribute.",
                 },
                 new ControlText() { Text = "Custom", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    KeyColor = new PropertyColorText("gold"),
-                    Key = "Example",
-                    Value = "This is an example of the ControlAttribute.",
+                    KeyColor = _ => new PropertyColorText("gold"),
+                    Key = _ => "Example",
+                    Value = _ => "This is an example of the ControlAttribute.",
                 }
             );
 
@@ -225,66 +225,66 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    Value = "Default"
+                    Value = _ => "Default"
                 },
                 new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    Value = "Primary",
+                    Value = _ => "Primary",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Primary)
                 },
                 new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    Value = "Primary",
+                    Value = _ => "Primary",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Secondary)
                 },
                 new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    Value = "Info",
+                    Value = _ => "Info",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Info)
                 },
                 new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    Value = "Success",
+                    Value = _ => "Success",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 },
                 new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    Value = "Warning",
+                    Value = _ => "Warning",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Warning)
                 },
                 new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    Value = "Danger",
+                    Value = _ => "Danger",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Danger)
                 },
                 new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    Value = "Dark",
+                    Value = _ => "Dark",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Dark)
                 },
                 new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    Value = "Light",
+                    Value = _ => "Light",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Light)
                 },
                 new ControlText() { Text = "Transparent", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    Value = "Transparent",
+                    Value = _ => "Transparent",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Transparent)
                 },
                 new ControlText() { Text = "Custom", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
-                    Value = "Custom",
+                    Value = _ => "Custom",
                     BackgroundColor = _ => new PropertyColorBackground("gold")
                 }
             );
@@ -296,13 +296,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 @"
                 new ControlAttribute()
                 {
-                    Icon = new IconHome()
+                    Icon = _=> new IconHome()
                 }",
                 new ControlAttribute()
                 {
-                    Icon = new IconHome(),
-                    Key = "Example",
-                    Value = "This is an example of the ControlAttribute."
+                    Icon = _ => new IconHome(),
+                    Key = _ => "Example",
+                    Value = _ => "This is an example of the ControlAttribute."
                 }
             );
 
@@ -313,13 +313,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 @"
                 new ControlAttribute()
                 {
-                    Separator = '='
+                    Separator = _=> '='
                 }",
                 new ControlAttribute()
                 {
-                    Separator = '=',
-                    Key = "Example",
-                    Value = "This is an example of the ControlAttribute."
+                    Separator = _ => '=',
+                    Key = _ => "Example",
+                    Value = _ => "This is an example of the ControlAttribute."
                 }
             );
 
@@ -330,18 +330,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 @"
                 new ControlAttribute()
                 {
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _=> pageContext.Route.ToUri()
                 }",
                 new ControlAttribute()
                 {
-                    Key = "With URI",
-                    Value = "This is an example of the ControlAttribute.",
-                    Uri = pageContext.Route.ToUri()
+                    Key = _ => "With URI",
+                    Value = _ => "This is an example of the ControlAttribute.",
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlAttribute()
                 {
-                    Key = "Without URI",
-                    Value = "This is an example of the ControlAttribute."
+                    Key = _ => "Without URI",
+                    Value = _ => "This is an example of the ControlAttribute."
                 }
             );
         }
