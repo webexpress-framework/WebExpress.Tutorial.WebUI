@@ -534,11 +534,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table
                         )
                         .Add
                         (
-                            new ControlDropdownItemHeader() { Text = "Header" },
-                            new ControlDropdownItemLink() { Text = "First Entry", Icon = new IconWrench() },
-                            new ControlDropdownItemLink() { Text = "Second Entry" },
+                            new ControlDropdownItemHeader() { Text = _ => "Header" },
+                            new ControlDropdownItemLink() { Text = _ => "First Entry", Icon = _ => new IconWrench() },
+                            new ControlDropdownItemLink() { Text = _ => "Second Entry" },
                             new ControlDropdownItemDivider(),
-                            new ControlDropdownItemLink() { Text = "Third Entry" }
+                            new ControlDropdownItemLink() { Text = _ => "Third Entry" }
                         )
                     )
             );

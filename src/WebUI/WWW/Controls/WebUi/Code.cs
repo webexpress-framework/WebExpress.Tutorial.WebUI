@@ -26,18 +26,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.Controls = [
                 new ControlCode()
                     {
-                        Code = "cls\nprint \"hello world!\"",
-                        Language = TypeLanguage.Basic,
-                        LineNumbers = true
+                        Code = _ => "cls\nprint \"hello world!\"",
+                        Language = _ => TypeLanguage.Basic,
+                        LineNumbers = _ => true
                     }
             ];
 
             Stage.Code = @"
             new ControlCode()
             {
-                Code = ""cls\nprint \""hello world!\"""",
-                Language = TypeLanguage.Basic,
-                LineNumbers = true
+                Code = _ => ""cls\nprint \""hello world!\"""",
+                Language = _ => TypeLanguage.Basic,
+                LineNumbers = _ => true
             }";
 
             Stage.AddProperty
@@ -47,71 +47,71 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Language = _ => TypeLanguage.Bash",
                 // Default
                 new ControlText() { Text = "Default", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlCode() { Language = TypeLanguage.Default, Code = "hello world!" },
+                new ControlCode() { Language = _ => TypeLanguage.Default, Code = _ => "hello world!" },
 
                 // Bash
                 new ControlText() { Text = "Bash", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlCode() { Language = TypeLanguage.Bash, Code = "#!/bin/bash\necho \"Hello, world!\"" },
+                new ControlCode() { Language = _ => TypeLanguage.Bash, Code = _ => "#!/bin/bash\necho \"Hello, world!\"" },
 
                 // Basic
                 new ControlText() { Text = "Basic", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlCode() { Language = TypeLanguage.Basic, Code = "PRINT \"Hello, world!\"" },
+                new ControlCode() { Language = _ => TypeLanguage.Basic, Code = _ => "PRINT \"Hello, world!\"" },
 
                 // Cmd
                 new ControlText() { Text = "Cmd", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlCode() { Language = TypeLanguage.Cmd, Code = "@echo Hello, world!" },
+                new ControlCode() { Language = _ => TypeLanguage.Cmd, Code = _ => "@echo Hello, world!" },
 
                 // Cobol
                 new ControlText() { Text = "Cobol", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlCode() { Language = TypeLanguage.Cobol, Code = "DISPLAY \"Hello, world!\"" },
+                new ControlCode() { Language = _ => TypeLanguage.Cobol, Code = _ => "DISPLAY \"Hello, world!\"" },
 
                 // C++
                 new ControlText() { Text = "C++", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlCode() { Language = TypeLanguage.Cpp, Code = "#include <iostream>\nint main() {\n    std::cout << \"Hello, world!\";\n    return 0;\n}" },
+                new ControlCode() { Language = _ => TypeLanguage.Cpp, Code = _ => "#include <iostream>\nint main() {\n    std::cout << \"Hello, world!\";\n    return 0;\n}" },
 
                 // C#
                 new ControlText() { Text = "C#", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlCode() { Language = TypeLanguage.CSharp, Code = "Console.WriteLine(\"Hello, world!\");" },
+                new ControlCode() { Language = _ => TypeLanguage.CSharp, Code = _ => "Console.WriteLine(\"Hello, world!\");" },
 
                 // Groovy
                 new ControlText() { Text = "Groovy", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlCode() { Language = TypeLanguage.Groovy, Code = "println 'Hello, world!'" },
+                new ControlCode() { Language = _ => TypeLanguage.Groovy, Code = _ => "println 'Hello, world!'" },
 
                 // Java
                 new ControlText() { Text = "Java", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlCode() { Language = TypeLanguage.Java, Code = "public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, world!\");\n    }\n}" },
+                new ControlCode() { Language = _ => TypeLanguage.Java, Code = _ => "public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, world!\");\n    }\n}" },
 
                 // JavaScript
                 new ControlText() { Text = "JavaScript", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlCode() { Language = TypeLanguage.JavaScript, Code = "console.log(\"Hello, world!\");" },
+                new ControlCode() { Language = _ => TypeLanguage.JavaScript, Code = _ => "console.log(\"Hello, world!\");" },
 
                 // Markdown
                 new ControlText() { Text = "Markdown", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlCode() { Language = TypeLanguage.Markdown, Code = "# Hello, world!" },
+                new ControlCode() { Language = _ => TypeLanguage.Markdown, Code = _ => "# Hello, world!" },
 
                 // PHP
                 new ControlText() { Text = "PHP", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlCode() { Language = TypeLanguage.Php, Code = "<?php\necho \"Hello, world!\";\n?>" },
+                new ControlCode() { Language = _ => TypeLanguage.Php, Code = _ => "<?php\necho \"Hello, world!\";\n?>" },
 
                 // PowerShell
                 new ControlText() { Text = "PowerShell", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlCode() { Language = TypeLanguage.PowerShell, Code = "Write-Host \"Hello, world!\"" },
+                new ControlCode() { Language = _ => TypeLanguage.PowerShell, Code = _ => "Write-Host \"Hello, world!\"" },
 
                 // Property
                 new ControlText() { Text = "Property", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlCode() { Language = TypeLanguage.Property, Code = "greeting=Hello, world!" },
+                new ControlCode() { Language = _ => TypeLanguage.Property, Code = _ => "greeting=Hello, world!" },
 
                 // Python
                 new ControlText() { Text = "Python", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlCode() { Language = TypeLanguage.Python, Code = "print(\"Hello, world!\")" },
+                new ControlCode() { Language = _ => TypeLanguage.Python, Code = _ => "print(\"Hello, world!\")" },
 
                 // VisualBasic
                 new ControlText() { Text = "Visual Basic", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlCode() { Language = TypeLanguage.VisualBasic, Code = "Console.WriteLine(\"Hello, world!\")" },
+                new ControlCode() { Language = _ => TypeLanguage.VisualBasic, Code = _ => "Console.WriteLine(\"Hello, world!\")" },
 
                 // XML
                 new ControlText() { Text = "XML", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlCode() { Language = TypeLanguage.Xml, Code = "<message>Hello, world!</message>" }
+                new ControlCode() { Language = _ => TypeLanguage.Xml, Code = _ => "<message>Hello, world!</message>" }
             );
 
             Stage.AddProperty
@@ -121,11 +121,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "LineNumbers = true",
                 // Default
                 new ControlText() { Text = "False", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlCode() { Language = TypeLanguage.Bash, Code = "#!/bin/bash\necho \"Hello, world!\"", LineNumbers = false },
+                new ControlCode() { Language = _ => TypeLanguage.Bash, Code = _ => "#!/bin/bash\necho \"Hello, world!\"", LineNumbers = _ => false },
 
                 // Bash
                 new ControlText() { Text = "True", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlCode() { Language = TypeLanguage.Bash, Code = "#!/bin/bash\necho \"Hello, world!\"", LineNumbers = true }
+                new ControlCode() { Language = _ => TypeLanguage.Bash, Code = _ => "#!/bin/bash\necho \"Hello, world!\"", LineNumbers = _ => true }
             );
         }
     }

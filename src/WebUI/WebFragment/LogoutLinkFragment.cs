@@ -37,6 +37,9 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.HomePage
             : base(fragmentContext)
         {
             _componentHub = componentHub;
+
+            RestUri = renderContext => _componentHub.SitemapManager
+                .GetUri<Session>(renderContext?.PageContext.ApplicationContext);
         }
 
         /// <summary>
@@ -47,9 +50,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.HomePage
         /// <returns>An HTML node representing the rendered control.</returns>
         public override IHtmlNode Render(IRenderControlContext renderContext, IVisualTreeControl visualTree)
         {
-            var logoutUri = _componentHub.SitemapManager.GetUri<Session>(renderContext?.PageContext.ApplicationContext);
-
-            return base.Render(renderContext, visualTree, logoutUri);
+            return base.Render(renderContext, visualTree);
         }
     }
 }

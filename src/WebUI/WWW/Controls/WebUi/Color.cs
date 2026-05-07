@@ -26,30 +26,30 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.Controls = [
                 new ControlColor()
                     {
-                        Color = "orange"
+                        Color = _ => "orange"
                     }
             ];
 
             Stage.Code = @"
             new ControlColor()
             {
-                Color = ""orange""
+                Color = _ => ""orange""
             }";
 
             Stage.AddProperty
             (
                 "Color",
                 "The `Color` property defines the visual color value applied to the control. It updates the swatch and ensures that the selected color is represented consistently in the UI.",
-                "Color = \"green\"",
-                new ControlColor() { Color = "green" }
+                "Color = _ => \"green\"",
+                new ControlColor() { Color = _ => "green" }
             );
 
             Stage.AddProperty
             (
                 "Tooltip",
                 "The `Tooltip` property specifies the text shown when hovering over the color swatch. It helps users understand the meaning or purpose of the selected color.",
-                "Tooltip = \"green\"",
-                new ControlColor() { Color = "green", Tooltip = "green" }
+                "Tooltip = _ => \"green\"",
+                new ControlColor() { Color = _ => "green", Tooltip = _ => "green" }
             );
         }
     }

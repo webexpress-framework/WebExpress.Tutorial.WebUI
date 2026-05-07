@@ -159,18 +159,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     yield return new ControlDropdown()
                     {
-                        Text = $"Dropdown {i}",
+                        Text = _ => $"Dropdown {i}",
                         Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.One),
-                        Icon = new IconSpider()
+                        Icon = _ => new IconSpider()
                     }
                         .AddHeader($"Header {i}")
-                        .Add(new ControlDropdownItemLink() { Text = $"Link {i}(1)" })
-                        .Add(new ControlDropdownItemLink() { Text = $"Link {i}(2)" })
-                        .Add(new ControlDropdownItemLink() { Text = $"Link {i}(3)" })
+                        .Add(new ControlDropdownItemLink() { Text = _ => $"Link {i}(1)" })
+                        .Add(new ControlDropdownItemLink() { Text = _ => $"Link {i}(2)" })
+                        .Add(new ControlDropdownItemLink() { Text = _ => $"Link {i}(3)" })
                         .AddSeparator()
-                        .Add(new ControlDropdownItemLink() { Text = $"Link {i}(4)" })
-                        .Add(new ControlDropdownItemLink() { Text = $"Link {i}(5)" })
-                        .Add(new ControlDropdownItemLink() { Text = $"Link {i}(6)" });
+                        .Add(new ControlDropdownItemLink() { Text = _ => $"Link {i}(4)" })
+                        .Add(new ControlDropdownItemLink() { Text = _ => $"Link {i}(5)" })
+                        .Add(new ControlDropdownItemLink() { Text = _ => $"Link {i}(6)" });
                 }
             }
         }

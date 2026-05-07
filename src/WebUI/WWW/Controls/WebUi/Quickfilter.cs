@@ -55,15 +55,15 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText() { Text = "ControlDropdown", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlDropdown("dropdown")
                 {
-                    Text = "Dropdown",
-                    Icon = new IconToggleOn(),
+                    Text =_ =>  "Dropdown",
+                    Icon = _ => new IconToggleOn(),
 
                 }
                     .Add(new ControlDropdownItemLink("ondropdown")
                     {
-                        Text = "On",
-                        Icon = new IconPowerOff(),
-                        PrimaryAction = new ActionFilter()
+                        Text = _ => "On",
+                        Icon = _ => new IconPowerOff(),
+                        PrimaryAction = _ => new ActionFilter()
                         {
                             Group = "powerdropdown",
                         Exclusive = true
@@ -71,9 +71,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     })
                     .Add(new ControlDropdownItemLink("offdropdown")
                     {
-                        Text = "Off",
-                        Icon = new IconPowerOff(),
-                        PrimaryAction = new ActionFilter()
+                        Text =_ =>  "Off",
+                        Icon = _ => new IconPowerOff(),
+                        PrimaryAction = _ => new ActionFilter()
                         {
                             Group = "powerdropdown",
                         Exclusive = true

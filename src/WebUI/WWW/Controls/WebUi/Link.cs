@@ -60,7 +60,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Content",
                 "Sets the content of the link",
                 "new ControlLink(this, new ControlText(this) { Text = _ => \"Hello World!\", Format = _ => TypeFormatText.Italic }, new ControlBadge(this) { Value = _ => \"1\", BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger) })",
-                new ControlLink(null, new ControlText() { Text = "Hello World!", Format = TypeFormatText.Italic }, new ControlBadge() { Value = "1", BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger) })
+                new ControlLink(null, new ControlText() { Text = "Hello World!", Format = TypeFormatText.Italic }, new ControlBadge() { Value = _ => "1", BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger) })
                 {
                     Uri = _ => pageContext.Route.ToUri(),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)

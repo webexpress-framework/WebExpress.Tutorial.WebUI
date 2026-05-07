@@ -39,8 +39,15 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.HomePage
             : base(fragmentContext)
         {
             _componentHub = componentHub;
-            Text = "webexpress.webapp:login.label";
-            Icon = new IconRightToBracket();
+            Text = _ => "webexpress.webapp:login.label";
+            Icon = _ => new IconRightToBracket();
+
+            PrimaryAction = renderContext =>
+            {
+                var loginUri = _componentHub.SitemapManager.GetUri<Login>(renderContext?.PageContext.ApplicationContext);
+
+                return new ActionModal("modal-form", loginUri, TypeModalSize.Default);
+            };
         }
 
         /// <summary>
@@ -51,10 +58,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.HomePage
         /// <returns>An HTML node representing the rendered control.</returns>
         public override IHtmlNode Render(IRenderControlContext renderContext, IVisualTreeControl visualTree)
         {
-            var loginUri = _componentHub.SitemapManager.GetUri<Login>(renderContext?.PageContext.ApplicationContext);
-            var primaryAction = new ActionModal("modal-form", loginUri, TypeModalSize.Default);
-
-            return base.Render(renderContext, visualTree, Text, Tooltip, Icon, Color, Uri, Target, primaryAction, SecondaryAction);
+            return base.Render(renderContext, visualTree);
         }
     }
 }

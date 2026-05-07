@@ -33,9 +33,9 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.StatusPages
         public StatusPageFragment(IComponentHub componentHub, IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "webexpress.tutorial.webui:statuspage.label";
-            Toggle = TypeToggleDropdown.Toggle;
-            Icon = new IconRoadBarrier();
+            Text = _ => "webexpress.tutorial.webui:statuspage.label";
+            Toggle = _ => TypeToggleDropdown.Toggle;
+            Icon = _ => new IconRoadBarrier();
 
             //Add(new ControlDropdownItemLink()
             //{
@@ -46,16 +46,16 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.StatusPages
 
             Add(new ControlDropdownItemLink()
             {
-                Text = "webexpress.tutorial.webui:statuspage.404",
-                Icon = new IconLink(),
-                Uri = componentHub.SitemapManager.GetUri<WWW.Index>(fragmentContext.ApplicationContext).Concat("unavailable")
+                Text = _ => "webexpress.tutorial.webui:statuspage.404",
+                Icon = _ => new IconLink(),
+                Uri = _ => componentHub.SitemapManager.GetUri<WWW.Index>(fragmentContext.ApplicationContext).Concat("unavailable")
             });
 
             Add(new ControlDropdownItemLink()
             {
-                Text = "webexpress.tutorial.webui:statuspage.500",
-                Icon = new IconBug(),
-                Uri = componentHub.SitemapManager.GetUri<WWW.StatusPages.Index>(fragmentContext.ApplicationContext)
+                Text = _ => "webexpress.tutorial.webui:statuspage.500",
+                Icon = _ => new IconBug(),
+                Uri = _ => componentHub.SitemapManager.GetUri<WWW.StatusPages.Index>(fragmentContext.ApplicationContext)
             });
         }
 

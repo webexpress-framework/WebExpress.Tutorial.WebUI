@@ -30,13 +30,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.Control = new ControlAvatarDropdown()
             {
-                Image = applicationContext.Route.Concat("assets/img/dex_zogbert.png").ToUri()
+                Image = _ => applicationContext.Route.Concat("assets/img/dex_zogbert.png").ToUri()
             };
 
             Stage.Code = @"
             new ControlAvatarDropdown()
             {
-                User = ""Dex Zogbert""
+                User = _ => ""Dex Zogbert""
             };";
 
             Stage.AddProperty
@@ -46,11 +46,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 @"
                 new ControlAvatar()
                 {
-                    User = ""Dex Zogbert""
+                    User = _ => ""Dex Zogbert""
                 };",
                 new ControlAvatarDropdown()
                 {
-                    User = "Dex Zogbert"
+                    User = _ => "Dex Zogbert"
                 }
             );
 
@@ -61,11 +61,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 @"
                 new ControlAvatarDropdown()
                 {
-                    Image = applicationContext.Route.Concat(""assets/img/dex_zogbert.png"").ToUri()
+                    Image = _ => applicationContext.Route.Concat(""assets/img/dex_zogbert.png"").ToUri()
                 }",
                 new ControlAvatarDropdown()
                 {
-                    Image = applicationContext.Route.Concat("assets/img/dex_zogbert.png").ToUri()
+                    Image = _ => applicationContext.Route.Concat("assets/img/dex_zogbert.png").ToUri()
                 }
             );
 
@@ -77,17 +77,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatarDropdown(null)
                 {
-                    User = "Dex Zogbert",
-                    AlignmentMenu = TypeAlignmentDropdownMenu.Default,
-                    Color = new PropertyColorButton(TypeColorButton.Primary),
+                    User = _ => "Dex Zogbert",
+                    AlignmentMenu = _ => TypeAlignmentDropdownMenu.Default,
+                    Color = _ => new PropertyColorButton(TypeColorButton.Primary),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                 },
                 new ControlText() { Text = "Right", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatarDropdown(null)
                 {
-                    User = "Dex Zogbert",
-                    AlignmentMenu = TypeAlignmentDropdownMenu.Right,
-                    Color = new PropertyColorButton(TypeColorButton.Primary),
+                    User = _ => "Dex Zogbert",
+                    AlignmentMenu = _ => TypeAlignmentDropdownMenu.Right,
+                    Color = _ => new PropertyColorButton(TypeColorButton.Primary),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None)
                 }
             );
@@ -100,9 +100,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "new ControlDropdownItemLink()",
                 new ControlAvatarDropdown(null)
                 {
-                    User = "Dex Zogbert"
+                    User = _ => "Dex Zogbert"
                 }
-                    .Add(new ControlDropdownItemLink() { Text = "Log out", Icon = new IconPowerOff() })
+                    .Add(new ControlDropdownItemLink() { Text = _ => "Log out", Icon = _ => new IconPowerOff() })
             );
 
             Stage.AddItem
@@ -113,9 +113,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "new ControlDropdownItemHeader()",
                  new ControlAvatarDropdown(null)
                  {
-                     User = "Dex Zogbert"
+                     User = _ => "Dex Zogbert"
                  }
-                    .Add(new ControlDropdownItemHeader() { Text = "Header" })
+                    .Add(new ControlDropdownItemHeader() { Text = _ => "Header" })
             );
 
             Stage.AddItem
@@ -126,7 +126,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "new ControlDropdownItemDivider()",
                 new ControlAvatarDropdown(null)
                 {
-                    User = "Dex Zogbert"
+                    User = _ => "Dex Zogbert"
                 }
                     .Add(new ControlDropdownItemDivider() { })
             );

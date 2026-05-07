@@ -99,7 +99,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Placeholder = _ => \"Choose a user\"",
                 new ControlForm(null, new ControlFormItemInputAvatar()
                 {
-                    Placeholder = "Choose a user",
+                    Placeholder = _ => "Choose a user",
                 })
             );
 
@@ -121,7 +121,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "UploadUri = _ => pageContext.Route.ToUri()",
                 new ControlForm(null, new ControlFormItemInputAvatar(null)
                 {
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 })
             );
 
@@ -133,17 +133,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputAvatar(null)
                 {
-                    Shape = TypeAvatarShape.Default
+                    Shape = _ => TypeAvatarShape.Default
                 }),
                 new ControlText() { Text = "Circle", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputAvatar(null)
                 {
-                    Shape = TypeAvatarShape.Circle
+                    Shape = _ => TypeAvatarShape.Circle
                 }),
                 new ControlText() { Text = "Rect", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputAvatar(null)
                 {
-                    Shape = TypeAvatarShape.Rect
+                    Shape = _ => TypeAvatarShape.Rect
                 })
             );
 
@@ -154,7 +154,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Viewport = _ => 320",
                 new ControlForm(null, new ControlFormItemInputAvatar(null)
                 {
-                    Viewport = 320
+                    Viewport = _ => 320
                 })
             );
 
@@ -165,7 +165,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "OutputSize = _ => 512",
                 new ControlForm(null, new ControlFormItemInputAvatar(null)
                 {
-                    OutputSize = 512
+                    OutputSize = _ => 512
                 })
             );
 
@@ -176,7 +176,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "OutputFormat = _ => ContentType.Jpeg",
                 new ControlForm(null, new ControlFormItemInputAvatar(null)
                 {
-                    OutputFormat = ContentType.Jpeg
+                    OutputFormat = _ => ContentType.Jpeg
                 })
             );
 
@@ -187,7 +187,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "OutputQuality = _ => 0.92",
                 new ControlForm(null, new ControlFormItemInputAvatar(null)
                 {
-                    OutputQuality = 0.92f
+                    OutputQuality = _ => 0.92f
                 })
             );
 
@@ -198,7 +198,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Accept = _ => [ContentType.Png, ContentType.Jpeg, ContentType.WebP]",
                 new ControlForm(null, new ControlFormItemInputAvatar(null)
                 {
-                    Accept = [ContentType.Png, ContentType.Jpeg, ContentType.WebP]
+                    Accept = _ => [ContentType.Png, ContentType.Jpeg, ContentType.WebP]
                 })
             );
 
@@ -209,7 +209,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "OverlayAlpha = _ => 1",
                 new ControlForm(null, new ControlFormItemInputAvatar(null)
                 {
-                    OverlayAlpha = 1f
+                    OverlayAlpha = _ => 1f
                 })
             );
         }

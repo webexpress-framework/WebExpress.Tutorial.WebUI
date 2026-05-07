@@ -28,138 +28,138 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.Controls = [
                 new ControlBadge()
                 {
-                    Value = "1"
+                    Value = _ => "1"
                 },
                 new ControlBadge()
                 {
-                    Value = "2",
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Primary)
+                    Value = _ => "2",
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Primary)
                 },
                 new ControlBadge()
                 {
-                    Value = "3",
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Secondary)
+                    Value = _ => "3",
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Secondary)
                 },
                 new ControlBadge()
                 {
-                    Value = "4",
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Info)
+                    Value = _ => "4",
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Info)
                 },
                 new ControlBadge()
                 {
-                    Value = "5",
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Success)
+                    Value = _ => "5",
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Success)
                 },
                 new ControlBadge()
                 {
-                    Value = "60",
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Warning)
+                    Value = _ => "60",
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Warning)
                 },
                 new ControlBadge()
                 {
-                    Value = "70",
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger)
+                    Value = _ => "70",
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger)
                 },
                 new ControlBadge()
                 {
-                    Value = "80",
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Dark)
+                    Value = _ => "80",
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Dark)
                 },
                 new ControlBadge()
                 {
-                    Value = "90",
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Light)
+                    Value = _ => "90",
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Light)
                 },
                 new ControlBadge()
                 {
-                    Value = "100",
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Highlight)
+                    Value = _ => "100",
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Highlight)
                 },
                 new ControlBadge()
                 {
-                    Value = "200",
+                    Value = _ => "200",
                     TextColor = _ => new PropertyColorText("red"),
-                    BackgroundColor = new PropertyColorBackgroundBadge("gold")
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge("gold")
                 }
             ];
 
             Stage.Code = @"
             new ControlBadge() 
             { 
-                Value = ""New"", 
-                BackgroundColor = new PropertyColorBackground(TypesBackgroundColor.Success) 
+                Value = _ => ""New"", 
+                BackgroundColor = _ => new PropertyColorBackground(TypesBackgroundColor.Success) 
             };";
 
             Stage.AddProperty
             (
                 "Pill",
                 "Changes the design and adds more rounded corners.",
-                "Pill = TypePillBadge.Pill",
+                "Pill = _ => TypePillBadge.Pill",
                 new ControlBadge()
                 {
-                    Value = "Default",
-                    Pill = TypePillBadge.Pill
+                    Value = _ => "Default",
+                    Pill = _ => TypePillBadge.Pill
                 },
                 new ControlBadge()
                 {
-                    Value = "Primary",
-                    Pill = TypePillBadge.Pill,
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Primary)
+                    Value = _ => "Primary",
+                    Pill = _ => TypePillBadge.Pill,
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Primary)
                 },
                 new ControlBadge()
                 {
-                    Value = "Secondary",
-                    Pill = TypePillBadge.Pill,
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Secondary)
+                    Value = _ => "Secondary",
+                    Pill = _ => TypePillBadge.Pill,
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Secondary)
                 },
                 new ControlBadge()
                 {
-                    Value = "Info",
-                    Pill = TypePillBadge.Pill,
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Info)
+                    Value = _ => "Info",
+                    Pill = _ => TypePillBadge.Pill,
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Info)
                 },
                 new ControlBadge()
                 {
-                    Value = "Success",
-                    Pill = TypePillBadge.Pill,
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Success)
+                    Value = _ => "Success",
+                    Pill = _ => TypePillBadge.Pill,
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Success)
                 },
                 new ControlBadge()
                 {
-                    Value = "Warning",
-                    Pill = TypePillBadge.Pill,
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Warning)
+                    Value = _ => "Warning",
+                    Pill = _ => TypePillBadge.Pill,
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Warning)
                 },
                 new ControlBadge()
                 {
-                    Value = "Danger",
-                    Pill = TypePillBadge.Pill,
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger)
+                    Value = _ => "Danger",
+                    Pill = _ => TypePillBadge.Pill,
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger)
                 },
                 new ControlBadge()
                 {
-                    Value = "Dark",
-                    Pill = TypePillBadge.Pill,
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Dark)
+                    Value = _ => "Dark",
+                    Pill = _ => TypePillBadge.Pill,
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Dark)
                 },
                 new ControlBadge()
                 {
-                    Value = "Light",
-                    Pill = TypePillBadge.Pill,
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Light)
+                    Value = _ => "Light",
+                    Pill = _ => TypePillBadge.Pill,
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Light)
                 },
                 new ControlBadge()
                 {
-                    Value = "Highlight",
-                    Pill = TypePillBadge.Pill,
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Highlight)
+                    Value = _ => "Highlight",
+                    Pill = _ => TypePillBadge.Pill,
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Highlight)
                 },
                 new ControlBadge()
                 {
-                    Value = "User defined",
-                    Pill = TypePillBadge.Pill,
+                    Value = _ => "User defined",
+                    Pill = _ => TypePillBadge.Pill,
                     TextColor = _ => new PropertyColorText("red"),
-                    BackgroundColor = new PropertyColorBackgroundBadge("gold")
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge("gold")
                 }
             );
 
@@ -167,72 +167,72 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Uri",
                 "Adds a URI so that the badge functions like a link.",
-                "Uri = pageContext.Route.ToUri()",
+                "Uri = _ => pageContext.Route.ToUri()",
                 new ControlBadge()
                 {
-                    Value = "Default",
-                    Uri = pageContext.Route.ToUri()
+                    Value = _ => "Default",
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlBadge()
                 {
-                    Value = "Primary",
-                    Uri = pageContext.Route.ToUri(),
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Primary)
+                    Value = _ => "Primary",
+                    Uri = _ => pageContext.Route.ToUri(),
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Primary)
                 },
                 new ControlBadge()
                 {
-                    Value = "Secondary",
-                    Uri = pageContext.Route.ToUri(),
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Secondary)
+                    Value = _ => "Secondary",
+                    Uri = _ => pageContext.Route.ToUri(),
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Secondary)
                 },
                 new ControlBadge()
                 {
-                    Value = "Info",
-                    Uri = pageContext.Route.ToUri(),
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Info)
+                    Value = _ => "Info",
+                    Uri = _ => pageContext.Route.ToUri(),
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Info)
                 },
                 new ControlBadge()
                 {
-                    Value = "Success",
-                    Uri = pageContext.Route.ToUri(),
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Success)
+                    Value = _ => "Success",
+                    Uri = _ => pageContext.Route.ToUri(),
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Success)
                 },
                 new ControlBadge()
                 {
-                    Value = "Warning",
-                    Uri = pageContext.Route.ToUri(),
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Warning)
+                    Value = _ => "Warning",
+                    Uri = _ => pageContext.Route.ToUri(),
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Warning)
                 },
                 new ControlBadge()
                 {
-                    Value = "Danger",
-                    Uri = pageContext.Route.ToUri(),
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger)
+                    Value = _ => "Danger",
+                    Uri = _ => pageContext.Route.ToUri(),
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger)
                 },
                 new ControlBadge()
                 {
-                    Value = "Dark",
-                    Uri = pageContext.Route.ToUri(),
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Dark)
+                    Value = _ => "Dark",
+                    Uri = _ => pageContext.Route.ToUri(),
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Dark)
                 },
                 new ControlBadge()
                 {
-                    Value = "Light",
-                    Uri = pageContext.Route.ToUri(),
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Light)
+                    Value = _ => "Light",
+                    Uri = _ => pageContext.Route.ToUri(),
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Light)
                 },
                 new ControlBadge()
                 {
-                    Value = "Highlight",
-                    Uri = pageContext.Route.ToUri(),
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Highlight)
+                    Value = _ => "Highlight",
+                    Uri = _ => pageContext.Route.ToUri(),
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Highlight)
                 },
                 new ControlBadge()
                 {
-                    Value = "Custom",
-                    Uri = pageContext.Route.ToUri(),
+                    Value = _ => "Custom",
+                    Uri = _ => pageContext.Route.ToUri(),
                     TextColor = _ => new PropertyColorText("red"),
-                    BackgroundColor = new PropertyColorBackgroundBadge("gold")
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge("gold")
                 }
             );
 
@@ -244,44 +244,44 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Size = _ => new PropertySizeText(TypeSizeText.Small)",
                 new ControlBadge()
                 {
-                    Value = "ExtraSmall",
-                    Size = new PropertySizeText(TypeSizeText.ExtraSmall),
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Dark),
+                    Value = _ => "ExtraSmall",
+                    Size = _ => new PropertySizeText(TypeSizeText.ExtraSmall),
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Dark),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlBadge()
                 {
-                    Value = "Small",
-                    Size = new PropertySizeText(TypeSizeText.Small),
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Dark),
+                    Value = _ => "Small",
+                    Size = _ => new PropertySizeText(TypeSizeText.Small),
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Dark),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlBadge()
                 {
-                    Value = "Default",
-                    Size = new PropertySizeText(TypeSizeText.Default),
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Dark),
+                    Value = _ => "Default",
+                    Size = _ => new PropertySizeText(TypeSizeText.Default),
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Dark),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlBadge()
                 {
-                    Value = "Large",
-                    Size = new PropertySizeText(TypeSizeText.Large),
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Dark),
+                    Value = _ => "Large",
+                    Size = _ => new PropertySizeText(TypeSizeText.Large),
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Dark),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlBadge()
                 {
-                    Value = "ExtraLarge",
-                    Size = new PropertySizeText(TypeSizeText.ExtraLarge),
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Dark),
+                    Value = _ => "ExtraLarge",
+                    Size = _ => new PropertySizeText(TypeSizeText.ExtraLarge),
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Dark),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
                 new ControlBadge()
                 {
-                    Value = "3.1f",
-                    Size = new PropertySizeText(3.1f),
-                    BackgroundColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Dark),
+                    Value = _ => "3.1f",
+                    Size = _ => new PropertySizeText(3.1f),
+                    BackgroundColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Dark),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 }
             );

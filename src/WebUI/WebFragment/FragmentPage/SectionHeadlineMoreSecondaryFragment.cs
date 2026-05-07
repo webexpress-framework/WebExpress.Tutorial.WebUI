@@ -20,7 +20,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.FragmentPage
         public SectionHeadlineMoreSecondaryFragment(IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "SectionHeadlineMoreSecondary";
+            Text = _ => "SectionHeadlineMoreSecondary";
         }
     }
 }

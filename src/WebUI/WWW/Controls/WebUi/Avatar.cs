@@ -29,13 +29,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.Control = new ControlAvatar()
             {
-                Username = "Dex Zogbert"
+                Username = _ => "Dex Zogbert"
             };
 
             Stage.Code = @"
             new ControlAvatar()
             {
-                Username = ""Dex Zogbert""
+                Username = _ => ""Dex Zogbert""
             };";
 
             Stage.AddProperty
@@ -45,11 +45,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 @"
                 new ControlAvatar()
                 {
-                    Username = ""Dex Zogbert""
+                    Username = _ => ""Dex Zogbert""
                 };",
                 new ControlAvatar()
                 {
-                    Username = "Dex Zogbert"
+                    Username = _ => "Dex Zogbert"
                 }
             );
 
@@ -62,61 +62,61 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlAvatar()
                 {
                     TextColor = _ => new PropertyColorText(TypeColorText.Default),
-                    Username = "Dex Zogbert"
+                    Username = _ => "Dex Zogbert"
                 },
                 new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
                     TextColor = _ => new PropertyColorText(TypeColorText.Primary),
-                    Username = "Dex Zogbert"
+                    Username = _ => "Dex Zogbert"
                 },
                 new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
                     TextColor = _ => new PropertyColorText(TypeColorText.Secondary),
-                    Username = "Dex Zogbert"
+                    Username = _ => "Dex Zogbert"
                 },
                 new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
                     TextColor = _ => new PropertyColorText(TypeColorText.Info),
-                    Username = "Dex Zogbert"
+                    Username = _ => "Dex Zogbert"
                 },
                 new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
                     TextColor = _ => new PropertyColorText(TypeColorText.Success),
-                    Username = "Dex Zogbert"
+                    Username = _ => "Dex Zogbert"
                 },
                 new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
                     TextColor = _ => new PropertyColorText(TypeColorText.Warning),
-                    Username = "Dex Zogbert"
+                    Username = _ => "Dex Zogbert"
                 },
                 new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
                     TextColor = _ => new PropertyColorText(TypeColorText.Danger),
-                    Username = "Dex Zogbert"
+                    Username = _ => "Dex Zogbert"
                 },
                 new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
                     TextColor = _ => new PropertyColorText(TypeColorText.Dark),
-                    Username = "Dex Zogbert"
+                    Username = _ => "Dex Zogbert"
                 },
                 new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
                     TextColor = _ => new PropertyColorText(TypeColorText.Light),
-                    Username = "Dex Zogbert"
+                    Username = _ => "Dex Zogbert"
                 },
                 new ControlText() { Text = "Custom", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
                     TextColor = _ => new PropertyColorText("gold"),
-                    Username = "Dex Zogbert"
+                    Username = _ => "Dex Zogbert"
                 }
             );
 
@@ -132,66 +132,66 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    Username = "Dex Zogbert"
+                    Username = _ => "Dex Zogbert"
                 },
                 new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    Username = "Dex Zogbert",
+                    Username = _ => "Dex Zogbert",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Primary)
                 },
                 new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    Username = "Dex Zogbert",
+                    Username = _ => "Dex Zogbert",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Secondary)
                 },
                 new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    Username = "Dex Zogbert",
+                    Username = _ => "Dex Zogbert",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Info)
                 },
                 new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    Username = "Dex Zogbert",
+                    Username = _ => "Dex Zogbert",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 },
                 new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    Username = "Dex Zogbert",
+                    Username = _ => "Dex Zogbert",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Warning)
                 },
                 new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    Username = "Dex Zogbert",
+                    Username = _ => "Dex Zogbert",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Danger)
                 },
                 new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    Username = "Dex Zogbert",
+                    Username = _ => "Dex Zogbert",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Dark)
                 },
                 new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    Username = "Dex Zogbert",
+                    Username = _ => "Dex Zogbert",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Light)
                 },
                 new ControlText() { Text = "Transparent", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    Username = "Dex Zogbert",
+                    Username = _ => "Dex Zogbert",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Transparent)
                 },
                 new ControlText() { Text = "Custom", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    Username = "Dex Zogbert",
+                    Username = _ => "Dex Zogbert",
                     BackgroundColor = _ => new PropertyColorBackground("gold")
                 }
             );
@@ -203,12 +203,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 @"
                 new ControlAvatar()
                 {
-                    Image = applicationContext.Route.Concat(""assets/img/dex_zogbert.png"").ToUri()
+                    Image = _ => applicationContext.Route.Concat(""assets/img/dex_zogbert.png"").ToUri()
                 }",
                 new ControlAvatar()
                 {
-                    Username = "Dex Zogbert",
-                    Image = applicationContext.Route.Concat("assets/img/dex_zogbert.png").ToUri()
+                    Username = _ => "Dex Zogbert",
+                    Image = _ => applicationContext.Route.Concat("assets/img/dex_zogbert.png").ToUri()
                 }
             );
 
@@ -219,18 +219,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 @"
                 new ControlAvatar()
                 {
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 }",
                 new ControlText() { Text = "With URI", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    Username = "Dex Zogbert",
-                    Uri = pageContext.Route.ToUri()
+                    Username = _ => "Dex Zogbert",
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlText() { Text = "Without URI", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    Username = "Dex Zogbert"
+                    Username = _ => "Dex Zogbert"
                 }
             );
 
@@ -241,25 +241,25 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 @"
                 new ControlAvatar()
                 {
-                    Size = TypeSizeAvatar.Small
+                    Size = _ => TypeSizeAvatar.Small
                 };",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    Username = "Dex Zogbert",
-                    Size = TypeSizeAvatar.Default
+                    Username = _ => "Dex Zogbert",
+                    Size = _ => TypeSizeAvatar.Default
                 },
                 new ControlText() { Text = "Small", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    Username = "Dex Zogbert",
-                    Size = TypeSizeAvatar.Small
+                    Username = _ => "Dex Zogbert",
+                    Size = _ => TypeSizeAvatar.Small
                 },
                 new ControlText() { Text = "Large", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlAvatar()
                 {
-                    Username = "Dex Zogbert",
-                    Size = TypeSizeAvatar.Large
+                    Username = _ => "Dex Zogbert",
+                    Size = _ => TypeSizeAvatar.Large
                 }
             );
         }

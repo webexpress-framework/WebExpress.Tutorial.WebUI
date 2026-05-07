@@ -29,59 +29,59 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.Controls = [
                 new ControlDate()
                 {
-                     Date = DateTime.Now
+                     Date = _ => DateTime.Now
                 }
             ];
 
             Stage.Code = @"
             new ControlDate()
             {
-                    Date = DateTime.Now
+                    Date = _ => DateTime.Now
             };";
 
             Stage.AddProperty
             (
                 "Date",
                 "The `Date` property defines the actual date value displayed within the `Date` control. By assigning a `DateTime` value, you can control which date is shown, ensuring clarity and consistency across the user interface.",
-                "Date = DateTime.Now.AddDays(-5)",
-                new ControlDate() { Date = DateTime.Now.AddDays(-5) }
+                "Date = _ => DateTime.Now.AddDays(-5)",
+                new ControlDate() { Date = _ => DateTime.Now.AddDays(-5) }
             );
 
             Stage.AddProperty
             (
                 "Format",
                 "The `Format` property defines how the date value is displayed within the `Date` control. By specifying a format string (e.g., `dd.MM.yyyy`), you can control the appearance of the date, ensuring clarity and consistency across the user interface.",
-                "Format = \"dd.MM.yyyy\"",
-                new ControlDate() { Date = DateTime.Now, Format = "dd.MM.yyyy" }
+                "Format = _ => \"dd.MM.yyyy\"",
+                new ControlDate() { Date = _ => DateTime.Now, Format = _ => "dd.MM.yyyy" }
             );
 
             Stage.AddProperty
             (
                 "Color",
                 "The `Color` property defines the visual color applied to all tags within the `Date` control. This uniform color enhances clarity, improves recognition, and ensures a cohesive user interface experience.",
-                "Color = new PropertyColorTag(TypeColorTag.Warning)",
+                "Color = _ => new PropertyColorTag(TypeColorTag.Warning)",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlDate() { Date = DateTime.Now, Color = new PropertyColorDate(TypeColorDate.Default) },
+                new ControlDate() { Date = _ => DateTime.Now, Color = _ => new PropertyColorDate(TypeColorDate.Default) },
                 new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlDate() { Date = DateTime.Now, Color = new PropertyColorDate(TypeColorDate.Primary) },
+                new ControlDate() { Date = _ => DateTime.Now, Color = _ => new PropertyColorDate(TypeColorDate.Primary) },
                 new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlDate() { Date = DateTime.Now, Color = new PropertyColorDate(TypeColorDate.Secondary) },
+                new ControlDate() { Date = _ => DateTime.Now, Color = _ => new PropertyColorDate(TypeColorDate.Secondary) },
                 new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlDate() { Date = DateTime.Now, Color = new PropertyColorDate(TypeColorDate.Info) },
+                new ControlDate() { Date = _ => DateTime.Now, Color = _ => new PropertyColorDate(TypeColorDate.Info) },
                 new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlDate() { Date = DateTime.Now, Color = new PropertyColorDate(TypeColorDate.Success) },
+                new ControlDate() { Date = _ => DateTime.Now, Color = _ => new PropertyColorDate(TypeColorDate.Success) },
                 new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlDate() { Date = DateTime.Now, Color = new PropertyColorDate(TypeColorDate.Warning) },
+                new ControlDate() { Date = _ => DateTime.Now, Color = _ => new PropertyColorDate(TypeColorDate.Warning) },
                 new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlDate() { Date = DateTime.Now, Color = new PropertyColorDate(TypeColorDate.Danger) },
+                new ControlDate() { Date = _ => DateTime.Now, Color = _ => new PropertyColorDate(TypeColorDate.Danger) },
                 new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlDate() { Date = DateTime.Now, Color = new PropertyColorDate(TypeColorDate.Light) },
+                new ControlDate() { Date = _ => DateTime.Now, Color = _ => new PropertyColorDate(TypeColorDate.Light) },
                 new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlDate() { Date = DateTime.Now, Color = new PropertyColorDate(TypeColorDate.Dark) },
+                new ControlDate() { Date = _ => DateTime.Now, Color = _ => new PropertyColorDate(TypeColorDate.Dark) },
                 new ControlText() { Text = "Highlight", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlDate() { Date = DateTime.Now, Color = new PropertyColorDate(TypeColorDate.Highlight) },
+                new ControlDate() { Date = _ => DateTime.Now, Color = _ => new PropertyColorDate(TypeColorDate.Highlight) },
                 new ControlText() { Text = "User defind", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlDate() { Date = DateTime.Now, Color = new PropertyColorDate("gold") }
+                new ControlDate() { Date = _ => DateTime.Now, Color = _ => new PropertyColorDate("gold") }
             );
         }
     }

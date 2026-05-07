@@ -38,9 +38,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             }
                 .Add
                 (
-                    new ControlDropdownItemLink("item3-1") { Text = "Profile", Icon = new IconUser()},
-                    new ControlDropdownItemLink("item3-2") { Text = "Preferences", Icon = new IconStar() },
-                    new ControlDropdownItemLink("item3-3") { Text = "Logout", Icon = new IconPowerOff()}
+                    new ControlDropdownItemLink("item3-1") { Text = _ => "Profile", Icon =_ =>  new IconUser()},
+                    new ControlDropdownItemLink("item3-2") { Text = _ => "Preferences", Icon = _ => new IconStar() },
+                    new ControlDropdownItemLink("item3-3") { Text = _ => "Logout", Icon = _ => new IconPowerOff()}
                 ),
             new ControlToolbarItemButton("item4")
             {
@@ -99,14 +99,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             [
                 new ControlToolbar("myToolbar")
                     .Add(CreateItems(25))
-                    .AddMore(new ControlDropdownItemLink() { Text = "Calculator", Icon = new IconCalculator()})
+                    .AddMore(new ControlDropdownItemLink() { Text = _ => "Calculator", Icon = _ => new IconCalculator()})
             ];
 
             Stage.DarkControls =
             [
                 new ControlToolbar("myDarkToolbar")
                     .Add(CreateItems(25))
-                    .AddMore(new ControlDropdownItemLink() { Text = "Calculator", Icon = new IconCalculator()})
+                    .AddMore(new ControlDropdownItemLink() { Text = _ => "Calculator", Icon = _ => new IconCalculator()})
             ];
 
             Stage.Code = @"
@@ -417,7 +417,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "new ControlToolbar().AddMore(new ControlDropdownItemLink() { Label = _ => \"Calculator\", Icon = _ => new IconCalculator()})",
                 new ControlToolbar().AddMore
                 (
-                    new ControlDropdownItemLink() { Text = "Calculator", Icon = new IconCalculator() }
+                    new ControlDropdownItemLink() { Text = _ => "Calculator", Icon = _ => new IconCalculator() }
                 )
             );
         }

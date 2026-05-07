@@ -42,14 +42,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             [
                 new ControlRestDropdown("inventoryDropdown")
                 {
-                    Text = "Inventory",
+                    Text = _ => "Inventory",
                     RestUri = sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext)
                 }
                     .Add(new ControlDropdownItemLink()
                     {
-                        Text = "Add Item",
-                        Icon = new IconPlus(),
-                        PrimaryAction = new ActionModal("modal")
+                        Text = _ => "Add Item",
+                        Icon = _ => new IconPlus(),
+                        PrimaryAction = _ => new ActionModal("modal")
                     }),
                 new ControlModalExample("modal")
                 {
@@ -61,7 +61,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             [
                 new ControlRestDropdown("darkInventoryDropdown")
                 {
-                    Text = "Inventory",
+                    Text = _ => "Inventory",
                     RestUri = sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext)
                 }
             ];
@@ -70,14 +70,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Code = @"
             new ControlRestDropdown(""inventoryDropdown"")
             {
-                Text = ""Inventory"",
-                RestUri = sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext)
+                Text = _ => ""Inventory"",
+                RestUri = _ => sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext)
             }
                 .Add(new ControlDropdownItemLink()
                 {
-                    Text = ""Add Item"",
-                    Icon = new IconPlus(),
-                    PrimaryAction = new ActionModal(""modal"")
+                    Text = _ => ""Add Item"",
+                    Icon = _ => new IconPlus(),
+                    PrimaryAction = _ => new ActionModal(""modal"")
                 }),
             new ControlModalExample(""modal"")
             {
@@ -88,10 +88,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             (
                 "RestUri",
                 "The REST endpoint from which the entries are loaded.",
-                "RestUri = sitemapManager.GetUri<MonkeyIslandInventory>(pageContext.ApplicationContext)",
+                "RestUri = _ => sitemapManager.GetUri<MonkeyIslandInventory>(pageContext.ApplicationContext)",
                 new ControlRestDropdown("p_api")
                 {
-                    Text = "Inventory",
+                    Text = _ => "Inventory",
                     RestUri = sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext)
                 }
             );
@@ -101,10 +101,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             (
                 "MaxItems",
                 "Maximum number of entries to display (excluding search bar and separators).",
-                "MaxItems = 10",
+                "MaxItems = _ => 10",
                 new ControlRestDropdown("p_maxitems")
                 {
-                    Text = "Inventory",
+                    Text = _ => "Inventory",
                     RestUri = sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext),
                     MaxItems = 10
                 }
@@ -115,10 +115,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             (
                 "SearchPlaceholder",
                 "Placeholder text in the search field.",
-                "SearchPlaceholder = \"Search entries...\"",
+                "SearchPlaceholder = _ => \"Search entries...\"",
                 new ControlRestDropdown("p_placeholder")
                 {
-                    Text = "Inventory",
+                    Text = _ => "Inventory",
                     RestUri = sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext),
                     SearchPlaceholder = "Search entries..."
                 }

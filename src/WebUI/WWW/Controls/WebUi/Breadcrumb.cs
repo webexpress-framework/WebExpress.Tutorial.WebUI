@@ -29,13 +29,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.Control = new ControlBreadcrumb()
             {
-                Uri = pageContext.Route.ToUri(),
+                Uri = _ => pageContext.Route.ToUri(),
             };
 
             Stage.Code = @"
             new ControlBreadcrumb()
             {
-                Uri = pageContext.Route.ToUri()
+                Uri = _ => pageContext.Route.ToUri()
             };";
 
             Stage.AddProperty
@@ -45,67 +45,67 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 @"
                 new ControlBreadcrumb()
                 {
-                    TextColor = new PropertyColorText(TypeColorText.Primary)
+                    TextColor = _ => new PropertyColorText(TypeColorText.Primary)
                 }",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
                     TextColor = _ => new PropertyColorText(TypeColorText.Default),
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
                     TextColor = _ => new PropertyColorText(TypeColorText.Primary),
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
                     TextColor = _ => new PropertyColorText(TypeColorText.Secondary),
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
                     TextColor = _ => new PropertyColorText(TypeColorText.Info),
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
                     TextColor = _ => new PropertyColorText(TypeColorText.Success),
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
                     TextColor = _ => new PropertyColorText(TypeColorText.Warning),
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
                     TextColor = _ => new PropertyColorText(TypeColorText.Danger),
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
                     TextColor = _ => new PropertyColorText(TypeColorText.Dark),
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
                     TextColor = _ => new PropertyColorText(TypeColorText.Light),
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlText() { Text = "Custom", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
                     TextColor = _ => new PropertyColorText("gold"),
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 }
             );
 
@@ -121,66 +121,66 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 },
                 new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    Uri = pageContext.Route.ToUri(),
+                    Uri = _ => pageContext.Route.ToUri(),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Primary)
                 },
                 new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    Uri = pageContext.Route.ToUri(),
+                    Uri = _ => pageContext.Route.ToUri(),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Secondary)
                 },
                 new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    Uri = pageContext.Route.ToUri(),
+                    Uri = _ => pageContext.Route.ToUri(),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Info)
                 },
                 new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    Uri = pageContext.Route.ToUri(),
+                    Uri = _ => pageContext.Route.ToUri(),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 },
                 new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    Uri = pageContext.Route.ToUri(),
+                    Uri = _ => pageContext.Route.ToUri(),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Warning)
                 },
                 new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    Uri = pageContext.Route.ToUri(),
+                    Uri = _ => pageContext.Route.ToUri(),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Danger)
                 },
                 new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    Uri = pageContext.Route.ToUri(),
+                    Uri = _ => pageContext.Route.ToUri(),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Dark)
                 },
                 new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    Uri = pageContext.Route.ToUri(),
+                    Uri = _ => pageContext.Route.ToUri(),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Light)
                 },
                 new ControlText() { Text = "Transparent", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    Uri = pageContext.Route.ToUri(),
+                    Uri = _ => pageContext.Route.ToUri(),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Transparent)
                 },
                 new ControlText() { Text = "Custom", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    Uri = pageContext.Route.ToUri(),
+                    Uri = _ => pageContext.Route.ToUri(),
                     BackgroundColor = _ => new PropertyColorBackground("gold")
                 }
             );
@@ -192,11 +192,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 @"
                 new ControlBreadcrumb()
                 {
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 }",
                 new ControlBreadcrumb()
                 {
-                    Uri = pageContext.Route.ToUri()
+                    Uri = _ => pageContext.Route.ToUri()
                 }
             );
 
@@ -207,12 +207,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 @"
                 new ControlBreadcrumb()
                 {
-                    Prefix = ""You are here:""
+                    Prefix = _ => ""You are here:""
                 }",
                 new ControlBreadcrumb()
                 {
-                    Uri = pageContext.Route.ToUri(),
-                    Prefix = "You are here:"
+                    Uri = _ => pageContext.Route.ToUri(),
+                    Prefix = _ => "You are here:"
                 }
             );
 
@@ -223,37 +223,37 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 @"
                 new ControlBreadcrumb()
                 {
-                    Size = TypeSizeButton.Small
+                    Size = _ => TypeSizeButton.Small
                 };",
                 new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    Uri = pageContext.Route.ToUri(),
-                    Size = TypeSizeText.Default
+                    Uri = _ => pageContext.Route.ToUri(),
+                    Size = _ => TypeSizeText.Default
                 },
                 new ControlText() { Text = "ExtraSmall", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    Uri = pageContext.Route.ToUri(),
-                    Size = TypeSizeText.ExtraSmall
+                    Uri = _ => pageContext.Route.ToUri(),
+                    Size = _ => TypeSizeText.ExtraSmall
                 },
                 new ControlText() { Text = "Small", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    Uri = pageContext.Route.ToUri(),
-                    Size = TypeSizeText.Small
+                    Uri = _ => pageContext.Route.ToUri(),
+                    Size = _ => TypeSizeText.Small
                 },
                 new ControlText() { Text = "Large", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    Uri = pageContext.Route.ToUri(),
-                    Size = TypeSizeText.Large
+                    Uri = _ => pageContext.Route.ToUri(),
+                    Size = _ => TypeSizeText.Large
                 },
                 new ControlText() { Text = "ExtraLarge", TextColor = new PropertyColorText(TypeColorText.Info) },
                 new ControlBreadcrumb()
                 {
-                    Uri = pageContext.Route.ToUri(),
-                    Size = TypeSizeText.ExtraLarge
+                    Uri = _ => pageContext.Route.ToUri(),
+                    Size = _ => TypeSizeText.ExtraLarge
                 }
             );
         }

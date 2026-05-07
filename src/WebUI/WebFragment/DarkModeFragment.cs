@@ -36,10 +36,10 @@ namespace WebExpress.Tutorial.WebUI.WebFragment
         public DarkModeFragment(IComponentHub componentHub, IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Icon = new IconMoon();
-            PrimaryAction = new ActionDarkmode();
-            Text = "webexpress.tutorial.webui:darkmode.label";
-            Bind = new Binding().Add(new BindDarkmode());
+            Icon = _ => new IconMoon();
+            PrimaryAction = _ => new ActionDarkmode();
+            Text = _ => "webexpress.tutorial.webui:darkmode.label";
+            Bind = _ => new Binding().Add(new BindDarkmode());
         }
 
         /// <summary>
