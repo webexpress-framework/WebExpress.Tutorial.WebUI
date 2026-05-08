@@ -28,43 +28,43 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.Controls = [
                 new ControlTag()
                 {
-                    Value = "Hallo;WebExpress"
+                    Value = _ => "Hallo;WebExpress"
                 }
             ];
 
             Stage.Code = @"
             new ControlTag()  
             {  
-                Value = ""Hallo;WebExpress""
+                Value = _ => ""Hallo;WebExpress""
             };";
 
             Stage.AddProperty
             (
                 "Color",
                 "The `Color` property defines the visual color applied to all tags within the `Tag` control. This uniform color enhances clarity, improves recognition, and ensures a cohesive user interface experience.",
-                "Color = new PropertyColorTag(TypeColorTag.Warning)",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlTag() { Value = "Default", Color = new PropertyColorTag(TypeColorTag.Default) },
-                new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlTag() { Value = "Primary", Color = new PropertyColorTag(TypeColorTag.Primary) },
-                new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlTag() { Value = "Secondary", Color = new PropertyColorTag(TypeColorTag.Secondary) },
-                new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlTag() { Value = "Info", Color = new PropertyColorTag(TypeColorTag.Info) },
-                new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlTag() { Value = "Success", Color = new PropertyColorTag(TypeColorTag.Success) },
-                new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlTag() { Value = "Warning", Color = new PropertyColorTag(TypeColorTag.Warning) },
-                new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlTag() { Value = "Danger", Color = new PropertyColorTag(TypeColorTag.Danger) },
-                new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlTag() { Value = "Light", Color = new PropertyColorTag(TypeColorTag.Light) },
-                new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlTag() { Value = "Dark", Color = new PropertyColorTag(TypeColorTag.Dark) },
-                new ControlText() { Text = "Highlight", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlTag() { Value = "Highlight", Color = new PropertyColorTag(TypeColorTag.Highlight) },
-                new ControlText() { Text = "User defind", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlTag() { Value = "gold", Color = new PropertyColorTag("gold") }
+                "Color = _ => new PropertyColorTag(TypeColorTag.Warning)",
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlTag() { Value = _ => "Default", Color = _ => new PropertyColorTag(TypeColorTag.Default) },
+                new ControlText() { Text = _ => "Primary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlTag() { Value = _ => "Primary", Color = _ => new PropertyColorTag(TypeColorTag.Primary) },
+                new ControlText() { Text = _ => "Secondary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlTag() { Value = _ => "Secondary", Color = _ => new PropertyColorTag(TypeColorTag.Secondary) },
+                new ControlText() { Text = _ => "Info", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlTag() { Value = _ => "Info", Color = _ => new PropertyColorTag(TypeColorTag.Info) },
+                new ControlText() { Text = _ => "Success", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlTag() { Value = _ => "Success", Color = _ => new PropertyColorTag(TypeColorTag.Success) },
+                new ControlText() { Text = _ => "Warning", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlTag() { Value = _ => "Warning", Color = _ => new PropertyColorTag(TypeColorTag.Warning) },
+                new ControlText() { Text = _ => "Danger", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlTag() { Value = _ => "Danger", Color = _ => new PropertyColorTag(TypeColorTag.Danger) },
+                new ControlText() { Text = _ => "Light", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlTag() { Value = _ => "Light", Color = _ => new PropertyColorTag(TypeColorTag.Light) },
+                new ControlText() { Text = _ => "Dark", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlTag() { Value = _ => "Dark", Color = _ => new PropertyColorTag(TypeColorTag.Dark) },
+                new ControlText() { Text = _ => "Highlight", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlTag() { Value = _ => "Highlight", Color = _ => new PropertyColorTag(TypeColorTag.Highlight) },
+                new ControlText() { Text = _ => "User defind", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlTag() { Value = _ => "gold", Color = _ => new PropertyColorTag("gold") }
             );
         }
     }

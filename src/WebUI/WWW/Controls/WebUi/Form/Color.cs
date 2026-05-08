@@ -30,22 +30,22 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             @"A `Color` control allows users to select a color value. It displays a visual color swatch and provides an intuitive way to choose or modify color information.";
 
             Stage.Control = new ControlForm()
-                .Add(new ControlFormItemInputColor { Color = "#a1b2c3" })
+                .Add(new ControlFormItemInputColor { Color = _ => "#a1b2c3" })
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
             new ControlForm()
-                .Add(new ControlFormItemInputColor { Color = ""#a1b2c3"" })
+                .Add(new ControlFormItemInputColor { Color = _ => ""#a1b2c3"" })
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
             Stage.AddProperty
             (
                 "Color",
                 "The `Color` property defines the color value displayed and selected by the user. It updates the visual swatch and ensures consistent representation of the chosen color. Only 6‑digit hexadecimal values (`#RRGGBB`) are supported.",
-                "Color = \"#a1b2c3\"",
+                "Color = _ => \"#a1b2c3\"",
                 new ControlForm(null, new ControlFormItemInputColor(null)
                 {
-                    Color = "#a1b2c3"
+                    Color = _ => "#a1b2c3"
                 })
             );
 

@@ -119,7 +119,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 @"Format = _ => ""dd.MM.yyyy""",
                 new ControlForm(null, new ControlFormItemInputDate(null)
                 {
-                    Format = "dd.MM.yyyy"
+                    Format = _ => "dd.MM.yyyy"
                 })
             );
         }

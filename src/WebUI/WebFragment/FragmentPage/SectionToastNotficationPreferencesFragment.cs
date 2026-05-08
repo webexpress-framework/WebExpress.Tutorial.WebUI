@@ -20,7 +20,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.FragmentPage
         public SectionToastnotificationPreferencesFragment(IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "SectionToastnotificationPreferences";
+            Text = _ => "SectionToastnotificationPreferences";
         }
     }
 }

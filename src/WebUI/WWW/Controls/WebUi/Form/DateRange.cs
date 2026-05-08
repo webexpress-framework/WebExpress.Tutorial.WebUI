@@ -39,7 +39,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 Label = _ => "Date",
                 Help = _ => "Select the desired date here.",
                 Name = _ => "myDateCtrl",
-                Format = "yyyy-MM-dd"
+                Format = _ => "yyyy-MM-dd"
             }
                 .Initialize(args =>
                 {
@@ -132,7 +132,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 @"Format = _ => ""dd.MM.yyyy""",
                 new ControlForm(null, new ControlFormItemInputDateRange(null)
                 {
-                    Format = "dd.MM.yyyy"
+                    Format = _ => "dd.MM.yyyy"
                 })
             );
         }

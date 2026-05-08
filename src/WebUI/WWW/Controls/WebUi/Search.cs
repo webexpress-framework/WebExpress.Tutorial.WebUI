@@ -24,16 +24,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     {
         private readonly IEnumerable<ControlSearchItemSuggestion> _suggestions =
         [
-            new ControlSearchItemSuggestion("1") { Label = "Home", Icon = new IconHome(), Favorited = true },
-            new ControlSearchItemSuggestion("2") { Label = "Settings", Icon = new IconWrench() },
-            new ControlSearchItemSuggestion("3") { Label = "User Profile", Icon = new IconUser() },
-            new ControlSearchItemSuggestion("4") { Label = "Help & Support", Icon = new IconInfoCircle() },
-            new ControlSearchItemSuggestion("5") { Label = "Messages", Icon = new IconPaperPlane() },
-            new ControlSearchItemSuggestion("6") { Label = "Favorites", Icon = new IconStar() },
-            new ControlSearchItemSuggestion("7") { Label = "Account Overview" },
-            new ControlSearchItemSuggestion("8") { Label = "Privacy Policy", Icon = new IconKey(), Favorited = true},
-            new ControlSearchItemSuggestion("9") { Label = "Notifications", Icon = new IconComment() },
-            new ControlSearchItemSuggestion("10") { Label = "Log Out", Icon = new IconPowerOff() }
+            new ControlSearchItemSuggestion("1") { Label = _ => "Home", Icon = _ => new IconHome(), Favorited = _ => true },
+            new ControlSearchItemSuggestion("2") { Label = _ => "Settings", Icon = _ => new IconWrench() },
+            new ControlSearchItemSuggestion("3") { Label = _ => "User Profile", Icon = _ => new IconUser() },
+            new ControlSearchItemSuggestion("4") { Label = _ => "Help & Support", Icon = _ => new IconInfoCircle() },
+            new ControlSearchItemSuggestion("5") { Label = _ => "Messages", Icon = _ => new IconPaperPlane() },
+            new ControlSearchItemSuggestion("6") { Label = _ => "Favorites", Icon = _ => new IconStar() },
+            new ControlSearchItemSuggestion("7") { Label =_ =>  "Account Overview" },
+            new ControlSearchItemSuggestion("8") { Label = _ => "Privacy Policy", Icon = _ => new IconKey(), Favorited =_ =>  true},
+            new ControlSearchItemSuggestion("9") { Label = _ => "Notifications", Icon = _ => new IconComment() },
+            new ControlSearchItemSuggestion("10") { Label = _ => "Log Out", Icon = _ => new IconPowerOff() }
         ];
 
         /// <summary>    
@@ -49,24 +49,24 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.Control = new ControlSearch(RandomId.Create(), [.. _suggestions])
             {
-                Placeholder = "Enter search term...",
+                Placeholder = _ => "Enter search term...",
 
             };
 
             Stage.Code = @"
             new ControlSearch()  
             {  
-                Placeholder = ""Enter search term...""
+                Placeholder = _ => ""Enter search term...""
             };";
 
             Stage.AddProperty
             (
                 "Placeholder",
                 "Sets the placeholder of the search field – a temporary text display that informs the user about the expected input. The placeholder disappears once the user starts typing a search query.",
-                "Placeholder = \"Enter search term...\"",
+                "Placeholder = _ => \"Enter search term...\"",
                 new ControlSearch(RandomId.Create(), [.. _suggestions])
                 {
-                    Placeholder = "Enter search term..."
+                    Placeholder = _ => "Enter search term..."
                 }
             );
 
@@ -74,10 +74,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "EnableFavorited",
                 "The `EnableFavorited` property allows for the prioritization of preferred search suggestions. When enabled, certain favorites can be highlighted and displayed more prominently within the search suggestions. This feature enhances the user experience by making frequently used or marked-as-relevant suggestions more accessible.",
-                "EnableFavorited = true",
+                "EnableFavorited = _ => true",
                 new ControlSearch(RandomId.Create(), [.. _suggestions])
                 {
-                    EnableFavorited = true
+                    EnableFavorited = _ => true
                 }
             );
 
@@ -85,10 +85,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Value",
                 "The `Value` property defines the initial search term used when a search function is initialized. By setting a predefined value, the search field can be populated with a starting term, guiding users and improving search efficiency.\r\n\r\nThis feature is particularly useful when frequently used or preselected terms should be readily available, allowing users to refine their searches more quickly without manually entering the term.",
-                @"Value = ""hello""",
+                @"Value = _ => ""hello""",
                 new ControlSearch(RandomId.Create(), [.. _suggestions])
                 {
-                    Value = "hello"
+                    Value = _ => "hello"
                 }
             );
 
@@ -96,10 +96,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Suggestion",
                 "Suggestions in a `SearchControl` are automatically generated or predefined input aids that offer users relevant search terms or options based on past inputs or data sources. They enhance usability by speeding up searches and reducing typos.",
-                "new ControlSearch(null, [new ControlSearchItemSuggestion(\"1\") { Icon = new IconHome(), Label = \"Home\", Favorited = true }])",
+                "new ControlSearch(null, [new ControlSearchItemSuggestion(\"1\") { Icon = _ => new IconHome(), Label = _ => \"Home\", Favorited = _ => true }])",
                 new ControlSearch(RandomId.Create(), [.. _suggestions])
                 {
-                    Placeholder = "Enter search term..."
+                    Placeholder = _ => "Enter search term..."
                 }
             );
 
@@ -107,10 +107,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Icon",
                 "Sets the icon displayed in the search control. It provides a visual cue for the search functionality.",
-                "Icon = new IconStar()",
+                "Icon = _ => new IconStar()",
                 new ControlSearch()
                 {
-                    Icon = new IconStar()
+                    Icon = _ => new IconStar()
                 }
             );
         }

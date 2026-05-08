@@ -20,7 +20,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.FragmentPage
         public SectionProloguePrimaryFragment(IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "SectionProloguePrimary";
+            Text = _ => "SectionProloguePrimary";
         }
     }
 }

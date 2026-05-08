@@ -41,22 +41,22 @@ namespace WebExpress.Tutorial.WebUI.WWW
 
             card.Add(new ControlText()
             {
-                Text = I18N.Translate(renderContext, "webexpress.Tutorial.webui:app.name"),
-                Format = TypeFormatText.H3
+                Text = _ => I18N.Translate(renderContext, "webexpress.Tutorial.webui:app.name"),
+                Format = _ => TypeFormatText.H3
             });
 
             card.Add(new ControlText()
             {
-                Text = I18N.Translate(renderContext, "webexpress.Tutorial.webui:app.description"),
-                Format = TypeFormatText.Paragraph
+                Text = _ => I18N.Translate(renderContext, "webexpress.Tutorial.webui:app.description"),
+                Format = _ => TypeFormatText.Paragraph
             });
 
             card.Add(new ControlText()
             {
-                Text = $"You are logged in as <b>{WebEx.ComponentHub.IdentityManager
+                Text = _ => $"You are logged in as <b>{WebEx.ComponentHub.IdentityManager
                     .GetCurrentIdentity(renderContext.Request)?.Name}</b>",
-                Format = TypeFormatText.Paragraph,
-                TextColor = new PropertyColorText(TypeColorText.Success)
+                Format = _ => TypeFormatText.Paragraph,
+                TextColor = _ => new PropertyColorText(TypeColorText.Success)
             });
 
             visualTree.Content.MainPanel.AddPrimary(card);

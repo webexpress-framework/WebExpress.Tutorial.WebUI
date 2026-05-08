@@ -82,8 +82,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 typeof(ControlFormItemInputCascadingItem),
                 "Content",
                 "The `Content` property of a `Cascading` control item represents the full description of the selection option in the dropdown list. Unlike the Label property, which provides a shortened display in the main area of the control, Content contains the complete text of the option.",
-                "new ControlFormItemInputCascadingItem() { Text=\"Text 2\", Content = new ControlText() { Text = \"Full **description** of the selection option\", Format = TypeFormatText.Markdown } }",
-                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = _ => "Text 2", Content = new ControlText() { Text = "Full **description** of the selection option", Format = TypeFormatText.Markdown } })
+                "new ControlFormItemInputCascadingItem() { Text = _ => \"Text 2\", Content = _ => new ControlText() { Text = _ => \"Full **description** of the selection option\", Format = _ => TypeFormatText.Markdown } }",
+                new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = _ => "Text 2", Content = new ControlText() { Text = _ => "Full **description** of the selection option", Format = _ => TypeFormatText.Markdown } })
                 {
                 })
             );
@@ -105,39 +105,39 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "LabelColor",
                 "The `LabelColor` property defines the signature color of a `Cascading` control item’s label, visually highlighting the selected option. By customizing the color, the label can be styled to match the user interface or a specific design scheme, ensuring a consistent and appealing presentation.",
                 "new ControlFormItemInputCascadingItem() { Label = _ => \"Label\", LabelColor = _ => TypeColorSelection.Primary, Selected = _ => true }",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = _ => "Label", LabelColor = _ => TypeColorSelection.Default })
                 {
                 }),
-                new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Primary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = _ => "Label", LabelColor = _ => TypeColorSelection.Primary })
                 {
                 }),
-                new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Secondary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = _ => "Label", LabelColor = _ => TypeColorSelection.Secondary })
                 {
                 }),
-                new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Info", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = _ => "Label", LabelColor = _ => TypeColorSelection.Info })
                 {
                 }),
-                new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Success", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = _ => "Label", LabelColor = _ => TypeColorSelection.Success })
                 {
                 }),
-                new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Warning", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = _ => "Label", LabelColor = _ => TypeColorSelection.Warning })
                 {
                 }),
-                new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Danger", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = _ => "Label", LabelColor = _ => TypeColorSelection.Danger })
                 {
                 }),
-                new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Light", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = _ => "Label", LabelColor = _ => TypeColorSelection.Light })
                 {
                 }),
-                new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Dark", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem() { Text = _ => "Label", LabelColor = _ => TypeColorSelection.Dark })
                 {
                 })

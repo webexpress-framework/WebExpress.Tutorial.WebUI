@@ -93,10 +93,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Table.Templates
                 Placeholder = _ => placeholder,
                 MultiSelect = _ => multiSelect
             }
-                .Add(new ControlFormItemInputSelectionItem("a") { Text = _ => "Option A", Content = _ => new ControlText() { Text = "Option A" }, Color = _ => TypeColorSelection.Primary })
-                .Add(new ControlFormItemInputSelectionItem("b") { Text = _ => "Option B", Content = _ => new ControlText() { Text = "Option B" }, Color = _ => TypeColorSelection.Success })
-                .Add(new ControlFormItemInputSelectionItem("c") { Text = _ => "Option C", Content = _ => new ControlText() { Text = "Option C" }, Color = _ => TypeColorSelection.Info })
-                .Add(new ControlFormItemInputSelectionItem("d") { Text = _ => "Option D", Content = _ => new ControlText() { Text = "Option D" }, Color = _ => TypeColorSelection.Warning }))
+                .Add(new ControlFormItemInputSelectionItem("a") { Text = _ => "Option A", Content = _ => new ControlText() { Text = _ => "Option A" }, Color = _ => TypeColorSelection.Primary })
+                .Add(new ControlFormItemInputSelectionItem("b") { Text = _ => "Option B", Content = _ => new ControlText() { Text = _ => "Option B" }, Color = _ => TypeColorSelection.Success })
+                .Add(new ControlFormItemInputSelectionItem("c") { Text = _ => "Option C", Content = _ => new ControlText() { Text = _ => "Option C" }, Color = _ => TypeColorSelection.Info })
+                .Add(new ControlFormItemInputSelectionItem("d") { Text = _ => "Option D", Content = _ => new ControlText() { Text = _ => "Option D" }, Color = _ => TypeColorSelection.Warning }))
             {
                 Title = _ => "My column",
                 Icon = _ => new IconBowlingBall()

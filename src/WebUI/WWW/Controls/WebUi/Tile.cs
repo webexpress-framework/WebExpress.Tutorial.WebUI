@@ -51,12 +51,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Header",
                 "The `Header` property defines the content displayed in the top section of the component. It typically serves as a title bar or introductory element that summarizes or labels the component’s purpose.",
-                "Header = _=> \"Header\"",
+                "Header = _ => \"Header\"",
                 new ControlTile().Add(new ControlTileCard()
                 {
                     Header = _ => "Header",
                 }
-                    .Add(new ControlText() { Text = "With a specified header text." }))
+                    .Add(new ControlText() { Text = _ => "With a specified header text." }))
             );
 
             Stage.AddProperty
@@ -78,58 +78,58 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Color",
                 "Sets the color of the tile card, allowing customization for different contexts.",
-                "Color = new PropertyColorTile(TypeColorTile.Primary)",
+                "Color = _ => new PropertyColorTile(TypeColorTile.Primary)",
                 new ControlTile().Add(new ControlTileCard()
                 {
-                }.Add(new ControlText() { Text = "Default" })),
+                }.Add(new ControlText() { Text = _ => "Default" })),
                 new ControlTile().Add(new ControlTileCard()
                 {
                     Color = _ => new PropertyColorTile(TypeColorTile.Primary)
-                }.Add(new ControlText() { Text = "Primary" })),
+                }.Add(new ControlText() { Text = _ => "Primary" })),
                 new ControlTile().Add(new ControlTileCard()
                 {
                     Color = _ => new PropertyColorTile(TypeColorTile.Secondary)
-                }.Add(new ControlText() { Text = "Secondary" })),
+                }.Add(new ControlText() { Text = _ => "Secondary" })),
                 new ControlTile().Add(new ControlTileCard()
                 {
                     Color = _ => new PropertyColorTile(TypeColorTile.Info)
-                }.Add(new ControlText() { Text = "Info" })),
+                }.Add(new ControlText() { Text = _ => "Info" })),
                 new ControlTile().Add(new ControlTileCard()
                 {
                     Color = _ => new PropertyColorTile(TypeColorTile.Success)
-                }.Add(new ControlText() { Text = "Success" })),
+                }.Add(new ControlText() { Text = _ => "Success" })),
                 new ControlTile().Add(new ControlTileCard()
                 {
                     Color = _ => new PropertyColorTile(TypeColorTile.Warning)
-                }.Add(new ControlText() { Text = "Warning" })),
+                }.Add(new ControlText() { Text = _ => "Warning" })),
                 new ControlTile().Add(new ControlTileCard()
                 {
                     Color = _ => new PropertyColorTile(TypeColorTile.Danger)
-                }.Add(new ControlText() { Text = "Danger" })),
+                }.Add(new ControlText() { Text = _ => "Danger" })),
                 new ControlTile().Add(new ControlTileCard()
                 {
                     Color = _ => new PropertyColorTile(TypeColorTile.Dark)
-                }.Add(new ControlText() { Text = "Dark" })),
+                }.Add(new ControlText() { Text = _ => "Dark" })),
                 new ControlTile().Add(new ControlTileCard()
                 {
                     Color = _ => new PropertyColorTile(TypeColorTile.Light)
-                }.Add(new ControlText() { Text = "Light" })),
+                }.Add(new ControlText() { Text = _ => "Light" })),
                 new ControlTile().Add(new ControlTileCard()
                 {
                     Color = _ => new PropertyColorTile(TypeColorTile.White)
-                }.Add(new ControlText() { Text = "White" })),
+                }.Add(new ControlText() { Text = _ => "White" })),
                 new ControlTile().Add(new ControlTileCard()
                 {
                     Color = _ => new PropertyColorTile(TypeColorTile.Transparent)
-                }.Add(new ControlText() { Text = "Transparent" })),
+                }.Add(new ControlText() { Text = _ => "Transparent" })),
                 new ControlTile().Add(new ControlTileCard()
                 {
                     Color = _ => new PropertyColorTile(TypeColorTile.Highlight)
-                }.Add(new ControlText() { Text = "Highlight (--wx-highlight)" })),
+                }.Add(new ControlText() { Text = _ => "Highlight (--wx-highlight)" })),
                 new ControlTile().Add(new ControlTileCard()
                 {
                     Color = _ => new PropertyColorTile("gold")
-                }.Add(new ControlText() { Text = "Custom" }))
+                }.Add(new ControlText() { Text = _ => "Custom" }))
             );
 
             Stage.AddProperty
@@ -265,7 +265,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             // add main text element
             card.Add(new ControlText()
             {
-                Text = text
+                Text = _ => text
             });
 
             return card;

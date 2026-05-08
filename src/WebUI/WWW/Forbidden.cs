@@ -40,21 +40,21 @@ namespace WebExpress.Tutorial.WebUI.WWW
 
             card.Add(new ControlText()
             {
-                Text = I18N.Translate(renderContext, "webexpress.tutorial.webui:app.name"),
-                Format = TypeFormatText.H3
+                Text = _ => I18N.Translate(renderContext, "webexpress.tutorial.webui:app.name"),
+                Format = _ => TypeFormatText.H3
             });
 
             card.Add(new ControlText()
             {
-                Text = I18N.Translate(renderContext, "webexpress.tutorial.webui:app.description"),
-                Format = TypeFormatText.Paragraph
+                Text = _ => I18N.Translate(renderContext, "webexpress.tutorial.webui:app.description"),
+                Format = _ => TypeFormatText.Paragraph
             });
 
             card.Add(new ControlText()
             {
-                Text = "You must never see this content.",
-                Format = TypeFormatText.Paragraph,
-                TextColor = new PropertyColorText(TypeColorText.Danger)
+                Text = _ => "You must never see this content.",
+                Format = _ => TypeFormatText.Paragraph,
+                TextColor = _ => new PropertyColorText(TypeColorText.Danger)
             });
 
             visualTree.Content.MainPanel.AddPrimary(card);

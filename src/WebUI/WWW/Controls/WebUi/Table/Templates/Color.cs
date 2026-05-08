@@ -50,10 +50,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
             (
                 "Editable",
                 "The `Editable` property defines whether the template column is displayed in ReadOnly mode or in Edit mode. In ReadOnly mode, values are shown as static tags for clear visualization. In Edit mode, users can directly modify the values within the column, enabling interactive data editing.",
-                "Editable = true",
-                new ControlText() { Text = "false", TextColor = new PropertyColorText(TypeColorText.Info) },
+                "Editable = _ => true",
+                new ControlText() { Text = _ => "false", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable().AddColumns(CreateColumns()).AddRows(CreateRows()),
-                new ControlText() { Text = "true", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "true", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable().AddColumns(CreateColumns(true)).AddRows(CreateRows())
             );
 
@@ -61,7 +61,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
             (
                 "Color",
                 "The `Color` property defines the visual color applied to all selected tags within the `Color` template component. This uniform color enhances clarity, improves recognition, and ensures a cohesive user interface experience.",
-                "Color = #a1b2c3",
+                @"Color = _ => ""#a1b2c3""",
                 new ControlTable().AddColumns(CreateColumns(false, "#a1b2c3")).AddRows(CreateRows())
             );
         }

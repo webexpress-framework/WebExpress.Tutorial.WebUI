@@ -34,7 +34,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
             _componentHub = componentHub;
             _fragmentContext = fragmentContext;
 
-            Layout = TypeLayoutList.Simple;
+            Layout = _ => TypeLayoutList.Simple;
         }
 
         /// <summary>

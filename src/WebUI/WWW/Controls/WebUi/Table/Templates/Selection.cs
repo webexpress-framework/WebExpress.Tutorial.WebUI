@@ -51,10 +51,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
             (
                 "Editable",
                 "The `Editable` property defines whether the template column is displayed in ReadOnly mode or in Edit mode. In ReadOnly mode, values are shown as static tags for clear visualization. In Edit mode, users can directly modify the values within the column, enabling interactive data editing.",
-                "Editable = true",
-                new ControlText() { Text = "false", TextColor = new PropertyColorText(TypeColorText.Info) },
+                "Editable = _ => true",
+                new ControlText() { Text = _ => "false", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable().AddColumns(CreateColumns()).AddRows(CreateRows()),
-                new ControlText() { Text = "true", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "true", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable().AddColumns(CreateColumns(true)).AddRows(CreateRows())
             );
 
@@ -62,7 +62,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
             (
                 "Placeholder",
                 "The `Placeholder` property defines the default text or tag shown when no value is provided within the `Tag` template column. It helps guide users by indicating the expected input or by visually marking empty fields.",
-                "Placeholder = \"Enter value\"",
+                "Placeholder = _ => \"Enter value\"",
                 new ControlTable().AddColumns(CreateColumns(true, null, "Enter value")).AddRows(CreateRows())
             );
 
@@ -70,7 +70,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
             (
                "MultiSelect",
                "The `MultiSelect` property enables selecting multiple values within a `Selection` template column. When activated, users can choose more than one option, allowing the column to represent sets of values instead of a single entry.",
-               "MultiSelect = \"true\"",
+               "MultiSelect = _ => \"true\"",
                new ControlTable().AddColumns(CreateColumns(true, null, null, true)).AddRows(CreateRows())
             );
         }
@@ -103,10 +103,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
                 Placeholder = _ => placeholder,
                 MultiSelect = _ => multiSelect
             }
-                .Add(new ControlFormItemInputSelectionItem("a") { Text = _ => "Option A", Content = _ => new ControlText() { Text = "Option A" }, Color = _ => TypeColorSelection.Primary })
-                .Add(new ControlFormItemInputSelectionItem("b") { Text = _ => "Option B", Content = _ => new ControlText() { Text = "Option B" }, Color = _ => TypeColorSelection.Success })
-                .Add(new ControlFormItemInputSelectionItem("c") { Text = _ => "Option C", Content = _ => new ControlText() { Text = "Option C" }, Color = _ => TypeColorSelection.Info })
-                .Add(new ControlFormItemInputSelectionItem("d") { Text = _ => "Option D", Content = _ => new ControlText() { Text = "Option D" }, Color = _ => TypeColorSelection.Warning }))
+                .Add(new ControlFormItemInputSelectionItem("a") { Text = _ => "Option A", Content = _ => new ControlText() { Text = _ => "Option A" }, Color = _ => TypeColorSelection.Primary })
+                .Add(new ControlFormItemInputSelectionItem("b") { Text = _ => "Option B", Content = _ => new ControlText() { Text = _ => "Option B" }, Color = _ => TypeColorSelection.Success })
+                .Add(new ControlFormItemInputSelectionItem("c") { Text = _ => "Option C", Content = _ => new ControlText() { Text = _ => "Option C" }, Color = _ => TypeColorSelection.Info })
+                .Add(new ControlFormItemInputSelectionItem("d") { Text = _ => "Option D", Content = _ => new ControlText() { Text = _ => "Option D" }, Color = _ => TypeColorSelection.Warning }))
             {
                 Title = _ => "My column",
                 Icon = _ => new IconBowlingBall()

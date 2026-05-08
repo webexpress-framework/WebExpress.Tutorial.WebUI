@@ -36,7 +36,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                     .Add(new ControlRestFormItemInputCheck("lightCheck")
                     {
                         RestUri = sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
-                        Description = "Enable insult sword fighting"
+                        Description = _ => "Enable insult sword fighting"
                     })
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             ];
@@ -46,7 +46,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 .Add(new ControlRestFormItemInputCheck(""lightCheck"")
                 {
                     RestUri = sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
-                    Description = ""Enable insult sword fighting""
+                    Description = _ => ""Enable insult sword fighting""
                 })
                 .AddPrimaryButton(new ControlFormItemButtonSubmit())";
 
@@ -54,12 +54,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             (
                 "RestUri",
                 "Defines the REST API endpoint that reads and persists the checked state.",
-                "RestUri = sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext)",
+                "RestUri = _ => sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext)",
                 new ControlForm()
                     .Add(new ControlRestFormItemInputCheck("p_rest_uri")
                     {
                         RestUri = sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
-                        Description = "Enable insult sword fighting"
+                        Description = _ => "Enable insult sword fighting"
                     })
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
@@ -68,13 +68,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             (
                 "InitialChecked",
                 "Pre-selects the checkbox without issuing a GET request. The value takes precedence over the REST endpoint.",
-                "InitialChecked = true",
+                "InitialChecked = _ => true",
                 new ControlForm()
                     .Add(new ControlRestFormItemInputCheck("p_initial_true")
                     {
                         RestUri = sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
                         InitialChecked = true,
-                        Description = "Pre-checked without GET"
+                        Description = _ => "Pre-checked without GET"
                     })
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
@@ -83,12 +83,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             (
                 "Description",
                 "Sets the label text shown next to the checkbox.",
-                @"Description = ""Enable insult sword fighting""",
+                @"Description = _ => ""Enable insult sword fighting""",
                 new ControlForm()
                     .Add(new ControlRestFormItemInputCheck("p_description")
                     {
                         RestUri = sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
-                        Description = "Enable insult sword fighting"
+                        Description = _ => "Enable insult sword fighting"
                     })
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
@@ -97,13 +97,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             (
                 "Layout",
                 "Switches between the default checkbox and the toggle switch appearance.",
-                "Layout = TypeLayoutCheck.Switch",
+                "Layout = _ => TypeLayoutCheck.Switch",
                 new ControlForm()
                     .Add(new ControlRestFormItemInputCheck("p_layout")
                     {
                         RestUri = sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
-                        Layout = TypeLayoutCheck.Switch,
-                        Description = "Enable insult sword fighting"
+                        Layout = _ => TypeLayoutCheck.Switch,
+                        Description = _ => "Enable insult sword fighting"
                     })
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
@@ -112,13 +112,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             (
                 "Inline",
                 "Renders the checkbox inline with adjacent controls rather than on a new line.",
-                "Inline = true",
+                "Inline = _ => true",
                 new ControlForm()
                     .Add(new ControlRestFormItemInputCheck("p_inline")
                     {
                         RestUri = sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
-                        Inline = true,
-                        Description = "Inline"
+                        Inline = _ => true,
+                        Description = _ => "Inline"
                     })
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );

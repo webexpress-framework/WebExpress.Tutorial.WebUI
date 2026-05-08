@@ -42,10 +42,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Page",
                 "The `Page` property defines the number of items to skip before the first page is displayed. It is typically used to control the starting position within a paged data set, enabling precise navigation and flexible pagination behavior\r\n",
-                "PageOffset = 2",
+                "PageOffset = _ => 2",
                 new ControlPagination()
                 {
-                    Page = 2
+                    Page = _ => 2
                 }
             );
 
@@ -53,10 +53,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Total",
                 "The `Total` property defines the total number of pages available within the pagination component. It determines how many discrete page steps the user can navigate through when browsing a paged data set.\r\n",
-                @"PageCount = 5",
+                @"PageCount = _ =>5",
                 new ControlPagination()
                 {
-                    Total = 5,
+                    Total = _ => 5,
                 }
             );
 
@@ -64,21 +64,21 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Size",
                 "The `Size` property defines the visual scale of the pagination component. It adjusts the overall dimensions of the pagination controls, allowing the component to appear in a default, small, or large variant depending on the layout and design requirements.\r\n",
-                @"Size = TypeSizePagination.Small",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                @"Size = _ =>TypeSizePagination.Small",
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlPagination()
                 {
-                    Size = TypeSizePagination.Default,
+                    Size = _ => TypeSizePagination.Default,
                 },
-                new ControlText() { Text = "Small", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Small", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlPagination()
                 {
-                    Size = TypeSizePagination.Small,
+                    Size = _ => TypeSizePagination.Small,
                 },
-                new ControlText() { Text = "Large", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Large", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlPagination()
                 {
-                    Size = TypeSizePagination.Large,
+                    Size = _ => TypeSizePagination.Large,
                 }
             );
         }

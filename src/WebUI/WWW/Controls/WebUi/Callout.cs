@@ -26,13 +26,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.Control = new ControlPanelCallout()
             {
             }
-                .Add(new ControlText() { Text = "This is a sample callout!" });
+                .Add(new ControlText() { Text = _ => "This is a sample callout!" });
 
             Stage.Code = @"
             new ControlPanelCallout()
             {
             }
-                .Add(new ControlText() { Text = ""This is a sample callout!"" });";
+                .Add(new ControlText() { Text = _ => ""This is a sample callout!"" });";
 
             Stage.AddProperty
                 (
@@ -41,17 +41,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     "Title = _ => \"Success\"",
                     new ControlPanelCallout()
                     {
-                        Title = "Success",
-                        Color = new PropertyColorCallout(TypeColorCallout.Success),
+                        Title = _ => "Success",
+                        Color = _ => new PropertyColorCallout(TypeColorCallout.Success),
                         Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                     }
-                        .Add(new ControlText() { Text = "With a title." }),
+                        .Add(new ControlText() { Text = _ => "With a title." }),
                     new ControlPanelCallout()
                     {
-                        Color = new PropertyColorCallout(TypeColorCallout.Success),
+                        Color = _ => new PropertyColorCallout(TypeColorCallout.Success),
                         Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                     }
-                        .Add(new ControlText() { Text = "Without a title." })
+                        .Add(new ControlText() { Text = _ => "Without a title." })
                 );
 
             Stage.AddProperty
@@ -61,80 +61,80 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Color = _ => new PropertyColorCallout(TypeColorCallout.Primary)",
                 new ControlPanelCallout()
                 {
-                    Title = "Standard",
+                    Title = _ => "Standard",
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 }
-                    .Add(new ControlText() { Text = "Hello World!" }),
+                    .Add(new ControlText() { Text = _ => "Hello World!" }),
                 new ControlPanelCallout()
                 {
-                    Title = "Info",
-                    Color = new PropertyColorCallout(TypeColorCallout.Info),
+                    Title = _ => "Info",
+                    Color = _ => new PropertyColorCallout(TypeColorCallout.Info),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 }
-                    .Add(new ControlText() { Text = "Hello World!" }),
+                    .Add(new ControlText() { Text = _ => "Hello World!" }),
                 new ControlPanelCallout()
                 {
-                    Title = "Primary",
-                    Color = new PropertyColorCallout(TypeColorCallout.Primary),
+                    Title = _ => "Primary",
+                    Color = _ => new PropertyColorCallout(TypeColorCallout.Primary),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 }
-                    .Add(new ControlText() { Text = "Hello World!" }),
+                    .Add(new ControlText() { Text = _ => "Hello World!" }),
                 new ControlPanelCallout()
                 {
-                    Title = "Secondary",
-                    Color = new PropertyColorCallout(TypeColorCallout.Secondary),
+                    Title = _ => "Secondary",
+                    Color = _ => new PropertyColorCallout(TypeColorCallout.Secondary),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 }
-                    .Add(new ControlText() { Text = "Hello World!" }),
+                    .Add(new ControlText() { Text = _ => "Hello World!" }),
                 new ControlPanelCallout()
                 {
-                    Title = "Success",
-                    Color = new PropertyColorCallout(TypeColorCallout.Success),
+                    Title = _ => "Success",
+                    Color = _ => new PropertyColorCallout(TypeColorCallout.Success),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 }
-                    .Add(new ControlText() { Text = "Hello World!" }),
+                    .Add(new ControlText() { Text = _ => "Hello World!" }),
                 new ControlPanelCallout()
                 {
-                    Title = "Warning",
-                    Color = new PropertyColorCallout(TypeColorCallout.Warning),
+                    Title = _ => "Warning",
+                    Color = _ => new PropertyColorCallout(TypeColorCallout.Warning),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 }
-                    .Add(new ControlText() { Text = "Hello World!" }),
+                    .Add(new ControlText() { Text = _ => "Hello World!" }),
                 new ControlPanelCallout()
                 {
-                    Title = "Danger",
-                    Color = new PropertyColorCallout(TypeColorCallout.Danger),
+                    Title = _ => "Danger",
+                    Color = _ => new PropertyColorCallout(TypeColorCallout.Danger),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 }
-                    .Add(new ControlText() { Text = "Hello World!" }),
+                    .Add(new ControlText() { Text = _ => "Hello World!" }),
                 new ControlPanelCallout()
                 {
-                    Title = "Dark",
-                    Color = new PropertyColorCallout(TypeColorCallout.Dark),
+                    Title = _ => "Dark",
+                    Color = _ => new PropertyColorCallout(TypeColorCallout.Dark),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 }
-                    .Add(new ControlText() { Text = "Hello World!" }),
+                    .Add(new ControlText() { Text = _ => "Hello World!" }),
                 new ControlPanelCallout()
                 {
-                    Title = "Light",
-                    Color = new PropertyColorCallout(TypeColorCallout.Light),
+                    Title = _ => "Light",
+                    Color = _ => new PropertyColorCallout(TypeColorCallout.Light),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 }
-                    .Add(new ControlText() { Text = "Hello World!" }),
+                    .Add(new ControlText() { Text = _ => "Hello World!" }),
                 new ControlPanelCallout()
                 {
-                    Title = "Highlight",
-                    Color = new PropertyColorCallout(TypeColorCallout.Highlight),
+                    Title = _ => "Highlight",
+                    Color = _ => new PropertyColorCallout(TypeColorCallout.Highlight),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 }
-                    .Add(new ControlText() { Text = "Color is supplied exclusively via --wx-highlight." }),
+                    .Add(new ControlText() { Text = _ => "Color is supplied exclusively via --wx-highlight." }),
                 new ControlPanelCallout()
                 {
-                    Title = "Custom",
-                    Color = new PropertyColorCallout("gold"),
+                    Title = _ => "Custom",
+                    Color = _ => new PropertyColorCallout("gold"),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 }
-                    .Add(new ControlText() { Text = "Hello World!" })
+                    .Add(new ControlText() { Text = _ => "Hello World!" })
             );
 
             Stage.AddProperty
@@ -144,12 +144,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "TextColor = _ => new PropertyColorText(TypeColorText.Success)",
                 new ControlPanelCallout()
                 {
-                    Title = "Success",
-                    Color = new PropertyColorCallout(TypeColorCallout.Primary),
+                    Title = _ => "Success",
+                    Color = _ => new PropertyColorCallout(TypeColorCallout.Primary),
                     TextColor = _ => new PropertyColorText(TypeColorText.Success),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 }
-                    .Add(new ControlText() { Text = "With a success text color." })
+                    .Add(new ControlText() { Text = _ => "With a success text color." })
             );
 
             Stage.AddProperty
@@ -159,12 +159,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Warning)",
                 new ControlPanelCallout()
                 {
-                    Title = "Success",
-                    Color = new PropertyColorCallout(TypeColorCallout.Success),
+                    Title = _ => "Success",
+                    Color = _ => new PropertyColorCallout(TypeColorCallout.Success),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Warning),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 }
-                    .Add(new ControlText() { Text = "With a warning background." })
+                    .Add(new ControlText() { Text = _ => "With a warning background." })
             );
 
 
@@ -175,41 +175,41 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     "Direction = _ => TypeDirection.Default",
                     new ControlPanelCallout()
                     {
-                        Title = "Default",
-                        Color = new PropertyColorCallout(TypeColorCallout.Primary),
-                        Direction = TypeDirection.Default
+                        Title = _ => "Default",
+                        Color = _ => new PropertyColorCallout(TypeColorCallout.Primary),
+                        Direction = _ => TypeDirection.Default
                     }
-                        .Add(new ControlText() { Text = "With a default direction." }),
+                        .Add(new ControlText() { Text = _ => "With a default direction." }),
                     new ControlPanelCallout()
                     {
-                        Title = "Horizontal",
-                        Color = new PropertyColorCallout(TypeColorCallout.Primary),
-                        Direction = TypeDirection.Horizontal
+                        Title = _ => "Horizontal",
+                        Color = _ => new PropertyColorCallout(TypeColorCallout.Primary),
+                        Direction = _ => TypeDirection.Horizontal
                     }
-                        .Add(new ControlText() { Text = "With a horizontal direction." })
+                        .Add(new ControlText() { Text = _ => "With a horizontal direction." })
                         ,
                     new ControlPanelCallout()
                     {
-                        Title = "HorizontalReverse",
-                        Color = new PropertyColorCallout(TypeColorCallout.Primary),
-                        Direction = TypeDirection.HorizontalReverse
+                        Title = _ => "HorizontalReverse",
+                        Color = _ => new PropertyColorCallout(TypeColorCallout.Primary),
+                        Direction = _ => TypeDirection.HorizontalReverse
                     }
-                        .Add(new ControlText() { Text = "With a horizontal reverse direction." }),
+                        .Add(new ControlText() { Text = _ => "With a horizontal reverse direction." }),
                     new ControlPanelCallout()
                     {
-                        Title = "Vertical",
-                        Color = new PropertyColorCallout(TypeColorCallout.Primary),
-                        Direction = TypeDirection.Vertical
+                        Title = _ => "Vertical",
+                        Color = _ => new PropertyColorCallout(TypeColorCallout.Primary),
+                        Direction = _ => TypeDirection.Vertical
                     }
-                        .Add(new ControlText() { Text = "With a vertical direction." })
+                        .Add(new ControlText() { Text = _ => "With a vertical direction." })
                         ,
                     new ControlPanelCallout()
                     {
-                        Title = "VerticalReverse",
-                        Color = new PropertyColorCallout(TypeColorCallout.Primary),
-                        Direction = TypeDirection.VerticalReverse
+                        Title = _ => "VerticalReverse",
+                        Color = _ => new PropertyColorCallout(TypeColorCallout.Primary),
+                        Direction = _ => TypeDirection.VerticalReverse
                     }
-                        .Add(new ControlText() { Text = "With a vertical reverse direction." })
+                        .Add(new ControlText() { Text = _ => "With a vertical reverse direction." })
                 );
         }
     }

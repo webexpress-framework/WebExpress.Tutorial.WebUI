@@ -40,19 +40,19 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Title = _ => "Tab View 1",
                     Icon = _ => new IconTable()
                 }
-                    .Add(new ControlText() { Text = "content of the tab view 1" }))
+                    .Add(new ControlText() { Text = _ => "content of the tab view 1" }))
                 .Add(new ControlTabView()
                 {
                     Title = _ => "Tab View 2",
                     Icon = _ => new IconList()
                 }
-                    .Add(new ControlText() { Text = "content of the tab view 2" }))
+                    .Add(new ControlText() { Text = _ => "content of the tab view 2" }))
                 .Add(new ControlTabView()
                 {
                     Title = _ => "Tab View 3",
                     Icon = _ => new IconDiagramProject(),
                 }
-                    .Add(new ControlText() { Text = "content of the tab view 3" }));
+                    .Add(new ControlText() { Text = _ => "content of the tab view 3" }));
 
             Stage.Code = @"
             new ControlTab(RandomId.Create())
@@ -82,30 +82,30 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Layout",
                 "Determines the layout of the tab navigation.",
                 "Layout = _ => TypeLayoutTab.Underline",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTab(RandomId.Create())
                 {
                     Layout = _ => TypeLayoutTab.Default
                 }
-                    .Add(new ControlTabView() { Title = _ => "Tab View 1", Icon = _ => new IconTable() }.Add(new ControlText() { Text = "content of the tab view 1" }))
-                    .Add(new ControlTabView() { Title = _ => "Tab View 2", Icon = _ => new IconList() }.Add(new ControlText() { Text = "content of the tab view 2" }))
-                    .Add(new ControlTabView() { Title = _ => "Tab View 3", Icon = _ => new IconDiagramProject() }.Add(new ControlText() { Text = "content of the tab view 3" })),
-                new ControlText() { Text = "Pill", TextColor = new PropertyColorText(TypeColorText.Info) },
+                    .Add(new ControlTabView() { Title = _ => "Tab View 1", Icon = _ => new IconTable() }.Add(new ControlText() { Text = _ => "content of the tab view 1" }))
+                    .Add(new ControlTabView() { Title = _ => "Tab View 2", Icon = _ => new IconList() }.Add(new ControlText() { Text = _ => "content of the tab view 2" }))
+                    .Add(new ControlTabView() { Title = _ => "Tab View 3", Icon = _ => new IconDiagramProject() }.Add(new ControlText() { Text = _ => "content of the tab view 3" })),
+                new ControlText() { Text = _ => "Pill", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTab(RandomId.Create())
                 {
                     Layout = _ => TypeLayoutTab.Pill
                 }
-                    .Add(new ControlTabView() { Title = _ => "Tab View 1", Icon = _ => new IconTable() }.Add(new ControlText() { Text = "content of the tab view 1" }))
-                    .Add(new ControlTabView() { Title = _ => "Tab View 2", Icon = _ => new IconList() }.Add(new ControlText() { Text = "content of the tab view 2" }))
-                    .Add(new ControlTabView() { Title = _ => "Tab View 3", Icon = _ => new IconDiagramProject() }.Add(new ControlText() { Text = "content of the tab view 3" })),
-                new ControlText() { Text = "Underline", TextColor = new PropertyColorText(TypeColorText.Info) },
+                    .Add(new ControlTabView() { Title = _ => "Tab View 1", Icon = _ => new IconTable() }.Add(new ControlText() { Text = _ => "content of the tab view 1" }))
+                    .Add(new ControlTabView() { Title = _ => "Tab View 2", Icon = _ => new IconList() }.Add(new ControlText() { Text = _ => "content of the tab view 2" }))
+                    .Add(new ControlTabView() { Title = _ => "Tab View 3", Icon = _ => new IconDiagramProject() }.Add(new ControlText() { Text = _ => "content of the tab view 3" })),
+                new ControlText() { Text = _ => "Underline", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTab(RandomId.Create())
                 {
                     Layout = _ => TypeLayoutTab.Underline
                 }
-                    .Add(new ControlTabView() { Title = _ => "Tab View 1", Icon = _ => new IconTable() }.Add(new ControlText() { Text = "content of the tab view 1" }))
-                    .Add(new ControlTabView() { Title = _ => "Tab View 2", Icon = _ => new IconList() }.Add(new ControlText() { Text = "content of the tab view 2" }))
-                    .Add(new ControlTabView() { Title = _ => "Tab View 3", Icon = _ => new IconDiagramProject() }.Add(new ControlText() { Text = "content of the tab view 3" }))
+                    .Add(new ControlTabView() { Title = _ => "Tab View 1", Icon = _ => new IconTable() }.Add(new ControlText() { Text = _ => "content of the tab view 1" }))
+                    .Add(new ControlTabView() { Title = _ => "Tab View 2", Icon = _ => new IconList() }.Add(new ControlText() { Text = _ => "content of the tab view 2" }))
+                    .Add(new ControlTabView() { Title = _ => "Tab View 3", Icon = _ => new IconDiagramProject() }.Add(new ControlText() { Text = _ => "content of the tab view 3" }))
             );
 
             Stage.AddItem
@@ -118,9 +118,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Layout = _ => TypeLayoutTab.Default
                 }
-                    .Add(new ControlTabView() { Title = _ => "Tab View 1", Icon = _ => new IconTable() }.Add(new ControlText() { Text = "content of the tab view 1" }))
-                    .Add(new ControlTabView() { Title = _ => "Tab View 2", Icon = _ => new IconList() }.Add(new ControlText() { Text = "content of the tab view 2" }))
-                    .Add(new ControlTabView() { Title = _ => "Tab View 3", Icon = _ => new IconDiagramProject() }.Add(new ControlText() { Text = "content of the tab view 3" }))
+                    .Add(new ControlTabView() { Title = _ => "Tab View 1", Icon = _ => new IconTable() }.Add(new ControlText() { Text = _ => "content of the tab view 1" }))
+                    .Add(new ControlTabView() { Title = _ => "Tab View 2", Icon = _ => new IconList() }.Add(new ControlText() { Text = _ => "content of the tab view 2" }))
+                    .Add(new ControlTabView() { Title = _ => "Tab View 3", Icon = _ => new IconDiagramProject() }.Add(new ControlText() { Text = _ => "content of the tab view 3" }))
             );
 
             Stage.AddItem
@@ -133,8 +133,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Layout = _ => TypeLayoutTab.Default
                 }
-                    .Add(new ControlTabView() { Title = _ => "Tab View 1", Icon = _ => new IconTable() }.Add(new ControlText() { Text = "content of the tab view 1" }))
-                    .Add(new ControlTabView() { Title = _ => "Tab View 2", Icon = _ => new IconList() }.Add(new ControlText() { Text = "content of the tab view 2" }))
+                    .Add(new ControlTabView() { Title = _ => "Tab View 1", Icon = _ => new IconTable() }.Add(new ControlText() { Text = _ => "content of the tab view 1" }))
+                    .Add(new ControlTabView() { Title = _ => "Tab View 2", Icon = _ => new IconList() }.Add(new ControlText() { Text = _ => "content of the tab view 2" }))
                     .Add(new ControlToolbarItemButton() { Icon = _ => new IconGear(), Tooltip = _ => "Settings" })
                     .Add(new ControlToolbarItemButton() { Icon = _ => new IconRotate(), Tooltip = _ => "Reload" })
             );

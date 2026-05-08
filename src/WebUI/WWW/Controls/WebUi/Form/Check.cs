@@ -29,7 +29,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             Stage.Description = @"A `Check` control is a graphical user interface element that allows users to choose between two states: checked (selected) or unchecked (not selected).";
 
             Stage.Control = new ControlForm()
-                .Add(new ControlFormItemInputCheck { Label = _ => "Label", Description = "Check box description" })
+                .Add(new ControlFormItemInputCheck { Label = _ => "Label", Description = _ => "Check box description" })
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
@@ -80,9 +80,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                     {
                         Label = _ => "Subscribe to newsletter",
                         Icon = _ => new IconPaperPlane(),
-                        Description = "Subscribe to newsletter – Receive monthly updates via email",
+                        Description = _ => "Subscribe to newsletter – Receive monthly updates via email",
                         Help = _ => "You can unsubscribe anytime from your account settings.",
-                        Layout = TypeLayoutCheck.Default
+                        Layout = _ => TypeLayoutCheck.Default
                     })
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
@@ -97,9 +97,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                     {
                         Label = _ => "Subscribe to newsletter",
                         Icon = _ => new IconPaperPlane(),
-                        Description = "Subscribe to newsletter – Receive monthly updates via email",
+                        Description = _ => "Subscribe to newsletter – Receive monthly updates via email",
                         Help = _ => "You can unsubscribe anytime from your account settings.",
-                        Layout = TypeLayoutCheck.Default,
+                        Layout = _ => TypeLayoutCheck.Default,
                         Disabled = _ => true
                     })
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
@@ -114,14 +114,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                     .Add(new ControlFormItemInputCheck
                     {
                         Label = _ => "Default",
-                        Description = "Checkbox description",
-                        Layout = TypeLayoutCheck.Default
+                        Description = _ => "Checkbox description",
+                        Layout = _ => TypeLayoutCheck.Default
                     })
                     .Add(new ControlFormItemInputCheck
                     {
                         Label = _ => "Switch",
-                        Description = "Checkbox description",
-                        Layout = TypeLayoutCheck.Switch
+                        Description = _ => "Checkbox description",
+                        Layout = _ => TypeLayoutCheck.Switch
                     })
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
@@ -134,11 +134,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 new ControlForm()
                     .Add(new ControlFormItemInputCheck
                     {
-                        Description = "Checkbox 1"
+                        Description = _ => "Checkbox 1"
                     })
                     .Add(new ControlFormItemInputCheck
                     {
-                        Description = "Checkbox 2"
+                        Description = _ => "Checkbox 2"
                     })
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );

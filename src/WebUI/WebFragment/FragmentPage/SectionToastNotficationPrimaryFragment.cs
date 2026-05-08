@@ -20,7 +20,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.FragmentPage
         public SectionToastnotificationPrimaryFragment(IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "SectionToastnotificationPrimary";
+            Text = _ => "SectionToastnotificationPrimary";
         }
     }
 }

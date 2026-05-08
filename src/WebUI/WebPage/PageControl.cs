@@ -32,32 +32,32 @@ namespace WebExpress.Tutorial.WebUI.WebPage
             });
             visualTree.Content.MainPanel.AddPrimary(new ControlText()
             {
-                Text = TrimIndentation(Stage.Description),
-                Format = TypeFormatText.Markdown
+                Text = _ => TrimIndentation(Stage.Description),
+                Format = _ => TypeFormatText.Markdown
             });
             visualTree.Content.MainPanel.AddPrimary(new ControlText()
             {
-                Text = "Example",
-                Format = TypeFormatText.H3,
+                Text = _ => "Example",
+                Format = _ => TypeFormatText.H3,
                 Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
             });
             visualTree.Content.MainPanel.AddPrimary(new ControlText()
             {
-                Text = "To demonstrate the functionality and potential use cases of this control, here’s an example showcasing its key features in action.",
-                Format = TypeFormatText.Paragraph
+                Text = _ => "To demonstrate the functionality and potential use cases of this control, here’s an example showcasing its key features in action.",
+                Format = _ => TypeFormatText.Paragraph
             });
             if (Stage.DarkControls is not null)
             {
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
-                    Text = "Light Mode",
-                    Format = TypeFormatText.H5,
+                    Text = _ => "Light Mode",
+                    Format = _ => TypeFormatText.H5,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
-                    Text = @"Designed for bright and well-lit environments, light mode offers a clear and vibrant presentation of the control, making it ideal for applications that prioritize brightness and clarity.",
-                    Format = TypeFormatText.Markdown,
+                    Text = _ => @"Designed for bright and well-lit environments, light mode offers a clear and vibrant presentation of the control, making it ideal for applications that prioritize brightness and clarity.",
+                    Format = _ => TypeFormatText.Markdown,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
             }
@@ -72,14 +72,14 @@ namespace WebExpress.Tutorial.WebUI.WebPage
             {
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
-                    Text = "Dark Mode",
-                    Format = TypeFormatText.H5,
+                    Text = _ => "Dark Mode",
+                    Format = _ => TypeFormatText.H5,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
-                    Text = @"Optimized for dim settings, dark mode delivers a high-contrast theme that enhances readability and reduces eye strain, while maintaining the control’s core functionalities.",
-                    Format = TypeFormatText.Markdown,
+                    Text = _ => @"Optimized for dim settings, dark mode delivers a high-contrast theme that enhances readability and reduces eye strain, while maintaining the control’s core functionalities.",
+                    Format = _ => TypeFormatText.Markdown,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
                 visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. Stage.DarkControls.Any() ? Stage.DarkControls : Stage.Controls])
@@ -88,19 +88,19 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                     Styles = ["max-width: 80em;"],
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None,
                     PropertySpacing.Space.None, PropertySpacing.Space.Two),
-                    Theme = TypeTheme.Dark
+                    Theme = _ => TypeTheme.Dark
                 });
             }
             visualTree.Content.MainPanel.AddPrimary(new ControlText()
             {
-                Text = "Code",
-                Format = TypeFormatText.H3,
+                Text = _ => "Code",
+                Format = _ => TypeFormatText.H3,
                 Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
             });
             visualTree.Content.MainPanel.AddPrimary(new ControlText()
             {
-                Text = "Below is the corresponding code snippet, designed to provide a clear understanding of the control's implementation. It demonstrates how the control is instantiated and customized to achieve specific functionality and appearance.",
-                Format = TypeFormatText.Paragraph
+                Text = _ => "Below is the corresponding code snippet, designed to provide a clear understanding of the control's implementation. It demonstrates how the control is instantiated and customized to achieve specific functionality and appearance.",
+                Format = _ => TypeFormatText.Paragraph
             });
             visualTree.Content.MainPanel.AddPrimary(null, new ControlCode()
             {
@@ -113,8 +113,8 @@ namespace WebExpress.Tutorial.WebUI.WebPage
             });
             visualTree.Content.MainPanel.AddPrimary(new ControlText()
             {
-                Text = "The following HTML structure is generated based on the example control and serves as the foundation for its visual and functional representation. It includes the necessary elements to create an interactive user interface, allowing users to engage intuitively and efficiently.",
-                Format = TypeFormatText.Paragraph
+                Text = _ => "The following HTML structure is generated based on the example control and serves as the foundation for its visual and functional representation. It includes the necessary elements to create an interactive user interface, allowing users to engage intuitively and efficiently.",
+                Format = _ => TypeFormatText.Paragraph
             });
             visualTree.Content.MainPanel.AddPrimary(new ControlCode()
             {
@@ -129,15 +129,15 @@ namespace WebExpress.Tutorial.WebUI.WebPage
             {
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
-                    Text = "Properties",
-                    Format = TypeFormatText.H3,
+                    Text = _ => "Properties",
+                    Format = _ => TypeFormatText.H3,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
 
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
-                    Text = "Every control is equipped with a set of properties that define its behavior, appearance, and functionality. These properties are designed to provide flexibility and customization, enabling developers to tailor the controls to fit their unique requirements seamlessly. Below is a detailed exploration of the key properties available for this control.",
-                    Format = TypeFormatText.Paragraph
+                    Text = _ => "Every control is equipped with a set of properties that define its behavior, appearance, and functionality. These properties are designed to provide flexibility and customization, enabling developers to tailor the controls to fit their unique requirements seamlessly. Below is a detailed exploration of the key properties available for this control.",
+                    Format = _ => TypeFormatText.Paragraph
                 });
             }
 
@@ -145,25 +145,25 @@ namespace WebExpress.Tutorial.WebUI.WebPage
             {
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
-                    Text = supportedAct.Name,
-                    Format = TypeFormatText.H4,
+                    Text = _ => supportedAct.Name,
+                    Format = _ => TypeFormatText.H4,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
 
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
-                    Text = supportedAct.Description,
-                    Format = TypeFormatText.Markdown
+                    Text = _ => supportedAct.Description,
+                    Format = _ => TypeFormatText.Markdown
                 });
 
                 if (!string.IsNullOrWhiteSpace(supportedAct.Callout))
                 {
                     visualTree.Content.MainPanel.AddPrimary(new ControlPanelCallout(null, new ControlText()
                     {
-                        Text = supportedAct.Callout
+                        Text = _ => supportedAct.Callout
                     })
                     {
-                        Color = new PropertyColorCallout(TypeColorCallout.Info),
+                        Color = _ => new PropertyColorCallout(TypeColorCallout.Info),
                         Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                     });
                 }
@@ -189,15 +189,15 @@ namespace WebExpress.Tutorial.WebUI.WebPage
             {
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
-                    Text = "Item types",
-                    Format = TypeFormatText.H3,
+                    Text = _ => "Item types",
+                    Format = _ => TypeFormatText.H3,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
 
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
-                    Text = "Item types enhance enumerations with a range of functionalities, providing increased flexibility and adaptability for various applications. Through the assignment of distinct attributes and behaviors, they empower developers to customize lists to address specific needs effectively.",
-                    Format = TypeFormatText.Paragraph
+                    Text = _ => "Item types enhance enumerations with a range of functionalities, providing increased flexibility and adaptability for various applications. Through the assignment of distinct attributes and behaviors, they empower developers to customize lists to address specific needs effectively.",
+                    Format = _ => TypeFormatText.Paragraph
                 });
             }
 
@@ -205,25 +205,25 @@ namespace WebExpress.Tutorial.WebUI.WebPage
             {
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
-                    Text = supportedAct.Name,
-                    Format = TypeFormatText.H4,
+                    Text = _ => supportedAct.Name,
+                    Format = _ => TypeFormatText.H4,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
 
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
-                    Text = supportedAct.Description,
-                    Format = TypeFormatText.Markdown
+                    Text = _ => supportedAct.Description,
+                    Format = _ => TypeFormatText.Markdown
                 });
 
                 if (!string.IsNullOrWhiteSpace(supportedAct.Callout))
                 {
                     visualTree.Content.MainPanel.AddPrimary(new ControlPanelCallout(null, new ControlText()
                     {
-                        Text = supportedAct.Callout
+                        Text = _ => supportedAct.Callout
                     })
                     {
-                        Color = new PropertyColorCallout(TypeColorCallout.Info),
+                        Color = _ => new PropertyColorCallout(TypeColorCallout.Info),
                         Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                     });
                 }
@@ -255,22 +255,22 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                         (
                             new ControlText()
                             {
-                                Text = subAct.Name,
-                                Format = TypeFormatText.H5,
+                                Text = _ => subAct.Name,
+                                Format = _ => TypeFormatText.H5,
                                 Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                             },
                             new ControlText()
                             {
-                                Text = subAct.Description,
-                                Format = TypeFormatText.Markdown
+                                Text = _ => subAct.Description,
+                                Format = _ => TypeFormatText.Markdown
                             },
                             !string.IsNullOrWhiteSpace(subAct.Callout)
                                 ? new ControlPanelCallout(null, new ControlText()
                                 {
-                                    Text = subAct.Callout
+                                    Text = _ => subAct.Callout
                                 })
                                 {
-                                    Color = new PropertyColorCallout(TypeColorCallout.Info),
+                                    Color = _ => new PropertyColorCallout(TypeColorCallout.Info),
                                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                                 }
                                 : null,
@@ -297,29 +297,29 @@ namespace WebExpress.Tutorial.WebUI.WebPage
             {
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
-                    Text = "Events",
-                    Format = TypeFormatText.H3
+                    Text = _ => "Events",
+                    Format = _ => TypeFormatText.H3
                 });
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
-                    Text = "Several events are registered with the Control, enabling precise monitoring and management of processes. They respond to specific occurrences and trigger appropriate actions:",
-                    Format = TypeFormatText.Paragraph
+                    Text = _ => "Several events are registered with the Control, enabling precise monitoring and management of processes. They respond to specific occurrences and trigger appropriate actions:",
+                    Format = _ => TypeFormatText.Paragraph
                 });
                 visualTree.Content.MainPanel.AddPrimary(new ControlList(null,
                 [..
                     Stage.Events.Select(x => (ControlListItem)new ControlListItem(null).Add(new ControlText()
                     {
-                        Text = $"`{x.GetEventName()}` - {x.GetDescription()}",
-                        Format = TypeFormatText.Markdown
+                        Text = _ =>$"`{x.GetEventName()}` - {x.GetDescription()}",
+                        Format = _ => TypeFormatText.Markdown
                     }))
                 ])
                 {
-                    Layout = TypeLayoutList.Default
+                    Layout = _ => TypeLayoutList.Default
                 });
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
-                    Text = "In the next section, these events will be monitored in real time as they are triggered during example usage. This live tracking provides a detailed analysis of event behavior and system interactions, offering valuable insights into their functionality:",
-                    Format = TypeFormatText.Paragraph
+                    Text = _ => "In the next section, these events will be monitored in real time as they are triggered during example usage. This live tracking provides a detailed analysis of event behavior and system interactions, offering valuable insights into their functionality:",
+                    Format = _ => TypeFormatText.Paragraph
                 });
                 visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, new ControlEventLogger
                 (

@@ -138,7 +138,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 Icon = _ => new IconGamepad()
             };
             // add main text element
-            card.Add(new ControlText() { Text = text });
+            card.Add(new ControlText() { Text = _ => text });
 
             return card;
         }

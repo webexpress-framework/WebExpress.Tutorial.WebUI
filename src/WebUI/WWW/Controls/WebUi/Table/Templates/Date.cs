@@ -53,10 +53,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
             (
                 "Editable",
                 "The `Editable` property defines whether the template column is displayed in ReadOnly mode or in Edit mode. In ReadOnly mode, values are shown as static tags for clear visualization. In Edit mode, users can directly modify the values within the column, enabling interactive data editing.",
-                "Editable = true",
-                new ControlText() { Text = "false", TextColor = new PropertyColorText(TypeColorText.Info) },
+                "Editable = _ => true",
+                new ControlText() { Text = _ => "false", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable().AddColumns(CreateColumns()).AddRows(CreateRows()),
-                new ControlText() { Text = "true", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "true", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable().AddColumns(CreateColumns(true)).AddRows(CreateRows())
             );
 
@@ -64,26 +64,26 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
             (
                 "Color",
                 "The `Color` property defines the visual color applied to all selected tags within the `Tag` template component. This uniform color enhances clarity, improves recognition, and ensures a cohesive user interface experience.",
-                "Color = new PropertyColorTag(TypeColorTag.Warning)",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                "Color = _ => new PropertyColorTag(TypeColorTag.Warning)",
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable().AddColumns(CreateColumns(false, new PropertyColorDate(TypeColorDate.Default))).AddRows(CreateRows()),
-                new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Primary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable().AddColumns(CreateColumns(false, new PropertyColorDate(TypeColorDate.Primary))).AddRows(CreateRows()),
-                new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Secondary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable().AddColumns(CreateColumns(false, new PropertyColorDate(TypeColorDate.Secondary))).AddRows(CreateRows()),
-                new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Info", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable().AddColumns(CreateColumns(false, new PropertyColorDate(TypeColorDate.Info))).AddRows(CreateRows()),
-                new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Success", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable().AddColumns(CreateColumns(false, new PropertyColorDate(TypeColorDate.Success))).AddRows(CreateRows()),
-                new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Warning", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable().AddColumns(CreateColumns(false, new PropertyColorDate(TypeColorDate.Warning))).AddRows(CreateRows()),
-                new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Danger", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable().AddColumns(CreateColumns(false, new PropertyColorDate(TypeColorDate.Danger))).AddRows(CreateRows()),
-                new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Light", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable().AddColumns(CreateColumns(false, new PropertyColorDate(TypeColorDate.Light))).AddRows(CreateRows()),
-                new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Dark", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable().AddColumns(CreateColumns(false, new PropertyColorDate(TypeColorDate.Dark))).AddRows(CreateRows()),
-                new ControlText() { Text = "User defind", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "User defind", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable().AddColumns(CreateColumns(false, new PropertyColorDate("gold"))).AddRows(CreateRows())
             );
 
@@ -91,7 +91,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
             (
                 "Placeholder",
                 "The `Placeholder` property defines the default text or tag shown when no value is provided within the `Tag` template column. It helps guide users by indicating the expected input or by visually marking empty fields.",
-                "Placeholder = \"Enter value\"",
+                "Placeholder = _ => \"Enter value\"",
                 new ControlTable().AddColumns(CreateColumns(true, null, "Enter value")).AddRows(CreateRows())
             );
 
@@ -99,7 +99,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
             (
                 "Format",
                 "The `Format` property defines how date values are visually represented within the `Date` template column. By specifying a format string (e.g., `dd/MM/yyyy`), you can control the appearance of the date, ensuring consistency and clarity across the user interface.",
-                "Format = \"dd/MM/yyyy\"",
+                "Format = _ => \"dd/MM/yyyy\"",
                 new ControlTable().AddColumns(CreateColumns(true, null, null, "dd.MM.yyyy")).AddRows(CreateRows("dd.MM.yyyy"))
             );
         }

@@ -32,10 +32,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Username",
                 "Defines the username that is prefilled when the login control is displayed, allowing users to see an example credential or start typing immediately.",
-                "Username = \"WebExpress\"",
+                "Username = _ => \"WebExpress\"",
                 new ControlLogin()
                 {
-                    Username = "WebExpress"
+                    Username = _ => "WebExpress"
                 }
             );
 
@@ -43,10 +43,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Title",
                 "Defines the title shown in the login control, helping users identify the purpose of the form.",
-                "Title = \"WebExpress\"",
+                "Title = _ => \"WebExpress\"",
                 new ControlLogin()
                 {
-                    Title = "WebExpress"
+                    Title = _ => "WebExpress"
                 }
             );
         }

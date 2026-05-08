@@ -26,7 +26,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
         public ControlSidebarFragmentWebAppHeader(IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "WebExpress.WebApp";
+            Text = _ => "WebExpress.WebApp";
         }
 
         /// <summary>

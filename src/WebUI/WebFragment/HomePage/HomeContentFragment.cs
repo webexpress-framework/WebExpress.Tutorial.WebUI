@@ -28,11 +28,12 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.HomePage
         {
             using var stream = GetType().Assembly.GetManifestResourceStream("WebExpress.Tutorial.WebUI.Assets.md\\home.md");
             using var reader = new StreamReader(stream);
+            var text = reader.ReadToEnd();
 
             Add(new ControlText()
             {
-                Format = TypeFormatText.Markdown,
-                Text = reader.ReadToEnd()
+                Format = _ => TypeFormatText.Markdown,
+                Text = _ => text
             });
         }
     }

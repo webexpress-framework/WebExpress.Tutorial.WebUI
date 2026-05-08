@@ -41,7 +41,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
         /// </summary>
         public ControlTree Tree { get; } = new ControlTree("webapp-control-tree")
         {
-            Layout = TypeLayoutTree.Default
+            Layout = _ => TypeLayoutTree.Default
         };
 
         /// <summary>
@@ -58,8 +58,8 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
         {
             _componentHub = componentHub;
             _fragmentContext = fragmentContext;
-            Icon = new IconSitemap();
-            Mode = TypeSidebarModeExtended.Overlay;
+            Icon = _ => new IconSitemap();
+            Mode = _ => TypeSidebarModeExtended.Overlay;
 
             RenderControl += (renderContext, visualTree) =>
             {

@@ -30,172 +30,172 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.Controls = [
                 new ControlText()
                 {
-                    Text = _text
+                    Text = _ => _text
                 }
             ];
 
-            Stage.Code = $"new ControlText() {{ Text = \"{_text}\"}}";
+            Stage.Code = $"new ControlText() {{ Text = _ => \"{_text}\"}}";
 
             Stage.AddProperty
             (
                 "Format",
                 "Defines the format of the text.",
                 "Format = _ => TypesTextFormat.Paragraph",
-                new ControlText() { Text = "Default", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Default", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    Format = TypeFormatText.Default
+                    Text = _ => _text,
+                    Format = _ => TypeFormatText.Default
                 },
-                new ControlText() { Text = "H1", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "H1", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = "Heading Level 1",
-                    Format = TypeFormatText.H1
+                    Text = _ => "Heading Level 1",
+                    Format = _ => TypeFormatText.H1
                 },
-                new ControlText() { Text = "H2", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "H2", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = "Heading Level 2",
-                    Format = TypeFormatText.H2
+                    Text = _ => "Heading Level 2",
+                    Format = _ => TypeFormatText.H2
                 },
-                new ControlText() { Text = "H3", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "H3", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = "Heading Level 3",
-                    Format = TypeFormatText.H3
+                    Text = _ => "Heading Level 3",
+                    Format = _ => TypeFormatText.H3
                 },
-                new ControlText() { Text = "H4", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "H4", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = "Heading Level 4",
-                    Format = TypeFormatText.H4
+                    Text = _ => "Heading Level 4",
+                    Format = _ => TypeFormatText.H4
                 },
-                new ControlText() { Text = "H5", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "H5", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = "Heading Level 5",
-                    Format = TypeFormatText.H5
+                    Text = _ => "Heading Level 5",
+                    Format = _ => TypeFormatText.H5
                 },
-                new ControlText() { Text = "H6", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "H6", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = "Heading Level 6",
-                    Format = TypeFormatText.H6
+                    Text = _ => "Heading Level 6",
+                    Format = _ => TypeFormatText.H6
                 },
-                new ControlText() { Text = "Paragraph", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.One), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Paragraph", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.One), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    Format = TypeFormatText.Paragraph
+                    Text = _ => _text,
+                    Format = _ => TypeFormatText.Paragraph
                 },
-                new ControlText() { Text = "Bold", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Bold", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    Format = TypeFormatText.Bold
+                    Text = _ => _text,
+                    Format = _ => TypeFormatText.Bold
                 },
-                new ControlText() { Text = "Italic", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Italic", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    Format = TypeFormatText.Italic
+                    Text = _ => _text,
+                    Format = _ => TypeFormatText.Italic
                 },
-                new ControlText() { Text = "Underline", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Underline", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    Format = TypeFormatText.Underline
+                    Text = _ => _text,
+                    Format = _ => TypeFormatText.Underline
                 },
-                new ControlText() { Text = "StruckOut", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "StruckOut", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    Format = TypeFormatText.StruckOut
+                    Text = _ => _text,
+                    Format = _ => TypeFormatText.StruckOut
                 },
-                new ControlText() { Text = "Cite", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Cite", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    Format = TypeFormatText.Cite
+                    Text = _ => _text,
+                    Format = _ => TypeFormatText.Cite
                 },
-                new ControlText() { Text = "Small", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Small", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    Format = TypeFormatText.Small
+                    Text = _ => _text,
+                    Format = _ => TypeFormatText.Small
                 },
-                new ControlText() { Text = "Strong", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Strong", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    Format = TypeFormatText.Strong
+                    Text = _ => _text,
+                    Format = _ => TypeFormatText.Strong
                 },
-                new ControlText() { Text = "Code", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Code", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = "10 PRINT \"HELLO WORLD!\"<br>20 GOTO 10",
-                    Format = TypeFormatText.Code
+                    Text = _ => "10 PRINT \"HELLO WORLD!\"<br>20 GOTO 10",
+                    Format = _ => TypeFormatText.Code
                 },
-                new ControlText() { Text = "Output", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Output", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = "C:\\DOS\\",
-                    Format = TypeFormatText.Output
+                    Text = _ => "C:\\DOS\\",
+                    Format = _ => TypeFormatText.Output
                 },
-                new ControlText() { Text = "Time", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Time", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = DateTime.Now.ToString(),
-                    Format = TypeFormatText.Time
+                    Text = _ => DateTime.Now.ToString(),
+                    Format = _ => TypeFormatText.Time
                 },
-                new ControlText() { Text = "Markdown", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Markdown", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = new StreamReader(GetType().Assembly.GetManifestResourceStream("WebExpress.Tutorial.WebUI.Assets.md\\example.md")).ReadToEnd(),
-                    Format = TypeFormatText.Markdown
+                    Text = _ => new StreamReader(GetType().Assembly.GetManifestResourceStream("WebExpress.Tutorial.WebUI.Assets.md\\example.md")).ReadToEnd(),
+                    Format = _ => TypeFormatText.Markdown
                 },
-                new ControlText() { Text = "Mark", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Mark", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    Format = TypeFormatText.Mark
+                    Text = _ => _text,
+                    Format = _ => TypeFormatText.Mark
                 },
-                new ControlText() { Text = "Highlight", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Highlight", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    Format = TypeFormatText.Highlight
+                    Text = _ => _text,
+                    Format = _ => TypeFormatText.Highlight
                 },
-                new ControlText() { Text = "Definition", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Definition", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    Format = TypeFormatText.Definition
+                    Text = _ => _text,
+                    Format = _ => TypeFormatText.Definition
                 },
-                new ControlText() { Text = "Abbreviation", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Abbreviation", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    Format = TypeFormatText.Abbreviation
+                    Text = _ => _text,
+                    Format = _ => TypeFormatText.Abbreviation
                 },
-                new ControlText() { Text = "Blockquote", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Blockquote", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    Format = TypeFormatText.Blockquote
+                    Text = _ => _text,
+                    Format = _ => TypeFormatText.Blockquote
                 },
-                new ControlText() { Text = "Figcaption", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Figcaption", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    Format = TypeFormatText.Figcaption
+                    Text = _ => _text,
+                    Format = _ => TypeFormatText.Figcaption
                 },
-                new ControlText() { Text = "Preformatted", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Preformatted", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    Format = TypeFormatText.Preformatted
+                    Text = _ => _text,
+                    Format = _ => TypeFormatText.Preformatted
                 }
             );
 
@@ -204,71 +204,71 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "TextColor",
                 "Defines the text color.",
                 "TextColor = _ => new PropertyColorText(TypeColorText.Primary)",
-                new ControlText() { Text = "Standard", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Standard", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    TextColor = new PropertyColorText(TypeColorText.Default)
+                    Text = _ => _text,
+                    TextColor = _ => new PropertyColorText(TypeColorText.Default)
                 },
-                new ControlText() { Text = "Primary", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Primary", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    TextColor = new PropertyColorText(TypeColorText.Primary)
+                    Text = _ => _text,
+                    TextColor = _ => new PropertyColorText(TypeColorText.Primary)
                 },
-                new ControlText() { Text = "Info", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Info", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => _text,
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
-                new ControlText() { Text = "Success", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Success", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    TextColor = new PropertyColorText(TypeColorText.Success)
+                    Text = _ => _text,
+                    TextColor = _ => new PropertyColorText(TypeColorText.Success)
                 },
-                new ControlText() { Text = "Warning", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Warning", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    TextColor = new PropertyColorText(TypeColorText.Warning)
+                    Text = _ => _text,
+                    TextColor = _ => new PropertyColorText(TypeColorText.Warning)
                 },
-                new ControlText() { Text = "Danger", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Danger", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    TextColor = new PropertyColorText(TypeColorText.Danger)
+                    Text = _ => _text,
+                    TextColor = _ => new PropertyColorText(TypeColorText.Danger)
                 },
-                new ControlText() { Text = "Dark", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Dark", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    TextColor = new PropertyColorText(TypeColorText.Dark)
+                    Text = _ => _text,
+                    TextColor = _ => new PropertyColorText(TypeColorText.Dark)
                 },
-                new ControlText() { Text = "Light", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Light", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    TextColor = new PropertyColorText(TypeColorText.Light)
+                    Text = _ => _text,
+                    TextColor = _ => new PropertyColorText(TypeColorText.Light)
                 },
-                new ControlText() { Text = "White", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "White", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    TextColor = new PropertyColorText(TypeColorText.White)
+                    Text = _ => _text,
+                    TextColor = _ => new PropertyColorText(TypeColorText.White)
                 },
-                new ControlText() { Text = "Highlight", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Highlight", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    TextColor = new PropertyColorText(TypeColorText.Highlight)
+                    Text = _ => _text,
+                    TextColor = _ => new PropertyColorText(TypeColorText.Highlight)
                 },
-                new ControlText() { Text = "Custom", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Custom", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    TextColor = new PropertyColorText("red")
+                    Text = _ => _text,
+                    TextColor = _ => new PropertyColorText("red")
                 }
              );
 
@@ -277,41 +277,41 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Size",
                 "Defines the text size.",
                 "Size = new PropertySizeText(TypeSizeText.Small)",
-                new ControlText() { Text = "ExtraSmall", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "ExtraSmall", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    Size = new PropertySizeText(TypeSizeText.ExtraSmall)
+                    Text = _ => _text,
+                    Size = _ => new PropertySizeText(TypeSizeText.ExtraSmall)
                 },
-                new ControlText() { Text = "Small", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Small", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    Size = new PropertySizeText(TypeSizeText.Small)
+                    Text = _ => _text,
+                    Size = _ => new PropertySizeText(TypeSizeText.Small)
                 },
-                new ControlText() { Text = "Standard", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Standard", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    Size = new PropertySizeText(TypeSizeText.Default)
+                    Text = _ => _text,
+                    Size = _ => new PropertySizeText(TypeSizeText.Default)
                 },
-                new ControlText() { Text = "Large", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Large", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    Size = new PropertySizeText(TypeSizeText.Large)
+                    Text = _ => _text,
+                    Size = _ => new PropertySizeText(TypeSizeText.Large)
                 },
-                new ControlText() { Text = "ExtraLarge", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "ExtraLarge", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    Size = new PropertySizeText(TypeSizeText.ExtraLarge)
+                    Text = _ => _text,
+                    Size = _ => new PropertySizeText(TypeSizeText.ExtraLarge)
                 },
-                new ControlText() { Text = "Custom", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Custom", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    Size = new PropertySizeText(3.1f)
+                    Text = _ => _text,
+                    Size = _ => new PropertySizeText(3.1f)
                 }
             );
 
@@ -319,12 +319,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Title",
                 "Defines a tooltip.",
-                "Title = \"Hello World!\"",
-                new ControlText() { Text = "Title", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                "Title = _ => \"Hello World!\"",
+                new ControlText() { Text = _ => "Title", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()
                 {
-                    Text = _text,
-                    Title = "Hello World!"
+                    Text = _ => _text,
+                    Title = _ => "Hello World!"
                 }
              );
         }

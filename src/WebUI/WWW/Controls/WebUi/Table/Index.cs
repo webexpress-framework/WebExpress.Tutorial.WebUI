@@ -110,21 +110,21 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table
                 "Bordered",
                 @"The `Bordered` property of a table control adds visible borders around the entire table and each individual cell. This enhances the table's structure, making it easier to read and visually distinguish its contents.",
                 @"TableBorder = _ => TypeBorderTable.Borderless",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                     TableBorder = _ => TypeBorderTable.Default
                 }
                     .AddColumns(_columns)
                     .AddRows(_rows),
-                new ControlText() { Text = "Borderless", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Borderless", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                     TableBorder = _ => TypeBorderTable.Borderless
                 }
                     .AddColumns(_columns)
                     .AddRows(_rows),
-                new ControlText() { Text = "Bordered", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Bordered", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                     TableBorder = _ => TypeBorderTable.Bordered
@@ -138,28 +138,28 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table
                 "Striped",
                 @"The `Striped` property of a table control enhances its readability by applying alternating background colors to its rows. This visual distinction makes large datasets easier to scan and improves organization.",
                 @"Striped = _ => TypeStripedTable.Row",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                     Striped = _ => TypeStripedTable.Default
                 }
                     .AddColumns(_columns)
                     .AddRows(_rows),
-                new ControlText() { Text = "Column", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Column", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                     Striped = _ => TypeStripedTable.Column
                 }
                     .AddColumns(_columns)
                     .AddRows(_rows),
-                new ControlText() { Text = "Row", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Row", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                     Striped = _ => TypeStripedTable.Row
                 }
                     .AddColumns(_columns)
                     .AddRows(_rows),
-                new ControlText() { Text = "Both", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Both", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                     Striped = _ => TypeStripedTable.Both
@@ -188,63 +188,63 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table
                 "Color",
                 @"The `Color` property in a table control allows customization of the table’s background color, helping improve readability and design consistency.",
                 @"Color = _ => TypeColorTable.Primary",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                     Color = _ => TypeColorTable.Default
                 }
                     .AddColumns(_columns)
                     .AddRows(_rows),
-                new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Primary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                     Color = _ => TypeColorTable.Primary
                 }
                     .AddColumns(_columns)
                     .AddRows(_rows),
-                new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Secondary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                     Color = _ => TypeColorTable.Secondary
                 }
                     .AddColumns(_columns)
                     .AddRows(_rows),
-                new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Info", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                     Color = _ => TypeColorTable.Info
                 }
                     .AddColumns(_columns)
                     .AddRows(_rows),
-                new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Success", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                     Color = _ => TypeColorTable.Success
                 }
                     .AddColumns(_columns)
                     .AddRows(_rows),
-                new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Warning", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                     Color = _ => TypeColorTable.Warning
                 }
                     .AddColumns(_columns)
                     .AddRows(_rows),
-                new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Danger", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                     Color = _ => TypeColorTable.Danger
                 }
                     .AddColumns(_columns)
                     .AddRows(_rows),
-                new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Light", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                     Color = _ => TypeColorTable.Light
                 }
                     .AddColumns(_columns)
                     .AddRows(_rows),
-                new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Dark", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                     Color = _ => TypeColorTable.Dark
@@ -259,63 +259,63 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table
                 "HeaderColor",
                 @"The `HeaderColor` property of a table control allows customization of the table header’s background color, improving visibility and design consistency.",
                 @"HeaderColor = _ => TypeColorTable.Primary",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                     HeaderColor = _ => TypeColorTable.Default
                 }
                     .AddColumns(_columns)
                     .AddRows(_rows),
-                new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Primary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                     HeaderColor = _ => TypeColorTable.Primary
                 }
                     .AddColumns(_columns)
                     .AddRows(_rows),
-                new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Secondary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                     HeaderColor = _ => TypeColorTable.Secondary
                 }
                     .AddColumns(_columns)
                     .AddRows(_rows),
-                new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Info", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                     HeaderColor = _ => TypeColorTable.Info
                 }
                     .AddColumns(_columns)
                     .AddRows(_rows),
-                new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Success", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                     HeaderColor = _ => TypeColorTable.Success
                 }
                     .AddColumns(_columns)
                     .AddRows(_rows),
-                new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Warning", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                     HeaderColor = _ => TypeColorTable.Warning
                 }
                     .AddColumns(_columns)
                     .AddRows(_rows),
-                new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Danger", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                     HeaderColor = _ => TypeColorTable.Danger
                 }
                     .AddColumns(_columns)
                     .AddRows(_rows),
-                new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Light", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                     HeaderColor = _ => TypeColorTable.Light
                 }
                     .AddColumns(_columns)
                     .AddRows(_rows),
-                new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Dark", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                     HeaderColor = _ => TypeColorTable.Dark
@@ -328,7 +328,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table
             (
                 "SuppressHeaders",
                 @"The `SuppressHeaders` property controls the visibility of column headers in a table. When enabled, it ensures that all column headers are hidden, regardless of the table’s structure or content.",
-                @"SuppressHeaders = true",
+                @"SuppressHeaders = _ => true",
                 new ControlTable()
                 {
                     SuppressHeaders = _ => true
@@ -366,7 +366,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table
                     Icon = _ => new IconTableTennisPaddleBall(),
                     Color = _ => TypeColorTable.Warning
                 })",
-                new ControlText() { Text = "ControlTableColumn", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "ControlTableColumn", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                 }
@@ -386,7 +386,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table
                                 Text = _ => DateTime.Now.AddDays(i++).ToString("yyyy-MM-dd")
                             })
                     )),
-                new ControlText() { Text = "ControlTableColumnTemplate", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "ControlTableColumnTemplate", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable()
                 {
                 }

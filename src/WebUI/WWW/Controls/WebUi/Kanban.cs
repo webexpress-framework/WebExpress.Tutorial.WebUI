@@ -200,8 +200,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "new ControlKanbanSwimlane(\"height\", \"Height\", true)",
                 new ControlText()
                 {
-                    Text = "None",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "None",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlKanban(RandomId.Create())
                 .Add
@@ -218,8 +218,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 ),
                 new ControlText()
                 {
-                    Text = "true",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "true",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlKanban(RandomId.Create())
                 .Add
@@ -236,8 +236,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 ),
                 new ControlText()
                 {
-                    Text = "false",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "false",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlKanban(RandomId.Create())
                 .Add

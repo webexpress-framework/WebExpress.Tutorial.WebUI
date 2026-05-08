@@ -38,8 +38,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.Controls = [
                 new ControlList()
                 {
-                    Title = "List Control Example",
-                    Sortable = true
+                    Title = _ => "List Control Example",
+                    Sortable = _ => true
                 }
                     .Add(new ControlListItem(null) { Text = _ => "First Element" })
                     .Add(new ControlListItem(null) { Text = _ => "Second Element" })
@@ -60,43 +60,43 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Layout",
                 "Determines the layout",
-                "Layout = TypeLayoutList.Group",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                "Layout = _ => TypeLayoutList.Group",
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlList()
                 {
-                    Layout = TypeLayoutList.Default
+                    Layout = _ => TypeLayoutList.Default
                 }
                     .Add(new ControlListItem(null) { Text = _ => "First Element" })
                     .Add(new ControlListItem(null) { Text = _ => "Second Element" })
                     .Add(new ControlListItem(null) { Text = _ => "Third Element" }),
-                new ControlText() { Text = "Simple", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Simple", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlList()
                 {
-                    Layout = TypeLayoutList.Simple
+                    Layout = _ => TypeLayoutList.Simple
                 }
                     .Add(new ControlListItem(null) { Text = _ => "First Element" })
                     .Add(new ControlListItem(null) { Text = _ => "Second Element" })
                     .Add(new ControlListItem(null) { Text = _ => "Third Element" }),
-                new ControlText() { Text = "Group", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Group", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlList()
                 {
-                    Layout = TypeLayoutList.Group
+                    Layout = _ => TypeLayoutList.Group
                 }
                     .Add(new ControlListItem(null) { Text = _ => "First Element" })
                     .Add(new ControlListItem(null) { Text = _ => "Second Element" })
                     .Add(new ControlListItem(null) { Text = _ => "Third Element" }),
-                new ControlText() { Text = "Flush", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Flush", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlList()
                 {
-                    Layout = TypeLayoutList.Flush
+                    Layout = _ => TypeLayoutList.Flush
                 }
                     .Add(new ControlListItem(null) { Text = _ => "First Element" })
                     .Add(new ControlListItem(null) { Text = _ => "Second Element" })
                     .Add(new ControlListItem(null) { Text = _ => "Third Element" }),
-                new ControlText() { Text = "Horizontal", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Horizontal", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlList()
                 {
-                    Layout = TypeLayoutList.Horizontal
+                    Layout = _ => TypeLayoutList.Horizontal
                 }
                     .Add(new ControlListItem(null) { Text = _ => "First Element" })
                     .Add(new ControlListItem(null) { Text = _ => "Second Element" })
@@ -107,7 +107,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Selectable",
                 "Enables item selection within the list. When `Selectable` is set to true, each list item becomes interactive and can be highlighted or chosen by the user. This mode is typically used when the list represents actionable entries, supports navigation, or triggers detail views based on the selected element.",
-                "Selectable = true",
+                "Selectable = _ => true",
                 new ControlList()
                 {
                     Selectable = _ => true
@@ -121,10 +121,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "BackgroundColor",
                 "Determines the background color of a list item.",
-                "BackgroundColor = new PropertyColorBackgroundList(TypeColorBackgroundList.Primary)",
+                "BackgroundColor = _ => new PropertyColorBackgroundList(TypeColorBackgroundList.Primary)",
                 new ControlList()
                 {
-                    Layout = TypeLayoutList.Group
+                    Layout = _ => TypeLayoutList.Group
                 }
                     .Add(new ControlListItem(null)
                     {
@@ -196,7 +196,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "new ControlListItem(...);",
                 new ControlList()
                 {
-                    Layout = TypeLayoutList.Group
+                    Layout = _ => TypeLayoutList.Group
                 }
                     .Add(new ControlListItem(null) { Text = _ => "First Element" })
                     .Add(new ControlListItem(null) { Text = _ => "Second Element" })
@@ -217,7 +217,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     new ControlListItemLink() { Text = _ => "Third Element", Uri = _ => pageContext.Route.ToUri(), Title = _ => "Title" }
                 )
                 {
-                    Layout = TypeLayoutList.Group
+                    Layout = _ => TypeLayoutList.Group
                 }
             );
 
@@ -235,7 +235,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     new ControlListItemButton(null) { Text = _ => "Third Element" }
                 )
                 {
-                    Layout = TypeLayoutList.Group
+                    Layout = _ => TypeLayoutList.Group
                 }
             );
 
@@ -244,7 +244,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 typeof(ControlListItemButton),
                 "PrimaryAction",
                 "Defines the primary user action, typically executed on a standard click to open a dialog or perform the main operation.",
-                "PrimaryAction = new ActionModal(\"modal\")",
+                "PrimaryAction = _ => new ActionModal(\"modal\")",
                 new ControlList
                 (
                     null,
@@ -275,7 +275,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 typeof(ControlListItemButton),
                 "SecondaryAction",
                 "Defines the secondary user action, often triggered by a double‑click to open a dialog or perform an alternative operation.",
-                "SecondaryAction = new ActionModal(\"modal\")",
+                "SecondaryAction = _ => new ActionModal(\"modal\")",
                 new ControlList
                 (
                     null,

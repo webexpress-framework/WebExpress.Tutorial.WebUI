@@ -41,60 +41,60 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Color",
                 "Sets the color.",
                 "Color = new PropertyColorLine(TypeColorLine.Primary)",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlLine()
                 {
-                    Color = new PropertyColorLine(TypeColorLine.Default)
+                    Color = _ => new PropertyColorLine(TypeColorLine.Default)
                 },
-                new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Primary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlLine()
                 {
-                    Color = new PropertyColorLine(TypeColorLine.Primary)
+                    Color = _ => new PropertyColorLine(TypeColorLine.Primary)
                 },
-                new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Secondary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlLine()
                 {
-                    Color = new PropertyColorLine(TypeColorLine.Secondary)
+                    Color = _ => new PropertyColorLine(TypeColorLine.Secondary)
                 },
-                new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Info", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlLine()
                 {
-                    Color = new PropertyColorLine(TypeColorLine.Info)
+                    Color = _ => new PropertyColorLine(TypeColorLine.Info)
                 },
-                new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Success", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlLine()
                 {
-                    Color = new PropertyColorLine(TypeColorLine.Success)
+                    Color = _ => new PropertyColorLine(TypeColorLine.Success)
                 },
-                new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Warning", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlLine()
                 {
-                    Color = new PropertyColorLine(TypeColorLine.Warning)
+                    Color = _ => new PropertyColorLine(TypeColorLine.Warning)
                 },
-                new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Danger", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlLine()
                 {
-                    Color = new PropertyColorLine(TypeColorLine.Danger)
+                    Color = _ => new PropertyColorLine(TypeColorLine.Danger)
                 },
-                new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Dark", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlLine()
                 {
-                    Color = new PropertyColorLine(TypeColorLine.Dark)
+                    Color = _ => new PropertyColorLine(TypeColorLine.Dark)
                 },
-                new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Light", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlLine()
                 {
-                    Color = new PropertyColorLine(TypeColorLine.Light)
+                    Color = _ => new PropertyColorLine(TypeColorLine.Light)
                 },
-                new ControlText() { Text = "Highlight", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Highlight", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlLine()
                 {
-                    Color = new PropertyColorLine(TypeColorLine.Highlight)
+                    Color = _ => new PropertyColorLine(TypeColorLine.Highlight)
                 },
-                new ControlText() { Text = "Custom", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Custom", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlLine()
                 {
-                    Color = new PropertyColorLine("gold")
+                    Color = _ => new PropertyColorLine("gold")
                 }
             );
         }

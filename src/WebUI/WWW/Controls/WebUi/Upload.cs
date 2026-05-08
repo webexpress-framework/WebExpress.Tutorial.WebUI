@@ -69,13 +69,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Multiple",
                 "The `Multiple` property determines whether users can select and upload multiple files at once.",
                 "Multiple = _ => true",
-                new ControlText() { Text = "false", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "false", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlUpload()
                 {
                     Uri = _ => pageContext.Route.ToUri(),
                     Multiple = _ => false
                 },
-                new ControlText() { Text = "true", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "true", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlUpload()
                 {
                     Uri = _ => pageContext.Route.ToUri(),
@@ -112,13 +112,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Autoupload",
                 "The `AutoUpload` property determines whether a file is automatically uploaded immediately after the user selects it—without requiring an explicit click on an \"Upload\" button.",
                 "Autoupload = _ => true",
-                new ControlText() { Text = "false", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "false", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlUpload()
                 {
                     Uri = _ => pageContext.Route.ToUri(),
                     AutoUpload = _ => false
                 },
-                new ControlText() { Text = "true", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "true", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlUpload()
                 {
                     Uri = _ => pageContext.Route.ToUri(),
@@ -131,13 +131,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "FullScreenDropzone",
                 "The `FullScreenDropzone` property enables a drag-and-drop upload zone that spans the entire screen, allowing users to drop files anywhere within the browser window to initiate an upload.",
                 "FullScreenDropzone = _ => true",
-                new ControlText() { Text = "false", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "false", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlUpload()
                 {
                     Uri = _ => pageContext.Route.ToUri(),
                     FullScreenDropzone = _ => false
                 },
-                new ControlText() { Text = "true", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "true", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlUpload()
                 {
                     Uri = _ => pageContext.Route.ToUri(),

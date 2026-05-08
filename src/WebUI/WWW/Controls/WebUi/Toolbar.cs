@@ -150,7 +150,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Icon",
                 "The `Icon` property defines the image shown within a toolbar item to visually represent its function. It enables users to quickly identify the intended action and contributes to an intuitive, user friendly interface.",
                 "new ControlToolbar().Add(new ControlToolbarItemButton() { Icon = _ => new IconHome() })",
-                new ControlText() { Text = "System", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "System", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
                     new ControlToolbarItemButton() { Icon = _ => new IconHome() },
@@ -159,7 +159,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     new ControlToolbarItemDivider(),
                     new ControlToolbarItemDropdown() { Icon = _ => new IconHome() }
                 ),
-                new ControlText() { Text = "Custom", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Custom", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
                     new ControlToolbarItemButton() { Icon = _ => new ImageIconWebExpress(pageContext.ApplicationContext) },
@@ -194,7 +194,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Color",
                 "The `Color` property controls the visual appearance of a toolbar item by specifying its foreground (text/icon). It can be used to highlight important actions, indicate states (e.g. active/inactive), or harmonize the toolbar with the overall UI theme.",
                 "new ControlToolbar().Add(new ControlToolbarItemButton() { Color = _ => new PropertyColorText(TypeColorText.Primary) })",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
                     new ControlToolbarItemButton() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Default) },
@@ -205,7 +205,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     new ControlToolbarItemDivider(),
                     new ControlToolbarItemLabel() { Text = _ => "label", Color = _ => new PropertyColorText(TypeColorText.Default) }
                 ),
-                new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Primary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
                     new ControlToolbarItemButton() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Primary) },
@@ -216,7 +216,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     new ControlToolbarItemDivider(),
                     new ControlToolbarItemLabel() { Text = _ => "label", Color = _ => new PropertyColorText(TypeColorText.Primary) }
                 ),
-                new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Secondary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
                     new ControlToolbarItemButton() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Secondary) },
@@ -227,7 +227,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     new ControlToolbarItemDivider(),
                     new ControlToolbarItemLabel() { Text = _ => "label", Color = _ => new PropertyColorText(TypeColorText.Secondary) }
                 ),
-                new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Info", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
                     new ControlToolbarItemButton() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Info) },
@@ -238,7 +238,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     new ControlToolbarItemDivider(),
                     new ControlToolbarItemLabel() { Text = _ => "label", Color = _ => new PropertyColorText(TypeColorText.Info) }
                 ),
-                new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Success", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
                     new ControlToolbarItemButton() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Success) },
@@ -249,7 +249,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     new ControlToolbarItemDivider(),
                     new ControlToolbarItemLabel() { Text = _ => "label", Color = _ => new PropertyColorText(TypeColorText.Success) }
                 ),
-                new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Warning", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
                     new ControlToolbarItemButton() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Warning) },
@@ -260,7 +260,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     new ControlToolbarItemDivider(),
                     new ControlToolbarItemLabel() { Text = _ => "label", Color = _ => new PropertyColorText(TypeColorText.Warning) }
                 ),
-                new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Danger", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
                     new ControlToolbarItemButton() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Danger) },
@@ -271,7 +271,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     new ControlToolbarItemDivider(),
                     new ControlToolbarItemLabel() { Text = _ => "label", Color = _ => new PropertyColorText(TypeColorText.Danger) }
                 ),
-                new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Light", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
                     new ControlToolbarItemButton() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Light) },
@@ -282,7 +282,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     new ControlToolbarItemDivider(),
                     new ControlToolbarItemLabel() { Text = _ => "label", Color = _ => new PropertyColorText(TypeColorText.Light) }
                 ),
-                new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Dark", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
                     new ControlToolbarItemButton() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Dark) },
@@ -293,7 +293,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     new ControlToolbarItemDivider(),
                     new ControlToolbarItemLabel() { Text = _ => "label", Color = _ => new PropertyColorText(TypeColorText.Dark) }
                 ),
-                new ControlText() { Text = "White", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "White", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
                     new ControlToolbarItemButton() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.White) },
@@ -304,7 +304,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     new ControlToolbarItemDivider(),
                     new ControlToolbarItemLabel() { Text = _ => "label", Color = _ => new PropertyColorText(TypeColorText.White) }
                 ),
-                new ControlText() { Text = "Muted", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Muted", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
                     new ControlToolbarItemButton() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText(TypeColorText.Muted) },
@@ -315,7 +315,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     new ControlToolbarItemDivider(),
                     new ControlToolbarItemLabel() { Text = _ => "label", Color = _ => new PropertyColorText(TypeColorText.Muted) }
                 ),
-                new ControlText() { Text = "Custom", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Custom", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlToolbar().Add
                 (
                     new ControlToolbarItemButton() { Icon = _ => new IconHome(), Color = _ => new PropertyColorText("gold") },

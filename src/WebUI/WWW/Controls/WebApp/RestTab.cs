@@ -42,21 +42,21 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                     new ControlRestTabTemplate()
                         .Add(new ControlText()
                         {
-                            Text = "Template"
+                            Text = _ => "Template"
                         })
                 );
 
             Stage.Code = @"
             new ControlRestTab(RandomId.Create())
             {
-                RestUri = sitemapManager.GetUri<MonkeyIslandTab>(pageContext.ApplicationContext),
+                RestUri = _ => sitemapManager.GetUri<MonkeyIslandTab>(pageContext.ApplicationContext),
             }
                 .Add
                 (
                     new ControlRestTabTemplate()
                         .Add(new ControlText() 
                         { 
-                            Text = ""Template"" 
+                            Text = _ => ""Template"" 
                         })
                 );";
         }

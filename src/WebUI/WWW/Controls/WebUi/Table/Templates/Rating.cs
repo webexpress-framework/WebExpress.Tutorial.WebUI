@@ -51,10 +51,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
             (
                 "Editable",
                 "The `Editable` property defines whether the template column is displayed in ReadOnly mode or in Edit mode. In ReadOnly mode, values are shown as static stars for clear visualization. In Edit mode, users can directly modify the values within the column, enabling interactive data editing.",
-                "Editable = true",
-                new ControlText() { Text = "false", TextColor = new PropertyColorText(TypeColorText.Info) },
+                "Editable = _ => true",
+                new ControlText() { Text = _ => "false", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable().AddColumns(CreateColumns()).AddRows(CreateRows()),
-                new ControlText() { Text = "true", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "true", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlTable().AddColumns(CreateColumns(true)).AddRows(CreateRows())
             );
 
@@ -62,7 +62,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
             (
                 "MaxRating",
                 "Defines the maximum number of stars that can be assigned within the `Rating` template. This value determines the upper limit of the selectable rating range.",
-                "MaxRating = 8",
+                "MaxRating = _ => 8",
                 new ControlTable().AddColumns(CreateColumns(true, 8)).AddRows(CreateRows())
             );
         }

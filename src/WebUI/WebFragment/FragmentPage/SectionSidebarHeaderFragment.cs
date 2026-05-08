@@ -20,7 +20,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.FragmentPage
         public SectionSidebarHeaderFragment(IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "SectionSidebarHeader";
+            Text = _ => "SectionSidebarHeader";
         }
     }
 }

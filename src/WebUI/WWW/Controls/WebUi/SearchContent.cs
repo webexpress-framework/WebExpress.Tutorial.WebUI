@@ -33,14 +33,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.Control = new ControlSearchContent()
             {
-                Placeholder = "Enter search term...",
+                Placeholder = _ => "Enter search term...",
                 TargetIds = ["wx-content-main"]
             };
 
             Stage.Code = @"
             new ControlSearchContent()
             {
-                Placeholder = ""Enter search term..."",
+                Placeholder = _ => ""Enter search term..."",
                 TargetIds = [""wx-content-main""]
             };";
 
@@ -51,7 +51,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Placeholder = \"Enter search term...\"",
                 new ControlSearch()
                 {
-                    Placeholder = "Enter search term..."
+                    Placeholder = _ => "Enter search term..."
                 }
             );
 
@@ -59,10 +59,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Icon",
                 "Sets the icon displayed in the search control. It provides a visual cue for the search functionality.",
-                "Icon = new IconStar()",
+                "Icon = _ => new IconStar()",
                 new ControlSearchContent()
                 {
-                    Icon = new IconStar()
+                    Icon = _ => new IconStar()
                 }
             );
 
@@ -81,15 +81,15 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "HighlightColor",
                 "Defines the color used to highlight matching search terms in the target content. Accepts any valid CSS color value, or the literal token \"highlight\" which resolves to the central CSS variable --wx-highlight defined in webexpress.webui.css and cannot be overridden by the user.",
-                "HighlightColor = \"green\"",
+                "HighlightColor =_ =>  \"green\"",
                 new ControlSearchContent()
                 {
-                    HighlightColor = "green",
+                    HighlightColor = _ => "green",
                     TargetIds = ["wx-content-main"]
                 },
                 new ControlSearchContent()
                 {
-                    HighlightColor = "highlight",
+                    HighlightColor = _ => "highlight",
                     TargetIds = ["wx-content-main"]
                 }
             );

@@ -54,7 +54,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Placeholder = _ => \"Enter your password\"",
                 new ControlForm(null, new ControlFormItemInputPassword()
                 {
-                    Placeholder = "Enter your password",
+                    Placeholder = _ => "Enter your password",
                 })
             );
 
@@ -67,7 +67,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                     .Add(new ControlFormItemInputPassword()
                     {
                         Label = _ => "Password",
-                        MinLength = 8,
+                        MinLength = _ => 8,
                     })
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
@@ -81,7 +81,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                     .Add(new ControlFormItemInputPassword()
                     {
                         Label = _ => "Password",
-                        MaxLength = 64,
+                        MaxLength = _ => 64,
                     })
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
@@ -95,7 +95,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                     .Add(new ControlFormItemInputPassword("pattern")
                     {
                         Label = _ => "Password",
-                        Pattern = "(?=.*[A-Z])(?=.*[0-9]).{8,}"
+                        Pattern = _ => "(?=.*[A-Z])(?=.*[0-9]).{8,}"
                     })
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
@@ -104,7 +104,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "Label",
                 "The `Label` property of a password control item serves as a short form of the input and is displayed in the main area of the control. It ensures a concise and clear representation of the input.",
-                "Label =_ =>  \"Password\"",
+                "Label = _ => \"Password\"",
                 new ControlForm(null, new ControlFormItemInputPassword() { Label = _ => "Password" })
             );
 

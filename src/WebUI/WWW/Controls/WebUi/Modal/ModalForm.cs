@@ -167,7 +167,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  new ControlModalForm("myModalDefault")
                  {
                      Header = _ => "Default",
-                     Size = TypeModalSize.Default
+                     Size = _ => TypeModalSize.Default
                  }
                      .Add(_exampleFormItems)
                      .AddPreferencesButton(new ControlFormItemButtonSubmit()),
@@ -181,7 +181,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  new ControlModalForm("myModalSmall")
                  {
                      Header = _ => "Small",
-                     Size = TypeModalSize.Small
+                     Size = _ => TypeModalSize.Small
                  }
                      .Add(_exampleFormItems)
                      .AddPreferencesButton(new ControlFormItemButtonSubmit()),
@@ -195,7 +195,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  new ControlModalForm("myModalLarge")
                  {
                      Header = _ => "Large",
-                     Size = TypeModalSize.Large
+                     Size = _ => TypeModalSize.Large
                  }
                      .Add(_exampleFormItems)
                      .AddPreferencesButton(new ControlFormItemButtonSubmit()),
@@ -209,7 +209,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  new ControlModalForm("myModalExtraLarge")
                  {
                      Header = _ => "ExtraLarge",
-                     Size = TypeModalSize.ExtraLarge
+                     Size = _ => TypeModalSize.ExtraLarge
                  }
                      .Add(_exampleFormItems)
                      .AddPreferencesButton(new ControlFormItemButtonSubmit()),
@@ -223,7 +223,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  new ControlModalForm("myModalFullscreen")
                  {
                      Header = _ => "Fullscreen",
-                     Size = TypeModalSize.Fullscreen
+                     Size = _ => TypeModalSize.Fullscreen
                  }
                      .Add(_exampleFormItems)
                      .AddPreferencesButton(new ControlFormItemButtonSubmit())

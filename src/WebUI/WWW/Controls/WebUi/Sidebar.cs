@@ -38,7 +38,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             [
                 new ControlSidebar("mySidebar")
                 {
-                    Breakpoint = 768
+                    Breakpoint = _ => 768
                 }
                     .Add(CreateItems(15))
             ];
@@ -63,11 +63,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 @"
                 new ControlSidebar()
                 {
-                    Breakpoint = 768
+                    Breakpoint = _ => 768
                 };",
                 new ControlSidebar()
                 {
-                    Breakpoint = 768
+                    Breakpoint = _ => 768
                 }
                     .Add(CreateItems(15))
             );
@@ -79,9 +79,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 @"The `ControlSidebarItemHeader` component represents a static, non-interactive header element within the sidebar. It is typically used to visually separate groups of controls or to label sections for better orientation and readability. The header displays a simple text label and does not respond to user interaction. When the sidebar is in its default layout, usually on larger screens. The header is fully visible and helps structure the sidebar content. However, when the viewport width falls below the defined breakpoint, triggering the reduced layout mode, the header is automatically hidden.",
                 @"
                 new ControlSidebar()
-                    .Add(new ControlSidebarItemHeader() { Text = ""Header"" });",
+                    .Add(new ControlSidebarItemHeader() { Text = _ => ""Header"" });",
                 new ControlSidebar()
-                    .Add(new ControlSidebarItemHeader() { Text = "Header" })
+                    .Add(new ControlSidebarItemHeader() { Text = _ => "Header" })
             );
 
             Stage.AddItem
@@ -92,10 +92,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 @"
                 new ControlSidebar()
                     .Add(new ControlSidebarItemDivider())
-                    .Add(new ControlSidebarItemDivider() { Mode = TypeSidebarMode.Hide });",
+                    .Add(new ControlSidebarItemDivider() { Mode = _ => TypeSidebarMode.Hide });",
                 new ControlSidebar()
                     .Add(new ControlSidebarItemDivider())
-                    .Add(new ControlSidebarItemDivider() { Mode = TypeSidebarMode.Hide })
+                    .Add(new ControlSidebarItemDivider() { Mode = _ => TypeSidebarMode.Hide })
             );
 
             Stage.AddItem
@@ -107,44 +107,44 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlSidebar()
                     .Add(new ControlSidebarItemLink() 
                     { 
-                        Icon = new IconStaffSnake(), 
-                        Text = ""Link 1"", 
-                        Uri = uri
+                        Icon = _ => new IconStaffSnake(), 
+                        Text = _ => ""Link 1"", 
+                        Uri = _ => uri
                     })
                     .Add(new ControlSidebarItemLink() 
                     { 
-                        Icon = new IconStaffSnake(), 
-                        Text = ""Link 2"", 
-                        Uri = uri, 
-                        Mode = TypeSidebarMode.Hide 
+                        Icon = _ => new IconStaffSnake(), 
+                        Text = _ => ""Link 2"", 
+                        Uri = _ => uri, 
+                        Mode = _ => TypeSidebarMode.Hide 
                     })
                     .Add(new ControlSidebarItemLink()
                     {
-                        Icon = new IconStaffSnake(),
-                        Text = ""Link 3"",
-                        Uri = uri,
-                        Dismissibility = TypeDismissibilitySidebar.Dismissible
+                        Icon = _ => new IconStaffSnake(),
+                        Text = _ => ""Link 3"",
+                        Uri = _ => uri,
+                        Dismissibility = _ => TypeDismissibilitySidebar.Dismissible
                     });",
                 new ControlSidebar()
                     .Add(new ControlSidebarItemLink()
                     {
-                        Icon = new IconComputerMouse(),
-                        Text = "Link 1",
-                        Uri = uri
+                        Icon = _ => new IconComputerMouse(),
+                        Text = _ => "Link 1",
+                        Uri = _ => uri
                     })
                     .Add(new ControlSidebarItemLink()
                     {
-                        Icon = new IconKeyboard(),
-                        Text = "Link 2",
-                        Uri = uri,
-                        Mode = TypeSidebarMode.Hide
+                        Icon = _ => new IconKeyboard(),
+                        Text = _ => "Link 2",
+                        Uri = _ => uri,
+                        Mode = _ => TypeSidebarMode.Hide
                     })
                     .Add(new ControlSidebarItemLink()
                     {
-                        Icon = new IconComputer(),
-                        Text = "Link 3",
-                        Uri = uri,
-                        Dismissibility = TypeDismissibilitySidebar.Dismissible
+                        Icon = _ => new IconComputer(),
+                        Text = _ => "Link 3",
+                        Uri = _ => uri,
+                        Dismissibility = _ => TypeDismissibilitySidebar.Dismissible
                     })
             );
 
@@ -153,33 +153,33 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 typeof(ControlSidebarItemControl),
                 "ControlSidebarItemControl",
                 @"Embeds a custom content block into the sidebar. This item can host arbitrary controls such as text, buttons, sliders, or other UI elements, making it highly flexible for contextual content. An optional icon may be displayed alongside the content to provide visual cues or reinforce meaning. The Mode property controls how the item behaves in responsive layouts:
-                  - `Mode = TypeSidebarModeExtended.Hide`: will hide the item when the sidebar enters reduced mode.
-                  - `Mode = TypeSidebarModeExtended.Overlay`: displays it as overlay in reduced mode.",
+                  - `Mode = _ => TypeSidebarModeExtended.Hide`: will hide the item when the sidebar enters reduced mode.
+                  - `Mode = _ => TypeSidebarModeExtended.Overlay`: displays it as overlay in reduced mode.",
                 @"
                 new ControlSidebar()
                     .Add(new ControlSidebarItemControl()
                     {
-                        Icon = new IconMountainSun(),
-                        Content = new ControlText() { Text = ""Overlay"" },
-                        Mode = TypeSidebarModeExtended.Overlay
+                        Icon = _ => new IconMountainSun(),
+                        Content = _ => new ControlText() { Text = ""Overlay"" },
+                        Mode = _ => TypeSidebarModeExtended.Overlay
                     });",
                 new ControlSidebar()
                     .Add(new ControlSidebarItemControl()
                     {
-                        Icon = new IconMountain(),
-                        Content = new ControlText() { Text = "Default" }
+                        Icon = _ => new IconMountain(),
+                        Content = new ControlText() { Text = _ => "Default" }
                     })
                     .Add(new ControlSidebarItemControl()
                     {
-                        Icon = new IconMountainSun(),
-                        Content = new ControlText() { Text = "Hide" },
-                        Mode = TypeSidebarModeExtended.Hide
+                        Icon = _ => new IconMountainSun(),
+                        Content = new ControlText() { Text = _ => "Hide" },
+                        Mode = _ => TypeSidebarModeExtended.Hide
                     })
                     .Add(new ControlSidebarItemControl()
                     {
-                        Icon = new IconMountainSun(),
-                        Content = new ControlText() { Text = "Overlay" },
-                        Mode = TypeSidebarModeExtended.Overlay
+                        Icon = _ => new IconMountainSun(),
+                        Content = new ControlText() { Text = _ => "Overlay" },
+                        Mode = _ => TypeSidebarModeExtended.Overlay
                     })
             );
 
@@ -192,19 +192,19 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlSidebar()
                     .Add(new ControlSidebarItemIcon()
                     {
-                        Icon = new IconHome(),
-                        IconEdit = true,
-                        PrimaryAction = new ActionModal(""modalId""),
-                        Text = ""My Icon"",
-                        // Mode = TypeSidebarMode.Default  // if needed
+                        Icon = _ => new IconHome(),
+                        IconEdit = _ => true,
+                        PrimaryAction = _ => new ActionModal(""modalId""),
+                        Text = _ => ""My Icon"",
+                        // Mode = _ => TypeSidebarMode.Default  // if needed
                     });",
                 new ControlSidebar()
                     .Add(new ControlSidebarItemIcon()
                     {
-                        Icon = new IconHome(),
-                        IconEdit = true,
-                        PrimaryAction = new ActionModal("modalId"),
-                        Text = "My Icon"
+                        Icon = _ => new IconHome(),
+                        IconEdit = _ => true,
+                        PrimaryAction = _ => new ActionModal("modalId"),
+                        Text = _ => "My Icon"
                     })
             );
         }
@@ -225,7 +225,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     yield return new ControlSidebarItemHeader()
                     {
-                        Text = $"Header {i}",
+                        Text = _ => $"Header {i}",
                     };
 
                     continue;
@@ -239,23 +239,23 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                 yield return new ControlSidebarItemLink($"item{i}")
                 {
-                    Text = $"Item {i}",
-                    Icon = i % 2 == 0 ? new IconDog() : new IconCat(),
-                    Mode = i % 2 == 0 ? TypeSidebarMode.Hide : TypeSidebarMode.Default,
-                    Dismissibility = i % 2 == 0 ? TypeDismissibilitySidebar.Dismissible : TypeDismissibilitySidebar.None,
-                    Uri = _pageContext.Route.ToUri(),
+                    Text = _ => $"Item {i}",
+                    Icon = _ => i % 2 == 0 ? new IconDog() : new IconCat(),
+                    Mode = _ => i % 2 == 0 ? TypeSidebarMode.Hide : TypeSidebarMode.Default,
+                    Dismissibility = _ => i % 2 == 0 ? TypeDismissibilitySidebar.Dismissible : TypeDismissibilitySidebar.None,
+                    Uri = _ => _pageContext.Route.ToUri(),
                 };
             }
 
             yield return new ControlSidebarItemControl()
             {
-                Icon = new IconGift(),
+                Icon = _ => new IconGift(),
                 Content = new ControlButton()
                 {
                     Text = (c) => "button",
                     BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary)
                 },
-                Mode = TypeSidebarModeExtended.Overlay
+                Mode = _ => TypeSidebarModeExtended.Overlay
             };
         }
     }

@@ -37,16 +37,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.Controls = [.. icons.Select(x => new ControlIcon()
             {
-                Icon = x,
+                Icon = _ =>x,
                 Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two),
                 TextColor = _ => new PropertyColorText(TypeColorText.Info),
-                Title = x.GetType().Name,
+                Title = _ =>x.GetType().Name,
             })];
 
             Stage.Code = @"
             new ControlIcon() 
             { 
-                Icon = new IconClone(), 
+                Icon = _ =>new IconClone(), 
                 TextColor = _ => new PropertyColorText(TypeColorText.Info), 
                 Title = _ => \""IconClone\"" 
             };";
@@ -58,8 +58,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                "Icon = _ => new IconHome()",
                new ControlIcon()
                {
-                   Icon = new IconHome(),
-                   Title = "Home",
+                   Icon = _ => new IconHome(),
+                   Title = _ => "Home",
                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two),
                    TextColor = _ => new PropertyColorText(TypeColorText.Warning)
                }
@@ -72,8 +72,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                "Icon = _ => new ImageIcon(pageContext.ApplicationContext.ContextPath.Concat(\"assets/img/webui.svg\").ToUri(), new PropertySizeIcon(1, TypeSizeUnit.Em))",
                new ControlIcon()
                {
-                   Icon = new ImageIcon(pageContext.ApplicationContext.Route.Concat("assets/img/webui.svg").ToUri(), new PropertySizeIcon(1, TypeSizeUnit.Em)),
-                   Title = "Custom",
+                   Icon = _ => new ImageIcon(pageContext.ApplicationContext.Route.Concat("assets/img/webui.svg").ToUri(), new PropertySizeIcon(1, TypeSizeUnit.Em)),
+                   Title = _ => "Custom",
                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two),
                    TextColor = _ => new PropertyColorText(TypeColorText.Primary)
                }
@@ -84,57 +84,57 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Size",
                 "Sets the size of the icon.",
                 "Size = _ => new PropertySizeText(TypeSizeText.Small)",
-                new ControlText() { Text = "Extra Small", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Extra Small", Format = _ => TypeFormatText.Span, TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
                 {
-                    Title = "Extra Small",
-                    Size = new PropertySizeText(TypeSizeText.ExtraSmall),
-                    Icon = new IconHome(),
+                    Title = _ => "Extra Small",
+                    Size = _ => new PropertySizeText(TypeSizeText.ExtraSmall),
+                    Icon = _ => new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Default),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
-                new ControlText() { Text = "Small", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Small", Format = _ => TypeFormatText.Span, TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
                 {
-                    Title = "Small",
-                    Size = new PropertySizeText(TypeSizeText.Small),
-                    Icon = new IconHome(),
+                    Title = _ => "Small",
+                    Size = _ => new PropertySizeText(TypeSizeText.Small),
+                    Icon = _ => new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Default),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
-                new ControlText() { Text = "Standard", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Standard", Format = _ => TypeFormatText.Span, TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
                 {
-                    Title = "Standard",
-                    Size = new PropertySizeText(TypeSizeText.Default),
-                    Icon = new IconHome(),
+                    Title = _ => "Standard",
+                    Size = _ => new PropertySizeText(TypeSizeText.Default),
+                    Icon = _ => new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Default),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
-                new ControlText() { Text = "Large", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Large", Format = _ => TypeFormatText.Span, TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
                 {
-                    Title = "Large",
-                    Size = new PropertySizeText(TypeSizeText.Large),
-                    Icon = new IconHome(),
+                    Title = _ => "Large",
+                    Size = _ => new PropertySizeText(TypeSizeText.Large),
+                    Icon = _ => new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Default),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
-                new ControlText() { Text = "Extra Large", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Extra Large", Format = _ => TypeFormatText.Span, TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
                 {
-                    Title = "Extra Large",
-                    Size = new PropertySizeText(TypeSizeText.ExtraLarge),
-                    Icon = new IconHome(),
+                    Title = _ => "Extra Large",
+                    Size = _ => new PropertySizeText(TypeSizeText.ExtraLarge),
+                    Icon = _ => new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Default),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
-                new ControlText() { Text = "Custom", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Custom", Format = _ => TypeFormatText.Span, TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
                 {
-                    Title = "Custom",
-                    Size = new PropertySizeText(3.1f),
-                    Icon = new IconHome(),
+                    Title = _ => "Custom",
+                    Size = _ => new PropertySizeText(3.1f),
+                    Icon = _ => new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Default),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 }
@@ -145,99 +145,99 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "TextColor",
                 "Sets the color of the text, but it only affects system icons. Custom icons are not influenced by this property, as their appearance is determined by the original image design.",
                 "TextColor = _ => new PropertyColorText(TypeColorText.Primary)",
-                new ControlText() { Text = "Default", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Default", Format = _ => TypeFormatText.Span, TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
                 {
-                    Title = "Default",
-                    Icon = new IconHome(),
+                    Title = _ => "Default",
+                    Icon = _ => new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Default),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
-                new ControlText() { Text = "Primary", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Primary", Format = _ => TypeFormatText.Span, TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
                 {
-                    Title = "Primary",
-                    Icon = new IconHome(),
+                    Title = _ => "Primary",
+                    Icon = _ => new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Primary),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
-                new ControlText() { Text = "Secondary", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Secondary", Format = _ => TypeFormatText.Span, TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
                 {
-                    Title = "Secondary",
-                    Icon = new IconHome(),
+                    Title = _ => "Secondary",
+                    Icon = _ => new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Secondary),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
-                new ControlText() { Text = "Info", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Info", Format = _ => TypeFormatText.Span, TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
                 {
-                    Title = "Info",
-                    Icon = new IconHome(),
+                    Title = _ => "Info",
+                    Icon = _ => new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Info),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
-                new ControlText() { Text = "Success", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Success", Format = _ => TypeFormatText.Span, TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
                 {
-                    Title = "Success",
-                    Icon = new IconHome(),
+                    Title = _ => "Success",
+                    Icon = _ => new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Success),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
-                new ControlText() { Text = "Warning", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Warning", Format = _ => TypeFormatText.Span, TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
                 {
-                    Title = "Warning",
-                    Icon = new IconHome(),
+                    Title = _ => "Warning",
+                    Icon = _ => new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Warning),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
-                new ControlText() { Text = "Danger", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Danger", Format = _ => TypeFormatText.Span, TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
                 {
-                    Title = "Danger",
-                    Icon = new IconHome(),
+                    Title = _ => "Danger",
+                    Icon = _ => new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Danger),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
-                new ControlText() { Text = "Light", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Light", Format = _ => TypeFormatText.Span, TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
                 {
-                    Title = "Light",
-                    Icon = new IconHome(),
+                    Title = _ => "Light",
+                    Icon = _ => new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Light),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
-                new ControlText() { Text = "Dark", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Dark", Format = _ => TypeFormatText.Span, TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
                 {
-                    Title = "Dark",
-                    Icon = new IconHome(),
+                    Title = _ => "Dark",
+                    Icon = _ => new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Dark),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
-                new ControlText() { Text = "Muted", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Muted", Format = _ => TypeFormatText.Span, TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
                 {
-                    Title = "Muted",
-                    Icon = new IconHome(),
+                    Title = _ => "Muted",
+                    Icon = _ => new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.Muted),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
-                new ControlText() { Text = "White", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "White", Format = _ => TypeFormatText.Span, TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
                 {
-                    Title = "White",
-                    Icon = new IconHome(),
+                    Title = _ => "White",
+                    Icon = _ => new IconHome(),
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 },
-                new ControlText() { Text = "Custom", Format = TypeFormatText.Span, TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Custom", Format = _ => TypeFormatText.Span, TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlIcon()
                 {
-                    Title = "Custom",
-                    Icon = new IconHome(),
+                    Title = _ => "Custom",
+                    Icon = _ => new IconHome(),
                     TextColor = _ => new PropertyColorText("gold"),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two)
                 }
@@ -258,7 +258,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)",
                 [.. GetAllIcons().Take(5).Select(x => new ControlIcon()
                 {
-                    Icon = x,
+                    Icon = _ => x,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two),
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Three),
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
@@ -273,8 +273,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Title = _ => \"Hello World!\"",
                 [.. GetAllIcons().Take(5).Select(x => new ControlIcon()
                 {
-                    Icon = x,
-                    Title = x.GetType().Name,
+                    Icon =_ =>  x,
+                    Title = _ => x.GetType().Name,
                     Margin =_ =>  new PropertySpacingMargin(PropertySpacing.Space.Two),
                     TextColor = _ => new PropertyColorText(TypeColorText.Danger),
                 })]
@@ -324,24 +324,24 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             if (onlyDefault.Count != 0)
             {
-                controls.Add(new ControlText() { Text = "Default only", Format = TypeFormatText.Paragraph, TextColor = new PropertyColorText(TypeColorText.Info) });
-                controls.AddRange(onlyDefault.Select(x => new ControlIcon() { Icon = x, TextColor = _ => new PropertyColorText(TypeColorText.Warning), Title = x.GetType().Name }));
+                controls.Add(new ControlText() { Text = _ => "Default only", Format = _ => TypeFormatText.Paragraph, TextColor = _ => new PropertyColorText(TypeColorText.Info) });
+                controls.AddRange(onlyDefault.Select(x => new ControlIcon() { Icon = _ => x, TextColor = _ => new PropertyColorText(TypeColorText.Warning), Title = _ => x.GetType().Name }));
             }
 
             if (both.Count != 0)
             {
-                controls.Add(new ControlText() { Text = "Default and Light", Format = TypeFormatText.Paragraph, TextColor = new PropertyColorText(TypeColorText.Info) });
+                controls.Add(new ControlText() { Text = _ => "Default and Light", Format = _ => TypeFormatText.Paragraph, TextColor = _ => new PropertyColorText(TypeColorText.Info) });
                 foreach (var b in both)
                 {
-                    controls.Add(new ControlIcon() { Icon = b.Default, TextColor = _ => new PropertyColorText(TypeColorText.Warning), Title = b.Default.GetType().Name });
-                    controls.Add(new ControlIcon() { Icon = b.Light, TextColor = _ => new PropertyColorText(TypeColorText.Warning), Title = b.Light.GetType().Name });
+                    controls.Add(new ControlIcon() { Icon = _ => b.Default, TextColor = _ => new PropertyColorText(TypeColorText.Warning), Title = _ => b.Default.GetType().Name });
+                    controls.Add(new ControlIcon() { Icon = _ => b.Light, TextColor = _ => new PropertyColorText(TypeColorText.Warning), Title = _ => b.Light.GetType().Name });
                 }
             }
 
             if (onlyLight.Count != 0)
             {
-                controls.Add(new ControlText() { Text = "Light only", Format = TypeFormatText.Paragraph, TextColor = new PropertyColorText(TypeColorText.Info) });
-                controls.AddRange(onlyLight.Select(x => new ControlIcon() { Icon = x, TextColor = _ => new PropertyColorText(TypeColorText.Warning), Title = x.GetType().Name }));
+                controls.Add(new ControlText() { Text = _ => "Light only", Format = _ => TypeFormatText.Paragraph, TextColor = _ => new PropertyColorText(TypeColorText.Info) });
+                controls.AddRange(onlyLight.Select(x => new ControlIcon() { Icon = _ => x, TextColor = _ => new PropertyColorText(TypeColorText.Warning), Title = _ => x.GetType().Name }));
             }
 
             return controls;

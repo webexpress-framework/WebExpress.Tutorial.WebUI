@@ -43,8 +43,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 new ControlModalRemotePage("myModal")
                 {
                     Header = _ => "My modal",
-                    Size = TypeModalSize.ExtraLarge,
-                    Uri = sitemapManager.GetUri<Info>(pageContext.ApplicationContext)
+                    Size = _ => TypeModalSize.ExtraLarge,
+                    Uri = _ => sitemapManager.GetUri<Info>(pageContext.ApplicationContext)
                 }
             ];
 
@@ -79,8 +79,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 new ControlModalRemotePage("myModalUri")
                 {
                     Header = _ => "Header",
-                    Size = TypeModalSize.ExtraLarge,
-                    Uri = sitemapManager.GetUri<Info>(pageContext.ApplicationContext)
+                    Size = _ => TypeModalSize.ExtraLarge,
+                    Uri = _ => sitemapManager.GetUri<Info>(pageContext.ApplicationContext)
                 }
             );
 
@@ -99,9 +99,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 new ControlModalRemotePage("myModalSelector")
                 {
                     Header = _ => "Header",
-                    Size = TypeModalSize.ExtraLarge,
-                    Uri = sitemapManager.GetUri<Info>(pageContext.ApplicationContext),
-                    Selector = "wx-content"
+                    Size = _ => TypeModalSize.ExtraLarge,
+                    Uri = _ => sitemapManager.GetUri<Info>(pageContext.ApplicationContext),
+                    Selector = _ => "wx-content"
                 }
             );
         }

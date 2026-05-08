@@ -34,8 +34,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Table.Templates
         {
             visualTree.Content.MainPanel.AddPrimary(new ControlText()
             {
-                Text = @"This page provides an overview of the built-in templates that are available as cell renderers within the `TableControl`. In addition to the predefined options, developers can also implement and integrate their own custom renderers.",
-                Format = TypeFormatText.Markdown
+                Text = _ => @"This page provides an overview of the built-in templates that are available as cell renderers within the `TableControl`. In addition to the predefined options, developers can also implement and integrate their own custom renderers.",
+                Format = _ => TypeFormatText.Markdown
             });
         }
     }

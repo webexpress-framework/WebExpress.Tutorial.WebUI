@@ -40,62 +40,62 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             }
                 .Add(new ControlText()
                 {
-                    Text = ""First Entry"",
-                    Format = TypeFormatText.Default,
-                    Border = new PropertyBorder(true),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two)
+                    Text = _ => ""First Entry"",
+                    Format = _ => TypeFormatText.Default,
+                    Border = _ => new PropertyBorder(true),
+                    Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two)
                 })
                 .Add(new ControlText()
                 {
-                    Text = ""Second Entry"",
-                    Format = TypeFormatText.Default,
-                    Border = new PropertyBorder(true),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two)
+                    Text = _ => ""Second Entry"",
+                    Format = _ => TypeFormatText.Default,
+                    Border = _ => new PropertyBorder(true),
+                    Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two)
                 })
                 .Add(new ControlText()
                 {
-                    Text = ""Third Entry"",
-                    Format = TypeFormatText.Default,
-                    Border = new PropertyBorder(true),
-                    Padding = new PropertySpacingPadding(PropertySpacing.Space.Two)
+                    Text = _ => ""Third Entry"",
+                    Format = _ => TypeFormatText.Default,
+                    Border = _ => new PropertyBorder(true),
+                    Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two)
                 });";
 
             Stage.AddProperty
             (
                 "Layout",
                 "Defines how child elements are arranged within the panel using Flexbox layout modes.",
-                "Layout = TypeLayoutFlex.None",
+                "Layout = _ => TypeLayoutFlex.None",
 
                 new ControlText()
                 {
-                    Text = "None",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "None",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlPanelFlex()
                 {
-                    Layout = TypeLayoutFlex.None
+                    Layout = _ => TypeLayoutFlex.None
                 }
                     .Add(CreateWrapControls(3)),
 
                 new ControlText()
                 {
-                    Text = "Default",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Default",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlPanelFlex()
                 {
-                    Layout = TypeLayoutFlex.Default
+                    Layout = _ => TypeLayoutFlex.Default
                 }
                     .Add(CreateWrapControls(3)),
 
                 new ControlText()
                 {
-                    Text = "Inline",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Inline",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlPanelFlex()
                 {
-                    Layout = TypeLayoutFlex.Inline
+                    Layout = _ => TypeLayoutFlex.Inline
                 }
                  .Add(CreateWrapControls(3))
             );
@@ -104,73 +104,73 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Justify",
                 "Defines the horizontal alignment of items within a Flexbox panel.",
-                "Justify = TypeJustifiedFlex.Start",
+                "Justify = _ => TypeJustifiedFlex.Start",
                 new ControlText()
                 {
-                    Text = "None",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "None",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlPanelFlex()
                 {
-                    Layout = TypeLayoutFlex.Default,
-                    Justify = TypeJustifiedFlex.None
+                    Layout = _ => TypeLayoutFlex.Default,
+                    Justify = _ => TypeJustifiedFlex.None
                 }
                     .Add(CreateWrapControls(3)),
                 new ControlText()
                 {
-                    Text = "Start",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Start",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlPanelFlex()
                 {
-                    Layout = TypeLayoutFlex.Default,
-                    Justify = TypeJustifiedFlex.Start
+                    Layout = _ => TypeLayoutFlex.Default,
+                    Justify = _ => TypeJustifiedFlex.Start
                 }
                     .Add(CreateWrapControls(3)),
                 new ControlText()
                 {
-                    Text = "End",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "End",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlPanelFlex()
                 {
-                    Layout = TypeLayoutFlex.Default,
-                    Justify = TypeJustifiedFlex.End
+                    Layout = _ => TypeLayoutFlex.Default,
+                    Justify = _ => TypeJustifiedFlex.End
                 }
                     .Add(CreateWrapControls(3)),
                 new ControlText()
                 {
-                    Text = "Center",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Center",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlPanelFlex()
                 {
-                    Layout = TypeLayoutFlex.Default,
-                    Justify = TypeJustifiedFlex.Center
+                    Layout = _ => TypeLayoutFlex.Default,
+                    Justify = _ => TypeJustifiedFlex.Center
                 }
                     .Add(CreateWrapControls(3)),
                 new ControlText()
                 {
-                    Text = "Between",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Between",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlPanelFlex()
                 {
-                    Layout = TypeLayoutFlex.Default,
-                    Justify = TypeJustifiedFlex.Between
+                    Layout = _ => TypeLayoutFlex.Default,
+                    Justify = _ => TypeJustifiedFlex.Between
                 }
                     .Add(CreateWrapControls(3)),
 
                 // Justify: Around
                 new ControlText()
                 {
-                    Text = "Around",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Around",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlPanelFlex()
                 {
-                    Layout = TypeLayoutFlex.Default,
-                    Justify = TypeJustifiedFlex.Around
+                    Layout = _ => TypeLayoutFlex.Default,
+                    Justify = _ => TypeJustifiedFlex.Around
                 }
                     .Add(CreateWrapControls(3))
             );
@@ -182,78 +182,78 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Align = _ => TypeAlignFlex.Start",
                 new ControlText()
                 {
-                    Text = "None",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "None",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlPanelFlex()
                 {
-                    Layout = TypeLayoutFlex.Default,
-                    Align = TypeAlignFlex.None,
+                    Layout = _ => TypeLayoutFlex.Default,
+                    Align = _ => TypeAlignFlex.None,
                     Styles = ["height: 100px"],
                     Border = _ => new PropertyBorder(true)
                 }
                     .Add(CreateWrapControls(3)),
                 new ControlText()
                 {
-                    Text = "Start",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Start",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlPanelFlex()
                 {
-                    Layout = TypeLayoutFlex.Default,
-                    Align = TypeAlignFlex.Start,
+                    Layout = _ => TypeLayoutFlex.Default,
+                    Align = _ => TypeAlignFlex.Start,
                     Styles = ["height: 100px"],
                     Border = _ => new PropertyBorder(true)
                 }
                     .Add(CreateWrapControls(3)),
                 new ControlText()
                 {
-                    Text = "End",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "End",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlPanelFlex()
                 {
-                    Layout = TypeLayoutFlex.Default,
-                    Align = TypeAlignFlex.End,
+                    Layout = _ => TypeLayoutFlex.Default,
+                    Align = _ => TypeAlignFlex.End,
                     Styles = ["height: 100px"],
                     Border = _ => new PropertyBorder(true)
                 }
                     .Add(CreateWrapControls(3)),
                 new ControlText()
                 {
-                    Text = "Center",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Center",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlPanelFlex()
                 {
-                    Layout = TypeLayoutFlex.Default,
-                    Align = TypeAlignFlex.Center,
+                    Layout = _ => TypeLayoutFlex.Default,
+                    Align = _ => TypeAlignFlex.Center,
                     Styles = ["height: 100px"],
                     Border = _ => new PropertyBorder(true)
                 }
                     .Add(CreateWrapControls(3)),
                 new ControlText()
                 {
-                    Text = "Baseline",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Baseline",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlPanelFlex()
                 {
-                    Layout = TypeLayoutFlex.Default,
-                    Align = TypeAlignFlex.Baseline,
+                    Layout = _ => TypeLayoutFlex.Default,
+                    Align = _ => TypeAlignFlex.Baseline,
                     Styles = ["height: 100px"],
                     Border = _ => new PropertyBorder(true)
                 }
                     .Add(CreateWrapControls(3)),
                 new ControlText()
                 {
-                    Text = "Stretch",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Stretch",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlPanelFlex()
                 {
-                    Layout = TypeLayoutFlex.Default,
-                    Align = TypeAlignFlex.Stretch,
+                    Layout = _ => TypeLayoutFlex.Default,
+                    Align = _ => TypeAlignFlex.Stretch,
                     Styles = ["height: 100px"],
                     Border = _ => new PropertyBorder(true)
                 }
@@ -268,50 +268,50 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                 new ControlText()
                 {
-                    Text = "None",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "None",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlPanelFlex()
                 {
-                    Layout = TypeLayoutFlex.Default,
-                    Wrap = TypeWrap.None,
+                    Layout = _ => TypeLayoutFlex.Default,
+                    Wrap = _ => TypeWrap.None,
                     Border = _ => new PropertyBorder(true)
                 }
                     .Add(CreateWrapControls(15)),
 
                 new ControlText()
                 {
-                    Text = "Nowrap",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Nowrap",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlPanelFlex()
                 {
-                    Layout = TypeLayoutFlex.Default,
-                    Wrap = TypeWrap.Nowrap,
+                    Layout = _ => TypeLayoutFlex.Default,
+                    Wrap = _ => TypeWrap.Nowrap,
                     Border = _ => new PropertyBorder(true)
                 }
                     .Add(CreateWrapControls(15)),
                 new ControlText()
                 {
-                    Text = "Wrap",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Wrap",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlPanelFlex()
                 {
-                    Layout = TypeLayoutFlex.Default,
-                    Wrap = TypeWrap.Wrap,
+                    Layout = _ => TypeLayoutFlex.Default,
+                    Wrap = _ => TypeWrap.Wrap,
                     Border = _ => new PropertyBorder(true)
                 }
                     .Add(CreateWrapControls(15)),
                 new ControlText()
                 {
-                    Text = "Wrap-Reverse",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Wrap-Reverse",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlPanelFlex()
                 {
-                    Layout = TypeLayoutFlex.Default,
-                    Wrap = TypeWrap.Reverse,
+                    Layout = _ => TypeLayoutFlex.Default,
+                    Wrap = _ => TypeWrap.Reverse,
                     Border = _ => new PropertyBorder(true)
                 }
                     .Add(CreateWrapControls(15))
@@ -342,8 +342,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             return [.. labels.Take(count).Select(text => new ControlText()
             {
-                Text = text,
-                Format = TypeFormatText.Default,
+                Text = _ => text,
+                Format = _ => TypeFormatText.Default,
                 Border = _ => new PropertyBorder(true),
                 Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two)
             })];

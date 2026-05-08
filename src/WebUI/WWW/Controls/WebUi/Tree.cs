@@ -93,7 +93,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "DisableIndicator = true",
                 new ControlTree(RandomId.Create(), [.. _nodes])
                 {
-                    DisableIndicator = true
+                    DisableIndicator = _ => true
                 }
             );
 
@@ -104,7 +104,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Movable = true",
                 new ControlTree(RandomId.Create(), [.. _nodes])
                 {
-                    Movable = true
+                    Movable = _ => true
                 }
             );
 
@@ -112,32 +112,32 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Layout",
                 "The `Layout` property controls the visual representation of the tree, determining how its structure and elements are arranged. By selecting different layout options, the appearance can be optimized for better readability, clarity, and usability.",
-                "Layout = TypeLayoutTree.Simple",
+                "Layout = _ => TypeLayoutTree.Simple",
                 [
-                    new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                    new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                     new ControlTree(RandomId.Create(), [.. _nodes])
                     {
-                        Layout = TypeLayoutTree.Default
+                        Layout = _ => TypeLayoutTree.Default
                     },
-                    new ControlText() { Text = "Group", TextColor = new PropertyColorText(TypeColorText.Info) },
+                    new ControlText() { Text = _ => "Group", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                     new ControlTree(RandomId.Create(), [.. _nodes])
                     {
-                        Layout = TypeLayoutTree.Group
+                        Layout = _ => TypeLayoutTree.Group
                     },
-                    new ControlText() { Text = "Flat", TextColor = new PropertyColorText(TypeColorText.Info) },
+                    new ControlText() { Text = _ => "Flat", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                     new ControlTree(RandomId.Create(), [.. _nodes])
                     {
-                        Layout = TypeLayoutTree.Flat
+                        Layout = _ => TypeLayoutTree.Flat
                     },
-                    new ControlText() { Text = "Flush", TextColor = new PropertyColorText(TypeColorText.Info) },
+                    new ControlText() { Text = _ => "Flush", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                     new ControlTree(Guid.NewGuid().ToString(), [.. _nodes])
                     {
-                        Layout = TypeLayoutTree.Flush
+                        Layout = _ => TypeLayoutTree.Flush
                     },
-                    new ControlText() { Text = "Horizontal", TextColor = new PropertyColorText(TypeColorText.Info) },
+                    new ControlText() { Text = _ => "Horizontal", TextColor =_ =>  new PropertyColorText(TypeColorText.Info) },
                     new ControlTree(RandomId.Create(), [.. _nodes])
                     {
-                        Layout = TypeLayoutTree.Horizontal
+                        Layout = _ => TypeLayoutTree.Horizontal
                     }
                 ]
             );
@@ -199,7 +199,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     .Add(...)",
                 new ControlTree(RandomId.Create())
                 {
-                    DisableIndicator = true
+                    DisableIndicator = _ => true
                 }
                     .Add(_nodes)
             );

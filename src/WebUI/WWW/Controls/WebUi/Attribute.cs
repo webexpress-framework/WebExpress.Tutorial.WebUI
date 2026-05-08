@@ -68,70 +68,70 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Color",
                 "Sets the color of the property.",
                 "Color = _=> new PropertyColorText(TypeColorText.Primary)",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Color = _ => new PropertyColorText(TypeColorText.Default),
                     Key = _ => "Example",
                     Value = _ => "This is an example of the ControlAttribute.",
                 },
-                new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Primary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Color = _ => new PropertyColorText(TypeColorText.Primary),
                     Key = _ => "Example",
                     Value = _ => "This is an example of the ControlAttribute.",
                 },
-                new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Secondary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Color = _ => new PropertyColorText(TypeColorText.Secondary),
                     Key = _ => "Example",
                     Value = _ => "This is an example of the ControlAttribute.",
                 },
-                new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Info", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Color = _ => new PropertyColorText(TypeColorText.Info),
                     Key = _ => "Example",
                     Value = _ => "This is an example of the ControlAttribute.",
                 },
-                new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Success", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Color = _ => new PropertyColorText(TypeColorText.Success),
                     Key = _ => "Example",
                     Value = _ => "This is an example of the ControlAttribute.",
                 },
-                new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Warning", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Color = _ => new PropertyColorText(TypeColorText.Warning),
                     Key = _ => "Example",
                     Value = _ => "This is an example of the ControlAttribute.",
                 },
-                new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Danger", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Color = _ => new PropertyColorText(TypeColorText.Danger),
                     Key = _ => "Example",
                     Value = _ => "This is an example of the ControlAttribute.",
                 },
-                new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Dark", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Color = _ => new PropertyColorText(TypeColorText.Dark),
                     Key = _ => "Example",
                     Value = _ => "This is an example of the ControlAttribute.",
                 },
-                new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Light", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Color = _ => new PropertyColorText(TypeColorText.Light),
                     Key = _ => "Example",
                     Value = _ => "This is an example of the ControlAttribute.",
                 },
-                new ControlText() { Text = "Custom", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Custom", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Color = _ => new PropertyColorText("gold"),
@@ -145,70 +145,70 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "KeyColor",
                 "Sets the color of the key property.",
                 "KeyColor = _=> new PropertyColorText(TypeColorText.Primary)",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     KeyColor = _ => new PropertyColorText(TypeColorText.Default),
                     Key = _ => "Example",
                     Value = _ => "This is an example of the ControlAttribute.",
                 },
-                new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Primary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     KeyColor = _ => new PropertyColorText(TypeColorText.Primary),
                     Key = _ => "Example",
                     Value = _ => "This is an example of the ControlAttribute.",
                 },
-                new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Secondary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     KeyColor = _ => new PropertyColorText(TypeColorText.Secondary),
                     Key = _ => "Example",
                     Value = _ => "This is an example of the ControlAttribute.",
                 },
-                new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Info", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     KeyColor = _ => new PropertyColorText(TypeColorText.Info),
                     Key = _ => "Example",
                     Value = _ => "This is an example of the ControlAttribute.",
                 },
-                new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Success", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     KeyColor = _ => new PropertyColorText(TypeColorText.Success),
                     Key = _ => "Example",
                     Value = _ => "This is an example of the ControlAttribute.",
                 },
-                new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Warning", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     KeyColor = _ => new PropertyColorText(TypeColorText.Warning),
                     Key = _ => "Example",
                     Value = _ => "This is an example of the ControlAttribute.",
                 },
-                new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Danger", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     KeyColor = _ => new PropertyColorText(TypeColorText.Danger),
                     Key = _ => "Example",
                     Value = _ => "This is an example of the ControlAttribute.",
                 },
-                new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Dark", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     KeyColor = _ => new PropertyColorText(TypeColorText.Dark),
                     Key = _ => "Example",
                     Value = _ => "This is an example of the ControlAttribute.",
                 },
-                new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Light", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     KeyColor = _ => new PropertyColorText(TypeColorText.Light),
                     Key = _ => "Example",
                     Value = _ => "This is an example of the ControlAttribute.",
                 },
-                new ControlText() { Text = "Custom", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Custom", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     KeyColor = _ => new PropertyColorText("gold"),
@@ -222,66 +222,66 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "BackgroundColor",
                 "Returns or sets the background color of the attribute.",
                 "BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Primary)",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Value = _ => "Default"
                 },
-                new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Primary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Value = _ => "Primary",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Primary)
                 },
-                new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Secondary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Value = _ => "Primary",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Secondary)
                 },
-                new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Info", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Value = _ => "Info",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Info)
                 },
-                new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Success", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Value = _ => "Success",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 },
-                new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Warning", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Value = _ => "Warning",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Warning)
                 },
-                new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Danger", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Value = _ => "Danger",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Danger)
                 },
-                new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Dark", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Value = _ => "Dark",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Dark)
                 },
-                new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Light", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Value = _ => "Light",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Light)
                 },
-                new ControlText() { Text = "Transparent", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Transparent", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Value = _ => "Transparent",
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Transparent)
                 },
-                new ControlText() { Text = "Custom", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Custom", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlAttribute()
                 {
                     Value = _ => "Custom",

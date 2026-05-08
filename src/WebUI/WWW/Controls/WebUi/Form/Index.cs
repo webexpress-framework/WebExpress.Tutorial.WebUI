@@ -88,7 +88,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "FormLayout",
                 "This property defines the visual positioning of form elements relative to the submit button.",
                 "FormLayout = _ => TypeLayoutForm.Inline",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputText("layout1") { Icon = _ => new IconAlignLeft(), Label = _ => "Arrangement", Help = _ => "This is a help text" })
                 {
                     Border = _ => new PropertyBorder(true),
@@ -96,7 +96,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
                     FormLayout = _ => TypeLayoutForm.Default
                 }.AddPrimaryButton(new ControlFormItemButtonSubmit()),
-                new ControlText() { Text = "Inline", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Inline", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputText("layout1") { Icon = _ => new IconAlignLeft(), Label = _ => "Arrangement", Help = _ => "This is a help text" })
                 {
                     Border = _ => new PropertyBorder(true),
@@ -111,7 +111,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "ItemLayout",
                 "This property defines how the form elements are arranged within the form, ensuring a structured and user-friendly layout.",
                 "ItemLayout = _ => TypeLayoutFormItem.Horizontal",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, [.. _exampleFormItems])
                 {
                     Border = _ => new PropertyBorder(true),
@@ -119,7 +119,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two)
 
                 }.AddPrimaryButton(new ControlFormItemButtonSubmit()),
-                new ControlText() { Text = "Horizontal", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Horizontal", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, [.. _exampleFormItems])
                 {
                     Border = _ => new PropertyBorder(true),
@@ -127,7 +127,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
                     ItemLayout = _ => TypeLayoutFormItem.Horizontal
                 }.AddPrimaryButton(new ControlFormItemButtonSubmit()),
-                new ControlText() { Text = "Vertical", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Vertical", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, [.. _exampleFormItems])
                 {
                     Border = _ => new PropertyBorder(true),
@@ -135,7 +135,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two),
                     ItemLayout = _ => TypeLayoutFormItem.Vertical
                 }.AddPrimaryButton(new ControlFormItemButtonSubmit()),
-                new ControlText() { Text = "Mix", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Mix", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, [.. _exampleFormItems])
                 {
                     Border = _ => new PropertyBorder(true),
@@ -150,7 +150,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "AddButton",
                 "This method enables adding buttons to control the behavior of the form, such as submitting, resetting, or canceling actions.",
                 "new ControlFormItemButtonSubmit(), new ControlFormItemButtonReset()",
-                new ControlText() { Text = "AddPreferencesButton", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "AddPreferencesButton", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, [.. _exampleFormItems])
                 {
                     Border = _ => new PropertyBorder(true),
@@ -158,14 +158,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two)
 
                 }.AddPreferencesButton(new ControlFormItemButtonSubmit(), new ControlFormItemButtonReset()),
-                new ControlText() { Text = "AddPrimaryButton", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "AddPrimaryButton", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, [.. _exampleFormItems])
                 {
                     Border = _ => new PropertyBorder(true),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),
                     Padding = _ => new PropertySpacingPadding(PropertySpacing.Space.Two)
                 }.AddPrimaryButton(new ControlFormItemButtonSubmit(), new ControlFormItemButtonReset()),
-                new ControlText() { Text = "AddSecondaryButton", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "AddSecondaryButton", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, [.. _exampleFormItems])
                 {
                     Border = _ => new PropertyBorder(true),

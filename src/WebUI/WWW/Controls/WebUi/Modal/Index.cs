@@ -23,9 +23,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
     {
         private readonly IEnumerable<IControl> _content =
         [
-            new ControlText() { Text = "I'm sure that in 1985, plutonium is available at every corner drug store, but in 1955, it's a little hard to come by. Marty, I'm sorry, but I'm afraid you're stuck here. You do? Whoa, this is heavy. Doc, I'm from the future. I came here in a time machine that you invented. Now, I need your help to get back to the year 1985. I'm really gonna miss you." },
-            new ControlText() { Text = "I noticed you band is on the roster for dance auditions after school today. Why even bother Mcfly, you haven't got a chance, you're too much like your own man. No McFly ever amounted to anything in the history of Hill Valley. Marty, don't be such a square. Everybody who's anybody drinks. Huh? Biff. C'mon, c'mon." },
-            new ControlText() { Text = "Hi. I have to tell you about the future. Ho ho ho, look at it roll. Now we could watch Jackie Gleason while we eat. Marty, I'm sorry, but the only power source capable of generating one point twenty-one gigawatts of electricity is a bolt of lightning. Hey, hey, keep rolling, keep rolling there. No, no, no, no, this sucker's electrical. But I need a nuclear reaction to generate the one point twenty-one gigawatts of electricity that I need." }
+            new ControlText() { Text = _ => "I'm sure that in 1985, plutonium is available at every corner drug store, but in 1955, it's a little hard to come by. Marty, I'm sorry, but I'm afraid you're stuck here. You do? Whoa, this is heavy. Doc, I'm from the future. I came here in a time machine that you invented. Now, I need your help to get back to the year 1985. I'm really gonna miss you." },
+            new ControlText() { Text = _ => "I noticed you band is on the roster for dance auditions after school today. Why even bother Mcfly, you haven't got a chance, you're too much like your own man. No McFly ever amounted to anything in the history of Hill Valley. Marty, don't be such a square. Everybody who's anybody drinks. Huh? Biff. C'mon, c'mon." },
+            new ControlText() { Text = _ => "Hi. I have to tell you about the future. Ho ho ho, look at it roll. Now we could watch Jackie Gleason while we eat. Marty, I'm sorry, but the only power source capable of generating one point twenty-one gigawatts of electricity is a bolt of lightning. Hey, hey, keep rolling, keep rolling there. No, no, no, no, this sucker's electrical. But I need a nuclear reaction to generate the one point twenty-one gigawatts of electricity that I need." }
         ];
 
         /// <summary>    
@@ -104,7 +104,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  new ControlModal("myModalDefault")
                  {
                      Header = _ => "Default",
-                     Size = TypeModalSize.Default
+                     Size = _ => TypeModalSize.Default
                  }.Add(_content),
                  new ControlButton()
                  {
@@ -116,7 +116,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  new ControlModal("myModalSmall")
                  {
                      Header = _ => "Small",
-                     Size = TypeModalSize.Small
+                     Size = _ => TypeModalSize.Small
                  }.Add(_content),
                  new ControlButton()
                  {
@@ -128,7 +128,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  new ControlModal("myModalLarge")
                  {
                      Header = _ => "Large",
-                     Size = TypeModalSize.Large
+                     Size = _ => TypeModalSize.Large
                  }.Add(_content),
                  new ControlButton()
                  {
@@ -140,7 +140,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  new ControlModal("myModalExtraLarge")
                  {
                      Header = _ => "ExtraLarge",
-                     Size = TypeModalSize.ExtraLarge
+                     Size = _ => TypeModalSize.ExtraLarge
                  }.Add(_content),
                  new ControlButton()
                  {
@@ -152,7 +152,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                  new ControlModal("myModalFullscreen")
                  {
                      Header = _ => "Fullscreen",
-                     Size = TypeModalSize.Fullscreen
+                     Size = _ => TypeModalSize.Fullscreen
                  }.Add(_content)
             );
         }

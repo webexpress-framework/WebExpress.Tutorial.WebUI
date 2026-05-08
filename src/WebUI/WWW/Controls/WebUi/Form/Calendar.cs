@@ -114,7 +114,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 @"Format = _ => ""DD.MM.YYYY""",
                 new ControlForm(null, new ControlFormItemInputCalendar(null)
                 {
-                    Format = "DD.MM.YYYY"
+                    Format = _ => "DD.MM.YYYY"
                 })
             );
 
@@ -125,7 +125,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 @"Range = _ => true",
                 new ControlForm(null, new ControlFormItemInputCalendar(null)
                 {
-                    Range = true
+                    Range = _ => true
                 })
             );
         }

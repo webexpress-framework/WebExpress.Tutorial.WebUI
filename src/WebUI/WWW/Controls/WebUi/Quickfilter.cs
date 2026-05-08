@@ -31,7 +31,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.Controls =
             [
-                new ControlText() { Text = "ControlButton", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "ControlButton", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlButton("onbutton")
                 {
                     Text = (c) => "On",
@@ -52,7 +52,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                         Exclusive = true
                     }
                 },
-                new ControlText() { Text = "ControlDropdown", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "ControlDropdown", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlDropdown("dropdown")
                 {
                     Text =_ =>  "Dropdown",
@@ -79,39 +79,39 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                         Exclusive = true
                         }
                     }),
-                new ControlText() { Text = "ControlQuickfilter", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "ControlQuickfilter", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlQuickfilter()
                 .Add
                 (
                     new ControlQuickfilterItemButton("status")
                     {
-                        Text = "Status",
-                        Icon = new IconHome(),
-                        PrimaryAction = new ActionFilter()
+                        Text = _ => "Status",
+                        Icon = _ => new IconHome(),
+                        PrimaryAction = _ => new ActionFilter()
                     },
                     new ControlQuickfilterItemButton("priority")
                     {
-                        Text = "Priority",
-                        Icon = new IconFlag(),
-                        PrimaryAction = new ActionFilter()
+                        Text = _ => "Priority",
+                        Icon = _ => new IconFlag(),
+                        PrimaryAction = _ => new ActionFilter()
                     },
                     new ControlQuickfilterItemButton("category")
                     {
-                        Text = "Category",
-                        Icon = new IconTag(),
-                        PrimaryAction = new ActionFilter()
+                        Text = _ => "Category",
+                        Icon = _ => new IconTag(),
+                        PrimaryAction = _ => new ActionFilter()
                     },
                     new ControlQuickfilterItemButton("team")
                     {
-                        Text = "Team",
-                        Icon = new IconUsers(),
-                        PrimaryAction = new ActionFilter()
+                        Text = _ => "Team",
+                        Icon = _ => new IconUsers(),
+                        PrimaryAction = _ => new ActionFilter()
                     },
                     new ControlQuickfilterItemButton("date")
                     {
-                        Text = "Date",
-                        Icon = new IconCalendar(),
-                        PrimaryAction = new ActionFilter()
+                        Text = _ => "Date",
+                        Icon = _ => new IconCalendar(),
+                        PrimaryAction = _ => new ActionFilter()
                     }
                 )
             ];

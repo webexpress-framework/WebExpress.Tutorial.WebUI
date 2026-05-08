@@ -45,25 +45,25 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Icon = _ => new IconTable(),
                     Description = _ => "This is the first view"
                 }
-                    .Add(new ControlText() { Text = "content of the view 1" }))
+                    .Add(new ControlText() { Text = _ => "content of the view 1" }))
                 .Add(new ControlViewItem()
                 {
                     Title = _ => "View 2",
                     Icon = _ => new IconList(),
                     Description = _ => "This is the second view"
                 }
-                    .Add(new ControlText() { Text = "content of the view 2" }))
+                    .Add(new ControlText() { Text = _ => "content of the view 2" }))
                 .Add(new ControlViewItem()
                 {
                     Title = _ => "View 3",
                     Icon = _ => new IconDiagramProject(),
                     Description = _ => "This is the third view"
                 }
-                    .Add(new ControlText() { Text = "content of the view 3" }))
+                    .Add(new ControlText() { Text = _ => "content of the view 3" }))
                 .Add(new ControlViewFooter()
                 {
                 }
-                    .Add(new ControlText() { Text = "Footer" }));
+                    .Add(new ControlText() { Text = _ => "Footer" }));
 
             Stage.Code = @"
             new ControlView(RandomId.Create())
@@ -104,26 +104,26 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Layout",
                 "Controls how view switching is rendered. The Default layout shows the title and description of the active view together with a dropdown for switching. The ToggleGroup layout omits title and description and exposes all views directly through a compact toggle bar.",
                 "Layout = _ => TypeLayoutView.ToggleGroup",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlView(RandomId.Create())
                 {
                     Layout = _ => TypeLayoutView.Default
                 }
                     .Add(new ControlViewHeader().Add(new ControlSearch()))
-                    .Add(new ControlViewItem() { Title = _ => "View 1", Icon = _ => new IconTable(), Description = _ => "This is the first view" }.Add(new ControlText() { Text = "content of the view 1" }))
-                    .Add(new ControlViewItem() { Title = _ => "View 2", Icon = _ => new IconList(), Description = _ => "This is the second view" }.Add(new ControlText() { Text = "content of the view 2" }))
-                    .Add(new ControlViewItem() { Title = _ => "View 3", Icon = _ => new IconDiagramProject(), Description = _ => "This is the third view" }.Add(new ControlText() { Text = "content of the view 3" }))
-                    .Add(new ControlViewFooter().Add(new ControlText() { Text = "Footer" })),
-                new ControlText() { Text = "ToggleGroup", TextColor = new PropertyColorText(TypeColorText.Info) },
+                    .Add(new ControlViewItem() { Title = _ => "View 1", Icon = _ => new IconTable(), Description = _ => "This is the first view" }.Add(new ControlText() { Text = _ => "content of the view 1" }))
+                    .Add(new ControlViewItem() { Title = _ => "View 2", Icon = _ => new IconList(), Description = _ => "This is the second view" }.Add(new ControlText() { Text = _ => "content of the view 2" }))
+                    .Add(new ControlViewItem() { Title = _ => "View 3", Icon = _ => new IconDiagramProject(), Description = _ => "This is the third view" }.Add(new ControlText() { Text = _ => "content of the view 3" }))
+                    .Add(new ControlViewFooter().Add(new ControlText() { Text = _ => "Footer" })),
+                new ControlText() { Text = _ => "ToggleGroup", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlView(RandomId.Create())
                 {
                     Layout = _ => TypeLayoutView.ToggleGroup
                 }
                     .Add(new ControlViewHeader().Add(new ControlSearch()))
-                    .Add(new ControlViewItem() { Title = _ => "View 1", Icon = _ => new IconTable() }.Add(new ControlText() { Text = "content of the view 1" }))
-                    .Add(new ControlViewItem() { Title = _ => "View 2", Icon = _ => new IconList() }.Add(new ControlText() { Text = "content of the view 2" }))
-                    .Add(new ControlViewItem() { Title = _ => "View 3", Icon = _ => new IconDiagramProject() }.Add(new ControlText() { Text = "content of the view 3" }))
-                    .Add(new ControlViewFooter().Add(new ControlText() { Text = "Footer" }))
+                    .Add(new ControlViewItem() { Title = _ => "View 1", Icon = _ => new IconTable() }.Add(new ControlText() { Text = _ => "content of the view 1" }))
+                    .Add(new ControlViewItem() { Title = _ => "View 2", Icon = _ => new IconList() }.Add(new ControlText() { Text = _ => "content of the view 2" }))
+                    .Add(new ControlViewItem() { Title = _ => "View 3", Icon = _ => new IconDiagramProject() }.Add(new ControlText() { Text = _ => "content of the view 3" }))
+                    .Add(new ControlViewFooter().Add(new ControlText() { Text = _ => "Footer" }))
             );
 
             Stage.AddItem
@@ -136,9 +136,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Layout = _ => TypeLayoutView.Default
                 }
-                    .Add(new ControlViewItem() { Title = _ => "View 1", Icon = _ => new IconTable(), Description = _ => "This is the first view" }.Add(new ControlText() { Text = "content of the view 1" }))
-                    .Add(new ControlViewItem() { Title = _ => "View 2", Icon = _ => new IconList(), Description = _ => "This is the second view" }.Add(new ControlText() { Text = "content of the view 2" }))
-                    .Add(new ControlViewItem() { Title = _ => "View 3", Icon = _ => new IconDiagramProject(), Description = _ => "This is the third view" }.Add(new ControlText() { Text = "content of the view 3" }))
+                    .Add(new ControlViewItem() { Title = _ => "View 1", Icon = _ => new IconTable(), Description = _ => "This is the first view" }.Add(new ControlText() { Text = _ => "content of the view 1" }))
+                    .Add(new ControlViewItem() { Title = _ => "View 2", Icon = _ => new IconList(), Description = _ => "This is the second view" }.Add(new ControlText() { Text = _ => "content of the view 2" }))
+                    .Add(new ControlViewItem() { Title = _ => "View 3", Icon = _ => new IconDiagramProject(), Description = _ => "This is the third view" }.Add(new ControlText() { Text = _ => "content of the view 3" }))
             );
         }
     }

@@ -49,7 +49,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Placeholder = _ => \"Enter tag here\"",
                 new ControlForm(null, new ControlFormItemInputTag()
                 {
-                    Placeholder = "Enter tag here",
+                    Placeholder = _ => "Enter tag here",
                 })
             );
 
@@ -58,26 +58,26 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Color",
                 "The `Color` property defines the visual color applied to all selected tags within the `Tag` control component. This uniform color enhances clarity, improves recognition, and ensures a cohesive user interface experience.",
                 "Color = _ => new PropertyColorTag(TypeColorTag.Warning)",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputTag() { Color = new PropertyColorTag(TypeColorTag.Default) }.Initialize(x => x.Value.Add("Default"))),
-                new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputTag() { Color = new PropertyColorTag(TypeColorTag.Primary) }.Initialize(x => x.Value.Add("Primary"))),
-                new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputTag() { Color = new PropertyColorTag(TypeColorTag.Secondary) }.Initialize(x => x.Value.Add("Secondary"))),
-                new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputTag() { Color = new PropertyColorTag(TypeColorTag.Info) }.Initialize(x => x.Value.Add("Info"))),
-                new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputTag() { Color = new PropertyColorTag(TypeColorTag.Success) }.Initialize(x => x.Value.Add("Success"))),
-                new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputTag() { Color = new PropertyColorTag(TypeColorTag.Warning) }.Initialize(x => x.Value.Add("Warning"))),
-                new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputTag() { Color = new PropertyColorTag(TypeColorTag.Danger) }.Initialize(x => x.Value.Add("Danger"))),
-                new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputTag() { Color = new PropertyColorTag(TypeColorTag.Light) }.Initialize(x => x.Value.Add("Light"))),
-                new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputTag() { Color = new PropertyColorTag(TypeColorTag.Dark) }.Initialize(x => x.Value.Add("Dark"))),
-                new ControlText() { Text = "User defind", TextColor = new PropertyColorText(TypeColorText.Info) },
-                new ControlForm(null, new ControlFormItemInputTag() { Color = new PropertyColorTag("gold") }.Initialize(x => x.Value.Add("User defind")))
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlForm(null, new ControlFormItemInputTag() { Color = _ => new PropertyColorTag(TypeColorTag.Default) }.Initialize(x => x.Value.Add("Default"))),
+                new ControlText() { Text = _ => "Primary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlForm(null, new ControlFormItemInputTag() { Color = _ => new PropertyColorTag(TypeColorTag.Primary) }.Initialize(x => x.Value.Add("Primary"))),
+                new ControlText() { Text = _ => "Secondary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlForm(null, new ControlFormItemInputTag() { Color = _ => new PropertyColorTag(TypeColorTag.Secondary) }.Initialize(x => x.Value.Add("Secondary"))),
+                new ControlText() { Text = _ => "Info", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlForm(null, new ControlFormItemInputTag() { Color = _ => new PropertyColorTag(TypeColorTag.Info) }.Initialize(x => x.Value.Add("Info"))),
+                new ControlText() { Text = _ => "Success", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlForm(null, new ControlFormItemInputTag() { Color = _ => new PropertyColorTag(TypeColorTag.Success) }.Initialize(x => x.Value.Add("Success"))),
+                new ControlText() { Text = _ => "Warning", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlForm(null, new ControlFormItemInputTag() { Color = _ => new PropertyColorTag(TypeColorTag.Warning) }.Initialize(x => x.Value.Add("Warning"))),
+                new ControlText() { Text = _ => "Danger", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlForm(null, new ControlFormItemInputTag() { Color = _ => new PropertyColorTag(TypeColorTag.Danger) }.Initialize(x => x.Value.Add("Danger"))),
+                new ControlText() { Text = _ => "Light", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlForm(null, new ControlFormItemInputTag() { Color = _ => new PropertyColorTag(TypeColorTag.Light) }.Initialize(x => x.Value.Add("Light"))),
+                new ControlText() { Text = _ => "Dark", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlForm(null, new ControlFormItemInputTag() { Color = _ => new PropertyColorTag(TypeColorTag.Dark) }.Initialize(x => x.Value.Add("Dark"))),
+                new ControlText() { Text = _ => "User defind", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlForm(null, new ControlFormItemInputTag() { Color = _ => new PropertyColorTag("gold") }.Initialize(x => x.Value.Add("User defind")))
             );
 
             Stage.AddProperty

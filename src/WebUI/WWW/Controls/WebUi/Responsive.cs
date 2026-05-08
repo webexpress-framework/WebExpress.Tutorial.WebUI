@@ -27,22 +27,22 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.Controls = [
                 new ControlResponsive()
-                    .Add(new ControlPanel().Add(new ControlText() { Text = "Fallback" }), -1)
-                    .Add(new ControlPanel().Add(new ControlText() { Text = "Panel for >= 100px" }), 100)
-                    .Add(new ControlPanel().Add(new ControlText() { Text = "Panel for >= 200px" }), 200)
-                    .Add(new ControlPanel().Add(new ControlText() { Text = "Panel for >= 300px" }), 300)
-                    .Add(new ControlPanel().Add(new ControlText() { Text = "Panel for >= 400px" }), 400)
-                    .Add(new ControlPanel().Add(new ControlText() { Text = "Panel for >= 500px" }), 500)
+                    .Add(new ControlPanel().Add(new ControlText() { Text = _ => "Fallback" }), -1)
+                    .Add(new ControlPanel().Add(new ControlText() { Text = _ => "Panel for >= 100px" }), 100)
+                    .Add(new ControlPanel().Add(new ControlText() { Text = _ => "Panel for >= 200px" }), 200)
+                    .Add(new ControlPanel().Add(new ControlText() { Text = _ => "Panel for >= 300px" }), 300)
+                    .Add(new ControlPanel().Add(new ControlText() { Text = _ => "Panel for >= 400px" }), 400)
+                    .Add(new ControlPanel().Add(new ControlText() { Text = _ => "Panel for >= 500px" }), 500)
             ];
 
             Stage.Code = @"
             new ControlResponsive()
-                .Add(new ControlPanel().Add(new ControlText() { Text = ""Fallback"" }), -1) 
-                .Add(new ControlPanel().Add(new ControlText() { Text = ""Panel for >= 100px"" }), 100)
-                .Add(new ControlPanel().Add(new ControlText() { Text = ""Panel for >= 200px"" }), 200)
-                .Add(new ControlPanel().Add(new ControlText() { Text = ""Panel for >= 300px"" }), 300)
-                .Add(new ControlPanel().Add(new ControlText() { Text = ""Panel for >= 400px"" }), 400)
-                .Add(new ControlPanel().Add(new ControlText() { Text = ""Panel for >= 500px"" }), 500);";
+                .Add(new ControlPanel().Add(new ControlText() { Text = _ => ""Fallback"" }), -1) 
+                .Add(new ControlPanel().Add(new ControlText() { Text = _ => ""Panel for >= 100px"" }), 100)
+                .Add(new ControlPanel().Add(new ControlText() { Text = _ => ""Panel for >= 200px"" }), 200)
+                .Add(new ControlPanel().Add(new ControlText() { Text = _ => ""Panel for >= 300px"" }), 300)
+                .Add(new ControlPanel().Add(new ControlText() { Text = _ => ""Panel for >= 400px"" }), 400)
+                .Add(new ControlPanel().Add(new ControlText() { Text = _ => ""Panel for >= 500px"" }), 500);";
 
         }
     }

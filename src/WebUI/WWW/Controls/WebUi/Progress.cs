@@ -29,35 +29,35 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.Control = new ControlProgress()
             {
-                Value = 50
+                Value = _ => 50
             };
 
             Stage.Code = @"
                 new ControlProgress()
                 {
-                    Value = 50
+                    Value = _ => 50
                 };";
 
             Stage.AddProperty
             (
                 "Value",
                 "Sets the current value of the progress bar. The value should be between 0 and 100.",
-                "Value = 75",
+                "Value = _ => 75",
                 new ControlProgress()
                 {
-                    Value = 25
+                    Value = _ => 25
                 },
                 new ControlProgress()
                 {
-                    Value = 50
+                    Value = _ => 50
                 },
                 new ControlProgress()
                 {
-                    Value = 75
+                    Value = _ => 75
                 },
                 new ControlProgress()
                 {
-                    Value = 100
+                    Value = _ => 100
                 }
             );
 
@@ -66,40 +66,40 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Format",
                 "Defines visual layout of the progress bar.",
                 "Format = _ => TypeFormatProgress.Striped",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 25,
-                    Text = "Default",
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary),
-                    Format = TypeFormatProgress.Default,
+                    Value = _ => 25,
+                    Text = _ => "Default",
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary),
+                    Format = _ => TypeFormatProgress.Default,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
                 },
-                new ControlText() { Text = "Colored", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Colored", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Text = "Colored",
-                    Color = new PropertyColorProgress(TypeColorProgress.Secondary),
-                    Format = TypeFormatProgress.Colored,
+                    Value = _ => 50,
+                    Text = _ => "Colored",
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Secondary),
+                    Format = _ => TypeFormatProgress.Colored,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
                 },
-                new ControlText() { Text = "Striped", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Striped", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 75,
-                    Text = "Striped",
-                    Color = new PropertyColorProgress(TypeColorProgress.Info),
-                    Format = TypeFormatProgress.Striped,
+                    Value = _ => 75,
+                    Text = _ => "Striped",
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Info),
+                    Format = _ => TypeFormatProgress.Striped,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
                 },
-                new ControlText() { Text = "Animated", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Animated", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 100,
-                    Text = "Animated",
-                    Color = new PropertyColorProgress(TypeColorProgress.Success),
-                    Format = TypeFormatProgress.Animated,
+                    Value = _ => 100,
+                    Text = _ => "Animated",
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Success),
+                    Format = _ => TypeFormatProgress.Animated,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
                 }
 
@@ -110,68 +110,68 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Color",
                 "Sets the color of the progress bar.",
                 "Color = _ => new PropertyColorProgress(TypeColorProgress.Primary)",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Default)
+                    Value = _ => 50,
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Default)
                 },
-                new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Primary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary)
+                    Value = _ => 50,
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary)
                 },
-                new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Secondary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Secondary)
+                    Value = _ => 50,
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Secondary)
                 },
-                new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Info", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Info)
+                    Value = _ => 50,
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Info)
                 },
-                new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Success", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Success)
+                    Value = _ => 50,
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Success)
                 },
-                new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Warning", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Warning)
+                    Value = _ => 50,
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Warning)
                 },
-                new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Danger", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Danger)
+                    Value = _ => 50,
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Danger)
                 },
-                new ControlText() { Text = "Highlight", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Highlight", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Highlight)
+                    Value = _ => 50,
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Highlight)
                 },
-                new ControlText() { Text = "Custom", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Custom", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress("gold")
+                    Value = _ => 50,
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress("gold")
                 }
             );
 
@@ -180,113 +180,113 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "TextColor",
                 "Sets the text color of the progress bar.",
                 "TextColor = _ => new PropertyColorText(TypeColorText.Primary)",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Text = "Default",
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary),
-                    TextColor = new PropertyColorText(TypeColorText.Default)
+                    Value = _ => 50,
+                    Text = _ => "Default",
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Default)
                 },
-                new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Primary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Text = "Primary",
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary),
-                    TextColor = new PropertyColorText(TypeColorText.Primary)
+                    Value = _ => 50,
+                    Text = _ => "Primary",
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Primary)
                 },
-                new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Secondary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Text = "Secondary",
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary),
-                    TextColor = new PropertyColorText(TypeColorText.Secondary)
+                    Value = _ => 50,
+                    Text = _ => "Secondary",
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Secondary)
                 },
-                new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Info", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Text = "Info",
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary),
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Value = _ => 50,
+                    Text = _ => "Info",
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
-                new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Success", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Text = "Success",
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary),
-                    TextColor = new PropertyColorText(TypeColorText.Success)
+                    Value = _ => 50,
+                    Text = _ => "Success",
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Success)
                 },
-                new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Warning", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Text = "Warning",
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary),
-                    TextColor = new PropertyColorText(TypeColorText.Warning)
+                    Value = _ => 50,
+                    Text = _ => "Warning",
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Warning)
                 },
-                new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Danger", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Text = "Danger",
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary),
-                    TextColor = new PropertyColorText(TypeColorText.Danger)
+                    Value = _ => 50,
+                    Text = _ => "Danger",
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Danger)
                 },
-                new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Light", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Text = "Light",
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary),
-                    TextColor = new PropertyColorText(TypeColorText.Light)
+                    Value = _ => 50,
+                    Text = _ => "Light",
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Light)
                 },
-                new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Dark", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Text = "Dark",
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary),
-                    TextColor = new PropertyColorText(TypeColorText.Dark)
+                    Value = _ => 50,
+                    Text = _ => "Dark",
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Dark)
                 },
-                new ControlText() { Text = "White", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "White", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Text = "White",
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary),
-                    TextColor = new PropertyColorText(TypeColorText.White)
+                    Value = _ => 50,
+                    Text = _ => "White",
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary),
+                    TextColor = _ => new PropertyColorText(TypeColorText.White)
                 },
-                new ControlText() { Text = "Muted", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Muted", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Text = "Muted",
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary),
-                    TextColor = new PropertyColorText(TypeColorText.Muted)
+                    Value = _ => 50,
+                    Text = _ => "Muted",
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Muted)
                 },
-                new ControlText() { Text = "Custom", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Custom", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Text = "Custom",
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary),
-                    TextColor = new PropertyColorText("gold")
+                    Value = _ => 50,
+                    Text = _ => "Custom",
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary),
+                    TextColor = _ => new PropertyColorText("gold")
                 }
             );
 
@@ -295,112 +295,112 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "BackgroundColor",
                 "Defines the background color of the component.",
                 "TextColor = _ => new PropertyColorText(TypeColorText.Primary)",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Text = "Default",
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary),
+                    Value = _ => 50,
+                    Text = _ => "Default",
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Default)
                 },
-                new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Primary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Text = "Primary",
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary),
+                    Value = _ => 50,
+                    Text = _ => "Primary",
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Primary)
                 },
-                new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Secondary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Text = "Secondary",
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary),
+                    Value = _ => 50,
+                    Text = _ => "Secondary",
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Secondary)
                 },
-                new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Info", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Text = "Info",
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary),
+                    Value = _ => 50,
+                    Text = _ => "Info",
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Info)
                 },
-                new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Success", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Text = "Success",
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary),
+                    Value = _ => 50,
+                    Text = _ => "Success",
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 },
-                new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Warning", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Text = "Warning",
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary),
+                    Value = _ => 50,
+                    Text = _ => "Warning",
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Warning)
                 },
-                new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Danger", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Text = "Danger",
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary),
+                    Value = _ => 50,
+                    Text = _ => "Danger",
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Danger)
                 },
-                new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Light", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Text = "Light",
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary),
+                    Value = _ => 50,
+                    Text = _ => "Light",
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Light)
                 },
-                new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Dark", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Text = "Dark",
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary),
+                    Value = _ => 50,
+                    Text = _ => "Dark",
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Dark)
                 },
-                new ControlText() { Text = "White", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "White", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Text = "White",
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary),
+                    Value = _ => 50,
+                    Text = _ => "White",
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.White)
                 },
-                new ControlText() { Text = "Transparent", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Transparent", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Text = "Transparent",
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary),
+                    Value = _ => 50,
+                    Text = _ => "Transparent",
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Transparent)
                 },
-                new ControlText() { Text = "Custom", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Custom", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 50,
-                    Text = "Custom",
-                    Format = TypeFormatProgress.Animated,
-                    Color = new PropertyColorProgress(TypeColorProgress.Primary),
+                    Value = _ => 50,
+                    Text = _ => "Custom",
+                    Format = _ => TypeFormatProgress.Animated,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Primary),
                     BackgroundColor = _ => new PropertyColorBackground("gold")
                 }
             );
@@ -410,54 +410,54 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Size",
                 "Specifies the vertical dimension of the progress bar.",
                 "Size = _ => TypeSizeProgress.ExtraSmall",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 75,
-                    Text = "Default",
-                    Size = TypeSizeProgress.Default,
-                    Color = new PropertyColorProgress(TypeColorProgress.Success),
-                    Format = TypeFormatProgress.Animated,
+                    Value = _ => 75,
+                    Text = _ => "Default",
+                    Size = _ => TypeSizeProgress.Default,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Success),
+                    Format = _ => TypeFormatProgress.Animated,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
                 },
-                new ControlText() { Text = "ExtraSmall", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "ExtraSmall", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 75,
-                    Text = "ExtraSmall",
-                    Size = TypeSizeProgress.ExtraSmall,
-                    Color = new PropertyColorProgress(TypeColorProgress.Success),
-                    Format = TypeFormatProgress.Animated,
+                    Value = _ => 75,
+                    Text = _ => "ExtraSmall",
+                    Size = _ => TypeSizeProgress.ExtraSmall,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Success),
+                    Format = _ => TypeFormatProgress.Animated,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
                 },
-                new ControlText() { Text = "Small", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Small", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 75,
-                    Text = "Small",
-                    Size = TypeSizeProgress.Small,
-                    Color = new PropertyColorProgress(TypeColorProgress.Success),
-                    Format = TypeFormatProgress.Animated,
+                    Value = _ => 75,
+                    Text = _ => "Small",
+                    Size = _ => TypeSizeProgress.Small,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Success),
+                    Format = _ => TypeFormatProgress.Animated,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
                 },
-                new ControlText() { Text = "Large", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Large", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 75,
-                    Text = "Large",
-                    Size = TypeSizeProgress.Large,
-                    Color = new PropertyColorProgress(TypeColorProgress.Success),
-                    Format = TypeFormatProgress.Animated,
+                    Value = _ => 75,
+                    Text = _ => "Large",
+                    Size = _ => TypeSizeProgress.Large,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Success),
+                    Format = _ => TypeFormatProgress.Animated,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
                 },
-                new ControlText() { Text = "ExtraLarge", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "ExtraLarge", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlProgress()
                 {
-                    Value = 75,
-                    Text = "ExtraLarge",
-                    Size = TypeSizeProgress.ExtraLarge,
-                    Color = new PropertyColorProgress(TypeColorProgress.Success),
-                    Format = TypeFormatProgress.Animated,
+                    Value = _ => 75,
+                    Text = _ => "ExtraLarge",
+                    Size = _ => TypeSizeProgress.ExtraLarge,
+                    Color = _ => new PropertyColorProgress(TypeColorProgress.Success),
+                    Format = _ => TypeFormatProgress.Animated,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
                 }
 

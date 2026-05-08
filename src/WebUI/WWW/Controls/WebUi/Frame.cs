@@ -30,23 +30,23 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.Control = new ControlFrame()
             {
-                Uri = pageContext.ApplicationContext.Route.ToUri()
+                Uri = _ => pageContext.ApplicationContext.Route.ToUri()
             };
 
             Stage.Code = @"
             new ControlFrame()
             {
-                Uri = pageContext.ApplicationContext.Route.ToUri()
+                Uri = _ => pageContext.ApplicationContext.Route.ToUri()
             };";
 
             Stage.AddProperty
             (
                 "Uri",
                 "The `Uri` property defines the source of the external HTML content to be embedded. It can point to a full HTML page or a partial fragment that will be integrated into the current view—similar to an iframe, but with DOM-level control.",
-                "Uri = sitemapManager.GetUri<Info>(pageContext.ApplicationContext)",
+                "Uri = _ => sitemapManager.GetUri<Info>(pageContext.ApplicationContext)",
                 new ControlFrame()
                 {
-                    Uri = sitemapManager.GetUri<Info>(pageContext.ApplicationContext)
+                    Uri = _ => sitemapManager.GetUri<Info>(pageContext.ApplicationContext)
                 }
             );
 
@@ -54,11 +54,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Selector",
                 "The `Selector` property allows you to specify a CSS selector—such as an `id` or `class`—to extract only a specific fragment from the loaded HTML content. This enables precise embedding of partial views rather than full pages.",
-                "Selector = \"#wx-content-main\"",
+                "Selector = _ => \"#wx-content-main\"",
                 new ControlFrame()
                 {
-                    Uri = sitemapManager.GetUri<Info>(pageContext.ApplicationContext),
-                    Selector = "#wx-content-main"
+                    Uri = _ => sitemapManager.GetUri<Info>(pageContext.ApplicationContext),
+                    Selector = _ => "#wx-content-main"
                 }
             );
         }

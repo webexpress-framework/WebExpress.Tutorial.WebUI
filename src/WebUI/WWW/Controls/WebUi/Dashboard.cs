@@ -66,13 +66,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 );
 
             var content1 = new ControlDashboardWidgetContent()
-                .Add(new ControlText() { Text = "System Status: OK" });
+                .Add(new ControlText() { Text = _ => "System Status: OK" });
 
             var content2 = new ControlDashboardWidgetContent()
-                .Add(new ControlText() { Text = "Active users: 42" });
+                .Add(new ControlText() { Text = _ => "Active users: 42" });
 
             var content3 = new ControlDashboardWidgetContent()
-                .Add(new ControlText() { Text = "Analytics data is loading" });
+                .Add(new ControlText() { Text = _ => "Analytics data is loading" });
 
             dashboard.Add(content1, content2, content3);
 
@@ -172,7 +172,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Movable",
                 "The `Movable` property determines whether a widget can be repositioned within the dashboard layout. When enabled, users can drag the widget to a different column or position, allowing flexible customization of the dashboard’s structure. When disabled, the widget remains fixed in place, ensuring a stable layout for essential or system‑defined components.",
                 "Movable = _ => false",
-                new ControlText() { Text = "default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlDashboard(RandomId.Create())
                 .Add
                 (
@@ -187,7 +187,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                         Widget = _ => "system"
                     }
                 ),
-                new ControlText() { Text = "false", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "false", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlDashboard(RandomId.Create())
                 .Add
                 (
@@ -203,7 +203,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                         Widget = _ => "system"
                     }
                 ),
-                new ControlText() { Text = "true", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "true", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlDashboard(RandomId.Create())
                 .Add
                 (
@@ -227,7 +227,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Closeable",
                 "The `Closeable` property determines whether a widget can be removed from the dashboard by the user. When enabled, the widget displays a close control that allows users to hide or dismiss it, providing flexibility for personalizing the dashboard layout. When disabled, the widget remains permanently visible, ensuring that essential or system‑defined components cannot be accidentally removed.",
                 "Closeable = _ => false",
-                new ControlText() { Text = "default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlDashboard(RandomId.Create())
                 .Add
                 (
@@ -242,7 +242,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                         Widget = _ => "system"
                     }
                 ),
-                new ControlText() { Text = "false", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "false", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlDashboard(RandomId.Create())
                 .Add
                 (
@@ -258,7 +258,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                         Widget = _ => "system"
                     }
                 ),
-                new ControlText() { Text = "true", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "true", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlDashboard(RandomId.Create())
                 .Add
                 (

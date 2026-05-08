@@ -130,17 +130,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Shape",
                 "The `Shape` property defines the clipping shape of the avatar image. Supported values are `circle` and `rect`.",
                 "Shape = _ => \"circle\"",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputAvatar(null)
                 {
                     Shape = _ => TypeAvatarShape.Default
                 }),
-                new ControlText() { Text = "Circle", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Circle", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputAvatar(null)
                 {
                     Shape = _ => TypeAvatarShape.Circle
                 }),
-                new ControlText() { Text = "Rect", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Rect", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputAvatar(null)
                 {
                     Shape = _ => TypeAvatarShape.Rect

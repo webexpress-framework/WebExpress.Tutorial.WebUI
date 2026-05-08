@@ -20,7 +20,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.FragmentPage
         public SectionHeadlineMetadataFragment(IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "SectionHeadlineMetadata";
+            Text = _ => "SectionHeadlineMetadata";
         }
     }
 }

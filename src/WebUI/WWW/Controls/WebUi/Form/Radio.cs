@@ -29,7 +29,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             Stage.Description = @"A `Radio` control is a graphical user interface element that allows users to select one of several options. Unlike a checkbox, only one option within a group can be selected at a time.";
 
             Stage.Control = new ControlForm()
-                .Add(new ControlFormItemInputRadio { Label = _ => "Label", Description = "Radio description" })
+                .Add(new ControlFormItemInputRadio { Label = _ => "Label", Description = _ => "Radio description" })
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
@@ -80,7 +80,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                        {
                            Label = _ => "Option 1",
                            Icon = _ => new IconPaperPlane(),
-                           Description = "Option 1 – Select this option",
+                           Description = _ => "Option 1 – Select this option",
                            Help = _ => "For more information about the selection, see the help.",
                        })
                        .AddPrimaryButton(new ControlFormItemButtonSubmit())
@@ -96,7 +96,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                        {
                            Label = _ => "Option 1",
                            Icon = _ => new IconPaperPlane(),
-                           Description = "Option 1 – Select this option",
+                           Description = _ => "Option 1 – Select this option",
                            Help = _ => "For more information about the selection, see the help.",
                            Disabled = _ => true
                        })
@@ -112,13 +112,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                        .Add(new ControlFormItemInputRadio
                        {
                            Name = _ => "InlineRadioOptions",
-                           Description = "Radio 1",
-                           Inline = true
+                           Description = _ => "Radio 1",
+                           Inline = _ => true
                        }, new ControlFormItemInputRadio
                        {
                            Name = _ => "InlineRadioOptions",
-                           Description = "Radio 2",
-                           Inline = true
+                           Description = _ => "Radio 2",
+                           Inline = _ => true
                        })
                        .AddPrimaryButton(new ControlFormItemButtonSubmit())
                );

@@ -43,9 +43,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 new ControlModalRemoteForm("myModal")
                 {
                     Header = _ => "My modal",
-                    Size = TypeModalSize.ExtraLarge,
-                    Uri = sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
-                    Selector = "conformationform"
+                    Size = _ => TypeModalSize.ExtraLarge,
+                    Uri = _ => sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
+                    Selector = _ => "conformationform"
                 }
             ];
 
@@ -61,9 +61,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 new ControlModalRemoteForm("myDarkModal")
                 {
                     Header = _ => "My modal",
-                    Size = TypeModalSize.ExtraLarge,
-                    Uri = sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
-                    Selector = "conformationform"
+                    Size = _ => TypeModalSize.ExtraLarge,
+                    Uri = _ => sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
+                    Selector = _ => "conformationform"
                 }
             ];
 
@@ -99,9 +99,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 new ControlModalRemoteForm("myModalUri")
                 {
                     Header = _ => "Header",
-                    Size = TypeModalSize.ExtraLarge,
-                    Uri = sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
-                    Selector = "conformationform"
+                    Size = _ => TypeModalSize.ExtraLarge,
+                    Uri = _ => sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
+                    Selector = _ => "conformationform"
                 }
             );
 
@@ -120,9 +120,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 new ControlModalRemoteForm("myModalSelector")
                 {
                     Header = _ => "Header",
-                    Size = TypeModalSize.ExtraLarge,
-                    Uri = sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
-                    Selector = "conformationform"
+                    Size = _ => TypeModalSize.ExtraLarge,
+                    Uri = _ => sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
+                    Selector = _ => "conformationform"
                 }
             );
         }

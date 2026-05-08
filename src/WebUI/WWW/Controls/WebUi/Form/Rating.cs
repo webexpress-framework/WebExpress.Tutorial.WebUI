@@ -68,10 +68,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "MaxRating",
                 "The `MaxRating` property defines the maximum number of stars available in the `Rating` control. It allows developers to configure how many stars users can select, providing flexibility for different evaluation scales.",
-                "new ControlFormItemInputRating(null) { MaxRating = 9 }",
+                "new ControlFormItemInputRating(null) { MaxRating = _ => 9 }",
                 new ControlForm(null, new ControlFormItemInputRating(null)
                 {
-                    MaxRating = 9,
+                    MaxRating = _ => 9,
                 })
             );
 
@@ -79,7 +79,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "Label",
                 "The `Label` property of a `Rating` control item serves as a short form of the option text and is displayed in the main area of the control once a selection is made. Instead of showing the full descriptive text of an option, the label ensures a concise and clear representation of the chosen selection. When the label is defined as an internationalization key.",
-                "new ControlFormItemInputRating(\"a\") { Label = \"Rating Label\" }",
+                "new ControlFormItemInputRating(\"a\") { Label = _ => \"Rating Label\" }",
                 new ControlForm(null, new ControlFormItemInputRating("a")
                 {
                     Label = _ => "Rating Label"

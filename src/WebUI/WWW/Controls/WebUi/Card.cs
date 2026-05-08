@@ -28,13 +28,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.Control = new ControlPanelCard()
             {
             }
-                .Add(new ControlText() { Text = "This is a sample card!" });
+                .Add(new ControlText() { Text = _ => "This is a sample card!" });
 
             Stage.Code = @"
             new ControlPanelCard()
             {
             }
-                .Add(new ControlText() { Text = ""This is a sample card!"" });";
+                .Add(new ControlText() { Text = _ => ""This is a sample card!"" });";
 
             Stage.AddProperty
             (
@@ -45,74 +45,74 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
 
                 }
-                    .Add(new ControlText() { Text = "Without specifying a background color." }),
+                    .Add(new ControlText() { Text = _ => "Without specifying a background color." }),
                 new ControlPanelCard()
                 {
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Primary),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
                 }
-                    .Add(new ControlText() { Text = "The primary background color." }),
+                    .Add(new ControlText() { Text = _ => "The primary background color." }),
                 new ControlPanelCard()
                 {
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Secondary),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
                 }
-                    .Add(new ControlText() { Text = "The secondary background color." }),
+                    .Add(new ControlText() { Text = _ => "The secondary background color." }),
                 new ControlPanelCard()
                 {
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Info),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
                 }
-                    .Add(new ControlText() { Text = "The info background color." }),
+                    .Add(new ControlText() { Text = _ => "The info background color." }),
                 new ControlPanelCard()
                 {
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
                 }
-                    .Add(new ControlText() { Text = "The success background color." }),
+                    .Add(new ControlText() { Text = _ => "The success background color." }),
                 new ControlPanelCard()
                 {
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Warning),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
                 }
-                    .Add(new ControlText() { Text = "The warning background color." }),
+                    .Add(new ControlText() { Text = _ => "The warning background color." }),
                 new ControlPanelCard()
                 {
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Danger),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
                 }
-                    .Add(new ControlText() { Text = "The danger background color." }),
+                    .Add(new ControlText() { Text = _ => "The danger background color." }),
                 new ControlPanelCard()
                 {
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Dark),
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
                 }
-                    .Add(new ControlText() { Text = "The dark background color." }),
+                    .Add(new ControlText() { Text = _ => "The dark background color." }),
                 new ControlPanelCard()
                 {
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Light),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
                 }
-                    .Add(new ControlText() { Text = "The light background color." }),
+                    .Add(new ControlText() { Text = _ => "The light background color." }),
                 new ControlPanelCard()
                 {
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.White),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
                 }
-                    .Add(new ControlText() { Text = "The white background color." }),
+                    .Add(new ControlText() { Text = _ => "The white background color." }),
                 new ControlPanelCard()
                 {
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Transparent),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
                 }
-                    .Add(new ControlText() { Text = "The transparent background color." }),
+                    .Add(new ControlText() { Text = _ => "The transparent background color." }),
                 new ControlPanelCard()
                 {
                     BackgroundColor = _ => new PropertyColorBackground("gold"),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
                 }
-                    .Add(new ControlText() { Text = "The custom background color." })
+                    .Add(new ControlText() { Text = _ => "The custom background color." })
             );
 
             Stage.AddProperty
@@ -122,11 +122,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Header = _ => \"Header\"",
                 new ControlPanelCard()
                 {
-                    Header = "Header",
+                    Header = _ => "Header",
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 }
-                    .Add(new ControlText() { Text = "With a specified header text." })
+                    .Add(new ControlText() { Text = _ => "With a specified header text." })
             );
 
             Stage.AddProperty
@@ -136,12 +136,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "HeaderImage = _ => applicationContext.Route.Concat(\"/assets/img/ufo.png\").ToUri()",
                 new ControlPanelCard()
                 {
-                    Header = "Header",
-                    HeaderImage = applicationContext.Route.Concat("/assets/img/ufo.png").ToUri(),
+                    Header = _ => "Header",
+                    HeaderImage = _ => applicationContext.Route.Concat("/assets/img/ufo.png").ToUri(),
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 }
-                    .Add(new ControlText() { Text = "With a specified header text." })
+                    .Add(new ControlText() { Text = _ => "With a specified header text." })
             );
 
             Stage.AddProperty
@@ -151,11 +151,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Headline = _ => \"Headline\"",
                 new ControlPanelCard()
                 {
-                    Headline = "Headline",
+                    Headline = _ => "Headline",
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 }
-                    .Add(new ControlText() { Text = "With a specified headline text." })
+                    .Add(new ControlText() { Text = _ => "With a specified headline text." })
             );
 
             Stage.AddProperty
@@ -165,11 +165,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Footer = _ => \"Footer\"",
                 new ControlPanelCard()
                 {
-                    Footer = "Footer",
+                    Footer = _ => "Footer",
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 }
-                    .Add(new ControlText() { Text = "With a specified footer text." })
+                    .Add(new ControlText() { Text = _ => "With a specified footer text." })
             );
 
             Stage.AddProperty
@@ -179,12 +179,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "FooterImage = _ => applicationContext.Route.Concat(\"/assets/img/ufo.png\").ToUri()",
                 new ControlPanelCard()
                 {
-                    Footer = "Footer",
-                    FooterImage = applicationContext.Route.Concat("/assets/img/ufo.png").ToUri(),
+                    Footer = _ => "Footer",
+                    FooterImage = _ => applicationContext.Route.Concat("/assets/img/ufo.png").ToUri(),
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 }
-                    .Add(new ControlText() { Text = "With a specified footer text." })
+                    .Add(new ControlText() { Text = _ => "With a specified footer text." })
             );
         }
     }

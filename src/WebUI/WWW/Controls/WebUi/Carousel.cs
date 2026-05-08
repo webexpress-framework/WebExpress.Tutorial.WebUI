@@ -36,7 +36,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Control = _ => new ControlImage()
                     {
                         Classes = ["w-100"],
-                        Uri = applicationContext.Route.Concat("assets/img/carousel1.png").ToUri()
+                        Uri = _ => applicationContext.Route.Concat("assets/img/carousel1.png").ToUri()
                     }
                 })
                 .Add(new ControlCarouselItem()
@@ -46,7 +46,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Control = _ => new ControlImage()
                     {
                         Classes = ["w-100"],
-                        Uri = applicationContext.Route.Concat("assets/img/carousel2.png").ToUri()
+                        Uri = _ => applicationContext.Route.Concat("assets/img/carousel2.png").ToUri()
                     }
                 })
                 .Add(new ControlCarouselItem()
@@ -56,7 +56,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Control = _ => new ControlImage()
                     {
                         Classes = ["w-100"],
-                        Uri = applicationContext.Route.Concat("assets/img/carousel3.png").ToUri()
+                        Uri = _ => applicationContext.Route.Concat("assets/img/carousel3.png").ToUri()
                     }
                 });
 
@@ -67,8 +67,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 }
                 .Add(new ControlCarouselItem()
                 {
-                    Headline = ""Item 1"",
-                    Text = ""Text for item 1"",
+                    Headline = _ => ""Item 1"",
+                    Text = _ => ""Text for item 1"",
                     Control = new ControlImage()
                     {
                         Classes = [""w-100""],
@@ -77,8 +77,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 })
                 .Add(new ControlCarouselItem()
                 {
-                    Headline = ""Item 2"",
-                    Text = ""Text for item 2"",
+                    Headline = _ => ""Item 2"",
+                    Text = _ => ""Text for item 2"",
                     Control = new ControlImage()
                     {
                         Classes = [""w-100""],
@@ -87,8 +87,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 })
                 .Add(new ControlCarouselItem()
                 {
-                    Headline =_ =>  ""Item 3"",
-                    Text = _ =>  ""Text for item 3"",
+                    Headline =_ =>  _ => ""Item 3"",
+                    Text = _ =>  _ => ""Text for item 3"",
                     Control = new ControlImage()
                     {
                         Classes = [""w-100""],
@@ -109,7 +109,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                             Control = _ => new ControlImage()
                             {
                                 Classes = ["w-100"],
-                                Uri = applicationContext.Route.Concat("assets/img/carousel1.png").ToUri()
+                                Uri = _ => applicationContext.Route.Concat("assets/img/carousel1.png").ToUri()
                             }
                         })
                         .Add(new ControlCarouselItem()
@@ -119,7 +119,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                             Control = _ => new ControlImage()
                             {
                                 Classes = ["w-100"],
-                                Uri = applicationContext.Route.Concat("assets/img/carousel2.png").ToUri()
+                                Uri = _ => applicationContext.Route.Concat("assets/img/carousel2.png").ToUri()
                             }
                         })
                         .Add(new ControlCarouselItem()
@@ -129,7 +129,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                             Control = _ => new ControlImage()
                             {
                                 Classes = ["w-100"],
-                                Uri = applicationContext.Route.Concat("assets/img/carousel3.png").ToUri()
+                                Uri = _ => applicationContext.Route.Concat("assets/img/carousel3.png").ToUri()
                             }
                         })
                         .Add(new ControlCarouselItem()
@@ -139,7 +139,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                             Control = _ => new ControlImage()
                             {
                                 Classes = ["w-100"],
-                                Uri = applicationContext.Route.Concat("assets/img/carousel4.png").ToUri()
+                                Uri = _ => applicationContext.Route.Concat("assets/img/carousel4.png").ToUri()
                             }
                         })
                         .Add(new ControlCarouselItem()
@@ -149,7 +149,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                             Control = _ => new ControlImage()
                             {
                                 Classes = ["w-100"],
-                                Uri = applicationContext.Route.Concat("assets/img/carousel5.png").ToUri()
+                                Uri =_ =>  applicationContext.Route.Concat("assets/img/carousel5.png").ToUri()
                             }
                         })
                         .Add(new ControlCarouselItem()
@@ -159,7 +159,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                             Control = _ => new ControlImage()
                             {
                                 Classes = ["w-100"],
-                                Uri = applicationContext.Route.Concat("assets/img/carousel6.png").ToUri()
+                                Uri = _ => applicationContext.Route.Concat("assets/img/carousel6.png").ToUri()
                             }
                         })
             ];

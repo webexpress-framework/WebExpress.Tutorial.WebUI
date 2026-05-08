@@ -20,7 +20,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.FragmentPage
         public SectionPropertyPreferencesFragment(IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            Text = "SectionPropertyPreferences";
+            Text = _ => "SectionPropertyPreferences";
         }
     }
 }

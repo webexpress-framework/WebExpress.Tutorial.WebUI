@@ -116,8 +116,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 typeof(ControlFormItemInputSelectionItem),
                 "Content",
                 "The `Content` property of a `Select` control item represents the full description of the selection option in the dropdown list. Unlike the Label property, which provides a shortened display in the main area of the control, Content contains the complete text of the option.",
-                "new ControlFormItemInputSelectionItem() { Text=\"Text 2\", Content = new ControlText() { Text = \"Full **description** of the selection option\", Format = TypeFormatText.Markdown } }",
-                new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = _ => "Text 2", Content = _ => new ControlText() { Text = "Full **description** of the selection option", Format = TypeFormatText.Markdown } })
+                "new ControlFormItemInputSelectionItem() { Text = _ => \"Text 2\", Content = _ => new ControlText() { Text = _ => \"Full **description** of the selection option\", Format = _ => TypeFormatText.Markdown } }",
+                new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = _ => "Text 2", Content = _ => new ControlText() { Text = _ => "Full **description** of the selection option", Format = _ => TypeFormatText.Markdown } })
                 {
                 })
             );
@@ -127,7 +127,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 typeof(ControlFormItemInputSelectionItem),
                 "Icon",
                 "The `Icon` property defines the symbol assigned to a item. It provides a visual representation and identification of a option within the list structure, enhancing user guidance and recognition. Icons can be either system icons or custom icons, allowing flexibility in design and functionality. System icons offer a standardized visual language, ensuring consistency across applications, while custom icons enable tailored representations to meet specific user needs.",
-                "new ControlFormItemInputSelectionItem() { Icon = new IconHome() }",
+                "new ControlFormItemInputSelectionItem() { Icon = _ => new IconHome() }",
                 new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Icon = _ => new IconHome() })
                 {
                 })
@@ -138,7 +138,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 typeof(ControlFormItemInputSelectionItem),
                 "Selected",
                 "The `Icon` property defines the symbol assigned to a item. It provides a visual representation and identification of a option within the list structure, enhancing user guidance and recognition. Icons can be either system icons or custom icons, allowing flexibility in design and functionality. System icons offer a standardized visual language, ensuring consistency across applications, while custom icons enable tailored representations to meet specific user needs.",
-                "new ControlFormItemInputSelectionItem() { Label = \"Label\", Selected = true }",
+                "new ControlFormItemInputSelectionItem() { Label = _ => \"Label\", Selected = _ => true }",
                 new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = _ => "Label", Selected = _ => true })
                 {
                 })
@@ -149,40 +149,40 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 typeof(ControlFormItemInputSelectionItem),
                 "LabelColor",
                 "The `LabelColor` property defines the signature color of a `Select` control item’s label, visually highlighting the selected option. By customizing the color, the label can be styled to match the user interface or a specific design scheme, ensuring a consistent and appealing presentation.",
-                "new ControlFormItemInputSelectionItem() { Label = \"Label\", LabelColor = TypeColorSelection.Primary, Selected = true }",
-                new ControlText() { Text = "Default", TextColor = new PropertyColorText(TypeColorText.Info) },
+                "new ControlFormItemInputSelectionItem() { Label = _ => \"Label\", LabelColor = _ => TypeColorSelection.Primary, Selected = _ => true }",
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = _ => "Label", Color = _ => TypeColorSelection.Default, Selected = _ => true })
                 {
                 }),
-                new ControlText() { Text = "Primary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Primary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = _ => "Label", Color = _ => TypeColorSelection.Primary, Selected = _ => true })
                 {
                 }),
-                new ControlText() { Text = "Secondary", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Secondary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = _ => "Label", Color = _ => TypeColorSelection.Secondary, Selected = _ => true })
                 {
                 }),
-                new ControlText() { Text = "Info", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Info", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = _ => "Label", Color = _ => TypeColorSelection.Info, Selected = _ => true })
                 {
                 }),
-                new ControlText() { Text = "Success", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Success", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = _ => "Label", Color = _ => TypeColorSelection.Success, Selected = _ => true })
                 {
                 }),
-                new ControlText() { Text = "Warning", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Warning", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = _ => "Label", Color = _ => TypeColorSelection.Warning, Selected = _ => true })
                 {
                 }),
-                new ControlText() { Text = "Danger", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Danger", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = _ => "Label", Color = _ => TypeColorSelection.Danger, Selected = _ => true })
                 {
                 }),
-                new ControlText() { Text = "Light", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Light", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = _ => "Label", Color = _ => TypeColorSelection.Light, Selected = _ => true })
                 {
                 }),
-                new ControlText() { Text = "Dark", TextColor = new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "Dark", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlForm(null, new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem() { Text = _ => "Label", Color = _ => TypeColorSelection.Dark, Selected = _ => true })
                 {
                 })

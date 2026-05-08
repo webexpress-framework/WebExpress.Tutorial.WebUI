@@ -53,9 +53,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlModalRemoteForm("myModal")
                 {
                     Header = _ => "My modal",
-                    Size = TypeModalSize.ExtraLarge,
-                    Uri = sitemapManager.GetUri<Index>(pageContext.ApplicationContext),
-                    Selector = "#conformationform"
+                    Size = _ => TypeModalSize.ExtraLarge,
+                    Uri = _ => sitemapManager.GetUri<Index>(pageContext.ApplicationContext),
+                    Selector = _ => "#conformationform"
                 }
             ];
 
@@ -71,9 +71,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.Code = @"
             new ControlDropdown()
             {
-                Text = ""Dropdown"",
-                TextColor = new PropertyColorText(TypeColorText.Default),
-                BackgroundColor = new PropertyColorButton(TypeColorButton.Primary)
+                Text = _ => ""Dropdown"",
+                TextColor = _ => new PropertyColorText(TypeColorText.Default),
+                BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary)
             }
                 .Add(new ControlDropdownItemHeader() { Text = _ => ""Header"" }) 
                 .Add(new ControlDropdownItemLink() { Text = _ => ""First Entry"", Icon = _ => new IconWrench() })
@@ -144,8 +144,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     }
                 )
                 {
-                    Layout = TypeLayoutFlex.Default,
-                    Align = TypeAlignFlex.Center
+                    Layout = _ => TypeLayoutFlex.Default,
+                    Align = _ => TypeAlignFlex.Center
                 }
             );
 
@@ -221,8 +221,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     }
                 )
                 {
-                    Layout = TypeLayoutFlex.Default,
-                    Align = TypeAlignFlex.Center
+                    Layout = _ => TypeLayoutFlex.Default,
+                    Align = _ => TypeAlignFlex.Center
                 }
             );
 
@@ -257,8 +257,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     }
                 )
                 {
-                    Layout = TypeLayoutFlex.Default,
-                    Align = TypeAlignFlex.Center
+                    Layout = _ => TypeLayoutFlex.Default,
+                    Align = _ => TypeAlignFlex.Center
                 }
             );
 
@@ -286,8 +286,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     }
                 )
                 {
-                    Layout = TypeLayoutFlex.Default,
-                    Align = TypeAlignFlex.Center
+                    Layout = _ => TypeLayoutFlex.Default,
+                    Align = _ => TypeAlignFlex.Center
                 }
             );
 
@@ -336,8 +336,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     }
                 )
                 {
-                    Layout = TypeLayoutFlex.Default,
-                    Align = TypeAlignFlex.Center
+                    Layout = _ => TypeLayoutFlex.Default,
+                    Align = _ => TypeAlignFlex.Center
                 }
             );
 
@@ -365,8 +365,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     }
                 )
                 {
-                    Layout = TypeLayoutFlex.Default,
-                    Align = TypeAlignFlex.Center
+                    Layout = _ => TypeLayoutFlex.Default,
+                    Align = _ => TypeAlignFlex.Center
                 }
             );
 
@@ -394,8 +394,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     }
                 )
                 {
-                    Layout = TypeLayoutFlex.Default,
-                    Align = TypeAlignFlex.Center
+                    Layout = _ => TypeLayoutFlex.Default,
+                    Align = _ => TypeAlignFlex.Center
                 }
             );
 

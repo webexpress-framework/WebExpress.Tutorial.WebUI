@@ -38,9 +38,9 @@ namespace WebExpress.Tutorial.WebUI.WWW
 
             visualTree.Content.MainPanel.AddPrimary(new ControlImage()
             {
-                Uri = renderContext.PageContext.ApplicationContext.Route.Concat("assets/img/webui.svg").ToUri(),
-                Width = 200,
-                Height = 200,
+                Uri = _ => renderContext.PageContext.ApplicationContext.Route.Concat("assets/img/webui.svg").ToUri(),
+                Width = _ => 200,
+                Height = _ => 200,
                 HorizontalAlignment = _ => TypeHorizontalAlignment.Right
             });
 
@@ -51,25 +51,25 @@ namespace WebExpress.Tutorial.WebUI.WWW
 
             card.Add(new ControlText()
             {
-                Text = I18N.Translate(renderContext, "webexpress.Tutorial.webui:app.name"),
-                Format = TypeFormatText.H3
+                Text = _ => I18N.Translate(renderContext, "webexpress.Tutorial.webui:app.name"),
+                Format = _ => TypeFormatText.H3
             });
 
             card.Add(new ControlText()
             {
-                Text = I18N.Translate(renderContext, "webexpress.Tutorial.webui:app.description"),
-                Format = TypeFormatText.Paragraph
+                Text = _ => I18N.Translate(renderContext, "webexpress.Tutorial.webui:app.description"),
+                Format = _ => TypeFormatText.Paragraph
             });
 
             card.Add(new ControlText()
             {
-                Text = I18N.Translate(renderContext, "webexpress.Tutorial.webui:app.about"),
-                Format = TypeFormatText.H3
+                Text = _ => I18N.Translate(renderContext, "webexpress.Tutorial.webui:app.about"),
+                Format = _ => TypeFormatText.H3
             });
 
             card.Add(new ControlText()
             {
-                Text = string.Format
+                Text = _ => string.Format
                 (
                     I18N.Translate(renderContext, "webexpress.Tutorial.webui:app.version.label"),
                     I18N.Translate(renderContext, webapp?.PluginName),
@@ -77,7 +77,7 @@ namespace WebExpress.Tutorial.WebUI.WWW
                     webexpress?.PluginName,
                     webexpress?.Version
                 ),
-                TextColor = new PropertyColorText(TypeColorText.Primary)
+                TextColor = _ => new PropertyColorText(TypeColorText.Primary)
             });
 
             visualTree.Content.MainPanel.AddPrimary(card);

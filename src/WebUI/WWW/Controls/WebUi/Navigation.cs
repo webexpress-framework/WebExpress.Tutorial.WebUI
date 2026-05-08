@@ -35,7 +35,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.Control = new ControlNavigation()
             {
-                Layout = TypeLayoutTab.Pill
+                Layout = _ => TypeLayoutTab.Pill
             }
                 .Add
                 (
@@ -47,7 +47,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.Code = @"
             Stage.Control =  new ControlNavigation()
             {
-                Layout = TypeLayoutTab.Pill
+                Layout = _ => TypeLayoutTab.Pill
             }
                 .Add
                 (
@@ -60,35 +60,35 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Active",
                 "Defines the visual and functional state of a navigation link. Determines whether a link is inactive, highlighted as the current selection, or disabled to prevent interaction.",
-                "Active = TypeActive.Active",
+                "Active = _ => TypeActive.Active",
                 new ControlText()
                 {
-                    Text = "None",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "None",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Default
+                    Layout = _ => TypeLayoutTab.Default
                 }
                     .Add(CreateLink("None", TypeActive.None)),
                 new ControlText()
                 {
-                    Text = "Active",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Active",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Default
+                    Layout = _ => TypeLayoutTab.Default
                 }
                     .Add(CreateLink("Active", TypeActive.Active)),
                 new ControlText()
                 {
-                    Text = "Disabled",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Disabled",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Default
+                    Layout = _ => TypeLayoutTab.Default
                 }
                     .Add(CreateLink("Disabled", TypeActive.Disabled))
             );
@@ -97,16 +97,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Layout",
                 "Specifies the visual arrangement style of the navigation control. Determines whether navigation items are displayed as a standard bar, menu, tabbed interface, or pill-shaped buttons.",
-                "Layout = TypeLayoutTab.Tab",
+                "Layout = _ => TypeLayoutTab.Tab",
 
                 new ControlText()
                 {
-                    Text = "Default",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Default",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Default
+                    Layout = _ => TypeLayoutTab.Default
                 }
                     .Add
                     (
@@ -117,12 +117,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                 new ControlText()
                 {
-                    Text = "Menu",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Menu",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Menu
+                    Layout = _ => TypeLayoutTab.Menu
                 }
                     .Add
                     (
@@ -133,12 +133,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                 new ControlText()
                 {
-                    Text = "Tab",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Tab",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Tab
+                    Layout = _ => TypeLayoutTab.Tab
                 }
                     .Add
                     (
@@ -149,12 +149,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                 new ControlText()
                 {
-                    Text = "Pill",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Pill",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Pill
+                    Layout = _ => TypeLayoutTab.Pill
                 }
                     .Add
                     (
@@ -168,17 +168,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "HorizontalAlignment",
                 "Specifies how navigation items are positioned horizontally within the navigation control. Choose between default, left-aligned, centered, or right-aligned layouts.",
-                "HorizontalAlignment = TypeHorizontalAlignmentTab.Default",
+                "HorizontalAlignment = _ => TypeHorizontalAlignmentTab.Default",
 
                 new ControlText()
                 {
-                    Text = "Default",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Default",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Pill,
-                    HorizontalAlignment = TypeHorizontalAlignmentTab.Default
+                    Layout = _ => TypeLayoutTab.Pill,
+                    HorizontalAlignment = _ => TypeHorizontalAlignmentTab.Default
                 }
                     .Add
                     (
@@ -189,13 +189,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                 new ControlText()
                 {
-                    Text = "Left",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Left",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Pill,
-                    HorizontalAlignment = TypeHorizontalAlignmentTab.Left
+                    Layout = _ => TypeLayoutTab.Pill,
+                    HorizontalAlignment = _ => TypeHorizontalAlignmentTab.Left
                 }
                     .Add
                     (
@@ -206,13 +206,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                 new ControlText()
                 {
-                    Text = "Center",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Center",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Pill,
-                    HorizontalAlignment = TypeHorizontalAlignmentTab.Center
+                    Layout = _ => TypeLayoutTab.Pill,
+                    HorizontalAlignment = _ => TypeHorizontalAlignmentTab.Center
                 }
                     .Add
                     (
@@ -223,13 +223,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                 new ControlText()
                 {
-                    Text = "Right",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Right",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Pill,
-                    HorizontalAlignment = TypeHorizontalAlignmentTab.Right
+                    Layout = _ => TypeLayoutTab.Pill,
+                    HorizontalAlignment = _ => TypeHorizontalAlignmentTab.Right
                 }
                     .Add
                     (
@@ -243,17 +243,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Orientation",
                 "Specifies the direction in which navigation items are arranged within the navigation control. Choose between default, horizontal, or vertical orientation.",
-                "Orientation = TypeOrientationTab.Vertical",
+                "Orientation = _ => TypeOrientationTab.Vertical",
 
                 new ControlText()
                 {
-                    Text = "Default",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Default",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Pill,
-                    Orientation = TypeOrientationTab.Default
+                    Layout = _ => TypeLayoutTab.Pill,
+                    Orientation = _ => TypeOrientationTab.Default
                 }
                     .Add
                     (
@@ -264,13 +264,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                 new ControlText()
                 {
-                    Text = "Horizontal",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Horizontal",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Pill,
-                    Orientation = TypeOrientationTab.Horizontal
+                    Layout = _ => TypeLayoutTab.Pill,
+                    Orientation = _ => TypeOrientationTab.Horizontal
                 }
                     .Add
                     (
@@ -281,13 +281,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                 new ControlText()
                 {
-                    Text = "Vertical",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Vertical",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Pill,
-                    Orientation = TypeOrientationTab.Vertical
+                    Layout = _ => TypeLayoutTab.Pill,
+                    Orientation = _ => TypeOrientationTab.Vertical
                 }
                     .Add
                     (
@@ -301,17 +301,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "Justified",
                 "Determines whether all navigation links should have equal width. When enabled, each link expands to occupy the same horizontal space, creating a balanced and uniform appearance.",
-                "Justified = TypeJustifiedTab.Justified",
+                "Justified = _ => TypeJustifiedTab.Justified",
 
                 new ControlText()
                 {
-                    Text = "Default",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Default",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Pill,
-                    Justified = TypeJustifiedTab.Default
+                    Layout = _ => TypeLayoutTab.Pill,
+                    Justified = _ => TypeJustifiedTab.Default
                 }
                     .Add
                     (
@@ -322,13 +322,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                 new ControlText()
                 {
-                    Text = "Justified",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Justified",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Pill,
-                    Justified = TypeJustifiedTab.Justified
+                    Layout = _ => TypeLayoutTab.Pill,
+                    Justified = _ => TypeJustifiedTab.Justified
                 }
                     .Add
                     (
@@ -342,17 +342,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "ActiveColor",
                 "Specifies the background color applied to the active navigation item. Choose from predefined theme colors or provide a custom value. Only the active item is affected.",
-                "ActiveColor = new PropertyColorBackground(TypeColorBackground.Secondary)",
+                "ActiveColor = _ => new PropertyColorBackground(TypeColorBackground.Secondary)",
 
                 new ControlText()
                 {
-                    Text = "Default",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Default",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Pill,
-                    ActiveColor = new PropertyColorBackground(TypeColorBackground.Default)
+                    Layout = _ => TypeLayoutTab.Pill,
+                    ActiveColor = _ => new PropertyColorBackground(TypeColorBackground.Default)
                 }
                     .Add
                     (
@@ -363,13 +363,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                 new ControlText()
                 {
-                    Text = "Primary",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Primary",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Pill,
-                    ActiveColor = new PropertyColorBackground(TypeColorBackground.Primary)
+                    Layout = _ => TypeLayoutTab.Pill,
+                    ActiveColor = _ => new PropertyColorBackground(TypeColorBackground.Primary)
                 }
                     .Add
                     (
@@ -380,13 +380,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                 new ControlText()
                 {
-                    Text = "Secondary",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Secondary",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Pill,
-                    ActiveColor = new PropertyColorBackground(TypeColorBackground.Secondary)
+                    Layout = _ => TypeLayoutTab.Pill,
+                    ActiveColor = _ => new PropertyColorBackground(TypeColorBackground.Secondary)
                 }
                     .Add
                     (
@@ -397,13 +397,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                 new ControlText()
                 {
-                    Text = "Info",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Info",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Pill,
-                    ActiveColor = new PropertyColorBackground(TypeColorBackground.Info)
+                    Layout = _ => TypeLayoutTab.Pill,
+                    ActiveColor = _ => new PropertyColorBackground(TypeColorBackground.Info)
                 }
                     .Add
                     (
@@ -414,13 +414,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                 new ControlText()
                 {
-                    Text = "Success",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Success",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Pill,
-                    ActiveColor = new PropertyColorBackground(TypeColorBackground.Success)
+                    Layout = _ => TypeLayoutTab.Pill,
+                    ActiveColor = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 }
                     .Add
                     (
@@ -431,13 +431,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                 new ControlText()
                 {
-                    Text = "Warning",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Warning",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Pill,
-                    ActiveColor = new PropertyColorBackground(TypeColorBackground.Warning)
+                    Layout = _ => TypeLayoutTab.Pill,
+                    ActiveColor = _ => new PropertyColorBackground(TypeColorBackground.Warning)
                 }
                     .Add
                     (
@@ -448,13 +448,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                 new ControlText()
                 {
-                    Text = "Danger",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Danger",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Pill,
-                    ActiveColor = new PropertyColorBackground(TypeColorBackground.Danger)
+                    Layout = _ => TypeLayoutTab.Pill,
+                    ActiveColor = _ => new PropertyColorBackground(TypeColorBackground.Danger)
                 }
                     .Add
                     (
@@ -465,13 +465,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                 new ControlText()
                 {
-                    Text = "Dark",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Dark",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Pill,
-                    ActiveColor = new PropertyColorBackground(TypeColorBackground.Dark)
+                    Layout = _ => TypeLayoutTab.Pill,
+                    ActiveColor = _ => new PropertyColorBackground(TypeColorBackground.Dark)
                 }
                     .Add
                     (
@@ -482,13 +482,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                 new ControlText()
                 {
-                    Text = "Light",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Light",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Pill,
-                    ActiveColor = new PropertyColorBackground(TypeColorBackground.Light)
+                    Layout = _ => TypeLayoutTab.Pill,
+                    ActiveColor = _ => new PropertyColorBackground(TypeColorBackground.Light)
                 }
                     .Add
                     (
@@ -499,13 +499,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                 new ControlText()
                 {
-                    Text = "White",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "White",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Pill,
-                    ActiveColor = new PropertyColorBackground(TypeColorBackground.White)
+                    Layout = _ => TypeLayoutTab.Pill,
+                    ActiveColor = _ => new PropertyColorBackground(TypeColorBackground.White)
                 }
                     .Add
                     (
@@ -516,13 +516,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                 new ControlText()
                 {
-                    Text = "Transparent",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Transparent",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Pill,
-                    ActiveColor = new PropertyColorBackground(TypeColorBackground.Transparent)
+                    Layout = _ => TypeLayoutTab.Pill,
+                    ActiveColor = _ => new PropertyColorBackground(TypeColorBackground.Transparent)
                 }
                     .Add
                     (
@@ -533,13 +533,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                 new ControlText()
                 {
-                    Text = "Custom",
-                    TextColor = new PropertyColorText(TypeColorText.Info)
+                    Text = _ => "Custom",
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
                 new ControlNavigation()
                 {
-                    Layout = TypeLayoutTab.Pill,
-                    ActiveColor = new PropertyColorBackground("gold")
+                    Layout = _ => TypeLayoutTab.Pill,
+                    ActiveColor = _ => new PropertyColorBackground("gold")
                 }
                     .Add
                     (
