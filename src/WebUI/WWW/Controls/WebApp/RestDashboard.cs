@@ -35,7 +35,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             var dashboard = new ControlRestDashboard(RandomId.Create())
             {
-                RestUri = uri
+                RestUri = _ => uri
             };
 
             Stage.Control = dashboard;
@@ -43,7 +43,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Code = @"
             new ControlRestDashboard(RandomId.Create())
             {
-                RestUri = sitemapManager.GetUri<MonkeyIslandDashboard>(pageContext)
+                RestUri = _=> sitemapManager.GetUri<MonkeyIslandDashboard>(pageContext)
             };";
         }
     }

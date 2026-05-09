@@ -32,13 +32,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.Control = new ControlRestKanban(RandomId.Create())
             {
-                RestUri = uri
+                RestUri = _ => uri
             };
 
             Stage.Code = @"
             new ControlRestKanban(RandomId.Create())
             {
-                RestUri = sitemapManager.GetUri<MonkeyIslandKanban>(pageContext)
+                RestUri = _=> sitemapManager.GetUri<MonkeyIslandKanban>(pageContext)
             };";
         }
     }

@@ -29,13 +29,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.Control = new ControlRestWqlPrompt("myPrompt")
             {
-                RestUri = sitemapManager.GetUri<Api._1_.MonkeyIslandBoatWql>(pageContext.ApplicationContext)
+                RestUri = _ => sitemapManager.GetUri<Api._1_.MonkeyIslandBoatWql>(pageContext.ApplicationContext)
             };
 
             Stage.Code = @"
             new ControlRestWqlPrompt(""myPrompt"")
             {
-                RestUri = sitemapManager.GetUri<WWW.Api._1_.MonkeyIslandBoatWql>(pageContext)
+                RestUri = _=> sitemapManager.GetUri<WWW.Api._1_.MonkeyIslandBoatWql>(pageContext)
             };";
         }
     }

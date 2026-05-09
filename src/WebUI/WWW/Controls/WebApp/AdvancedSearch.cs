@@ -37,12 +37,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             [
                 new ControlAdvancedSearch("mySearch")
                 {
-                    RestUri = sitemapManager.GetUri<Api._1_.MonkeyIslandGameWql>(pageContext.ApplicationContext)
+                    RestUri = _=> sitemapManager.GetUri<Api._1_.MonkeyIslandGameWql>(pageContext.ApplicationContext)
                 },
                 new ControlRestTile("myTile")
                 {
-                    RestUri = sitemapManager.GetUri<MonkeyIslandGamesTile>(pageContext.ApplicationContext),
-                    Bind = new Binding().Add(new BindSearch() { Source = "mySearch" })
+                    RestUri = _=> sitemapManager.GetUri<MonkeyIslandGamesTile>(pageContext.ApplicationContext),
+                    Bind = _=> new Binding().Add(new BindSearch() { Source = "mySearch" })
                 }
             ];
 
@@ -51,12 +51,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Code = @"
             new ControlAdvancedSearch(""mySearch"")
             {
-                RestUri = sitemapManager.GetUri<Api._1_.MonkeyIslandBoatWql>(pageContext.ApplicationContext)
+                RestUri = _=> sitemapManager.GetUri<Api._1_.MonkeyIslandBoatWql>(pageContext.ApplicationContext)
             },
             new ControlRestTile(""myTile"")
             {
-                RestUri = sitemapManager.GetUri<MonkeyIslandGamesTile>(pageContext.ApplicationContext),
-                Bind = new BindSearch() { Source = ""mySearch"" }
+                RestUri = _=> sitemapManager.GetUri<MonkeyIslandGamesTile>(pageContext.ApplicationContext),
+                Bind = _=> new BindSearch() { Source = ""mySearch"" }
             }";
         }
     }

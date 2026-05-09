@@ -35,7 +35,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.Control = new ControlRestTab(RandomId.Create())
             {
-                RestUri = sitemapManager.GetUri<MonkeyIslandTab>(pageContext.ApplicationContext),
+                RestUri = _ => sitemapManager.GetUri<MonkeyIslandTab>(pageContext.ApplicationContext),
             }
                 .Add
                 (

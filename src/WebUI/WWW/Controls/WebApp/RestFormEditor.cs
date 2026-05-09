@@ -36,17 +36,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.Control = new ControlRestFormEditor(RandomId.Create())
             {
-                RestUri = sitemapManager.GetUri<FormEditor>(pageContext).Add(new UriQuery("id", "00000000-0000-0000-0000-000000000001")),
-                Preview = true,
-                Indent = 18
+                RestUri = _ => sitemapManager.GetUri<FormEditor>(pageContext).Add(new UriQuery("id", "00000000-0000-0000-0000-000000000001")),
+                Preview = _ => true,
+                Indent = _ => 18
             };
 
             Stage.Code = @"
             new ControlFormEditor(""my-form-editor"")
             {
-                RestUri = sitemapManager.GetUri<FormEditor>(pageContext).Add(new UriQuery(""id"", ""00000000-0000-0000-0000-000000000001"")),
-                Preview = true,
-                Indent = 18
+                RestUri = _=> sitemapManager.GetUri<FormEditor>(pageContext).Add(new UriQuery(""id"", ""00000000-0000-0000-0000-000000000001"")),
+                Preview = _=> true,
+                Indent = _=> 18
             };";
 
             Stage.AddProperty
@@ -56,8 +56,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 "Readonly = true",
                 new ControlRestFormEditor(RandomId.Create())
                 {
-                    RestUri = sitemapManager.GetUri<FormEditor>(pageContext).Add(new UriQuery("id", "00000000-0000-0000-0000-000000000001")),
-                    Readonly = true,
+                    RestUri = _ => sitemapManager.GetUri<FormEditor>(pageContext).Add(new UriQuery("id", "00000000-0000-0000-0000-000000000001")),
+                    Readonly = _ => true,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 }
             );

@@ -39,7 +39,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.Control = new ControlRestWizard("myform")
             {
-                RestUri = sitemapManager.GetUri<MonkeyIslandCharacter>(pageContext),
+                RestUri = _ => sitemapManager.GetUri<MonkeyIslandCharacter>(pageContext),
             }
                 .Add
                 (

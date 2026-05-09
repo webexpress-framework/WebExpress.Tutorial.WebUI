@@ -37,12 +37,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             [
                 new ControlRestQuickfilter("myQickfilter")
                 {
-                    RestUri = sitemapManager.GetUri<Api._1_.MonkeyIslandGamesQuickfilter>(pageContext.ApplicationContext)
+                    RestUri = _=> sitemapManager.GetUri<Api._1_.MonkeyIslandGamesQuickfilter>(pageContext.ApplicationContext)
                 },
                 new ControlRestTile("myTile")
                 {
-                    RestUri = sitemapManager.GetUri<MonkeyIslandGamesTile>(pageContext.ApplicationContext),
-                    Bind = new Binding().Add(new BindFilter())
+                    RestUri = _=> sitemapManager.GetUri<MonkeyIslandGamesTile>(pageContext.ApplicationContext),
+                    Bind = _=> new Binding().Add(new BindFilter())
                 }
             ];
 
@@ -51,7 +51,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Code = @"
             new ControlRestQuickfilter(""myQickfilter"")
             {
-                RestUri = sitemapManager.GetUri<Api._1_.MonkeyIslandGamesQuickfilter>(pageContext.ApplicationContext)
+                RestUri = _=> sitemapManager.GetUri<Api._1_.MonkeyIslandGamesQuickfilter>(pageContext.ApplicationContext)
             }";
         }
     }

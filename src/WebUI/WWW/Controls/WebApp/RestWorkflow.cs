@@ -34,13 +34,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.Control = new ControlRestWorkflow()
             {
-                RestUri = uri
+                RestUri = _ => uri
             };
 
             Stage.Code = @"
             new ControlRestWorkflow()
             {
-                RestUri = sitemapManager.GetUri<MonkeyIslandWorkflow>(pageContext)
+                RestUri = _=> sitemapManager.GetUri<MonkeyIslandWorkflow>(pageContext)
             };";
         }
     }

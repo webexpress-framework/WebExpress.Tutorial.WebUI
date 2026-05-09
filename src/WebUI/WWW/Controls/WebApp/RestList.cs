@@ -37,7 +37,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             [
                 new ControlRestList("myList")
                 {
-                    RestUri = sitemapManager.GetUri<MonkeyIslandGamesList>(pageContext.ApplicationContext)
+                    RestUri = _=> sitemapManager.GetUri<MonkeyIslandGamesList>(pageContext.ApplicationContext)
                 },
                 new ControlModalExample("modal")
                 {
@@ -49,7 +49,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Code = @"
             new ControlRestList(""myList"")
             {
-                RestUri = sitemapManager.GetUri<MonkeyIslandGamesList>(pageContext.ApplicationContext)
+                RestUri = _=> sitemapManager.GetUri<MonkeyIslandGamesList>(pageContext.ApplicationContext)
             },
             new ControlModalExample(""modal"")
             {

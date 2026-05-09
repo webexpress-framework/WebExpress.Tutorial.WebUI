@@ -35,7 +35,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             [
                 new ControlRestScrumBacklog("monkeyIslandBacklog")
                 {
-                    RestUri = sitemapManager.GetUri<RestApiScrum>(pageContext.ApplicationContext),
+                    RestUri = _=> sitemapManager.GetUri<RestApiScrum>(pageContext.ApplicationContext),
                     Title = _ => "Monkey Island Product Backlog",
                     Selectable = _ => true,
                     IconActive = _ => "fas fa-skull-crossbones",
@@ -53,7 +53,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Code = @"
             new ControlRestScrumBacklog(""monkeyIslandBacklog"")
             {
-                RestUri = sitemapManager.GetUri<RestApiScrumBacklog>(pageContext.ApplicationContext),
+                RestUri = _=> sitemapManager.GetUri<RestApiScrumBacklog>(pageContext.ApplicationContext),
                 Title = _ => ""Monkey Island Product Backlog""
             };";
         }

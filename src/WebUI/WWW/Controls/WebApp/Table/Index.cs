@@ -41,8 +41,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Table
             [
                 new ControlRestTable("myTable")
                 {
-                    RestUri = sitemapManager.GetUri<MonkeyIslandCharacterTable>(pageContext.ApplicationContext),
-                    PageSize = 5
+                    RestUri = _=> sitemapManager.GetUri<MonkeyIslandCharacterTable>(pageContext.ApplicationContext),
+                    PageSize = _=> 5
                 },
                 new ControlModalExample("modal")
                 {
@@ -54,8 +54,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Table
             Stage.Code = @"
             new ControlRestTable(""myTable"")
             {
-                RestUri = sitemapManager.GetUri<MonkeyIslandCharacterTable>(pageContext.ApplicationContext),
-                PageSize = 5
+                RestUri = _=> sitemapManager.GetUri<MonkeyIslandCharacterTable>(pageContext.ApplicationContext),
+                PageSize = _=> 5
             }";
         }
     }
