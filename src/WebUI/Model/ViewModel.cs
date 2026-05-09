@@ -47,6 +47,161 @@ namespace WebExpress.Tutorial.WebUI.Model
         public static List<Group> MonkeyIslandGroups { get; } = [.. GetMonkeyIslandGroups()];
 
         /// <summary>
+        /// Gets the list of sprints used by the Monkey Island Scrum sample.
+        /// </summary>
+        public static List<Sprint> MonkeyIslandSprints { get; } = [.. GetMonkeyIslandSprints()];
+
+        /// <summary>
+        /// Gets the list of scrum items used by the Monkey Island Scrum sample.
+        /// </summary>
+        public static List<ScrumItem> MonkeyIslandScrumItems { get; } = [.. GetMonkeyIslandScrumItems()];
+
+        /// <summary>
+        /// Retrieves a collection of Monkey Island Scrum sprints.
+        /// </summary>
+        /// <returns>A collection containing all configured sprints.</returns>
+        private static IEnumerable<Sprint> GetMonkeyIslandSprints()
+        {
+            yield return new Sprint
+            {
+                Id = Guid.Parse("50C7A06E-0784-4A87-BFA0-70615F2F8F22"),
+                Name = "Sprint Mêlée 1",
+                Goal = "Recruit the crew and prepare the voyage to Monkey Island.",
+                Status = "active",
+                Start = "2026-05-01",
+                End = "2026-05-14",
+                Capacity = 34
+            };
+
+            yield return new Sprint
+            {
+                Id = Guid.Parse("DFF6A89E-E5A0-4787-8C95-1122031A96DA"),
+                Name = "Sprint Monkey 2",
+                Goal = "Reach Monkey Island and uncover the secret route through the jungle.",
+                Status = "planned",
+                Start = "2026-05-15",
+                End = "2026-05-28",
+                Capacity = 28
+            };
+
+            yield return new Sprint
+            {
+                Id = Guid.Parse("4C6C7AEA-2AF3-4312-BB20-422D5E6F5291"),
+                Name = "Sprint LeChuck 3",
+                Goal = "Storm LeChuck's fortress and rescue Elaine.",
+                Status = "planned",
+                Start = "2026-05-29",
+                End = "2026-06-11",
+                Capacity = 30
+            };
+        }
+
+        /// <summary>
+        /// Retrieves a collection of Monkey Island Scrum items.
+        /// </summary>
+        /// <returns>A collection containing all configured scrum items.</returns>
+        private static IEnumerable<ScrumItem> GetMonkeyIslandScrumItems()
+        {
+            yield return new ScrumItem
+            {
+                Id = Guid.Parse("C0D4900D-95D1-4656-A308-9172E5AB5D24"),
+                Type = "story",
+                Icon = "fas fa-scroll",
+                Key = "MI-101",
+                Title = "Convince Carla to join the crew.",
+                Priority = "P1",
+                Points = 8,
+                SprintId = Guid.Parse("50C7A06E-0784-4A87-BFA0-70615F2F8F22"),
+                Status = "todo",
+                Rank = 1
+            };
+
+            yield return new ScrumItem
+            {
+                Id = Guid.Parse("5071E546-C6B6-4666-A575-95D1B7395BEA"),
+                Type = "task",
+                Icon = "fas fa-check",
+                Key = "MI-102",
+                Title = "Free Otis from the Mêlée jail.",
+                Priority = "P1",
+                Points = 5,
+                SprintId = Guid.Parse("50C7A06E-0784-4A87-BFA0-70615F2F8F22"),
+                Status = "done",
+                Rank = 2
+            };
+
+            yield return new ScrumItem
+            {
+                Id = Guid.Parse("E1B79040-5FE0-4ECF-8FEE-BE5C84D047F8"),
+                Type = "story",
+                Icon = "fas fa-scroll",
+                Key = "MI-103",
+                Title = "Win the sword master trial against Carla.",
+                Priority = "P2",
+                Points = 13,
+                SprintId = Guid.Parse("50C7A06E-0784-4A87-BFA0-70615F2F8F22"),
+                Status = "todo",
+                Rank = 3
+            };
+
+            yield return new ScrumItem
+            {
+                Id = Guid.Parse("E1D1129B-3A81-4A49-BF84-2D8D73AAFB8C"),
+                Type = "bug",
+                Icon = "fas fa-spider",
+                Key = "MI-104",
+                Title = "Fix the leaking ghost ship map parchment.",
+                Priority = "P2",
+                Points = 3,
+                SprintId = null,
+                Status = "backlog",
+                Rank = 1
+            };
+
+            yield return new ScrumItem
+            {
+                Id = Guid.Parse("72C8BB6B-5C10-4868-A9D7-E5A39FDF3794"),
+                Type = "spike",
+                Icon = "fas fa-bolt",
+                Key = "MI-105",
+                Title = "Research the fastest route through Monkey Island jungle.",
+                Priority = "P3",
+                Points = 5,
+                SprintId = Guid.Parse("DFF6A89E-E5A0-4787-8C95-1122031A96DA"),
+                Status = "todo",
+                Rank = 1
+            };
+
+            yield return new ScrumItem
+            {
+                Id = Guid.Parse("3452B750-C36D-49C4-98BE-0EABFF38014B"),
+                Type = "story",
+                Icon = "fas fa-scroll",
+                Key = "MI-106",
+                Title = "Collect the voodoo root needed to defeat LeChuck.",
+                Priority = "P1",
+                Points = 8,
+                SprintId = null,
+                Status = "backlog",
+                Rank = 2
+            };
+
+            yield return new ScrumItem
+            {
+                Id = Guid.Parse("5842CF55-D08C-465F-824F-62050F7D5849"),
+                Type = "task",
+                Icon = "fas fa-check",
+                Key = "MI-107",
+                Title = "Repair the Sea Monkey before departure.",
+                Priority = "P2",
+                Points = 5,
+                SprintId = null,
+                Status = "backlog",
+                Rank = 3
+            };
+        }
+
+        /// <summary>
         /// Retrieves a collection of characters from the Monkey Island universe.
         /// </summary>
         /// <returns>An enumerable of objects, each representing a notable character from the Monkey Island series.</returns>

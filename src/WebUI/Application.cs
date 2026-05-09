@@ -14,7 +14,8 @@ namespace WebExpress.Tutorial.WebUI
     public sealed class Application : IApplication
     {
         /// <summary>
-        /// Gets the current application context, which provides access to application-wide services and configurations.
+        /// Gets the current application context, which provides access to 
+        /// application-wide services and configurations.
         /// </summary>
         public static IApplicationContext ApplicationContext { get; private set; }
 
