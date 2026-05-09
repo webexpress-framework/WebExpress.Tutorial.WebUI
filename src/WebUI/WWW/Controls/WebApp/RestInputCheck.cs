@@ -35,7 +35,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlForm()
                     .Add(new ControlRestFormItemInputCheck("lightCheck")
                     {
-                        RestUri = sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
+                        RestUri = _=> sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
                         Description = _ => "Enable insult sword fighting"
                     })
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
@@ -45,7 +45,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             new ControlForm()
                 .Add(new ControlRestFormItemInputCheck(""lightCheck"")
                 {
-                    RestUri = sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
+                    RestUri = _=> sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
                     Description = _ => ""Enable insult sword fighting""
                 })
                 .AddPrimaryButton(new ControlFormItemButtonSubmit())";
@@ -58,7 +58,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlForm()
                     .Add(new ControlRestFormItemInputCheck("p_rest_uri")
                     {
-                        RestUri = sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
+                        RestUri = _ => sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
                         Description = _ => "Enable insult sword fighting"
                     })
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
@@ -72,8 +72,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlForm()
                     .Add(new ControlRestFormItemInputCheck("p_initial_true")
                     {
-                        RestUri = sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
-                        InitialChecked = true,
+                        RestUri = _ => sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
+                        InitialChecked = _ => true,
                         Description = _ => "Pre-checked without GET"
                     })
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
@@ -87,7 +87,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlForm()
                     .Add(new ControlRestFormItemInputCheck("p_description")
                     {
-                        RestUri = sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
+                        RestUri = _ => sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
                         Description = _ => "Enable insult sword fighting"
                     })
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
@@ -101,7 +101,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlForm()
                     .Add(new ControlRestFormItemInputCheck("p_layout")
                     {
-                        RestUri = sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
+                        RestUri = _ => sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
                         Layout = _ => TypeLayoutCheck.Switch,
                         Description = _ => "Enable insult sword fighting"
                     })
@@ -116,7 +116,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlForm()
                     .Add(new ControlRestFormItemInputCheck("p_inline")
                     {
-                        RestUri = sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
+                        RestUri = _ => sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
                         Inline = _ => true,
                         Description = _ => "Inline"
                     })

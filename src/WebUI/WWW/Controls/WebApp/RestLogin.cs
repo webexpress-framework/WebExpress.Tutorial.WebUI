@@ -29,13 +29,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.Control = new ControlRestLogin()
             {
-                RestUri = sitemapManager.GetUri<WWW.Api._1_.Session>(pageContext.ApplicationContext)
+                RestUri = _ => sitemapManager.GetUri<WWW.Api._1_.Session>(pageContext.ApplicationContext)
             };
 
             Stage.Code = @"
             new ControlRestLogin()
             {
-                RestUri = sitemapManager.GetUri<Login>(pageContext.ApplicationContext)
+                RestUri = _=> sitemapManager.GetUri<Login>(pageContext.ApplicationContext)
             };";
         }
     }

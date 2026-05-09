@@ -43,7 +43,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlRestDropdown("inventoryDropdown")
                 {
                     Text = _ => "Inventory",
-                    RestUri = sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext)
+                    RestUri = _=> sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext)
                 }
                     .Add(new ControlDropdownItemLink()
                     {
@@ -62,7 +62,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlRestDropdown("darkInventoryDropdown")
                 {
                     Text = _ => "Inventory",
-                    RestUri = sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext)
+                    RestUri = _=> sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext)
                 }
             ];
 
@@ -92,7 +92,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlRestDropdown("p_api")
                 {
                     Text = _ => "Inventory",
-                    RestUri = sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext)
+                    RestUri = _ => sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext)
                 }
             );
 
@@ -105,8 +105,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlRestDropdown("p_maxitems")
                 {
                     Text = _ => "Inventory",
-                    RestUri = sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext),
-                    MaxItems = 10
+                    RestUri = _ => sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext),
+                    MaxItems = _ => 10
                 }
             );
 
@@ -119,8 +119,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlRestDropdown("p_placeholder")
                 {
                     Text = _ => "Inventory",
-                    RestUri = sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext),
-                    SearchPlaceholder = "Search entries..."
+                    RestUri = _ => sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext),
+                    SearchPlaceholder = _ => "Search entries..."
                 }
             );
         }

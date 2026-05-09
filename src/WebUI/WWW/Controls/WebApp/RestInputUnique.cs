@@ -40,7 +40,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlForm()
                     .Add(new ControlRestFormItemInputUnique("lightUnique")
                     {
-                        RestUri = sitemapManager.GetUri<MonkeyIslandCurseUnique>(pageContext.ApplicationContext),
+                        RestUri = _=> sitemapManager.GetUri<MonkeyIslandCurseUnique>(pageContext.ApplicationContext),
                         Help = _ => @"Enter a curse name to check its availability (e.g., ""Elaine's Statue Curse"")"
                     }
                         .Initialize(x => x.Value.Text = "LeChuck's Ghost Curse"))
@@ -53,7 +53,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlForm()
                     .Add(new ControlRestFormItemInputUnique("darkUnique")
                     {
-                        RestUri = sitemapManager.GetUri<MonkeyIslandCurseUnique>(pageContext.ApplicationContext),
+                        RestUri = _=> sitemapManager.GetUri<MonkeyIslandCurseUnique>(pageContext.ApplicationContext),
                         Help =_ =>  @"Enter a curse name to check its availability (e.g., ""Elaine's Statue Curse"")"
                     }
                         .Initialize(x => x.Value.Text = "LeChuck's Ghost Curse"))
@@ -80,7 +80,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlForm()
                     .Add(new ControlRestFormItemInputUnique("p_api")
                     {
-                        RestUri = sitemapManager.GetUri<MonkeyIslandCurseUnique>(pageContext.ApplicationContext)
+                        RestUri = _ => sitemapManager.GetUri<MonkeyIslandCurseUnique>(pageContext.ApplicationContext)
                     })
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );

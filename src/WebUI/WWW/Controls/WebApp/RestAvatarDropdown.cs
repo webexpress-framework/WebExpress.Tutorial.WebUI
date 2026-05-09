@@ -30,13 +30,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.Control = new ControlRestAvatarDropdown()
             {
-                RestUri = sitemapManager.GetUri<AvatarDropdown>(pageContext.ApplicationContext)
+                RestUri = _ => sitemapManager.GetUri<AvatarDropdown>(pageContext.ApplicationContext)
             };
 
             Stage.Code = @"
             new ControlRestAvatarDropdown()
             {
-                RestUri = sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext)
+                RestUri = _=> sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext)
             };";
         }
     }

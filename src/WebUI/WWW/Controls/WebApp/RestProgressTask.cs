@@ -39,8 +39,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             [
                 new ControlRestProgressTask("myTask")
                 {
-                    TaskId = CreateTask(),
-                    Interval = 1000
+                    TaskId = _=> CreateTask(),
+                    Interval = _=> 1000
                 }
             ];
 
@@ -48,26 +48,26 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             [
                 new ControlRestProgressTask("myDarkTask")
                 {
-                    TaskId = CreateTask(),
-                    Interval = 1000
+                    TaskId = _=> CreateTask(),
+                    Interval = _=> 1000
                 }
             ];
 
             Stage.Code = @"
             new ControlRestProgressTask(""myTask"")
             {
-                TaskId = ""sword-fighting-insult-task"",
-                Interval = 1000
+                TaskId = _=> ""sword-fighting-insult-task"",
+                Interval = _=> 1000
             }";
 
             Stage.AddProperty
             (
                 "TaskId",
                 "The `TaskId` property specifies the unique identifier for the task. It is used to associate the progress control with a specific backend operation and enables targeted updates via REST.",
-                "TaskId = \"abc123\"",
+                "TaskId = _=> \"abc123\"",
                 new ControlRestProgressTask("myDarkTask")
                 {
-                    TaskId = "abc123"
+                    TaskId = _ => "abc123"
                 }
             );
 
@@ -75,11 +75,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             (
                 "Interval",
                 "The `Interval` property defines the polling interval in milliseconds. It determines how frequently the control queries the backend for task updates.",
-                "Interval = 5000",
+                "Interval = _=> 5000",
                 new ControlRestProgressTask("interval")
                 {
-                    TaskId = CreateTask(),
-                    Interval = 5000
+                    TaskId = _ => CreateTask(),
+                    Interval = _ => 5000
                 }
             );
 
@@ -91,8 +91,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlRestProgressTask("showonstart")
                 {
                     Display = _ => TypeDisplay.None,
-                    TaskId = CreateTask(),
-                    ShowOnStart = true
+                    TaskId = _ => CreateTask(),
+                    ShowOnStart = _ => true
                 }
             );
 
@@ -103,8 +103,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 "HideOnFinish = _ => true",
                 new ControlRestProgressTask("hideonfinish")
                 {
-                    TaskId = CreateTask(),
-                    HideOnFinish = true
+                    TaskId = _ => CreateTask(),
+                    HideOnFinish = _ => true
                 }
             );
         }

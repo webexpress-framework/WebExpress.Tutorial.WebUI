@@ -40,7 +40,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 (
                     new ControlRestFormItemInputSelection("lightSelection")
                     {
-                        RestUri = sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
+                        RestUri = _ => sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
                     }
                 );
 
@@ -52,7 +52,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 (
                     new ControlRestFormItemInputSelection("darkSelection")
                     {
-                        RestUri = sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
+                        RestUri = _=> sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
                     }
                 )
             ];
@@ -63,7 +63,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 (
                     new ControlRestFormItemInputSelection(""lightSelection"")
                     {
-                        RestUri = sitemapManager.GetUri<MonkeyIslandInventory>(pageContext.ApplicationContext)
+                        RestUri = _=> sitemapManager.GetUri<MonkeyIslandInventory>(pageContext.ApplicationContext)
                     }
                 );";
 
@@ -71,11 +71,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             (
                 "Multiselect",
                 "The multiselect property is used in a Selection Control to allow users to choose multiple options from a list. By enabling this property, the control is configured to support flexible multi-selection rather than limiting users to a single choice.",
-                "MultiSelect = true",
+                "MultiSelect = _=> true",
                 new ControlForm(null, new ControlRestFormItemInputSelection()
                 {
                     MultiSelect = _ => true,
-                    RestUri = sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
+                    RestUri = _ => sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
                 })
             );
 
@@ -83,11 +83,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             (
                 "Placeholder",
                 "Sets the placeholder of the search field, a temporary text display that informs the user about the expected input. The placeholder disappears once the user starts typing a search query.",
-                "Placeholder = \"Placeholder\"",
+                "Placeholder = _=> \"Placeholder\"",
                 new ControlForm(null, new ControlRestFormItemInputSelection()
                 {
                     Placeholder = _ => "Placeholder",
-                    RestUri = sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
+                    RestUri = _ => sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
                 })
             );
 
@@ -95,11 +95,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             (
                 "MaxItems",
                 "Maximum number of entries to display.",
-                "MaxItems = 10",
+                "MaxItems = _=> 10",
                  new ControlForm(null, new ControlRestFormItemInputSelection()
                  {
-                     MaxItems = 10,
-                     RestUri = sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
+                     MaxItems = _ => 10,
+                     RestUri = _ => sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
                  })
             );
         }
