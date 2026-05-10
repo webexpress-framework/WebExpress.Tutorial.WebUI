@@ -38,7 +38,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 .Add(new ControlViewHeader()
                 {
                 }
-                    .Add(new ControlSearch()))
+                    .Add(new ControlText() { Text = _ => "content of the header 1" }))
+                .Add(new ControlViewHeader()
+                {
+                }
+                    .Add(new ControlText() { Text = _ => "content of the header 2" }))
                 .Add(new ControlViewItem()
                 {
                     Title = _ => "View 1",
@@ -63,7 +67,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 .Add(new ControlViewFooter()
                 {
                 }
-                    .Add(new ControlText() { Text = _ => "Footer" }));
+                    .Add(new ControlText() { Text = _ => "content of the footer 1" }))
+                .Add(new ControlViewFooter()
+                {
+                }
+                    .Add(new ControlText() { Text = _ => "content of the footer 2" }));
 
             Stage.Code = @"
             new ControlView(RandomId.Create())
@@ -72,21 +80,25 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 .Add(new ControlViewHeader()
                 {
                 }
-                    .Add(new ControlSearch()))
+                    .Add(new ControlText() { Text = _ => ""content of the header 1"" }))
+                .Add(new ControlViewHeader()
+                {
+                }
+                    .Add(new ControlText() { Text = _ => ""content of the header 2"" }))
                 .Add(new ControlViewItem()
                 {
                     Title = _ => ""View 1"",
                     Icon = _ => new IconTable(),
                     Description = _ => ""This is the first view""
                 }
-                    .Add(new ControlText() { Text = ""content of the view 1"" }))
+                    .Add(new ControlText() { Text = _ => ""content of the view 1"" }))
                 .Add(new ControlViewItem()
                 {
                     Title = _ => ""View 2"",
                     Icon = _ => new IconList(),
                     Description = _ => ""This is the second view""
                 }
-                    .Add(new ControlText() { Text = ""content of the view 2"" }))
+                    .Add(new ControlText() { Text = _ => ""content of the view 2"" }))
                 .Add(new ControlViewItem()
                 {
                     Title = _ => ""View 3"",
@@ -97,7 +109,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 .Add(new ControlViewFooter()
                 {
                 }
-                    .Add(new ControlText() { Text = _ => ""Footer"" }))";
+                    .Add(new ControlText() { Text = _ => ""content of the footer 1"" }))
+                .Add(new ControlViewFooter()
+                {
+                }
+                    .Add(new ControlText() { Text = _ => ""content of the footer 2"" }))";
 
             Stage.AddProperty
             (
