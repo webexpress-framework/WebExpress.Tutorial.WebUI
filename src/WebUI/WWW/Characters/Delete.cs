@@ -1,6 +1,5 @@
 ﻿using WebExpress.Tutorial.WebUI.WebControl;
 using WebExpress.Tutorial.WebUI.WWW.Api._1_;
-using WebExpress.WebApp.WebControl;
 using WebExpress.WebApp.WebPage;
 using WebExpress.WebCore.WebApplication;
 using WebExpress.WebCore.WebAttribute;
@@ -34,7 +33,6 @@ namespace WebExpress.Tutorial.WebUI.WWW.Characters
         /// </param>
         public Delete(ISitemapManager sitemapManager, IApplicationContext applicationContext)
         {
-            Form.Mode = _ => TypeRestFormMode.Delete;
             Form.Uri = _ => sitemapManager.GetUri<MonkeyIslandCharacter>(applicationContext);
         }
 
