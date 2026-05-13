@@ -301,7 +301,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             foreach (var t in types)
             {
-                var hasThemeConstructor = t.GetConstructor([typeof(TypeIconTheme)]) != null;
+                var hasThemeConstructor = t.GetConstructor([typeof(TypeIconTheme)]) is not null;
                 if (hasThemeConstructor)
                 {
                     both.Add(((IIcon)Activator.CreateInstance(t, TypeIconTheme.Default), (IIcon)Activator.CreateInstance(t, TypeIconTheme.Light)));
@@ -378,7 +378,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             }
 
             return types
-                .Where(t => t.GetConstructor(new Type[] { typeof(TypeIconTheme) }) != null)
+                .Where(t => t.GetConstructor([typeof(TypeIconTheme)]) is not null)
                 .Select(t => (IIcon)Activator.CreateInstance(t, theme));
         }
     }

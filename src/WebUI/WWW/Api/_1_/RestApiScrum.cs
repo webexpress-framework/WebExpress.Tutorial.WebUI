@@ -143,7 +143,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                         }
 
                         var sprint = ViewModel.MonkeyIslandSprints.FirstOrDefault(x => x.Id == restSprintId);
-                        if (sprint != null)
+                        if (sprint is not null)
                         {
                             sprint.Status = restSprint.Status;
                         }
@@ -200,7 +200,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                         }
 
                         var existing = ViewModel.MonkeyIslandSprints.FirstOrDefault(x => x.Id == restSprintId);
-                        if (existing != null)
+                        if (existing is not null)
                         {
                             existing.Status = restSprint.Status;
                         }
@@ -265,7 +265,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     }
 
                     var existing = ViewModel.MonkeyIslandScrumItems.FirstOrDefault(x => x.Id == restItemId);
-                    if (existing != null)
+                    if (existing is not null)
                     {
                         existing.Rank = restItem.Rank;
                         existing.SprintId = NormalizeSprintId(restItem.SprintId);
@@ -333,7 +333,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     }
 
                     var existing = ViewModel.MonkeyIslandScrumItems.FirstOrDefault(x => x.Id == reorderedItemId);
-                    if (existing != null)
+                    if (existing is not null)
                     {
                         existing.Rank = reorderedItem.Rank;
                         existing.SprintId = NormalizeSprintId(reorderedItem.SprintId);
@@ -385,7 +385,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     }
 
                     var existing = ViewModel.MonkeyIslandScrumItems.FirstOrDefault(x => x.Id == restItemId);
-                    if (existing != null)
+                    if (existing is not null)
                     {
                         existing.Rank = restItem.Rank;
                         existing.SprintId = NormalizeSprintId(restItem.SprintId);
