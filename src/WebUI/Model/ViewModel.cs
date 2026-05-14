@@ -1615,7 +1615,7 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Description = "A ship that endlessly drifts between islands with no crew aboard.",
                 IsSupernatural = true,
                 AppearsIn = "Monkey Island 2: LeChuck's Revenge",
-                Crew = "None — though eerie footsteps are sometimes heard"
+                Crew = "None - though eerie footsteps are sometimes heard"
             };
 
             yield return new Boat

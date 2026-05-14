@@ -121,7 +121,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             Stage.AddProperty
             (
                 "Range",
-                @"The `Range` property indicates whether the calendar control allows selection of a date range instead of a single date. When enabled, the expected input value is a string containing two dates separated by a hyphen (-), such as ""2025-07-01 - 2025-07-10"". The exact date format used for each value in the range depends on the format defined by the Format property—for example, ""DD.MM.YYYY - DD.MM.YYYY"" in a German locale.",
+                @"The `Range` property indicates whether the calendar control allows selection of a date range instead of a single date. When enabled, the expected input value is a string containing two dates separated by a hyphen (-), such as ""2025-07-01 - 2025-07-10"". The exact date format used for each value in the range depends on the format defined by the Format property-for example, ""DD.MM.YYYY - DD.MM.YYYY"" in a German locale.",
                 @"Range = _ => true",
                 new ControlForm(null, new ControlFormItemInputCalendar(null)
                 {

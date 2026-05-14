@@ -27,7 +27,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
         /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>
         public SplitButtonLink(IPageContext pageContext, ISitemapManager sitemapManager)
         {
-            Stage.Description = @"The `SplitButtonLink` control provides a primary clickable action—typically a navigation link—combined with a dropdown of optional secondary actions. It is ideal for scenarios where a single main action is required, but additional related actions should be easily accessible. The control supports icons, tooltips, and customizable styling, and integrates seamlessly into the WebExpress UI framework. It is designed to enhance usability by grouping related actions while keeping the primary interaction clear and prominent.";
+            Stage.Description = @"The `SplitButtonLink` control provides a primary clickable action-typically a navigation link-combined with a dropdown of optional secondary actions. It is ideal for scenarios where a single main action is required, but additional related actions should be easily accessible. The control supports icons, tooltips, and customizable styling, and integrates seamlessly into the WebExpress UI framework. It is designed to enhance usability by grouping related actions while keeping the primary interaction clear and prominent.";
 
             Stage.Controls = [
                 new ControlSplitButtonLink()

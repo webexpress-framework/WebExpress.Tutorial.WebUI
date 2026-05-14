@@ -6,8 +6,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 {
     /// <summary>
     /// Represents a REST API endpoint demonstrating the <see cref="RestApiCheck"/>
-    /// pattern. Toggles a global Monkey-Island-themed boolean state — whether
-    /// insult sword fighting is enabled — through GET/POST requests.
+    /// pattern. Toggles a global Monkey-Island-themed boolean state - whether
+    /// insult sword fighting is enabled - through GET/POST requests.
     /// </summary>
     [Title("Monkey Island Insult Sword Fighting")]
     public sealed class MonkeyIslandInsultModeCheck : RestApiCheck

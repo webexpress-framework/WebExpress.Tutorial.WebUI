@@ -42,7 +42,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.AddProperty
             (
                 "Uri",
-                "The `Uri` property defines the source of the external HTML content to be embedded. It can point to a full HTML page or a partial fragment that will be integrated into the current view—similar to an iframe, but with DOM-level control.",
+                "The `Uri` property defines the source of the external HTML content to be embedded. It can point to a full HTML page or a partial fragment that will be integrated into the current view-similar to an iframe, but with DOM-level control.",
                 "Uri = _ => sitemapManager.GetUri<Info>(pageContext.ApplicationContext)",
                 new ControlFrame()
                 {
@@ -53,7 +53,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.AddProperty
             (
                 "Selector",
-                "The `Selector` property allows you to specify a CSS selector—such as an `id` or `class`—to extract only a specific fragment from the loaded HTML content. This enables precise embedding of partial views rather than full pages.",
+                "The `Selector` property allows you to specify a CSS selector-such as an `id` or `class`-to extract only a specific fragment from the loaded HTML content. This enables precise embedding of partial views rather than full pages.",
                 "Selector = _ => \"#wx-content-main\"",
                 new ControlFrame()
                 {

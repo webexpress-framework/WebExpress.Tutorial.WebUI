@@ -351,7 +351,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 typeof(ControlToolbarItemButton),
                 "Disabled",
-                "The `Active` property controls the interactivity state of a toolbar item. When set to disabled, the item appears visually dimmed and is functionally deactivated—meaning users cannot click or activate it. This is often used to reflect application state, user permissions, or conditional logic.",
+                "The `Active` property controls the interactivity state of a toolbar item. When set to disabled, the item appears visually dimmed and is functionally deactivated-meaning users cannot click or activate it. This is often used to reflect application state, user permissions, or conditional logic.",
                 "new ControlToolbar().Add(new ControlToolbarItemButton() { Active = _ => TypeActive.Disabled })",
                 new ControlToolbar().Add
                 (

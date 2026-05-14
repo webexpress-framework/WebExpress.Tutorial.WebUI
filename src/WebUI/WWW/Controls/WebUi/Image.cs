@@ -50,7 +50,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.AddProperty
                 (
                     "Uri",
-                    "The `Uri` property is a fundamental attribute of image-based UI components—like an `Image` control—that determines where the image is loaded from. This can be a resource embedded in the application or a remote web URL.",
+                    "The `Uri` property is a fundamental attribute of image-based UI components-like an `Image` control-that determines where the image is loaded from. This can be a resource embedded in the application or a remote web URL.",
                     "Uri = _ => applicationContext.Route.Concat(\"assets/img/image2.png\").ToUri()",
                     new ControlImage()
                     {

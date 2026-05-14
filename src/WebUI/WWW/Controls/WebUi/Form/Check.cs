@@ -108,7 +108,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             Stage.AddProperty
             (
                 "Layout",
-                "The `layout` property defines how the check box is visually presented and how its content is arranged within the user interface. It does not affect the logic or functionality—only the appearance and positioning.",
+                "The `layout` property defines how the check box is visually presented and how its content is arranged within the user interface. It does not affect the logic or functionality-only the appearance and positioning.",
                 "Layout = _ => TypeLayoutCheck.Switch",
                 new ControlForm()
                     .Add(new ControlFormItemInputCheck

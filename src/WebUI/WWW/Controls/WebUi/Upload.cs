@@ -110,7 +110,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.AddProperty
             (
                 "Autoupload",
-                "The `AutoUpload` property determines whether a file is automatically uploaded immediately after the user selects it—without requiring an explicit click on an \"Upload\" button.",
+                "The `AutoUpload` property determines whether a file is automatically uploaded immediately after the user selects it-without requiring an explicit click on an \"Upload\" button.",
                 "Autoupload = _ => true",
                 new ControlText() { Text = _ => "false", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlUpload()

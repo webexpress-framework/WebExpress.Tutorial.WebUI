@@ -136,7 +136,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.AddProperty
             (
                 "SplitterSize",
-                "The `SplitterSize` property defines the thickness or width of the splitter bar that separates the two panels in a splitter control. This size determines how much screen space the splitter occupies—horizontally in a vertical layout or vertically in a horizontal layout.",
+                "The `SplitterSize` property defines the thickness or width of the splitter bar that separates the two panels in a splitter control. This size determines how much screen space the splitter occupies-horizontally in a vertical layout or vertically in a horizontal layout.",
                 "SplitterSize = _ => 20",
                 new ControlPanelSplit()
                 {
@@ -147,7 +147,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.AddProperty
             (
                 "SidePanelInitialSize",
-                "The `SidePanelInitialSize` property specifies the default width or height—depending on orientation—of one of the panels within a splitter control when it is first rendered. This size determines how much space the specified panel occupies before the user interacts with the splitter to resize it.",
+                "The `SidePanelInitialSize` property specifies the default width or height-depending on orientation-of one of the panels within a splitter control when it is first rendered. This size determines how much space the specified panel occupies before the user interacts with the splitter to resize it.",
                 "SplitterSize = _ => 100",
                 new ControlPanelSplit()
                 {
@@ -158,7 +158,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.AddProperty
             (
                 "SidePanelMinSize",
-                "The `SidePanelMinSize` property defines the minimum allowable width or height—depending on the layout orientation—of the side panel in a splitter control. Its primary role is to restrict how far the user can collapse or shrink the SidePanel during a resizing operation. This ensures that the content within the panel remains accessible and usable, preventing layout issues or hidden UI elements.",
+                "The `SidePanelMinSize` property defines the minimum allowable width or height-depending on the layout orientation-of the side panel in a splitter control. Its primary role is to restrict how far the user can collapse or shrink the SidePanel during a resizing operation. This ensures that the content within the panel remains accessible and usable, preventing layout issues or hidden UI elements.",
                 "SidePanelMinSize = _ => 100",
                 new ControlPanelSplit()
                 {
