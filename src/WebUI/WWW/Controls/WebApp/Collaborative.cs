@@ -52,13 +52,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                     .Add
                     (
                         new ControlFormItemInputText("collaborative-subject")
-                            .Initialize(x => x.Value.Text = "Monkey Island Sprint Planning"),
+                            .Initialize(x => x.Value.Text = "collaborative demo"),
                         new ControlFormItemInputText("collaborative-notes")
                         {
-                            Format = _ => TypeEditTextFormat.Multiline,
+                            Format = _ => TypeEditTextFormat.Wysiwyg,
                             Rows = _ => 5
                         }
-                        .Initialize(x => x.Value.Text = "Presence, Cursor und Input-Sync gemeinsam testen.")
+                        .Initialize(x => x.Value.Text = "Test presence, cursor, and input sync together.")
                     )
                 )
             ];
@@ -80,13 +80,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 .Add
                 (
                     new ControlFormItemInputText(""collaborative-subject"")
-                        .Initialize(x => x.Value.Text = ""Monkey Island Sprint Planning""),
+                        .Initialize(x => x.Value.Text = ""collaborative demo""),
                     new ControlFormItemInputText(""collaborative-notes"")
                     {
-                        Format = _ => TypeEditTextFormat.Multiline,
+                        Format = _ => TypeEditTextFormat.Wysiwyg,
                         Rows = _ => 5
                     }
-                    .Initialize(x => x.Value.Text = ""Presence, Cursor und Input-Sync gemeinsam testen."")
+                    .Initialize(x => x.Value.Text = ""Test presence, cursor, and input sync together."")
                 )
             );";
         }
