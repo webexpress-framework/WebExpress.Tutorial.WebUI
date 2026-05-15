@@ -10,6 +10,7 @@ using WebExpress.WebCore.WebHtml;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
@@ -31,7 +32,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         {
             Stage.AddEvent(Event.SELECTED_TAB_EVENT, Event.TAB_ADDED_EVENT, Event.TAB_CLOSED_EVENT);
 
-            Stage.Description = @"The `Tab` control serves as a container for multiple tab views. Each tab is defined through a tab view with metadata such as title and an icon.";
+            Stage.Description = @"The `RestTab` control serves as a container for REST-driven tab views. This example provides three selectable templates (`dashboard`, `backlog`, and `table`) so new tabs can be created with different layouts.";
 
             Stage.Control = new ControlRestTab(RandomId.Create())
             {
@@ -39,11 +40,110 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             }
                 .Add
                 (
-                    new ControlRestTabTemplate()
-                        .Add(new ControlText()
+                    new ControlRestTabTemplate("monkeyTemplate")
+                    {
+                        Icon = _ => new IconDiagramProject(),
+                        Name = _ => "Dashboard",
+                        Description = _ => "Dashboard template",
+                        Bind = _ => new Binding().Add(new BindTemplate()
+                            .Add("title", TypeBindMode.Text, ".wx-resttab-dashboard-title")
+                            .Add("uri", TypeBindMode.Attr, ".wx-webui-dashboard", "data-uri")
+                            .Add("isActive", TypeBindMode.Toggle, ".wx-webui-dashboard", "active"))
+                    }
+                        .Add(new ControlText("dashboard-title")
                         {
-                            Text = _ => "Template"
+                            Text = _ => "Dashboard template",
+                            Classes = ["wx-resttab-dashboard-title"]
                         })
+                        .Add
+                        (
+                            new ControlDashboard("dashboard-template")
+                                .Add
+                                (
+                                    new ControlDashboardColumn("dash-col-1", "Overview", "50%"),
+                                    new ControlDashboardColumn("dash-col-2", "Status", "*")
+                                )
+                                .Add
+                                (
+                                    new ControlDashboardWidget("dash-widget-1")
+                                    {
+                                        Title = _ => "Progress",
+                                        Icon = _ => new IconChartDiagram(),
+                                        Column = _ => 0,
+                                        Widget = _ => "progress"
+                                    },
+                                    new ControlDashboardWidget("dash-widget-2")
+                                    {
+                                        Title = _ => "Crew",
+                                        Icon = _ => new IconUser(),
+                                        Column = _ => 1,
+                                        Widget = _ => "crew"
+                                    }
+                                )
+                        ),
+                    new ControlRestTabTemplate("backlogTemplate")
+                    {
+                        Icon = _ => new IconListCheck(),
+                        Name = _ => "Backlog",
+                        Description = _ => "Scrum backlog template",
+                        Bind = _ => new Binding().Add(new BindTemplate()
+                            .Add("name", TypeBindMode.Text, ".wx-resttab-backlog-title")
+                            .Add("uri", TypeBindMode.Attr, ".wx-webapp-scrum-backlog", "data-uri"))
+                    }
+                        .Add(new ControlText("backlog-title")
+                        {
+                            Text = _ => "Backlog template",
+                            Classes = ["wx-resttab-backlog-title"]
+                        })
+                        .Add
+                        (
+                            new ControlRestScrumBacklog("template-backlog")
+                            {
+                                RestUri = _ => sitemapManager.GetUri<RestApiScrum>(pageContext.ApplicationContext),
+                                Title = _ => "Monkey Island Product Backlog",
+                                Selectable = _ => true,
+                                IconActive = _ => "fas fa-skull-crossbones",
+                                IconPlanned = _ => "fas fa-hourglass-half",
+                                IconBacklog = _ => "fas fa-map"
+                            }
+                        ),
+                    new ControlRestTabTemplate("tableTemplate")
+                    {
+                        Icon = _ => new IconTable(),
+                        Name = _ => "Table",
+                        Description = _ => "Table template",
+                        Bind = _ => new Binding().Add(new BindTemplate()
+                            .Add("title", TypeBindMode.Text, ".wx-resttab-table-title"))
+                    }
+                        .Add(new ControlText("table-title")
+                        {
+                            Text = _ => "Table template",
+                            Classes = ["wx-resttab-table-title"]
+                        })
+                        .Add
+                        (
+                            new ControlTable("template-table")
+                                .AddColumns
+                                (
+                                    new ControlTableColumn("col-key") { Title = _ => "Key" },
+                                    new ControlTableColumn("col-value") { Title = _ => "Value" }
+                                )
+                                .AddRows
+                                (
+                                    new ControlTableRow("row-1")
+                                        .Add
+                                        (
+                                            new ControlTableCell() { Text = _ => "Ship" },
+                                            new ControlTableCell() { Text = _ => "Sea Monkey" }
+                                        ),
+                                    new ControlTableRow("row-2")
+                                        .Add
+                                        (
+                                            new ControlTableCell() { Text = _ => "Captain" },
+                                            new ControlTableCell() { Text = _ => "Guybrush" }
+                                        )
+                                )
+                        )
                 );
 
             Stage.Code = @"
@@ -53,11 +153,110 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             }
                 .Add
                 (
-                    new ControlRestTabTemplate()
-                        .Add(new ControlText() 
-                        { 
-                            Text = _ => ""Template"" 
+                    new ControlRestTabTemplate(""monkeyTemplate"")
+                    {
+                        Icon = _ => new IconDiagramProject(),
+                        Name = _ => ""Dashboard"",
+                        Description = _ => ""Dashboard template"",
+                        Bind = _ => new BindTemplate()
+                            .Add(""title"", TypeBindMode.Text, "".wx-resttab-dashboard-title"")
+                            .Add(""uri"", TypeBindMode.Attr, "".wx-webui-dashboard"", ""data-uri"")
+                            .Add(""isActive"", TypeBindMode.Toggle, "".wx-webui-dashboard"", ""active"")
+                    }
+                        .Add(new ControlText(""dashboard-title"")
+                        {
+                            Text = _ => ""Dashboard template"",
+                            Classes = [""wx-resttab-dashboard-title""]
                         })
+                        .Add
+                        (
+                            new ControlDashboard(""dashboard-template"")
+                                .Add
+                                (
+                                    new ControlDashboardColumn(""dash-col-1"", ""Overview"", ""50%""),
+                                    new ControlDashboardColumn(""dash-col-2"", ""Status"", ""*"")
+                                )
+                                .Add
+                                (
+                                    new ControlDashboardWidget(""dash-widget-1"")
+                                    {
+                                        Title = _ => ""Progress"",
+                                        Icon = _ => new IconChartDiagram(),
+                                        Column = _ => 0,
+                                        Widget = _ => ""progress""
+                                    },
+                                    new ControlDashboardWidget(""dash-widget-2"")
+                                    {
+                                        Title = _ => ""Crew"",
+                                        Icon = _ => new IconUser(),
+                                        Column = _ => 1,
+                                        Widget = _ => ""crew""
+                                    }
+                                )
+                        ),
+                    new ControlRestTabTemplate(""backlogTemplate"")
+                    {
+                        Icon = _ => new IconListCheck(),
+                        Name = _ => ""Backlog"",
+                        Description = _ => ""Scrum backlog template"",
+                        Bind = _ => new BindTemplate()
+                            .Add(""name"", TypeBindMode.Text, "".wx-resttab-backlog-title"")
+                            .Add(""uri"", TypeBindMode.Attr, "".wx-webapp-scrum-backlog"", ""data-uri"")
+                    }
+                        .Add(new ControlText(""backlog-title"")
+                        {
+                            Text = _ => ""Backlog template"",
+                            Classes = [""wx-resttab-backlog-title""]
+                        })
+                        .Add
+                        (
+                            new ControlRestScrumBacklog(""template-backlog"")
+                            {
+                                RestUri = _ => sitemapManager.GetUri<RestApiScrum>(pageContext.ApplicationContext),
+                                Title = _ => ""Monkey Island Product Backlog"",
+                                Selectable = _ => true,
+                                IconActive = _ => ""fas fa-skull-crossbones"",
+                                IconPlanned = _ => ""fas fa-hourglass-half"",
+                                IconBacklog = _ => ""fas fa-map""
+                            }
+                        ),
+                    new ControlRestTabTemplate(""tableTemplate"")
+                    {
+                        Icon = _ => new IconTable(),
+                        Name = _ => ""Table"",
+                        Description = _ => ""Table template"",
+                        Bind = _ => new BindTemplate()
+                            .Add(""title"", TypeBindMode.Text, "".wx-resttab-table-title"")
+                    }
+                        .Add(new ControlText(""table-title"")
+                        {
+                            Text = _ => ""Table template"",
+                            Classes = [""wx-resttab-table-title""]
+                        })
+                        .Add
+                        (
+                            new ControlTable(""template-table"")
+                                .AddColumns
+                                (
+                                    new ControlTableColumn(""col-key"") { Title = _ => ""Key"" },
+                                    new ControlTableColumn(""col-value"") { Title = _ => ""Value"" }
+                                )
+                                .AddRows
+                                (
+                                    new ControlTableRow(""row-1"")
+                                        .Add
+                                        (
+                                            new ControlTableCell() { Text = _ => ""Ship"" },
+                                            new ControlTableCell() { Text = _ => ""Sea Monkey"" }
+                                        ),
+                                    new ControlTableRow(""row-2"")
+                                        .Add
+                                        (
+                                            new ControlTableCell() { Text = _ => ""Captain"" },
+                                            new ControlTableCell() { Text = _ => ""Guybrush"" }
+                                        )
+                                )
+                        )
                 );";
         }
     }
