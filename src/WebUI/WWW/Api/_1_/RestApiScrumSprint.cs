@@ -29,7 +29,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         {
             lock (SyncRoot)
             {
-                return ViewModel.MonkeyIslandSprints
+                return [.. ViewModel.MonkeyIslandSprints
                     .Select(x => new Sprint
                     {
                         Id = x.Id,
@@ -39,8 +39,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                         Start = x.Start,
                         End = x.End,
                         Capacity = x.Capacity
-                    })
-                    .ToList();
+                    })];
             }
         }
 
@@ -55,7 +54,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         {
             lock (SyncRoot)
             {
-                return ViewModel.MonkeyIslandScrumItems
+                return [.. ViewModel.MonkeyIslandScrumItems
                     .Select(x => new ScrumItem
                     {
                         Id = x.Id,
@@ -68,8 +67,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                         SprintId = x.SprintId,
                         Status = x.Status,
                         Rank = x.Rank
-                    })
-                    .ToList();
+                    })];
             }
         }
 
