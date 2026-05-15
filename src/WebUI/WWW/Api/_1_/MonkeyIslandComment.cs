@@ -57,18 +57,22 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// <param name="payload">
         /// The comment data including body, category, and labels.
         /// </param>
+        /// <param name="context">
+        /// The context in which the query is executed, providing additional 
+        /// information or constraints. Cannot be null.
+        /// </param>
         /// <param name="request">
         /// The HTTP request used to resolve the current user.
         /// </param>
         /// <returns>A cloned copy of the newly created comment item.</returns>
-        protected override RestApiCommentItem CreateComment(RestApiCommentPayload payload, IRequest request)
+        protected override RestApiCommentItem CreateComment(RestApiCommentPayload payload, IQueryContext context, IRequest request)
         {
             lock (_syncRoot)
             {
                 var item = new RestApiCommentItem
                 {
                     Id = "c" + System.Threading.Interlocked.Increment(ref _nextId),
-                    Author = ResolveCurrentUser(request) ?? "guybrush",
+                    Author = ResolveCurrentUser(context, request) ?? "guybrush",
                     Body = payload?.Body ?? string.Empty,
                     Category = payload?.Category ?? "general",
                     Labels = payload?.Labels?.ToList() ?? [],
@@ -92,6 +96,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// <param name="payload">
         /// The payload containing the fields to be updated.
         /// </param>
+        /// <param name="context">
+        /// The context in which the query is executed, providing additional 
+        /// information or constraints. Cannot be null.
+        /// </param>
         /// <param name="request">
         /// The request used to resolve the current user.
         /// </param>
@@ -99,7 +107,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// The updated comment, or <see langword="null"/> if no comment with the 
         /// specified ID was found.
         /// </returns>
-        protected override RestApiCommentItem UpdateComment(string id, RestApiCommentPayload payload, IRequest request)
+        protected override RestApiCommentItem UpdateComment(string id, RestApiCommentPayload payload, IQueryContext context, IRequest request)
         {
             lock (_syncRoot)
             {
@@ -115,7 +123,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 item.Edited = new RestApiCommentEditInfo
                 {
                     When = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm"),
-                    By = ResolveCurrentUser(request) ?? item.Author
+                    By = ResolveCurrentUser(context, request) ?? item.Author
                 };
                 return Clone(item);
             }
@@ -127,13 +135,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// <param name="id">
         /// The ID of the comment to delete.
         /// </param>
+        /// <param name="context">
+        /// The context in which the query is executed, providing additional 
+        /// information or constraints. Cannot be null.
+        /// </param>
         /// <param name="request">
         /// The request context.
         /// </param>
         /// <returns>
         /// true if the comment was found and deleted; otherwise, false.
         /// </returns>
-        protected override bool DeleteComment(string id, IRequest request)
+        protected override bool DeleteComment(string id, IQueryContext context, IRequest request)
         {
             lock (_syncRoot)
             {
@@ -154,12 +166,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// </summary>
         /// <param name="id">The identifier of the item.</param>
         /// <param name="userId">The identifier of the user toggling the like.</param>
+        /// <param name="context">
+        /// The context in which the query is executed, providing additional 
+        /// information or constraints. Cannot be null.
+        /// </param>
         /// <param name="request">The request context.</param>
         /// <returns>
         /// A collection of user identifiers who have liked the item, or 
         /// <see langword="null"/> if the item is not found.
         /// </returns>
-        protected override IEnumerable<string> ToggleLike(string id, string userId, IRequest request)
+        protected override IEnumerable<string> ToggleLike(string id, string userId, IQueryContext context, IRequest request)
         {
             lock (_syncRoot)
             {
@@ -191,13 +207,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// Toggles the pin state of the item with the specified identifier.
         /// </summary>
         /// <param name="id">The identifier of the item to toggle.</param>
+        /// <param name="context">
+        /// The context in which the query is executed, providing additional 
+        /// information or constraints. Cannot be null.
+        /// </param>
         /// <param name="request">The request context.</param>
         /// <returns>
         /// <see langword="true"/> if the item is now pinned; 
         /// <see langword="false"/> if the item is now unpinned; <see
         /// langword="null"/> if the item was not found.
         /// </returns>
-        protected override bool? TogglePin(string id, IRequest request)
+        protected override bool? TogglePin(string id, IQueryContext context, IRequest request)
         {
             lock (_syncRoot)
             {
@@ -227,13 +247,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// <param name="userId">
         /// The user identifier. If null or empty, no changes are applied.
         /// </param>
+        /// <param name="context">
+        /// The context in which the query is executed, providing additional 
+        /// information or constraints. Cannot be null.
+        /// </param>
         /// <param name="request">
         /// The request context.
         /// </param>
         /// <returns>
         /// A dictionary of reactions with their associated user lists, or null if the item was not found.
         /// </returns>
-        protected override IDictionary<string, IEnumerable<string>> ToggleReaction(string id, string emoji, string userId, IRequest request)
+        protected override IDictionary<string, IEnumerable<string>> ToggleReaction(string id, string emoji, string userId, IQueryContext context, IRequest request)
         {
             lock (_syncRoot)
             {
@@ -287,6 +311,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// <param name="body">
         /// The text content of the reply.
         /// </param>
+        /// <param name="context">
+        /// The context in which the query is executed, providing additional 
+        /// information or constraints. Cannot be null.
+        /// </param>
         /// <param name="request">
         /// The request context used to resolve the current user.
         /// </param>
@@ -294,7 +322,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// The newly created reply, or <see langword="null"/> if the comment 
         /// was not found.
         /// </returns>
-        protected override RestApiCommentReply AppendReply(string id, string body, IRequest request)
+        protected override RestApiCommentReply AppendReply(string id, string body, IQueryContext context, IRequest request)
         {
             lock (_syncRoot)
             {
@@ -307,7 +335,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 var reply = new RestApiCommentReply
                 {
                     Id = "r" + System.Threading.Interlocked.Increment(ref _nextId),
-                    Author = ResolveCurrentUser(request) ?? "guybrush",
+                    Author = ResolveCurrentUser(context, request) ?? "guybrush",
                     Body = body,
                     When = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm")
                 };
@@ -322,9 +350,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// <summary>
         /// Resolves the current user identifier from the request.
         /// </summary>
+        /// <param name="context">
+        /// The context in which the query is executed, providing additional 
+        /// information or constraints. Cannot be null.
+        /// </param>
         /// <param name="request">The incoming request.</param>
         /// <returns>Always returns the hardcoded value "guybrush".</returns>
-        protected override string ResolveCurrentUser(IRequest request) => "guybrush";
+        protected override string ResolveCurrentUser(IQueryContext context, IRequest request) => "guybrush";
 
         /// <summary>
         /// Builds the seed thread shown when the page is opened for the
@@ -348,7 +380,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 },
                 Replies =
                 [
-                    new RestApiCommentReply { Id = "r1", Author = "voodoolady", Body = "Listen carefully to the pirates on the docks — every insult has a matching retort.", When = "1990-10-15 10:01" },
+                    new RestApiCommentReply { Id = "r1", Author = "voodoolady", Body = "Listen carefully to the pirates on the docks - every insult has a matching retort.", When = "1990-10-15 10:01" },
                     new RestApiCommentReply { Id = "r2", Author = "elaine",     Body = "Practice on the lowlife pirates outside the SCUMM Bar first.",                            When = "1990-10-15 10:14" }
                 ],
                 Pinned = true
@@ -374,7 +406,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 Author = "stan",
                 Category = "decision",
                 Labels = ["ship", "shopping"],
-                Body = "<p>Have I got a <strong>ship</strong> for you! Today only — extended warranty included, free anchor, no questions asked!</p>",
+                Body = "<p>Have I got a <strong>ship</strong> for you! Today only - extended warranty included, free anchor, no questions asked!</p>",
                 When = "1990-10-15 13:05",
                 Likes = [],
                 Reactions = new Dictionary<string, IEnumerable<string>>
@@ -393,7 +425,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 Author = "voodoolady",
                 Category = "solution",
                 Labels = ["root-beer", "ghost"],
-                Body = "<p>Remember — only a flask of <em>root beer</em> can banish the ghost pirate LeChuck. Brew it well.</p>",
+                Body = "<p>Remember - only a flask of <em>root beer</em> can banish the ghost pirate LeChuck. Brew it well.</p>",
                 When = "1990-10-15 18:30",
                 Likes = ["guybrush", "elaine"],
                 Reactions = new Dictionary<string, IEnumerable<string>>

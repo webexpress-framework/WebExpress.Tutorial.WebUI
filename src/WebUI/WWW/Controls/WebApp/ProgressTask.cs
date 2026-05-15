@@ -33,16 +33,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.AddEvent(Event.TASK_UPDATE_EVENT, Event.TASK_FINISH_EVENT, Event.SHOW_EVENT, Event.HIDE_EVENT);
 
-            Stage.Description = @"`ControlProgressTask` visualizes the lifecycle of a server-side task (`WebTask`). Updates are no longer polled over a REST endpoint — the server pushes every state change (start, progress tick, message change, finish, cancel) live through the existing MessageQueue WebSocket (see `WebExpress.WebApp.WebMessageQueue.ProgressTaskDispatcher`). The same channel that already carries popup notifications and collaborative messages now also drives the progress overlay.
+            Stage.Description = @"`ControlProgressTask` visualizes the lifecycle of a server-side task (`WebTask`). Updates are no longer polled over a REST endpoint - the server pushes every state change (start, progress tick, message change, finish, cancel) live through the existing MessageQueue WebSocket (see `WebExpress.WebApp.WebMessageQueue.ProgressTaskDispatcher`). The same channel that already carries popup notifications and collaborative messages now also drives the progress overlay.
 
-Because every relevant lifecycle event is broadcast as it happens, the UI reacts immediately without any HTTP roundtrip from the receiver. When the client (re)connects — for example after a page navigation or a transient network drop — the dispatcher replays the current snapshot of every active task on top of the new socket, so the progress bar always reflects reality even when the user joined after the task already started.
+Because every relevant lifecycle event is broadcast as it happens, the UI reacts immediately without any HTTP roundtrip from the receiver. When the client (re)connects - for example after a page navigation or a transient network drop - the dispatcher replays the current snapshot of every active task on top of the new socket, so the progress bar always reflects reality even when the user joined after the task already started.
 
 Manual scenarios:
 
-- **Live progress** — press the demo button: the bar fills as the task runs.
-- **Multiple windows** — open the same URL in two tabs and start a task: both update in lockstep.
-- **Page navigation** — start a long task, navigate to another tutorial page and back; the snapshot is replayed so the bar reflects the live progress immediately.
-- **Reconnect** — briefly disable the network in DevTools while a task is running; once the WebSocket reconnects the progress jumps to the latest server-side state.";
+- **Live progress** - press the demo button: the bar fills as the task runs.
+- **Multiple windows** - open the same URL in two tabs and start a task: both update in lockstep.
+- **Page navigation** - start a long task, navigate to another tutorial page and back; the snapshot is replayed so the bar reflects the live progress immediately.
+- **Reconnect** - briefly disable the network in DevTools while a task is running; once the WebSocket reconnects the progress jumps to the latest server-side state.";
 
             Stage.Controls =
             [

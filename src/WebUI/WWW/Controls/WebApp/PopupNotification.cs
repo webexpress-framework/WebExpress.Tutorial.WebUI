@@ -37,7 +37,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         {
             Stage.Description = @"`ControlPopupNotification` hosts the live popup overlay that consumes notifications from the MessageQueue WebSocket. The first card below triggers **server-side** notifications: each click hits the `PopupTrigger` REST helper which calls `NotificationManager.AddNotification`; the `PopupNotificationDispatcher` then forwards the notification to every connected client over the existing WebSocket - no HTTP roundtrip from the receiver is involved.
 
-The second card demonstrates the **client-side `ActionPopup`** (`IAction`): the button itself carries the entire payload as `data-wx-primary-*` attributes and the registered `popup` action synthesizes a notification locally via `MessageQueue.dispatchLocal`. No request reaches the server and no other client sees the popup — ideal for inline UX feedback such as ""copied to clipboard"" or ""form saved"".
+The second card demonstrates the **client-side `ActionPopup`** (`IAction`): the button itself carries the entire payload as `data-wx-primary-*` attributes and the registered `popup` action synthesizes a notification locally via `MessageQueue.dispatchLocal`. No request reaches the server and no other client sees the popup - ideal for inline UX feedback such as ""copied to clipboard"" or ""form saved"".
 
 Manual scenarios:
 
@@ -150,7 +150,7 @@ Manual scenarios:
                         new ActionPopup
                         (
                             heading: "Heads up",
-                            message: "Triggered locally — never reaches the server.",
+                            message: "Triggered locally - never reaches the server.",
                             type: "alert-info",
                             durability: 5000
                         )
