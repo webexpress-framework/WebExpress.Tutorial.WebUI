@@ -46,6 +46,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Comment
                 }
             ];
 
+            Stage.DarkControls = [];
+
             Stage.Code = @"
             new ControlComment(""tutorial-comment-guybrush"")
             {
