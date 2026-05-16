@@ -45,6 +45,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                         Icon = _ => new IconDiagramProject(),
                         Name = _ => "Dashboard",
                         Description = _ => "Dashboard template",
+                        Multiplicity = _ => 5,
                         Bind = _ => new Binding().Add(new BindTemplate()
                             .Add("title", TypeBindMode.Text, ".wx-resttab-dashboard-title")
                             .Add("uri", TypeBindMode.Attr, ".wx-webui-dashboard", "data-uri")
@@ -158,6 +159,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                         Icon = _ => new IconDiagramProject(),
                         Name = _ => ""Dashboard"",
                         Description = _ => ""Dashboard template"",
+                        Multiplicity = _ => 5,
                         Bind = _ => new BindTemplate()
                             .Add(""title"", TypeBindMode.Text, "".wx-resttab-dashboard-title"")
                             .Add(""uri"", TypeBindMode.Attr, "".wx-webui-dashboard"", ""data-uri"")
