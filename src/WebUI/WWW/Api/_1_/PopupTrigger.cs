@@ -53,7 +53,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         [Method(RequestMethod.GET)]
         public Response Trigger(Request request)
         {
-            var manager = _componentHub.GetComponentManager<NotificationManager>();
+            var manager = _componentHub?.GetComponentManager<NotificationManager>();
             if (manager == null)
             {
                 return new ResponseOK();

@@ -46,10 +46,10 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
         public override IHtmlNode Render(IRenderControlContext renderContext, IVisualTreeControl visualTree)
         {
             // Retrieve the context of the index page.
-            var indexContext = _componentHub.PageManager.GetPages(typeof(Index), _fragmentContext.ApplicationContext).FirstOrDefault();
+            var indexContext = _componentHub?.PageManager.GetPages(typeof(Index), _fragmentContext.ApplicationContext).FirstOrDefault();
 
             // Retrieve and filter the list of pages to be displayed.
-            var items = _componentHub.PageManager.Pages
+            var items = _componentHub?.PageManager.Pages
                 .Where(x => x.ApplicationContext == _fragmentContext.ApplicationContext)
                 .Where(x => x.Scopes.Contains(typeof(IScopeControl)))
                 .Where(x => x.EndpointId != indexContext?.EndpointId)

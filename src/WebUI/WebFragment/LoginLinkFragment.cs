@@ -44,7 +44,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.HomePage
 
             PrimaryAction = renderContext =>
             {
-                var loginUri = _componentHub.SitemapManager.GetUri<Login>(renderContext?.PageContext.ApplicationContext);
+                var loginUri = _componentHub?.SitemapManager.GetUri<Login>(renderContext?.PageContext.ApplicationContext);
 
                 return new ActionModal("modal-form", loginUri, TypeModalSize.Default);
             };

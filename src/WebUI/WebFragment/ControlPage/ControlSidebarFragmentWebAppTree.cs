@@ -63,10 +63,10 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
 
             RenderControl += (renderContext, visualTree) =>
             {
-                var indexContext = _componentHub.PageManager
+                var indexContext = _componentHub?.PageManager
                 .GetPages(typeof(WWW.Controls.WebApp.Index), _fragmentContext.ApplicationContext)
                 .FirstOrDefault();
-                var items = _componentHub.PageManager.Pages
+                var items = _componentHub?.PageManager.Pages
                     .Where(x => x.ApplicationContext == _fragmentContext.ApplicationContext)
                     .Where(x => x.Scopes.Contains(typeof(IScopeControlWebApp)))
                     .Where(x => x.EndpointId != indexContext?.EndpointId)
