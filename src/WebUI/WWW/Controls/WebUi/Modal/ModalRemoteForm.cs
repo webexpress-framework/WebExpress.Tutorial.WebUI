@@ -45,7 +45,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                     Header = _ => "My modal",
                     Size = _ => TypeModalSize.ExtraLarge,
                     Uri = _ => sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
-                    Selector = _ => "conformationform"
+                    Selector = _ => "#conformationform"
                 }
             ];
 
@@ -63,7 +63,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                     Header = _ => "My modal",
                     Size = _ => TypeModalSize.ExtraLarge,
                     Uri = _ => sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
-                    Selector = _ => "conformationform"
+                    Selector = _ => "#conformationform"
                 }
             ];
 
@@ -80,7 +80,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 Header = _ => ""My modal"",
                 Size = _ => TypeModalSize.ExtraLarge,
                 Uri = _ => sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
-                Selector = _ => ""conformationform""
+                Selector = _ => ""#conformationform""
             }";
 
             Stage.AddProperty
@@ -101,7 +101,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                     Header = _ => "Header",
                     Size = _ => TypeModalSize.ExtraLarge,
                     Uri = _ => sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
-                    Selector = _ => "conformationform"
+                    Selector = _ => "#conformationform"
                 }
             );
 
@@ -122,7 +122,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                     Header = _ => "Header",
                     Size = _ => TypeModalSize.ExtraLarge,
                     Uri = _ => sitemapManager.GetUri<Form.Index>(pageContext.ApplicationContext),
-                    Selector = _ => "conformationform"
+                    Selector = _ => "#conformationform"
                 }
             );
         }
