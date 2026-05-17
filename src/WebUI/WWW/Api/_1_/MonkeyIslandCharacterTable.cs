@@ -20,6 +20,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     [Title("Monkey Island characters")]
     public sealed class MonkeyIslandCharacterTable : RestApiTable<Character>
     {
+        // shared in-memory layout so manual reorder/resize/hide actions
+        // performed in the browser survive page refreshes during the demo.
+        private static readonly object _layoutLock = new();
+        private static List<RestApiTableColumn> _layout;
+
         private readonly IUri _formEditUri;
         private readonly IUri _formDeleteUri;
         private readonly IUri _restApi;
@@ -41,17 +46,52 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         }
 
         /// <summary>
-        /// Retrieves the collection of columns available for the specified 
-        /// REST API request.
+        /// Retrieves the collection of columns available for the specified
+        /// REST API request. If the user has already changed the layout in the
+        /// browser, the persisted order, width and visibility are reused so the
+        /// table comes back the way the user left it.
         /// </summary>
         /// <param name="request">
         /// The request for which to retrieve the available table columns.
         /// </param>
         /// <returns>
-        /// An enumerable collection of columns describing the structure of 
+        /// An enumerable collection of columns describing the structure of
         /// the data returned by the REST API for the specified request.
         /// </returns>
         protected override IEnumerable<RestApiTableColumn> RetrieveColums(IRequest request)
+        {
+            lock (_layoutLock)
+            {
+                if (_layout is { Count: > 0 })
+                {
+                    return _layout.Select(Clone).ToList();
+                }
+            }
+
+            return DefaultColumns();
+        }
+
+        /// <summary>
+        /// Persists the column layout that was sent from the browser. The
+        /// layout is kept in memory so it can be replayed by
+        /// <see cref="RetrieveColums"/> on subsequent requests, which lets the
+        /// reviewer verify that order, width and visibility round-trip
+        /// correctly through the REST endpoint.
+        /// </summary>
+        /// <param name="columns">The resolved column layout.</param>
+        /// <param name="request">The triggering request.</param>
+        protected override void UpdateColumns(IEnumerable<RestApiTableColumn> columns, IRequest request)
+        {
+            lock (_layoutLock)
+            {
+                _layout = columns?.Select(Clone).ToList();
+            }
+        }
+
+        /// <summary>
+        /// Returns the default column layout used until the user makes a change.
+        /// </summary>
+        private static IEnumerable<RestApiTableColumn> DefaultColumns()
         {
             yield return new RestApiTableColumn()
             {
@@ -78,6 +118,21 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 Template = new RestApiTableColumnTemplateTag(true)
             };
         }
+
+        /// <summary>
+        /// Defensive copy so the cached layout cannot be mutated through a
+        /// returned reference.
+        /// </summary>
+        private static RestApiTableColumn Clone(RestApiTableColumn source) => new()
+        {
+            Id = source.Id,
+            Name = source.Name,
+            Label = source.Label,
+            Icon = source.Icon,
+            Visible = source.Visible,
+            Width = source.Width,
+            Template = source.Template
+        };
 
         /// <summary>
         /// Retrieves a queryable collection of index items that match the specified query criteria.
