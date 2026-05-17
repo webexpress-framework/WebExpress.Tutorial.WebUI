@@ -9,6 +9,11 @@ app.license.uri=https://github.com/webexpress-framework/WebExpress.Tutorial.WebU
 app.about=About WebUI Tutorial
 app.version.label={0} version {1} created with {2} version {3}.
 
+theme.defaulticon.name=Default icons
+theme.defaulticon.description=Theme using the bundled FontAwesome glyphs.
+theme.lighticon.name=Light icons
+theme.lighticon.description=Theme using the lightweight SVG icon set shipped with WebExpress.WebUI.
+
 homepage.label=Home page
 infopage.label=Info
 loginpage.label=Log in
