@@ -21,11 +21,13 @@ namespace WebExpress.Tutorial.WebUI.WebPage
         protected Stage Stage { get; } = new Stage();
 
         /// <summary>
-        /// Processing of the resource.
+        /// Processing of the resource. Virtual so a derived tutorial page can
+        /// hook in before the default rendering, e.g. to switch the active
+        /// theme via <c>visualTree.UseTheme&lt;TTheme&gt;()</c>.
         /// </summary>
         /// <param name="renderContext">The context for rendering the page.</param>
         /// <param name="visualTree">The visual tree of the web application.</param>
-        public void Process(IRenderContext renderContext, VisualTreeWebApp visualTree)
+        public virtual void Process(IRenderContext renderContext, VisualTreeWebApp visualTree)
         {
             visualTree.Content.MainPanel.AddPrimary(new ControlLine()
             {
