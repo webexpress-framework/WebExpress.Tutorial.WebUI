@@ -67,7 +67,7 @@ namespace WebExpress.Tutorial.WebUI.WebControl
             var html = new HtmlElementTextContentDiv()
             {
                 Id = Id,
-                Class = Css.Concatenate("wx-webui-eventlogger", GetClasses())
+                Class = Css.Concatenate("wx-webui-eventlogger", GetClasses(renderContext))
             };
 
             // Adds a custom data attribute to store the events as a space-separated string.

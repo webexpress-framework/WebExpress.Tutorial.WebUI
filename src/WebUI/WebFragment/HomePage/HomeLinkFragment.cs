@@ -38,6 +38,9 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.HomePage
             Text = _ => "webexpress.tutorial.webui:homepage.label";
             Uri = _ => componentHub.SitemapManager.GetUri<Index>(fragmentContext.ApplicationContext);
             Icon = _ => new IconHome();
+            Active = renderContext => renderContext?.Endpoint is Index
+                ? TypeActive.Active
+                : TypeActive.None;
         }
 
         /// <summary>
@@ -48,8 +51,6 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.HomePage
         /// <returns>An HTML node representing the rendered control.</returns>
         public override IHtmlNode Render(IRenderControlContext renderContext, IVisualTreeControl visualTree)
         {
-            Active = _ => renderContext.Endpoint is Index ? TypeActive.Active : TypeActive.None;
-
             return base.Render(renderContext, visualTree);
         }
     }
