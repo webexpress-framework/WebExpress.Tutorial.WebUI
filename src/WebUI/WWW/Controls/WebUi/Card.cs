@@ -4,7 +4,9 @@ using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebApplication;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebUri;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 {
@@ -131,17 +133,26 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.AddProperty
             (
-                "HeaderImage",
-                "The `HeaderImage` property specifies an image resource that is displayed in the top section of the component. It enhances visual appeal and can provide contextual, thematic, or branding value.",
-                "HeaderImage = _ => applicationContext.Route.Concat(\"/assets/img/ufo.png\").ToUri()",
+                "HeaderIcon",
+                "The `HeaderIcon` property places an `IIcon` next to the header text. Any `IIcon` is accepted, so both image-based icons (such as `ImageIcon`) and CSS-based glyphs (such as the bundled FontAwesome icons) work the same way.",
+                "HeaderIcon = _ => new ImageIcon(applicationContext.Route.Concat(\"/assets/img/ufo.png\").ToUri())",
                 new ControlPanelCard()
                 {
                     Header = _ => "Header",
-                    HeaderImage = _ => applicationContext.Route.Concat("/assets/img/ufo.png").ToUri(),
+                    HeaderIcon = _ => new ImageIcon(applicationContext.Route.Concat("/assets/img/ufo.png").ToUri()),
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 }
-                    .Add(new ControlText() { Text = _ => "With a specified header text." })
+                    .Add(new ControlText() { Text = _ => "With a header text and an image-based header icon." }),
+                new ControlPanelCard()
+                {
+                    Header = _ => "Header",
+                    HeaderIcon = _ => new IconHome(),
+                    TextColor = _ => new PropertyColorText(TypeColorText.White),
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
+                }
+                    .Add(new ControlText() { Text = _ => "With a header text and a CSS-based header icon." })
             );
 
             Stage.AddProperty
@@ -174,17 +185,82 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.AddProperty
             (
-                "FooterImage",
-                "The `Footer` property defines the content area displayed at the bottom of the component. It is typically used to present supplementary information or actionable elements that relate to the overall content.",
-                "FooterImage = _ => applicationContext.Route.Concat(\"/assets/img/ufo.png\").ToUri()",
+                "FooterIcon",
+                "The `FooterIcon` property places an `IIcon` next to the footer text. Like `HeaderIcon`, both image-based icons (`ImageIcon`) and CSS-based glyphs are supported.",
+                "FooterIcon = _ => new ImageIcon(applicationContext.Route.Concat(\"/assets/img/ufo.png\").ToUri())",
                 new ControlPanelCard()
                 {
                     Footer = _ => "Footer",
-                    FooterImage = _ => applicationContext.Route.Concat("/assets/img/ufo.png").ToUri(),
+                    FooterIcon = _ => new ImageIcon(applicationContext.Route.Concat("/assets/img/ufo.png").ToUri()),
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 }
-                    .Add(new ControlText() { Text = _ => "With a specified footer text." })
+                    .Add(new ControlText() { Text = _ => "With a footer text and an image-based footer icon." }),
+                new ControlPanelCard()
+                {
+                    Footer = _ => "Footer",
+                    FooterIcon = _ => new IconHome(),
+                    TextColor = _ => new PropertyColorText(TypeColorText.White),
+                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
+                }
+                    .Add(new ControlText() { Text = _ => "With a footer text and a CSS-based footer icon." })
+            );
+
+            Stage.AddProperty
+            (
+                "HeaderBackgroundColor / HeaderTextColor",
+                "The `HeaderBackgroundColor` and `HeaderTextColor` properties style the header row independently of the card body. They accept both system colors (`TypeColorBackground.*`, `TypeColorText.*`) and free-form CSS values such as `\"gold\"`.",
+                "HeaderBackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Primary), HeaderTextColor = _ => new PropertyColorText(TypeColorText.White)",
+                new ControlPanelCard()
+                {
+                    Header = _ => "Primary",
+                    HeaderBackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Primary),
+                    HeaderTextColor = _ => new PropertyColorText(TypeColorText.White)
+                }
+                    .Add(new ControlText() { Text = _ => "Header in primary, body untouched." }),
+                new ControlPanelCard()
+                {
+                    Header = _ => "Danger",
+                    HeaderIcon = _ => new IconHome(),
+                    HeaderBackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Danger),
+                    HeaderTextColor = _ => new PropertyColorText(TypeColorText.White),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
+                }
+                    .Add(new ControlText() { Text = _ => "Header in danger with icon, body untouched." }),
+                new ControlPanelCard()
+                {
+                    Header = _ => "Custom",
+                    HeaderBackgroundColor = _ => new PropertyColorBackground("gold"),
+                    HeaderTextColor = _ => new PropertyColorText("#222"),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
+                }
+                    .Add(new ControlText() { Text = _ => "Header with a custom CSS color." })
+            );
+
+            Stage.AddProperty
+            (
+                "FooterBackgroundColor / FooterTextColor",
+                "The `FooterBackgroundColor` and `FooterTextColor` properties style the footer row independently of the card body. Combine them with the header colors to create distinct banded cards.",
+                "FooterBackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success), FooterTextColor = _ => new PropertyColorText(TypeColorText.White)",
+                new ControlPanelCard()
+                {
+                    Footer = _ => "Success",
+                    FooterBackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success),
+                    FooterTextColor = _ => new PropertyColorText(TypeColorText.White)
+                }
+                    .Add(new ControlText() { Text = _ => "Footer in success, body untouched." }),
+                new ControlPanelCard()
+                {
+                    Header = _ => "Status",
+                    HeaderBackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Info),
+                    HeaderTextColor = _ => new PropertyColorText(TypeColorText.White),
+                    Footer = _ => "OK",
+                    FooterBackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success),
+                    FooterTextColor = _ => new PropertyColorText(TypeColorText.White),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
+                }
+                    .Add(new ControlText() { Text = _ => "Independently coloured header and footer." })
             );
         }
     }
