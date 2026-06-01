@@ -12,20 +12,20 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// Manages watchers for Monkey Island characters using a thread‑safe 
     /// in‑memory store.
     /// </summary>
-    [Segment("observers")]
+    [Segment("watchers")]
     [IncludeSubPaths(true)]
-    [Title("Monkey Island Observers")]
-    public sealed class MonkeyIslandObserver : RestApiObserver<Character>
+    [Title("Monkey Island Watchers")]
+    public sealed class MonkeyIslandWatcher : RestApiWatcher<Character>
     {
         private static readonly object _syncRoot = new();
-        private static readonly List<RestApiObserverItem> _store =
+        private static readonly List<RestApiWatcherItem> _store =
         [
             new() { Id = "guybrush",   Name = "Guybrush Threepwood", Team = "Mighty Pirates",   Initials = "GT", Color = "#1d4ed8" },
             new() { Id = "elaine",     Name = "Elaine Marley",       Team = "Governor's Office", Initials = "EM", Color = "#7c3aed" }
         ];
 
         /// <summary>
-        /// Retrieves all observers from memory in a thread-safe manner.
+        /// Retrieves all watchers from memory in a thread-safe manner.
         /// </summary>
         /// <param name="query">
         /// An object containing the query parameters used to filter and select 
@@ -37,8 +37,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// be null.
         /// </param>
         /// <param name="request">The request context.</param>
-        /// <returns>A snapshot of the observer list.</returns>
-        protected override IEnumerable<RestApiObserverItem> RetrieveObservers(IQuery<Character> query, IQueryContext context, IRequest request)
+        /// <returns>A snapshot of the watcher list.</returns>
+        protected override IEnumerable<RestApiWatcherItem> RetrieveWatchers(IQuery<Character> query, IQueryContext context, IRequest request)
         {
             lock (_syncRoot)
             {
@@ -48,7 +48,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 
         /// <summary>
         /// Resolves the user against the Monkey Island directory and adds
-        /// the corresponding observer record to the store.
+        /// the corresponding watcher record to the store.
         /// </summary>
         /// <param name="userId">The id of the user to be added.</param>
         /// <param name="context">
@@ -57,10 +57,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// be null.
         /// </param>
         /// <param name="request">The request context.</param>
-        /// <returns>The added observer, or <see langword="null"/> when no character matches the id.</returns>
-        protected override RestApiObserverItem AddObserver(string userId, IQueryContext context, IRequest request)
+        /// <returns>The added watcher, or <see langword="null"/> when no character matches the id.</returns>
+        protected override RestApiWatcherItem AddWatcher(string userId, IQueryContext context, IRequest request)
         {
-            var user = MonkeyIslandObserverDirectory.FindById(userId);
+            var user = MonkeyIslandWatcherDirectory.FindById(userId);
             if (user is null)
             {
                 return null;
@@ -79,7 +79,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         }
 
         /// <summary>
-        /// Removes the observer with the specified id from the store.
+        /// Removes the watcher with the specified id from the store.
         /// </summary>
         /// <param name="userId">The id of the user to be removed.</param>
         /// <param name="context">
@@ -89,10 +89,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// </param>
         /// <param name="request">The request context.</param>
         /// <returns>
-        /// <see langword="true"/> when the observer existed and was
+        /// <see langword="true"/> when the watcher existed and was
         /// removed; otherwise <see langword="false"/>.
         /// </returns>
-        protected override bool RemoveObserver(string userId, IQueryContext context, IRequest request)
+        protected override bool RemoveWatcher(string userId, IQueryContext context, IRequest request)
         {
             lock (_syncRoot)
             {
@@ -108,12 +108,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         }
 
         /// <summary>
-        /// Returns a shallow copy of the supplied observer so mutations on
+        /// Returns a shallow copy of the supplied watcher so mutations on
         /// the response cannot leak back into the in-memory store.
         /// </summary>
-        /// <param name="source">The source observer.</param>
+        /// <param name="source">The source watcher.</param>
         /// <returns>A copy.</returns>
-        private static RestApiObserverItem Clone(RestApiObserverItem source) => new()
+        private static RestApiWatcherItem Clone(RestApiWatcherItem source) => new()
         {
             Id = source.Id,
             Name = source.Name,

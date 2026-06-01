@@ -13,13 +13,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 {
     /// <summary>
     /// Provides the directory of candidate users for the Monkey Island
-    /// observer demo. Backs the <c>data-users-uri</c> of the observer
+    /// watcher demo. Backs the <c>data-users-uri</c> of the watcher
     /// control, which queries <c>GET {uri}?q=…</c> as the user types into
     /// the "+" dropdown.
     /// </summary>
-    [Segment("observer-users")]
-    [Title("Monkey Island Observer Users")]
-    public sealed class MonkeyIslandObserverUsers : IRestApi
+    [Segment("watcher-users")]
+    [Title("Monkey Island Watcher Users")]
+    public sealed class MonkeyIslandWatcherUsers : IRestApi
     {
         private static readonly JsonSerializerOptions _jsonOptions = new()
         {
@@ -38,7 +38,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         {
             var q = request?.GetParameter("q")?.Value ?? string.Empty;
 
-            var users = MonkeyIslandObserverDirectory.All
+            var users = MonkeyIslandWatcherDirectory.All
                 .Where(u => string.IsNullOrWhiteSpace(q)
                     || (u.Name ?? string.Empty).Contains(q, StringComparison.OrdinalIgnoreCase)
                     || (u.Team ?? string.Empty).Contains(q, StringComparison.OrdinalIgnoreCase))
@@ -56,16 +56,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 
     /// <summary>
     /// Shared in-memory directory of Monkey Island characters that may
-    /// observe an entity in the demo. Used both by the observer endpoint
-    /// (to resolve the user id when an observer is added) and the user
+    /// observe an entity in the demo. Used both by the watcher endpoint
+    /// (to resolve the user id when an watcher is added) and the user
     /// search endpoint (to list candidates in the "+" dropdown).
     /// </summary>
-    internal static class MonkeyIslandObserverDirectory
+    internal static class MonkeyIslandWatcherDirectory
     {
         /// <summary>
         /// Gets the full directory of Monkey Island themed users.
         /// </summary>
-        public static IReadOnlyList<RestApiObserverItem> All { get; } =
+        public static IReadOnlyList<RestApiWatcherItem> All { get; } =
         [
             new() { Id = "guybrush",   Name = "Guybrush Threepwood",   Team = "Mighty Pirates",   Initials = "GT", Color = "#1d4ed8" },
             new() { Id = "elaine",     Name = "Elaine Marley",         Team = "Governor's Office", Initials = "EM", Color = "#7c3aed" },
@@ -83,7 +83,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// </summary>
         /// <param name="id">The user id.</param>
         /// <returns>The user record, or <see langword="null"/>.</returns>
-        public static RestApiObserverItem FindById(string id) =>
+        public static RestApiWatcherItem FindById(string id) =>
             All.FirstOrDefault(x => string.Equals(x.Id, id, StringComparison.OrdinalIgnoreCase));
     }
 }
