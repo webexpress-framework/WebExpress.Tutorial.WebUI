@@ -20,7 +20,7 @@ Before you begin, ensure you have the following:
 
 ## Getting Started
 1. **Installation**:
-   Ensure that all dependencies are correctly installed in your project. You can find details in the [Installation Guide](https://github.com/webexpress-framework/WebExpress/blob/main/doc/installation_guide.md).
+   Ensure that all dependencies are correctly installed in your project. You can find details in the [Installation Guide](https://github.com/webexpress-framework/WebExpress/blob/main/docs/installation_guide.md).
 
 2. **Run the Sample Application**:
    Build the project and run it locally to test the initial implementation of UI elements.
