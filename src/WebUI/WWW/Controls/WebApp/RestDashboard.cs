@@ -31,11 +31,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.AddEvent(Event.MOVE_EVENT);
 
-            Stage.Description = @"The `Dashboard` control organizes widgets into columns. Each widget provides metadata (title, icon, color, column) and can optionally contain content controls.";
+            Stage.Description = @"The `Dashboard` control organizes widgets into columns. Each widget provides metadata (title, icon, color, column) and can optionally contain content controls. With `EditableColumn`/`MovableColumn`/`DeletableColumn` enabled, the column headers can be renamed inline (pencil / double-click), reordered via the ⠿ grip and deleted — the new column layout is persisted to the REST endpoint.";
 
             var dashboard = new ControlRestDashboard(RandomId.Create())
             {
-                RestUri = _ => uri
+                RestUri = _ => uri,
+                EditableColumn = _ => true,
+                MovableColumn = _ => true,
+                DeletableColumn = _ => true
             };
 
             Stage.Control = dashboard;
@@ -43,7 +46,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Code = @"
             new ControlRestDashboard(RandomId.Create())
             {
-                RestUri = _=> sitemapManager.GetUri<MonkeyIslandDashboard>(pageContext)
+                RestUri = _=> sitemapManager.GetUri<MonkeyIslandDashboard>(pageContext),
+                EditableColumn = _ => true,
+                MovableColumn = _ => true,
+                DeletableColumn = _ => true
             };";
         }
     }

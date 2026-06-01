@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebMessage;
@@ -8,9 +10,21 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 {
     /// <summary>
     /// Provides a REST API kanban with Monkey Island themed content for every widget template.
+    /// The columns are held in a thread-safe in-memory store so that renaming,
+    /// reordering and deleting them persists across reloads.
     /// </summary>
     public sealed class MonkeyIslandKanban : RestApiKanban<Curse>
     {
+        private static readonly object _syncRoot = new();
+
+        private static readonly List<RestApiKanbanColumn> _columns =
+        [
+            new RestApiKanbanColumn { Id = "todo",     Label = "Trials",          ColorCss = "bg-light text-dark" },
+            new RestApiKanbanColumn { Id = "progress", Label = "Adventure",       ColorCss = "bg-primary text-white" },
+            new RestApiKanbanColumn { Id = "danger",   Label = "Danger Zone",     ColorCss = "bg-danger text-white" },
+            new RestApiKanbanColumn { Id = "done",     Label = "Legendary Feats", ColorCss = "bg-success text-white" }
+        ];
+
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
@@ -19,20 +33,58 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         }
 
         /// <summary>
-        /// This method defines the columns for the kanban. Each card is 
+        /// This method defines the columns for the kanban. Each card is
         /// themed around Monkey Island.
         /// </summary>
         /// <param name="request">The incoming request context.</param>
         /// <returns>A sequence of configured kanban columns.</returns>
         protected override IEnumerable<RestApiKanbanColumn> RetrieveColumns(IRequest request)
         {
-            return
-            [
-                new RestApiKanbanColumn { Id = "todo",     Label = "Trials",        ColorCss = "bg-light text-dark" },
-                new RestApiKanbanColumn { Id = "progress", Label = "Adventure",     ColorCss = "bg-primary text-white" },
-                new RestApiKanbanColumn { Id = "danger",   Label = "Danger Zone",   ColorCss = "bg-danger text-white" },
-                new RestApiKanbanColumn { Id = "done",     Label = "Legendary Feats", ColorCss = "bg-success text-white" }
-            ];
+            lock (_syncRoot)
+            {
+                return [.. _columns.Select(c => new RestApiKanbanColumn { Id = c.Id, Label = c.Label, ColorCss = c.ColorCss })];
+            }
+        }
+
+        /// <summary>
+        /// Applies a column-layout change (rename / reorder / delete) to the
+        /// in-memory store.
+        /// </summary>
+        /// <param name="layout">The layout payload carrying the new column list.</param>
+        /// <param name="request">The incoming request.</param>
+        protected override void UpdtaeColumns(RestApiDashboardLayout layout, IRequest request)
+        {
+            if (layout?.Columns is null)
+            {
+                return;
+            }
+
+            lock (_syncRoot)
+            {
+                var byId = _columns.ToDictionary(c => c.Id, c => c);
+                var reordered = new List<RestApiKanbanColumn>();
+
+                foreach (var col in layout.Columns)
+                {
+                    if (string.IsNullOrWhiteSpace(col?.Id))
+                    {
+                        continue;
+                    }
+
+                    if (byId.TryGetValue(col.Id, out var existing))
+                    {
+                        existing.Label = col.Title ?? existing.Label;
+                        reordered.Add(existing);
+                    }
+                    else
+                    {
+                        reordered.Add(new RestApiKanbanColumn { Id = col.Id, Label = col.Title });
+                    }
+                }
+
+                _columns.Clear();
+                _columns.AddRange(reordered);
+            }
         }
 
         /// <summary>

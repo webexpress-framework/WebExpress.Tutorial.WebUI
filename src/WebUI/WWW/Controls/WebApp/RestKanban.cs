@@ -28,17 +28,23 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             var uri = sitemapManager.GetUri<WebExpress.Tutorial.WebUI.WWW.Api._1_.MonkeyIslandKanban>(pageContext);
             Stage.AddEvent(Event.MOVE_EVENT);
 
-            Stage.Description = @"A `Kanban` control provides a column‑based layout for visual workflow management. Each column represents a process stage (e.g., To Do, In Progress, Done), while each card represents a movable work item. Cards can be rearranged or moved between columns, enabling intuitive drag‑and‑drop interaction and progress tracking. The control also supports swimlanes: horizontal lanes that group related work items across all columns. Swimlanes allow parallel workflows (e.g., Priority, Teams, Categories) to be displayed within the same board, providing an additional structural dimension for organizing and filtering tasks.";
+            Stage.Description = @"A `Kanban` control provides a column‑based layout for visual workflow management. Each column represents a process stage (e.g., To Do, In Progress, Done), while each card represents a movable work item. Cards can be rearranged or moved between columns, enabling intuitive drag‑and‑drop interaction and progress tracking. The control also supports swimlanes: horizontal lanes that group related work items across all columns. With `EditableColumn`/`MovableColumn`/`DeletableColumn` enabled, the column headers can be renamed inline (pencil / double-click), reordered via the ⠿ grip and deleted — the new column layout is persisted to the REST endpoint.";
 
             Stage.Control = new ControlRestKanban(RandomId.Create())
             {
-                RestUri = _ => uri
+                RestUri = _ => uri,
+                EditableColumn = _ => true,
+                MovableColumn = _ => true,
+                DeletableColumn = _ => true
             };
 
             Stage.Code = @"
             new ControlRestKanban(RandomId.Create())
             {
-                RestUri = _=> sitemapManager.GetUri<MonkeyIslandKanban>(pageContext)
+                RestUri = _=> sitemapManager.GetUri<MonkeyIslandKanban>(pageContext),
+                EditableColumn = _ => true,
+                MovableColumn = _ => true,
+                DeletableColumn = _ => true
             };";
         }
     }
