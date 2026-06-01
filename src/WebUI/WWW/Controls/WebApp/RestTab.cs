@@ -32,11 +32,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         {
             Stage.AddEvent(Event.SELECTED_TAB_EVENT, Event.TAB_ADDED_EVENT, Event.TAB_CLOSED_EVENT);
 
-            Stage.Description = @"The `RestTab` control serves as a container for REST-driven tab views. This example provides three selectable templates (`dashboard`, `backlog`, and `table`) so new tabs can be created with different layouts.";
+            Stage.Description = @"The `RestTab` control serves as a container for REST-driven tab views. This example provides three selectable templates (`dashboard`, `backlog`, and `table`) so new tabs can be created with different layouts. With `MovableTab` enabled, each tab header shows a ⠿ grip — drag it to reorder the tabs; the new order is persisted to the REST endpoint via `PUT`.";
 
             Stage.Control = new ControlRestTab(RandomId.Create())
             {
                 RestUri = _ => sitemapManager.GetUri<MonkeyIslandTab>(pageContext.ApplicationContext),
+                MovableTab = _ => true,
             }
                 .Add
                 (
@@ -151,6 +152,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             new ControlRestTab(RandomId.Create())
             {
                 RestUri = _ => sitemapManager.GetUri<MonkeyIslandTab>(pageContext.ApplicationContext),
+                MovableTab = _ => true,
             }
                 .Add
                 (
