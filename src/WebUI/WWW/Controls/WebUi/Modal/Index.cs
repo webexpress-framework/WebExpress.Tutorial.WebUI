@@ -155,6 +155,37 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                      Size = _ => TypeModalSize.Fullscreen
                  }.Add(_content)
             );
+
+            Stage.AddProperty
+            (
+                "Scrollable",
+                @"The scrollable property controls how overflowing content is handled. When `true` (the default) the modal body scrolls independently (the bootstrap `modal-dialog-scrollable` variant). Set it to `false` for modals that host an overlay — such as an autocomplete dropdown — which has to extend beyond the modal body without being clipped by its overflow.",
+                 "Scrollable = _ => false",
+                 new ControlButton()
+                 {
+                     Text = _ => "Scrollable",
+                     Icon = _ => new IconPenToSquare(),
+                     BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
+                     PrimaryAction = _ => new ActionModal("myModalScrollable")
+                 },
+                 new ControlModal("myModalScrollable")
+                 {
+                     Header = _ => "Scrollable",
+                     Scrollable = _ => true
+                 }.Add(_content),
+                 new ControlButton()
+                 {
+                     Text = _ => "Non-scrollable",
+                     Icon = _ => new IconPenToSquare(),
+                     BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
+                     PrimaryAction = _ => new ActionModal("myModalNonScrollable")
+                 },
+                 new ControlModal("myModalNonScrollable")
+                 {
+                     Header = _ => "Non-scrollable",
+                     Scrollable = _ => false
+                 }.Add(_content)
+            );
         }
     }
 }
