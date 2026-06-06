@@ -16,18 +16,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// <summary>    
     /// Represents the rest wizard control for the tutorial.    
     /// </summary>    
-    [Title("RestWizard")]
+    [Title("DataWizard")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
     [Scope<IScopeControlWebApp>]
-    public sealed class RestWizard : PageControl
+    public sealed class DataWizard : PageControl
     {
         /// <summary>    
         /// Initializes a new instance of the class.    
         /// </summary>    
         /// <param name="pageContext">The context of the page where the form control is used.</param>  
         /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>  
-        public RestWizard(IPageContext pageContext, ISitemapManager sitemapManager)
+        public DataWizard(IPageContext pageContext, ISitemapManager sitemapManager)
         {
             Stage.Description = @"The `Wizard` control is used to collect user input step by step in a structured and validated manner, exchanging all data directly with the server through a REST API. Instead of performing a traditional POST submit as in classic web applications, each step communicates event‑driven with its corresponding endpoint and operates entirely without page reloads. The wizard combines various input elements (such as text fields, dropdowns, and buttons) to provide a guided and consistent user experience. All input is validated on the client side to ensure that only correct and complete data is processed. Transmission, validation, and all CRUD operations (creating, modifying, and updating records) are executed through a defined REST route. Data is sent as a JSON payload, and server responses are evaluated in real time to dynamically update the UI and advance the wizard flow.";
 
@@ -37,13 +37,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                     Text = _ => x.Name
                 });
 
-            Stage.Control = new ControlRestWizard("myform")
+            Stage.Control = new ControlDataWizard("myform")
             {
                 RestUri = _ => sitemapManager.GetUri<MonkeyIslandCharacter>(pageContext),
             }
                 .Add
                 (
-                    new ControlRestWizardPage("page_basic")
+                    new ControlDataWizardPage("page_basic")
                         .Add
                         (
                             new ControlFormItemInputText("char_name")
@@ -59,7 +59,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                                 Placeholder = _ => "Brief character description"
                             }
                         ),
-                    new ControlRestWizardPage("page_appearsin")
+                    new ControlDataWizardPage("page_appearsin")
                         .Add(
                             new ControlFormItemInputSelection("appearsin")
                             {
@@ -69,7 +69,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                             }
                                 .Add(games)
                         ),
-                    new ControlRestWizardPage("page_icon")
+                    new ControlDataWizardPage("page_icon")
                         .Add
                         (
                             new ControlFormItemInputAvatar("char_avatar")
@@ -81,7 +81,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 );
 
             Stage.Code = @"
-            new ControlRestWizard(""myform"")
+            new ControlDataWizard(""myform"")
             {
                 RestUri = _ => sitemapManager.GetUri<MonkeyIslandCharacter>(pageContext),
             }";

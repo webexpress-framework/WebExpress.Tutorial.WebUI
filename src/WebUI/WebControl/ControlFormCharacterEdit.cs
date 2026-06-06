@@ -17,7 +17,7 @@ namespace WebExpress.Tutorial.WebUI.WebControl
     /// This class provides a structured form for inputting and managing 
     /// information about a character.
     /// </remarks>
-    public class ControlFormCharacterEdit : ControlRestFormEdit
+    public class ControlFormCharacterEdit : ControlDataFormEdit
     {
         /// <summary>
         /// Gets or sets the name associated with the object.

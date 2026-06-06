@@ -15,18 +15,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// <summary>
     /// Represents the tutorial page that demonstrates a REST-backed dropdown control with search and grouping.
     /// </summary>
-    [Title("RestInputSelection")]
+    [Title("DataInputSelection")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
     [Scope<IScopeControlWebApp>]
-    public sealed class RestInputSelection : PageControl
+    public sealed class DataInputSelection : PageControl
     {
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
         /// <param name="pageContext">The context of the page where the table control is used.</param>
         /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>
-        public RestInputSelection(IPageContext pageContext, ISitemapManager sitemapManager)
+        public DataInputSelection(IPageContext pageContext, ISitemapManager sitemapManager)
         {
             // register relevant ui events
             Stage.AddEvent(Event.DATA_ARRIVED_EVENT, Event.DATA_REQUESTED_EVENT, Event.CHANGE_VALUE_EVENT, Event.CHANGE_FILTER_EVENT, Event.DROPDOWN_SHOW_EVENT, Event.DROPDOWN_HIDDEN_EVENT);
@@ -38,7 +38,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Control = new ControlForm()
                 .Add
                 (
-                    new ControlRestFormItemInputSelection("lightSelection")
+                    new ControlDataFormItemInputSelection("lightSelection")
                     {
                         RestUri = _ => sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
                     }
@@ -50,7 +50,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlForm(null)
                 .Add
                 (
-                    new ControlRestFormItemInputSelection("darkSelection")
+                    new ControlDataFormItemInputSelection("darkSelection")
                     {
                         RestUri = _=> sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
                     }
@@ -61,7 +61,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             new ControlForm()
                 .Add
                 (
-                    new ControlRestFormItemInputSelection(""lightSelection"")
+                    new ControlDataFormItemInputSelection(""lightSelection"")
                     {
                         RestUri = _=> sitemapManager.GetUri<MonkeyIslandInventory>(pageContext.ApplicationContext)
                     }
@@ -72,7 +72,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 "Multiselect",
                 "The multiselect property is used in a Selection Control to allow users to choose multiple options from a list. By enabling this property, the control is configured to support flexible multi-selection rather than limiting users to a single choice.",
                 "MultiSelect = _=> true",
-                new ControlForm(null, new ControlRestFormItemInputSelection()
+                new ControlForm(null, new ControlDataFormItemInputSelection()
                 {
                     MultiSelect = _ => true,
                     RestUri = _ => sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
@@ -84,7 +84,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 "Placeholder",
                 "Sets the placeholder of the search field, a temporary text display that informs the user about the expected input. The placeholder disappears once the user starts typing a search query.",
                 "Placeholder = _=> \"Placeholder\"",
-                new ControlForm(null, new ControlRestFormItemInputSelection()
+                new ControlForm(null, new ControlDataFormItemInputSelection()
                 {
                     Placeholder = _ => "Placeholder",
                     RestUri = _ => sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
@@ -96,7 +96,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 "MaxItems",
                 "Maximum number of entries to display.",
                 "MaxItems = _=> 10",
-                 new ControlForm(null, new ControlRestFormItemInputSelection()
+                 new ControlForm(null, new ControlDataFormItemInputSelection()
                  {
                      MaxItems = _ => 10,
                      RestUri = _ => sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)

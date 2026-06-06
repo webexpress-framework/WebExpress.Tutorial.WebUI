@@ -17,11 +17,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
     /// <summary>    
     /// Represents the rest selection template of a table control for the tutorial.    
     /// </summary>    
-    [Title("RestSelection-Template")]
+    [Title("DataSelection-Template")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
     [Scope<IScopeControlWebUI>]
-    public sealed class RestSelection : PageControl
+    public sealed class DataSelection : PageControl
     {
         private readonly ISitemapManager _sitemapManager;
         private readonly IPageContext _pageContext;
@@ -31,14 +31,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
         /// </summary>
         /// <param name="pageContext">The context of the page where the list control is used.</param>
         /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>
-        public RestSelection(IPageContext pageContext, ISitemapManager sitemapManager)
+        public DataSelection(IPageContext pageContext, ISitemapManager sitemapManager)
         {
             _pageContext = pageContext;
             _sitemapManager = sitemapManager;
 
             Stage.AddEvent(Event.START_INLINE_EDIT_EVENT, Event.SAVE_INLINE_EDIT_EVENT, Event.END_INLINE_EDIT_EVENT);
 
-            Stage.Description = @"The `RestSelection` template provides an interactive way to present and choose values within a column. It supports both ReadOnly mode for displaying selections and Edit mode for modifying them. This enables values to be highlighted with tags, icons, or colors while allowing users to view or actively change the selected option.";
+            Stage.Description = @"The `DataSelection` template provides an interactive way to present and choose values within a column. It supports both ReadOnly mode for displaying selections and Edit mode for modifying them. This enables values to be highlighted with tags, icons, or colors while allowing users to view or actively change the selected option.";
 
             Stage.Controls =
             [

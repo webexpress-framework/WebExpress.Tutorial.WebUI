@@ -12,28 +12,28 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// <summary>
     /// Represents the rest login control for the tutorial.
     /// </summary>
-    [Title("RestLogin")]
+    [Title("DataLogin")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
     [Scope<IScopeControlWebApp>]
-    public sealed class RestLogin : PageControl
+    public sealed class DataLogin : PageControl
     {
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
         /// <param name="pageContext">The context of the page where the list control is used.</param>
         /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>
-        public RestLogin(IPageContext pageContext, ISitemapManager sitemapManager)
+        public DataLogin(IPageContext pageContext, ISitemapManager sitemapManager)
         {
             Stage.Description = @"Provides a rest login control that prompts the user to enter credentials for authentication.";
 
-            Stage.Control = new ControlRestLogin()
+            Stage.Control = new ControlDataLogin()
             {
                 RestUri = _ => sitemapManager.GetUri<WWW.Api._1_.Session>(pageContext.ApplicationContext)
             };
 
             Stage.Code = @"
-            new ControlRestLogin()
+            new ControlDataLogin()
             {
                 RestUri = _=> sitemapManager.GetUri<Login>(pageContext.ApplicationContext)
             };";

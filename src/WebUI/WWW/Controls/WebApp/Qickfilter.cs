@@ -1,9 +1,11 @@
-﻿using WebExpress.Tutorial.WebUI.Model;
+﻿using System.Net.Http;
+using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.WebApp.WebControl;
+using WebExpress.WebApp.WebData;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
@@ -35,21 +37,24 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.Controls =
             [
-                new ControlRestQuickfilter("myQickfilter")
+                new ControlDataQuickfilter("myQickfilter")
                 {
                     RestUri = _=> sitemapManager.GetUri<Api._1_.MonkeyIslandGamesQuickfilter>(pageContext.ApplicationContext)
                 },
-                new ControlRestTile("myTile")
+                new ControlDataTile("myTile")
                 {
-                    RestUri = _=> sitemapManager.GetUri<MonkeyIslandGamesTile>(pageContext.ApplicationContext),
                     Bind = _=> new Binding().Add(new BindFilter())
                 }
+                    .Service("data", svc => svc
+                        .Endpoint<MonkeyIslandGamesTile>()
+                        .Method(HttpMethod.Get)
+                        .UpdateMethod(HttpMethod.Put))
             ];
 
             Stage.DarkControls = null;
 
             Stage.Code = @"
-            new ControlRestQuickfilter(""myQickfilter"")
+            new ControlDataQuickfilter(""myQickfilter"")
             {
                 RestUri = _=> sitemapManager.GetUri<Api._1_.MonkeyIslandGamesQuickfilter>(pageContext.ApplicationContext)
             }";

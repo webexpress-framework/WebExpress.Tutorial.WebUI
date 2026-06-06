@@ -1,9 +1,11 @@
+﻿using System.Net.Http;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.WebApp.WebControl;
+using WebExpress.WebApp.WebData;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
@@ -14,28 +16,29 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// <summary>
     /// Represents a Monkey Island themed Scrum backlog board.
     /// </summary>
-    [Title("RestScrumBacklog")]
+    [Title("DataScrumBacklog")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
     [Scope<IScopeControlWebApp>]
-    public sealed class RestScrumBacklog : PageControl
+    public sealed class DataScrumBacklog : PageControl
     {
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
         /// <param name="pageContext">The context of the page.</param>
         /// <param name="sitemapManager">The sitemap manager for URI generation.</param>
-        public RestScrumBacklog(IPageContext pageContext, ISitemapManager sitemapManager)
+        public DataScrumBacklog(IPageContext pageContext, ISitemapManager sitemapManager)
         {
             Stage.AddEvent(Event.DATA_REQUESTED_EVENT, Event.DATA_ARRIVED_EVENT, Event.MOVE_EVENT, Event.SELECT_ITEM_EVENT, Event.UPDATED_EVENT);
 
             Stage.Description = @"The `ScrumBacklog` control provides an interactive view of the product backlog. It groups user stories into structured sections and supports planning actions such as adding, editing, reordering, and assigning items to a sprint.";
 
+            // the data service and its endpoint are authored in C# through the
+            // fluent data surface; the endpoint resolves through the sitemap.
             Stage.Controls =
             [
-                new ControlRestScrumBacklog("monkeyIslandBacklog")
+                new ControlDataScrumBacklog("monkeyIslandBacklog")
                 {
-                    RestUri = _=> sitemapManager.GetUri<RestApiScrum>(pageContext.ApplicationContext),
                     Title = _ => "Monkey Island Product Backlog",
                     Selectable = _ => true,
                     IconActive = _ => "fas fa-skull-crossbones",
@@ -48,14 +51,21 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                     IconEditSprint = _ => "fas fa-pen",
                     IconDeleteSprint = _ => "fas fa-bomb"
                 }
+                    .Service("data", svc => svc
+                        .Endpoint<RestApiScrum>()
+                        .Method(HttpMethod.Get)
+                        .UpdateMethod(HttpMethod.Put))
             ];
 
             Stage.Code = @"
-            new ControlRestScrumBacklog(""monkeyIslandBacklog"")
+            new ControlDataScrumBacklog(""monkeyIslandBacklog"")
             {
-                RestUri = _=> sitemapManager.GetUri<RestApiScrumBacklog>(pageContext.ApplicationContext),
                 Title = _ => ""Monkey Island Product Backlog""
-            };";
+            }
+                .Service(""data"", svc => svc
+                    .Endpoint<RestApiScrum>()
+                    .Method(HttpMethod.Get)
+                    .UpdateMethod(HttpMethod.Put));";
         }
     }
 }

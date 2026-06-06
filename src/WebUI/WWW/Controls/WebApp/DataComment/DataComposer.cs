@@ -14,18 +14,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Comment
 {
     /// <summary>
     /// Demo page for the minimalist new-comment composer. Hosts a
-    /// <see cref="ControlRestCommentComposer"/> bound to the
+    /// <see cref="ControlDataCommentComposer"/> bound to the
     /// <see cref="MonkeyIslandComment"/> REST endpoint. The composer is
-    /// rendered next to a <see cref="ControlRestComment"/> read surface so the
+    /// rendered next to a <see cref="ControlDataComment"/> read surface so the
     /// dispatched <c>COMMENT_ADDED_EVENT</c> can be observed in place - the
     /// list above updates immediately on submit without an extra
     /// roundtrip.
     /// </summary>
-    [Title("RestCommentComposer")]
+    [Title("DataCommentComposer")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
     [Scope<IScopeControlWebApp>]
-    public sealed class RestComposer : PageControl
+    public sealed class DataComposer : PageControl
     {
         /// <summary>
         /// Initializes a new instance of the class.
@@ -33,7 +33,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Comment
         /// <param name="pageContext">The page context.</param>
         /// <param name="componentHub">The component hub.</param>
         /// <param name="sitemapManager">The sitemap manager.</param>
-        public RestComposer(IPageContext pageContext, IComponentHub componentHub, ISitemapManager sitemapManager)
+        public DataComposer(IPageContext pageContext, IComponentHub componentHub, ISitemapManager sitemapManager)
         {
             var uri = sitemapManager.GetUri<MonkeyIslandComment>(pageContext);
 
@@ -41,7 +41,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Comment
 
             Stage.Controls =
             [
-                new ControlRestCommentComposer("tutorial-comment-composer-guybrush")
+                new ControlDataCommentComposer("tutorial-comment-composer-guybrush")
                 {
                     RestUri = _ => uri,
                     CurrentUser = _ => "guybrush",

@@ -1,9 +1,11 @@
-﻿using WebExpress.Tutorial.WebUI.Model;
+﻿using System.Net.Http;
+using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.WebApp.WebControl;
+using WebExpress.WebApp.WebData;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebHtml;
@@ -17,31 +19,38 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// <summary>    
     /// Represents the tab control for the tutorial.    
     /// </summary>    
-    [Title("RestTab")]
+    [Title("DataTab")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
     [Scope<IScopeControlWebApp>]
-    public sealed class RestTab : PageControl
+    public sealed class DataTab : PageControl
     {
         /// <summary>    
         /// Initializes a new instance of the class.    
         /// </summary>    
         /// <param name="pageContext">The context of the page where the tree control is used.</param>  
         /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>  
-        public RestTab(IPageContext pageContext, ISitemapManager sitemapManager)
+        public DataTab(IPageContext pageContext, ISitemapManager sitemapManager)
         {
             Stage.AddEvent(Event.SELECTED_TAB_EVENT, Event.TAB_ADDED_EVENT, Event.TAB_CLOSED_EVENT);
 
-            Stage.Description = @"The `RestTab` control serves as a container for REST-driven tab views. This example provides three selectable templates (`dashboard`, `backlog`, and `table`) so new tabs can be created with different layouts. With `MovableTab` enabled, each tab header shows a ⠿ grip — drag it to reorder the tabs; the new order is persisted to the REST endpoint via `PUT`.";
+            Stage.Description = @"The `DataTab` control serves as a container for REST-driven tab views. This example provides three selectable templates (`dashboard`, `backlog`, and `table`) so new tabs can be created with different layouts. With `MovableTab` enabled, each tab header shows a ⠿ grip — drag it to reorder the tabs; the new order is persisted to the REST endpoint via `PUT`.";
 
-            Stage.Control = new ControlRestTab(RandomId.Create())
+            // the tab data service and its endpoint are authored in C# through the
+            // fluent data surface; the endpoint resolves through the sitemap.
+            Stage.Control = new ControlDataTab(RandomId.Create())
             {
-                RestUri = _ => sitemapManager.GetUri<MonkeyIslandTab>(pageContext.ApplicationContext),
                 MovableTab = _ => true,
             }
+                .Service("data", svc => svc
+                    .Endpoint<MonkeyIslandTab>()
+                    .Method(HttpMethod.Get)
+                    .UpdateMethod(HttpMethod.Put)
+                    .Query(q => q.Map("id", "id"))
+                    .Response(r => r.Items("items")))
                 .Add
                 (
-                    new ControlRestTabTemplate("monkeyTemplate")
+                    new ControlDataTabTemplate("monkeyTemplate")
                     {
                         Icon = _ => new IconDiagramProject(),
                         Name = _ => "Dashboard",
@@ -83,7 +92,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                                     }
                                 )
                         ),
-                    new ControlRestTabTemplate("backlogTemplate")
+                    new ControlDataTabTemplate("backlogTemplate")
                     {
                         Icon = _ => new IconListCheck(),
                         Name = _ => "Backlog",
@@ -99,17 +108,20 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                         })
                         .Add
                         (
-                            new ControlRestScrumBacklog("template-backlog")
+                            new ControlDataScrumBacklog("template-backlog")
                             {
-                                RestUri = _ => sitemapManager.GetUri<RestApiScrum>(pageContext.ApplicationContext),
                                 Title = _ => "Monkey Island Product Backlog",
                                 Selectable = _ => true,
                                 IconActive = _ => "fas fa-skull-crossbones",
                                 IconPlanned = _ => "fas fa-hourglass-half",
                                 IconBacklog = _ => "fas fa-map"
                             }
+                                .Service("data", svc => svc
+                                    .Endpoint<RestApiScrum>()
+                                    .Method(HttpMethod.Get)
+                                    .UpdateMethod(HttpMethod.Put))
                         ),
-                    new ControlRestTabTemplate("tableTemplate")
+                    new ControlDataTabTemplate("tableTemplate")
                     {
                         Icon = _ => new IconTable(),
                         Name = _ => "Table",
@@ -149,14 +161,19 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 );
 
             Stage.Code = @"
-            new ControlRestTab(RandomId.Create())
+            new ControlDataTab(RandomId.Create())
             {
-                RestUri = _ => sitemapManager.GetUri<MonkeyIslandTab>(pageContext.ApplicationContext),
                 MovableTab = _ => true,
             }
+                .Service(""data"", svc => svc
+                    .Endpoint<MonkeyIslandTab>()
+                    .Method(HttpMethod.Get)
+                    .UpdateMethod(HttpMethod.Put)
+                    .Query(q => q.Map(""id"", ""id""))
+                    .Response(r => r.Items(""items"")))
                 .Add
                 (
-                    new ControlRestTabTemplate(""monkeyTemplate"")
+                    new ControlDataTabTemplate(""monkeyTemplate"")
                     {
                         Icon = _ => new IconDiagramProject(),
                         Name = _ => ""Dashboard"",
@@ -198,7 +215,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                                     }
                                 )
                         ),
-                    new ControlRestTabTemplate(""backlogTemplate"")
+                    new ControlDataTabTemplate(""backlogTemplate"")
                     {
                         Icon = _ => new IconListCheck(),
                         Name = _ => ""Backlog"",
@@ -214,17 +231,20 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                         })
                         .Add
                         (
-                            new ControlRestScrumBacklog(""template-backlog"")
+                            new ControlDataScrumBacklog(""template-backlog"")
                             {
-                                RestUri = _ => sitemapManager.GetUri<RestApiScrum>(pageContext.ApplicationContext),
                                 Title = _ => ""Monkey Island Product Backlog"",
                                 Selectable = _ => true,
                                 IconActive = _ => ""fas fa-skull-crossbones"",
                                 IconPlanned = _ => ""fas fa-hourglass-half"",
                                 IconBacklog = _ => ""fas fa-map""
                             }
+                                .Service(""data"", svc => svc
+                                    .Endpoint<RestApiScrum>()
+                                    .Method(HttpMethod.Get)
+                                    .UpdateMethod(HttpMethod.Put))
                         ),
-                    new ControlRestTabTemplate(""tableTemplate"")
+                    new ControlDataTabTemplate(""tableTemplate"")
                     {
                         Icon = _ => new IconTable(),
                         Name = _ => ""Table"",

@@ -1,8 +1,11 @@
-﻿using WebExpress.Tutorial.WebUI.Model;
+﻿using System.Net.Http;
+using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
+using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.WebApp.WebControl;
+using WebExpress.WebApp.WebData;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebHtml;
@@ -14,43 +17,49 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// <summary>
     /// Represents the dashboard control for the tutorial.
     /// </summary>
-    [Title("RestDashboard")]
+    [Title("DataDashboard")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
     [Scope<IScopeControlWebApp>]
-    public sealed class RestDashboard : PageControl
+    public sealed class DataDashboard : PageControl
     {
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
         /// <param name="pageContext">The context of the page.</param>
         /// <param name="sitemapManager">The sitemap manager for URI generation.</param>
-        public RestDashboard(IPageContext pageContext, ISitemapManager sitemapManager)
+        public DataDashboard(IPageContext pageContext, ISitemapManager sitemapManager)
         {
-            var uri = sitemapManager.GetUri<WebExpress.Tutorial.WebUI.WWW.Api._1_.MonkeyIslandDashboard>(pageContext);
-
             Stage.AddEvent(Event.MOVE_EVENT);
 
             Stage.Description = @"The `Dashboard` control organizes widgets into columns. Each widget provides metadata (title, icon, color, column) and can optionally contain content controls. With `EditableColumn`/`MovableColumn`/`DeletableColumn` enabled, the column headers can be renamed inline (pencil / double-click), reordered via the ⠿ grip and deleted — the new column layout is persisted to the REST endpoint.";
 
-            var dashboard = new ControlRestDashboard(RandomId.Create())
+            // the data service and its endpoint are authored in C# through the
+            // fluent data surface; the endpoint resolves through the sitemap.
+            var dashboard = new ControlDataDashboard(RandomId.Create())
             {
-                RestUri = _ => uri,
                 EditableColumn = _ => true,
                 MovableColumn = _ => true,
                 DeletableColumn = _ => true
-            };
+            }
+                .Service("data", svc => svc
+                    .Endpoint<MonkeyIslandDashboard>()
+                    .Method(HttpMethod.Get)
+                    .UpdateMethod(HttpMethod.Put));
 
             Stage.Control = dashboard;
 
             Stage.Code = @"
-            new ControlRestDashboard(RandomId.Create())
+            new ControlDataDashboard(RandomId.Create())
             {
-                RestUri = _=> sitemapManager.GetUri<MonkeyIslandDashboard>(pageContext),
                 EditableColumn = _ => true,
                 MovableColumn = _ => true,
                 DeletableColumn = _ => true
-            };";
+            }
+                .Service(""data"", svc => svc
+                    .Endpoint<MonkeyIslandDashboard>()
+                    .Method(HttpMethod.Get)
+                    .UpdateMethod(HttpMethod.Put));";
         }
     }
 }
