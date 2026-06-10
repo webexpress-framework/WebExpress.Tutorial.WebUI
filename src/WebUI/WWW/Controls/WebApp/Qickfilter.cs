@@ -1,5 +1,4 @@
-﻿using System.Net.Http;
-using WebExpress.Tutorial.WebUI.Model;
+﻿using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
@@ -45,10 +44,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 {
                     Bind = _=> new Binding().Add(new BindFilter())
                 }
-                    .Service("data", svc => svc
-                        .Endpoint<MonkeyIslandGamesTile>()
-                        .Method(HttpMethod.Get)
-                        .UpdateMethod(HttpMethod.Put))
+                    .DataService<MonkeyIslandGamesTile>()
             ];
 
             Stage.DarkControls = null;

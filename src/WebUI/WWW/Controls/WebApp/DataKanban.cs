@@ -1,5 +1,4 @@
-﻿using System.Net.Http;
-using WebExpress.Tutorial.WebUI.Model;
+﻿using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
@@ -40,10 +39,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 MovableColumn = _ => true,
                 DeletableColumn = _ => true
             }
-                .Service("data", svc => svc
-                    .Endpoint<MonkeyIslandKanban>()
-                    .Method(HttpMethod.Get)
-                    .UpdateMethod(HttpMethod.Put));
+                .DataService<MonkeyIslandKanban>();
 
             Stage.Code = @"
             new ControlDataKanban(RandomId.Create())
@@ -52,10 +48,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 MovableColumn = _ => true,
                 DeletableColumn = _ => true
             }
-                .Service(""data"", svc => svc
-                    .Endpoint<MonkeyIslandKanban>()
-                    .Method(HttpMethod.Get)
-                    .UpdateMethod(HttpMethod.Put));";
+                .DataService<MonkeyIslandKanban>();";
         }
     }
 }

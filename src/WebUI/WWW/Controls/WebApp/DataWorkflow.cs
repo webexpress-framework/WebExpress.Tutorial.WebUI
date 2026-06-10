@@ -1,5 +1,4 @@
-﻿using System.Net.Http;
-using WebExpress.Tutorial.WebUI.Model;
+﻿using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
@@ -36,17 +35,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             // the data service and its endpoint are authored in C# through the
             // fluent data surface; the endpoint resolves through the sitemap.
             Stage.Control = new ControlDataWorkflow()
-                .Service("data", svc => svc
-                    .Endpoint<MonkeyIslandWorkflow>()
-                    .Method(HttpMethod.Get)
-                    .UpdateMethod(HttpMethod.Put));
+                .DataService<MonkeyIslandWorkflow>();
 
             Stage.Code = @"
             new ControlDataWorkflow()
-                .Service(""data"", svc => svc
-                    .Endpoint<MonkeyIslandWorkflow>()
-                    .Method(HttpMethod.Get)
-                    .UpdateMethod(HttpMethod.Put));";
+                .DataService<MonkeyIslandWorkflow>();";
         }
     }
 }

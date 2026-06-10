@@ -1,5 +1,4 @@
-﻿using System.Net.Http;
-using WebExpress.Tutorial.WebUI.Model;
+﻿using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebControl;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
@@ -40,10 +39,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Controls =
             [
                 new ControlDataTile("myTile")
-                    .Service("data", svc => svc
-                        .Endpoint<MonkeyIslandGamesTile>()
-                        .Method(HttpMethod.Get)
-                        .UpdateMethod(HttpMethod.Put)),
+                    .DataService<MonkeyIslandGamesTile>(),
                 new ControlModalExample("modal")
             ];
 
@@ -51,10 +47,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.Code = @"
             new ControlDataTile(""myTile"")
-                .Service(""data"", svc => svc
-                    .Endpoint<MonkeyIslandGamesTile>()
-                    .Method(HttpMethod.Get)
-                    .UpdateMethod(HttpMethod.Put))";
+                .DataService<MonkeyIslandGamesTile>()";
         }
     }
 }

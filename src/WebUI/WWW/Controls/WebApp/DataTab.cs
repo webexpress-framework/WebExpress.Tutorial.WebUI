@@ -1,5 +1,4 @@
-﻿using System.Net.Http;
-using WebExpress.Tutorial.WebUI.Model;
+﻿using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
@@ -42,12 +41,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             {
                 MovableTab = _ => true,
             }
-                .Service("data", svc => svc
-                    .Endpoint<MonkeyIslandTab>()
-                    .Method(HttpMethod.Get)
-                    .UpdateMethod(HttpMethod.Put)
-                    .Query(q => q.Map("id", "id"))
-                    .Response(r => r.Items("items")))
+                .DataService<MonkeyIslandTab>()
                 .Add
                 (
                     new ControlDataTabTemplate("monkeyTemplate")
@@ -116,10 +110,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                                 IconPlanned = _ => "fas fa-hourglass-half",
                                 IconBacklog = _ => "fas fa-map"
                             }
-                                .Service("data", svc => svc
-                                    .Endpoint<RestApiScrum>()
-                                    .Method(HttpMethod.Get)
-                                    .UpdateMethod(HttpMethod.Put))
+                                .DataService<RestApiScrum>()
                         ),
                     new ControlDataTabTemplate("tableTemplate")
                     {
@@ -165,12 +156,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             {
                 MovableTab = _ => true,
             }
-                .Service(""data"", svc => svc
-                    .Endpoint<MonkeyIslandTab>()
-                    .Method(HttpMethod.Get)
-                    .UpdateMethod(HttpMethod.Put)
-                    .Query(q => q.Map(""id"", ""id""))
-                    .Response(r => r.Items(""items"")))
+                .DataService<MonkeyIslandTab>()
                 .Add
                 (
                     new ControlDataTabTemplate(""monkeyTemplate"")
@@ -239,10 +225,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                                 IconPlanned = _ => ""fas fa-hourglass-half"",
                                 IconBacklog = _ => ""fas fa-map""
                             }
-                                .Service(""data"", svc => svc
-                                    .Endpoint<RestApiScrum>()
-                                    .Method(HttpMethod.Get)
-                                    .UpdateMethod(HttpMethod.Put))
+                                .DataService<RestApiScrum>()
                         ),
                     new ControlDataTabTemplate(""tableTemplate"")
                     {

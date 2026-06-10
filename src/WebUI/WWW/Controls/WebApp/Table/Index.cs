@@ -1,5 +1,4 @@
-﻿using System.Net.Http;
-using WebExpress.Tutorial.WebUI.Model;
+﻿using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebControl;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
@@ -56,21 +55,7 @@ The table also exposes a fully implemented column management: dragging a column 
                 {
                     PageSize = _=> 5
                 }
-                    .Service("data", svc => svc
-                        .Endpoint<MonkeyIslandCharacterTable>()
-                        .Method(HttpMethod.Get)
-                        .UpdateMethod(HttpMethod.Put)
-                        .Query(q => q
-                            .Map("search", "q")
-                            .Map("wql", "wql")
-                            .Map("filter", "f")
-                            .Map("page", "p")
-                            .Map("pageSize", "l")
-                            .Map("orderBy", "o")
-                            .Map("orderDir", "d"))
-                        .Response(r => r
-                            .Rows("rows")
-                            .Total("total"))),
+                    .DataService<MonkeyIslandCharacterTable>(),
                 new ControlModalExample("modal")
             ];
 
@@ -81,17 +66,7 @@ The table also exposes a fully implemented column management: dragging a column 
             {
                 PageSize = _=> 5
             }
-                .Service(""data"", svc => svc
-                    .Endpoint<MonkeyIslandCharacterTable>()
-                    .Method(HttpMethod.Get)
-                    .UpdateMethod(HttpMethod.Put)
-                    .Query(q => q
-                        .Map(""search"", ""q"")
-                        .Map(""page"", ""p"")
-                        .Map(""pageSize"", ""l""))
-                    .Response(r => r
-                        .Rows(""rows"")
-                        .Total(""total"")))
+                .DataService<MonkeyIslandCharacterTable>()
 
             // server-side persistence of the layout the user produces in the browser
             protected override void UpdateColumns(IEnumerable<RestApiTableColumn> columns, IRequest request)

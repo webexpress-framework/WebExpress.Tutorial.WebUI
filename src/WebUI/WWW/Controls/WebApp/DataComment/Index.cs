@@ -1,5 +1,4 @@
-﻿using System.Net.Http;
-using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
+﻿using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.Tutorial.WebUI.WWW.Api._1_;
@@ -45,10 +44,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Comment
                 {
                     CurrentUser = _ => "guybrush"
                 }
-                    .Service("data", svc => svc
-                        .Endpoint<MonkeyIslandComment>()
-                        .Method(HttpMethod.Get)
-                        .UpdateMethod(HttpMethod.Put))
+                    .DataService<MonkeyIslandComment>()
             ];
 
             Stage.DarkControls = [];
@@ -58,10 +54,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Comment
             {
                 CurrentUser = _ => ""guybrush""
             }
-                .Service(""data"", svc => svc
-                    .Endpoint<MonkeyIslandComment>()
-                    .Method(HttpMethod.Get)
-                    .UpdateMethod(HttpMethod.Put));";
+                .DataService<MonkeyIslandComment>();";
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System.Net.Http;
-using WebExpress.Tutorial.WebUI.Model;
+﻿using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
@@ -51,10 +50,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                     IconEditSprint = _ => "fas fa-pen",
                     IconDeleteSprint = _ => "fas fa-bomb"
                 }
-                    .Service("data", svc => svc
-                        .Endpoint<RestApiScrum>()
-                        .Method(HttpMethod.Get)
-                        .UpdateMethod(HttpMethod.Put))
+                    .DataService<RestApiScrum>()
             ];
 
             Stage.Code = @"
@@ -62,10 +58,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             {
                 Title = _ => ""Monkey Island Product Backlog""
             }
-                .Service(""data"", svc => svc
-                    .Endpoint<RestApiScrum>()
-                    .Method(HttpMethod.Get)
-                    .UpdateMethod(HttpMethod.Put));";
+                .DataService<RestApiScrum>();";
         }
     }
 }

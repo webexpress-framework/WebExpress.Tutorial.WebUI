@@ -1,5 +1,4 @@
-﻿using System.Net.Http;
-using WebExpress.Tutorial.WebUI.Model;
+﻿using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
@@ -42,10 +41,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 MovableColumn = _ => true,
                 DeletableColumn = _ => true
             }
-                .Service("data", svc => svc
-                    .Endpoint<MonkeyIslandDashboard>()
-                    .Method(HttpMethod.Get)
-                    .UpdateMethod(HttpMethod.Put));
+                .DataService<MonkeyIslandDashboard>();
 
             Stage.Control = dashboard;
 
@@ -56,10 +52,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 MovableColumn = _ => true,
                 DeletableColumn = _ => true
             }
-                .Service(""data"", svc => svc
-                    .Endpoint<MonkeyIslandDashboard>()
-                    .Method(HttpMethod.Get)
-                    .UpdateMethod(HttpMethod.Put));";
+                .DataService<MonkeyIslandDashboard>();";
         }
     }
 }

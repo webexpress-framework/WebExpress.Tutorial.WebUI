@@ -1,5 +1,4 @@
-﻿using System.Net.Http;
-using WebExpress.Tutorial.WebUI.Model;
+﻿using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebControl;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
@@ -39,22 +38,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             [
                 new ControlDataList("myList")
                     .State(s => s
-                        .Set("page", 0)
-                        .Set("pageSize", 25))
-                    .Service("data", svc => svc
-                        .Endpoint<MonkeyIslandGamesList>()
-                        .Method(HttpMethod.Get)
-                        .Query(q => q
-                            .Map("search", "q")
-                            .Map("wql", "wql")
-                            .Map("filter", "f")
-                            .Map("page", "p")
-                            .Map("pageSize", "l")
-                            .Map("orderBy", "o")
-                            .Map("orderDir", "d"))
-                        .Response(r => r
-                            .Items("items")
-                            .Total("total"))),
+                        .Page(0)
+                        .PageSize(25))
+                    .DataService<MonkeyIslandGamesList>(),
                 new ControlModalExample("modal")
             ];
 
@@ -63,22 +49,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Code = @"
             new ControlDataList(""myList"")
                 .State(s => s
-                    .Set(""page"", 0)
-                    .Set(""pageSize"", 25))
-                .Service(""data"", svc => svc
-                    .Endpoint<MonkeyIslandGamesList>()
-                    .Method(HttpMethod.Get)
-                    .Query(q => q
-                        .Map(""search"", ""q"")
-                        .Map(""wql"", ""wql"")
-                        .Map(""filter"", ""f"")
-                        .Map(""page"", ""p"")
-                        .Map(""pageSize"", ""l"")
-                        .Map(""orderBy"", ""o"")
-                        .Map(""orderDir"", ""d""))
-                    .Response(r => r
-                        .Items(""items"")
-                        .Total(""total""))),
+                    .Page(0)
+                    .PageSize(25))
+                .DataService<MonkeyIslandGamesList>(),
             new ControlModalExample(""modal"")";
         }
     }

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Net.Http;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
@@ -47,10 +46,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Table.Templates
                 {
                     PageSize = _=> 5
                 }
-                    .Service("data", svc => svc
-                        .Endpoint<MonkeyIslandCharacterTableSelection>()
-                        .Method(HttpMethod.Get)
-                        .UpdateMethod(HttpMethod.Put)),
+                    .DataService<MonkeyIslandCharacterTableSelection>(),
             ];
 
             Stage.DarkControls =
@@ -59,10 +55,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Table.Templates
                 {
                     PageSize = _=> 5
                 }
-                    .Service("data", svc => svc
-                        .Endpoint<MonkeyIslandCharacterTableSelection>()
-                        .Method(HttpMethod.Get)
-                        .UpdateMethod(HttpMethod.Put))
+                    .DataService<MonkeyIslandCharacterTableSelection>()
             ];
 
             Stage.Code = @"
@@ -70,10 +63,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Table.Templates
                 {
                     PageSize = _=> 5
                 }
-                    .Service(""data"", svc => svc
-                        .Endpoint<MonkeyIslandCharacterTableSelection>()
-                        .Method(HttpMethod.Get)
-                        .UpdateMethod(HttpMethod.Put))";
+                    .DataService<MonkeyIslandCharacterTableSelection>()";
         }
 
         /// <summary>
