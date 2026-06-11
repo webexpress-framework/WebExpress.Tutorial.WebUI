@@ -20,6 +20,33 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         }
 
         /// <summary>
+        /// Retrieves the workflow header so the editor's meta panel shows a named,
+        /// versioned workflow instead of an anonymous one.
+        /// </summary>
+        /// <param name="workflowId">
+        /// The unique identifier of the workflow to retrieve.
+        /// </param>
+        /// <param name="context">
+        /// The query context providing access to the underlying data store. Cannot be null.
+        /// </param>
+        /// <param name="request">
+        /// The current API request. Cannot be null.
+        /// </param>
+        /// <returns>
+        /// A <see cref="RestApiWorkflowResult"/> carrying the workflow header.
+        /// </returns>
+        protected override RestApiWorkflowResult Retrieve(string workflowId, IQueryContext context, IRequest request)
+        {
+            return new RestApiWorkflowResult
+            {
+                Id = workflowId,
+                Name = "Monkey Island Quest",
+                Version = "1",
+                Description = "A pirate's journey from the quest board to legendary status."
+            };
+        }
+
+        /// <summary>
         /// Retrieves the collection of workflow states associated with the specified request.
         /// </summary>
         /// <param name="workflowId">

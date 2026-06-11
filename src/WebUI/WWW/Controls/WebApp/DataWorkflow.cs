@@ -33,12 +33,15 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Description = @" The `Workflow` control provides a visual container for rendering workflow structures composed of stages, transitions, and decision points. It is designed for process flows, state machines, approval chains, or any scenario where sequential or branching progression needs to be represented clearly. The control acts as a flexible canvas that can be extended with custom rendering logic, layout algorithms, and interactive behaviors.";
 
             // the data service and its endpoint are authored in C# through the
-            // fluent data surface; the endpoint resolves through the sitemap.
+            // fluent data surface; the endpoint resolves through the sitemap and
+            // the state island carries the workflow id the editor loads and saves.
             Stage.Control = new ControlDataWorkflow()
+                .State(s => s.Id("monkeyisland"))
                 .DataService<MonkeyIslandWorkflow>();
 
             Stage.Code = @"
             new ControlDataWorkflow()
+                .State(s => s.Id(""monkeyisland""))
                 .DataService<MonkeyIslandWorkflow>();";
         }
     }
