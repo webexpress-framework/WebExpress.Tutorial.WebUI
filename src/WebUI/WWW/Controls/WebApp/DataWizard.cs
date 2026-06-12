@@ -38,9 +38,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 });
 
             Stage.Control = new ControlDataWizard("myform")
-            {
-                RestUri = _ => sitemapManager.GetUri<MonkeyIslandCharacter>(pageContext),
-            }
+                .DataService<MonkeyIslandCharacter>()
                 .Add
                 (
                     new ControlDataWizardPage("page_basic")
@@ -82,9 +80,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.Code = @"
             new ControlDataWizard(""myform"")
-            {
-                RestUri = _ => sitemapManager.GetUri<MonkeyIslandCharacter>(pageContext),
-            }";
+                .DataService<MonkeyIslandCharacter>()";
         }
     }
 }

@@ -70,9 +70,9 @@ The selector below uses **`ControlDataSelectionTheme`** - a REST-backed picker t
                 // exactly one entry selected; no surrounding form is needed.
                 new ControlDataSelectionTheme("themeSelector")
                 {
-                    RestUri = _ => _sitemapManager.GetUri<ThemeApi>(_pageContext?.ApplicationContext),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Three, PropertySpacing.Space.None)
-                },
+                }
+                    .DataService<ThemeApi>(),
                 new ControlPanelFlex()
                 {
                     Direction = _ => TypeDirection.Horizontal,
@@ -139,9 +139,7 @@ The selector below uses **`ControlDataSelectionTheme`** - a REST-backed picker t
             // 4. Drop the standalone dropdown onto the page wired to the
             //    endpoint - no surrounding ControlForm is required:
             new ControlDataSelectionTheme(""themeSelector"")
-            {
-                RestUri = _ => sitemapManager.GetUri<ThemeApi>(applicationContext)
-            };
+                .DataService<ThemeApi>();
 
             // 5. On every render, read the stored selection and hand it to
             //    the visual tree so it picks the right theme:

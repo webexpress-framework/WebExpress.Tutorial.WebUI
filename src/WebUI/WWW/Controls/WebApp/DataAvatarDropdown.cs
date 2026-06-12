@@ -1,8 +1,9 @@
-﻿using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
+using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.WebApp.WebApiControl;
+using WebExpress.WebApp.WebControl;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
@@ -29,15 +30,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Description = @"The `DataAvatarDropdown` control is the REST-enabled variant of the standard `AvatarDropdown`. It displays an avatar that opens an interactive dropdown menu, but the menu items are retrieved dynamically from a REST API endpoint.";
 
             Stage.Control = new ControlDataAvatarDropdown()
-            {
-                RestUri = _ => sitemapManager.GetUri<AvatarDropdown>(pageContext.ApplicationContext)
-            };
+                .DataService<AvatarDropdown>();
 
             Stage.Code = @"
             new ControlDataAvatarDropdown()
-            {
-                RestUri = _=> sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext)
-            };";
+                .DataService<AvatarDropdown>();";
         }
     }
 }

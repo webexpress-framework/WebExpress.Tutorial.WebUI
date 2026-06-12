@@ -37,9 +37,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Controls =
             [
                 new ControlAdvancedSearch("mySearch")
-                {
-                    RestUri = _=> sitemapManager.GetUri<Api._1_.MonkeyIslandGameWql>(pageContext.ApplicationContext)
-                },
+                    .DataService<Api._1_.MonkeyIslandGameWql>(),
                 new ControlDataTile("myTile")
                 {
                     Bind = _=> new Binding().Add(new BindSearch() { Source = "mySearch" })
@@ -51,9 +49,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.Code = @"
             new ControlAdvancedSearch(""mySearch"")
-            {
-                RestUri = _=> sitemapManager.GetUri<Api._1_.MonkeyIslandBoatWql>(pageContext.ApplicationContext)
-            },
+                .DataService<Api._1_.MonkeyIslandGameWql>(),
             new ControlDataTile(""myTile"")
             {
                 Bind = _=> new BindSearch() { Source = ""mySearch"" }

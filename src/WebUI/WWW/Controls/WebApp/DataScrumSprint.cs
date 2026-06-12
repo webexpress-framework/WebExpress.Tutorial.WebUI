@@ -34,16 +34,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Controls =
             [
                 new ControlDataScrumSprint("monkeyIslandSprint")
-                {
-                    RestUri = _=> sitemapManager.GetUri<RestApiScrumSprint>(pageContext.ApplicationContext)
-                }
+                    .DataService<RestApiScrumSprint>()
             ];
 
             Stage.Code = @"
             new ControlDataScrumSprint(""monkeyIslandSprint"")
-            {
-                RestUri = _=> sitemapManager.GetUri<RestApiScrumSprint>(pageContext.ApplicationContext)
-            }";
+                .DataService<RestApiScrumSprint>()";
         }
     }
 }

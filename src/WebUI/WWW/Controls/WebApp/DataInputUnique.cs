@@ -1,9 +1,10 @@
-﻿using WebExpress.Tutorial.WebUI.Model;
+using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.WebApp.WebApiControl;
+using WebExpress.WebApp.WebControl;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
@@ -40,9 +41,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlForm()
                     .Add(new ControlDataFormItemInputUnique("lightUnique")
                     {
-                        RestUri = _=> sitemapManager.GetUri<MonkeyIslandCurseUnique>(pageContext.ApplicationContext),
                         Help = _ => @"Enter a curse name to check its availability (e.g., ""Elaine's Statue Curse"")"
                     }
+                        .DataService<MonkeyIslandCurseUnique>()
                         .Initialize(x => x.Value.Text = "LeChuck's Ghost Curse"))
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             ];
@@ -53,9 +54,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlForm()
                     .Add(new ControlDataFormItemInputUnique("darkUnique")
                     {
-                        RestUri = _=> sitemapManager.GetUri<MonkeyIslandCurseUnique>(pageContext.ApplicationContext),
                         Help =_ =>  @"Enter a curse name to check its availability (e.g., ""Elaine's Statue Curse"")"
                     }
+                        .DataService<MonkeyIslandCurseUnique>()
                         .Initialize(x => x.Value.Text = "LeChuck's Ghost Curse"))
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             ];
@@ -65,23 +66,21 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             new ControlForm()
                 .Add(new ControlDataFormItemInputUnique(""lightUnique"")
                 {
-                    RestUri = sitemapManager.GetUri<MonkeyIslandCurse>(pageContext.ApplicationContext),
                     Help = _ => @""Enter a curse name to check its availability (e.g., """"Elaine's Statue Curse"""")""
                 }
+                    .DataService<MonkeyIslandCurseUnique>()
                     .Initialize(x => x.Value.Text = ""LeChuck's Ghost Curse""))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit())";
 
             // properties: Api
             Stage.AddProperty
             (
-                "RestUri",
-                "Defines the REST API endpoint that checks the uniqueness of a specified input value.",
-                "RestUri = _ => sitemapManager.GetUri<MonkeyIslandCurse>(pageContext.ApplicationContext)",
+                "DataService",
+                "Declares the data service that checks the uniqueness of a specified input value.",
+                ".DataService<MonkeyIslandCurseUnique>()",
                 new ControlForm()
                     .Add(new ControlDataFormItemInputUnique("p_api")
-                    {
-                        RestUri = _ => sitemapManager.GetUri<MonkeyIslandCurseUnique>(pageContext.ApplicationContext)
-                    })
+                        .DataService<MonkeyIslandCurseUnique>())
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
         }

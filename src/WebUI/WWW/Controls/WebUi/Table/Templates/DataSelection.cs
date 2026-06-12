@@ -113,9 +113,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
             {
                 Editable = _ => editable,
                 Placeholder = _ => placeholder,
-                MultiSelect = _ => multiSelect,
-                RestUri = _ => _sitemapManager.GetUri<MonkeyIslandLocationsSelection>(_pageContext.ApplicationContext),
-            })
+                MultiSelect = _ => multiSelect
+            }
+                .DataService<MonkeyIslandLocationsSelection>())
             {
                 Title = _ => "My column",
                 Icon = _ => new IconBowlingBall()

@@ -37,9 +37,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Controls =
             [
                 new ControlDataQuickfilter("myQickfilter")
-                {
-                    RestUri = _=> sitemapManager.GetUri<Api._1_.MonkeyIslandGamesQuickfilter>(pageContext.ApplicationContext)
-                },
+                    .DataService<Api._1_.MonkeyIslandGamesQuickfilter>(),
                 new ControlDataTile("myTile")
                 {
                     Bind = _=> new Binding().Add(new BindFilter())
@@ -51,9 +49,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.Code = @"
             new ControlDataQuickfilter(""myQickfilter"")
-            {
-                RestUri = _=> sitemapManager.GetUri<Api._1_.MonkeyIslandGamesQuickfilter>(pageContext.ApplicationContext)
-            }";
+                .DataService<MonkeyIslandGamesQuickfilter>()";
         }
     }
 }

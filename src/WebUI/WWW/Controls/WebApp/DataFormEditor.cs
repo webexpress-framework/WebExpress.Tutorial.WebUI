@@ -4,6 +4,7 @@ using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.WebApp.WebControl;
+using WebExpress.WebApp.WebData;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebHtml;
@@ -36,18 +37,20 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.Control = new ControlDataFormEditor(RandomId.Create())
             {
-                RestUri = _ => sitemapManager.GetUri<FormEditor>(pageContext).Add(new UriQuery("id", "00000000-0000-0000-0000-000000000001")),
                 Preview = _ => true,
                 Indent = _ => 18
-            };
+            }
+                .Service("data", svc => svc
+                    .Uri(_ => sitemapManager.GetUri<FormEditor>(pageContext).Add(new UriQuery("id", "00000000-0000-0000-0000-000000000001"))));
 
             Stage.Code = @"
-            new ControlFormEditor(""my-form-editor"")
+            new ControlDataFormEditor(""my-form-editor"")
             {
-                RestUri = _=> sitemapManager.GetUri<FormEditor>(pageContext).Add(new UriQuery(""id"", ""00000000-0000-0000-0000-000000000001"")),
                 Preview = _=> true,
                 Indent = _=> 18
-            };";
+            }
+                .Service(""data"", svc => svc
+                    .Uri(_ => sitemapManager.GetUri<FormEditor>(pageContext).Add(new UriQuery(""id"", ""00000000-0000-0000-0000-000000000001""))));";
 
             Stage.AddProperty
             (
@@ -56,10 +59,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 "Readonly = true",
                 new ControlDataFormEditor(RandomId.Create())
                 {
-                    RestUri = _ => sitemapManager.GetUri<FormEditor>(pageContext).Add(new UriQuery("id", "00000000-0000-0000-0000-000000000001")),
                     Readonly = _ => true,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 }
+                    .Service("data", svc => svc
+                        .Uri(_ => sitemapManager.GetUri<FormEditor>(pageContext).Add(new UriQuery("id", "00000000-0000-0000-0000-000000000001"))))
             );
         }
     }

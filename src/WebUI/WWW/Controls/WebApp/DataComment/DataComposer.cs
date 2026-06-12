@@ -35,26 +35,24 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Comment
         /// <param name="sitemapManager">The sitemap manager.</param>
         public DataComposer(IPageContext pageContext, IComponentHub componentHub, ISitemapManager sitemapManager)
         {
-            var uri = sitemapManager.GetUri<MonkeyIslandComment>(pageContext);
-
             Stage.Description = @"`ControlCommentComposer` renders the **authoring surface** of the threaded comment widget. It emits a host element that the client-side `webexpress.webapp.CommentComposerCtrl` turns into a *minimalist single-line trigger* (looks like an empty input). On focus or click the trigger collapses out of the way and the full form takes over - category select, WYSIWYG editor (powered by `webexpress.webui.EditorCtrl`), labels input and send / cancel buttons.";
 
             Stage.Controls =
             [
                 new ControlDataCommentComposer("tutorial-comment-composer-guybrush")
                 {
-                    RestUri = _ => uri,
                     CurrentUser = _ => "guybrush",
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None)
                 }
+                    .DataService<MonkeyIslandComment>()
             ];
 
             Stage.Code = @"
-            new ControlCommentComposer(""tutorial-comment-composer-guybrush"")
+            new ControlDataCommentComposer(""tutorial-comment-composer-guybrush"")
             {
-                RestUri = _ => sitemapManager.GetUri<MonkeyIslandComment>(pageContext),
                 CurrentUser = _ => ""guybrush""
-            };";
+            }
+                .DataService<MonkeyIslandComment>();";
         }
     }
 }

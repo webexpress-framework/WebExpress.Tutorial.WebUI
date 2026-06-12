@@ -28,15 +28,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Description = @"The `WqlPrompt` control provides an input field that emulates the behavior of a Linux terminal, supporting features such as auto-completion, multi-line editing, and navigation through previously submitted expressions. Suggestions for attributes, operators, and values are retrieved from a REST API and are cached client-side to reduce network load. The control validates expressions via the server and displays syntax errors in real time. Users can insert new lines with Ctrl+Enter, submit expressions with Enter, and navigate history using Page Up and Page Down. The input supports editing at any cursor position and displays hints and alternative completions to assist with complex WQL queries.";
 
             Stage.Control = new ControlDataWqlPrompt("myPrompt")
-            {
-                RestUri = _ => sitemapManager.GetUri<Api._1_.MonkeyIslandBoatWql>(pageContext.ApplicationContext)
-            };
+                .DataService<Api._1_.MonkeyIslandBoatWql>();
 
             Stage.Code = @"
             new ControlDataWqlPrompt(""myPrompt"")
-            {
-                RestUri = _=> sitemapManager.GetUri<WWW.Api._1_.MonkeyIslandBoatWql>(pageContext)
-            };";
+                .DataService<MonkeyIslandBoatWql>();";
         }
     }
 }

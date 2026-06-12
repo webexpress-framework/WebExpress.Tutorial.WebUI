@@ -33,25 +33,23 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         /// <param name="sitemapManager">The sitemap manager.</param>
         public DataTag(IPageContext pageContext, IComponentHub componentHub, ISitemapManager sitemapManager)
         {
-            var uri = sitemapManager.GetUri<MonkeyIslandTag>(pageContext);
-
             Stage.Description = @"`ControlDataTag` renders a read-only row of tag (label) chips followed by a ""+"" button. Clicking ""+"" opens a modal in which tags are added (with autocomplete) and deleted; on close the chips reflect the edits. The control only emits the host element; the read-only surface, the ""+"" button, the modal and the editable surface inside it are built by the client-side `webexpress.webapp.TagCtrl` (read-only) and `webexpress.webapp.TagEditorCtrl` (editable), which extend the WebUI `webexpress.webui.TagCtrl` and `InputTagCtrl`. The same endpoint loads the attached tags, adds new ones, deletes removed ones and — via the `q` query parameter — serves the autocomplete suggestions.";
 
             Stage.Controls =
             [
                 new ControlDataTag("tutorial-tag-quest")
                 {
-                    RestUri = _ => uri,
                     Placeholder = _ => "add tag…"
                 }
+                    .DataService<MonkeyIslandTag>()
             ];
 
             Stage.Code = @"
             new ControlDataTag(""tutorial-tag-quest"")
             {
-                RestUri = _ => sitemapManager.GetUri<MonkeyIslandTag>(pageContext),
                 Placeholder = _ => ""add tag…""
-            };";
+            }
+                .DataService<MonkeyIslandTag>();";
         }
     }
 }

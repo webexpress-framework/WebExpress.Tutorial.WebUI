@@ -1,10 +1,11 @@
-﻿using WebExpress.Tutorial.WebUI.Model;
+using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebControl;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.WebApp.WebApiControl;
+using WebExpress.WebApp.WebControl;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
@@ -42,9 +43,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             [
                 new ControlDataDropdown("inventoryDropdown")
                 {
-                    Text = _ => "Inventory",
-                    RestUri = _=> sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext)
+                    Text = _ => "Inventory"
                 }
+                    .DataService<MonkeyIslandInventoriesDropdown>()
                     .Add(new ControlDropdownItemLink()
                     {
                         Text = _ => "Add Item",
@@ -61,18 +62,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             [
                 new ControlDataDropdown("darkInventoryDropdown")
                 {
-                    Text = _ => "Inventory",
-                    RestUri = _=> sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext)
+                    Text = _ => "Inventory"
                 }
+                    .DataService<MonkeyIslandInventoriesDropdown>()
             ];
 
             // code sample
             Stage.Code = @"
             new ControlDataDropdown(""inventoryDropdown"")
             {
-                Text = _ => ""Inventory"",
-                RestUri = _ => sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext)
+                Text = _ => ""Inventory""
             }
+                .DataService<MonkeyIslandInventoriesDropdown>()
                 .Add(new ControlDropdownItemLink()
                 {
                     Text = _ => ""Add Item"",
@@ -86,14 +87,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             // properties: Api
             Stage.AddProperty
             (
-                "RestUri",
-                "The REST endpoint from which the entries are loaded.",
-                "RestUri = _ => sitemapManager.GetUri<MonkeyIslandInventory>(pageContext.ApplicationContext)",
+                "DataService",
+                "The data service whose endpoint delivers the entries.",
+                ".DataService<MonkeyIslandInventoriesDropdown>()",
                 new ControlDataDropdown("p_api")
                 {
-                    Text = _ => "Inventory",
-                    RestUri = _ => sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext)
+                    Text = _ => "Inventory"
                 }
+                    .DataService<MonkeyIslandInventoriesDropdown>()
             );
 
             // properties: MaxItems
@@ -105,9 +106,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlDataDropdown("p_maxitems")
                 {
                     Text = _ => "Inventory",
-                    RestUri = _ => sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext),
                     MaxItems = _ => 10
                 }
+                    .DataService<MonkeyIslandInventoriesDropdown>()
             );
 
             // properties: SearchPlaceholder
@@ -119,9 +120,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlDataDropdown("p_placeholder")
                 {
                     Text = _ => "Inventory",
-                    RestUri = _ => sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext),
                     SearchPlaceholder = _ => "Search entries..."
                 }
+                    .DataService<MonkeyIslandInventoriesDropdown>()
             );
         }
     }

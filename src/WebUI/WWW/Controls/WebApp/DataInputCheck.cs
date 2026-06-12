@@ -3,6 +3,7 @@ using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.WebApp.WebApiControl;
+using WebExpress.WebApp.WebControl;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
@@ -28,16 +29,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         /// <param name="sitemapManager">The sitemap manager for building REST endpoint URIs.</param>
         public DataInputCheck(IPageContext pageContext, ISitemapManager sitemapManager)
         {
-            Stage.Description = @"The `ControlDataFormItemInputCheck` control extends `ControlFormItemInputCheck` and communicates with a REST API instead of persisting its state through cookies. On render, the client issues a GET request against the configured `RestUri` to retrieve the current checked state. If an `InitialChecked` value is provided, it takes precedence and the GET is skipped. Subsequent state changes are forwarded to the same endpoint via POST.";
+            Stage.Description = @"The `ControlDataFormItemInputCheck` control extends `ControlFormItemInputCheck` and communicates with a REST API instead of persisting its state through cookies. On render, the client issues a GET request against the configured data service to retrieve the current checked state. If an `InitialChecked` value is provided, it takes precedence and the GET is skipped. Subsequent state changes are forwarded to the same endpoint via POST.";
 
             Stage.Controls =
             [
                 new ControlForm()
                     .Add(new ControlDataFormItemInputCheck("lightCheck")
                     {
-                        RestUri = _=> sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
                         Description = _ => "Enable insult sword fighting"
-                    })
+                    }
+                        .DataService<MonkeyIslandInsultModeCheck>())
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             ];
 
@@ -45,22 +46,22 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             new ControlForm()
                 .Add(new ControlDataFormItemInputCheck(""lightCheck"")
                 {
-                    RestUri = _=> sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
                     Description = _ => ""Enable insult sword fighting""
-                })
+                }
+                    .DataService<MonkeyIslandInsultModeCheck>())
                 .AddPrimaryButton(new ControlFormItemButtonSubmit())";
 
             Stage.AddProperty
             (
-                "RestUri",
-                "Defines the REST API endpoint that reads and persists the checked state.",
-                "RestUri = _ => sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext)",
+                "DataService",
+                "Declares the data service that reads and persists the checked state.",
+                ".DataService<MonkeyIslandInsultModeCheck>()",
                 new ControlForm()
                     .Add(new ControlDataFormItemInputCheck("p_rest_uri")
                     {
-                        RestUri = _ => sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
                         Description = _ => "Enable insult sword fighting"
-                    })
+                    }
+                        .DataService<MonkeyIslandInsultModeCheck>())
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
 
@@ -72,10 +73,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlForm()
                     .Add(new ControlDataFormItemInputCheck("p_initial_true")
                     {
-                        RestUri = _ => sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
                         InitialChecked = _ => true,
                         Description = _ => "Pre-checked without GET"
-                    })
+                    }
+                        .DataService<MonkeyIslandInsultModeCheck>())
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
 
@@ -87,9 +88,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlForm()
                     .Add(new ControlDataFormItemInputCheck("p_description")
                     {
-                        RestUri = _ => sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
                         Description = _ => "Enable insult sword fighting"
-                    })
+                    }
+                        .DataService<MonkeyIslandInsultModeCheck>())
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
 
@@ -101,10 +102,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlForm()
                     .Add(new ControlDataFormItemInputCheck("p_layout")
                     {
-                        RestUri = _ => sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
                         Layout = _ => TypeLayoutCheck.Switch,
                         Description = _ => "Enable insult sword fighting"
-                    })
+                    }
+                        .DataService<MonkeyIslandInsultModeCheck>())
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
 
@@ -116,10 +117,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlForm()
                     .Add(new ControlDataFormItemInputCheck("p_inline")
                     {
-                        RestUri = _ => sitemapManager.GetUri<MonkeyIslandInsultModeCheck>(pageContext.ApplicationContext),
                         Inline = _ => true,
                         Description = _ => "Inline"
-                    })
+                    }
+                        .DataService<MonkeyIslandInsultModeCheck>())
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );
         }

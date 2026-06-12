@@ -1,7 +1,8 @@
-﻿using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
+using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebApiControl;
+using WebExpress.WebApp.WebControl;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
@@ -28,15 +29,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Description = @"Provides a rest login control that prompts the user to enter credentials for authentication.";
 
             Stage.Control = new ControlDataLogin()
-            {
-                RestUri = _ => sitemapManager.GetUri<WWW.Api._1_.Session>(pageContext.ApplicationContext)
-            };
+                .DataService<WWW.Api._1_.Session>();
 
             Stage.Code = @"
             new ControlDataLogin()
-            {
-                RestUri = _=> sitemapManager.GetUri<Login>(pageContext.ApplicationContext)
-            };";
+                .DataService<Session>();";
         }
     }
 }

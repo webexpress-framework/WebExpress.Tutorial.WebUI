@@ -1,9 +1,10 @@
-﻿using WebExpress.Tutorial.WebUI.Model;
+using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.WebApp.WebApiControl;
+using WebExpress.WebApp.WebControl;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
@@ -39,9 +40,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 .Add
                 (
                     new ControlDataFormItemInputSelection("lightSelection")
-                    {
-                        RestUri = _ => sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
-                    }
+                        .DataService<MonkeyIslandLocationsSelection>()
                 );
 
             // dark sample
@@ -51,9 +50,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 .Add
                 (
                     new ControlDataFormItemInputSelection("darkSelection")
-                    {
-                        RestUri = _=> sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
-                    }
+                        .DataService<MonkeyIslandLocationsSelection>()
                 )
             ];
 
@@ -62,9 +59,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 .Add
                 (
                     new ControlDataFormItemInputSelection(""lightSelection"")
-                    {
-                        RestUri = _=> sitemapManager.GetUri<MonkeyIslandInventory>(pageContext.ApplicationContext)
-                    }
+                        .DataService<MonkeyIslandLocationsSelection>()
                 );";
 
             Stage.AddProperty
@@ -74,9 +69,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 "MultiSelect = _=> true",
                 new ControlForm(null, new ControlDataFormItemInputSelection()
                 {
-                    MultiSelect = _ => true,
-                    RestUri = _ => sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
-                })
+                    MultiSelect = _ => true
+                }
+                    .DataService<MonkeyIslandLocationsSelection>())
             );
 
             Stage.AddProperty
@@ -86,9 +81,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 "Placeholder = _=> \"Placeholder\"",
                 new ControlForm(null, new ControlDataFormItemInputSelection()
                 {
-                    Placeholder = _ => "Placeholder",
-                    RestUri = _ => sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
-                })
+                    Placeholder = _ => "Placeholder"
+                }
+                    .DataService<MonkeyIslandLocationsSelection>())
             );
 
             Stage.AddProperty
@@ -98,9 +93,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 "MaxItems = _=> 10",
                  new ControlForm(null, new ControlDataFormItemInputSelection()
                  {
-                     MaxItems = _ => 10,
-                     RestUri = _ => sitemapManager.GetUri<MonkeyIslandLocationsSelection>(pageContext.ApplicationContext)
-                 })
+                     MaxItems = _ => 10
+                 }
+                     .DataService<MonkeyIslandLocationsSelection>())
             );
         }
     }
