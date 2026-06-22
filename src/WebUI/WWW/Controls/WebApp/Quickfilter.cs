@@ -4,7 +4,6 @@ using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.WebApp.WebControl;
-using WebExpress.WebApp.WebData;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
@@ -48,7 +47,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.DarkControls = null;
 
             Stage.Code = @"
-            new ControlDataQuickfilter("myQuickfilter")
+            new ControlDataQuickfilter(""myQuickfilter"")
                 .DataService<MonkeyIslandGamesQuickfilter>()";
         }
     }

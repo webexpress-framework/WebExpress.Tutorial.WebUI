@@ -4,7 +4,6 @@ using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.WebApp.WebControl;
-using WebExpress.WebApp.WebData;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
@@ -52,7 +51,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 .DataService<Api._1_.MonkeyIslandGameWql>(),
             new ControlDataTile(""myTile"")
             {
-                Bind = _=> new Binding().Add(new BindSearch() { Source = "mySearch" })
+                Bind = _=> new Binding().Add(new BindSearch() { Source = ""mySearch"" })
             }
                 .DataService<MonkeyIslandGamesTile>()";
         }
