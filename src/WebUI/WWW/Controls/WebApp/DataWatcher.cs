@@ -13,7 +13,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
     /// <summary>
     /// Represents the watcher demo page for the tutorial.
-    /// Hosts a <see cref="ControlRestWatcher"/> connected to the
+    /// Hosts a <see cref="ControlDataWatcher"/> connected to the
     /// <see cref="MonkeyIslandWatcher"/> REST endpoint (for the
     /// add / list / remove operations) and the
     /// <see cref="MonkeyIslandWatcherUsers"/> endpoint (for the user
@@ -22,11 +22,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// contains Stan, the Voodoo Lady, LeChuck, Wally, Herman Toothrot
     /// and Murray.
     /// </summary>
-    [Title("RestWatcher")]
+    [Title("DataWatcher")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
     [Scope<IScopeControlWebApp>]
-    public sealed class RestWatcher : PageControl
+    public sealed class DataWatcher : PageControl
     {
         /// <summary>
         /// Initializes a new instance of the class.
@@ -34,30 +34,27 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         /// <param name="pageContext">The page context.</param>
         /// <param name="componentHub">The component hub.</param>
         /// <param name="sitemapManager">The sitemap manager.</param>
-        public RestWatcher(IPageContext pageContext, IComponentHub componentHub, ISitemapManager sitemapManager)
+        public DataWatcher(IPageContext pageContext, IComponentHub componentHub, ISitemapManager sitemapManager)
         {
-            var uri = sitemapManager.GetUri<MonkeyIslandWatcher>(pageContext);
-            var usersUri = sitemapManager.GetUri<MonkeyIslandWatcherUsers>(pageContext);
-
             Stage.Description = @"`ControlWatcher` renders a row of avatars representing the watchers of an object. The control only emits the host element; the actual avatar row, the click-to-remove behavior, the ""+"" affordance and the search dropdown are built by the client-side `webexpress.webapp.WatcherCtrl`.";
 
             Stage.Controls =
             [
-                new ControlRestWatcher("tutorial-watcher-quest")
+                new ControlDataWatcher("tutorial-watcher-quest")
                 {
-                    RestUri = _ => uri,
-                    UsersUri = _ => usersUri,
                     MaxVisible = _ => 6
                 }
+                    .DataService<MonkeyIslandWatcher>()
+                    .UsersService<MonkeyIslandWatcherUsers>()
             ];
 
             Stage.Code = @"
-            new ControlWatcher(""tutorial-watcher-quest"")
+            new ControlDataWatcher(""tutorial-watcher-quest"")
             {
-                RestUri = _ => sitemapManager.GetUri<MonkeyIslandWatcher>(pageContext),
-                UsersUri = _ => sitemapManager.GetUri<MonkeyIslandWatcherUsers>(pageContext),
                 MaxVisible = _ => 6
-            };";
+            }
+                .DataService<MonkeyIslandWatcher>()
+                .UsersService<MonkeyIslandWatcherUsers>();";
         }
     }
 }

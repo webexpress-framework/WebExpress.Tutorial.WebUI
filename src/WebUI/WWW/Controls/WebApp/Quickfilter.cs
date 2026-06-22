@@ -35,24 +35,20 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.Controls =
             [
-                new ControlRestQuickfilter("myQickfilter")
+                new ControlDataQuickfilter("myQuickfilter")
+                    .DataService<Api._1_.MonkeyIslandGamesQuickfilter>(),
+                new ControlDataTile("myTile")
                 {
-                    RestUri = _=> sitemapManager.GetUri<Api._1_.MonkeyIslandGamesQuickfilter>(pageContext.ApplicationContext)
-                },
-                new ControlRestTile("myTile")
-                {
-                    RestUri = _=> sitemapManager.GetUri<MonkeyIslandGamesTile>(pageContext.ApplicationContext),
                     Bind = _=> new Binding().Add(new BindFilter())
                 }
+                    .DataService<MonkeyIslandGamesTile>()
             ];
 
             Stage.DarkControls = null;
 
             Stage.Code = @"
-            new ControlRestQuickfilter(""myQickfilter"")
-            {
-                RestUri = _=> sitemapManager.GetUri<Api._1_.MonkeyIslandGamesQuickfilter>(pageContext.ApplicationContext)
-            }";
+            new ControlDataQuickfilter(""myQuickfilter"")
+                .DataService<MonkeyIslandGamesQuickfilter>()";
         }
     }
 }

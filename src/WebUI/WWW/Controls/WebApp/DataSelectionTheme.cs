@@ -19,7 +19,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
     /// <summary>
     /// Demonstrates the runtime theme picker. The page hosts a
-    /// <see cref="ControlRestSelectionTheme"/> wired to the tutorial's
+    /// <see cref="ControlDataSelectionTheme"/> wired to the tutorial's
     /// <see cref="ThemeApi"/> endpoint, and a row of icon-bearing controls
     /// that re-render with the icon set of the chosen theme.
     /// <para>
@@ -34,11 +34,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// theme show through the same <see cref="ThemeStore"/> lookup.
     /// </para>
     /// </summary>
-    [Title("RestSelectionTheme")]
+    [Title("DataSelectionTheme")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
     [Scope<IScopeControlWebApp>]
-    public sealed class RestSelectionTheme : PageControl
+    public sealed class DataSelectionTheme : PageControl
     {
         private readonly IPageContext _pageContext;
         private readonly ISitemapManager _sitemapManager;
@@ -49,7 +49,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         /// <param name="pageContext">The page context.</param>
         /// <param name="componentHub">The component hub.</param>
         /// <param name="sitemapManager">The sitemap manager used to resolve the ThemeApi uri.</param>
-        public RestSelectionTheme(IPageContext pageContext, IComponentHub componentHub, ISitemapManager sitemapManager)
+        public DataSelectionTheme(IPageContext pageContext, IComponentHub componentHub, ISitemapManager sitemapManager)
         {
             _pageContext = pageContext;
             _sitemapManager = sitemapManager;
@@ -61,18 +61,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
 The set in effect is decided by the **theme** attached to the request. A theme declares its preference with `[IconTheme(TypeIconTheme.Light)]`; the resolved theme is then picked up automatically by `VisualTreeWebApp` (which emits `<html data-icon-theme=""..."">`) and by server-side icon factories (`renderContext.GetIconTheme()`).
 
-The selector below uses **`ControlRestSelectionTheme`** - a REST-backed picker that lists the themes registered for the current application via the tutorial's `ThemeApi` endpoint. Picking an entry calls the tutorial's `ThemeApi`, which writes the value into a user-defined `ThemeStore`; the page's `Process` override reads the same store on the next request and informs the visual tree via `visualTree.UseTheme<TTheme>()`. Try toggling between `DefaultIconTheme` and `LightIconTheme` - the four buttons below swap between FontAwesome and the light SVG glyphs.";
+The selector below uses **`ControlDataSelectionTheme`** - a REST-backed picker that lists the themes registered for the current application via the tutorial's `ThemeApi` endpoint. Picking an entry calls the tutorial's `ThemeApi`, which writes the value into a user-defined `ThemeStore`; the page's `Process` override reads the same store on the next request and informs the visual tree via `visualTree.UseTheme<TTheme>()`. Try toggling between `DefaultIconTheme` and `LightIconTheme` - the four buttons below swap between FontAwesome and the light SVG glyphs.";
 
             Stage.Controls =
             [
-                // ControlRestSelectionTheme is a standalone dropdown that
+                // ControlDataSelectionTheme is a standalone dropdown that
                 // shows the active theme as its label and always keeps
                 // exactly one entry selected; no surrounding form is needed.
-                new ControlRestSelectionTheme("themeSelector")
+                new ControlDataSelectionTheme("themeSelector")
                 {
-                    RestUri = _ => _sitemapManager.GetUri<ThemeApi>(_pageContext?.ApplicationContext),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Three, PropertySpacing.Space.None)
-                },
+                }
+                    .DataService<ThemeApi>(),
                 new ControlPanelFlex()
                 {
                     Direction = _ => TypeDirection.Horizontal,
@@ -138,10 +138,8 @@ The selector below uses **`ControlRestSelectionTheme`** - a REST-backed picker t
 
             // 4. Drop the standalone dropdown onto the page wired to the
             //    endpoint - no surrounding ControlForm is required:
-            new ControlRestSelectionTheme(""themeSelector"")
-            {
-                RestUri = _ => sitemapManager.GetUri<ThemeApi>(applicationContext)
-            };
+            new ControlDataSelectionTheme(""themeSelector"")
+                .DataService<ThemeApi>();
 
             // 5. On every render, read the stored selection and hand it to
             //    the visual tree so it picks the right theme:

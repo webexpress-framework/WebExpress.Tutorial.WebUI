@@ -14,7 +14,7 @@ namespace WebExpress.Tutorial.WebUI.WebControl
     /// This class provides a structured form for inputting and managing 
     /// information about a character.
     /// </remarks>
-    public class ControlFormCharacterDelete : ControlRestFormDelete
+    public class ControlFormCharacterDelete : ControlDataFormDelete
     {
         /// <summary>
         /// Initializes a new instance of the class.

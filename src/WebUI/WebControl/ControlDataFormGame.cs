@@ -7,7 +7,7 @@ namespace WebExpress.Tutorial.WebUI.WebControl
     /// <summary>
     /// Represents a form for managing Monkey Island game data, including title, description, release year, and remake status.
     /// </summary>
-    public class ControlRestFormGame : ControlForm
+    public class ControlDataFormGame : ControlForm
     {
         /// <summary>
         /// Gets or sets the title of the game.
@@ -71,7 +71,7 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         /// Initializes a new instance of the class.
         /// </summary>
         /// <param name="id">The unique identifier for the form control.</param>
-        public ControlRestFormGame(string id)
+        public ControlDataFormGame(string id)
             : base(id)
         {
             Enable = _ => false;

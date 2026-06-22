@@ -1,10 +1,11 @@
-﻿using WebExpress.Tutorial.WebUI.Model;
+using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebControl;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.WebApp.WebApiControl;
+using WebExpress.WebApp.WebControl;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
@@ -18,18 +19,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// Represents the tutorial page that demonstrates a REST-backed dropdown 
     /// control with search and grouping.
     /// </summary>
-    [Title("RestDropdown")]
+    [Title("DataDropdown")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
     [Scope<IScopeControlWebApp>]
-    public sealed class RestDropDown : PageControl
+    public sealed class DataDropDown : PageControl
     {
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
         /// <param name="pageContext">The context of the page where the table control is used.</param>
         /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>
-        public RestDropDown(IPageContext pageContext, ISitemapManager sitemapManager)
+        public DataDropDown(IPageContext pageContext, ISitemapManager sitemapManager)
         {
             // register relevant ui events
             Stage.AddEvent(Event.DATA_ARRIVED_EVENT, Event.DATA_REQUESTED_EVENT, Event.CLICK_EVENT, Event.CHANGE_VISIBILITY_EVENT);
@@ -40,11 +41,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             // default (light) sample
             Stage.Controls =
             [
-                new ControlRestDropdown("inventoryDropdown")
+                new ControlDataDropdown("inventoryDropdown")
                 {
-                    Text = _ => "Inventory",
-                    RestUri = _=> sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext)
+                    Text = _ => "Inventory"
                 }
+                    .DataService<MonkeyIslandInventoriesDropdown>()
                     .Add(new ControlDropdownItemLink()
                     {
                         Text = _ => "Add Item",
@@ -59,20 +60,20 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             // dark sample
             Stage.DarkControls =
             [
-                new ControlRestDropdown("darkInventoryDropdown")
+                new ControlDataDropdown("darkInventoryDropdown")
                 {
-                    Text = _ => "Inventory",
-                    RestUri = _=> sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext)
+                    Text = _ => "Inventory"
                 }
+                    .DataService<MonkeyIslandInventoriesDropdown>()
             ];
 
             // code sample
             Stage.Code = @"
-            new ControlRestDropdown(""inventoryDropdown"")
+            new ControlDataDropdown(""inventoryDropdown"")
             {
-                Text = _ => ""Inventory"",
-                RestUri = _ => sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext)
+                Text = _ => ""Inventory""
             }
+                .DataService<MonkeyIslandInventoriesDropdown>()
                 .Add(new ControlDropdownItemLink()
                 {
                     Text = _ => ""Add Item"",
@@ -86,14 +87,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             // properties: Api
             Stage.AddProperty
             (
-                "RestUri",
-                "The REST endpoint from which the entries are loaded.",
-                "RestUri = _ => sitemapManager.GetUri<MonkeyIslandInventory>(pageContext.ApplicationContext)",
-                new ControlRestDropdown("p_api")
+                "DataService",
+                "The data service whose endpoint delivers the entries.",
+                ".DataService<MonkeyIslandInventoriesDropdown>()",
+                new ControlDataDropdown("p_api")
                 {
-                    Text = _ => "Inventory",
-                    RestUri = _ => sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext)
+                    Text = _ => "Inventory"
                 }
+                    .DataService<MonkeyIslandInventoriesDropdown>()
             );
 
             // properties: MaxItems
@@ -102,12 +103,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 "MaxItems",
                 "Maximum number of entries to display (excluding search bar and separators).",
                 "MaxItems = _ => 10",
-                new ControlRestDropdown("p_maxitems")
+                new ControlDataDropdown("p_maxitems")
                 {
                     Text = _ => "Inventory",
-                    RestUri = _ => sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext),
                     MaxItems = _ => 10
                 }
+                    .DataService<MonkeyIslandInventoriesDropdown>()
             );
 
             // properties: SearchPlaceholder
@@ -116,12 +117,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 "SearchPlaceholder",
                 "Placeholder text in the search field.",
                 "SearchPlaceholder = _ => \"Search entries...\"",
-                new ControlRestDropdown("p_placeholder")
+                new ControlDataDropdown("p_placeholder")
                 {
                     Text = _ => "Inventory",
-                    RestUri = _ => sitemapManager.GetUri<MonkeyIslandInventoriesDropdown>(pageContext.ApplicationContext),
                     SearchPlaceholder = _ => "Search entries..."
                 }
+                    .DataService<MonkeyIslandInventoriesDropdown>()
             );
         }
     }

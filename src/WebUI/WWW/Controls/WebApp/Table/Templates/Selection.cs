@@ -5,6 +5,7 @@ using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.WebApp.WebControl;
+using WebExpress.WebApp.WebData;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
@@ -41,28 +42,28 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Table.Templates
 
             Stage.Controls =
             [
-                new ControlRestTable("myTable")
+                new ControlDataTable("myTable")
                 {
-                    RestUri = _=> sitemapManager.GetUri<MonkeyIslandCharacterTableSelection>(pageContext.ApplicationContext),
                     PageSize = _=> 5
-                },
+                }
+                    .DataService<MonkeyIslandCharacterTableSelection>(),
             ];
 
             Stage.DarkControls =
             [
-                new ControlRestTable("myTableDark")
+                new ControlDataTable("myTableDark")
                 {
-                    RestUri = _=> sitemapManager.GetUri<MonkeyIslandCharacterTableSelection>(pageContext.ApplicationContext),
                     PageSize = _=> 5
                 }
+                    .DataService<MonkeyIslandCharacterTableSelection>()
             ];
 
             Stage.Code = @"
-                new ControlRestTable(""myTable"")
+                new ControlDataTable(""myTable"")
                 {
-                    RestUri = _=> sitemapManager.GetUri<MonkeyIslandCharacterTable>(pageContext.ApplicationContext),
                     PageSize = _=> 5
-                }";
+                }
+                    .DataService<MonkeyIslandCharacterTableSelection>()";
         }
 
         /// <summary>

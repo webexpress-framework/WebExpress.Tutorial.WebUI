@@ -13,17 +13,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
     /// <summary>
     /// Represents the REST tag demo page for the tutorial. Hosts a
-    /// <see cref="ControlRestTag"/> connected to the
+    /// <see cref="ControlDataTag"/> connected to the
     /// <see cref="MonkeyIslandTag"/> REST endpoint, which serves the
     /// load / suggest / add / remove operations from a single URL. The quest
     /// log starts tagged with "pirate" and "grog"; typing offers
     /// autocomplete suggestions from the Monkey Island vocabulary.
     /// </summary>
-    [Title("RestTag")]
+    [Title("DataTag")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
     [Scope<IScopeControlWebApp>]
-    public sealed class RestTag : PageControl
+    public sealed class DataTag : PageControl
     {
         /// <summary>
         /// Initializes a new instance of the class.
@@ -31,27 +31,25 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         /// <param name="pageContext">The page context.</param>
         /// <param name="componentHub">The component hub.</param>
         /// <param name="sitemapManager">The sitemap manager.</param>
-        public RestTag(IPageContext pageContext, IComponentHub componentHub, ISitemapManager sitemapManager)
+        public DataTag(IPageContext pageContext, IComponentHub componentHub, ISitemapManager sitemapManager)
         {
-            var uri = sitemapManager.GetUri<MonkeyIslandTag>(pageContext);
-
-            Stage.Description = @"`ControlRestTag` renders a read-only row of tag (label) chips followed by a ""+"" button. Clicking ""+"" opens a modal in which tags are added (with autocomplete) and deleted; on close the chips reflect the edits. The control only emits the host element; the read-only surface, the ""+"" button, the modal and the editable surface inside it are built by the client-side `webexpress.webapp.TagCtrl` (read-only) and `webexpress.webapp.TagEditorCtrl` (editable), which extend the WebUI `webexpress.webui.TagCtrl` and `InputTagCtrl`. The same endpoint loads the attached tags, adds new ones, deletes removed ones and — via the `q` query parameter — serves the autocomplete suggestions.";
+            Stage.Description = @"`ControlDataTag` renders a read-only row of tag (label) chips followed by a ""+"" button. Clicking ""+"" opens a modal in which tags are added (with autocomplete) and deleted; on close the chips reflect the edits. The control only emits the host element; the read-only surface, the ""+"" button, the modal and the editable surface inside it are built by the client-side `webexpress.webapp.TagCtrl` (read-only) and `webexpress.webapp.TagEditorCtrl` (editable), which extend the WebUI `webexpress.webui.TagCtrl` and `InputTagCtrl`. The same endpoint loads the attached tags, adds new ones, deletes removed ones and — via the `q` query parameter — serves the autocomplete suggestions.";
 
             Stage.Controls =
             [
-                new ControlRestTag("tutorial-tag-quest")
+                new ControlDataTag("tutorial-tag-quest")
                 {
-                    RestUri = _ => uri,
                     Placeholder = _ => "add tag…"
                 }
+                    .DataService<MonkeyIslandTag>()
             ];
 
             Stage.Code = @"
-            new ControlRestTag(""tutorial-tag-quest"")
+            new ControlDataTag(""tutorial-tag-quest"")
             {
-                RestUri = _ => sitemapManager.GetUri<MonkeyIslandTag>(pageContext),
                 Placeholder = _ => ""add tag…""
-            };";
+            }
+                .DataService<MonkeyIslandTag>();";
         }
     }
 }

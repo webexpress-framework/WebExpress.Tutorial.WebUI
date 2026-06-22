@@ -36,28 +36,24 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Controls =
             [
                 new ControlAdvancedSearch("mySearch")
+                    .DataService<Api._1_.MonkeyIslandGameWql>(),
+                new ControlDataTile("myTile")
                 {
-                    RestUri = _=> sitemapManager.GetUri<Api._1_.MonkeyIslandGameWql>(pageContext.ApplicationContext)
-                },
-                new ControlRestTile("myTile")
-                {
-                    RestUri = _=> sitemapManager.GetUri<MonkeyIslandGamesTile>(pageContext.ApplicationContext),
                     Bind = _=> new Binding().Add(new BindSearch() { Source = "mySearch" })
                 }
+                    .DataService<MonkeyIslandGamesTile>()
             ];
 
             Stage.DarkControls = null;
 
             Stage.Code = @"
             new ControlAdvancedSearch(""mySearch"")
+                .DataService<Api._1_.MonkeyIslandGameWql>(),
+            new ControlDataTile(""myTile"")
             {
-                RestUri = _=> sitemapManager.GetUri<Api._1_.MonkeyIslandBoatWql>(pageContext.ApplicationContext)
-            },
-            new ControlRestTile(""myTile"")
-            {
-                RestUri = _=> sitemapManager.GetUri<MonkeyIslandGamesTile>(pageContext.ApplicationContext),
-                Bind = _=> new BindSearch() { Source = ""mySearch"" }
-            }";
+                Bind = _=> new Binding().Add(new BindSearch() { Source = ""mySearch"" })
+            }
+                .DataService<MonkeyIslandGamesTile>()";
         }
     }
 }

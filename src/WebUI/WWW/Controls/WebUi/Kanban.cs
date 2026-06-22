@@ -19,12 +19,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
     [Scope<IScopeControlWebUI>]
-    public sealed class RestKanban : PageControl
+    public sealed class DataKanban : PageControl
     {
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
-        public RestKanban(IPageContext pageContext, ISitemapManager sitemapManager)
+        public DataKanban(IPageContext pageContext, ISitemapManager sitemapManager)
         {
             Stage.AddEvent(Event.MOVE_EVENT);
 
