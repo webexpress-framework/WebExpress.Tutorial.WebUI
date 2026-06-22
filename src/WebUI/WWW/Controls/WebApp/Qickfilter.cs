@@ -36,7 +36,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.Controls =
             [
-                new ControlDataQuickfilter("myQickfilter")
+                new ControlDataQuickfilter("myQuickfilter")
                     .DataService<Api._1_.MonkeyIslandGamesQuickfilter>(),
                 new ControlDataTile("myTile")
                 {
