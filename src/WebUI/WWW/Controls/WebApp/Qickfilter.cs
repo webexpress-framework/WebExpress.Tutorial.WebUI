@@ -48,7 +48,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.DarkControls = null;
 
             Stage.Code = @"
-            new ControlDataQuickfilter(""myQickfilter"")
+            new ControlDataQuickfilter("myQuickfilter")
                 .DataService<MonkeyIslandGamesQuickfilter>()";
         }
     }
