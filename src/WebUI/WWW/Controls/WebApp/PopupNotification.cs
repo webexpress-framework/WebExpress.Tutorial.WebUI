@@ -52,25 +52,25 @@ Manual scenarios:
                 .GetUri<PopupTrigger>(pageContext.ApplicationContext)?
                 .ToString() ?? "";
 
-            var returnUri = pageContext.Route?.ToUri()?.ToString() ?? "/";
-
             string Url(string type, string heading, string message, int durability, string scope)
             {
                 return $"{triggerUri}?type={Uri.EscapeDataString(type)}"
                     + $"&heading={Uri.EscapeDataString(heading)}"
                     + $"&message={Uri.EscapeDataString(message)}"
                     + $"&durability={durability}"
-                    + $"&scope={scope}"
-                    + $"&return={Uri.EscapeDataString(returnUri)}";
+                    + $"&scope={scope}";
             }
 
-            ControlButtonLink TriggerButton(string label, TypeColorButton color, string url)
+            ControlButton TriggerButton(string label, TypeColorButton color, string url)
             {
-                return new ControlButtonLink
+                return new ControlButton
                 {
                     Text = _ => label,
                     BackgroundColor = _ => new PropertyColorButton(color),
-                    Uri = _ => new UriEndpoint(url),
+                    // an AJAX request keeps this tab on the page so the popup
+                    // pushed back over the WebSocket survives; a link would
+                    // navigate away and unload the receiver before it arrives
+                    PrimaryAction = _ => new ActionRequest(new UriEndpoint(url)),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two, PropertySpacing.Space.Two, PropertySpacing.Space.None)
                 };
             }

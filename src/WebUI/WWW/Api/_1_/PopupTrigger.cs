@@ -5,7 +5,6 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebRestApi;
-using WebExpress.WebCore.WebUri;
 using WebExpress.WebUI.WebNotification;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
@@ -108,15 +107,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 );
             }
 
-            // Send the caller back to the originating tutorial page so the
-            // popup that just arrived through the WebSocket pipeline is the
-            // first thing they see.
-            var returnUrl = Parameter("return");
-            if (!string.IsNullOrEmpty(returnUrl))
-            {
-                return new ResponseMovedTemporarily(new UriEndpoint(returnUrl));
-            }
-
+            // The caller is expected to stay on its current page and issue this
+            // as a background request: the freshly created notification reaches
+            // every connected client - the caller included - through the
+            // MessageQueue WebSocket, so there is nothing to render here.
+            // Redirecting the caller back would reload (and briefly unload) the
+            // very page that is meant to receive the live push.
             return new ResponseOK
             {
                 Content = "{\"status\":\"ok\"}"
