@@ -52,7 +52,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 .DataService<Api._1_.MonkeyIslandGameWql>(),
             new ControlDataTile(""myTile"")
             {
-                Bind = _=> new BindSearch() { Source = ""mySearch"" }
+                Bind = _=> new Binding().Add(new BindSearch() { Source = "mySearch" })
             }
                 .DataService<MonkeyIslandGamesTile>()";
         }
