@@ -42,12 +42,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// </returns>
         protected override IEnumerable<RestApiDropdownItem> RetrieveItems(IQuery<Inventory> query, IQueryContext context, IRequest request)
         {
-            return query.Apply(ViewModel.MonkeyIslandInventories.AsQueryable())
+            var items = query.Apply(ViewModel.MonkeyIslandInventories.AsQueryable())
                 .Select(x => new RestApiDropdownItem()
                 {
                     Id = x.Id,
                     Text = x.Text
                 });
+
+            // lead the dynamic results with a non-clickable caption so the tutorial
+            // demonstrates how an endpoint prepends a title above its items
+            return new RestApiDropdownItem[] { new RestApiDropdownItemHeader("Recently opened") }
+                .Concat(items);
         }
 
         /// <summary>
