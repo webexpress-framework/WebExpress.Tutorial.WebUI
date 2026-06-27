@@ -8,6 +8,7 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
+using WebExpress.WebUI.WebControl;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
@@ -36,7 +37,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             [
                 new ControlDataScrumTeam("monkeyIslandTeam")
                 {
-                    MaxVisible = _ => 4
+                    MaxVisible = _ => 4,
+                    ColorPoints = _ => new PropertyColorBackground("#7c3aed"),
+                    ColorCompleted = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 }
                     .DataService<MonkeyIslandScrumTeam>()
             ];
@@ -44,7 +47,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Code = @"
             new ControlDataScrumTeam(""monkeyIslandTeam"")
             {
-                MaxVisible = _ => 4
+                MaxVisible = _ => 4,
+                ColorPoints = _ => new PropertyColorBackground(""#7c3aed""),
+                ColorCompleted = _ => new PropertyColorBackground(TypeColorBackground.Success)
             }
                 .DataService<MonkeyIslandScrumTeam>()";
         }
