@@ -57,5 +57,11 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// Gets or sets the rank within sprint/backlog.
         /// </summary>
         public int Rank { get; set; }
+
+        /// <summary>
+        /// Gets or sets the id of the person the item is assigned to (a Monkey
+        /// Island character id), or <see langword="null"/> when unassigned.
+        /// </summary>
+        public string AssigneeId { get; set; }
     }
 }

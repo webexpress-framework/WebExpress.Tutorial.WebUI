@@ -58,6 +58,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlFormItemInputCombo` | Dropdown selection input. |
 | `ControlFormItemInputSlider` | Range slider for numeric input. |
 | `ControlFormItemInputRating` | Star rating input. |
+| `ControlFormItemInputEstimate` | Estimate picked from a configurable scale (e.g. story points). |
 | `ControlFormItemInputDate` | Date input with a picker. |
 | `ControlFormItemInputCalendar` | Inline calendar selection. |
 | `ControlSelection` | Multi-item selection list. |

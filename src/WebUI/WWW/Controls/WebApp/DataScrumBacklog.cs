@@ -30,7 +30,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         {
             Stage.AddEvent(Event.DATA_REQUESTED_EVENT, Event.DATA_ARRIVED_EVENT, Event.MOVE_EVENT, Event.SELECT_ITEM_EVENT, Event.UPDATED_EVENT);
 
-            Stage.Description = @"The `ScrumBacklog` control provides an interactive view of the product backlog. It groups user stories into structured sections and supports planning actions such as adding, editing, reordering, and assigning items to a sprint.";
+            Stage.Description = @"The `ScrumBacklog` control provides an interactive view of the product backlog. It groups user stories into structured sections and supports planning actions such as adding, editing, reordering, and moving items between the backlog and sprints. Each item shows its story-point estimate and, when assigned, the assignee's avatar; a context-menu action (`Assign & estimate…`) opens a dialog to assign a person from the users service and adjust the estimate.";
 
             // the data service and its endpoint are authored in C# through the
             // fluent data surface; the endpoint resolves through the sitemap.
@@ -48,17 +48,21 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                     IconStartSprint = _ => "fas fa-play",
                     IconCompleteSprint = _ => "fas fa-flag-checkered",
                     IconEditSprint = _ => "fas fa-pen",
-                    IconDeleteSprint = _ => "fas fa-bomb"
+                    IconDeleteSprint = _ => "fas fa-bomb",
+                    EstimationScale = _ => [1, 2, 3, 5, 8, 13, 20, 40]
                 }
                     .DataService<RestApiScrum>()
+                    .UsersService<MonkeyIslandWatcherUsers>()
             ];
 
             Stage.Code = @"
             new ControlDataScrumBacklog(""monkeyIslandBacklog"")
             {
-                Title = _ => ""Monkey Island Product Backlog""
+                Title = _ => ""Monkey Island Product Backlog"",
+                EstimationScale = _ => [1, 2, 3, 5, 8, 13, 20, 40]
             }
-                .DataService<RestApiScrum>();";
+                .DataService<RestApiScrum>()
+                .UsersService<MonkeyIslandWatcherUsers>();";
         }
     }
 }

@@ -113,7 +113,8 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Points = 8,
                 SprintId = Guid.Parse("50C7A06E-0784-4A87-BFA0-70615F2F8F22"),
                 Status = "todo",
-                Rank = 1
+                Rank = 1,
+                AssigneeId = "guybrush"
             };
 
             yield return new ScrumItem
@@ -141,7 +142,8 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Points = 13,
                 SprintId = Guid.Parse("50C7A06E-0784-4A87-BFA0-70615F2F8F22"),
                 Status = "todo",
-                Rank = 3
+                Rank = 3,
+                AssigneeId = "elaine"
             };
 
             yield return new ScrumItem
@@ -183,7 +185,8 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Points = 8,
                 SprintId = null,
                 Status = "backlog",
-                Rank = 2
+                Rank = 2,
+                AssigneeId = "stan"
             };
 
             yield return new ScrumItem

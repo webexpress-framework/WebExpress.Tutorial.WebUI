@@ -90,7 +90,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                         Points = x.Points,
                         SprintId = x.SprintId,
                         Status = x.Status,
-                        Rank = x.Rank
+                        Rank = x.Rank,
+                        AssigneeId = x.AssigneeId
                     })
                     .ToList();
             }
@@ -434,7 +435,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// </returns>
         protected override RestApiScrumItem ToRestItem(ScrumItem item)
         {
-            return new RestApiScrumItem
+            var rest = new RestApiScrumItem
             {
                 Id = item.Id.ToString(),
                 Type = item.Type,
@@ -445,9 +446,49 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 Points = item.Points,
                 SprintId = item.SprintId?.ToString(),
                 Status = item.Status,
-                Rank = item.Rank
+                Rank = item.Rank,
+                AssigneeId = item.AssigneeId
             };
+
+            // resolve the assignee from the shared Monkey Island directory so the
+            // backlog can render an avatar without a second round trip
+            if (!string.IsNullOrWhiteSpace(item.AssigneeId))
+            {
+                var user = MonkeyIslandWatcherDirectory.FindById(item.AssigneeId);
+                if (user is not null)
+                {
+                    rest.AssigneeName = user.Name;
+                    rest.AssigneeInitials = user.Initials;
+                    rest.AssigneeColor = user.Color;
+                }
+            }
+
+            return rest;
         }
 
+        /// <summary>
+        /// Applies a new assignee and/or story-point estimate to an existing
+        /// Scrum item.
+        /// </summary>
+        /// <param name="existingItem">The item to update.</param>
+        /// <param name="payload">The payload carrying the new assignee and estimate.</param>
+        /// <param name="request">The current API request.</param>
+        /// <returns>A result object confirming the update.</returns>
+        protected override IRestApiCrudResultUpdate UpdateItem(ScrumItem existingItem, RestApiScrumItemPayload payload, IRequest request)
+        {
+            lock (SyncRoot)
+            {
+                var item = ViewModel.MonkeyIslandScrumItems.First(x => x.Id == existingItem.Id);
+
+                item.AssigneeId = string.IsNullOrWhiteSpace(payload.AssigneeId) ? null : payload.AssigneeId;
+
+                if (payload.Points.HasValue)
+                {
+                    item.Points = Math.Max(0, payload.Points.Value);
+                }
+
+                return new RestApiCrudResultUpdate();
+            }
+        }
     }
 }
