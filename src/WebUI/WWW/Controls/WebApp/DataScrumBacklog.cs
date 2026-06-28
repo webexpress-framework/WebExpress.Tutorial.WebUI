@@ -35,38 +35,50 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             // the data service and its endpoint are authored in C# through the
             // fluent data surface; the endpoint resolves through the sitemap.
+            // the backlog is created separately and bound to the backlog
+            // resource and the users service by type; the scope declares both
+            // services and the resource by type.
+            var backlog = new ControlDataScrumBacklog("monkeyIslandBacklogView")
+            {
+                Title = _ => "Monkey Island Product Backlog",
+                Selectable = _ => true,
+                IconActive = _ => "fas fa-skull-crossbones",
+                IconPlanned = _ => "fas fa-hourglass-half",
+                IconBacklog = _ => "fas fa-map",
+                IconMoveToBacklog = _ => "fas fa-anchor",
+                IconMoveToSprint = _ => "fas fa-ship",
+                IconStartSprint = _ => "fas fa-play",
+                IconCompleteSprint = _ => "fas fa-flag-checkered",
+                IconEditSprint = _ => "fas fa-pen",
+                IconDeleteSprint = _ => "fas fa-bomb",
+                EstimationScale = _ => [1, 2, 3, 5, 8, 13, 20, 40]
+            }
+                .Resource<BacklogResource>()
+                .UsersService<MonkeyIslandWatcherUsers>();
+
             Stage.Controls =
             [
-                new ControlViewState("monkeyIslandBacklog",
-                    new ControlDataScrumBacklog("monkeyIslandBacklogView")
-                    {
-                        Title = _ => "Monkey Island Product Backlog",
-                        Selectable = _ => true,
-                        IconActive = _ => "fas fa-skull-crossbones",
-                        IconPlanned = _ => "fas fa-hourglass-half",
-                        IconBacklog = _ => "fas fa-map",
-                        IconMoveToBacklog = _ => "fas fa-anchor",
-                        IconMoveToSprint = _ => "fas fa-ship",
-                        IconStartSprint = _ => "fas fa-play",
-                        IconCompleteSprint = _ => "fas fa-flag-checkered",
-                        IconEditSprint = _ => "fas fa-pen",
-                        IconDeleteSprint = _ => "fas fa-bomb",
-                        EstimationScale = _ => [1, 2, 3, 5, 8, 13, 20, 40],
-                        Resource = _ => "backlog"
-                    })
-                    .Service("data", svc => svc.Endpoint<RestApiScrum>().Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
-                    .Service("users", svc => svc.Endpoint<MonkeyIslandWatcherUsers>().Method(HttpMethod.Get))
-                    .Resource("backlog", r => { })
+                new ControlViewState<EmptyState>("monkeyIslandBacklog")
+                    .Service<RestApiScrum>(svc => svc.Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
+                    .Service<MonkeyIslandWatcherUsers>(svc => svc.Method(HttpMethod.Get))
+                    .Resource<BacklogResource>(r => r.Service<RestApiScrum>()),
+                backlog
             ];
 
             Stage.Code = @"
-            new ControlDataScrumBacklog(""monkeyIslandBacklog"")
+            var backlog = new ControlDataScrumBacklog(""monkeyIslandBacklogView"")
             {
                 Title = _ => ""Monkey Island Product Backlog"",
                 EstimationScale = _ => [1, 2, 3, 5, 8, 13, 20, 40]
             }
-                .DataService<RestApiScrum>()
-                .UsersService<MonkeyIslandWatcherUsers>();";
+                .Resource<BacklogResource>()
+                .UsersService<MonkeyIslandWatcherUsers>();
+
+            new ControlViewState<EmptyState>(""monkeyIslandBacklog"")
+                .Service<RestApiScrum>(svc => svc.Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
+                .Service<MonkeyIslandWatcherUsers>(svc => svc.Method(HttpMethod.Get))
+                .Resource<BacklogResource>(r => r.Service<RestApiScrum>()),
+            backlog";
         }
     }
 }

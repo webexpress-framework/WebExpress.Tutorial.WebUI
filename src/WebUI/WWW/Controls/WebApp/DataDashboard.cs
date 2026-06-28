@@ -34,31 +34,36 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.Description = @"The `Dashboard` control organizes widgets into columns. Each widget provides metadata (title, icon, color, column) and can optionally contain content controls. With `EditableColumn`/`MovableColumn`/`DeletableColumn` enabled, the column headers can be renamed inline (pencil / double-click), reordered via the ⠿ grip and deleted — the new column layout is persisted to the REST endpoint.";
 
-            // the scope owns the state, the service and the central layout
-            // resource; the dashboard inside it is a pure view bound to that
-            // resource. the endpoint resolves through the sitemap.
-            Stage.Control = new ControlViewState(RandomId.Create(),
-                new ControlDataDashboard(RandomId.Create())
-                {
-                    EditableColumn = _ => true,
-                    MovableColumn = _ => true,
-                    DeletableColumn = _ => true,
-                    Resource = _ => "layout"
-                })
-                .Service("data", svc => svc.Endpoint<MonkeyIslandDashboard>().Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
-                .Resource("layout", r => { });
+            // the dashboard is created separately and bound to the layout
+            // resource by type; the scope declares the service and the resource
+            // by type.
+            var dashboard = new ControlDataDashboard(RandomId.Create())
+            {
+                EditableColumn = _ => true,
+                MovableColumn = _ => true,
+                DeletableColumn = _ => true
+            }.Resource<LayoutResource>();
+
+            Stage.Controls =
+            [
+                new ControlViewState<EmptyState>(RandomId.Create())
+                    .Service<MonkeyIslandDashboard>(svc => svc.Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
+                    .Resource<LayoutResource>(r => r.Service<MonkeyIslandDashboard>()),
+                dashboard
+            ];
 
             Stage.Code = @"
-            new ControlViewState(RandomId.Create(),
-                new ControlDataDashboard(RandomId.Create())
-                {
-                    EditableColumn = _ => true,
-                    MovableColumn = _ => true,
-                    DeletableColumn = _ => true,
-                    Resource = _ => ""layout""
-                })
-                .Service(""data"", svc => svc.Endpoint<MonkeyIslandDashboard>().Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
-                .Resource(""layout"", r => { });";
+            var dashboard = new ControlDataDashboard(RandomId.Create())
+            {
+                EditableColumn = _ => true,
+                MovableColumn = _ => true,
+                DeletableColumn = _ => true
+            }.Resource<LayoutResource>();
+
+            new ControlViewState<EmptyState>(RandomId.Create())
+                .Service<MonkeyIslandDashboard>(svc => svc.Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
+                .Resource<LayoutResource>(r => r.Service<MonkeyIslandDashboard>()),
+            dashboard";
         }
     }
 }

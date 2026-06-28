@@ -32,31 +32,35 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.Description = @"A `Kanban` control provides a column‑based layout for visual workflow management. Each column represents a process stage (e.g., To Do, In Progress, Done), while each card represents a movable work item. Cards can be rearranged or moved between columns, enabling intuitive drag‑and‑drop interaction and progress tracking. The control also supports swimlanes: horizontal lanes that group related work items across all columns. With `EditableColumn`/`MovableColumn`/`DeletableColumn` enabled, the column headers can be renamed inline (pencil / double-click), reordered via the ⠿ grip and deleted — the new column layout is persisted to the REST endpoint.";
 
-            // the scope owns the state, the service and the central board
-            // resource; the board inside it is a pure view bound to that
-            // resource. the endpoint resolves through the sitemap.
-            Stage.Control = new ControlViewState(RandomId.Create(),
-                new ControlDataKanban(RandomId.Create())
-                {
-                    EditableColumn = _ => true,
-                    MovableColumn = _ => true,
-                    DeletableColumn = _ => true,
-                    Resource = _ => "board"
-                })
-                .Service("data", svc => svc.Endpoint<MonkeyIslandKanban>().Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
-                .Resource("board", r => { });
+            // the board is created separately and bound to the board resource by
+            // type; the scope declares the service and the resource by type.
+            var board = new ControlDataKanban(RandomId.Create())
+            {
+                EditableColumn = _ => true,
+                MovableColumn = _ => true,
+                DeletableColumn = _ => true
+            }.Resource<BoardResource>();
+
+            Stage.Controls =
+            [
+                new ControlViewState<EmptyState>(RandomId.Create())
+                    .Service<MonkeyIslandKanban>(svc => svc.Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
+                    .Resource<BoardResource>(r => r.Service<MonkeyIslandKanban>()),
+                board
+            ];
 
             Stage.Code = @"
-            new ControlViewState(RandomId.Create(),
-                new ControlDataKanban(RandomId.Create())
-                {
-                    EditableColumn = _ => true,
-                    MovableColumn = _ => true,
-                    DeletableColumn = _ => true,
-                    Resource = _ => ""board""
-                })
-                .Service(""data"", svc => svc.Endpoint<MonkeyIslandKanban>().Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
-                .Resource(""board"", r => { });";
+            var board = new ControlDataKanban(RandomId.Create())
+            {
+                EditableColumn = _ => true,
+                MovableColumn = _ => true,
+                DeletableColumn = _ => true
+            }.Resource<BoardResource>();
+
+            new ControlViewState<EmptyState>(RandomId.Create())
+                .Service<MonkeyIslandKanban>(svc => svc.Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
+                .Resource<BoardResource>(r => r.Service<MonkeyIslandKanban>()),
+            board";
         }
     }
 }

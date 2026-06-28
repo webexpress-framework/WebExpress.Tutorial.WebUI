@@ -3,6 +3,7 @@ using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.Tutorial.WebUI.WWW.Api._1_;
+using WebExpress.Tutorial.WebUI.WWW.Controls.WebApp;
 using WebExpress.WebApp.WebControl;
 using WebExpress.WebApp.WebData;
 using WebExpress.WebApp.WebScope;
@@ -39,29 +40,34 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Comment
 
             // the data service and its endpoint are authored in C# through the
             // fluent data surface; the endpoint resolves through the sitemap.
+            // the comment surface is created separately and bound to the comments
+            // resource by type; the scope declares the service and the resource
+            // by type.
+            var comment = new ControlDataComment("tutorial-comment-guybrush-view")
+            {
+                CurrentUser = _ => "guybrush"
+            }.Resource<CommentsResource>();
+
             Stage.Controls =
             [
-                new ControlViewState("tutorial-comment-guybrush",
-                    new ControlDataComment("tutorial-comment-guybrush-view")
-                    {
-                        CurrentUser = _ => "guybrush",
-                        Resource = _ => "comments"
-                    })
-                    .Service("data", svc => svc.Endpoint<MonkeyIslandComment>().Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
-                    .Resource("comments", r => { })
+                new ControlViewState<EmptyState>("tutorial-comment-guybrush")
+                    .Service<MonkeyIslandComment>(svc => svc.Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
+                    .Resource<CommentsResource>(r => r.Service<MonkeyIslandComment>()),
+                comment
             ];
 
             Stage.DarkControls = [];
 
             Stage.Code = @"
-            new ControlViewState(""tutorial-comment-guybrush"",
-                new ControlDataComment(""tutorial-comment-guybrush-view"")
-                {
-                    CurrentUser = _ => ""guybrush"",
-                    Resource = _ => ""comments""
-                })
-                .Service(""data"", svc => svc.Endpoint<MonkeyIslandComment>().Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
-                .Resource(""comments"", r => { });";
+            var comment = new ControlDataComment(""tutorial-comment-guybrush-view"")
+            {
+                CurrentUser = _ => ""guybrush""
+            }.Resource<CommentsResource>();
+
+            new ControlViewState<EmptyState>(""tutorial-comment-guybrush"")
+                .Service<MonkeyIslandComment>(svc => svc.Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
+                .Resource<CommentsResource>(r => r.Service<MonkeyIslandComment>()),
+            comment";
         }
     }
 }
