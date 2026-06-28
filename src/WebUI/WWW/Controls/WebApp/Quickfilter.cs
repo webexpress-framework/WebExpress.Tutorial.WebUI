@@ -9,6 +9,7 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
@@ -37,6 +38,23 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             [
                 new ControlDataQuickfilter("myQuickfilter")
                     .DataService<Api._1_.MonkeyIslandGamesQuickfilter>(),
+                new ControlDataQuickfilter("myRestDropdown")
+                    .Add
+                    (
+                        new ControlDataQuickfilterItemDropdown("games")
+                        {
+                            Text = _ => "Games",
+                            Icon = _ => new IconGamepad(),
+                            Multiple = _ => true,
+                            Uri = _ => sitemapManager.GetUri<Api._1_.MonkeyIslandGamesQuickfilter>(pageContext)
+                        },
+                        new ControlDataQuickfilterItemDropdown("platform")
+                        {
+                            Text = _ => "Platform",
+                            Icon = _ => new IconLaptop(),
+                            Uri = _ => sitemapManager.GetUri<Api._1_.MonkeyIslandPlatformQuickfilter>(pageContext)
+                        }
+                    ),
                 new ControlDataTile("myTile")
                 {
                     Bind = _=> new Binding().Add(new BindFilter())

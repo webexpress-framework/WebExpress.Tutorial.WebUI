@@ -112,7 +112,68 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                         Text = _ => "Date",
                         Icon = _ => new IconCalendar(),
                         PrimaryAction = _ => new ActionFilter()
+                    },
+                    new ControlQuickfilterItemDropdown("sprint")
+                    {
+                        Text = _ => "Sprint",
+                        Icon = _ => new IconCalendar()
                     }
+                        .Add(new ControlQuickfilterItemDropdownItem("sprint-current")
+                        {
+                            Text = _ => "Current",
+                            Icon = _ => new IconPlay(),
+                            PrimaryAction = _ => new ActionFilter() { Group = "sprint", Exclusive = true }
+                        })
+                        .Add(new ControlQuickfilterItemDropdownItem("sprint-next")
+                        {
+                            Text = _ => "Next",
+                            Icon = _ => new IconForward(),
+                            PrimaryAction = _ => new ActionFilter() { Group = "sprint", Exclusive = true }
+                        }),
+                    new ControlQuickfilterItemAvatar("assignee-guybrush")
+                    {
+                        Text = _ => "Guybrush Threepwood",
+                        Initials = _ => "GT",
+                        Color = _ => "#1d4ed8",
+                        PrimaryAction = _ => new ActionFilter() { Group = "assignee" }
+                    },
+                    new ControlQuickfilterItemAvatar("assignee-elaine")
+                    {
+                        Text = _ => "Elaine Marley",
+                        Initials = _ => "EM",
+                        Color = _ => "#7c3aed",
+                        PrimaryAction = _ => new ActionFilter() { Group = "assignee" }
+                    },
+                    new ControlQuickfilterItemAvatar("assignee-automation")
+                    {
+                        Text = _ => "Automation",
+                        Icon = _ => new IconRobot(),
+                        Color = _ => "#0e7490",
+                        PrimaryAction = _ => new ActionFilter() { Group = "assignee" }
+                    },
+                    new ControlQuickfilterItemMultiSelect("tags")
+                    {
+                        Text = _ => "Tags",
+                        Icon = _ => new IconTag()
+                    }
+                        .Add(new ControlQuickfilterItemDropdownItem("tag-bug")
+                        {
+                            Text = _ => "Bug",
+                            Icon = _ => new IconBug(),
+                            PrimaryAction = _ => new ActionFilter() { Group = "tags" }
+                        })
+                        .Add(new ControlQuickfilterItemDropdownItem("tag-feature")
+                        {
+                            Text = _ => "Feature",
+                            Icon = _ => new IconBookmark(),
+                            PrimaryAction = _ => new ActionFilter() { Group = "tags" }
+                        })
+                        .Add(new ControlQuickfilterItemDropdownItem("tag-docs")
+                        {
+                            Text = _ => "Docs",
+                            Icon = _ => new IconBook(),
+                            PrimaryAction = _ => new ActionFilter() { Group = "tags" }
+                        })
                 )
             ];
 

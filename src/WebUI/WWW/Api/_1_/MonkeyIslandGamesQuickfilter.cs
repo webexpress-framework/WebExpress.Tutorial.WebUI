@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
@@ -36,7 +37,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// </returns>
         protected override IEnumerable<RestApiQuickfilterItem> RetrieveItems(IQueryContext context, IRequest request)
         {
+            // narrow the option set on the server by the search query, so a large
+            // catalog is filtered before it reaches the dropdown
+            var q = request?.GetParameter("q")?.Value ?? string.Empty;
+
             return ViewModel.MonkeyIslandQuickfilterGames
+                .Where(x => string.IsNullOrWhiteSpace(q)
+                    || (x.Name ?? string.Empty).Contains(q, StringComparison.OrdinalIgnoreCase))
                 .Select(x => new RestApiQuickfilterItem()
                 {
                     Id = x.Id.ToString(),
