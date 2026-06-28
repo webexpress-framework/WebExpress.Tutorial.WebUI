@@ -1,4 +1,5 @@
-﻿using WebExpress.Tutorial.WebUI.Model;
+﻿using System.Net.Http;
+using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebControl;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
@@ -34,20 +35,29 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.Description = @"A `DataTile` control is a user interface component that retrieves data from a REST API and exposes CRUD-oriented interactions in a tile-based representation. The control automatically fetches data from the API and renders the items as tiles.";
 
-            // the data service and its endpoint are authored in C# through the
-            // fluent data surface; the endpoint resolves through the sitemap.
+            // the scope owns the state, the service and the central tiles
+            // resource; the tile panel inside it is a pure view bound to that
+            // resource. the endpoint resolves through the sitemap.
             Stage.Controls =
             [
-                new ControlDataTile("myTile")
-                    .DataService<MonkeyIslandGamesTile>(),
+                new ControlViewState("myTile", new ControlDataTile("myTileView") { Resource = _ => "tiles" })
+                    .Service("data", svc => svc.Endpoint<MonkeyIslandGamesTile>().Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
+                    .Resource("tiles", r => r
+                        .Param("page").Param("pageSize")
+                        .Param("search").Param("wql").Param("filter")
+                        .Param("orderBy").Param("orderDir")),
                 new ControlModalExample("modal")
             ];
 
             Stage.DarkControls = null;
 
             Stage.Code = @"
-            new ControlDataTile(""myTile"")
-                .DataService<MonkeyIslandGamesTile>()";
+            new ControlViewState(""myTile"", new ControlDataTile(""myTileView"") { Resource = _ => ""tiles"" })
+                .Service(""data"", svc => svc.Endpoint<MonkeyIslandGamesTile>().Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
+                .Resource(""tiles"", r => r
+                    .Param(""page"").Param(""pageSize"")
+                    .Param(""search"").Param(""wql"").Param(""filter"")
+                    .Param(""orderBy"").Param(""orderDir""))";
         }
     }
 }

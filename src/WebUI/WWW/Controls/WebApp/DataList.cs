@@ -1,4 +1,5 @@
-﻿using WebExpress.Tutorial.WebUI.Model;
+﻿using System.Net.Http;
+using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebControl;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
@@ -36,22 +37,40 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.Controls =
             [
-                new ControlDataList("myList")
+                new ControlViewState("myList", new ControlDataList("myListView") { Resource = _ => "games" })
                     .State(s => s
                         .Page(0)
                         .PageSize(25))
-                    .DataService<MonkeyIslandGamesList>(),
+                    .Service("data", svc => svc
+                        .Endpoint<MonkeyIslandGamesList>()
+                        .Method(HttpMethod.Get)
+                        .Query(q => q.Search().Wql().Filter().Page().PageSize().OrderBy().OrderDir())
+                        .Response(r => r.Items().Total()))
+                    .Resource("games", r => r
+                        .Param("page").Param("pageSize")
+                        .Param("search").Param("wql").Param("filter")
+                        .Param("orderBy").Param("orderDir")),
                 new ControlModalExample("modal")
             ];
 
             Stage.DarkControls = null;
 
             Stage.Code = @"
-            new ControlDataList(""myList"")
+            // the scope owns the state, the service and the central resource;
+            // the list inside it is a pure view bound to that resource
+            new ControlViewState(""myList"", new ControlDataList(""myListView"") { Resource = _ => ""games"" })
                 .State(s => s
                     .Page(0)
                     .PageSize(25))
-                .DataService<MonkeyIslandGamesList>(),
+                .Service(""data"", svc => svc
+                    .Endpoint<MonkeyIslandGamesList>()
+                    .Method(HttpMethod.Get)
+                    .Query(q => q.Search().Wql().Filter().Page().PageSize().OrderBy().OrderDir())
+                    .Response(r => r.Items().Total()))
+                .Resource(""games"", r => r
+                    .Param(""page"").Param(""pageSize"")
+                    .Param(""search"").Param(""wql"").Param(""filter"")
+                    .Param(""orderBy"").Param(""orderDir"")),
             new ControlModalExample(""modal"")";
         }
     }

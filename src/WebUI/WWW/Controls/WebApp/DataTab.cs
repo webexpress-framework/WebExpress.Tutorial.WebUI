@@ -1,4 +1,5 @@
-﻿using WebExpress.Tutorial.WebUI.Model;
+﻿using System.Net.Http;
+using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
@@ -35,13 +36,15 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.Description = @"The `DataTab` control serves as a container for REST-driven tab views. This example provides three selectable templates (`dashboard`, `backlog`, and `table`) so new tabs can be created with different layouts. With `MovableTab` enabled, each tab header shows a ⠿ grip — drag it to reorder the tabs; the new order is persisted to the REST endpoint via `PUT`.";
 
-            // the tab data service and its endpoint are authored in C# through the
-            // fluent data surface; the endpoint resolves through the sitemap.
-            Stage.Control = new ControlDataTab(RandomId.Create())
-            {
-                MovableTab = _ => true,
-            }
-                .DataService<MonkeyIslandTab>()
+            // the scope owns the state, the service and the central tabs
+            // resource; the tab control inside it is a pure view bound to that
+            // resource. the endpoint resolves through the sitemap.
+            Stage.Control = new ControlViewState(RandomId.Create(),
+                new ControlDataTab(RandomId.Create())
+                {
+                    MovableTab = _ => true,
+                    Resource = _ => "tabs"
+                }
                 .Add
                 (
                     new ControlDataTabTemplate("monkeyTemplate")
@@ -149,14 +152,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                                         )
                                 )
                         )
-                );
+                ))
+                .Service("data", svc => svc.Endpoint<MonkeyIslandTab>().Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put).Query(q => q.Id()).Response(r => r.Items()))
+                .Resource("tabs", r => { });
 
             Stage.Code = @"
-            new ControlDataTab(RandomId.Create())
-            {
-                MovableTab = _ => true,
-            }
-                .DataService<MonkeyIslandTab>()
+            new ControlViewState(RandomId.Create(),
+                new ControlDataTab(RandomId.Create())
+                {
+                    MovableTab = _ => true,
+                    Resource = _ => ""tabs""
+                }
                 .Add
                 (
                     new ControlDataTabTemplate(""monkeyTemplate"")
@@ -264,7 +270,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                                         )
                                 )
                         )
-                );";
+                ))
+                .Service(""data"", svc => svc.Endpoint<MonkeyIslandTab>().Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put).Query(q => q.Id()).Response(r => r.Items()))
+                .Resource(""tabs"", r => { });";
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
+﻿using System.Net.Http;
+using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.Tutorial.WebUI.WWW.Api._1_;
@@ -40,21 +41,27 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Comment
             // fluent data surface; the endpoint resolves through the sitemap.
             Stage.Controls =
             [
-                new ControlDataComment("tutorial-comment-guybrush")
-                {
-                    CurrentUser = _ => "guybrush"
-                }
-                    .DataService<MonkeyIslandComment>()
+                new ControlViewState("tutorial-comment-guybrush",
+                    new ControlDataComment("tutorial-comment-guybrush-view")
+                    {
+                        CurrentUser = _ => "guybrush",
+                        Resource = _ => "comments"
+                    })
+                    .Service("data", svc => svc.Endpoint<MonkeyIslandComment>().Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
+                    .Resource("comments", r => { })
             ];
 
             Stage.DarkControls = [];
 
             Stage.Code = @"
-            new ControlDataComment(""tutorial-comment-guybrush"")
-            {
-                CurrentUser = _ => ""guybrush""
-            }
-                .DataService<MonkeyIslandComment>();";
+            new ControlViewState(""tutorial-comment-guybrush"",
+                new ControlDataComment(""tutorial-comment-guybrush-view"")
+                {
+                    CurrentUser = _ => ""guybrush"",
+                    Resource = _ => ""comments""
+                })
+                .Service(""data"", svc => svc.Endpoint<MonkeyIslandComment>().Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
+                .Resource(""comments"", r => { });";
         }
     }
 }

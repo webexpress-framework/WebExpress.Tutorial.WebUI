@@ -1,4 +1,5 @@
-﻿using WebExpress.Tutorial.WebUI.Model;
+﻿using System.Net.Http;
+using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
@@ -36,23 +37,26 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             // fluent data surface; the endpoint resolves through the sitemap.
             Stage.Controls =
             [
-                new ControlDataScrumBacklog("monkeyIslandBacklog")
-                {
-                    Title = _ => "Monkey Island Product Backlog",
-                    Selectable = _ => true,
-                    IconActive = _ => "fas fa-skull-crossbones",
-                    IconPlanned = _ => "fas fa-hourglass-half",
-                    IconBacklog = _ => "fas fa-map",
-                    IconMoveToBacklog = _ => "fas fa-anchor",
-                    IconMoveToSprint = _ => "fas fa-ship",
-                    IconStartSprint = _ => "fas fa-play",
-                    IconCompleteSprint = _ => "fas fa-flag-checkered",
-                    IconEditSprint = _ => "fas fa-pen",
-                    IconDeleteSprint = _ => "fas fa-bomb",
-                    EstimationScale = _ => [1, 2, 3, 5, 8, 13, 20, 40]
-                }
-                    .DataService<RestApiScrum>()
-                    .UsersService<MonkeyIslandWatcherUsers>()
+                new ControlViewState("monkeyIslandBacklog",
+                    new ControlDataScrumBacklog("monkeyIslandBacklogView")
+                    {
+                        Title = _ => "Monkey Island Product Backlog",
+                        Selectable = _ => true,
+                        IconActive = _ => "fas fa-skull-crossbones",
+                        IconPlanned = _ => "fas fa-hourglass-half",
+                        IconBacklog = _ => "fas fa-map",
+                        IconMoveToBacklog = _ => "fas fa-anchor",
+                        IconMoveToSprint = _ => "fas fa-ship",
+                        IconStartSprint = _ => "fas fa-play",
+                        IconCompleteSprint = _ => "fas fa-flag-checkered",
+                        IconEditSprint = _ => "fas fa-pen",
+                        IconDeleteSprint = _ => "fas fa-bomb",
+                        EstimationScale = _ => [1, 2, 3, 5, 8, 13, 20, 40],
+                        Resource = _ => "backlog"
+                    })
+                    .Service("data", svc => svc.Endpoint<RestApiScrum>().Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
+                    .Service("users", svc => svc.Endpoint<MonkeyIslandWatcherUsers>().Method(HttpMethod.Get))
+                    .Resource("backlog", r => { })
             ];
 
             Stage.Code = @"
