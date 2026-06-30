@@ -27,4 +27,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
     /// <summary>The scrum backlog resource.</summary>
     public sealed class BacklogResource : IDataResource { }
+
+    /// <summary>The traffic light status resource.</summary>
+    public sealed class StatusResource : IDataResource { }
 }

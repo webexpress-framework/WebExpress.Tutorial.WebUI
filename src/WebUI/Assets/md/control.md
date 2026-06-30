@@ -58,6 +58,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlFormItemInputCombo` | Dropdown selection input. |
 | `ControlFormItemInputSlider` | Range slider for numeric input. |
 | `ControlFormItemInputRating` | Star rating input. |
+| `ControlFormItemInputTrafficLight` | Traffic light status picker (red/yellow/green). |
 | `ControlFormItemInputEstimate` | Estimate picked from a configurable scale (e.g. story points). |
 | `ControlFormItemInputDate` | Date input with a picker. |
 | `ControlFormItemInputCalendar` | Inline calendar selection. |
@@ -102,6 +103,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlBadge` | Small count or status label. |
 | `ControlTag` | Compact, colored keyword tag. |
 | `ControlProgress` | Determinate progress bar. |
+| `ControlTrafficLight` | Read-only red/yellow/green status indicator. |
 | `ControlSpinner` | Indeterminate loading spinner. |
 | `ControlSkeleton` | Shimmering placeholder shown while content loads. |
 | `ControlEmptyState` | Icon, message and action shown when there is no data. |
@@ -134,6 +136,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlDataAvatarDropdown` | User picker that searches a directory service. |
 | `ControlDataSelectionTheme` | Theme picker loaded and persisted via REST. |
 | `ControlDataTag` | Tag surface with live add, remove and suggestions. |
+| `ControlDataTrafficLight` | Traffic light status loaded and persisted via REST. |
 | `ControlDataQuickfilter` | Quickfilter whose definitions come from a service. |
 | `ControlDataWqlPrompt` | WQL query prompt with suggestions and history. |
 | `ControlAdvancedSearch` | Advanced search built on the WQL prompt. |
