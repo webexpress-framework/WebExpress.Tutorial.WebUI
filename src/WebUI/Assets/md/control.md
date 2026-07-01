@@ -34,6 +34,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlLink` | A hyperlink to a route or external URL. |
 | `ControlAttribute` | Inline label/value attribute chip. |
 | `ControlDescriptionList` | Key/value definition list, vertical or side-by-side. |
+| `ControlDate` | Formatted, read-only date display. |
 
 ## Buttons & actions
 
@@ -42,6 +43,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlButton` | Clickable button that triggers an action or submits a form. |
 | `ControlButtonLink` | Link styled as a button. |
 | `ControlSplitButton` | Button with an attached dropdown of secondary actions. |
+| `ControlSplitButtonLink` | Split button whose primary action is a link. |
 | `ControlButtonGroup` | Set of buttons joined into a single segmented control. |
 | `ControlToolbar` | Bar of buttons, labels, dropdowns and dividers. |
 | `ControlDropdown` | Toggleable menu of links and actions. |
@@ -74,6 +76,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | --- | --- |
 | `ControlTable` | Sortable, templated data table. |
 | `ControlList` | Vertical list of items. |
+| `ControlFileList` | List of files with icons and metadata. |
 | `ControlTile` | Grid of tile cards. |
 | `ControlKanban` | Drag-and-drop kanban board. |
 | `ControlDashboard` | Configurable widget dashboard. |
@@ -81,6 +84,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlPagination` | Page navigation for paged data. |
 | `ControlCarousel` | Rotating slideshow of items. |
 | `ControlChart` | Line, bar and other charts. |
+| `ControlHeatMap` | Read-only grid of values coloured on a gradient. |
 | `ControlGraphViewer` | Interactive node/edge graph viewer. |
 
 ## Navigation
@@ -93,12 +97,15 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlPanelNavbar` | Top navigation bar. |
 | `ControlQuickfilter` | Inline filter chips for narrowing a result set. |
 | `ControlSearch` | Search box with suggestions. |
+| `ControlSearchContent` | Search that highlights matches in the page content. |
+| `ControlNavigation` | Grouped navigation menu of links and sections. |
 
 ## Feedback, status & overlays
 
 | Control | Description |
 | --- | --- |
 | `ControlAlert` | Prominent, optionally dismissible message box. |
+| `ControlPanelDismissible` | Panel the user can dismiss, staying hidden afterwards. |
 | `ControlPanelCallout` | Bordered note that highlights related information. |
 | `ControlBadge` | Small count or status label. |
 | `ControlTag` | Compact, colored keyword tag. |
@@ -113,6 +120,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlCardCounter` | Counter card with an icon and a progress bar. |
 | `ControlAvatar` | User avatar with image or initials. |
 | `ControlAvatarGroup` | Overlapping stack of avatars with a `+N` overflow. |
+| `ControlAvatarDropdown` | Avatar with an attached dropdown menu. |
 | `ControlPopover` | Click/hover overlay with a title and rich content. |
 | `ControlTooltip` | Short hint shown on hover or focus. |
 | `ControlModalForm` | Modal dialog hosting a form. |
