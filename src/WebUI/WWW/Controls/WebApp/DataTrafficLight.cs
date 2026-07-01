@@ -76,16 +76,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 "Scope binding (ViewState)",
                 "`ControlDataTrafficLight` is scope-capable. Bound to a resource of an enclosing `ControlViewState` scope with `Resource<TResource>()`, the status becomes a slice of the scope's shared state: the scope loads it centrally and every bound control subscribes. Here two lights share one `StatusResource` - changing the editable one persists and re-queries the resource, so the read-only one updates in lock step, neither owning its own service.",
                 @"var statusEdit = new ControlDataTrafficLight(""statusEdit"").Resource<StatusResource>();
-var statusView = new ControlDataTrafficLight(""statusView"")
-{
-    Readonly = _ => true,
-    Orientation = _ => TypeOrientationTrafficLight.Horizontal
-}.Resource<StatusResource>();
+                    var statusView = new ControlDataTrafficLight(""statusView"")
+                    {
+                        Readonly = _ => true,
+                        Orientation = _ => TypeOrientationTrafficLight.Horizontal
+                    }.Resource<StatusResource>();
 
-new ControlViewState<DataQueryState>(""statusScope"")
-    .State(s => { })
-    .Service<MonkeyIslandStatus>(svc => svc.Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
-    .Resource<StatusResource>(r => r.Service<MonkeyIslandStatus>());",
+                    new ControlViewState<DataQueryState>(""statusScope"")
+                        .State(s => { })
+                        .Service<MonkeyIslandStatus>(svc => svc.Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
+                        .Resource<StatusResource>(r => r.Service<MonkeyIslandStatus>());",
                 new ControlViewState<DataQueryState>("statusScope")
                     .State(s => { })
                     .Service<MonkeyIslandStatus>(svc => svc.Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))

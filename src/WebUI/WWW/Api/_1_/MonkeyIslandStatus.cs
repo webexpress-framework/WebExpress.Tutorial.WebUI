@@ -21,7 +21,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     {
         private static readonly JsonSerializerOptions _jsonOptions = new()
         {
-            PropertyNameCaseInsensitive = true
+            PropertyNameCaseInsensitive = true,
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
         };
 
         private static readonly object _syncRoot = new();
