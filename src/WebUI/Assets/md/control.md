@@ -158,5 +158,6 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlChat` | Real-time chat surface. |
 | `ControlCollaborative` | Live presence and collaborative editing indicators. |
 | `ControlProgressTask` | Progress of a long-running background task. |
+| `ControlStatusTask` | Status of a long-running background task as a single colored dot (red error, green done, yellow warning, blue running). |
 | `ControlMessageQueueStatus` | Live status of the message queue. |
 | `ControlPopupNotification` | Toast-style popup notifications. |
