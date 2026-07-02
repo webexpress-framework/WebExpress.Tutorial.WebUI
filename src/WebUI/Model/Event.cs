@@ -249,7 +249,37 @@
         /// <summary>
         /// Event triggered when dark mode is toggled.
         /// </summary>
-        CHANGE_DARKMODE_EVENT
+        CHANGE_DARKMODE_EVENT,
+
+        /// <summary>
+        /// Event triggered when a gantt task is created.
+        /// </summary>
+        GANTT_TASK_CREATE_EVENT,
+
+        /// <summary>
+        /// Event triggered when a gantt task is updated.
+        /// </summary>
+        GANTT_TASK_UPDATE_EVENT,
+
+        /// <summary>
+        /// Event triggered when a gantt task is deleted.
+        /// </summary>
+        GANTT_TASK_DELETE_EVENT,
+
+        /// <summary>
+        /// Event triggered when a gantt dependency link is created.
+        /// </summary>
+        GANTT_LINK_CREATE_EVENT,
+
+        /// <summary>
+        /// Event triggered when a gantt dependency link is deleted.
+        /// </summary>
+        GANTT_LINK_DELETE_EVENT,
+
+        /// <summary>
+        /// Event triggered when a gantt task or link is selected.
+        /// </summary>
+        GANTT_SELECT_EVENT
     }
 
     /// <summary>
@@ -316,6 +346,12 @@
                 Event.UPDATE_EVENT => "webexpress.webapp.update",
                 Event.TAB_ADDED_EVENT => "webexpress.webapp.tab.added",
                 Event.TAB_CLOSED_EVENT => "webexpress.webapp.tab.closed",
+                Event.GANTT_TASK_CREATE_EVENT => "webexpress.webapp.gantt.task.create",
+                Event.GANTT_TASK_UPDATE_EVENT => "webexpress.webapp.gantt.task.update",
+                Event.GANTT_TASK_DELETE_EVENT => "webexpress.webapp.gantt.task.delete",
+                Event.GANTT_LINK_CREATE_EVENT => "webexpress.webapp.gantt.link.create",
+                Event.GANTT_LINK_DELETE_EVENT => "webexpress.webapp.gantt.link.delete",
+                Event.GANTT_SELECT_EVENT => "webexpress.webapp.gantt.select",
                 _ => ""
             };
         }
@@ -379,6 +415,12 @@
                 Event.UPDATE_EVENT => "Event triggered when UI components require a general update",
                 Event.TAB_ADDED_EVENT => "Event triggered when a tab is added dynamically.",
                 Event.TAB_CLOSED_EVENT => "Event triggered when a tab is closed dynamically.",
+                Event.GANTT_TASK_CREATE_EVENT => "Event triggered when a gantt task is created.",
+                Event.GANTT_TASK_UPDATE_EVENT => "Event triggered when a gantt task is updated.",
+                Event.GANTT_TASK_DELETE_EVENT => "Event triggered when a gantt task is deleted.",
+                Event.GANTT_LINK_CREATE_EVENT => "Event triggered when a gantt dependency link is created.",
+                Event.GANTT_LINK_DELETE_EVENT => "Event triggered when a gantt dependency link is deleted.",
+                Event.GANTT_SELECT_EVENT => "Event triggered when a gantt task or link is selected.",
                 _ => ""
             };
         }
