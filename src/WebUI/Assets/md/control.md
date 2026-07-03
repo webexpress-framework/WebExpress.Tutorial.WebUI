@@ -58,6 +58,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlFormItemInputCheck` | Checkbox or switch. |
 | `ControlFormItemInputRadio` | Radio button group. |
 | `ControlFormItemInputCombo` | Dropdown selection input. |
+| `ControlFormItemInputCascading` | Dependent selection levels where each level's options derive from the previous choice. |
 | `ControlFormItemInputSlider` | Range slider for numeric input. |
 | `ControlFormItemInputRating` | Star rating input. |
 | `ControlFormItemInputTrafficLight` | Traffic light status picker (red/yellow/green). |
@@ -142,6 +143,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlDataWizard` | Multi-step wizard backed by a REST service. |
 | `ControlDataWorkflow` | Visual workflow/state-machine editor. |
 | `ControlDataDropdown` | Dropdown whose items are queried from a service. |
+| `ControlDataFormItemInputCascading` | Cascading selection whose levels are fetched from a REST endpoint on demand. |
 | `ControlDataAvatarDropdown` | User picker that searches a directory service. |
 | `ControlDataSelectionTheme` | Theme picker loaded and persisted via REST. |
 | `ControlDataTag` | Tag surface with live add, remove and suggestions. |
