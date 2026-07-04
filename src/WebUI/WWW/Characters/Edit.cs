@@ -1,10 +1,9 @@
 ﻿using WebExpress.Tutorial.WebUI.WebControl;
 using WebExpress.Tutorial.WebUI.WWW.Api._1_;
+using WebExpress.WebApp.WebControl;
 using WebExpress.WebApp.WebPage;
-using WebExpress.WebCore.WebApplication;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
-using WebExpress.WebCore.WebSitemap;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Characters
 {
@@ -23,17 +22,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Characters
         };
 
         /// <summary>
-        /// Initializes a new instance of the class with the specified sitemap manager.
+        /// Initializes a new instance of the class. The form's data service is
+        /// declared by its endpoint type, so the client loads and submits the
+        /// character through the emitted wx-service island.
         /// </summary>
-        /// <param name="sitemapManager">
-        /// The sitemap manager used to manage and update sitemap data. Cannot be null.
-        /// </param>
-        /// <param name="applicationContext">
-        /// The application context containing the current state of the application.
-        /// </param>
-        public Edit(ISitemapManager sitemapManager, IApplicationContext applicationContext)
+        public Edit()
         {
-            Form.Uri = _ => sitemapManager.GetUri<MonkeyIslandCharacter>(applicationContext);
+            Form.DataService<MonkeyIslandCharacter>();
         }
 
         /// <summary>
