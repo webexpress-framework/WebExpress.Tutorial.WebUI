@@ -150,6 +150,123 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.AddItem
             (
+                typeof(ControlSidebarItemLink),
+                "ControlSidebarItemLink (Badge & Hierarchy)",
+                @"A `ControlSidebarItemLink` can carry a `Badge`, for example an unread or item count, colored through `BadgeColor`. Nesting child links with `.Add(...)` turns the link into a collapsible group whose subtree the user can expand and collapse; `Expanded = _ => true` renders the group open. Badges and hierarchy compose, so a parent may show an aggregate count while its children carry their own.",
+                @"
+                new ControlSidebar()
+                    .Add(new ControlSidebarItemLink()
+                    {
+                        Icon = _ => new IconComputerMouse(),
+                        Text = _ => ""Inbox"",
+                        Badge = _ => ""12"",
+                        BadgeColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Primary)
+                    })
+                    .Add(new ControlSidebarItemLink()
+                    {
+                        Icon = _ => new IconHome(),
+                        Text = _ => ""Projects"",
+                        Expanded = _ => true
+                    }
+                        .Add(new ControlSidebarItemLink() { Text = _ => ""Alpha"", Badge = _ => ""3"" })
+                        .Add(new ControlSidebarItemLink() { Text = _ => ""Beta"" }));",
+                new ControlSidebar()
+                    .Add(new ControlSidebarItemLink()
+                    {
+                        Icon = _ => new IconComputerMouse(),
+                        Text = _ => "Inbox",
+                        Uri = _ => uri,
+                        Badge = _ => "12",
+                        BadgeColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Primary)
+                    })
+                    .Add(new ControlSidebarItemLink()
+                    {
+                        Icon = _ => new IconHome(),
+                        Text = _ => "Projects",
+                        Expanded = _ => true
+                    }
+                        .Add(new ControlSidebarItemLink()
+                        {
+                            Icon = _ => new IconKeyboard(),
+                            Text = _ => "Alpha",
+                            Uri = _ => uri,
+                            Badge = _ => "3",
+                            BadgeColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger)
+                        })
+                        .Add(new ControlSidebarItemLink()
+                        {
+                            Icon = _ => new IconComputer(),
+                            Text = _ => "Beta",
+                            Uri = _ => uri
+                        }))
+            );
+
+            Stage.AddItem
+            (
+                typeof(ControlSidebarItemLink),
+                "ControlSidebarItemLink (Options & Colors)",
+                @"A `ControlSidebarItemLink` can expose a trailing ""..."" options menu through `AddOption(...)`. Like the table row menu, it is revealed only on hover and appears exclusively when options are present, so quiet rows stay uncluttered. The menu works for flat links and nested tree items alike. The row itself can be tinted with `Color` (text) and `BackgroundColor` (background); each accepts a predefined framework color, emitted as a css class, or a custom value, emitted as an inline style, so a row can be highlighted without writing any css.",
+                @"
+                new ControlSidebar()
+                    .Add(new ControlSidebarItemLink()
+                    {
+                        Icon = _ => new IconComputerMouse(),
+                        Text = _ => ""With options""
+                    }
+                        .AddOption(new ControlDropdownItemLink() { Icon = _ => new IconPenToSquare(), Text = _ => ""Edit"" })
+                        .AddOption(new ControlDropdownItemLink() { Icon = _ => new IconCopy(), Text = _ => ""Duplicate"" })
+                        .AddOption(new ControlDropdownItemDivider())
+                        .AddOption(new ControlDropdownItemLink() { Icon = _ => new IconTrash(), Text = _ => ""Delete"" }))
+                    .Add(new ControlSidebarItemLink()
+                    {
+                        Icon = _ => new IconHome(),
+                        Text = _ => ""Danger text"",
+                        Color = _ => new PropertyColorText(TypeColorText.Danger)
+                    })
+                    .Add(new ControlSidebarItemLink()
+                    {
+                        Icon = _ => new IconHome(),
+                        Text = _ => ""Custom"",
+                        Color = _ => new PropertyColorText(""#ffffff""),
+                        BackgroundColor = _ => new PropertyColorBackground(""#6f42c1"")
+                    });",
+                new ControlSidebar()
+                    .Add(new ControlSidebarItemLink()
+                    {
+                        Icon = _ => new IconComputerMouse(),
+                        Text = _ => "With options",
+                        Uri = _ => uri
+                    }
+                        .AddOption(new ControlDropdownItemLink() { Icon = _ => new IconPenToSquare(), Text = _ => "Edit", Uri = _ => uri })
+                        .AddOption(new ControlDropdownItemLink() { Icon = _ => new IconCopy(), Text = _ => "Duplicate", Uri = _ => uri })
+                        .AddOption(new ControlDropdownItemDivider())
+                        .AddOption(new ControlDropdownItemLink() { Icon = _ => new IconTrash(), Text = _ => "Delete", Uri = _ => uri }))
+                    .Add(new ControlSidebarItemLink()
+                    {
+                        Icon = _ => new IconHome(),
+                        Text = _ => "Danger text",
+                        Uri = _ => uri,
+                        Color = _ => new PropertyColorText(TypeColorText.Danger)
+                    })
+                    .Add(new ControlSidebarItemLink()
+                    {
+                        Icon = _ => new IconHome(),
+                        Text = _ => "Highlighted",
+                        Uri = _ => uri,
+                        BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Highlight)
+                    })
+                    .Add(new ControlSidebarItemLink()
+                    {
+                        Icon = _ => new IconHome(),
+                        Text = _ => "Custom",
+                        Uri = _ => uri,
+                        Color = _ => new PropertyColorText("#ffffff"),
+                        BackgroundColor = _ => new PropertyColorBackground("#6f42c1")
+                    })
+            );
+
+            Stage.AddItem
+            (
                 typeof(ControlSidebarItemControl),
                 "ControlSidebarItemControl",
                 @"Embeds a custom content block into the sidebar. This item can host arbitrary controls such as text, buttons, sliders, or other UI elements, making it highly flexible for contextual content. An optional icon may be displayed alongside the content to provide visual cues or reinforce meaning. The Mode property controls how the item behaves in responsive layouts:

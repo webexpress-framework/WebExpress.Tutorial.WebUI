@@ -93,7 +93,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | Control | Description |
 | --- | --- |
 | `ControlBreadcrumb` | Path of links to the current location. |
-| `ControlSidebar` | Vertical navigation sidebar. |
+| `ControlSidebar` | Vertical navigation sidebar with collapsible tree items, badges, colors and per-item "..." options menus. |
 | `ControlTab` | Tabbed navigation between panels. |
 | `ControlPanelNavbar` | Top navigation bar. |
 | `ControlQuickfilter` | Inline filter chips for narrowing a result set. |
