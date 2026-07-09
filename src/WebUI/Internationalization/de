@@ -24,6 +24,8 @@ controlpage.label=Steuerelemente
 
 character.edit.header=Monkey Island Charakter bearbeiten
 
+permission.manage.header=Berechtigungen für Klasse 'Incident' verwalten
+
 fragmentpage.label=Fragmente
 fragmentpage.description=Demonstration der Verwendung von Fragmenten in WebExpress.
 
