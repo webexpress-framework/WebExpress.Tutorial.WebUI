@@ -5,6 +5,8 @@ using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebIndex.Queries;
+using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 {
@@ -136,7 +138,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     Html = "Face Carla and become the Sword Master.",
                     ColumnId = "progress",
                     SwimlaneId = "melee",
-                    ColorCss = "border-primary"
+                    ColorCss = "border-primary",
+                    AssigneeId = "guybrush",
+                    AssigneeName = "Guybrush Threepwood",
+                    AssigneeInitials = "GT",
+                    AssigneeColor = "#1d4ed8",
+                    Footer =
+                    [
+                        new RestApiKanbanCardChip { Label = "P2", Color = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Warning), Title = "Priority" },
+                        new RestApiKanbanCardChip { Label = "5", Icon = new IconStar(), Title = "Story points" }
+                    ]
                 },
                 new RestApiKanbanCard
                 {
@@ -145,7 +156,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     Html = "Infiltrate the Governor's mansion and snatch the voodoo idol.",
                     ColumnId = "danger",
                     SwimlaneId = "melee",
-                    ColorCss = "border-danger"
+                    ColorCss = "border-danger",
+                    AssigneeId = "elaine",
+                    AssigneeName = "Elaine Marley",
+                    AssigneeInitials = "EM",
+                    AssigneeColor = "#7c3aed",
+                    Footer =
+                    [
+                        new RestApiKanbanCardChip { Label = "P1", Color = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger), Title = "Priority" },
+                        new RestApiKanbanCardChip { Label = "8", Icon = new IconStar(), Title = "Story points" }
+                    ]
                 },
                 new RestApiKanbanCard
                 {
@@ -170,7 +190,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     Html = "Confront LeChuck and save Elaine.",
                     ColumnId = "done",
                     SwimlaneId = "lechuck",
-                    ColorCss = "border-success"
+                    ColorCss = "border-success",
+                    AssigneeId = "lechuck",
+                    AssigneeName = "Captain LeChuck",
+                    AssigneeInitials = "LC",
+                    AssigneeColor = "#991b1b"
                 }
             ];
         }

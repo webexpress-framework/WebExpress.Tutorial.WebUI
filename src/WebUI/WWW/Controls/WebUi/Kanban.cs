@@ -52,8 +52,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Icon = _ => new IconFileCode(),
                     Color = _ => "blue",
                     ColumnId = _ => "progress",
-                    SwimlaneId = _ => "height"
-                },
+                    SwimlaneId = _ => "height",
+                    AssigneeId = _ => "guybrush",
+                    AssigneeName = _ => "Guybrush Threepwood",
+                    AssigneeInitials = _ => "GT",
+                    AssigneeColor = _ => "#1d4ed8"
+                }.Add
+                (
+                    new ControlKanbanCardChip { Label = _ => "P1", Color = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger), Title = _ => "Priority" },
+                    new ControlKanbanCardChip { Label = _ => "8", Icon = _ => new IconStar(), Title = _ => "Story points" }
+                ),
 
                 new ControlKanbanCard("task2")
                 {
@@ -61,7 +69,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Icon = _ => new IconGears(),
                     Color = _ => "orange",
                     ColumnId = _ => "todo",
-                    SwimlaneId = _ => "priority"
+                    SwimlaneId = _ => "priority",
+                    AssigneeName = _ => "Dex Zogbert",
+                    AssigneeImage = _ => new ImageIcon(pageContext.ApplicationContext.Route.Concat("assets/img/dex_zogbert.png").ToUri())
                 },
 
                 new ControlKanbanCard("task3")
@@ -126,8 +136,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Icon = new IconFileCode(),
                     Color = ""blue"",
                     ColumnId = ""progress"",
-                    SwimlaneId = ""height""
-                },
+                    SwimlaneId = ""height"",
+                    AssigneeId = ""guybrush"",
+                    AssigneeName = ""Guybrush Threepwood"",
+                    AssigneeInitials = ""GT"",
+                    AssigneeColor = ""#1d4ed8""
+                }.Add
+                (
+                    new ControlKanbanCardChip { Label = ""P1"", Color = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger), Title = ""Priority"" },
+                    new ControlKanbanCardChip { Label = ""8"", Icon = new IconStar(), Title = ""Story points"" }
+                ),
 
                 new ControlKanbanCard(""task2"")
                 {
@@ -135,7 +153,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Icon = new IconGears(),
                     Color = ""orange"",
                     ColumnId = ""todo"",
-                    SwimlaneId = ""priority""
+                    SwimlaneId = ""priority"",
+                    AssigneeName = ""Dex Zogbert"",
+                    AssigneeImage = new ImageIcon(pageContext.ApplicationContext.Route.Concat(""assets/img/dex_zogbert.png"").ToUri())
                 },
 
                 new ControlKanbanCard(""task3"")
