@@ -20,8 +20,8 @@ namespace WebExpress.Tutorial.WebUI.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the collection of policy names that are required for access.
+        /// Gets or sets the collection of policies that are required for access.
         /// </summary>
-        public IEnumerable<string> Policies { get; set; }
+        public IEnumerable<IIdentityPolicy> Policies { get; set; }
     }
 }

@@ -2,9 +2,9 @@
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.WebCore;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebIdentity;
 using WebExpress.WebCore.WebMessage;
-using WebExpress.WebCore.WebPage;
 
 namespace WebExpress.Tutorial.WebUI.WebIdentity
 {
@@ -47,7 +47,7 @@ namespace WebExpress.Tutorial.WebUI.WebIdentity
         /// An object that represents the response to the login dialog, including authentication results and any
         /// relevant status information.
         /// </returns>
-        public override IResponse CreateAuthenticationPrompt(IRequest request, IPageContext initiator, IIdentity identity)
+        public override IResponse CreateAuthenticationPrompt(IRequest request, IEndpointContext initiator, IIdentity identity)
         {
             var sessionUri = WebEx.ComponentHub.SitemapManager.GetUri<Session>(initiator);
 
