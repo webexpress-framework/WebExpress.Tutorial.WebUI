@@ -1,14 +1,15 @@
-﻿using WebExpress.Tutorial.WebUI.Model;
+using System.Net.Http;
+using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.WebApp.WebControl;
+using WebExpress.WebApp.WebData;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
-using WebExpress.WebUI.WebControl;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
@@ -28,32 +29,48 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>
         public AdvancedSearch(IPageContext pageContext, ISitemapManager sitemapManager)
         {
-            // register demo events that the list control can emit
-            Stage.AddEvent(Event.CHANGE_FILTER_EVENT);
+            Stage.Description = @"The `AdvancedSearch` control provides a flexible search interface that can operate in a simple text mode or an advanced WQL query mode. Inside a `ControlViewState` a search or WQL change writes into the shared `search` and `wql` state keys and re-queries the bound resource, so the tile panel re-renders without a `BindSearch` wire. The search keeps its own service for suggestions and analysis and drives the games resource with `Resource<T>().Model(...)`.";
 
-            Stage.Description = @"The `AdvancedSearch` control provides a flexible search interface that can operate in two modes: a simple text-based search and an advanced WQL-based query mode. Users can switch between these modes to refine how search criteria are entered and processed. In addition, the control allows arbitrary UI elements to be added as content, which are displayed next to the active search field and can be used to extend or customize the search experience.";
+            // the search backs its suggestions and analysis through its own service
+            // and, bound to the games resource, writes the query into the shared
+            // state and re-queries it - so no BindSearch is needed
+            var search = new ControlAdvancedSearch("mySearch")
+                .DataService<MonkeyIslandGameWql>();
+            search.Resource<GamesResource>().Model("search");
+
+            // the tile panel renders the games resource and re-renders whenever the
+            // search re-queries it
+            var tile = new ControlDataTile("myTileView").Resource<GamesResource>();
 
             Stage.Controls =
             [
-                new ControlAdvancedSearch("mySearch")
-                    .DataService<Api._1_.MonkeyIslandGameWql>(),
-                new ControlDataTile("myTile")
-                {
-                    Bind = _=> new Binding().Add(new BindSearch() { Source = "mySearch" })
-                }
-                    .DataService<MonkeyIslandGamesTile>()
+                new ControlViewState<DataQueryState>("mySearchViewState")
+                    .State(s => { })
+                    .Service<MonkeyIslandGamesTile>(svc => svc.Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
+                    .Resource<GamesResource>(r => r
+                        .Service<MonkeyIslandGamesTile>()
+                        .Page().PageSize().Search().Wql().Filter().OrderBy().OrderDir()),
+                search,
+                tile
             ];
 
             Stage.DarkControls = null;
 
             Stage.Code = @"
-            new ControlAdvancedSearch(""mySearch"")
-                .DataService<Api._1_.MonkeyIslandGameWql>(),
-            new ControlDataTile(""myTile"")
-            {
-                Bind = _=> new Binding().Add(new BindSearch() { Source = ""mySearch"" })
-            }
-                .DataService<MonkeyIslandGamesTile>()";
+            var search = new ControlAdvancedSearch(""mySearch"")
+                .DataService<MonkeyIslandGameWql>();
+            search.Resource<GamesResource>().Model(""search"");
+
+            var tile = new ControlDataTile(""myTileView"").Resource<GamesResource>();
+
+            new ControlViewState<DataQueryState>(""mySearchViewState"")
+                .State(s => { })
+                .Service<MonkeyIslandGamesTile>(svc => svc.Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
+                .Resource<GamesResource>(r => r
+                    .Service<MonkeyIslandGamesTile>()
+                    .Page().PageSize().Search().Wql().Filter().OrderBy().OrderDir()),
+            search,
+            tile";
         }
     }
 }

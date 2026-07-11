@@ -1,14 +1,15 @@
-﻿using WebExpress.Tutorial.WebUI.Model;
+using System.Net.Http;
+using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.WebApp.WebControl;
+using WebExpress.WebApp.WebData;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
-using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
@@ -29,44 +30,87 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>
         public Quickfilter(IPageContext pageContext, ISitemapManager sitemapManager)
         {
-            // register demo events that the list control can emit
-            Stage.AddEvent(Event.CHANGE_FILTER_EVENT);
+            Stage.Description = @"The `Quickfilter` control provides a lightweight and intuitive way to filter data using predefined criteria. Inside a `ControlViewState` the quickfilter writes the active filter set into the shared state and re-queries the bound resource, so every control that renders it - here a tile panel - re-renders without a `BindFilter` wire. It shows both the REST-loaded filter chips and authored dropdown items - a multi-select (Games) and a single-select (Platform) - whose selections flow into the same shared filter.";
 
-            Stage.Description = @"The `Quickfilter` control provides a lightweight and intuitive way to filter data using predefined criteria. Each filter can be activated individually or as part of a group, including support for exclusive groups where only one filter may be active at a time. The control is designed to integrate seamlessly with REST-based data sources and can be combined with other UI elements to create flexible, context-aware filtering experiences.";
+            // the quickfilter loads its filter definitions through its own service
+            // and, bound to the games resource, writes the active filter into the
+            // shared state and re-queries it - so no BindFilter is needed
+            var quickfilter = new ControlDataQuickfilter("myQuickfilter")
+                .DataService<MonkeyIslandGamesQuickfilter>();
+
+            // authored dropdown items load their options from a REST endpoint; the
+            // multi-select keeps several values, the single-select only one, and
+            // both toggle the same filter set the quickfilter writes to the state
+            quickfilter.Add
+            (
+                new ControlDataQuickfilterItemDropdown("games")
+                {
+                    Text = _ => "Games",
+                    Icon = _ => new IconGamepad(),
+                    Multiple = _ => true,
+                    Uri = _ => sitemapManager.GetUri<MonkeyIslandGamesQuickfilter>(pageContext)
+                },
+                new ControlDataQuickfilterItemDropdown("platform")
+                {
+                    Text = _ => "Platform",
+                    Icon = _ => new IconLaptop(),
+                    Uri = _ => sitemapManager.GetUri<MonkeyIslandPlatformQuickfilter>(pageContext)
+                }
+            );
+
+            quickfilter.Resource<GamesResource>().Model("filter");
+
+            // the tile panel renders the games resource and re-renders whenever the
+            // quickfilter re-queries it
+            var tile = new ControlDataTile("myTileView").Resource<GamesResource>();
 
             Stage.Controls =
             [
-                new ControlDataQuickfilter("myQuickfilter")
-                    .DataService<Api._1_.MonkeyIslandGamesQuickfilter>(),
-                new ControlDataQuickfilter("myRestDropdown")
-                    .Add
-                    (
-                        new ControlDataQuickfilterItemDropdown("games")
-                        {
-                            Text = _ => "Games",
-                            Icon = _ => new IconGamepad(),
-                            Multiple = _ => true,
-                            Uri = _ => sitemapManager.GetUri<Api._1_.MonkeyIslandGamesQuickfilter>(pageContext)
-                        },
-                        new ControlDataQuickfilterItemDropdown("platform")
-                        {
-                            Text = _ => "Platform",
-                            Icon = _ => new IconLaptop(),
-                            Uri = _ => sitemapManager.GetUri<Api._1_.MonkeyIslandPlatformQuickfilter>(pageContext)
-                        }
-                    ),
-                new ControlDataTile("myTile")
-                {
-                    Bind = _=> new Binding().Add(new BindFilter())
-                }
-                    .DataService<MonkeyIslandGamesTile>()
+                new ControlViewState<DataQueryState>("myQuickfilterViewState")
+                    .State(s => { })
+                    .Service<MonkeyIslandGamesTile>(svc => svc.Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
+                    .Resource<GamesResource>(r => r
+                        .Service<MonkeyIslandGamesTile>()
+                        .Page().PageSize().Search().Wql().Filter().OrderBy().OrderDir()),
+                quickfilter,
+                tile
             ];
 
             Stage.DarkControls = null;
 
             Stage.Code = @"
-            new ControlDataQuickfilter(""myQuickfilter"")
-                .DataService<MonkeyIslandGamesQuickfilter>()";
+            var quickfilter = new ControlDataQuickfilter(""myQuickfilter"")
+                .DataService<MonkeyIslandGamesQuickfilter>();
+
+            quickfilter.Add
+            (
+                new ControlDataQuickfilterItemDropdown(""games"")
+                {
+                    Text = _ => ""Games"",
+                    Icon = _ => new IconGamepad(),
+                    Multiple = _ => true,
+                    Uri = _ => sitemapManager.GetUri<MonkeyIslandGamesQuickfilter>(pageContext)
+                },
+                new ControlDataQuickfilterItemDropdown(""platform"")
+                {
+                    Text = _ => ""Platform"",
+                    Icon = _ => new IconLaptop(),
+                    Uri = _ => sitemapManager.GetUri<MonkeyIslandPlatformQuickfilter>(pageContext)
+                }
+            );
+
+            quickfilter.Resource<GamesResource>().Model(""filter"");
+
+            var tile = new ControlDataTile(""myTileView"").Resource<GamesResource>();
+
+            new ControlViewState<DataQueryState>(""myQuickfilterViewState"")
+                .State(s => { })
+                .Service<MonkeyIslandGamesTile>(svc => svc.Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
+                .Resource<GamesResource>(r => r
+                    .Service<MonkeyIslandGamesTile>()
+                    .Page().PageSize().Search().Wql().Filter().OrderBy().OrderDir()),
+            quickfilter,
+            tile";
         }
     }
 }
