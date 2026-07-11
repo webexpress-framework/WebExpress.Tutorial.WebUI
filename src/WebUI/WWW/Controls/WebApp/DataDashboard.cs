@@ -35,7 +35,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Description = @"The `Dashboard` control organizes widgets into columns. Each widget provides metadata (title, icon, color, column) and can optionally contain content controls. With `EditableColumn`/`MovableColumn`/`DeletableColumn` enabled, the column headers can be renamed inline (pencil / double-click), reordered via the ⠿ grip and deleted — the new column layout is persisted to the REST endpoint.";
 
             // the dashboard is created separately and bound to the layout
-            // resource by type; the scope declares the service and the resource
+            // resource by type; the ViewState declares the service and the resource
             // by type.
             var dashboard = new ControlDataDashboard(RandomId.Create())
             {

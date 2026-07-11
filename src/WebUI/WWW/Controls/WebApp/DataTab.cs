@@ -37,7 +37,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Description = @"The `DataTab` control serves as a container for REST-driven tab views. This example provides three selectable templates (`dashboard`, `backlog`, and `table`) so new tabs can be created with different layouts. With `MovableTab` enabled, each tab header shows a ⠿ grip — drag it to reorder the tabs; the new order is persisted to the REST endpoint via `PUT`.";
 
             // the tab control is created separately and bound to the tabs
-            // resource by type; the scope declares the service and the resource
+            // resource by type; the ViewState declares the service and the resource
             // by type. the endpoint resolves through the sitemap.
             var tab = new ControlDataTab(RandomId.Create())
             {

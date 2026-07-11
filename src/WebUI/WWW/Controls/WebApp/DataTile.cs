@@ -36,7 +36,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Description = @"A `DataTile` control is a user interface component that retrieves data from a REST API and exposes CRUD-oriented interactions in a tile-based representation. The control automatically fetches data from the API and renders the items as tiles.";
 
             // the tile panel is created separately and bound to the tiles
-            // resource by type (fluent); the scope declares the state, the service
+            // resource by type (fluent); the ViewState declares the state, the service
             // and the resource, all referenced by type rather than by string.
             var tile = new ControlDataTile("myTileView").Resource<TilesResource>();
 

@@ -35,7 +35,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         /// <param name="sitemapManager">The sitemap manager.</param>
         public DataTrafficLight(IPageContext pageContext, IComponentHub componentHub, ISitemapManager sitemapManager)
         {
-            Stage.Description = @"`ControlDataTrafficLight` renders a traffic light whose status is loaded from a REST endpoint (GET) and persisted when the user clicks a lamp (PUT). The control only emits the host element and its `wx-service` data island; the lamps, the interaction and the persistence are built by the client-side `webexpress.webapp.TrafficLightCtrl`, which composes the read-only or the interactive WebUI representation and routes every request through the service layer. Set `Readonly` to render the dedicated read-only representation that loads but never persists. The control is also scope-capable: bind it to a resource of a `ControlViewState` scope (see the *Scope binding* section below).";
+            Stage.Description = @"`ControlDataTrafficLight` renders a traffic light whose status is loaded from a REST endpoint (GET) and persisted when the user clicks a lamp (PUT). The control only emits the host element and its `wx-service` data island; the lamps, the interaction and the persistence are built by the client-side `webexpress.webapp.TrafficLightCtrl`, which composes the read-only or the interactive WebUI representation and routes every request through the service layer. Set `Readonly` to render the dedicated read-only representation that loads but never persists. The control is also ViewState-capable: bind it to a resource of an enclosing `ControlViewState` (see the *ViewState binding* section below).";
 
             Stage.Controls =
             [
@@ -73,8 +73,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.AddProperty
             (
-                "Scope binding (ViewState)",
-                "`ControlDataTrafficLight` is scope-capable. Bound to a resource of an enclosing `ControlViewState` scope with `Resource<TResource>()`, the status becomes a slice of the scope's shared state: the scope loads it centrally and every bound control subscribes. Here two lights share one `StatusResource` - changing the editable one persists and re-queries the resource, so the read-only one updates in lock step, neither owning its own service.",
+                "ViewState binding",
+                "`ControlDataTrafficLight` is ViewState-capable. Bound to a resource of an enclosing `ControlViewState` with `Resource<TResource>()`, the status becomes a slice of the ViewState's shared state: the ViewState loads it centrally and every bound control subscribes. Here two lights share one `StatusResource` - changing the editable one persists and re-queries the resource, so the read-only one updates in lock step, neither owning its own service.",
                 @"var statusEdit = new ControlDataTrafficLight(""statusEdit"").Resource<StatusResource>();
                     var statusView = new ControlDataTrafficLight(""statusView"")
                     {

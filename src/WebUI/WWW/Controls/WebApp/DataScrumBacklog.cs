@@ -36,7 +36,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             // the data service and its endpoint are authored in C# through the
             // fluent data surface; the endpoint resolves through the sitemap.
             // the backlog is created separately and bound to the backlog
-            // resource and the users service by type; the scope declares both
+            // resource and the users service by type; the ViewState declares both
             // services and the resource by type.
             var backlog = new ControlDataScrumBacklog("monkeyIslandBacklogView")
             {

@@ -41,7 +41,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Comment
             // the data service and its endpoint are authored in C# through the
             // fluent data surface; the endpoint resolves through the sitemap.
             // the comment surface is created separately and bound to the comments
-            // resource by type; the scope declares the service and the resource
+            // resource by type; the ViewState declares the service and the resource
             // by type.
             var comment = new ControlDataComment("tutorial-comment-guybrush-view")
             {

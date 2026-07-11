@@ -3,8 +3,8 @@ using WebExpress.WebApp.WebData;
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
     /// <summary>
-    /// The type-safe identities of the scope resources used by the WebApp control
-    /// demo pages. A scope declares a resource with Resource&lt;TResource&gt;() and
+    /// The type-safe identities of the ViewState resources used by the WebApp control
+    /// demo pages. A ViewState declares a resource with Resource&lt;TResource&gt;() and
     /// a control binds to it with Resource&lt;TResource&gt;(), so the resource is
     /// referenced by its type and never by a string name.
     /// </summary>
