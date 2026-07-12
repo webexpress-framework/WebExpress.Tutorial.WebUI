@@ -38,7 +38,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.HomePage
         {
             _componentHub = componentHub;
 
-            RestUri = renderContext => _componentHub?.SitemapManager
+            RestEndpoint = renderContext => _componentHub?.SitemapManager
                 .GetUri<Session>(renderContext?.PageContext.ApplicationContext);
         }
 
