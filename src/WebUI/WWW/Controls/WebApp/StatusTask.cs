@@ -1,9 +1,12 @@
+using System.Net.Http;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.Tutorial.WebUI.WebTask;
+using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.WebApp.WebControl;
+using WebExpress.WebApp.WebData;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebTask;
@@ -129,6 +132,40 @@ A dot and a `ControlProgressTask` bound to the same `TaskId` update in lockstep.
                     TaskId = _ => CreateTask(),
                     HideOnFinish = _ => true
                 }
+            );
+
+            Stage.AddProperty
+            (
+                "Task starter",
+                "A `starter` service turns the dot into a task starter: a click posts to the REST endpoint, the server starts the task and answers with its id, and the dot then follows it live over the MessageQueue. Without a fixed `TaskId` the dot adopts the id the endpoint returns, so the task need not exist when the page renders. The caption follows the live server message - empty before the start, the current insult while it fights, the victory line at the end. Click the dot to start the insult duel.",
+                "new ControlStatusTask(\"a\")\n            .Service(\"starter\", svc => svc.Endpoint<InsultTaskStarter>().Method(HttpMethod.Post))",
+                new ControlStatusTask("status-starter")
+                .Service("starter", svc => svc.Endpoint<InsultTaskStarter>().Method(HttpMethod.Post))
+            );
+
+            Stage.AddProperty
+            (
+                "AutoStart",
+                "The `AutoStart` property posts to the start endpoint on load instead of on a click, so the dot begins running - and captioning the server message - as soon as it appears.",
+                "AutoStart = _ => true",
+                new ControlStatusTask("status-autostart")
+                {
+                    AutoStart = _ => true
+                }
+                .Service("starter", svc => svc.Endpoint<InsultTaskStarter>().Method(HttpMethod.Post))
+            );
+
+            Stage.AddProperty
+            (
+                "Repeat",
+                "The `Repeat` property restarts the task through the same endpoint once it finishes successfully, so a single dot drives a recurring task. A cancel or an error ends the loop.",
+                "Repeat = _ => true",
+                new ControlStatusTask("status-repeat")
+                {
+                    AutoStart = _ => true,
+                    Repeat = _ => true
+                }
+                .Service("starter", svc => svc.Endpoint<InsultTaskStarter>().Method(HttpMethod.Post))
             );
         }
 
