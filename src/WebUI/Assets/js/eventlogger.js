@@ -39,7 +39,8 @@ webexpress.webui.EventLoggerCtrl = class extends webexpress.webui.Ctrl {
         this._events.forEach(eventId => {
             // Create a div for the event log entry
             const div = document.createElement("div");
-            div.innerHTML = `<b>Event-Typ:</b> <span class="text-primary">${eventId}</span>,<br><b>Data:</b> <span class="text-light">null</span>`;
+            div.className = "wx-eventlogger-entry";
+            div.innerHTML = `<b>Event-Typ:</b> <span class="wx-eventlogger-type">${eventId}</span>,<br><b>Data:</b> <span class="wx-eventlogger-value">null</span>`;
             this._element.appendChild(div);
 
             // Handler for the event
@@ -53,7 +54,7 @@ webexpress.webui.EventLoggerCtrl = class extends webexpress.webui.Ctrl {
                 }
                 // Logging
                 console.log(eventId, event, data);
-                div.innerHTML = `<b>Event-Typ:</b> <span class="text-primary">${eventId}</span>,<br><b>Data:</b> <span class="text-light"><pre>${JSON.stringify(data, null, 4)}</pre></span>`;
+                div.innerHTML = `<b>Event-Typ:</b> <span class="wx-eventlogger-type">${eventId}</span>,<br><b>Data:</b> <span class="wx-eventlogger-value"><pre>${JSON.stringify(data, null, 4)}</pre></span>`;
                 // Move this div to the top
                 if (this._element.firstChild !== div) {
                     this._element.insertBefore(div, this._element.firstChild);

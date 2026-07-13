@@ -63,11 +63,13 @@ namespace WebExpress.Tutorial.WebUI.WebControl
         public override IHtmlNode Render(IRenderControlContext renderContext, IVisualTreeControl visualTree)
         {
             visualTree.AddHeaderScriptLink(renderContext.PageContext.ApplicationContext.Route.Concat("assets/js/eventlogger.js").ToString());
+            visualTree.AddCssLink(renderContext.PageContext.ApplicationContext.Route.Concat("assets/css/eventlogger.css").ToString());
 
             var html = new HtmlElementTextContentDiv()
             {
                 Id = Id,
-                Class = Css.Concatenate("wx-webui-eventlogger", GetClasses(renderContext))
+                // wx-webui-eventlogger is the controller selector (stripped on init); wx-eventlogger is the stable styling hook.
+                Class = Css.Concatenate("wx-webui-eventlogger", "wx-eventlogger", GetClasses(renderContext))
             };
 
             // Adds a custom data attribute to store the events as a space-separated string.
