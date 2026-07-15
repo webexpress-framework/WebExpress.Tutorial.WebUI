@@ -47,7 +47,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 .Select(x => new RestApiQuickfilterItem()
                 {
                     Id = x.Id.ToString(),
-                    Name = x.Name
+                    Name = x.Name,
+                    Icon = x.Icon,
+                    Color = x.Color,
+                    // the badge previews how many games the filter would match
+                    Badge = ViewModel.MonkeyIslandGames.Count(g => x.Predicate(g)).ToString()
                 });
         }
     }

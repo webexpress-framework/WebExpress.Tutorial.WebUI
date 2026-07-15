@@ -4,6 +4,7 @@ using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebMessage;
+using WebExpress.WebUI.WebControl;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 {
@@ -46,7 +47,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 Label = "Games",
                 Icon = "fas fa-gamepad",
                 Badge = ViewModel.MonkeyIslandGames.Count.ToString(),
-                BadgeColor = "text-bg-primary"
+                BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Primary)
             };
 
             yield return new RestApiSidebarItem
@@ -106,7 +107,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 Label = "Messages",
                 Icon = "fas fa-envelope",
                 Badge = "3",
-                BadgeColor = "text-bg-danger"
+                BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger)
             };
 
             yield return new RestApiSidebarItem

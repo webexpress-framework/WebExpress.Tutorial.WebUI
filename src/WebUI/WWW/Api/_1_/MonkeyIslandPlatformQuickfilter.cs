@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
+using WebExpress.WebCore.WebIcon;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebIndex.Queries;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 {
@@ -15,12 +17,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// </summary>
     public sealed class MonkeyIslandPlatformQuickfilter : RestApiQuickfilter<QuickfilterGame>
     {
-        private static readonly (string Id, string Name)[] _platforms =
+        private static readonly (string Id, string Name, IIcon Icon)[] _platforms =
         [
-            ("platform-pc", "PC"),
-            ("platform-console", "Console"),
-            ("platform-mobile", "Mobile"),
-            ("platform-retro", "Retro")
+            ("platform-pc", "PC", new IconDesktop()),
+            ("platform-console", "Console", new IconGamepad()),
+            ("platform-mobile", "Mobile", new IconMobileScreenButton()),
+            ("platform-retro", "Retro", new IconFloppyDisk())
         ];
 
         /// <summary>
@@ -47,7 +49,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 .Select(x => new RestApiQuickfilterItem()
                 {
                     Id = x.Id,
-                    Name = x.Name
+                    Name = x.Name,
+                    Icon = x.Icon
                 });
         }
     }

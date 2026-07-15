@@ -34,7 +34,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         {
             Stage.AddEvent(Event.SELECTED_TAB_EVENT, Event.TAB_ADDED_EVENT, Event.TAB_CLOSED_EVENT);
 
-            Stage.Description = @"The `DataTab` control serves as a container for REST-driven tab views. This example provides three selectable templates (`dashboard`, `backlog`, and `table`) so new tabs can be created with different layouts. With `MovableTab` enabled, each tab header shows a ⠿ grip — drag it to reorder the tabs; the new order is persisted to the REST endpoint via `PUT`.";
+            Stage.Description = @"The `DataTab` control serves as a container for REST-driven tab views. This example provides three selectable templates (`dashboard`, `backlog`, and `table`) so new tabs can be created with different layouts. The REST payload may carry a `badge` (with an optional badge color) per tab, shown at the trailing edge of the tab header — here the entry counts of the views. With `MovableTab` enabled, each tab header shows a ⠿ grip — drag it to reorder the tabs; the new order is persisted to the REST endpoint via `PUT`.";
 
             // the tab control is created separately and bound to the tabs
             // resource by type; the ViewState declares the service and the resource

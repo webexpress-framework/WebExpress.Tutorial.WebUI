@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.Model
@@ -1366,6 +1367,7 @@ namespace WebExpress.Tutorial.WebUI.Model
             {
                 Id = Guid.Parse("3E51F156-69D7-41B2-A5D3-EDE5ED0825E9"),
                 Name = "Classics",
+                Icon = new IconClockRotateLeft(),
                 Predicate = g => g.ReleaseYear < 2000
             };
 
@@ -1373,6 +1375,7 @@ namespace WebExpress.Tutorial.WebUI.Model
             {
                 Id = Guid.Parse("7AB3DD46-A6A1-419B-AE1E-5C499F6A1203"),
                 Name = "Modern",
+                Icon = new IconWandMagicSparkles(),
                 Predicate = g => g.ReleaseYear >= 2000
             };
 
@@ -1380,6 +1383,7 @@ namespace WebExpress.Tutorial.WebUI.Model
             {
                 Id = Guid.Parse("F82A8737-5115-4455-A237-38EE5D0DCC46"),
                 Name = "Remakes",
+                Icon = new IconArrowsRotate(),
                 Predicate = g => g.IsRemake
             };
 
@@ -1387,6 +1391,7 @@ namespace WebExpress.Tutorial.WebUI.Model
             {
                 Id = Guid.Parse("E9B45CDB-C05B-4B8B-AF48-0DC68503CC42"),
                 Name = "Originals",
+                Icon = new IconCompactDisc(),
                 Predicate = g => !g.IsRemake
             };
 
@@ -1394,6 +1399,9 @@ namespace WebExpress.Tutorial.WebUI.Model
             {
                 Id = Guid.Parse("CB37B02F-3D21-42E5-B467-A83AB5F4820B"),
                 Name = "Latest",
+                Icon = new IconStar(),
+                // the colored chip makes the freshest filter stand out in the bar
+                Color = new PropertyColorButton(TypeColorButton.Warning),
                 Predicate = g => g.ReleaseYear >= 2020
             };
         }

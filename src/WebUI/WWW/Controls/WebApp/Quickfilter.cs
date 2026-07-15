@@ -48,13 +48,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                     Text = _ => "Games",
                     Icon = _ => new IconGamepad(),
                     Multiple = _ => true,
-                    Uri = _ => sitemapManager.GetUri<MonkeyIslandGamesQuickfilter>(pageContext)
+                    RestEndpoint = _ => sitemapManager.GetUri<MonkeyIslandGamesQuickfilter>(pageContext)
                 },
                 new ControlDataQuickfilterItemDropdown("platform")
                 {
                     Text = _ => "Platform",
                     Icon = _ => new IconLaptop(),
-                    Uri = _ => sitemapManager.GetUri<MonkeyIslandPlatformQuickfilter>(pageContext)
+                    RestEndpoint = _ => sitemapManager.GetUri<MonkeyIslandPlatformQuickfilter>(pageContext)
                 }
             );
 
@@ -89,13 +89,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                     Text = _ => ""Games"",
                     Icon = _ => new IconGamepad(),
                     Multiple = _ => true,
-                    Uri = _ => sitemapManager.GetUri<MonkeyIslandGamesQuickfilter>(pageContext)
+                    RestEndpoint = _ => sitemapManager.GetUri<MonkeyIslandGamesQuickfilter>(pageContext)
                 },
                 new ControlDataQuickfilterItemDropdown(""platform"")
                 {
                     Text = _ => ""Platform"",
                     Icon = _ => new IconLaptop(),
-                    Uri = _ => sitemapManager.GetUri<MonkeyIslandPlatformQuickfilter>(pageContext)
+                    RestEndpoint = _ => sitemapManager.GetUri<MonkeyIslandPlatformQuickfilter>(pageContext)
                 }
             );
 

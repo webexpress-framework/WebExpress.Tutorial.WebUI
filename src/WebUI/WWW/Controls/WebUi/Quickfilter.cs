@@ -93,24 +93,29 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     {
                         Text = _ => "Priority",
                         Icon = _ => new IconFlag(),
+                        Badge = _ => "3",
+                        BadgeColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger),
                         PrimaryAction = _ => new ActionFilter()
                     },
                     new ControlQuickfilterItemButton("category")
                     {
                         Text = _ => "Category",
                         Icon = _ => new IconTag(),
+                        BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Success),
                         PrimaryAction = _ => new ActionFilter()
                     },
                     new ControlQuickfilterItemButton("team")
                     {
                         Text = _ => "Team",
                         Icon = _ => new IconUsers(),
+                        Badge = _ => "12",
                         PrimaryAction = _ => new ActionFilter()
                     },
                     new ControlQuickfilterItemButton("date")
                     {
                         Text = _ => "Date",
                         Icon = _ => new IconCalendar(),
+                        BackgroundColor = _ => new PropertyColorButton("#7c3aed"),
                         PrimaryAction = _ => new ActionFilter()
                     },
                     new ControlQuickfilterItemDropdown("sprint")
@@ -160,18 +165,22 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                         {
                             Text = _ => "Bug",
                             Icon = _ => new IconBug(),
+                            Badge = _ => "8",
+                            BadgeColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger),
                             PrimaryAction = _ => new ActionFilter() { Group = "tags" }
                         })
                         .Add(new ControlQuickfilterItemDropdownItem("tag-feature")
                         {
                             Text = _ => "Feature",
                             Icon = _ => new IconBookmark(),
+                            Badge = _ => "5",
                             PrimaryAction = _ => new ActionFilter() { Group = "tags" }
                         })
                         .Add(new ControlQuickfilterItemDropdownItem("tag-docs")
                         {
                             Text = _ => "Docs",
                             Icon = _ => new IconBook(),
+                            Badge = _ => "2",
                             PrimaryAction = _ => new ActionFilter() { Group = "tags" }
                         })
                 )

@@ -5,6 +5,7 @@ using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebIndex.Queries;
+using WebExpress.WebUI.WebControl;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 {
@@ -25,6 +26,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 Title = "Islands",
                 Name = "All known islands",
                 Icon = "fas fa-umbrella-beach",
+                // the badge previews how many locations the view contains
+                Badge = ViewModel.MonkeyIslandLocations.Count.ToString(),
                 TemplateId = "monkeyTemplate",
                 Uri = "/api/tabcontent/islands"
             },
@@ -34,6 +37,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 Title = "Pirates",
                 Name = "Pirate leaders and crews",
                 Icon = "fas fa-skull-crossbones",
+                Badge = ViewModel.MonkeyIslandCharacters.Count.ToString(),
                 TemplateId = "monkeyTemplate",
                 Uri = "/api/tabcontent/pirates"
             },
@@ -43,6 +47,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 Title = "Inventory",
                 Name = "Guybrush's Inventory",
                 Icon = "fas fa-box",
+                Badge = ViewModel.MonkeyIslandInventories.Count.ToString(),
                 TemplateId = "monkeyTemplate",
                 Uri = "/api/tabcontent/inventory"
             },
@@ -52,6 +57,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 Title = "Secrets",
                 Name = "Rumors & hidden places",
                 Icon = "fas fa-map-marked-alt",
+                // the colored badge marks the fresh rumors as an eye-catcher
+                Badge = "3",
+                BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger),
                 TemplateId = "monkeyTemplate",
                 Uri = "/api/tabcontent/secrets"
             }
