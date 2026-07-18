@@ -236,6 +236,22 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     SidePanelInitialSize = _ => 10
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel)
             );
+
+            Stage.AddProperty
+            (
+                "Fit to content",
+                "The side pane can be sized to its content at runtime through the client-side `split-fit` action - no custom JavaScript required. Any control carries it via `PrimaryAction`; here a `ControlButton` references the split by id, and clicking it calls `fitSidePaneToContent()` on that split so the side pane snaps to the width of its content.",
+                "PrimaryAction = _ => new ActionSplitFit(\"mySplitFit\")",
+                new ControlButton()
+                {
+                    Text = _ => "Fit to content",
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
+                    PrimaryAction = _ => new ActionSplitFit("mySplitFit")
+                },
+                new ControlPanelSplit("mySplitFit")
+                {
+                }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel)
+            );
         }
     }
 }
