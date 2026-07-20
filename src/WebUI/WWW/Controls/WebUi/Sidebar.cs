@@ -72,6 +72,40 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     .Add(CreateItems(15))
             );
 
+            Stage.AddProperty
+            (
+                "HoverExpanded",
+                @"The `HoverExpanded` property controls whether the sidebar, once collapsed to its narrow rail, reveals its full content as an offcanvas flyout while the pointer hovers over it and collapses again on mouse-leave. This lets a user peek at the full navigation without permanently widening the sidebar; choosing an entry inside the flyout dismisses it. Hovering the footer toolbar does not trigger the flyout. It is enabled by default. Set it to `false` to keep the reduced rail static on hover, for example when the surrounding layout already offers its own way to expand the sidebar.",
+                @"
+                new ControlSidebar()
+                {
+                    Breakpoint = _ => 768,
+                    HoverExpanded = _ => false
+                };",
+                new ControlSidebar()
+                {
+                    Breakpoint = _ => 768,
+                    HoverExpanded = _ => false
+                }
+                    .Add(CreateItems(15))
+            );
+
+            Stage.AddProperty
+            (
+                "ScrollActiveIntoView",
+                @"The `ScrollActiveIntoView` property controls whether the first active item is scrolled into the visible area once the sidebar is built, expanding its ancestor groups so the current location stays visible even in a long, scrollable navigation. It is enabled by default. Set it to `false` when the initial scroll position must not be changed.",
+                @"
+                new ControlSidebar()
+                {
+                    ScrollActiveIntoView = _ => false
+                };",
+                new ControlSidebar()
+                {
+                    ScrollActiveIntoView = _ => false
+                }
+                    .Add(CreateItems(15))
+            );
+
             Stage.AddItem
             (
                 typeof(ControlSidebarItemHeader),
