@@ -137,7 +137,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlDataTile` | Tile grid bound to a REST endpoint. |
 | `ControlDataKanban` | Kanban board persisted through a REST service. |
 | `ControlDataGantt` | Interactive gantt chart with drag-and-drop scheduling and dependency links, persisted via REST. |
-| `ControlDataDashboard` | Dashboard whose layout is loaded and saved via REST. |
+| `ControlDataDashboard` | Dashboard of widget columns, loaded and saved via REST: add / rename / resize / recolor / reorder / delete columns and add / configure / delete widgets through "…" menus, with the addable widget types supplied by the server. |
 | `ControlDataForm` | Form that loads and submits against a REST endpoint. |
 | `ControlDataFormEditor` | Visual editor for building form definitions. |
 | `ControlDataWizard` | Multi-step wizard backed by a REST service. |

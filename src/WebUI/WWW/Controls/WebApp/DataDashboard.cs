@@ -32,7 +32,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         {
             Stage.AddEvent(Event.MOVE_EVENT);
 
-            Stage.Description = @"The `Dashboard` control organizes widgets into columns. Each widget provides metadata (title, icon, color, column) and can optionally contain content controls. With `EditableColumn`/`MovableColumn`/`DeletableColumn` enabled, the column headers can be renamed inline (pencil / double-click), reordered via the ⠿ grip and deleted — the new column layout is persisted to the REST endpoint.";
+            Stage.Description = @"The `Dashboard` control organizes widgets into columns. Each widget provides metadata (title, icon, color, column) and can optionally contain content controls. With `EditableColumn`/`MovableColumn`/`DeletableColumn` enabled, the column headers can be renamed inline (pencil / double-click), reordered via the ⠿ grip and deleted. The board `…` menu (`AddableColumn`/`AddableWidget`) adds a new column or a dashboard item — the offered items come from the client widget registry, so `DataScrumVelocity` appears there once registered. Each item carries its own `…` menu with settings (`ConfigurableWidget` — always name and color plus type-specific fields) and delete. Every change is persisted to the REST endpoint.";
 
             // the dashboard is created separately and bound to the layout
             // resource by type; the ViewState declares the service and the resource
@@ -41,7 +41,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             {
                 EditableColumn = _ => true,
                 MovableColumn = _ => true,
-                DeletableColumn = _ => true
+                DeletableColumn = _ => true,
+                AddableColumn = _ => true,
+                AddableWidget = _ => true,
+                ConfigurableWidget = _ => true
             }.Resource<LayoutResource>();
 
             Stage.Controls =
@@ -57,7 +60,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             {
                 EditableColumn = _ => true,
                 MovableColumn = _ => true,
-                DeletableColumn = _ => true
+                DeletableColumn = _ => true,
+                AddableColumn = _ => true,
+                AddableWidget = _ => true,
+                ConfigurableWidget = _ => true
             }.Resource<LayoutResource>();
 
             new ControlViewState<EmptyState>(RandomId.Create())
