@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text.Json;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebMessage;
+using WebExpress.WebUI.WebControl;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 {
@@ -52,7 +53,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                             Color = "purple",
                             Movable = true,
                             Title = "Voodoo Shop",
-                            Description = "Seek mystical advice from the Voodoo Lady. Ingredients for curses in stock!"
+                            Description = "Seek mystical advice from the Voodoo Lady. Ingredients for curses in stock!",
+                            Badge = "New",
+                            BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Success)
                         }
                     }
                 },
@@ -68,6 +71,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                         {
                             Color = "yellow",
                             Movable = true,
+                            Badge = "3",
+                            BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Secondary),
                             Items =
                             [
                                 "Rubber Chicken with a Pulley in the Middle",
@@ -163,7 +168,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         {
             lock (_syncRoot)
             {
-                return [.. _columns];
+                // the badge reflects the live widget count of the column, so it is
+                // projected on every read instead of persisted in the store
+                return [.. _columns.Select(c => new RestApiDashboardColumn
+                {
+                    Id = c.Id,
+                    Label = c.Label,
+                    Size = c.Size,
+                    Color = c.Color,
+                    Badge = (c.Widgets?.Count ?? 0).ToString(),
+                    BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Secondary),
+                    Widgets = c.Widgets
+                })];
             }
         }
 

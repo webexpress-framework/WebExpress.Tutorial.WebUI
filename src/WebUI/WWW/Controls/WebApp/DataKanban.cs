@@ -30,7 +30,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         {
             Stage.AddEvent(Event.MOVE_EVENT);
 
-            Stage.Description = @"A `Kanban` control provides a column‑based layout for visual workflow management. Each column represents a process stage (e.g., To Do, In Progress, Done), while each card represents a movable work item. Cards can be rearranged or moved between columns, enabling intuitive drag‑and‑drop interaction and progress tracking. The control also supports swimlanes: horizontal lanes that group related work items across all columns. With `EditableColumn`/`MovableColumn`/`DeletableColumn` enabled, the column headers can be renamed inline (pencil / double-click), reordered via the ⠿ grip and deleted — the new column layout is persisted to the REST endpoint. While dragging, an insertion indicator marks the edge where the column would land, and the moved column briefly flashes after the drop.";
+            Stage.Description = @"A `Kanban` control provides a column‑based layout for visual workflow management. Each column represents a process stage (e.g., To Do, In Progress, Done), while each card represents a movable work item. Cards can be rearranged or moved between columns, enabling intuitive drag‑and‑drop interaction and progress tracking. The control also supports swimlanes: horizontal lanes that group related work items across all columns. With `EditableColumn`/`MovableColumn`/`DeletableColumn` enabled, each column carries a `…` menu to rename, resize, recolor and delete it, and columns can be reordered via the ⠿ grip. The board `…` menu (`ConfigurableBoard`/`AddableColumn`/`AddableSwimlane`) opens the settings dialog with the WQL filter and adds a new column or swimlane. With `EditableSwimlane`/`DeletableSwimlane`/`ConfigurableSwimlane` enabled, each swimlane carries a `…` menu to rename, filter (WQL settings) and delete it. Each column can carry a badge (e.g. the card count). Every change is persisted to the REST endpoint.";
 
             // the board is created separately and bound to the board resource by
             // type; the ViewState declares the service and the resource by type.
@@ -38,7 +38,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             {
                 EditableColumn = _ => true,
                 MovableColumn = _ => true,
-                DeletableColumn = _ => true
+                DeletableColumn = _ => true,
+                AddableColumn = _ => true,
+                AddableSwimlane = _ => true,
+                EditableSwimlane = _ => true,
+                DeletableSwimlane = _ => true,
+                MovableSwimlane = _ => true,
+                ConfigurableBoard = _ => true,
+                ConfigurableSwimlane = _ => true
             }.Resource<BoardResource>();
 
             Stage.Controls =
@@ -54,7 +61,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             {
                 EditableColumn = _ => true,
                 MovableColumn = _ => true,
-                DeletableColumn = _ => true
+                DeletableColumn = _ => true,
+                AddableColumn = _ => true,
+                AddableSwimlane = _ => true,
+                EditableSwimlane = _ => true,
+                DeletableSwimlane = _ => true,
+                MovableSwimlane = _ => true,
+                ConfigurableBoard = _ => true,
+                ConfigurableSwimlane = _ => true
             }.Resource<BoardResource>();
 
             new ControlViewState<EmptyState>(RandomId.Create())

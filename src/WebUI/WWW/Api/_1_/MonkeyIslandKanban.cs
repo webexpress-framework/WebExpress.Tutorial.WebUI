@@ -21,11 +21,22 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 
         private static readonly List<RestApiKanbanColumn> _columns =
         [
-            new RestApiKanbanColumn { Id = "todo",     Label = "Trials",          ColorCss = "bg-light text-dark" },
-            new RestApiKanbanColumn { Id = "progress", Label = "Adventure",       ColorCss = "bg-primary text-white" },
-            new RestApiKanbanColumn { Id = "danger",   Label = "Danger Zone",     ColorCss = "bg-danger text-white" },
-            new RestApiKanbanColumn { Id = "done",     Label = "Legendary Feats", ColorCss = "bg-success text-white" }
+            new RestApiKanbanColumn { Id = "todo",     Label = "Trials",          ColorCss = "bg-light text-dark",    Badge = "2", BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Secondary) },
+            new RestApiKanbanColumn { Id = "progress", Label = "Adventure",       ColorCss = "bg-primary text-white", Badge = "1", BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Primary) },
+            new RestApiKanbanColumn { Id = "danger",   Label = "Danger Zone",     ColorCss = "bg-danger text-white",  Badge = "1", BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger) },
+            new RestApiKanbanColumn { Id = "done",     Label = "Legendary Feats", ColorCss = "bg-success text-white", Badge = "1", BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Success) }
         ];
+
+        private static readonly List<RestApiKanbanSwimlane> _swimlanes =
+        [
+            new RestApiKanbanSwimlane { Id = "melee",   Label = "Mêlée Island",       ColorCss = "bg-secondary text-white", Expanded = true,  Badge = "3", BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Secondary) },
+            new RestApiKanbanSwimlane { Id = "monkey",  Label = "Monkey Island",      ColorCss = "bg-warning text-dark",    Expanded = true,  Badge = "1", BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Warning) },
+            new RestApiKanbanSwimlane { Id = "lechuck", Label = "LeChuck's Fortress", ColorCss = "bg-dark text-white",      Expanded = false, Badge = "1", BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Dark) }
+        ];
+
+        // the wql filter of the board settings; persisted so it survives full page
+        // reloads that carry no wql request parameter
+        private static string _filter;
 
         /// <summary>
         /// Initializes a new instance of the class.
@@ -44,13 +55,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         {
             lock (_syncRoot)
             {
-                return [.. _columns.Select(c => new RestApiKanbanColumn { Id = c.Id, Label = c.Label, ColorCss = c.ColorCss })];
+                return [.. _columns.Select(c => new RestApiKanbanColumn { Id = c.Id, Label = c.Label, Size = c.Size, Color = c.Color, ColorCss = c.ColorCss, Badge = c.Badge, BadgeColor = c.BadgeColor })];
             }
         }
 
         /// <summary>
-        /// Applies a column-layout change (rename / reorder / delete) to the
-        /// in-memory store.
+        /// Applies a column-layout change (rename / resize / recolor / reorder /
+        /// delete) to the in-memory store.
         /// </summary>
         /// <param name="layout">The layout payload carrying the new column list.</param>
         /// <param name="request">The incoming request.</param>
@@ -76,11 +87,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     if (byId.TryGetValue(col.Id, out var existing))
                     {
                         existing.Label = col.Title ?? existing.Label;
+                        existing.Size = col.Size;
+                        existing.Color = col.Color;
                         reordered.Add(existing);
                     }
                     else
                     {
-                        reordered.Add(new RestApiKanbanColumn { Id = col.Id, Label = col.Title });
+                        reordered.Add(new RestApiKanbanColumn { Id = col.Id, Label = col.Title, Size = col.Size, Color = col.Color });
                     }
                 }
 
@@ -96,17 +109,85 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// The request context used to determine which swimlanes to retrieve.
         /// </param>
         /// <returns>
-        /// An enumerable collection of swimlanes relevant to the request. The 
+        /// An enumerable collection of swimlanes relevant to the request. The
         /// collection is empty if no swimlanes are available.
         /// </returns>
         protected override IEnumerable<RestApiKanbanSwimlane> RetrieveSwimlanes(IRequest request)
         {
-            return
-            [
-                new RestApiKanbanSwimlane { Id = "melee",      Label = "Mêlée Island",       ColorCss = "bg-secondary text-white", Expanded = true },
-                new RestApiKanbanSwimlane { Id = "monkey",     Label = "Monkey Island",      ColorCss = "bg-warning text-dark",    Expanded = true },
-                new RestApiKanbanSwimlane { Id = "lechuck",    Label = "LeChuck's Fortress", ColorCss = "bg-dark text-white",      Expanded = false }
-            ];
+            lock (_syncRoot)
+            {
+                return [.. _swimlanes.Select(s => new RestApiKanbanSwimlane { Id = s.Id, Label = s.Label, ColorCss = s.ColorCss, Expanded = s.Expanded, Filter = s.Filter, Badge = s.Badge, BadgeColor = s.BadgeColor })];
+            }
+        }
+
+        /// <summary>
+        /// Applies a swimlane-layout change (add / rename / reorder / delete) to
+        /// the in-memory store.
+        /// </summary>
+        /// <param name="layout">The layout payload carrying the new swimlane list.</param>
+        /// <param name="request">The incoming request.</param>
+        protected override void UpdateSwimlanes(RestApiDashboardLayout layout, IRequest request)
+        {
+            if (layout?.Swimlanes is null)
+            {
+                return;
+            }
+
+            lock (_syncRoot)
+            {
+                var byId = _swimlanes.ToDictionary(s => s.Id, s => s);
+                var reordered = new List<RestApiKanbanSwimlane>();
+
+                foreach (var lane in layout.Swimlanes)
+                {
+                    if (string.IsNullOrWhiteSpace(lane?.Id))
+                    {
+                        continue;
+                    }
+
+                    if (byId.TryGetValue(lane.Id, out var existing))
+                    {
+                        existing.Label = lane.Title ?? existing.Label;
+                        existing.Filter = lane.Filter;
+                        reordered.Add(existing);
+                    }
+                    else
+                    {
+                        reordered.Add(new RestApiKanbanSwimlane { Id = lane.Id, Label = lane.Title, Expanded = true, Filter = lane.Filter });
+                    }
+                }
+
+                _swimlanes.Clear();
+                _swimlanes.AddRange(reordered);
+            }
+        }
+
+        /// <summary>
+        /// Persists the board settings (the wql filter) to the in-memory store.
+        /// </summary>
+        /// <param name="layout">The layout payload carrying the wql filter.</param>
+        /// <param name="request">The incoming request.</param>
+        protected override void UpdateSettings(RestApiDashboardLayout layout, IRequest request)
+        {
+            lock (_syncRoot)
+            {
+                _filter = string.IsNullOrWhiteSpace(layout?.Filter) ? null : layout.Filter;
+            }
+        }
+
+        /// <summary>
+        /// Seeds the persisted wql filter when the request carries none, so the
+        /// settings dialog reflects the stored value after a full page reload.
+        /// </summary>
+        /// <param name="wql">The wql filter carried on the request, or null.</param>
+        /// <param name="request">The incoming request.</param>
+        /// <returns>The active wql filter, or null when the board has none.</returns>
+        protected override string RetrieveFilter(string wql, IRequest request)
+        {
+            lock (_syncRoot)
+            {
+                return string.IsNullOrWhiteSpace(wql) ? _filter : wql;
+            }
         }
 
         /// <summary>
@@ -143,6 +224,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     AssigneeName = "Guybrush Threepwood",
                     AssigneeInitials = "GT",
                     AssigneeColor = "#1d4ed8",
+                    Badge = "#42",
+                    BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Primary),
                     Footer =
                     [
                         new RestApiKanbanCardChip { Label = "P2", Color = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Warning), Title = "Priority" },
@@ -161,6 +244,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     AssigneeName = "Elaine Marley",
                     AssigneeInitials = "EM",
                     AssigneeColor = "#7c3aed",
+                    Badge = "#43",
+                    BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger),
                     Footer =
                     [
                         new RestApiKanbanCardChip { Label = "P1", Color = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger), Title = "Priority" },
