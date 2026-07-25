@@ -12,6 +12,19 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// </summary>
     public sealed class MonkeyIslandWorkflow : RestApiWorkflow
     {
+        // the only workflow this tutorial knows; any other id is a miss, which is
+        // what makes the 404 path observable
+        private const string WorkflowId = "monkeyisland";
+
+        // the tutorial has no database behind it, so the edited definition lives
+        // in a process wide store. Without one the editor would report a
+        // successful save and still show the seed data after every reload, which
+        // reads as "saving is broken".
+        private static readonly object _sync = new();
+        private static RestApiWorkflowResult _header;
+        private static List<RestApiWorkflowState> _states;
+        private static List<RestApiWorkflowTransition> _transitions;
+
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
@@ -37,13 +50,83 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// </returns>
         protected override RestApiWorkflowResult Retrieve(string workflowId, IQueryContext context, IRequest request)
         {
-            return new RestApiWorkflowResult
+            lock (_sync)
             {
-                Id = workflowId,
+                return EnsureSeeded(workflowId) ? _header : null;
+            }
+        }
+
+        /// <summary>
+        /// Persists the definition the editor's autosave delivers, so a reload shows
+        /// the edited workflow rather than the seed data. The version is advanced on
+        /// every write, which is what lets a second open editor notice that it holds
+        /// a stale revision.
+        /// </summary>
+        /// <param name="workflowId">
+        /// The unique identifier of the workflow to update.
+        /// </param>
+        /// <param name="workflow">
+        /// The workflow definition to persist.
+        /// </param>
+        /// <param name="context">
+        /// The query context providing access to the underlying data store. Cannot be null.
+        /// </param>
+        /// <param name="request">
+        /// The current API request. Cannot be null.
+        /// </param>
+        protected override void Update(string workflowId, RestApiWorkflowResult workflow, IQueryContext context, IRequest request)
+        {
+            lock (_sync)
+            {
+                if (!EnsureSeeded(workflowId))
+                {
+                    return;
+                }
+
+                _states = [.. workflow?.States ?? []];
+                _transitions = [.. workflow?.Transitions ?? []];
+
+                if (!string.IsNullOrWhiteSpace(workflow?.Name))
+                {
+                    _header.Name = workflow.Name;
+                }
+                if (workflow?.Description != null)
+                {
+                    _header.Description = workflow.Description;
+                }
+
+                _header.Version = int.TryParse(_header.Version, out var revision)
+                    ? (revision + 1).ToString()
+                    : "1";
+            }
+        }
+
+        /// <summary>
+        /// Fills the store with the seed definition on first access.
+        /// </summary>
+        /// <param name="workflowId">The identifier of the workflow to seed.</param>
+        /// <returns>True when the requested workflow exists.</returns>
+        private static bool EnsureSeeded(string workflowId)
+        {
+            if (!string.Equals(workflowId, WorkflowId, System.StringComparison.OrdinalIgnoreCase))
+            {
+                return false;
+            }
+            if (_header != null)
+            {
+                return true;
+            }
+
+            _header = new RestApiWorkflowResult
+            {
+                Id = WorkflowId,
                 Name = "Monkey Island Quest",
                 Version = "1",
                 Description = "A pirate's journey from the quest board to legendary status."
             };
+            _states = [.. SeedStates()];
+            _transitions = [.. SeedTransitions()];
+            return true;
         }
 
         /// <summary>
@@ -64,12 +147,25 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// </returns>
         protected override IEnumerable<RestApiWorkflowState> RetrieveStates(string workflowId, IQueryContext context, IRequest request)
         {
+            lock (_sync)
+            {
+                return EnsureSeeded(workflowId) ? _states : [];
+            }
+        }
+
+        /// <summary>
+        /// Builds the states the tutorial starts from.
+        /// </summary>
+        /// <returns>The seed states.</returns>
+        private static IEnumerable<RestApiWorkflowState> SeedStates()
+        {
             return
             [
                 new RestApiWorkflowState
                 {
                     Id = "todo",
                     Label = "Quest Board",
+                    IsStart = true,
                     X = 100,
                     Y = 120,
                     BackgroundColor = "#eef6fb",
@@ -106,6 +202,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 {
                     Id = "done",
                     Label = "Legendary Status",
+                    IsEnd = true,
                     X = 850,
                     Y = 200,
                     BackgroundColor = "#e8eaf6",
@@ -134,6 +231,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// an empty collection if no transitions are available.
         /// </returns>
         protected override IEnumerable<RestApiWorkflowTransition> RetrieveTransitions(string workflowId, IQueryContext context, IRequest request)
+        {
+            lock (_sync)
+            {
+                return EnsureSeeded(workflowId) ? _transitions : [];
+            }
+        }
+
+        /// <summary>
+        /// Builds the transitions the tutorial starts from.
+        /// </summary>
+        /// <returns>The seed transitions.</returns>
+        private static IEnumerable<RestApiWorkflowTransition> SeedTransitions()
         {
             return
             [

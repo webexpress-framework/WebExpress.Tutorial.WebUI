@@ -35,12 +35,22 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             // the data service and its endpoint are authored in C# through the
             // fluent data surface; the endpoint resolves through the sitemap and
             // the state island carries the workflow id the editor loads and saves.
+            // the grid and its snapping are opt-in; the tutorial turns them on so
+            // the layout aids are visible without having to be discovered
             Stage.Control = new ControlDataWorkflow()
+            {
+                Grid = _ => 20,
+                GridSnap = _ => true
+            }
                 .State(s => s.Id("monkeyisland"))
                 .DataService<MonkeyIslandWorkflow>();
 
             Stage.Code = @"
             new ControlDataWorkflow()
+            {
+                Grid = _ => 20,
+                GridSnap = _ => true
+            }
                 .State(s => s.Id(""monkeyisland""))
                 .DataService<MonkeyIslandWorkflow>();";
         }
