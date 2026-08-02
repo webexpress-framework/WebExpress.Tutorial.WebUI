@@ -39,6 +39,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlDataScrumVelocity("monkeyIslandVelocity")
                 {
                     MaxSprints = _ => 6,
+                    ShowSprintFilter = _ => true,
                     ColorCompleted = _ => new PropertyColorBackground("#2563eb"),
                     ColorAverage = _ => new PropertyColorBackground(TypeColorBackground.Danger)
                 }
@@ -49,10 +50,32 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             new ControlDataScrumVelocity(""monkeyIslandVelocity"")
             {
                 MaxSprints = _ => 6,
+                ShowSprintFilter = _ => true,
                 ColorCompleted = _ => new PropertyColorBackground(""#2563eb""),
                 ColorAverage = _ => new PropertyColorBackground(TypeColorBackground.Danger)
             }
                 .DataService<MonkeyIslandScrumVelocity>()";
+
+            Stage.AddProperty
+            (
+                "ShowSprintFilter",
+                @"`MaxSprints` decides how much history the chart shows; `ShowSprintFilter` hands that decision to the visitor. It adds a `wx-webui-input-slider` below the legend whose scale is the loaded history and whose two handles narrow the plot to a window of it - drag them together to compare two sprints, apart to read the whole campaign. The average line and the rolling average in the header follow the window, because an average over sprints that are not on screen answers a question nobody asked.
+
+The slider starts on exactly the window `MaxSprints` describes, so switching the filter on changes what the visitor *can* do, never what they first see. It is opt-in for the same reason: the chart is otherwise a read-only tile, and a wall display should not invite an interaction nobody is standing in front of.",
+                @"
+                new ControlDataScrumVelocity(""velocityFiltered"")
+                {
+                    MaxSprints = _ => 3,
+                    ShowSprintFilter = _ => true
+                }
+                    .DataService<MonkeyIslandScrumVelocity>()",
+                new ControlDataScrumVelocity("velocityFiltered")
+                {
+                    MaxSprints = _ => 3,
+                    ShowSprintFilter = _ => true
+                }
+                    .DataService<MonkeyIslandScrumVelocity>()
+            );
         }
     }
 }

@@ -213,7 +213,7 @@ The control has **two readings**, and which one it takes is decided by whether a
             Stage.AddProperty
             (
                 "Framing several agreements",
-                @"Agreements added to the control turn it into the **panel** that frames them: a heading, a summary of how they are doing, and the tiles below it. A dashboard that shows more than one agreement should show them as one thing - rendered on their own, every tile brings its own frame, and five of them read as five unrelated widgets that happen to sit next to each other; inside the panel they share the frame and are separated by a hairline, so the eye reads one panel. The panel takes the colour of its **worst** agreement, because one that showed the best of them would hide what it exists to surface.",
+                @"Agreements added to the control turn it into the **panel** that gathers them: a heading, a summary of how they are doing, and the tiles below it. A dashboard that shows more than one agreement should show them as one thing - rendered on their own, five of them read as five unrelated widgets that happen to sit next to each other; inside the panel they sit under a shared heading, indented and separated by a hairline, so the eye reads one panel. Neither rendering draws a box of its own - the frame belongs to whatever hosts the widget, here the card around the example. The panel takes the colour of its **worst** agreement, because one that showed the best of them would hide what it exists to surface.",
                 @"
                 new ControlSla
                 (
