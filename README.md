@@ -48,8 +48,10 @@ This tutorial guides you through demonstrating the UI elements of a `WebExpress`
 - Check the result by calling up the following URL in the browser: http://localhost/webui
 
 Good luck building stunning web applications with `WebExpress`!
+
+## AI transparency notice
+
+Parts of this software, its documentation, and its assets were created with the assistance of AI-based tools, including large language models. AI-assisted contributions are reviewed by the project maintainer before they are included.
     
 # Tags
 #WebExpress #WebServer #WebCore #WebUI #Tutorial #DotNet
-
-
