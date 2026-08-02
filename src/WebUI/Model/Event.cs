@@ -279,7 +279,22 @@
         /// <summary>
         /// Event triggered when a gantt task or link is selected.
         /// </summary>
-        GANTT_SELECT_EVENT
+        GANTT_SELECT_EVENT,
+
+        /// <summary>
+        /// Event triggered when a service level agreement changes its status.
+        /// </summary>
+        SLA_STATUS_CHANGE_EVENT,
+
+        /// <summary>
+        /// Event triggered when a service level agreement is paused, resumed or settled.
+        /// </summary>
+        SLA_ACTION_EVENT,
+
+        /// <summary>
+        /// Event triggered when a periodic service level agreement starts its next cycle.
+        /// </summary>
+        SLA_CYCLE_EVENT
     }
 
     /// <summary>
@@ -352,6 +367,9 @@
                 Event.GANTT_LINK_CREATE_EVENT => "webexpress.webapp.gantt.link.create",
                 Event.GANTT_LINK_DELETE_EVENT => "webexpress.webapp.gantt.link.delete",
                 Event.GANTT_SELECT_EVENT => "webexpress.webapp.gantt.select",
+                Event.SLA_STATUS_CHANGE_EVENT => "webexpress.webui.sla.status.change",
+                Event.SLA_ACTION_EVENT => "webexpress.webui.sla.action",
+                Event.SLA_CYCLE_EVENT => "webexpress.webui.sla.cycle",
                 _ => ""
             };
         }
@@ -421,6 +439,9 @@
                 Event.GANTT_LINK_CREATE_EVENT => "Event triggered when a gantt dependency link is created.",
                 Event.GANTT_LINK_DELETE_EVENT => "Event triggered when a gantt dependency link is deleted.",
                 Event.GANTT_SELECT_EVENT => "Event triggered when a gantt task or link is selected.",
+                Event.SLA_STATUS_CHANGE_EVENT => "Event triggered when a service level agreement changes its status.",
+                Event.SLA_ACTION_EVENT => "Event triggered when a service level agreement is paused, resumed or settled.",
+                Event.SLA_CYCLE_EVENT => "Event triggered when a periodic service level agreement starts its next cycle.",
                 _ => ""
             };
         }
