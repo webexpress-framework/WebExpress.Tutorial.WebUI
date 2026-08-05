@@ -12,6 +12,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// <summary>
     /// Represents the stat (metric) control demo page for the tutorial.
     /// </summary>
+    [WebIcon<IconControlStat>]
     [Title("Stat")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

@@ -14,6 +14,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// <summary>
     /// Represents the graph viewer control for the tutorial.
     /// </summary>
+    [WebIcon<IconControlGraphViewer>]
     [Title("GraphViewer")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

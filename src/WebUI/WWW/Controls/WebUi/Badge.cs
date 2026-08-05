@@ -5,12 +5,14 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 {
     /// <summary>  
     /// Represents the badge control for the tutorial.  
     /// </summary>  
+    [WebIcon<IconControlBadge>]
     [Title("Badge")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

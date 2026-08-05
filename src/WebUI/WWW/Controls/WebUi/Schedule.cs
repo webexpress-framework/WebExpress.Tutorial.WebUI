@@ -16,6 +16,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// Represents the schedule control for the tutorial: the voyage calendar of
     /// Guybrush's quest through the Caribbean.
     /// </summary>
+    [WebIcon<IconControlSchedule>]
     [Title("Schedule")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

@@ -15,6 +15,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// <summary>
     /// Represents a simple quickfilter test board for demonstration purposes.
     /// </summary>
+    [WebIcon<IconControlQuickfilter>]
     [Title("Quickfilter")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

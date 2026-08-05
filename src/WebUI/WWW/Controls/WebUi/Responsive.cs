@@ -5,12 +5,14 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 {
     /// <summary>  
     /// Represents the responsive control for the tutorial.  
     /// </summary>  
+    [WebIcon<IconControlResponsive>]
     [Title("Responsive")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

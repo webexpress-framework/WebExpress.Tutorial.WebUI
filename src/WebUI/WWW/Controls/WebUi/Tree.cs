@@ -18,6 +18,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// <summary>    
     /// Represents the tree control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlTree>]
     [Title("Tree")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

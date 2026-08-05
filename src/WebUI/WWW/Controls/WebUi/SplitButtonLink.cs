@@ -14,6 +14,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// <summary>  
     /// Represents the SplitButtonLink control for the tutorial.  
     /// </summary>
+    [WebIcon<IconControlSplitButtonLink>]
     [Title("SplitButtonLink")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

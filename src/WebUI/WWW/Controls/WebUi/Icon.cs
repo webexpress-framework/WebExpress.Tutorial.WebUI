@@ -18,6 +18,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// <summary>  
     /// Represents the icon control for the tutorial.  
     /// </summary>  
+    [WebIcon<IconControlIcon>]
     [Title("Icon")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

@@ -8,6 +8,7 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebFragment;
 using WebExpress.WebCore.WebHtml;
+using WebExpress.WebCore.WebIcon;
 using WebExpress.WebCore.WebUri;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebFragment;
@@ -30,6 +31,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
         {
             public string Id { get; init; }
             public string Text { get; init; }
+            public IIcon Icon { get; init; }
             public IUri Uri { get; init; }
             public bool Active { get; init; }
         }
@@ -76,6 +78,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
                     {
                         Id = x.EndpointId?.ToString(),
                         Text = I18N.Translate(renderContext, x.PageTitle),
+                        Icon = x.PageIcon,
                         Uri = x.Route.ToUri(),
                         Active = x.Route == renderContext.PageContext.Route
                     }).ToList();
@@ -116,6 +119,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
                 var node = new ControlTreeItem(item.Id, [.. BuildTree(items, item.Uri)])
                 {
                     Text = _ => item.Text,
+                    Icon = _ => item.Icon,
                     Uri = _ => item.Uri,
                     Active = _ => item.Active,
                     Expand = _ => true

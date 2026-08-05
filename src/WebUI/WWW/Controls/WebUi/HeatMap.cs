@@ -4,12 +4,14 @@ using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 {
     /// <summary>
     /// Represents the read-only heat map control for the tutorial.
     /// </summary>
+    [WebIcon<IconControlHeatMap>]
     [Title("Heat Map")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

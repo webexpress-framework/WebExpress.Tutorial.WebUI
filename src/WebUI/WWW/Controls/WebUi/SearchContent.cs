@@ -14,6 +14,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// <summary>    
     /// Represents the search control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlSearchContent>]
     [Title("SearchContent")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

@@ -57,6 +57,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.ControlPage
                 .Select(x => new ControlListItemLink()
                 {
                     Text = _ => $"{I18N.Translate(renderContext, x.PageTitle)} ({x.EndpointId})",
+                    Icon = _ => x.PageIcon,
                     Uri = _ => x.Route.ToUri(),
                     Active = _ => renderContext.PageContext.EndpointId == x.EndpointId
                         ? TypeActive.Active

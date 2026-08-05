@@ -6,12 +6,14 @@ using WebExpress.WebCore.WebApplication;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 {
     /// <summary>    
     /// Represents the breadcrumb control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlBreadcrumb>]
     [Title("Breadcrumb")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

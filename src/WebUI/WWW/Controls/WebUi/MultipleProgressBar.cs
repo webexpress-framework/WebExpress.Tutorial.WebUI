@@ -6,12 +6,14 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 {
     /// <summary>
     /// Represents the multiple progress bar control for the tutorial.
     /// </summary>
+    [WebIcon<IconControlMultipleProgressBar>]
     [Title("MultipleProgressBar")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

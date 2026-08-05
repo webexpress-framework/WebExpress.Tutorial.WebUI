@@ -14,6 +14,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// <summary>  
     /// Represents the ButtonLink control for the tutorial.  
     /// </summary>  
+    [WebIcon<IconControlButtonLink>]
     [Title("ButtonLink")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

@@ -12,6 +12,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// <summary>
     /// Represents the empty-state control demo page for the tutorial.
     /// </summary>
+    [WebIcon<IconControlEmptyState>]
     [Title("EmptyState")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

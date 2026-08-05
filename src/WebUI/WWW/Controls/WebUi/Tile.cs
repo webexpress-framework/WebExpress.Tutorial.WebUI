@@ -18,6 +18,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// <summary>    
     /// Represents the tile control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlTile>]
     [Title("Tile")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

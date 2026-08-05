@@ -14,6 +14,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
     /// <summary>    
     /// Represents the form control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlForm>]
     [Title("Form")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

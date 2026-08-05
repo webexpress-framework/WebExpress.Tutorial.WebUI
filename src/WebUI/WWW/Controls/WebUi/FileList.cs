@@ -15,6 +15,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// <summary>    
     /// Represents the file list control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlFileList>]
     [Title("FileList")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

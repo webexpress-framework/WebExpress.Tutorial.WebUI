@@ -7,12 +7,14 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 {
     /// <summary>    
     /// Represents the Split control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlSplit>]
     [Title("Split")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

@@ -5,12 +5,14 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebApplication;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 {
     /// <summary>
     /// Represents the image control for the tutorial.
     /// </summary>
+    [WebIcon<IconControlImage>]
     [Title("Image")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

@@ -15,6 +15,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// <summary>
     /// Represents the dashboard control for the tutorial.
     /// </summary>
+    [WebIcon<IconControlDashboard>]
     [Title("Dashboard")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

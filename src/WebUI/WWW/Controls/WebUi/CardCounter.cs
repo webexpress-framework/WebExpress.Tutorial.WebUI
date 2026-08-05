@@ -13,6 +13,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// <summary>
     /// Represents the card counter control for the tutorial.
     /// </summary>
+    [WebIcon<IconControlCardCounter>]
     [Title("CardCounter")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

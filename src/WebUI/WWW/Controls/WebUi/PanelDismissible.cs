@@ -5,6 +5,7 @@ using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 {
@@ -14,6 +15,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// the panel via the "x" and picking another list entry brings the panel
     /// back automatically.
     /// </summary>
+    [WebIcon<IconControlPanelDismissible>]
     [Title("PanelDismissible")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

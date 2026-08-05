@@ -14,6 +14,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// <summary>  
     /// Represents the list control for the tutorial.  
     /// </summary>  
+    [WebIcon<IconControlList>]
     [Title("List")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

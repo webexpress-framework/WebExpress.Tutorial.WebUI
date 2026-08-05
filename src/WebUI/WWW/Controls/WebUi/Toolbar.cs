@@ -14,6 +14,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// <summary>  
     /// Represents the toolbar control for the tutorial.  
     /// </summary>  
+    [WebIcon<IconControlToolbar>]
     [Title("Toolbar")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

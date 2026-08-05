@@ -15,6 +15,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// <summary>
     /// Represents the view control for the tutorial.
     /// </summary>
+    [WebIcon<IconControlView>]
     [Title("View")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

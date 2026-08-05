@@ -5,12 +5,14 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 {
     /// <summary>  
     /// Represents the read only selection control for the tutorial.  
     /// </summary>  
+    [WebIcon<IconControlSelection>]
     [Title("Selection")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

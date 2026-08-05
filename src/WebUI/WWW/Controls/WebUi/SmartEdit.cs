@@ -9,6 +9,7 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 using WebExpress.WebUI.WebNotification;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
@@ -16,6 +17,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// <summary>  
     /// Represents the smart edit control for the tutorial.  
     /// </summary>  
+    [WebIcon<IconControlSmartEdit>]
     [Title("SmartEdit")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

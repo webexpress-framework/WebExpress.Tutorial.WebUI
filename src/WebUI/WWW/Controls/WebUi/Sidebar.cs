@@ -14,6 +14,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// <summary>  
     /// Represents the sidebar control for the tutorial.  
     /// </summary>  
+    [WebIcon<IconControlSidebar>]
     [Title("Sidebar")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

@@ -13,6 +13,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// <summary>    
     /// Represents the avatar dropdown control for the tutorial.
     /// </summary>    
+    [WebIcon<IconControlAvatarDropdown>]
     [Title("AvatarDropdown")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

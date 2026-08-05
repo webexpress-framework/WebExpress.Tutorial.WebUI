@@ -13,6 +13,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// <summary>  
     /// Represents the overflow control for the tutorial.  
     /// </summary>  
+    [WebIcon<IconControlOverflow>]
     [Title("Overflow")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

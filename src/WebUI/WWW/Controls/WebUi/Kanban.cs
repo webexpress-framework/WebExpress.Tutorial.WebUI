@@ -15,6 +15,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// <summary>
     /// Represents a simple kanban test board for demonstration purposes.
     /// </summary>
+    [WebIcon<IconControlKanban>]
     [Title("Kanban")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

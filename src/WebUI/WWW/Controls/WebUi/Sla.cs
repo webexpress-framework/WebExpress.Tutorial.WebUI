@@ -9,6 +9,7 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 {
@@ -16,6 +17,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// Represents the service level agreement control for the tutorial: the
     /// crew's promise to answer a summons from the governor in time.
     /// </summary>
+    [WebIcon<IconControlSla>]
     [Title("Sla")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

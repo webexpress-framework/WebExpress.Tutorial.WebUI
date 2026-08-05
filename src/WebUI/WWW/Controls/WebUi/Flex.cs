@@ -8,12 +8,14 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 {
     /// <summary>    
     /// Represents the flex control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlFlex>]
     [Title("Flex")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

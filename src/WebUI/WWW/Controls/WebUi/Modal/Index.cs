@@ -15,6 +15,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
     /// <summary>    
     /// Represents the modal control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlModal>]
     [Title("Modal")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

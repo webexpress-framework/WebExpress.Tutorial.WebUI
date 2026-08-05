@@ -13,6 +13,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// <summary>    
     /// Represents the attribute control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlAttribute>]
     [Title("Attribute")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
