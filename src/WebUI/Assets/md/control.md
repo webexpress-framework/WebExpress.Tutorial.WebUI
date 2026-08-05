@@ -31,7 +31,9 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlLine` | Horizontal divider line. |
 | `ControlIcon` | A single icon from the icon set. |
 | `ControlImage` | Responsive image with optional link. |
+| `ControlCanvas` | Raw drawing surface painted from JavaScript. |
 | `ControlLink` | A hyperlink to a route or external URL. |
+| `ControlLinkList` | Group of related links under a shared heading and icon. |
 | `ControlAttribute` | Inline label/value attribute chip. |
 | `ControlDescriptionList` | Key/value definition list, vertical or side-by-side. |
 | `ControlDate` | Formatted, read-only date display. |
@@ -84,6 +86,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlTree` | Hierarchical, expandable tree. |
 | `ControlPagination` | Page navigation for paged data. |
 | `ControlCarousel` | Rotating slideshow of items. |
+| `ControlSchedule` | Calendar of time-based items in an agenda, week or month view. |
 | `ControlChart` | Line, bar and other charts. |
 | `ControlHeatMap` | Read-only grid of values coloured on a gradient. |
 | `ControlGraphViewer` | Interactive node/edge graph viewer. |
@@ -96,7 +99,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlSidebar` | Vertical navigation sidebar with collapsible tree items, badges, colors and per-item "..." options menus. |
 | `ControlTab` | Tabbed navigation between panels. |
 | `ControlPanelNavbar` | Top navigation bar. |
-| `ControlQuickfilter` | Inline filter chips for narrowing a result set. |
+| `ControlQuickfilter` | Inline filter chips - buttons, avatars, dropdowns and multi-selects - for narrowing a result set, plus a chip that creates a new filter. |
 | `ControlSearch` | Search box with suggestions. |
 | `ControlSearchContent` | Search that highlights matches in the page content. |
 | `ControlNavigation` | Grouped navigation menu of links and sections. |
@@ -111,6 +114,8 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlBadge` | Small count or status label. |
 | `ControlTag` | Compact, colored keyword tag. |
 | `ControlProgress` | Determinate progress bar. |
+| `ControlMultipleProgressBar` | Progress bar split into several colored, labelled segments. |
+| `ControlSla` | State of a service level agreement: status, consumed budget and remaining time. |
 | `ControlTrafficLight` | Read-only red/yellow/green status indicator. |
 | `ControlSpinner` | Indeterminate loading spinner. |
 | `ControlSkeleton` | Shimmering placeholder shown while content loads. |
