@@ -1,5 +1,6 @@
 using System.Net.Http;
 using WebExpress.Tutorial.WebUI.Model;
+using WebExpress.Tutorial.WebUI.WebControl;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
@@ -10,6 +11,7 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
+using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
@@ -55,6 +57,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                     Text = _ => "Platform",
                     Icon = _ => new IconLaptop(),
                     RestEndpoint = _ => sitemapManager.GetUri<MonkeyIslandPlatformQuickfilter>(pageContext)
+                },
+                // the framework ships no filter editor, so the add chip points at
+                // a dialog of the application through an ordinary modal action
+                new ControlQuickfilterItemAdd("newfilter")
+                {
+                    Tooltip = _ => "Create a new filter",
+                    PrimaryAction = _ => new ActionModal("filtermodal")
                 }
             );
 
@@ -73,7 +82,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                         .Service<MonkeyIslandGamesTile>()
                         .Page().PageSize().Search().Wql().Filter().OrderBy().OrderDir()),
                 quickfilter,
-                tile
+                tile,
+                // stands in for the dialog an application puts behind the add
+                // chip; the framework ships none, because what a filter selects
+                // is the application's business
+                new ControlModalExample("filtermodal")
+                {
+                }
             ];
 
             Stage.DarkControls = null;
