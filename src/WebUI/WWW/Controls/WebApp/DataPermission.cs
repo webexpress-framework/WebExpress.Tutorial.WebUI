@@ -39,7 +39,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         /// <param name="sitemapManager">The sitemap manager.</param>
         public DataPermission(IPageContext pageContext, IComponentHub componentHub, ISitemapManager sitemapManager)
         {
-            Stage.Description = @"`ControlDataPermission` manages the group-to-policy assignments of a protected resource, following the identity model (`Identity -> Group -> Policy -> Permission`). The control only emits the host element; the assign row, the searchable, paged assignment table and the revoke affordance are built by the client-side `webexpress.webapp.PermissionCtrl`.";
+            Stage.Description = @"`ControlDataPermission` manages the group-to-policy assignments of a protected resource, following the identity model (`Identity -> Group -> Policy -> Permission`). The surface is a single table: the first column names the group, the second carries its policies as chips that are edited inline with the move control, the first row assigns a further group and the options menu of a row revokes it. The control emits the host element and the pagination control it binds through `BindPaging`; the table itself is built by the client-side `webexpress.webapp.PermissionCtrl`.";
 
             Stage.Controls =
             [
@@ -92,19 +92,20 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.AddProperty
             (
                 "Readonly",
-                @"The readonly flag suppresses the assign row and the per-row revoke affordance, so users without administrative rights can review the effective assignments without changing them.",
-                "Readonly = _ => true",
+                @"The readonly flag suppresses the add row, the options menu and the inline editing of the chips, so users without administrative rights can review the effective assignments without changing them. The policies service stays declared, because the chips resolve their labels through it.",
+                @"Readonly = _ => true",
                 new ControlDataPermission()
                 {
                     Readonly = _ => true
                 }
                     .DataService<IncidentPermissions>()
+                    .PoliciesService<IncidentPermissionPolicies>()
             );
 
             Stage.AddProperty
             (
                 "PageSize",
-                @"The page size determines how many assignments are shown per page; the pager appears as soon as more assignments exist.",
+                @"The page size determines how many groups are shown per page; the pagination control below the table navigates them.",
                 "PageSize = _ => 2",
                 new ControlDataPermission()
                 {

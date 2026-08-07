@@ -159,7 +159,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlDataLogin` | Sign-in form that submits credentials via REST. |
 | `ControlDataComment` | Comment thread loaded from a REST endpoint. |
 | `ControlDataWatcher` | Avatar group of an object's watchers, with live add/remove. |
-| `ControlDataPermission` | Group-to-policy assignments of a protected resource (identity model), with assign, search, paging and revoke. |
+| `ControlDataPermission` | Group-to-policy assignments of a protected resource (identity model) as a table of groups with inline editable policy chips, an add row, paging and revoke. |
 | `ControlDataScrumBacklog` | Scrum backlog with sprints and drag-and-drop ranking. |
 | `ControlDataScrumSprint` | Active sprint overview with a burndown chart. |
 | `ControlDataScrumTeam` | Sprint team as an avatar group with a story-point modal. |
