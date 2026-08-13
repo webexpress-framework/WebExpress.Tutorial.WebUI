@@ -59,6 +59,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlFormItemInputPassword` | Password input with reveal and strength hints. |
 | `ControlFormItemInputCheck` | Checkbox or switch. |
 | `ControlFormItemInputRadio` | Radio button group. |
+| `ControlFormItemInputChoice` | Segmented choice: a few mutually exclusive options as a row of buttons, optionally with an accent dot per option and narrowed to the value of another input. |
 | `ControlFormItemInputCombo` | Dropdown selection input. |
 | `ControlFormItemInputCascading` | Dependent selection levels where each level's options derive from the previous choice. |
 | `ControlFormItemInputSlider` | Range slider for numeric input. |
@@ -67,6 +68,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlFormItemInputEstimate` | Estimate picked from a configurable scale (e.g. story points). |
 | `ControlFormItemInputDate` | Date input with a picker. |
 | `ControlFormItemInputCalendar` | Inline calendar selection. |
+| `ControlFormItemInputTile` | Selection from a grid of tile cards, with an optional search box and narrowing to the value of another input. |
 | `ControlSelection` | Multi-item selection list. |
 | `ControlColor` | Color picker. |
 | `ControlUpload` | File upload with drag-and-drop. |
@@ -80,7 +82,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlTable` | Sortable, templated data table. |
 | `ControlList` | Vertical list of items. |
 | `ControlFileList` | List of files with icons and metadata. |
-| `ControlTile` | Grid of tile cards. |
+| `ControlTile` | Grid of tile cards, each laid out as kicker, title, body and footer. |
 | `ControlKanban` | Drag-and-drop kanban board. |
 | `ControlDashboard` | Configurable widget dashboard. |
 | `ControlTree` | Hierarchical, expandable tree. |
@@ -120,7 +122,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlSpinner` | Indeterminate loading spinner. |
 | `ControlSkeleton` | Shimmering placeholder shown while content loads. |
 | `ControlEmptyState` | Icon, message and action shown when there is no data. |
-| `ControlSteps` | Numbered step/progress indicator. |
+| `ControlSteps` | Numbered step/progress indicator, in a row, inline beside its labels, or stacked vertically. |
 | `ControlTimeline` | Chronological list of events along a rail. |
 | `ControlStat` | Compact metric (KPI) tile with a trend delta. |
 | `ControlCardCounter` | Counter card with an icon and a progress bar. |
@@ -145,7 +147,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlDataDashboard` | Dashboard of widget columns, loaded and saved via REST: add / rename / resize / recolor / reorder / delete columns and add / configure / delete widgets through "…" menus, with the addable widget types supplied by the server. |
 | `ControlDataForm` | Form that loads and submits against a REST endpoint. |
 | `ControlDataFormEditor` | Visual editor for building form definitions. |
-| `ControlDataWizard` | Multi-step wizard backed by a REST service. |
+| `ControlDataWizard` | Multi-step wizard backed by a REST service: a step indicator that reads back the answers, per-step validation, and steps that the server renders on demand or skips. |
 | `ControlDataWorkflow` | Visual workflow/state-machine editor. |
 | `ControlDataDropdown` | Dropdown whose items are queried from a service. |
 | `ControlDataFormItemInputCascading` | Cascading selection whose levels are fetched from a REST endpoint on demand. |

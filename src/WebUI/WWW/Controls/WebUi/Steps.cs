@@ -77,6 +77,23 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Vertical = _ => true
                 }
             );
+
+            Stage.AddProperty
+            (
+                "Inline",
+                "The `Inline` property puts the marker beside its label instead of above it and lets the connectors stretch between the steps. This is the shape a dialog header needs, where vertical space is scarce and the secondary line carries the answer of the step. It is ignored when `Vertical` is set.",
+                "Inline = _ => true",
+                new ControlSteps
+                (
+                    null,
+                    new ControlStepsItem() { Label = _ => "Account", Description = _ => "john@example.com", State = _ => TypeStepState.Completed },
+                    new ControlStepsItem() { Label = _ => "Profile", Description = _ => "Tell us about yourself", State = _ => TypeStepState.Active },
+                    new ControlStepsItem() { Label = _ => "Confirm", Description = _ => "Review and send", State = _ => TypeStepState.Pending }
+                )
+                {
+                    Inline = _ => true
+                }
+            );
         }
     }
 }
