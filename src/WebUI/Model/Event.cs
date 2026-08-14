@@ -1,4 +1,4 @@
-﻿namespace WebExpress.Tutorial.WebUI.Model
+namespace WebExpress.Tutorial.WebUI.Model
 {
     /// <summary>
     /// Represents various events that can occur in the WebUI.
@@ -94,6 +94,11 @@
         /// Event triggered when data has arrived.
         /// </summary>
         DATA_ARRIVED_EVENT,
+
+        /// <summary>
+        /// Event triggered when data could not be loaded or encoded.
+        /// </summary>
+        DATA_ERROR_EVENT,
 
         /// <summary>
         /// Event triggered when a task starts.
@@ -329,6 +334,7 @@
                 Event.MODAL_HIDE_EVENT => "webexpress.webui.modal.hide",
                 Event.DATA_REQUESTED_EVENT => "webexpress.webui.data.requested",
                 Event.DATA_ARRIVED_EVENT => "webexpress.webui.data.arrived",
+                Event.DATA_ERROR_EVENT => "webexpress.webui.data.error",
                 Event.TASK_START_EVENT => "webexpress.webui.task.start",
                 Event.TASK_UPDATE_EVENT => "webexpress.webui.task.update",
                 Event.TASK_FINISH_EVENT => "webexpress.webui.task.finish",
@@ -401,6 +407,7 @@
                 Event.MODAL_HIDE_EVENT => "Event triggered when a modal is hidden.",
                 Event.DATA_REQUESTED_EVENT => "Event triggered when data is requested.",
                 Event.DATA_ARRIVED_EVENT => "Event triggered when data has arrived.",
+                Event.DATA_ERROR_EVENT => "Event triggered when data could not be loaded or encoded.",
                 Event.TASK_START_EVENT => "Event triggered when a task starts.",
                 Event.TASK_UPDATE_EVENT => "Event triggered when a task is updated.",
                 Event.TASK_FINISH_EVENT => "Event triggered when a task is finished.",

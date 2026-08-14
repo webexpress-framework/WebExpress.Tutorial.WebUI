@@ -33,6 +33,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlIcon` | A single icon from the icon set. |
 | `ControlImage` | Responsive image with optional link. |
 | `ControlCanvas` | Raw drawing surface painted from JavaScript. |
+| `ControlBarcode` | Value encoded as a scannable graphic: Code 128, Code 39, EAN-13, EAN-8 or a QR code, drawn as inline SVG. |
 | `ControlLink` | A hyperlink to a route or external URL. |
 | `ControlLinkList` | Group of related links under a shared heading and icon. |
 | `ControlAttribute` | Inline label/value attribute chip. |
@@ -65,6 +66,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlFormItemInputCascading` | Dependent selection levels where each level's options derive from the previous choice. |
 | `ControlFormItemInputSlider` | Range slider for numeric input. |
 | `ControlFormItemInputRating` | Star rating input. |
+| `ControlFormItemInputBarcode` | Barcode value as text, with a live preview of the symbol it encodes. |
 | `ControlFormItemInputTrafficLight` | Traffic light status picker (red/yellow/green). |
 | `ControlFormItemInputEstimate` | Estimate picked from a configurable scale (e.g. story points). |
 | `ControlFormItemInputDate` | Date input with a picker. |
