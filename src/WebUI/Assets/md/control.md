@@ -13,6 +13,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlPanelFlex` | Flexbox container for one-dimensional layouts. |
 | `ControlPanelGrid` | Responsive grid container for column-based layouts. |
 | `ControlPanelSplit` | Two resizable panes separated by a draggable splitter. |
+| `ControlMasterDetail` | List on the left, detail loaded on demand on the right, with a splitter between them and a sequential single-column mode on narrow screens. |
 | `ControlPanelCenter` | Centers its content horizontally and vertically. |
 | `ControlPanelOverflow` | Scrollable region that clips overflowing content. |
 | `ControlFrame` | Bordered frame with an optional title around its content. |
