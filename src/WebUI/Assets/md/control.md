@@ -153,6 +153,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlDataWizard` | Multi-step wizard backed by a REST service: a step indicator that reads back the answers, per-step validation, and steps that the server renders on demand or skips. |
 | `ControlDataWorkflow` | Visual workflow/state-machine editor. |
 | `ControlDataDropdown` | Dropdown whose items are queried from a service. |
+| `ControlDataSearch` | Search box whose suggestions come from a REST endpoint, each one a link that opens its target; an empty term offers what the endpoint suggests up front. |
 | `ControlDataFormItemInputCascading` | Cascading selection whose levels are fetched from a REST endpoint on demand. |
 | `ControlDataAvatarDropdown` | User picker that searches a directory service. |
 | `ControlDataSelectionTheme` | Theme picker loaded and persisted via REST. |
