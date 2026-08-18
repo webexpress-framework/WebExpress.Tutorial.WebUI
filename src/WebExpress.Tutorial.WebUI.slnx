@@ -1,0 +1,9 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="WebUI.App/WebExpress.Tutorial.WebUI.App.csproj" />
+  <Project Path="WebUI/WebExpress.Tutorial.WebUI.csproj" />
+</Solution>
