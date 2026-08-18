@@ -81,7 +81,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 return query;
             }
 
-            return query.Where(x => x.Name.Contains(filter));
+            // a typed term arrives as the user typed it, so an ordinal match would make the
+            // search demo answer nothing for "monkey" and three games for "Monkey"
+            return query.Where(x => x.Name.Contains(filter, System.StringComparison.OrdinalIgnoreCase));
         }
 
         /// <summary>
