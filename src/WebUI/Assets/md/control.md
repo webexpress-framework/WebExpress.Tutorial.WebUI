@@ -20,6 +20,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlResponsive` | Shows or hides content based on the viewport breakpoint. |
 | `ControlView` | Card-like view with a header, body and footer. |
 | `ControlAccordion` | Stack of collapsible sections, one open at a time by default. |
+| `ControlSection` | Flat, collapsible section: a quiet upper-case label over a body with a vertical guide line, without the frame of a card. Carries an accent color and a badge, and lays out stacked, beside its label or on a rule. For a page that shows one subject from many angles. |
 | `ControlOffcanvas` | Drawer panel that slides in from an edge of the viewport. |
 
 ## Typography & content
