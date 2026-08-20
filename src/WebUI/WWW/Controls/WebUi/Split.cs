@@ -181,6 +181,42 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.AddProperty
             (
+                "Collapsible",
+                "The `Collapsible` property decides whether the side panel may be collapsed at all. While it is off, neither dragging the splitter past the panel nor double-clicking the splitter takes the panel away-the drag stops at `SidePanelMinSize` instead. Turn it off for a side panel that carries the only navigation of a view, where a collapse would strand the user.",
+                "Collapsible = _ => false",
+                new ControlText() { Text = _ => "Collapsible", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlPanelSplit()
+                {
+                    SidePanelMinSize = _ => 100,
+                    Collapsible = _ => true
+                }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel),
+                new ControlText() { Text = _ => "Not collapsible", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlPanelSplit()
+                {
+                    SidePanelMinSize = _ => 100,
+                    Collapsible = _ => false
+                }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel)
+            );
+
+            Stage.AddProperty
+            (
+                "SidePanelCollapseSize",
+                "The `SidePanelCollapseSize` property defines the extent the side panel keeps once it is collapsed-either by double-clicking the splitter or by dragging it past the panel. It is deliberately separate from `SidePanelMinSize`, which only bounds a drag: a value of zero takes the side panel off screen, whereas a positive value leaves a rail behind. Give a side panel whose only way back is a control it hosts itself-a toggle button in its own toolbar, for instance-such a rail, because a collapse would otherwise take the way back with it. The splitter stays in place either way, so a double-click always restores the panel.",
+                "SidePanelCollapseSize = _ => 60",
+                new ControlText() { Text = _ => "Off screen", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlPanelSplit()
+                {
+                    SidePanelCollapseSize = _ => 0
+                }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel),
+                new ControlText() { Text = _ => "Rail", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlPanelSplit()
+                {
+                    SidePanelCollapseSize = _ => 60
+                }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel)
+            );
+
+            Stage.AddProperty
+            (
                 "Order",
                 "The `Order` property defines the layout sequence of the side and main panes within a splitter control. Depending on the chosen orientation (horizontal or vertical), Order determines whether the Side pane appears before or after themMain pane.",
                 "Order = _ => TypeSplitOrder.MainSide",
