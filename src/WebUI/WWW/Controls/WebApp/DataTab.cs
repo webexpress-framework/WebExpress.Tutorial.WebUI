@@ -107,9 +107,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                             {
                                 Title = _ => "Monkey Island Product Backlog",
                                 Selectable = _ => true,
-                                IconActive = _ => "fas fa-skull-crossbones",
-                                IconPlanned = _ => "fas fa-hourglass-half",
-                                IconBacklog = _ => "fas fa-map"
+                                IconActive = _ => "wx-icon-light wx-icon-light-skull-crossbones",
+                                IconPlanned = _ => "wx-icon-light wx-icon-light-hourglass-half",
+                                IconBacklog = _ => "wx-icon-light wx-icon-light-map"
                             }
                                 .DataService<RestApiScrum>()
                         ),
@@ -229,9 +229,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                             {
                                 Title = _ => ""Monkey Island Product Backlog"",
                                 Selectable = _ => true,
-                                IconActive = _ => ""fas fa-skull-crossbones"",
-                                IconPlanned = _ => ""fas fa-hourglass-half"",
-                                IconBacklog = _ => ""fas fa-map""
+                                IconActive = _ => ""wx-icon-light wx-icon-light-skull-crossbones"",
+                                IconPlanned = _ => ""wx-icon-light wx-icon-light-hourglass-half"",
+                                IconBacklog = _ => ""wx-icon-light wx-icon-light-map""
                             }
                                 .DataService<RestApiScrum>()
                         ),

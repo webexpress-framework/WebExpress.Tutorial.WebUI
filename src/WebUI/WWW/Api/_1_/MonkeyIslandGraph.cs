@@ -35,7 +35,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 {
                     Id = "melee",
                     Label = "Mêlée Island",
-                    Icon = "fas fa-map-location-dot",
+                    Icon = "wx-icon-light wx-icon-light-map-location-dot",
                     X = 80,
                     Y = 180,
                     BackgroundColor = "#eef6fb",
@@ -45,7 +45,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 {
                     Id = "scumm",
                     Label = "Scumm Bar",
-                    Icon = "fas fa-beer-mug-empty",
+                    Icon = "wx-icon-light wx-icon-light-beer-mug-empty",
                     X = 80,
                     Y = 340,
                     BackgroundColor = "#fff4e5",
@@ -57,7 +57,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     Label = "Guybrush Threepwood",
                     Shape = "circle",
                     Layout = "label-below",
-                    Icon = "fas fa-hat-cowboy",
+                    Icon = "wx-icon-light wx-icon-light-hat-cowboy",
                     X = 330,
                     Y = 330,
                     BackgroundColor = "#e8f5e9",
@@ -67,7 +67,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 {
                     Id = "seamonkey",
                     Label = "Sea Monkey",
-                    Icon = "fas fa-sailboat",
+                    Icon = "wx-icon-light wx-icon-light-sailboat",
                     X = 340,
                     Y = 170,
                     BackgroundColor = "#e3f2fd",
@@ -77,7 +77,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 {
                     Id = "monkey",
                     Label = "Monkey Island",
-                    Icon = "fas fa-tree",
+                    Icon = "wx-icon-light wx-icon-light-tree",
                     X = 600,
                     Y = 180,
                     BackgroundColor = "#e8f5e9",
@@ -89,7 +89,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     Label = "Elaine Marley",
                     Shape = "circle",
                     Layout = "label-below",
-                    Icon = "fas fa-crown",
+                    Icon = "wx-icon-light wx-icon-light-crown",
                     X = 610,
                     Y = 360,
                     BackgroundColor = "#f3e5f5",
@@ -102,7 +102,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     Label = "LeChuck's Ghost Ship",
                     Shape = "circle",
                     Layout = "label-below",
-                    Icon = "fas fa-skull-crossbones",
+                    Icon = "wx-icon-light wx-icon-light-skull-crossbones",
                     BackgroundColor = "#fdecea",
                     ForegroundColor = "#b02a37"
                 }

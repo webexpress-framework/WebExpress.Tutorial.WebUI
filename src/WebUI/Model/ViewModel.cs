@@ -107,7 +107,7 @@ namespace WebExpress.Tutorial.WebUI.Model
             {
                 Id = Guid.Parse("C0D4900D-95D1-4656-A308-9172E5AB5D24"),
                 Type = "story",
-                Icon = "fas fa-scroll",
+                Icon = "wx-icon-light wx-icon-light-scroll",
                 Key = "MI-101",
                 Title = "Convince Carla to join the crew.",
                 Priority = "P1",
@@ -122,7 +122,7 @@ namespace WebExpress.Tutorial.WebUI.Model
             {
                 Id = Guid.Parse("5071E546-C6B6-4666-A575-95D1B7395BEA"),
                 Type = "task",
-                Icon = "fas fa-check",
+                Icon = "wx-icon-light wx-icon-light-check",
                 Key = "MI-102",
                 Title = "Free Otis from the Mêlée jail.",
                 Priority = "P1",
@@ -136,7 +136,7 @@ namespace WebExpress.Tutorial.WebUI.Model
             {
                 Id = Guid.Parse("E1B79040-5FE0-4ECF-8FEE-BE5C84D047F8"),
                 Type = "story",
-                Icon = "fas fa-scroll",
+                Icon = "wx-icon-light wx-icon-light-scroll",
                 Key = "MI-103",
                 Title = "Win the sword master trial against Carla.",
                 Priority = "P2",
@@ -151,7 +151,7 @@ namespace WebExpress.Tutorial.WebUI.Model
             {
                 Id = Guid.Parse("E1D1129B-3A81-4A49-BF84-2D8D73AAFB8C"),
                 Type = "bug",
-                Icon = "fas fa-spider",
+                Icon = "wx-icon-light wx-icon-light-spider",
                 Key = "MI-104",
                 Title = "Fix the leaking ghost ship map parchment.",
                 Priority = "P2",
@@ -165,7 +165,7 @@ namespace WebExpress.Tutorial.WebUI.Model
             {
                 Id = Guid.Parse("72C8BB6B-5C10-4868-A9D7-E5A39FDF3794"),
                 Type = "spike",
-                Icon = "fas fa-bolt",
+                Icon = "wx-icon-light wx-icon-light-bolt",
                 Key = "MI-105",
                 Title = "Research the fastest route through Monkey Island jungle.",
                 Priority = "P3",
@@ -179,7 +179,7 @@ namespace WebExpress.Tutorial.WebUI.Model
             {
                 Id = Guid.Parse("3452B750-C36D-49C4-98BE-0EABFF38014B"),
                 Type = "story",
-                Icon = "fas fa-scroll",
+                Icon = "wx-icon-light wx-icon-light-scroll",
                 Key = "MI-106",
                 Title = "Collect the voodoo root needed to defeat LeChuck.",
                 Priority = "P1",
@@ -194,7 +194,7 @@ namespace WebExpress.Tutorial.WebUI.Model
             {
                 Id = Guid.Parse("5842CF55-D08C-465F-824F-62050F7D5849"),
                 Type = "task",
-                Icon = "fas fa-check",
+                Icon = "wx-icon-light wx-icon-light-check",
                 Key = "MI-107",
                 Title = "Repair the Sea Monkey before departure.",
                 Priority = "P2",

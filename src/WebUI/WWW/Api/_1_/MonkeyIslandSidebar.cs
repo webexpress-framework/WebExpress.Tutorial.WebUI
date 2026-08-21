@@ -38,14 +38,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
             yield return new RestApiSidebarItem
             {
                 Label = "Dashboard",
-                Icon = "fas fa-compass",
+                Icon = "wx-icon-light wx-icon-light-compass",
                 Active = true
             };
 
             yield return new RestApiSidebarItem
             {
                 Label = "Games",
-                Icon = "fas fa-gamepad",
+                Icon = "wx-icon-light wx-icon-light-gamepad",
                 Badge = ViewModel.MonkeyIslandGames.Count.ToString(),
                 BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Primary)
             };
@@ -53,7 +53,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
             yield return new RestApiSidebarItem
             {
                 Label = "Inventory",
-                Icon = "fas fa-suitcase",
+                Icon = "wx-icon-light wx-icon-light-suitcase",
                 Badge = ViewModel.MonkeyIslandInventories.Count.ToString()
             };
 
@@ -64,20 +64,20 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
             yield return new RestApiSidebarItem
             {
                 Label = "Locations",
-                Icon = "fas fa-map",
+                Icon = "wx-icon-light wx-icon-light-map",
                 Expanded = true,
                 Items = ViewModel.MonkeyIslandLocations
                     .GroupBy(location => string.IsNullOrWhiteSpace(location.Island) ? "Uncharted Waters" : location.Island)
                     .Select(group => new RestApiSidebarItem
                     {
                         Label = group.Key,
-                        Icon = "fas fa-anchor",
+                        Icon = "wx-icon-light wx-icon-light-anchor",
                         Badge = group.Count().ToString(),
                         Items = group
                             .Select(location => new RestApiSidebarItem
                             {
                                 Label = location.Text,
-                                Icon = "fas fa-map-marker-alt"
+                                Icon = "wx-icon-light wx-icon-light-location-dot"
                             })
                             .ToList()
                     })
@@ -87,13 +87,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
             yield return new RestApiSidebarItem
             {
                 Label = "Crew",
-                Icon = "fas fa-users",
+                Icon = "wx-icon-light wx-icon-light-users",
                 Badge = ViewModel.MonkeyIslandCharacters.Count.ToString(),
                 Items = ViewModel.MonkeyIslandCharacters
                     .Select(character => new RestApiSidebarItem
                     {
                         Label = character.Name,
-                        Icon = "fas fa-user"
+                        Icon = "wx-icon-light wx-icon-light-user"
                     })
                     .ToList()
             };
@@ -105,7 +105,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
             yield return new RestApiSidebarItem
             {
                 Label = "Messages",
-                Icon = "fas fa-envelope",
+                Icon = "wx-icon-light wx-icon-light-envelope",
                 Badge = "3",
                 BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger)
             };
@@ -113,7 +113,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
             yield return new RestApiSidebarItem
             {
                 Label = "Settings",
-                Icon = "fas fa-cog"
+                Icon = "wx-icon-light wx-icon-light-cog"
             };
         }
     }

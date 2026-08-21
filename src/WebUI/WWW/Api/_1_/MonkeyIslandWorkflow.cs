@@ -170,7 +170,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     Y = 120,
                     BackgroundColor = "#eef6fb",
                     ForegroundColor = "#0077be",
-                    Icon = "fas fa-map",
+                    Icon = "wx-icon-light wx-icon-light-map",
                     Shape = "rect",
                     Layout = "label-inside"
                 },
@@ -182,7 +182,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     Y = 160,
                     BackgroundColor = "#e8f5e9",
                     ForegroundColor = "#146c43",
-                    Icon = "fas fa-hat-cowboy",
+                    Icon = "wx-icon-light wx-icon-light-hat-cowboy",
                     Shape = "rect",
                     Layout = "label-inside"
                 },
@@ -194,7 +194,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     Y = 110,
                     BackgroundColor = "#fff4e5",
                     ForegroundColor = "#b26a00",
-                    Icon = "fas fa-skull-crossbones",
+                    Icon = "wx-icon-light wx-icon-light-skull-crossbones",
                     Shape = "circle",
                     Layout = "label-below"
                 },
@@ -207,7 +207,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     Y = 200,
                     BackgroundColor = "#e8eaf6",
                     ForegroundColor = "#512da8",
-                    Icon = "fas fa-trophy",
+                    Icon = "wx-icon-light wx-icon-light-trophy",
                     Shape = "rect",
                     Layout = "label-inside"
                 }

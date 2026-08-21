@@ -135,7 +135,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.AddProperty
             (
                 "HeaderIcon",
-                "The `HeaderIcon` property places an `IIcon` next to the header text. Any `IIcon` is accepted, so both image-based icons (such as `ImageIcon`) and CSS-based glyphs (such as the bundled FontAwesome icons) work the same way.",
+                "The `HeaderIcon` property places an `IIcon` next to the header text. Any `IIcon` is accepted, so both image-based icons (such as `ImageIcon`) and the drawn icons of the active icon set work the same way.",
                 "HeaderIcon = _ => new ImageIcon(applicationContext.Route.Concat(\"/assets/img/ufo.png\").ToUri())",
                 new ControlPanelCard()
                 {

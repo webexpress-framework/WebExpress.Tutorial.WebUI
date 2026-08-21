@@ -11,7 +11,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.StatusPages
     /// </summary>
     [WebIcon<IconHome>]
     [Title("webexpress.tutorial.webui:homepage.label")]
-    [Icon("fa fa-home")]
+    [Icon("wx-icon-light wx-icon-light-home")]
     [Scope<IScopeGeneral>]
     public sealed class Index : IPage<VisualTreeWebApp>, IScopeGeneral
     {

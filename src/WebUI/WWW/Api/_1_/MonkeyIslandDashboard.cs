@@ -151,12 +151,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         // so only these can be placed on the dashboard
         private static readonly List<RestApiDashboardAvailableWidget> _availableWidgets =
             [
-                new() { Id = ScrumVelocityWidgetId, Title = "Velocity", Icon = "fas fa-chart-column", Description = "Sprint velocity chart" },
-                new() { Id = "widget_info", Title = "Location", Icon = "fas fa-map-location-dot", Description = "A place on the map" },
-                new() { Id = "widget_list", Title = "Inventory", Icon = "fas fa-list", Description = "A bullet list of items" },
-                new() { Id = "widget_progress", Title = "Progress", Icon = "fas fa-tasks", Description = "A progress bar" },
-                new() { Id = "widget_bignumber", Title = "Treasure", Icon = "fas fa-hashtag", Description = "A big number KPI" },
-                new() { Id = "widget_avatar", Title = "Crew member", Icon = "fas fa-user", Description = "An avatar card" }
+                new() { Id = ScrumVelocityWidgetId, Title = "Velocity", Icon = "wx-icon-light wx-icon-light-chart-column", Description = "Sprint velocity chart" },
+                new() { Id = "widget_info", Title = "Location", Icon = "wx-icon-light wx-icon-light-map-location-dot", Description = "A place on the map" },
+                new() { Id = "widget_list", Title = "Inventory", Icon = "wx-icon-light wx-icon-light-list", Description = "A bullet list of items" },
+                new() { Id = "widget_progress", Title = "Progress", Icon = "wx-icon-light wx-icon-light-list-check", Description = "A progress bar" },
+                new() { Id = "widget_bignumber", Title = "Treasure", Icon = "wx-icon-light wx-icon-light-hashtag", Description = "A big number KPI" },
+                new() { Id = "widget_avatar", Title = "Crew member", Icon = "wx-icon-light wx-icon-light-user", Description = "An avatar card" }
             ];
 
         /// <summary>

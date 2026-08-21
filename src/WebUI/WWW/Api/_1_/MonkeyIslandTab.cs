@@ -25,7 +25,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 Id = "tab_island",
                 Title = "Islands",
                 Name = "All known islands",
-                Icon = "fas fa-umbrella-beach",
+                Icon = "wx-icon-light wx-icon-light-umbrella-beach",
                 // the badge previews how many locations the view contains
                 Badge = ViewModel.MonkeyIslandLocations.Count.ToString(),
                 TemplateId = "monkeyTemplate",
@@ -36,7 +36,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 Id = "tab_pirates",
                 Title = "Pirates",
                 Name = "Pirate leaders and crews",
-                Icon = "fas fa-skull-crossbones",
+                Icon = "wx-icon-light wx-icon-light-skull-crossbones",
                 Badge = ViewModel.MonkeyIslandCharacters.Count.ToString(),
                 TemplateId = "monkeyTemplate",
                 Uri = "/api/tabcontent/pirates"
@@ -46,7 +46,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 Id = "tab_inventory",
                 Title = "Inventory",
                 Name = "Guybrush's Inventory",
-                Icon = "fas fa-box",
+                Icon = "wx-icon-light wx-icon-light-box",
                 Badge = ViewModel.MonkeyIslandInventories.Count.ToString(),
                 TemplateId = "monkeyTemplate",
                 Uri = "/api/tabcontent/inventory"
@@ -56,7 +56,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 Id = "tab_secrets",
                 Title = "Secrets",
                 Name = "Rumors & hidden places",
-                Icon = "fas fa-map-marked-alt",
+                Icon = "wx-icon-light wx-icon-light-map-location-dot",
                 // the colored badge marks the fresh rumors as an eye-catcher
                 Badge = "3",
                 BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger),
@@ -116,7 +116,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 Id = "tab_dynamic_" + DateTime.Now.Ticks,
                 Title = "New Tab",
                 Name = "A dynamically created Monkey Island tab",
-                Icon = "fas fa-star",
+                Icon = "wx-icon-light wx-icon-light-star",
                 TemplateId = "monkeyTemplate"
             };
 

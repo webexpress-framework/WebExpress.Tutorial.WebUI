@@ -56,12 +56,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             Stage.Description = @"WebExpress ships two icon sets:
 
-* **Default** - the FontAwesome glyph font used out of the box (`fas fa-*`).
+* **Light** - the colour scheme used out of the box.
 * **Light** - the lightweight SVG variants defined in `webexpress.webui.icon.css` (`wx-icon-light wx-icon-light-*`).
 
-The set in effect is decided by the **theme** attached to the request. A theme declares its preference with `[IconTheme(TypeIconTheme.Light)]`; the resolved theme is then picked up automatically by `VisualTreeWebApp` (which emits `<html data-icon-theme=""..."">`) and by server-side icon factories (`renderContext.GetIconTheme()`).
+The theme in effect is decided per request. A theme declares its colour scheme with `[ThemeMode(ThemeMode.Dark)]` and may ship a stylesheet via `[ThemeStyle(...)]`; the resolved theme is picked up automatically by `VisualTreeWebApp`, which emits `<html data-bs-theme=""..."">`.
 
-The selector below uses **`ControlDataSelectionTheme`** - a REST-backed picker that lists the themes registered for the current application via the tutorial's `ThemeApi` endpoint. Picking an entry calls the tutorial's `ThemeApi`, which writes the value into a user-defined `ThemeStore`; the page's `Process` override reads the same store on the next request and informs the visual tree via `visualTree.UseTheme<TTheme>()`. Try toggling between `DefaultIconTheme` and `LightIconTheme` - the four buttons below swap between FontAwesome and the light SVG glyphs.";
+The selector below uses **`ControlDataSelectionTheme`** - a REST-backed picker that lists the themes registered for the current application via the tutorial's `ThemeApi` endpoint. Picking an entry calls the tutorial's `ThemeApi`, which writes the value into a user-defined `ThemeStore`; the page's `Process` override reads the same store on the next request and informs the visual tree via `visualTree.UseTheme<TTheme>()`. Try toggling between `DarkModeTheme` and `LightModeTheme` - the page switches its colour scheme.";
 
             Stage.Controls =
             [
@@ -113,9 +113,9 @@ The selector below uses **`ControlDataSelectionTheme`** - a REST-backed picker t
 
             Stage.Code = @"
             // 1. Declare a theme that opts into the light icon set:
-            [Name(""LightIconTheme"")]
-            [IconTheme(TypeIconTheme.Light)]
-            public sealed class LightIconTheme : IThemeWebApp { }
+            [Name(""LightModeTheme"")]
+            [ThemeMode(ThemeMode.Light)]
+            public sealed class LightModeTheme : IThemeWebApp { }
 
             // 2. Hold the per-client selection somewhere the application
             //    controls - here, a static dictionary keyed by remote IP:
@@ -145,22 +145,22 @@ The selector below uses **`ControlDataSelectionTheme`** - a REST-backed picker t
             //    the visual tree so it picks the right theme:
             public override void Process(IRenderContext ctx, VisualTreeWebApp visualTree)
             {
-                if (ThemeStore.Get(ctx.Request) == typeof(LightIconTheme).FullName?.ToLower())
-                    visualTree.UseTheme<LightIconTheme>();
+                if (ThemeStore.Get(ctx.Request) == typeof(LightModeTheme).FullName?.ToLower())
+                    visualTree.UseTheme<LightModeTheme>();
                 else
-                    visualTree.UseTheme<DefaultIconTheme>();
+                    visualTree.UseTheme<DarkModeTheme>();
                 base.Process(ctx, visualTree);
             }";
 
             Stage.AddProperty
             (
                 "Default theme via [Theme<TTheme>]",
-                "An application can declare its default theme declaratively. The theme - and therefore its icon-theme preference - is picked up automatically by every visual tree; no per-page `UseTheme<>` call is needed. User-side persistence (as demonstrated here) overrides that default for the current user.",
-                @"[Theme<LightIconTheme>]
+                "An application can declare its default theme declaratively. The theme is picked up automatically by every visual tree; no per-page `UseTheme<>` call is needed. User-side persistence (as demonstrated here) overrides that default for the current user.",
+                @"[Theme<LightModeTheme>]
 public sealed class MyApplication : IApplication { }",
                 new ControlText()
                 {
-                    Text = _ => "When the application carries `[Theme<LightIconTheme>]`, every page of that application renders with the light icon set out of the box. The per-page `UseTheme<>` call (wired from a user-defined store) overrides the application default.",
+                    Text = _ => "When the application carries `[Theme<LightModeTheme>]`, every page of that application renders with that theme out of the box. The per-page `UseTheme<>` call (wired from a user-defined store) overrides the application default.",
                     Format = _ => TypeFormatText.Markdown
                 }
             );
@@ -168,11 +168,11 @@ public sealed class MyApplication : IApplication { }",
             Stage.AddProperty
             (
                 "Resolution order",
-                "The visual tree picks the active theme in the following order: 1) the explicit override `visualTree.UseTheme<TTheme>()` (typically called from the page's `Process` override using whatever the application stored), 2) the application's declared `[Theme<TTheme>]`, 3) the first theme registered for the application (legacy fallback), 4) none - icon theme falls back to `TypeIconTheme.Default`. The framework deliberately does NOT consult cookies, sessions, or identities - persistence belongs to the application.",
+                "The visual tree picks the active theme in the following order: 1) the explicit override `visualTree.UseTheme<TTheme>()` (typically called from the page's `Process` override using whatever the application stored), 2) the application's declared `[Theme<TTheme>]`, 3) the first theme registered for the application (legacy fallback), 4) none - the page renders without a theme. The framework deliberately does NOT consult cookies, sessions, or identities - persistence belongs to the application.",
                 string.Empty,
                 new ControlText()
                 {
-                    Text = _ => "Both the JS side (`<html data-icon-theme=\"...\">` → `webexpress.webui.IconTheme.current()`) and the server side (controls that pass the resolved theme into their icons) read from the same `visualTree.Theme`, so the choice is consistent across all icons on the page.",
+                    Text = _ => "Both the JS side (`<html data-bs-theme=\"...\">`) and the server side read from the same `visualTree.Theme`, so the choice is consistent across the whole page.",
                     Format = _ => TypeFormatText.Markdown
                 }
             );
@@ -183,20 +183,19 @@ public sealed class MyApplication : IApplication { }",
         /// activates the matching theme on <paramref name="visualTree"/>
         /// before delegating to the default rendering pipeline. The icons
         /// embedded in <see cref="Stage.Controls"/> consult the same store
-        /// through <see cref="ResolveIconTheme"/>.
         /// </summary>
         /// <param name="renderContext">The render context.</param>
         /// <param name="visualTree">The visual tree to swap.</param>
         public override void Process(IRenderContext renderContext, VisualTreeWebApp visualTree)
         {
             var stored = ThemeStore.Get(renderContext?.Request);
-            if (string.Equals(stored, typeof(LightIconTheme).FullName?.ToLower(), System.StringComparison.OrdinalIgnoreCase))
+            if (string.Equals(stored, typeof(LightModeTheme).FullName?.ToLower(), System.StringComparison.OrdinalIgnoreCase))
             {
-                visualTree.UseTheme<LightIconTheme>();
+                visualTree.UseTheme<LightModeTheme>();
             }
-            else if (string.Equals(stored, typeof(DefaultIconTheme).FullName?.ToLower(), System.StringComparison.OrdinalIgnoreCase))
+            else if (string.Equals(stored, typeof(DarkModeTheme).FullName?.ToLower(), System.StringComparison.OrdinalIgnoreCase))
             {
-                visualTree.UseTheme<DefaultIconTheme>();
+                visualTree.UseTheme<DarkModeTheme>();
             }
 
             base.Process(renderContext, visualTree);

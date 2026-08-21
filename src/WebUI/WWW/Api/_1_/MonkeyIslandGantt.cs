@@ -190,18 +190,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         {
             return
             [
-                new RestApiGanttTask { Id = "p1", Label = "Become a mighty pirate", ParentId = null, Icon = "fas fa-hat-wizard" },
-                new RestApiGanttTask { Id = "t1", Label = "Master the sword", ParentId = "p1", Start = "2026-07-06", Duration = 4, Progress = 100, Resources = ["Guybrush", "Carla"], Icon = "fas fa-khanda" },
-                new RestApiGanttTask { Id = "t2", Label = "Master thievery", ParentId = "p1", Start = "2026-07-08", Duration = 3, Progress = 60, Resources = ["Guybrush"], Icon = "fas fa-mask" },
-                new RestApiGanttTask { Id = "t3", Label = "Master treasure hunting", ParentId = "p1", Start = "2026-07-11", Duration = 3, Progress = 20, Resources = ["Guybrush", "Otis"], Icon = "fas fa-gem" },
+                new RestApiGanttTask { Id = "p1", Label = "Become a mighty pirate", ParentId = null, Icon = "wx-icon-light wx-icon-light-hat-wizard" },
+                new RestApiGanttTask { Id = "t1", Label = "Master the sword", ParentId = "p1", Start = "2026-07-06", Duration = 4, Progress = 100, Resources = ["Guybrush", "Carla"], Icon = "wx-icon-light wx-icon-light-shield" },
+                new RestApiGanttTask { Id = "t2", Label = "Master thievery", ParentId = "p1", Start = "2026-07-08", Duration = 3, Progress = 60, Resources = ["Guybrush"], Icon = "wx-icon-light wx-icon-light-mask" },
+                new RestApiGanttTask { Id = "t3", Label = "Master treasure hunting", ParentId = "p1", Start = "2026-07-11", Duration = 3, Progress = 20, Resources = ["Guybrush", "Otis"], Icon = "wx-icon-light wx-icon-light-gem" },
 
-                new RestApiGanttTask { Id = "p2", Label = "Voyage to Monkey Island", ParentId = null, Icon = "fas fa-map" },
-                new RestApiGanttTask { Id = "t4", Label = "Assemble a crew", ParentId = "p2", Start = "2026-07-14", Duration = 2, Progress = 0, Resources = ["Meathook", "Carla", "Otis"], Icon = "fas fa-users" },
-                new RestApiGanttTask { Id = "t5", Label = "Acquire a ship", ParentId = "p2", Start = "2026-07-16", Duration = 3, Progress = 0, Resources = ["Stan"], Icon = "fas fa-ship" },
-                new RestApiGanttTask { Id = "m1", Label = "Set sail", ParentId = "p2", Start = "2026-07-20", Duration = 0, Progress = 0, Icon = "fas fa-flag" },
+                new RestApiGanttTask { Id = "p2", Label = "Voyage to Monkey Island", ParentId = null, Icon = "wx-icon-light wx-icon-light-map" },
+                new RestApiGanttTask { Id = "t4", Label = "Assemble a crew", ParentId = "p2", Start = "2026-07-14", Duration = 2, Progress = 0, Resources = ["Meathook", "Carla", "Otis"], Icon = "wx-icon-light wx-icon-light-users" },
+                new RestApiGanttTask { Id = "t5", Label = "Acquire a ship", ParentId = "p2", Start = "2026-07-16", Duration = 3, Progress = 0, Resources = ["Stan"], Icon = "wx-icon-light wx-icon-light-ship" },
+                new RestApiGanttTask { Id = "m1", Label = "Set sail", ParentId = "p2", Start = "2026-07-20", Duration = 0, Progress = 0, Icon = "wx-icon-light wx-icon-light-flag" },
 
-                new RestApiGanttTask { Id = "t6", Label = "Defeat LeChuck", ParentId = null, Start = "2026-07-21", Duration = 4, Progress = 0, Resources = ["Guybrush"], Color = "#b02a37", Icon = "fas fa-skull-crossbones" },
-                new RestApiGanttTask { Id = "m2", Label = "Rescue Elaine", ParentId = null, Start = "2026-07-27", Duration = 0, Progress = 0, Icon = "fas fa-heart" }
+                new RestApiGanttTask { Id = "t6", Label = "Defeat LeChuck", ParentId = null, Start = "2026-07-21", Duration = 4, Progress = 0, Resources = ["Guybrush"], Color = "#b02a37", Icon = "wx-icon-light wx-icon-light-skull-crossbones" },
+                new RestApiGanttTask { Id = "m2", Label = "Rescue Elaine", ParentId = null, Start = "2026-07-27", Duration = 0, Progress = 0, Icon = "wx-icon-light wx-icon-light-heart" }
             ];
         }
 

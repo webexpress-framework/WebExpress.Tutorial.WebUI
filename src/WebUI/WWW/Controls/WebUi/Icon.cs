@@ -246,14 +246,6 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.AddProperty
             (
-                "Theme",
-                "Switches the icon between the default FontAwesome theme and the lightweight SVG-based light theme. Pass the desired TypeIconTheme to the icon's constructor. The light theme is only available for icons that ship a dedicated light SVG variant.",
-                "Icon = _ => new IconAddressBook(TypeIconTheme.Light)",
-                [.. GetThemeIcons()]
-            );
-
-            Stage.AddProperty
-            (
                 "BackgroundColor",
                 "Sets the background color.",
                 "BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)",
@@ -283,104 +275,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
         }
 
         /// <summary>
-        /// Retrieves all icon types and categorizes them by their supported themes.
-        /// </summary>
-        /// <returns>A list of controls representing the categorized icons.</returns>
-        private static IEnumerable<IControl> GetThemeIcons()
-        {
-            var iconType = typeof(WebExpress.WebUI.WebIcon.Icon);
-            var assembly = Assembly.GetAssembly(iconType);
-
-            var types = assembly.GetTypes()
-                .Where(t => iconType.IsAssignableFrom(t) && !t.IsInterface && !t.IsAbstract)
-                .OrderBy(t => t.Name)
-                .ToList();
-
-            var onlyDefault = new List<IIcon>();
-            var both = new List<(IIcon Default, IIcon Light)>();
-            var onlyLight = new List<IIcon>();
-
-            foreach (var t in types)
-            {
-                var hasThemeConstructor = t.GetConstructor([typeof(TypeIconTheme)]) is not null;
-                if (hasThemeConstructor)
-                {
-                    both.Add(((IIcon)Activator.CreateInstance(t, TypeIconTheme.Default), (IIcon)Activator.CreateInstance(t, TypeIconTheme.Light)));
-                }
-                else
-                {
-                    var instance = (WebExpress.WebUI.WebIcon.Icon)Activator.CreateInstance(t);
-                    if (instance.Theme == TypeIconTheme.Default)
-                    {
-                        onlyDefault.Add(instance);
-                    }
-                    else
-                    {
-                        onlyLight.Add(instance);
-                    }
-                }
-            }
-
-            var controls = new List<IControl>();
-
-            if (onlyDefault.Count != 0)
-            {
-                controls.Add(new ControlText() { Text = _ => "Default only", Format = _ => TypeFormatText.Paragraph, TextColor = _ => new PropertyColorText(TypeColorText.Info) });
-                controls.AddRange(onlyDefault.Select(x => new ControlIcon() { Icon = _ => x, TextColor = _ => new PropertyColorText(TypeColorText.Warning), Title = _ => x.GetType().Name }));
-            }
-
-            if (both.Count != 0)
-            {
-                controls.Add(new ControlText() { Text = _ => "Default and Light", Format = _ => TypeFormatText.Paragraph, TextColor = _ => new PropertyColorText(TypeColorText.Info) });
-                foreach (var b in both)
-                {
-                    controls.Add(new ControlIcon() { Icon = _ => b.Default, TextColor = _ => new PropertyColorText(TypeColorText.Warning), Title = _ => b.Default.GetType().Name });
-                    controls.Add(new ControlIcon() { Icon = _ => b.Light, TextColor = _ => new PropertyColorText(TypeColorText.Warning), Title = _ => b.Light.GetType().Name });
-                }
-            }
-
-            if (onlyLight.Count != 0)
-            {
-                controls.Add(new ControlText() { Text = _ => "Light only", Format = _ => TypeFormatText.Paragraph, TextColor = _ => new PropertyColorText(TypeColorText.Info) });
-                controls.AddRange(onlyLight.Select(x => new ControlIcon() { Icon = _ => x, TextColor = _ => new PropertyColorText(TypeColorText.Warning), Title = _ => x.GetType().Name }));
-            }
-
-            return controls;
-        }
-
-        /// <summary>
         /// Retrieves all icon types from the namespace "WebExpress.WebUI.WebIcon" and creates instances.
         /// </summary>
         /// <returns>A list of instantiated icons.</returns>
         private static IEnumerable<IIcon> GetAllIcons()
         {
-            return GetAllIcons(TypeIconTheme.Default);
-        }
-
-        /// <summary>
-        /// Retrieves all icon types from the namespace "WebExpress.WebUI.WebIcon" and creates
-        /// instances using the specified theme. For <see cref="TypeIconTheme.Light"/> only icons
-        /// that declare a constructor accepting <see cref="TypeIconTheme"/> are returned, since
-        /// those are the icons that ship a dedicated light SVG variant.
-        /// </summary>
-        /// <param name="theme">The theme to construct the icons with.</param>
-        /// <returns>A list of instantiated icons.</returns>
-        private static IEnumerable<IIcon> GetAllIcons(TypeIconTheme theme)
-        {
             var iconType = typeof(WebExpress.WebUI.WebIcon.Icon);
             var assembly = Assembly.GetAssembly(iconType);
 
-            var types = assembly.GetTypes()
-                .Where(t => iconType.IsAssignableFrom(t) && !t.IsInterface && !t.IsAbstract);
-
-            if (theme == TypeIconTheme.Default)
-            {
-                return types.Select(Activator.CreateInstance).Cast<IIcon>();
-            }
-
-            return types
-                .Where(t => t.GetConstructor([typeof(TypeIconTheme)]) is not null)
-                .Select(t => (IIcon)Activator.CreateInstance(t, theme));
+            return assembly.GetTypes()
+                .Where(t => iconType.IsAssignableFrom(t) && !t.IsInterface && !t.IsAbstract)
+                .Select(Activator.CreateInstance)
+                .Cast<IIcon>();
         }
     }
 }

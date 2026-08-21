@@ -69,7 +69,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "HeaderIcon",
                 "The `HeaderIcon` property places an `IIcon` before the label. Any `IIcon` is accepted, so both image-based icons (such as `ImageIcon`) and CSS-based glyphs (such as the bundled icons) work the same way.",
-                "HeaderIcon = _ => new IconComments(TypeIconTheme.Light)",
+                "HeaderIcon = _ => new IconComments()",
                 new ControlSection
                 (
                     "tutorialSectionIcon",
@@ -77,7 +77,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 )
                 {
                     Header = _ => "Comments",
-                    HeaderIcon = _ => new IconComments(TypeIconTheme.Light)
+                    HeaderIcon = _ => new IconComments()
                 }
             );
 
@@ -143,7 +143,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 )
                 {
                     Header = _ => "Escalation",
-                    HeaderIcon = _ => new IconTriangleExclamation(TypeIconTheme.Light),
+                    HeaderIcon = _ => new IconTriangleExclamation(),
                     Color = _ => new PropertyColorText(TypeColorText.Danger)
                 }
             );
@@ -193,7 +193,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 )
                 {
                     Header = _ => "Content could not be loaded.",
-                    HeaderIcon = _ => new IconTriangleExclamation(TypeIconTheme.Light),
+                    HeaderIcon = _ => new IconTriangleExclamation(),
                     Uppercase = _ => false,
                     Color = _ => new PropertyColorText(TypeColorText.Danger)
                 }

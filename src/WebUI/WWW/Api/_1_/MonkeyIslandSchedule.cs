@@ -169,7 +169,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     Start = Format(new DateTime(2026, 8, 12, 9, 0, 0)),
                     End = Format(new DateTime(2026, 8, 12, 9, 30, 0)),
                     Category = "crew",
-                    Icon = "fas fa-compass"
+                    Icon = "wx-icon-light wx-icon-light-compass"
                 },
                 new RestApiScheduleItem
                 {
@@ -179,7 +179,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     End = Format(new DateTime(2026, 8, 12, 12, 0, 0)),
                     Category = "training",
                     ColorCss = "bg-warning",
-                    Icon = "fas fa-hat-cowboy"
+                    Icon = "wx-icon-light wx-icon-light-hat-cowboy"
                 },
                 new RestApiScheduleItem
                 {
@@ -188,7 +188,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     Start = Format(new DateTime(2026, 8, 12, 11, 0, 0)),
                     End = Format(new DateTime(2026, 8, 12, 13, 0, 0)),
                     Category = "crew",
-                    Icon = "fas fa-beer-mug-empty"
+                    Icon = "wx-icon-light wx-icon-light-beer-mug-empty"
                 },
                 new RestApiScheduleItem
                 {
@@ -199,7 +199,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     AllDay = true,
                     Category = "voyage",
                     ColorCss = "bg-success",
-                    Icon = "fas fa-sailboat",
+                    Icon = "wx-icon-light wx-icon-light-sailboat",
                     Meta = new Dictionary<string, string> { ["ship"] = "Sea Monkey" }
                 },
                 new RestApiScheduleItem
@@ -211,7 +211,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     AllDay = true,
                     Category = "quest",
                     ColorCss = "bg-danger",
-                    Icon = "fas fa-skull-crossbones"
+                    Icon = "wx-icon-light wx-icon-light-skull-crossbones"
                 },
                 new RestApiScheduleItem
                 {
@@ -220,7 +220,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     Start = Format(new DateTime(2026, 9, 3, 14, 0, 0)),
                     End = Format(new DateTime(2026, 9, 3, 18, 0, 0)),
                     Category = "quest",
-                    Icon = "fas fa-trophy"
+                    Icon = "wx-icon-light wx-icon-light-trophy"
                 }
             ];
         }

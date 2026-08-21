@@ -42,15 +42,15 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             {
                 Title = _ => "Monkey Island Product Backlog",
                 Selectable = _ => true,
-                IconActive = _ => "fas fa-skull-crossbones",
-                IconPlanned = _ => "fas fa-hourglass-half",
-                IconBacklog = _ => "fas fa-map",
-                IconMoveToBacklog = _ => "fas fa-anchor",
-                IconMoveToSprint = _ => "fas fa-ship",
-                IconStartSprint = _ => "fas fa-play",
-                IconCompleteSprint = _ => "fas fa-flag-checkered",
-                IconEditSprint = _ => "fas fa-pen",
-                IconDeleteSprint = _ => "fas fa-bomb",
+                IconActive = _ => "wx-icon-light wx-icon-light-skull-crossbones",
+                IconPlanned = _ => "wx-icon-light wx-icon-light-hourglass-half",
+                IconBacklog = _ => "wx-icon-light wx-icon-light-map",
+                IconMoveToBacklog = _ => "wx-icon-light wx-icon-light-anchor",
+                IconMoveToSprint = _ => "wx-icon-light wx-icon-light-ship",
+                IconStartSprint = _ => "wx-icon-light wx-icon-light-play",
+                IconCompleteSprint = _ => "wx-icon-light wx-icon-light-flag-checkered",
+                IconEditSprint = _ => "wx-icon-light wx-icon-light-pen",
+                IconDeleteSprint = _ => "wx-icon-light wx-icon-light-bomb",
                 EstimationScale = _ => [1, 2, 3, 5, 8, 13, 20, 40]
             }
                 .Resource<BacklogResource>()

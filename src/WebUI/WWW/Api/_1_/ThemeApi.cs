@@ -8,7 +8,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 {
     /// <summary>
     /// Tutorial-side REST endpoint backing the theme selector on the
-    /// IconTheme demo page. Derives from <see cref="RestApiTheme"/> and
+    /// Theme demo page. Derives from <see cref="RestApiTheme"/> and
     /// plugs the persistence hooks into <see cref="ThemeStore"/>, an
     /// in-memory store keyed per client. Production code would route
     /// these calls into a real user profile / session / database instead.

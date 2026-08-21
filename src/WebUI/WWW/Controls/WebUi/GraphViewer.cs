@@ -78,7 +78,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.AddProperty(
                 "Icon",
-                "The `Icon` property defines a visual symbol (typically from a font icon set like Font Awesome) that is rendered inside the node. It enhances visual recognition and can be used to represent the semantic role or type of the node (e.g., user, server, database).",
+                "The `Icon` property defines a visual symbol from the active icon set that is rendered inside the node. It enhances visual recognition and can be used to represent the semantic role or type of the node (e.g., user, server, database).",
                 "Icon = _ => new IconDatabase()",
                 new ControlGraphViewer()
                     .Add(new ControlGraphItemNode("A")
