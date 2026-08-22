@@ -16,6 +16,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
     /// <summary>    
     /// Represents the avatar control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlAvatar>]
     [Title("Avatar")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

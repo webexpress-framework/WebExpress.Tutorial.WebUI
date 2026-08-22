@@ -17,6 +17,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// <summary>    
     /// Represents the rest wizard control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlSteps>]
     [Title("DataWizard")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

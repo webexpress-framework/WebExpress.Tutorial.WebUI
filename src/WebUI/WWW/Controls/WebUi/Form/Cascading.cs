@@ -15,6 +15,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
     /// <summary>    
     /// Represents the cascading control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconSitemap>]
     [Title("Cascading")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

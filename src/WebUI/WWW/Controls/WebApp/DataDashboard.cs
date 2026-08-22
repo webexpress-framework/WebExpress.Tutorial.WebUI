@@ -11,12 +11,14 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebHtml;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
     /// <summary>
     /// Represents the dashboard control for the tutorial.
     /// </summary>
+    [WebIcon<IconControlDashboard>]
     [Title("DataDashboard")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

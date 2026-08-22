@@ -34,6 +34,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// theme show through the same <see cref="ThemeStore"/> lookup.
     /// </para>
     /// </summary>
+    [WebIcon<IconPalette>]
     [Title("DataSelectionTheme")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

@@ -13,6 +13,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
     /// <summary>    
     /// Represents the move template of a table control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconArrowsUpDownLeftRight>]
     [Title("Move-Template")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

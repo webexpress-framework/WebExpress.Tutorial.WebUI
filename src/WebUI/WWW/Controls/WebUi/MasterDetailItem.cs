@@ -17,6 +17,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// destination a user browses to, but the endpoint the detail frame of the
     /// master-detail control fetches for the selected item.
     /// </remarks>
+    [WebIcon<IconControlMasterDetail>]
     [Title("Character")]
     public sealed class MasterDetailItem : IPage<VisualTreeWebApp>
     {

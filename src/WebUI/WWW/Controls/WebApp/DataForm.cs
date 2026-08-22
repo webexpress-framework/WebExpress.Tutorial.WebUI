@@ -14,6 +14,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// <summary>    
     /// Represents the rest form control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlForm>]
     [Title("DataForm")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

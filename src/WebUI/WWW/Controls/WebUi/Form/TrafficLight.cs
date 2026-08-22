@@ -15,6 +15,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
     /// <summary>
     /// Represents the traffic light input control for the tutorial.
     /// </summary>
+    [WebIcon<IconControlTrafficLight>]
     [Title("Traffic Light")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

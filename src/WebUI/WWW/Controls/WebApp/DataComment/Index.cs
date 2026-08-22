@@ -11,6 +11,7 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Comment
 {
@@ -22,6 +23,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Comment
     /// <see cref="DataComposer"/> page and is wired up via the
     /// <c>COMMENT_ADDED_EVENT</c>.
     /// </summary>
+    [WebIcon<IconComments>]
     [Title("DataComment")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

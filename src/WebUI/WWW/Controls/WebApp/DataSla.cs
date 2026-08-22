@@ -9,6 +9,7 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
@@ -18,6 +19,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// <see cref="MonkeyIslandSla"/> endpoint, which serves the current state
     /// (GET) and applies a transition (POST).
     /// </summary>
+    [WebIcon<IconControlSla>]
     [Title("DataSla")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

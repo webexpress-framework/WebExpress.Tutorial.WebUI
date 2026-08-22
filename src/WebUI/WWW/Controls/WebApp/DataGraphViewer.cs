@@ -9,6 +9,7 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
@@ -16,6 +17,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// Represents a Monkey Island themed REST-backed graph: the islands, ships
     /// and characters of the Caribbean and the routes between them.
     /// </summary>
+    [WebIcon<IconControlGraphViewer>]
     [Title("DataGraphViewer")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

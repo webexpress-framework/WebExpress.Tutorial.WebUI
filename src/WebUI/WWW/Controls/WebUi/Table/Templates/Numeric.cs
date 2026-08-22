@@ -13,6 +13,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
     /// <summary>    
     /// Represents the numeric template of a table control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconHashtag>]
     [Title("Numeric-Template")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

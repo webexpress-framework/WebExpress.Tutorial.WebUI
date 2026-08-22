@@ -9,6 +9,7 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
@@ -18,6 +19,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// <see cref="MonkeyIslandSearchSuggestions"/> endpoint, which answers with the crew
     /// members matching the typed term - each one linking to its own page.
     /// </summary>
+    [WebIcon<IconControlSearch>]
     [Title("DataSearch")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

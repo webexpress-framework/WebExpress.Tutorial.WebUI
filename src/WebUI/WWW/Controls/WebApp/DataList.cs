@@ -11,12 +11,14 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
     /// <summary>
     /// Represents the list control for the tutorial (REST-backed flat list).
     /// </summary>
+    [WebIcon<IconControlList>]
     [Title("DataList")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

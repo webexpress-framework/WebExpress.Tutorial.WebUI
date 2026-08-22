@@ -10,12 +10,14 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
     /// <summary>
     /// Represents the search control for the tutorial.
     /// </summary>
+    [WebIcon<IconControlSearchContent>]
     [Title("AdvancedSearch")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

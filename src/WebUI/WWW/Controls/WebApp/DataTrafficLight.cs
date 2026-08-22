@@ -11,6 +11,7 @@ using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
@@ -21,6 +22,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// status (GET) and persists a change (PUT). The crew's readiness starts
     /// green; clicking a lamp persists the new status through the service layer.
     /// </summary>
+    [WebIcon<IconControlTrafficLight>]
     [Title("DataTrafficLight")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

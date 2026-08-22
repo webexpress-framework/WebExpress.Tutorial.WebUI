@@ -9,6 +9,7 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
@@ -16,6 +17,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// Represents a Monkey Island themed Scrum team workload board, showing the
     /// crew of the active sprint and the story points assigned to each of them.
     /// </summary>
+    [WebIcon<IconUserGroup>]
     [Title("DataScrumTeam")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

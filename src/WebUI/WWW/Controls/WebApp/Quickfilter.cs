@@ -19,6 +19,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// <summary>
     /// Represents the quickfilter control for the tutorial.
     /// </summary>
+    [WebIcon<IconControlQuickfilter>]
     [Title("Quickfilter")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

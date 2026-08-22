@@ -11,12 +11,14 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebHtml;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
     /// <summary>
     /// Represents a simple kanban test board for demonstration purposes.
     /// </summary>
+    [WebIcon<IconControlKanban>]
     [Title("DataKanban")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

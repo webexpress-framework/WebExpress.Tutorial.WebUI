@@ -9,6 +9,7 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
@@ -16,6 +17,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// Represents the tutorial page that demonstrates a REST-backed sidebar with
     /// a hierarchical navigation tree and badges.
     /// </summary>
+    [WebIcon<IconControlSidebar>]
     [Title("DataSidebar")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

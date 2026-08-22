@@ -13,6 +13,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
     /// <summary>    
     /// Represents the radio button control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconCircleDot>]
     [Title("Radio")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

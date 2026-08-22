@@ -10,6 +10,7 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
@@ -17,6 +18,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// Represents a REST-backed input control that validates user input by querying an API to determine whether the
     /// entered value is unique or already in use.
     /// </summary>
+    [WebIcon<IconFingerprint>]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
     [Scope<IScopeControlWebApp>]

@@ -14,6 +14,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
     /// <summary>    
     /// Represents the tag control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlTag>]
     [Title("Tag")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

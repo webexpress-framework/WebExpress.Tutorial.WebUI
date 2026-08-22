@@ -9,12 +9,14 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
     /// <summary>
     /// Represents the workflow editor control for the tutorial.
     /// </summary>
+    [WebIcon<IconDiagramProject>]
     [Title("DataWorkflow")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

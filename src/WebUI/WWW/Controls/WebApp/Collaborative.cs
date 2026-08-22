@@ -7,12 +7,14 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
     /// <summary>
     /// Represents the collaborative control demo page for the tutorial.
     /// </summary>
+    [WebIcon<IconUsers>]
     [Title("Collaborative")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

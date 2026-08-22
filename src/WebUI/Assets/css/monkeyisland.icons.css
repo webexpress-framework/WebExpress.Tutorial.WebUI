@@ -1,0 +1,48 @@
+/*
+ * Monkey Island icon overrides.
+ *
+ * Nothing but mask rules: the classes stay the ones the framework already uses, so every
+ * control that asks for wx-icon-light-home picks up the island without knowing this file
+ * exists. Loaded either on its own (the switch in the user menu) or through the theme
+ * stylesheet next to it.
+ */
+
+.wx-icon-light-home {
+    -webkit-mask-image: url("../icons/monkeyisland/home.svg");
+    mask-image: url("../icons/monkeyisland/home.svg");
+}
+
+.wx-icon-light-user {
+    -webkit-mask-image: url("../icons/monkeyisland/user.svg");
+    mask-image: url("../icons/monkeyisland/user.svg");
+}
+
+.wx-icon-light-magnifying-glass {
+    -webkit-mask-image: url("../icons/monkeyisland/magnifying-glass.svg");
+    mask-image: url("../icons/monkeyisland/magnifying-glass.svg");
+}
+
+.wx-icon-light-gear {
+    -webkit-mask-image: url("../icons/monkeyisland/gear.svg");
+    mask-image: url("../icons/monkeyisland/gear.svg");
+}
+
+.wx-icon-light-star {
+    -webkit-mask-image: url("../icons/monkeyisland/star.svg");
+    mask-image: url("../icons/monkeyisland/star.svg");
+}
+
+.wx-icon-light-envelope {
+    -webkit-mask-image: url("../icons/monkeyisland/envelope.svg");
+    mask-image: url("../icons/monkeyisland/envelope.svg");
+}
+
+.wx-icon-light-bookmark {
+    -webkit-mask-image: url("../icons/monkeyisland/bookmark.svg");
+    mask-image: url("../icons/monkeyisland/bookmark.svg");
+}
+
+.wx-icon-light-check {
+    -webkit-mask-image: url("../icons/monkeyisland/check.svg");
+    mask-image: url("../icons/monkeyisland/check.svg");
+}

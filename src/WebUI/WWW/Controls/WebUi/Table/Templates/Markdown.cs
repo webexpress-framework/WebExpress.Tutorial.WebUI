@@ -12,6 +12,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
     /// <summary>
     /// Represents the markdown template of a table control for the tutorial.
     /// </summary>
+    [WebIcon<IconFileLines>]
     [Title("Markdown-Template")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

@@ -19,6 +19,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// Represents the tutorial page that demonstrates a REST-backed dropdown 
     /// control with search and grouping.
     /// </summary>
+    [WebIcon<IconControlDropdown>]
     [Title("DataDropdown")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

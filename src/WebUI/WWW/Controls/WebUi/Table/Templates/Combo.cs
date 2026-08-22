@@ -13,6 +13,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
     /// <summary>    
     /// Represents the combo template of a table control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlDropdown>]
     [Title("Combo-Template")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

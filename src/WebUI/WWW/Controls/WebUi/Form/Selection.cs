@@ -15,6 +15,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
     /// <summary>    
     /// Represents the selection control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlSelection>]
     [Title("Selection")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

@@ -11,12 +11,14 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebTask;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
     /// <summary>
     /// Represents the status task (dot) control demo for the tutorial.
     /// </summary>
+    [WebIcon<IconControlStat>]
     [Title("StatusTask")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

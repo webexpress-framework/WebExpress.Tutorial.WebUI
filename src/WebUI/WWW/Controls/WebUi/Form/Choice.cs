@@ -13,6 +13,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
     /// <summary>
     /// Represents the segmented choice control for the tutorial.
     /// </summary>
+    [WebIcon<IconCircleDot>]
     [Title("Choice")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

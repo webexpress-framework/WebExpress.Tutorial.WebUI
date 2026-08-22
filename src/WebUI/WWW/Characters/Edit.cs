@@ -4,6 +4,7 @@ using WebExpress.WebApp.WebControl;
 using WebExpress.WebApp.WebPage;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Characters
 {
@@ -11,6 +12,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Characters
     /// Represents the page for editing character rest settings within the 
     /// web application.
     /// </summary>
+    [WebIcon<IconPenToSquare>]
     [Title("Edit Character")]
     public sealed class Edit : IPage<VisualTreeWebApp>
     {

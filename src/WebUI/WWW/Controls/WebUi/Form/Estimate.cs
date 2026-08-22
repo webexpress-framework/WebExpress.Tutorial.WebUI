@@ -15,6 +15,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
     /// <summary>
     /// Represents the estimate input control for the tutorial.
     /// </summary>
+    [WebIcon<IconGaugeHigh>]
     [Title("Estimate")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

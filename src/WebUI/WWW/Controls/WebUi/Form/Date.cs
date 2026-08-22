@@ -16,6 +16,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
     /// <summary>    
     /// Represents the date date field for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlDate>]
     [Title("Date")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

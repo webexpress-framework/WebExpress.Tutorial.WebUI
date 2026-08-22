@@ -16,6 +16,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
     /// <summary>    
     /// Represents the date range field for the tutorial.    
     /// </summary>    
+    [WebIcon<IconCalendarWeek>]
     [Title("DateRange")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

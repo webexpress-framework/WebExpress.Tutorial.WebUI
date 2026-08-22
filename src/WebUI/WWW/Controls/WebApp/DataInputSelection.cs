@@ -10,12 +10,14 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
     /// <summary>
     /// Represents the tutorial page that demonstrates a REST-backed dropdown control with search and grouping.
     /// </summary>
+    [WebIcon<IconControlSelection>]
     [Title("DataInputSelection")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

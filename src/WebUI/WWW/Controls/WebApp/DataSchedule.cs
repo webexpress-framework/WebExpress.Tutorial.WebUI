@@ -10,6 +10,7 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
@@ -17,6 +18,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// Represents a Monkey Island themed REST-backed calendar: the appointments
     /// of Guybrush's quest, loaded per period and persisted on every move.
     /// </summary>
+    [WebIcon<IconControlSchedule>]
     [Title("DataSchedule")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

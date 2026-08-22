@@ -16,6 +16,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
     /// <summary>    
     /// Represents the move control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconArrowsUpDownLeftRight>]
     [Title("Move")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

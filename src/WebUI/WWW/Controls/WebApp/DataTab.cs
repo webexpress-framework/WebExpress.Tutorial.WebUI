@@ -19,6 +19,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// <summary>    
     /// Represents the tab control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlTab>]
     [Title("DataTab")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

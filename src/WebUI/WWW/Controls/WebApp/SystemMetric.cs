@@ -5,12 +5,14 @@ using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebControl;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
     /// <summary>
     /// Represents the system metric gauge demo for the tutorial.
     /// </summary>
+    [WebIcon<IconGaugeHigh>]
     [Title("SystemMetric")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

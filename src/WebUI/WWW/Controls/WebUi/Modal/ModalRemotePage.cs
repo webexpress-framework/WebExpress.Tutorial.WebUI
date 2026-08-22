@@ -14,6 +14,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
     /// <summary>    
     /// Represents the modal remote page control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlModal>]
     [Title("ModalRemotePage")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

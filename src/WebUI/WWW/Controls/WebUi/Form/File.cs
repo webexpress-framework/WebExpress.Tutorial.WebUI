@@ -7,12 +7,14 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
 {
     /// <summary>    
     /// Represents the file control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconFile>]
     [Title("File")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

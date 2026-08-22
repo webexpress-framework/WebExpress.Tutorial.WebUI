@@ -6,12 +6,14 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
     /// <summary>
     /// Represents the message queue control for the tutorial.
     /// </summary>
+    [WebIcon<IconEnvelope>]
     [Title("Message Queue Status")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

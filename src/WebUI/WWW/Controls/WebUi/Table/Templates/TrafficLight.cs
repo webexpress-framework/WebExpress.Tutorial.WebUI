@@ -13,6 +13,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
     /// <summary>
     /// Represents the traffic light template of a table control for the tutorial.
     /// </summary>
+    [WebIcon<IconControlTrafficLight>]
     [Title("Traffic Light-Template")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

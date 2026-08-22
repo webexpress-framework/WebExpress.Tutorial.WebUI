@@ -6,6 +6,7 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
@@ -14,6 +15,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// <see cref="ControlChat"/> hosts on the same page so the chat round
     /// trip can be exercised in a single browser window.
     /// </summary>
+    [WebIcon<IconComments>]
     [Title("Chat")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

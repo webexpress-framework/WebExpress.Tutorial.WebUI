@@ -9,6 +9,7 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
@@ -17,6 +18,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// completed story points of the recent sprints with the committed points as
     /// a backdrop and the rolling average.
     /// </summary>
+    [WebIcon<IconChartColumn>]
     [Title("DataScrumVelocity")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

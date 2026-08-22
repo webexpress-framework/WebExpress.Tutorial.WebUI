@@ -9,12 +9,14 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Table.Templates
 {
     /// <summary>
     /// Represents the status template of the REST table control for the tutorial.
     /// </summary>
+    [WebIcon<IconControlStat>]
     [Title("Status-Template")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

@@ -13,6 +13,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
     /// <summary>    
     /// Represents the text template of a table control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlText>]
     [Title("Text-Template")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

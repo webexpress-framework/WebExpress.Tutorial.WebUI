@@ -8,6 +8,7 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
@@ -15,6 +16,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// Represents a Monkey Island themed interactive gantt chart: the project
     /// plan for Guybrush's quest to become a mighty pirate and rescue Elaine.
     /// </summary>
+    [WebIcon<IconChartGantt>]
     [Title("DataGantt")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

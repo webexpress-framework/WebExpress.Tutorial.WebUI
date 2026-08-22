@@ -8,6 +8,7 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
@@ -19,6 +20,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// log starts tagged with "pirate" and "grog"; typing offers
     /// autocomplete suggestions from the Monkey Island vocabulary.
     /// </summary>
+    [WebIcon<IconControlTag>]
     [Title("DataTag")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

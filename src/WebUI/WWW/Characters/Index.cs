@@ -2,12 +2,14 @@
 using WebExpress.WebApp.WebPage;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Characters
 {
     /// <summary>
     /// Represents the index page of a character.
     /// </summary>
+    [WebIcon<IconUsers>]
     [SegmentGuid<CharacterIdParameter>()]
     public sealed class Index : IPage<VisualTreeWebApp>
     {

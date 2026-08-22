@@ -13,6 +13,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
     /// <summary>    
     /// Represents the text control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlText>]
     [Title("Text")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

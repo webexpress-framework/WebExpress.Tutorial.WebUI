@@ -15,6 +15,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
     /// <summary>    
     /// Represents the rating control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconStar>]
     [Title("Rating")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

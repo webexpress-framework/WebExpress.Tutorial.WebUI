@@ -15,6 +15,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
     /// <summary>
     /// Represents the REST tag template of a table control for the tutorial.
     /// </summary>
+    [WebIcon<IconControlTag>]
     [Title("RestTag-Template")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

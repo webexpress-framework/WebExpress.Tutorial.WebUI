@@ -13,6 +13,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
     /// <summary>    
     /// Represents the color control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlColor>]
     [Title("Color")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

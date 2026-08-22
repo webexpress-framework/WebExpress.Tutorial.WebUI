@@ -8,12 +8,14 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
     /// <summary>    
     /// Represents the avatar dropdown control for the tutorial.
     /// </summary>    
+    [WebIcon<IconControlAvatarDropdown>]
     [Title("DataAvatarDropdown")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

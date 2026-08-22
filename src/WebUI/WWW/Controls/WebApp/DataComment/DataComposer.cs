@@ -9,6 +9,7 @@ using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Comment
 {
@@ -21,6 +22,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Comment
     /// list above updates immediately on submit without an extra
     /// roundtrip.
     /// </summary>
+    [WebIcon<IconPenToSquare>]
     [Title("DataCommentComposer")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

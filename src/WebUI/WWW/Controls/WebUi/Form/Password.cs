@@ -13,6 +13,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
     /// <summary>    
     /// Represents the password control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconKey>]
     [Title("Password")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

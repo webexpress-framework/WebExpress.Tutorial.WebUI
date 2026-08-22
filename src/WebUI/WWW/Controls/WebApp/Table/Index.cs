@@ -10,12 +10,14 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Table
 {
     /// <summary>
     /// Represents the table control for the tutorial.
     /// </summary>
+    [WebIcon<IconControlTable>]
     [Title("DataTable")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

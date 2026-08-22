@@ -17,6 +17,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
     /// <summary>    
     /// Represents the rest selection template of a table control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlSelection>]
     [Title("DataSelection-Template")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

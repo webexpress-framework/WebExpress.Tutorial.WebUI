@@ -13,6 +13,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
     /// <summary>    
     /// Represents the rating template of a table control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconStar>]
     [Title("Rating-Template")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

@@ -5,6 +5,7 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
 {
@@ -12,6 +13,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
     /// Represents the overview page of built-in templates 
     /// available as cell renderers. Custom renderers can also be defined.
     /// </summary>
+    [WebIcon<IconControlTable>]
     [Title("Templates")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

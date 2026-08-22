@@ -15,6 +15,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
     /// <summary>
     /// Represents the dual-handle slider control for the tutorial.
     /// </summary>
+    [WebIcon<IconSliders>]
     [Title("Slider")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

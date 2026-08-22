@@ -10,6 +10,7 @@ using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebUri;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
@@ -22,6 +23,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// through the existing MessageQueue WebSocket so the popup appears on
     /// every connected client without any HTTP roundtrip on the receiver.
     /// </summary>
+    [WebIcon<IconBell>]
     [Title("Popup Notification")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

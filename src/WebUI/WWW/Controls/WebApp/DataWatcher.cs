@@ -8,6 +8,7 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
@@ -22,6 +23,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// contains Stan, the Voodoo Lady, LeChuck, Wally, Herman Toothrot
     /// and Murray.
     /// </summary>
+    [WebIcon<IconEye>]
     [Title("DataWatcher")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

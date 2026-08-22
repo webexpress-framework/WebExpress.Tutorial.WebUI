@@ -16,6 +16,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
     /// <summary>    
     /// Represents the calendar selection field for the tutorial.    
     /// </summary>    
+    [WebIcon<IconCalendar>]
     [Title("Calendar")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

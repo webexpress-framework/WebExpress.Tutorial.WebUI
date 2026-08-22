@@ -12,12 +12,14 @@ using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebCore.WebUri;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
     /// <summary>
     /// Represents the REST-backed form editor control demo for the tutorial.
     /// </summary>
+    [WebIcon<IconPenToSquare>]
     [Title("DataFormEditor")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

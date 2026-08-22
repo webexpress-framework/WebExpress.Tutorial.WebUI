@@ -15,6 +15,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
     /// <summary>    
     /// Represents the date template of a table control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlDate>]
     [Title("Date-Template")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

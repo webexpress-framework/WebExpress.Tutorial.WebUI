@@ -8,12 +8,14 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebTask;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
     /// <summary>
     /// Represents the progress task control demo for the tutorial.
     /// </summary>
+    [WebIcon<IconControlProgress>]
     [Title("ProgressTask")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

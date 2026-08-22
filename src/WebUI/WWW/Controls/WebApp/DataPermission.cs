@@ -25,6 +25,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// IT Support the edit policy, the Service Desk the view policy and the
     /// Incident Managers the admin policy.
     /// </summary>
+    [WebIcon<IconShieldHalved>]
     [Title("DataPermission")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

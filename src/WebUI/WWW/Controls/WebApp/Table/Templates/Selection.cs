@@ -18,6 +18,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Table.Templates
     /// <summary>    
     /// Represents the selection template of a table control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlSelection>]
     [Title("Selection-Template")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

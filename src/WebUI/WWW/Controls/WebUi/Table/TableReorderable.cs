@@ -15,6 +15,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table
     /// <summary>    
     /// Represents the table control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlTable>]
     [Title("Reorderable Table")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

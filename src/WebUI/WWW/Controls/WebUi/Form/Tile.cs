@@ -15,6 +15,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
     /// <summary>    
     /// Represents the tile picker control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlTile>]
     [Title("Tile")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

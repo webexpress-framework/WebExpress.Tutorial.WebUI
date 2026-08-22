@@ -13,6 +13,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Table.Templates
     /// <summary>    
     /// Represents the editor template of a table control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconControlSmartEdit>]
     [Title("Editor-Template")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

@@ -13,6 +13,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
     /// <summary>    
     /// Represents the check control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconSquareCheck>]
     [Title("Check")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

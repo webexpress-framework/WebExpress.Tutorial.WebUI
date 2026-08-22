@@ -4,6 +4,7 @@ using WebExpress.WebApp.WebControl;
 using WebExpress.WebApp.WebPage;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Characters
 {
@@ -11,6 +12,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Characters
     /// Represents the page for delete character rest settings within the 
     /// web application.
     /// </summary>
+    [WebIcon<IconTrash>]
     [Title("Delete Character")]
     public sealed class Delete : IPage<VisualTreeWebApp>
     {

@@ -9,6 +9,7 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
@@ -16,6 +17,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// Represents a REST-backed checkbox control that reads and persists its
     /// state via a REST API instead of a local cookie.
     /// </summary>
+    [WebIcon<IconSquareCheck>]
     [Title("DataInputCheck")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

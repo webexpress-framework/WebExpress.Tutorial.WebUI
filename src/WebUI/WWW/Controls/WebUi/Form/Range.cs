@@ -7,12 +7,14 @@ using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebNotification;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
 {
     /// <summary>    
     /// Represents the range control for the tutorial.    
     /// </summary>    
+    [WebIcon<IconSliders>]
     [Title("Range")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]

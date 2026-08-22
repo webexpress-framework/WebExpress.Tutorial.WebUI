@@ -1,0 +1,10 @@
+/*
+ * Monkey Island theme stylesheet.
+ *
+ * A theme stylesheet replaces the framework default rather than adding to it, so the
+ * framework sheet is imported first and the icon overrides follow. Both imports are
+ * relative on purpose - they resolve under whatever route the application is mounted at.
+ */
+
+@import url("../../webexpress.webapp/assets/css/webexpress.webapp.theme.css");
+@import url("monkeyisland.icons.css");
