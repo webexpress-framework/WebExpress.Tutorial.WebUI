@@ -12,6 +12,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlPanelCard` | Bordered card surface with optional header and footer. |
 | `ControlPanelFlex` | Flexbox container for one-dimensional layouts. |
 | `ControlPanelGrid` | Responsive grid container for column-based layouts. |
+| `ControlGroup` | Items laid out as fields of one surface, divided by hairlines. For things read as one statement about one subject - a row of metrics, a set of entry paths, the columns of a help area - where separate framed boxes would read as separate claims. Takes any control as a field, divides the width evenly, and keeps the dividers correct when the row wraps. |
 | `ControlPanelSplit` | Two resizable panes separated by a draggable splitter. |
 | `ControlMasterDetail` | List on the left, detail loaded on demand on the right, with a splitter between them and a sequential single-column mode on narrow screens. |
 | `ControlPanelCenter` | Centers its content horizontally and vertically. |
