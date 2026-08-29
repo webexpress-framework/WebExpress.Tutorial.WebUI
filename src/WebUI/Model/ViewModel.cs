@@ -32,6 +32,13 @@ namespace WebExpress.Tutorial.WebUI.Model
         public static List<Game> MonkeyIslandGames { get; } = [.. GetMonkeyIslandGames()];
 
         /// <summary>
+        /// Gets the documents of the Monkey Island archive, used by the file view sample.
+        /// The list is mutable so the sample can show an edited description and an
+        /// uploaded file coming back from the server.
+        /// </summary>
+        public static List<Document> MonkeyIslandDocuments { get; } = [.. GetMonkeyIslandDocuments()];
+
+        /// <summary>
         /// Gets a read-only list of quick filter games related to the 
         /// Monkey Island series.
         /// </summary>
@@ -1273,6 +1280,61 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Text = "LeChuck's Ghost Ship",
                 Description = "The dread pirate's vessel anchored in hidden waters.",
                 Island = "Monkey Island"
+            };
+        }
+
+        /// <summary>
+        /// Retrieves the documents of the Monkey Island archive.
+        /// </summary>
+        /// <returns>A collection containing the documents.</returns>
+        private static IEnumerable<Document> GetMonkeyIslandDocuments()
+        {
+            yield return new Document
+            {
+                Id = Guid.Parse("2B1D8CE9-3B67-4D0F-8E0F-2E4F2A6C4C51"),
+                Name = "TreasureMap.pdf",
+                Size = 2172,
+                Date = new DateTime(2026, 3, 14),
+                Description = "The map to the treasure of Mêlée Island"
+            };
+
+            yield return new Document
+            {
+                Id = Guid.Parse("5F1F0C2A-0B4A-4A20-9E86-2E3B37B4D0A2"),
+                Name = "GrogRecipe.txt",
+                Size = 512,
+                Date = new DateTime(2026, 4, 2),
+                Description = "Kerosene, propylene glycol, artificial sweeteners"
+            };
+
+            yield return new Document
+            {
+                Id = Guid.Parse("9E1B6D75-4F9E-4E1A-9A5C-7C4E7F2A9D3B"),
+                Name = "CrewPhoto.jpg",
+                Size = 524288,
+                Date = new DateTime(2026, 5, 21),
+                Description = "The crew of the Sea Monkey"
+            };
+
+            yield return new Document
+            {
+                Id = Guid.Parse("A7D4C0F1-2C5E-4C3D-8B21-1F6A9C0E5D74"),
+                Name = "InsultCatalogue.xlsx",
+                Size = 34816,
+                Date = new DateTime(2026, 6, 8),
+                Description = null
+            };
+
+            // an earlier version of the map, so the sample shows the folded entry
+            // a file that was uploaded more than once produces
+            yield return new Document
+            {
+                Id = Guid.Parse("C0A5E7B3-8D14-4F6B-93A2-6B0D5E1C8F47"),
+                Name = "TreasureMap.pdf",
+                Version = 2,
+                Size = 2410,
+                Date = new DateTime(2026, 7, 30),
+                Description = "The map to the treasure of Mêlée Island, with the swamp corrected"
             };
         }
 

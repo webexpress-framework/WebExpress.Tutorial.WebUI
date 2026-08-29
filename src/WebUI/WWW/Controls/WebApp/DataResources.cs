@@ -13,6 +13,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// <summary>The tile panel resource.</summary>
     public sealed class TilesResource : IDataResource { }
 
+    /// <summary>The file view resource.</summary>
+    public sealed class FilesResource : IDataResource { }
+
     /// <summary>The kanban board resource.</summary>
     public sealed class BoardResource : IDataResource { }
 

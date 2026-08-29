@@ -19,7 +19,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlPanelOverflow` | Scrollable region that clips overflowing content. |
 | `ControlFrame` | Bordered frame with an optional title around its content. |
 | `ControlResponsive` | Shows or hides content based on the viewport breakpoint. |
-| `ControlView` | Card-like view with a header, body and footer. |
+| `ControlView` | Several views of one subject behind one switch, with a shared header and footer around them. The switch is the framework-wide one; the layout decides whether the active view is named beside it. Comes back in the view the user last chose. |
 | `ControlAccordion` | Stack of collapsible sections, one open at a time by default. |
 | `ControlSection` | Flat, collapsible section: a quiet upper-case label over a body with a vertical guide line, without the frame of a card. Carries an accent color and a badge, and lays out stacked, beside its label or on a rule. For a page that shows one subject from many angles. |
 | `ControlOffcanvas` | Drawer panel that slides in from an edge of the viewport. |
@@ -77,7 +77,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlSelection` | Multi-item selection list. |
 | `ControlColor` | Color picker. |
 | `ControlUpload` | File upload with drag-and-drop. |
-| `ControlSmartEdit` | Rich-text (WYSIWYG) editor. |
+| `ControlSmartEdit` | Inline edit of a single value in place, without leaving the view: a pencil on hover opens the configured editor over the value and saves it through a form action or through the host. An unset value reads as the editor's placeholder, so it stays reachable. |
 | `ControlLogin` | Ready-made sign-in form. |
 
 ## Data & collections
@@ -86,7 +86,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | --- | --- |
 | `ControlTable` | Sortable, templated data table. |
 | `ControlList` | Vertical list of items. |
-| `ControlFileList` | List of files with icons and metadata. |
+| `ControlFileList` | List of files with icons and metadata. Files that share a name are folded into one row that unfolds to its earlier versions, and a host may take over the description column to offer an inline editor there. |
 | `ControlTile` | Grid of tile cards, each laid out as kicker, title, body and footer. |
 | `ControlKanban` | Drag-and-drop kanban board. |
 | `ControlDashboard` | Configurable widget dashboard. |
@@ -147,6 +147,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlDataTable` | Table bound to a REST endpoint, with server paging. |
 | `ControlDataTab` | Tabs whose content is loaded on demand. |
 | `ControlDataTile` | Tile grid bound to a REST endpoint. |
+| `ControlDataFileView` | One set of files in several interchangeable presentations: the tabular file list and a tile board are built in, further ones are added by the page, and all of them render the same files, so switching never re-queries. Descriptions are edited in place, an upload control bound to the view makes a finished upload show up without a reload, and a name that is already there becomes a new version of that file rather than a second entry. |
 | `ControlDataKanban` | Kanban board persisted through a REST service. |
 | `ControlDataGantt` | Interactive gantt chart with drag-and-drop scheduling and dependency links, persisted via REST. |
 | `ControlDataDashboard` | Dashboard of widget columns, loaded and saved via REST: add / rename / resize / recolor / reorder / delete columns and add / configure / delete widgets through "…" menus, with the addable widget types supplied by the server. |
