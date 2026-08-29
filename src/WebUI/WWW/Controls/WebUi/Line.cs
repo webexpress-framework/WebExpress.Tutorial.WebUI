@@ -99,6 +99,39 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Color = _ => new PropertyColorLine("gold")
                 }
             );
+
+            Stage.AddProperty
+            (
+                "LineStyle",
+                "Sets how the line is drawn. A dashed or dotted rule separates more quietly than a solid one.",
+                "LineStyle = _ => TypeStyleLine.Dashed",
+                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlLine()
+                {
+                    LineStyle = _ => TypeStyleLine.Default
+                },
+                new ControlText() { Text = _ => "Solid", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlLine()
+                {
+                    LineStyle = _ => TypeStyleLine.Solid
+                },
+                new ControlText() { Text = _ => "Dashed", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlLine()
+                {
+                    LineStyle = _ => TypeStyleLine.Dashed
+                },
+                new ControlText() { Text = _ => "Dotted", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlLine()
+                {
+                    LineStyle = _ => TypeStyleLine.Dotted
+                },
+                new ControlText() { Text = _ => "Dashed and coloured", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlLine()
+                {
+                    Color = _ => new PropertyColorLine(TypeColorLine.Primary),
+                    LineStyle = _ => TypeStyleLine.Dashed
+                }
+            );
         }
     }
 }

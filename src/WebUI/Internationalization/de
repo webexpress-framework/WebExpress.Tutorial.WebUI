@@ -14,7 +14,7 @@ theme.darkmode.description=Theme mit dunklem Farbschema.
 theme.lightmode.name=Helles Theme
 theme.lightmode.description=Theme mit hellem Farbschema.
 theme.monkeyisland.name=Monkey Island
-theme.monkeyisland.description=Theme, das acht Alltags-Icons durch Piratenmotive ersetzt — nur über Maskenregeln, ohne Änderung an einem Steuerelement.
+theme.monkeyisland.description=Theme, das acht Alltags-Icons durch Piratenmotive ersetzt (nur über Maskenregeln, ohne Änderung an einem Steuerelement).
 iconset.monkeyisland.label=Monkey-Island-Icons
 iconset.monkeyisland.tooltip=Ersetzt acht Alltags-Icons durch Piratenmotive.
 

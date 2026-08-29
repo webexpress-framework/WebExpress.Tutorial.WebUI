@@ -14,7 +14,7 @@ theme.darkmode.description=Theme using the dark colour scheme.
 theme.lightmode.name=Light theme
 theme.lightmode.description=Theme using the light colour scheme.
 theme.monkeyisland.name=Monkey Island
-theme.monkeyisland.description=A theme that swaps eight everyday icons for pirate motifs — through mask rules alone, without touching a single control.
+theme.monkeyisland.description=A theme that swaps eight everyday icons for pirate motifs (through mask rules alone, without touching a single control).
 iconset.monkeyisland.label=Monkey Island icons
 iconset.monkeyisland.tooltip=Swaps eight everyday icons for pirate motifs.
 

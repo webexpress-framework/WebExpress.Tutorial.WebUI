@@ -1,4 +1,4 @@
-namespace WebExpress.Tutorial.WebUI.Model
+﻿namespace WebExpress.Tutorial.WebUI.Model
 {
     /// <summary>
     /// Represents various events that can occur in the WebUI.
@@ -299,7 +299,37 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// <summary>
         /// Event triggered when a periodic service level agreement starts its next cycle.
         /// </summary>
-        SLA_CYCLE_EVENT
+        SLA_CYCLE_EVENT,
+
+        /// <summary>
+        /// Event triggered when a relation was established.
+        /// </summary>
+        RELATION_ADDED_EVENT,
+
+        /// <summary>
+        /// Event triggered when the state or the note of a relation changed.
+        /// </summary>
+        RELATION_UPDATED_EVENT,
+
+        /// <summary>
+        /// Event triggered when a relation was removed.
+        /// </summary>
+        RELATION_REMOVED_EVENT,
+
+        /// <summary>
+        /// Event triggered when a relation type was defined or changed.
+        /// </summary>
+        RELATION_TYPE_SAVED_EVENT,
+
+        /// <summary>
+        /// Event triggered when a relation type was removed.
+        /// </summary>
+        RELATION_TYPE_REMOVED_EVENT,
+
+        /// <summary>
+        /// Event triggered when the relation types were rearranged.
+        /// </summary>
+        RELATION_TYPE_REORDERED_EVENT
     }
 
     /// <summary>
@@ -376,6 +406,12 @@ namespace WebExpress.Tutorial.WebUI.Model
                 Event.SLA_STATUS_CHANGE_EVENT => "webexpress.webui.sla.status.change",
                 Event.SLA_ACTION_EVENT => "webexpress.webui.sla.action",
                 Event.SLA_CYCLE_EVENT => "webexpress.webui.sla.cycle",
+                Event.RELATION_ADDED_EVENT => "webexpress.webapp.relation.added",
+                Event.RELATION_UPDATED_EVENT => "webexpress.webapp.relation.updated",
+                Event.RELATION_REMOVED_EVENT => "webexpress.webapp.relation.removed",
+                Event.RELATION_TYPE_SAVED_EVENT => "webexpress.webapp.relation.type.saved",
+                Event.RELATION_TYPE_REMOVED_EVENT => "webexpress.webapp.relation.type.removed",
+                Event.RELATION_TYPE_REORDERED_EVENT => "webexpress.webapp.relation.type.reordered",
                 _ => ""
             };
         }

@@ -168,6 +168,8 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlDataComment` | Comment thread loaded from a REST endpoint. |
 | `ControlDataWatcher` | Avatar group of an object's watchers, with live add/remove. |
 | `ControlDataPermission` | Group-to-policy assignments of a protected resource (identity model) as a table of groups with inline editable policy chips, an add row, paging and revoke. |
+| `ControlDataRelationView` | The semantic relations of one object — *blocks*, *causes*, *references*, *duplicate of*, … — grouped by what the relation says and rendered as a list or as a graph, plus web links to addresses outside the application. Both categories share one generic entity. The add dialog lists the registered link systems, so a system or a relation a plugin contributes appears without a change to the page. |
+| `ControlDataRelationEditor` | Administers the relation types of a class: both labels of the relation, the classes it accepts, its cardinality, its effect on the workflow, its usage and whether it may still be used, with an editor that previews the relation from either end and drag-and-drop ordering. |
 | `ControlDataScrumBacklog` | Scrum backlog with sprints and drag-and-drop ranking. |
 | `ControlDataScrumSprint` | Active sprint overview with a burndown chart. |
 | `ControlDataScrumTeam` | Sprint team as an avatar group with a story-point modal. |
