@@ -29,6 +29,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | Control | Description |
 | --- | --- |
 | `ControlText` | Text with formatting, including inline Markdown. |
+| `ControlContent` | Reading view of text written with the editor. The editor stores its working surface - add-on frames with their headers and handles, framed tables with column resizers, the guard paragraphs around non-editable blocks - so one stored value serves both the author and the reader: this control strips the editing scaffolding and renders the document. Display only, and the read side of `ControlSmartEdit` and of the editor table template. |
 | `ControlHtml` | Renders raw, trusted HTML. |
 | `ControlCode` | Syntax-highlighted source code block. |
 | `ControlLine` | Horizontal divider line. |
@@ -77,7 +78,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlSelection` | Multi-item selection list. |
 | `ControlColor` | Color picker. |
 | `ControlUpload` | File upload with drag-and-drop. |
-| `ControlSmartEdit` | Inline edit of a single value in place, without leaving the view: a pencil on hover opens the configured editor over the value and saves it through a form action or through the host. An unset value reads as the editor's placeholder, so it stays reachable. |
+| `ControlSmartEdit` | Inline edit of a single value in place, without leaving the view: a pen on hover opens the configured editor over the value and saves it through a form action or through the host. An unset value reads as the editor's placeholder, so it stays reachable. With a WYSIWYG editor the read view is a `ControlContent`, so the value reads as a document rather than as editor markup. |
 | `ControlLogin` | Ready-made sign-in form. |
 
 ## Data & collections
