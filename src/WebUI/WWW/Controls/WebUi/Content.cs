@@ -23,7 +23,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
         /// </summary>
         public Content()
         {
-            Stage.Description = @"The `Content` control is the reading view of text that was written with the editor. The editor does not store a document - it stores its whole working surface: an add-on is kept inside the frame that names, moves and configures it, a table is kept framed and with the resize handles in its header cells, and every block that must not be typed into is fenced by the empty paragraphs the caret needs to get past it. Published as it stands, that value shows the reader the scaffolding instead of the text. The `Content` control removes the scaffolding and leaves the document, so a single stored value serves both the author and the reader. It is display only and never contributes a value to a form: it is the read side of `ControlSmartEdit` and of the editor table template, which build the same view on the client whenever their editor is not active.";
+            Stage.Description = @"The `Content` control is the reading view of stored text, in either of the two formats a value is written in. As `RichText` it is what the editor stores - and the editor does not store a document, it stores its whole working surface: an add-on is kept inside the frame that names, moves and configures it, a table is kept framed and with the resize handles in its header cells, and every block that must not be typed into is fenced by the empty paragraphs the caret needs to get past it. Published as it stands, that value shows the reader the scaffolding instead of the text; the control removes the scaffolding and leaves the document, so a single stored value serves both the author and the reader. As `Markdown` it is a value kept as plain text - a description field, an imported document, a README - which is parsed on the server by the same parser that backs `ControlText`, so both controls render the same document from the same source. The control is display only and never contributes a value to a form: it is the read side of `ControlSmartEdit` and of the editor table template, which build the same view on the client whenever their editor is not active.";
 
             Stage.Controls = [
                 new ControlContent()
@@ -61,6 +61,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
                 new ControlText() { Text = _ => "The same value as the editor stores it", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlCode() { Language = _ => TypeLanguage.Xml, Code = _ => CreateAddOn() }
+            );
+
+            Stage.AddProperty
+            (
+                "Format",
+                "The `Format` property says what the reader is shown of the value. Both formats start from the **same** stored value - the working surface of the editor - and differ only in the view. `RichText` shows the document: the scaffolding is removed on the client and what is left is rendered. `Markdown` shows the source of that same document: the scaffolding is removed on the server, the rest is written as Markdown and presented the way any other source is. That is the view for handing a value on in a portable form - into a README, an export, a ticket.",
+                "Format = _ => TypeFormatContent.Markdown",
+                new ControlText() { Text = _ => "RichText - the document", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlContent() { Content = _ => CreateEditorValue(), Format = _ => TypeFormatContent.RichText },
+
+                new ControlText() { Text = _ => "Markdown - the same value as source", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlContent() { Content = _ => CreateEditorValue(), Format = _ => TypeFormatContent.Markdown }
             );
 
             Stage.AddProperty
@@ -153,7 +165,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 + "</tr></thead>"
                 + "<tbody>"
                 + "<tr><td>2.0.0</td><td>The reading view of the editor arrives.</td></tr>"
-                + "<tr><td>1.9.0</td><td>The editor learns add-ons.</td></tr>"
+                + "<tr><td>1.9.0</td><td>The editor learns extensions.</td></tr>"
                 + "</tbody></table>"
                 + "</div></div>"
                 + "<p><br></p>";
