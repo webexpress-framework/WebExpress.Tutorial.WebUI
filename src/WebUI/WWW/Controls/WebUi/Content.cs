@@ -66,13 +66,16 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.AddProperty
             (
                 "Format",
-                "The `Format` property says what the reader is shown of the value. Both formats start from the **same** stored value - the working surface of the editor - and differ only in the view. `RichText` shows the document: the scaffolding is removed on the client and what is left is rendered. `Markdown` shows the source of that same document: the scaffolding is removed on the server, the rest is written as Markdown and presented the way any other source is. That is the view for handing a value on in a portable form - into a README, an export, a ticket.",
+                "The `Format` property says how the stored value is written. `RichText` is what the editor stores - markup interleaved with the scaffolding that makes it editable, which is stripped on the client. `Markdown` is for a value that is kept as plain text: a description field, an imported document, a README. It is parsed on the server by the same parser that backs `ControlText`, so both controls render the same document from the same source and there is no second, smaller implementation on the client.\n\nBoth examples below show the **same** document. The first is the value as the editor stores it. The second is that value brought into markdown with `EditorContent.ConvertToMarkdown` and rendered from there - which is how a value authored in the editor can be kept, exported or imported as plain text.",
                 "Format = _ => TypeFormatContent.Markdown",
-                new ControlText() { Text = _ => "RichText - the document", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlText() { Text = _ => "RichText - the value as the editor stores it", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlContent() { Content = _ => CreateEditorValue(), Format = _ => TypeFormatContent.RichText },
 
-                new ControlText() { Text = _ => "Markdown - the same value as source", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-                new ControlContent() { Content = _ => CreateEditorValue(), Format = _ => TypeFormatContent.Markdown }
+                new ControlText() { Text = _ => "Markdown - the same document, stored as plain text", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlContent() { Content = _ => CreateMarkdown(), Format = _ => TypeFormatContent.Markdown },
+
+                new ControlText() { Text = _ => "The markdown that is rendered", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlCode() { Language = _ => TypeLanguage.Markdown, Code = _ => CreateMarkdown() }
             );
 
             Stage.AddProperty
@@ -96,6 +99,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText() { Text = _ => "true", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlContent() { Content = _ => CreateInstruction(), Instruction = _ => true }
             );
+        }
+
+        /// <summary>
+        /// Brings the stored editor value into markdown, which is what the server side reader
+        /// is for: it removes the editing scaffolding - the add-on frames with their labels
+        /// and drag handles, the instruction text, the guard paragraphs - and writes the
+        /// document that is left as markdown.
+        /// </summary>
+        /// <returns>The markdown source.</returns>
+        private static string CreateMarkdown()
+        {
+            return EditorContent.ConvertToMarkdown(CreateEditorValue());
         }
 
         /// <summary>
