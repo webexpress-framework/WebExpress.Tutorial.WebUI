@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using WebExpress.Tutorial.WebUI.WebControl;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
@@ -185,7 +186,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                     Text = _ => ""Thank you!"", 
                     BackgroundColor = _ => new PropertyColorBackgroundAlert(TypeColorBackground.Success) 
                 }",
-                new ControlForm("conformationform", items: [.. _exampleFormItems])
+                new ControlFormConformation("conformationform", [.. _exampleFormItems])
                 {
                     Border = _ => new PropertyBorder(true),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two),

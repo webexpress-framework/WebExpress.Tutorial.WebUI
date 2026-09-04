@@ -30,7 +30,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
         {
             Stage.AddEvent(Event.MODAL_SHOW_EVENT, Event.MODAL_HIDE_EVENT);
 
-            Stage.Description = @"The `ModalRemoteForm` is a specialized modal dialog that allows a form to be dynamically loaded from an external source and displayed within the modal. This approach enables seamless interaction with remote services or pages without requiring the user to navigate away from the current view. Instead of embedding the form directly into the main application, it is retrieved at runtime and integrated into the modal, providing flexibility and improved user experience.";
+            Stage.Description = @"The `ModalRemoteForm` is a specialized modal dialog that allows a form to be dynamically loaded from an external source and displayed within the modal. This approach enables seamless interaction with remote services or pages without requiring the user to navigate away from the current view. Instead of embedding the form directly into the main application, it is retrieved at runtime and integrated into the modal, providing flexibility and improved user experience.
+
+The controller rebuilds the served form into the dialog: its submit and reset buttons move onto the footer bar, its hidden metadata islands stay direct children of the form so the injected form still hydrates, and its `<footer>` - the form footer sections - is lifted onto that same bar, to the left of the buttons. A form therefore reads the same whether it is rendered as a page or opened here. The confirmation form loaded below carries such a footer.";
 
             Stage.Controls =
             [

@@ -154,6 +154,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlDataDashboard` | Dashboard of widget columns, loaded and saved via REST: add / rename / resize / recolor / reorder / delete columns and add / configure / delete widgets through "…" menus, with the addable widget types supplied by the server. |
 | `ControlDataForm` | Form that loads and submits against a REST endpoint. |
 | `ControlDataFormEditor` | Visual editor for building form definitions. |
+| `ModalDataEditor` | Fullscreen dialog for writing one document — a title on the dialog's own title bar and a rich-text body filling its content. It separates the two things a single save button normally has to pretend are one: every change is written to a draft endpoint within a second of the typing stopping, and the submit publishes through the record endpoint, which applies the text and ends the draft in its own transaction. The footer bar carries the save state, who else is in the document, and an overflow menu holding the discard. Without a draft endpoint — or with `Draft` turned off — it is an ordinary edit dialog with save and cancel. |
 | `ControlDataWizard` | Multi-step wizard backed by a REST service: a step indicator that reads back the answers, per-step validation, and steps that the server renders on demand or skips. |
 | `ControlDataWorkflow` | Visual workflow/state-machine editor. |
 | `ControlDataDropdown` | Dropdown whose items are queried from a service. |

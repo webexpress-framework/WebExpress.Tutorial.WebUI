@@ -127,6 +127,26 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                new ControlText() { Text = _ => "Wysiwyg", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                new ControlForm(null, new ControlFormItemInputText() { Format = _ => TypeEditTextFormat.Wysiwyg })
             );
+
+            Stage.AddProperty
+            (
+               "Fill",
+               "The `Fill` property turns the rich-text surface from one field among many into the working surface of the form: it takes the height its dialog or page has left over and drops its resize handle. It is meant for the form whose text *is* the work - an article, a page, a post - where everything that is not the writing area is overhead. It applies to the `Wysiwyg` format only; the other formats size themselves from `Rows`. How much chrome stands above and below the surface differs per host, so the amount subtracted from the viewport is the CSS custom property `--wx-editor-fill-offset` (default `20rem`).",
+               "Fill = _ => true",
+               new ControlForm
+               (
+                   null,
+                   new ControlFormItemInputText()
+                   {
+                       Format = _ => TypeEditTextFormat.Wysiwyg,
+                       Fill = _ => true,
+
+                       // the demo sits inside a documentation page rather than in a dialog of
+                       // its own, so it is given a smaller offset than a full-screen editor
+                       Styles = ["--wx-editor-fill-offset: 45rem;"]
+                   }
+               )
+            );
         }
     }
 }

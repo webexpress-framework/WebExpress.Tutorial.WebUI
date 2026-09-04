@@ -28,7 +28,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         /// <param name="componentHub">The component hub.</param>
         public Collaborative(IPageContext pageContext, IComponentHub componentHub)
         {
-            Stage.Description = @"The `Collaborative` control wraps the JavaScript collaboration module and enables real-time interaction inside a shared container. Open this page in two browser sessions to manually test presence chips, remote cursor movement and synchronized inputs.";
+            Stage.Description = @"The `Collaborative` control wraps the JavaScript collaboration module and enables real-time interaction inside a shared container. Open this page in two browser sessions to manually test presence chips, remote cursor movement and synchronized inputs.
+
+Both kinds of field take part. The plain text field is mirrored per keystroke; the rich-text surface is mirrored as markup, coalesced to one message every 250 ms and applied through the editor's own value API, so tables and add-ons keep their frames and the hidden form input stays in sync. A field the local user is currently typing in is never overwritten - the state converges when they leave it.
+
+The container id is the routing channel: only clients rendering the same id see each other.";
 
             Stage.Controls =
             [
@@ -60,7 +64,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                             Format = _ => TypeEditTextFormat.Wysiwyg,
                             Rows = _ => 5
                         }
-                        .Initialize(x => x.Value.Text = "Test presence, cursor, and input sync together.")
+                        .Initialize(x => x.Value.Text = "Type here in one session and watch the markup arrive in the other.")
                     )
                 )
             ];
