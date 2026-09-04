@@ -44,6 +44,8 @@ Every change is written into an unpublished draft within a second of the typing 
 
 That takes two endpoints. The **record** service loads what the editor opens on and its `PUT` *is* the publication, which ends the draft inside its own transaction; the **draft** service stores, answers and drops the unpublished text. The control never deletes a draft as part of publishing: a delete racing a publish that failed would destroy the only copy.
 
+This sample is shared: open the page in a second browser session, press the button there too, and the two see each other — presence on the footer bar, the other pointer over the text, their caret in the field they are writing in, and every stored draft picked up by the other side.
+
 The control is the dialog rather than a form somebody else opens as one, because a writing surface is only right at that size: the title is an editable field on the dialog's own title bar, the body fills its content with no scrollbar of its own, and the footer bar reads *state · presence · ⋯ · publish · close*. It renders closed and is opened by a trigger addressing its id.
 
 Type into the body and watch the footer; then close the dialog without publishing and open it again — the draft is resumed, while the record's published text is unchanged until publish is pressed.";
@@ -57,7 +59,13 @@ Type into the body and watch the footer; then close the dialog without publishin
                     BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                     PrimaryAction = _ => new ActionModal("editor")
                 },
-                Create("editor")
+                Create("editor", control =>
+                {
+                    // the page's own sample is shared, so opening it in two browsers is all it
+                    // takes to see the presence, the pointers, the carets and the text arrive
+                    control.Collaborative = _ => true;
+                    control.CollaborationId = _ => "tutorial-document";
+                })
             ];
 
             Stage.Code = @"
