@@ -148,6 +148,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlDataTable` | Table bound to a REST endpoint, with server paging. |
 | `ControlDataTab` | Tabs whose content is loaded on demand. |
 | `ControlDataTile` | Tile grid bound to a REST endpoint. |
+| `ControlDataFeed` | Entries stacked newest first — heading, a quiet line of context, the text, and beside it the pictures the entry brought, several of which become a slideshow — with tags and figures at the foot and a button under the column that fetches the next page and appends it. The counterpart of the list for content that is read rather than scanned: a list pages and replaces its rows, a feed grows and keeps what has been read. |
 | `ControlDataFileView` | One set of files in several interchangeable presentations: the tabular file list and a tile board are built in, further ones are added by the page, and all of them render the same files, so switching never re-queries. Descriptions are edited in place, an upload control bound to the view makes a finished upload show up without a reload, and a name that is already there becomes a new version of that file rather than a second entry. |
 | `ControlDataKanban` | Kanban board persisted through a REST service. |
 | `ControlDataGantt` | Interactive gantt chart with drag-and-drop scheduling and dependency links, persisted via REST. |
