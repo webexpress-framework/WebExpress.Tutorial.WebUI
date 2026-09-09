@@ -19,7 +19,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// group-to-policy assignments of the class 'Incident' (see the identity
     /// model: Identity -> Group -> Policy -> Permission). The control talks
     /// to the <see cref="IncidentPermissions"/> REST endpoint (list / assign /
-    /// revoke) and fills its assign selects from the
+    /// revoke) and fills the pickers of its assign dialog from the
     /// <see cref="IncidentPermissionGroups"/> and
     /// <see cref="IncidentPermissionPolicies"/> directories. The seed grants
     /// IT Support the edit policy, the Service Desk the view policy and the
@@ -40,7 +40,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         /// <param name="sitemapManager">The sitemap manager.</param>
         public DataPermission(IPageContext pageContext, IComponentHub componentHub, ISitemapManager sitemapManager)
         {
-            Stage.Description = @"`ControlDataPermission` manages the group-to-policy assignments of a protected resource, following the identity model (`Identity -> Group -> Policy -> Permission`). The surface is a single table: the first column names the group, the second carries its policies as chips that are edited inline with the move control, the first row assigns a further group and the options menu of a row revokes it. The control emits the host element and the pagination control it binds through `BindPaging`; the table itself is built by the client-side `webexpress.webapp.PermissionCtrl`.";
+            Stage.Description = @"`ControlDataPermission` manages the group-to-policy assignments of a protected resource, following the identity model (`Identity -> Group -> Policy -> Permission`). The surface is a single table: the first column names the group, the second carries its policies as chips that are edited inline with the move control and the options menu of a row revokes it. Further groups are assigned through the dialog the toolbar above the table opens, which assigns the picked policy set to every picked group, so the table shows stored assignments only. The control emits the host element and the pagination control it binds through `BindPaging`; the table itself is built by the client-side `webexpress.webapp.PermissionCtrl`.";
 
             Stage.Controls =
             [
@@ -65,7 +65,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.AddProperty
             (
                 "Modal",
-                @"The permission surface is typically embedded in a modal that is opened from the toolbar of the protected resource, mirroring the 'Manage permissions' flow of the application.",
+                @"The permission surface is typically embedded in a modal that is opened from the toolbar of the protected resource, mirroring the 'Manage permissions' flow of the application. The assign dialog of the surface then opens on top of it.",
                 @"new ControlModal(""incidentPermissionsModal"", new ControlDataPermission()
                     .DataService<IncidentPermissions>()
                     .GroupsService<IncidentPermissionGroups>()
@@ -93,7 +93,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.AddProperty
             (
                 "Readonly",
-                @"The readonly flag suppresses the add row, the options menu and the inline editing of the chips, so users without administrative rights can review the effective assignments without changing them. The policies service stays declared, because the chips resolve their labels through it.",
+                @"The readonly flag suppresses the assign toolbar, the options menu and the inline editing of the chips, so users without administrative rights can review the effective assignments without changing them. The policies service stays declared, because the chips resolve their labels through it.",
                 @"Readonly = _ => true",
                 new ControlDataPermission()
                 {
