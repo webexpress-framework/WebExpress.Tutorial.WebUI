@@ -138,6 +138,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlPopover` | Click/hover overlay with a title and rich content. |
 | `ControlTooltip` | Short hint shown on hover or focus. |
 | `ControlModalForm` | Modal dialog hosting a form. |
+| `ControlModalLogin` | Modal dialog framing the login control, so signing in happens on top of the current page. |
 | `ControlPanelToast` | Transient toast notification. |
 
 ## WebApp controls (REST-backed)
@@ -169,10 +170,11 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlDataWqlPrompt` | WQL query prompt with suggestions and history. |
 | `ControlAdvancedSearch` | Advanced search built on the WQL prompt. |
 | `ControlDataLogin` | Sign-in form that submits credentials via REST. |
+| `ControlDataModalLogin` | Login dialog framing the REST sign-in form, so signing in happens on top of the current page. |
 | `ControlDataComment` | Comment thread loaded from a REST endpoint. |
 | `ControlDataWatcher` | Avatar group of an object's watchers, with live add/remove. |
 | `ControlLike` | A like: how many have joined it, and a way for the reader to join it too. The count is rendered by the server and the click posts a toggle, repainting the figure from the answer rather than counting up locally - two readers clicking at once would otherwise each see only their own. Without an address it stays a plain number, which is what a reader who is not signed in gets. The figures under a `ControlDataFeed` entry are the same control. |
-| `ControlDataPermission` | Group-to-policy assignments of a protected resource (identity model) as a table of groups with inline editable policy chips, an assign dialog, paging and revoke. |
+| `ControlDataPermission` | Group-to-policy assignments of a protected resource (identity model) as a table of groups with inline editable policy chips, an assign dialog, paging and revoke; the toolbar above it carries an optional title and the tools fragments contribute. |
 | `ControlDataRelationView` | The semantic relations of one object — *blocks*, *causes*, *references*, *duplicate of*, … — grouped by what the relation says and rendered as a list or as a graph, plus web links to addresses outside the application. Both categories share one generic entity. The add dialog lists the registered link systems, so a system or a relation a plugin contributes appears without a change to the page. |
 | `ControlDataRelationEditor` | Administers the relation types of a class: both labels of the relation, the classes it accepts, its cardinality, its effect on the workflow, its usage and whether it may still be used, with an editor that previews the relation from either end and drag-and-drop ordering. |
 | `ControlDataScrumBacklog` | Scrum backlog with sprints and drag-and-drop ranking. |

@@ -40,12 +40,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         /// <param name="sitemapManager">The sitemap manager.</param>
         public DataPermission(IPageContext pageContext, IComponentHub componentHub, ISitemapManager sitemapManager)
         {
-            Stage.Description = @"`ControlDataPermission` manages the group-to-policy assignments of a protected resource, following the identity model (`Identity -> Group -> Policy -> Permission`). The surface is a single table: the first column names the group, the second carries its policies as chips that are edited inline with the move control and the options menu of a row revokes it. Further groups are assigned through the dialog the toolbar above the table opens, which assigns the picked policy set to every picked group, so the table shows stored assignments only. The control emits the host element and the pagination control it binds through `BindPaging`; the table itself is built by the client-side `webexpress.webapp.PermissionCtrl`.";
+            Stage.Description = @"`ControlDataPermission` manages the group-to-policy assignments of a protected resource, following the identity model (`Identity -> Group -> Policy -> Permission`). The surface is a single table: the first column names the group, the second carries its policies as chips that are edited inline with the move control and the options menu of a row revokes it. Further groups are assigned through the dialog the toolbar above the table opens, which assigns the picked policy set to every picked group, so the table shows stored assignments only. The toolbar starts with the optional title and the tools fragments contribute - here the search box the tutorial adds to every permission surface - and ends with the assign affordance. The control emits the host element and the pagination control it binds through `BindPaging`; the table itself is built by the client-side `webexpress.webapp.PermissionCtrl`.";
 
             Stage.Controls =
             [
                 new ControlDataPermission("tutorial-permission-incident")
                 {
+                    Title = _ => "webexpress.tutorial.webui:permission.title",
                     PageSize = _ => 10
                 }
                     .DataService<IncidentPermissions>()
@@ -56,11 +57,46 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Code = @"
             new ControlDataPermission(""tutorial-permission-incident"")
             {
+                Title = _ => ""webexpress.tutorial.webui:permission.title"",
                 PageSize = _ => 10
             }
                 .DataService<IncidentPermissions>()
                 .GroupsService<IncidentPermissionGroups>()
                 .PoliciesService<IncidentPermissionPolicies>();";
+
+            Stage.AddProperty
+            (
+                "Title",
+                @"The title captions the toolbar above the table. It names what the assignments protect when the surrounding page does not; hosted in a modal, the dialog header usually does, which is why the title is optional and left empty there. The value is translated, so an i18n key may be passed.",
+                @"Title = _ => ""webexpress.tutorial.webui:permission.title""",
+                new ControlDataPermission()
+                {
+                    Title = _ => "webexpress.tutorial.webui:permission.title"
+                }
+                    .DataService<IncidentPermissions>()
+                    .GroupsService<IncidentPermissionGroups>()
+                    .PoliciesService<IncidentPermissionPolicies>()
+            );
+
+            Stage.AddProperty
+            (
+                "Tools",
+                @"The tools between the title and the assign affordance are contributed by fragments in the sections `SectionPermissionToolbarPreferences`, `SectionPermissionToolbarPrimary` and `SectionPermissionToolbarSecondary`. The sections resolve against the runtime type of the control, so a fragment scoped to `ControlDataPermission` joins every permission surface of the application - the search box on this page is such a fragment. A search box among the tools is bound to the surface by the control itself: typing narrows the table to the groups whose name matches, without a bind declared on the page.",
+                @"[Section<SectionPermissionToolbarPrimary>]
+                [Scope<ControlDataPermission>]
+                public sealed class SectionPermissionToolbarPrimaryFragment : FragmentControlSearch
+                {
+                    public SectionPermissionToolbarPrimaryFragment(IFragmentContext fragmentContext)
+                        : base(fragmentContext)
+                    {
+                        Placeholder = _ => ""webexpress.tutorial.webui:permission.search.placeholder"";
+                    }
+                }",
+                new ControlDataPermission()
+                    .DataService<IncidentPermissions>()
+                    .GroupsService<IncidentPermissionGroups>()
+                    .PoliciesService<IncidentPermissionPolicies>()
+            );
 
             Stage.AddProperty
             (
@@ -93,7 +129,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.AddProperty
             (
                 "Readonly",
-                @"The readonly flag suppresses the assign toolbar, the options menu and the inline editing of the chips, so users without administrative rights can review the effective assignments without changing them. The policies service stays declared, because the chips resolve their labels through it.",
+                @"The readonly flag suppresses the assign affordance, the options menu and the inline editing of the chips, so users without administrative rights can review the effective assignments without changing them. The title and the contributed tools stay, because reading the assignments is what they help with as well. The policies service stays declared, because the chips resolve their labels through it.",
                 @"Readonly = _ => true",
                 new ControlDataPermission()
                 {

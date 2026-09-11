@@ -45,6 +45,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
             - **ModalForm:** A modal specifically designed for embedded forms within the current page.
             - **ModalRemotePage:** A modal that dynamically loads content from an external source.
             - **ModalRemoteForm:** A modal that retrieves and displays a form from another page.
+            - **ModalLogin:** A modal framing the login control, so signing in happens on top of the current page.
             
             Modal dialogs are ideal for important notifications, input prompts, or confirmation actions, as they temporarily disable the underlying interface and require direct user interaction.";
 

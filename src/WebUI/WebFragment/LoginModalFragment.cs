@@ -1,29 +1,28 @@
+using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.WebApp.WebCondition;
+using WebExpress.WebApp.WebControl;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebApp.WebSection;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebFragment;
 using WebExpress.WebCore.WebHtml;
 using WebExpress.WebCore.WebScope;
-using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebFragment;
 using WebExpress.WebUI.WebPage;
 
 namespace WebExpress.Tutorial.WebUI.WebFragment
 {
     /// <summary>
-    /// Renders the shared <c>modal-form</c> container that <see cref="LoginLinkFragment"/>
-    /// (avatar dropdown "Login") targets via its <c>ActionModal</c>.
+    /// Renders the login dialog that <see cref="LoginLinkFragment"/> (avatar dropdown
+    /// "Login") opens via its <c>ActionModal</c>, so signing in happens on top of the
+    /// page the user is on.
     /// </summary>
     /// <remarks>
-    /// Inherits from <see cref="ControlModalRemotePage"/> (JS class
-    /// <c>wx-webui-modal-page</c>) rather than the form variant: the login
-    /// page returns a JS-bootstrapped <c>&lt;div class="wx-webapp-login"&gt;</c>
-    /// rather than a <c>&lt;form&gt;</c>, so the form-finding logic of
-    /// <c>wx-webui-modal-form</c> would emit <c>modal.form.notfound</c>. The
-    /// page controller instead copies the body content 1:1 into the modal,
-    /// and the <c>MutationObserver</c> picks up the login div to bootstrap
-    /// the actual form on the client.
+    /// The dialog is a <see cref="ControlDataModalLogin"/>: the login dialog of WebUI
+    /// framing the REST login, which submits the credentials to the <see cref="Session"/>
+    /// endpoint - the same endpoint the full-page login of the application uses - and
+    /// reloads the page once the session cookie is set. The dialog is rendered with the
+    /// page rather than fetched on the click, so it opens without a round trip.
     /// </remarks>
     [Section<SectionBodySecondary>]
     [Scope<IScopeGeneral>]
@@ -31,7 +30,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment
     [Scope<IScopeStatusPage>]
     [Condition<ConditionLogout>]
     [Cache]
-    public sealed class LoginModalFragment : ControlModalRemotePage, IFragmentControl<ControlModalRemotePage>
+    public sealed class LoginModalFragment : ControlDataModalLogin, IFragmentControl<ControlDataModalLogin>
     {
         /// <summary>
         /// Gets the context of the fragment.
@@ -40,15 +39,16 @@ namespace WebExpress.Tutorial.WebUI.WebFragment
 
         /// <summary>
         /// Initializes a new instance of the class with the well-known
-        /// <c>modal-form</c> id, so the avatar Login link can target it.
+        /// <c>modal-login</c> id, so the avatar Login link can target it.
         /// </summary>
         /// <param name="fragmentContext">The context in which the fragment is used.</param>
         public LoginModalFragment(IFragmentContext fragmentContext)
-            : base("modal-form")
+            : base("modal-login")
         {
             FragmentContext = fragmentContext;
             Header = _ => "webexpress.webapp:login.label";
-            Selector = _ => "#login";
+
+            this.DataService<Session>();
         }
 
         /// <summary>

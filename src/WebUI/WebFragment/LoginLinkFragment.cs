@@ -1,9 +1,7 @@
-﻿using WebExpress.Tutorial.WebUI.WWW;
-using WebExpress.WebApp.WebCondition;
+﻿using WebExpress.WebApp.WebCondition;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebApp.WebSection;
 using WebExpress.WebCore.WebAttribute;
-using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebFragment;
 using WebExpress.WebCore.WebHtml;
 using WebExpress.WebCore.WebScope;
@@ -15,10 +13,12 @@ using WebExpress.WebUI.WebPage;
 namespace WebExpress.Tutorial.WebUI.WebFragment.HomePage
 {
     /// <summary>
-    /// Represents a navigation item link for the home page.
+    /// Represents the login entry of the avatar menu.
     /// </summary>
     /// <remarks>
-    /// This fragment is used to create a log in link to the home page (Index) with an icon and label.
+    /// The entry opens the login dialog <see cref="LoginModalFragment"/> renders with the
+    /// page, so signing in happens on top of the page the user is on. The dialog is on the
+    /// page already, which is why the action names only its id and fetches nothing.
     /// </remarks>
     [Section<SectionAppAvatarSecondary>]
     [Scope<IScopeGeneral>]
@@ -28,26 +28,16 @@ namespace WebExpress.Tutorial.WebUI.WebFragment.HomePage
     [Cache]
     public sealed class LoginLinkFragment : FragmentControlDropdownItemLink
     {
-        private readonly IComponentHub _componentHub;
-
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
-        /// <param name="componentHub">The component hub used to manage components.</param>
         /// <param name="fragmentContext">The context in which the fragment is used.</param>
-        public LoginLinkFragment(IComponentHub componentHub, IFragmentContext fragmentContext)
+        public LoginLinkFragment(IFragmentContext fragmentContext)
             : base(fragmentContext)
         {
-            _componentHub = componentHub;
             Text = _ => "webexpress.webapp:login.label";
             Icon = _ => new IconRightToBracket();
-
-            PrimaryAction = renderContext =>
-            {
-                var loginUri = _componentHub?.SitemapManager.GetUri<Login>(renderContext?.PageContext.ApplicationContext);
-
-                return new ActionModal("modal-form", loginUri, TypeModalSize.Default);
-            };
+            PrimaryAction = _ => new ActionModal("modal-login");
         }
 
         /// <summary>
