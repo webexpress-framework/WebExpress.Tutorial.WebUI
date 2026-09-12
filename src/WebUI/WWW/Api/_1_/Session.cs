@@ -3,7 +3,6 @@ using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebIdentity;
-using WebExpress.WebCore.WebMessage;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 {
@@ -31,26 +30,6 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 
             // return null to indicate failed authentication
             //return null;
-        }
-
-        /// <summary>
-        /// Generates a dummy authentication token for the test session.
-        /// </summary>
-        /// <param name="identity">The authenticated identity.</param>
-        /// <param name="request">The original request.</param>
-        /// <returns>A randomly generated token string.</returns>
-        protected override string GenerateSession(IIdentity identity, IRequest request)
-        {
-            return base.GenerateSession(identity, request);
-        }
-
-        /// <summary>
-        /// Invalidates the authentication token or session for the given request.
-        /// </summary>
-        /// <param name="request">The original request.</param>
-        protected override void InvalidateSession(IRequest request)
-        {
-            base.InvalidateSession(request);
         }
     }
 }
