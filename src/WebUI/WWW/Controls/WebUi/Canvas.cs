@@ -31,14 +31,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.Control = new ControlCanvas("example")
             {
-                BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Light),
                 Styles = ["width: 20em; height: 10em;"]
             };
 
             Stage.Code = @"
                 new ControlCanvas(""example"")
                 {
-                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Light),
                     Styles = [""width: 20em; height: 10em;""]
                 };";
 
@@ -50,13 +48,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlCanvas()
                 {
-                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Light),
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Three)
                 },
                 new ControlText() { Text = _ => "Sized", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlCanvas()
                 {
-                    BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Light),
                     Styles = ["width: 30em; height: 6em;"]
                 }
             );

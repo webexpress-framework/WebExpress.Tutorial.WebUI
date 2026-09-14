@@ -25,13 +25,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
         /// <param name="pageContext">The context of the page.</param>
         public Offcanvas(IPageContext pageContext)
         {
-            Stage.Description = @"The `Offcanvas` control is a drawer panel that slides in from an edge of the viewport. The panel only emits its own markup; it is opened by any element carrying `data-bs-toggle=""offcanvas""` and `data-bs-target=""#{id}""`, wired by the Bootstrap data API, and closed by its built-in close button.";
+            Stage.Description = @"The `Offcanvas` control is a drawer panel that slides in from an edge of the viewport. The panel only emits its own markup; it is opened by any element carrying `data-wx-toggle=""offcanvas""` and `data-wx-target=""#{id}""`, wired by the native WebExpress dialog actions, and closed by its built-in close button.";
 
             Stage.Controls =
             [
                 new ControlHtml()
                 {
-                    Html = _ => @"<button class=""btn btn-primary"" type=""button"" data-bs-toggle=""offcanvas"" data-bs-target=""#tutorialOffcanvas"">Open offcanvas</button>"
+                    Html = _ => @"<button class=""btn btn-primary"" type=""button"" data-wx-toggle=""offcanvas"" data-wx-target=""#tutorialOffcanvas"">Open offcanvas</button>"
                 },
                 new ControlOffcanvas("tutorialOffcanvas", new ControlText() { Text = _ => "The offcanvas body holds any controls you like." })
                 {
@@ -42,7 +42,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.Code = @"
             new ControlHtml()
             {
-                Html = _ => @""<button class=""""btn btn-primary"""" type=""""button"""" data-bs-toggle=""""offcanvas"""" data-bs-target=""""#tutorialOffcanvas"""">Open offcanvas</button>""
+                Html = _ => @""<button class=""""btn btn-primary"""" type=""""button"""" data-wx-toggle=""""offcanvas"""" data-wx-target=""""#tutorialOffcanvas"""">Open offcanvas</button>""
             },
             new ControlOffcanvas(""tutorialOffcanvas"", new ControlText() { Text = _ => ""..."" })
             {
@@ -56,7 +56,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Placement = _ => TypeOffcanvasPlacement.End",
                 new ControlHtml()
                 {
-                    Html = _ => @"<button class=""btn btn-primary"" type=""button"" data-bs-toggle=""offcanvas"" data-bs-target=""#tutorialOffcanvasEnd"">Open from the end</button>"
+                    Html = _ => @"<button class=""btn btn-primary"" type=""button"" data-wx-toggle=""offcanvas"" data-wx-target=""#tutorialOffcanvasEnd"">Open from the end</button>"
                 },
                 new ControlOffcanvas("tutorialOffcanvasEnd", new ControlText() { Text = _ => "This panel slides in from the end." })
                 {
