@@ -24,21 +24,21 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// shares them, so publishing in one and reopening another shows the same document.
     /// </remarks>
     [WebIcon<IconFileLines>]
-    [Title("ModalDataEditor")]
+    [Title("DataModalEditor")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
     [Scope<IScopeControlWebApp>]
-    public sealed class ModalDataEditor : PageControl
+    public sealed class DataModalEditor : PageControl
     {
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
         /// <param name="pageContext">The context of the page where the control is used.</param>
-        public ModalDataEditor(IPageContext pageContext)
+        public DataModalEditor(IPageContext pageContext)
         {
             Stage.AddEvent(Event.MODAL_SHOW_EVENT, Event.MODAL_HIDE_EVENT);
 
-            Stage.Description = @"The `ModalDataEditor` is a fullscreen dialog for writing one document — a title and a rich-text body — that separates the two things a single save button normally has to pretend are one: *do not lose what I have written* and *let the readers see this*.
+            Stage.Description = @"The `ControlDataModalEditor` is a fullscreen dialog for writing one document — a title and a rich-text body — that separates the two things a single save button normally has to pretend are one: *do not lose what I have written* and *let the readers see this*.
 
 Every change is written into an unpublished draft within a second of the typing stopping, and the submit button publishes. A form that only saves on submit loses an afternoon to a closed tab; a form that saves continuously publishes every unfinished sentence to whoever is reading the page. Neither is acceptable for a document, and both are fine for an issue — which is why this is a control of its own and not a mode of `DataFormEdit`.
 
@@ -76,7 +76,7 @@ Type into the body and watch the footer; then close the dialog without publishin
                 BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                 PrimaryAction = _ => new ActionModal(""editor"")
             },
-            new ModalDataEditor(""editor"")
+            new ControlDataModalEditor(""editor"")
             {
                 Title = { Name = _ => ""Title"", Placeholder = _ => ""Name of the document"" },
                 Body = { Name = _ => ""Body"", Placeholder = _ => ""Write..."" }
@@ -151,7 +151,7 @@ Type into the body and watch the footer; then close the dialog without publishin
         /// <param name="label">The activator's label.</param>
         /// <param name="configure">The adjustment the sample demonstrates.</param>
         /// <returns>The activator and the dialog.</returns>
-        private static IEnumerable<IControl> Sample(string id, string label, System.Action<WebExpress.WebApp.WebControl.ModalDataEditor> configure)
+        private static IEnumerable<IControl> Sample(string id, string label, System.Action<ControlDataModalEditor> configure)
         {
             yield return new ControlButton()
             {
@@ -171,9 +171,9 @@ Type into the body and watch the footer; then close the dialog without publishin
         /// <param name="id">The dialog id.</param>
         /// <param name="configure">An optional adjustment.</param>
         /// <returns>The configured control.</returns>
-        private static WebExpress.WebApp.WebControl.ModalDataEditor Create(string id, System.Action<WebExpress.WebApp.WebControl.ModalDataEditor> configure = null)
+        private static ControlDataModalEditor Create(string id, System.Action<ControlDataModalEditor> configure = null)
         {
-            var control = new WebExpress.WebApp.WebControl.ModalDataEditor(id)
+            var control = new ControlDataModalEditor(id)
             {
                 Title = { Name = _ => "Title", Placeholder = _ => "Name of the document" },
                 Body = { Name = _ => "Body", Placeholder = _ => "Write..." }
