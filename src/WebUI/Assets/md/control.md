@@ -10,6 +10,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | --- | --- |
 | `ControlPanel` | Generic container that groups and styles child controls. |
 | `ControlPanelCard` | Bordered card surface with optional header and footer. |
+| `ControlBox` | Enclosing frame around content that belongs together, to set it apart, organize it or draw the eye to it. Draws exactly one frame chosen by layout - solid, dashed, dotted, double, a bar on the leading edge, raised, inset or none - with an optional label and accent. The body is composed from the controls added directly and from fragments registered for the box sections under the scope of the box type. Also available as an add-on of the WYSIWYG editor, whose reading view is this control. |
 | `ControlPanelFlex` | Flexbox container for one-dimensional layouts. |
 | `ControlPanelGrid` | Responsive grid container for column-based layouts. |
 | `ControlGroup` | Items laid out as fields of one surface, divided by hairlines. For things read as one statement about one subject - a row of metrics, a set of entry paths, the columns of a help area - where separate framed boxes would read as separate claims. Takes any control as a field, divides the width evenly, and keeps the dividers correct when the row wraps. |
