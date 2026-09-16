@@ -10,26 +10,26 @@ using WebExpress.WebUI.WebIcon;
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 {
     /// <summary>
-    /// Demonstrates the dismissible panel control. The page wires a selectable
-    /// list to the panel using the <see cref="BindShow"/> bind, so dismissing
-    /// the panel via the "x" and picking another list entry brings the panel
+    /// Demonstrates the dismissible control. The page wires a selectable
+    /// list to the control using the <see cref="BindShow"/> bind, so dismissing
+    /// the control via the "x" and picking another list entry brings the control
     /// back automatically.
     /// </summary>
-    [WebIcon<IconControlPanelDismissible>]
-    [Title("PanelDismissible")]
+    [WebIcon<IconControlDismissible>]
+    [Title("Dismissible")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
     [Scope<IScopeControlWebUI>]
-    public sealed class PanelDismissible : PageControl
+    public sealed class Dismissible : PageControl
     {
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
-        public PanelDismissible()
+        public Dismissible()
         {
             Stage.AddEvent(Event.SELECT_ITEM_EVENT, Event.SHOW_EVENT, Event.HIDE_EVENT);
 
-            Stage.Description = @"A `ControlPanelDismissible` is a container with a title bar and an ""x"" close button in the upper-right corner. The user can dismiss the panel at any time; the panel is brought back automatically when a paired source control (e.g. a `ControlList`) raises a selection event - the wiring is declared by attaching a `BindShow` to the panel's `Bind` property.
+            Stage.Description = @"A `ControlDismissible` is a container with a title bar and an ""x"" close button in the upper-right corner. The user can dismiss the panel at any time; the panel is brought back automatically when a paired source control (e.g. a `ControlList`) raises a selection event - the wiring is declared by attaching a `BindShow` to the panel's `Bind` property.
 
 Click any entry in the list, then close the panel with the ""x"". Selecting another list entry re-opens the panel through the `show` bind.";
 
@@ -44,7 +44,7 @@ Click any entry in the list, then close the panel with the ""x"". Selecting anot
                     .Add(new ControlListItem(null) { Text = _ => "LeChuck" })
                     .Add(new ControlListItem(null) { Text = _ => "Stan S. Stanman" }),
 
-                new ControlPanelDismissible("detailPanel")
+                new ControlDismissible("detailPanel")
                 {
                     Title = _ => "Details",
                     Bind = _ => new Binding().Add(new BindShow { Source = "characters" }),
@@ -61,7 +61,7 @@ Click any entry in the list, then close the panel with the ""x"". Selecting anot
                 .Add(new ControlListItem(null) { Text = _ => ""Guybrush Threepwood"" })
                 .Add(new ControlListItem(null) { Text = _ => ""Elaine Marley"" });
 
-            new ControlPanelDismissible(""detailPanel"")
+            new ControlDismissible(""detailPanel"")
             {
                 Title = _ => ""Details"",
                 Bind = _ => new Binding().Add(new BindShow { Source = ""characters"" })
@@ -73,13 +73,13 @@ Click any entry in the list, then close the panel with the ""x"". Selecting anot
                 "Title",
                 "The `Title` text is rendered in the panel header next to the dismiss button. It accepts an i18n key.",
                 "Title = _ => \"Details\"",
-                new ControlPanelDismissible()
+                new ControlDismissible()
                 {
                     Title = _ => "Details",
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 }
                     .Add(new ControlText() { Text = _ => "Panel with a title." }),
-                new ControlPanelDismissible()
+                new ControlDismissible()
                 {
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 }
@@ -91,7 +91,7 @@ Click any entry in the list, then close the panel with the ""x"". Selecting anot
                 "InitialHidden",
                 "When `InitialHidden` is true the panel starts collapsed. Combined with a `BindShow`, the panel only appears after the first selection.",
                 "InitialHidden = _ => true",
-                new ControlPanelDismissible("initiallyHidden")
+                new ControlDismissible("initiallyHidden")
                 {
                     Title = _ => "Hidden until shown",
                     InitialHidden = _ => true,
@@ -105,7 +105,7 @@ Click any entry in the list, then close the panel with the ""x"". Selecting anot
                 "Bind (BindShow)",
                 "Attach a `BindShow` to the `Bind` property to re-open the panel whenever the source control raises an event - by default `SELECT_ITEM_EVENT` (lists, tiles, trees). A custom event and condition can be supplied to filter, e.g. only opening on non-null selections.",
                 "Bind = _ => new Binding().Add(new BindShow { Source = \"characters\" })",
-                new ControlPanelDismissible()
+                new ControlDismissible()
                 {
                     Title = _ => "Paired with the list above",
                     Bind = _ => new Binding().Add(new BindShow { Source = "characters" })

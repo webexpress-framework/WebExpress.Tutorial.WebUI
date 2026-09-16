@@ -31,13 +31,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
         {
             Stage.Description = @"The `Flex` is a versatile UI control designed to arrange content dynamically using the CSS Flexbox model. It enables declarative, configurable layout composition in either horizontal or vertical direction. Ideal for responsive interfaces, modular dashboards, or runtime-generated views.";
 
-            Stage.Control = new ControlPanelFlex()
+            Stage.Control = new ControlFlex()
             {
             }
                 .Add(CreateWrapControls(3));
 
             Stage.Code = @"
-            Stage.Control = new ControlPanelFlex()
+            Stage.Control = new ControlFlex()
             {
             }
                 .Add(new ControlText()
@@ -73,7 +73,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = _ => "None",
                     TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
-                new ControlPanelFlex()
+                new ControlFlex()
                 {
                     Layout = _ => TypeLayoutFlex.None
                 }
@@ -84,7 +84,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = _ => "Default",
                     TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
-                new ControlPanelFlex()
+                new ControlFlex()
                 {
                     Layout = _ => TypeLayoutFlex.Default
                 }
@@ -95,7 +95,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = _ => "Inline",
                     TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
-                new ControlPanelFlex()
+                new ControlFlex()
                 {
                     Layout = _ => TypeLayoutFlex.Inline
                 }
@@ -112,7 +112,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = _ => "None",
                     TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
-                new ControlPanelFlex()
+                new ControlFlex()
                 {
                     Layout = _ => TypeLayoutFlex.Default,
                     Justify = _ => TypeJustifiedFlex.None
@@ -123,7 +123,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = _ => "Start",
                     TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
-                new ControlPanelFlex()
+                new ControlFlex()
                 {
                     Layout = _ => TypeLayoutFlex.Default,
                     Justify = _ => TypeJustifiedFlex.Start
@@ -134,7 +134,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = _ => "End",
                     TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
-                new ControlPanelFlex()
+                new ControlFlex()
                 {
                     Layout = _ => TypeLayoutFlex.Default,
                     Justify = _ => TypeJustifiedFlex.End
@@ -145,7 +145,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = _ => "Center",
                     TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
-                new ControlPanelFlex()
+                new ControlFlex()
                 {
                     Layout = _ => TypeLayoutFlex.Default,
                     Justify = _ => TypeJustifiedFlex.Center
@@ -156,7 +156,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = _ => "Between",
                     TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
-                new ControlPanelFlex()
+                new ControlFlex()
                 {
                     Layout = _ => TypeLayoutFlex.Default,
                     Justify = _ => TypeJustifiedFlex.Between
@@ -169,7 +169,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = _ => "Around",
                     TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
-                new ControlPanelFlex()
+                new ControlFlex()
                 {
                     Layout = _ => TypeLayoutFlex.Default,
                     Justify = _ => TypeJustifiedFlex.Around
@@ -187,7 +187,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = _ => "None",
                     TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
-                new ControlPanelFlex()
+                new ControlFlex()
                 {
                     Layout = _ => TypeLayoutFlex.Default,
                     Align = _ => TypeAlignFlex.None,
@@ -200,7 +200,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = _ => "Start",
                     TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
-                new ControlPanelFlex()
+                new ControlFlex()
                 {
                     Layout = _ => TypeLayoutFlex.Default,
                     Align = _ => TypeAlignFlex.Start,
@@ -213,7 +213,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = _ => "End",
                     TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
-                new ControlPanelFlex()
+                new ControlFlex()
                 {
                     Layout = _ => TypeLayoutFlex.Default,
                     Align = _ => TypeAlignFlex.End,
@@ -226,7 +226,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = _ => "Center",
                     TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
-                new ControlPanelFlex()
+                new ControlFlex()
                 {
                     Layout = _ => TypeLayoutFlex.Default,
                     Align = _ => TypeAlignFlex.Center,
@@ -239,7 +239,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = _ => "Baseline",
                     TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
-                new ControlPanelFlex()
+                new ControlFlex()
                 {
                     Layout = _ => TypeLayoutFlex.Default,
                     Align = _ => TypeAlignFlex.Baseline,
@@ -252,7 +252,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = _ => "Stretch",
                     TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
-                new ControlPanelFlex()
+                new ControlFlex()
                 {
                     Layout = _ => TypeLayoutFlex.Default,
                     Align = _ => TypeAlignFlex.Stretch,
@@ -273,7 +273,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = _ => "None",
                     TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
-                new ControlPanelFlex()
+                new ControlFlex()
                 {
                     Layout = _ => TypeLayoutFlex.Default,
                     Wrap = _ => TypeWrap.None,
@@ -286,7 +286,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = _ => "Nowrap",
                     TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
-                new ControlPanelFlex()
+                new ControlFlex()
                 {
                     Layout = _ => TypeLayoutFlex.Default,
                     Wrap = _ => TypeWrap.Nowrap,
@@ -298,7 +298,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = _ => "Wrap",
                     TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
-                new ControlPanelFlex()
+                new ControlFlex()
                 {
                     Layout = _ => TypeLayoutFlex.Default,
                     Wrap = _ => TypeWrap.Wrap,
@@ -310,7 +310,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = _ => "Wrap-Reverse",
                     TextColor = _ => new PropertyColorText(TypeColorText.Info)
                 },
-                new ControlPanelFlex()
+                new ControlFlex()
                 {
                     Layout = _ => TypeLayoutFlex.Default,
                     Wrap = _ => TypeWrap.Reverse,

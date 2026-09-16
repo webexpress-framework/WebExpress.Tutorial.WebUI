@@ -87,7 +87,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "BackgroundColor",
                 "Sets the background color of the button.",
                 "Color = _ => new PropertyColorButton(TypeColorButton.Primary)",
-                new ControlPanelFlex
+                new ControlFlex
                 (
                     null,
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
@@ -155,7 +155,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Outline",
                 "Removes the background color from the button.",
                 "Outline = _ => true",
-                new ControlPanelFlex
+                new ControlFlex
                 (
                     null,
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
@@ -232,7 +232,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Size",
                 "Determines the size of the button.",
                 "Size = _ => TypeSizeButton.Small",
-                new ControlPanelFlex
+                new ControlFlex
                 (
                     null,
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
@@ -268,7 +268,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Icon",
                 "Adds an icon to the button.",
                 "Icon = _ => new IconHome()",
-                new ControlPanelFlex
+                new ControlFlex
                 (
                     null,
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
@@ -311,7 +311,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Active",
                 "Sets the active state of the button.",
                 "Active = _ => TypeActive.Active",
-                new ControlPanelFlex
+                new ControlFlex
                 (
                     null,
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
@@ -347,7 +347,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Toggle",
                 "An indicator that shows a menu is available.",
                 "Toggle = _ => TypeToggleDropdown.Toggle",
-                new ControlPanelFlex
+                new ControlFlex
                 (
                     null,
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)
@@ -376,7 +376,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "MenuAlignment",
                 "Determines how the menu should be aligned relative to the button.",
                 "AlignmentMenu = _ => TypeAlignmentDropdownMenu.Right",
-                new ControlPanelFlex
+                new ControlFlex
                 (
                     null,
                     new ControlDropdown(null, _item1, _item2, _item3, _item4, _item5)

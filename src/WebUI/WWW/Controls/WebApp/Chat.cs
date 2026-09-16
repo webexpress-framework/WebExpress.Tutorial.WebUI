@@ -41,7 +41,7 @@ Manual scenarios:
 
             Stage.Controls =
             [
-                new ControlPanelCard
+                new ControlCard
                 (
                     null,
                     new ControlText

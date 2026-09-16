@@ -63,7 +63,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
             }
-            visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. Stage.Controls])
+            visualTree.Content.MainPanel.AddPrimary(new ControlCard(null, [.. Stage.Controls])
             {
                 Classes = ["wx-resizable"],
                 Styles = ["max-width: 80em;"],
@@ -84,7 +84,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                     Format = _ => TypeFormatText.Markdown,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
-                visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. Stage.DarkControls.Any() ? Stage.DarkControls : Stage.Controls])
+                visualTree.Content.MainPanel.AddPrimary(new ControlCard(null, [.. Stage.DarkControls.Any() ? Stage.DarkControls : Stage.Controls])
                 {
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Dark),
                     Styles = ["max-width: 80em;"],
@@ -160,7 +160,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
 
                 if (!string.IsNullOrWhiteSpace(supportedAct.Callout))
                 {
-                    visualTree.Content.MainPanel.AddPrimary(new ControlPanelCallout(null, new ControlText()
+                    visualTree.Content.MainPanel.AddPrimary(new ControlCallout(null, new ControlText()
                     {
                         Text = _ => supportedAct.Callout
                     })
@@ -170,7 +170,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                     });
                 }
 
-                visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. supportedAct.Controls])
+                visualTree.Content.MainPanel.AddPrimary(new ControlCard(null, [.. supportedAct.Controls])
                 {
                     Styles = ["max-width: 80em;"],
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
@@ -220,7 +220,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
 
                 if (!string.IsNullOrWhiteSpace(supportedAct.Callout))
                 {
-                    visualTree.Content.MainPanel.AddPrimary(new ControlPanelCallout(null, new ControlText()
+                    visualTree.Content.MainPanel.AddPrimary(new ControlCallout(null, new ControlText()
                     {
                         Text = _ => supportedAct.Callout
                     })
@@ -230,7 +230,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                     });
                 }
 
-                visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, [.. supportedAct.Controls])
+                visualTree.Content.MainPanel.AddPrimary(new ControlCard(null, [.. supportedAct.Controls])
                 {
                     Styles = ["max-width: 80em;"],
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
@@ -248,7 +248,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
 
                 foreach (var subAct in Stage.ItemPropertyActs.Where(x => x.Type == supportedAct.Type))
                 {
-                    visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null)
+                    visualTree.Content.MainPanel.AddPrimary(new ControlCard(null)
                     {
                         Styles = ["max-width: 80em;"],
                         Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
@@ -267,7 +267,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                                 Format = _ => TypeFormatText.Markdown
                             },
                             !string.IsNullOrWhiteSpace(subAct.Callout)
-                                ? new ControlPanelCallout(null, new ControlText()
+                                ? new ControlCallout(null, new ControlText()
                                 {
                                     Text = _ => subAct.Callout
                                 })
@@ -276,7 +276,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                                 }
                                 : null,
-                            new ControlPanelCard(null, [.. subAct.Controls])
+                            new ControlCard(null, [.. subAct.Controls])
                             {
                                 Styles = ["max-width: 80em;"],
                                 Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
@@ -323,7 +323,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                     Text = _ => "In the next section, these events will be monitored in real time as they are triggered during example usage. This live tracking provides a detailed analysis of event behavior and system interactions, offering valuable insights into their functionality:",
                     Format = _ => TypeFormatText.Paragraph
                 });
-                visualTree.Content.MainPanel.AddPrimary(new ControlPanelCard(null, new ControlEventLogger
+                visualTree.Content.MainPanel.AddPrimary(new ControlCard(null, new ControlEventLogger
                 (
                     null,
                     string.Join(" ", Stage.Events.Select(x => x.GetEventName()))

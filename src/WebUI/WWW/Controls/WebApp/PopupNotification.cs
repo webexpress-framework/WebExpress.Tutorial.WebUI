@@ -96,7 +96,7 @@ Manual scenarios:
                     Format = _ => TypeFormatText.H5,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 },
-                new ControlPanelCard
+                new ControlCard
                 (
                     null,
                     TriggerButton
@@ -142,7 +142,7 @@ Manual scenarios:
                     Format = _ => TypeFormatText.H5,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Three, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 },
-                new ControlPanelCard
+                new ControlCard
                 (
                     null,
                     ClientPopupButton

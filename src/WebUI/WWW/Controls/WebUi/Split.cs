@@ -47,14 +47,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.Description = @"The `Split` element serves as a simple yet effective component for visual separation within a user interface. Typically rendered as a horizontal line, it helps organize content and improve readability by clearly delineating sections or groups of information.";
 
-            Stage.Control = new ControlPanelSplit("mySplit")
+            Stage.Control = new ControlSplit("mySplit")
             {
             }
                 .AddSidePanel(_sidePanel)
                 .AddMainPanel(_mainPanel);
 
             Stage.Code = @"
-                new ControlPanelSplit(""mySplit"")
+                new ControlSplit(""mySplit"")
                 {
                 }
                     .AddSidePanel(new ControlAlert() { Head = _=> ""Panel 1"", Text = _=> ""Panel 1 content ..."", Dismissible = TypeDismissibleAlert.None })
@@ -67,12 +67,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "The `Orientation` property defines the split direction of a splitter control, determining how the side and main panes are arranged relative to each other.",
                 "Orientation = _ => TypeOrientationSplit.Horizontal",
                 new ControlText() { Text = _ => "Horizontal", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     Orientation = _ => TypeOrientationSplit.Horizontal
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel),
                 new ControlText() { Text = _ => "Vertical", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     Orientation = _ => TypeOrientationSplit.Vertical
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel)
@@ -84,52 +84,52 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "The `SplitterColor` property defines the visual appearance of the splitter bar that separates two panels within a splitter control. It determines the exact color used to render this dividing line, ensuring it stands out or blends in with the overall design of the user interface. This property solely influences the splitter’s appearance and does not affect the behavior or content of the panels it divides.",
                 "SplitterColor = _ => new PropertyColorBackground(TypeColorBackground.Primary)",
                 new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     SplitterColor = _ => new PropertyColorBackground(TypeColorBackground.Default)
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel),
                 new ControlText() { Text = _ => "Primary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     SplitterColor = _ => new PropertyColorBackground(TypeColorBackground.Primary)
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel),
                 new ControlText() { Text = _ => "Secondary", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     SplitterColor = _ => new PropertyColorBackground(TypeColorBackground.Secondary)
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel),
                 new ControlText() { Text = _ => "Info", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     SplitterColor = _ => new PropertyColorBackground(TypeColorBackground.Info)
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel),
                 new ControlText() { Text = _ => "Success", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     SplitterColor = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel),
                 new ControlText() { Text = _ => "Warning", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     SplitterColor = _ => new PropertyColorBackground(TypeColorBackground.Warning)
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel),
                 new ControlText() { Text = _ => "Danger", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     SplitterColor = _ => new PropertyColorBackground(TypeColorBackground.Danger)
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel),
                 new ControlText() { Text = _ => "Dark", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     SplitterColor = _ => new PropertyColorBackground(TypeColorBackground.Dark)
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel),
                 new ControlText() { Text = _ => "Light", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     SplitterColor = _ => new PropertyColorBackground(TypeColorBackground.Light)
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel),
                 new ControlText() { Text = _ => "Custom", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     SplitterColor = _ => new PropertyColorBackground("gold")
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel)
@@ -140,7 +140,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "SplitterSize",
                 "The `SplitterSize` property defines the thickness or width of the splitter bar that separates the two panels in a splitter control. This size determines how much screen space the splitter occupies-horizontally in a vertical layout or vertically in a horizontal layout.",
                 "SplitterSize = _ => 20",
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     SplitterSize = _ => 20
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel)
@@ -151,7 +151,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "SidePanelInitialSize",
                 "The `SidePanelInitialSize` property specifies the default width or height-depending on orientation-of one of the panels within a splitter control when it is first rendered. This size determines how much space the specified panel occupies before the user interacts with the splitter to resize it.",
                 "SplitterSize = _ => 100",
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     SidePanelInitialSize = _ => 100
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel)
@@ -162,7 +162,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "SidePanelMinSize",
                 "The `SidePanelMinSize` property defines the minimum allowable width or height-depending on the layout orientation-of the side panel in a splitter control. Its primary role is to restrict how far the user can collapse or shrink the SidePanel during a resizing operation. This ensures that the content within the panel remains accessible and usable, preventing layout issues or hidden UI elements.",
                 "SidePanelMinSize = _ => 100",
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     SidePanelMinSize = _ => 100
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel)
@@ -173,7 +173,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "SidePanelMaxSize",
                 "The `SidePanelMaxSize` property defines the maximum width or height (depending on orientation) that the side panel in a splitter control can occupy. It sets an upper limit on how far the user can expand the panel when resizing, ensuring that the SidePanel does not consume more screen space than intended.",
                 "SidePanelMaxSize = _ => 300",
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     SidePanelMaxSize = _ => 300
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel)
@@ -185,13 +185,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "The `Collapsible` property decides whether the side panel may be collapsed at all. While it is off, neither dragging the splitter past the panel nor double-clicking the splitter takes the panel away-the drag stops at `SidePanelMinSize` instead. Turn it off for a side panel that carries the only navigation of a view, where a collapse would strand the user.",
                 "Collapsible = _ => false",
                 new ControlText() { Text = _ => "Collapsible", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     SidePanelMinSize = _ => 100,
                     Collapsible = _ => true
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel),
                 new ControlText() { Text = _ => "Not collapsible", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     SidePanelMinSize = _ => 100,
                     Collapsible = _ => false
@@ -204,12 +204,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "The `SidePanelCollapseSize` property defines the extent the side panel keeps once it is collapsed-either by double-clicking the splitter or by dragging it past the panel. It is deliberately separate from `SidePanelMinSize`, which only bounds a drag: a value of zero takes the side panel off screen, whereas a positive value leaves a rail behind. Give a side panel whose only way back is a control it hosts itself-a toggle button in its own toolbar, for instance-such a rail, because a collapse would otherwise take the way back with it. The splitter stays in place either way, so a double-click always restores the panel.",
                 "SidePanelCollapseSize = _ => 60",
                 new ControlText() { Text = _ => "Off screen", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     SidePanelCollapseSize = _ => 0
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel),
                 new ControlText() { Text = _ => "Rail", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     SidePanelCollapseSize = _ => 60
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel)
@@ -221,17 +221,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "The `Order` property defines the layout sequence of the side and main panes within a splitter control. Depending on the chosen orientation (horizontal or vertical), Order determines whether the Side pane appears before or after themMain pane.",
                 "Order = _ => TypeSplitOrder.MainSide",
                 new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     Order = _ => TypeSplitOrder.Default
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel),
                 new ControlText() { Text = _ => "SideMain", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     Order = _ => TypeSplitOrder.SideMain
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel),
                 new ControlText() { Text = _ => "MainSide", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     Order = _ => TypeSplitOrder.MainSide
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel)
@@ -243,32 +243,32 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "The `Unit` property specifies the measurement unit used to define the size and positioning values within the splitter control layout. This allows for flexible styling based on fixed or relative dimensions.",
                 "Unit = _ => TypeSizeUnit.Percent",
                 new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     Unit = _ => TypeSizeUnit.Default,
                     SidePanelInitialSize = _ => 10
 
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel),
                 new ControlText() { Text = _ => "Pixel", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     Unit = _ => TypeSizeUnit.Pixel,
                     SidePanelInitialSize = _ => 10
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel),
                 new ControlText() { Text = _ => "Percent", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     Unit = _ => TypeSizeUnit.Percent,
                     SidePanelInitialSize = _ => 10
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel),
                 new ControlText() { Text = _ => "Em", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     Unit = _ => TypeSizeUnit.Em,
                     SidePanelInitialSize = _ => 10
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel),
                 new ControlText() { Text = _ => "Rem", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-                new ControlPanelSplit()
+                new ControlSplit()
                 {
                     Unit = _ => TypeSizeUnit.Rem,
                     SidePanelInitialSize = _ => 10
@@ -286,7 +286,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
                     PrimaryAction = _ => new ActionSplitFit("mySplitFit")
                 },
-                new ControlPanelSplit("mySplitFit")
+                new ControlSplit("mySplitFit")
                 {
                 }.AddSidePanel(_sidePanel).AddMainPanel(_mainPanel)
             );

@@ -44,7 +44,7 @@ namespace WebExpress.Tutorial.WebUI.WWW
                 HorizontalAlignment = _ => TypeHorizontalAlignment.Right
             });
 
-            var card = new ControlPanelCard()
+            var card = new ControlCard()
             {
                 Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)
             };

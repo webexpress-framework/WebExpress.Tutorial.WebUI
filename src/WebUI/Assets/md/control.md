@@ -9,15 +9,15 @@ The tables below summarize the available controls and what each one is for. Pick
 | Control | Description |
 | --- | --- |
 | `ControlPanel` | Generic container that groups and styles child controls. |
-| `ControlPanelCard` | Bordered card surface with optional header and footer. |
+| `ControlCard` | Bordered card surface with optional header and footer. |
 | `ControlBox` | Enclosing frame around content that belongs together, to set it apart, organize it or draw the eye to it. Draws exactly one frame chosen by layout - solid, dashed, dotted, double, a bar on the leading edge, raised, inset or none - with an optional label and accent. The body is composed from the controls added directly and from fragments registered for the box sections under the scope of the box type. Also available as an add-on of the WYSIWYG editor, whose reading view is this control. |
-| `ControlPanelFlex` | Flexbox container for one-dimensional layouts. |
-| `ControlPanelGrid` | Responsive grid container for column-based layouts. |
+| `ControlFlex` | Flexbox container for one-dimensional layouts. |
+| `ControlGrid` | Responsive grid container for column-based layouts. |
 | `ControlGroup` | Items laid out as fields of one surface, divided by hairlines. For things read as one statement about one subject - a row of metrics, a set of entry paths, the columns of a help area - where separate framed boxes would read as separate claims. Takes any control as a field, divides the width evenly, and keeps the dividers correct when the row wraps. |
-| `ControlPanelSplit` | Two resizable panes separated by a draggable splitter. |
+| `ControlSplit` | Two resizable panes separated by a draggable splitter. |
 | `ControlMasterDetail` | List on the left, detail loaded on demand on the right, with a splitter between them and a sequential single-column mode on narrow screens. |
-| `ControlPanelCenter` | Centers its content horizontally and vertically. |
-| `ControlPanelOverflow` | Scrollable region that clips overflowing content. |
+| `ControlCenter` | Centers its content horizontally and vertically. |
+| `ControlOverflow` | Scrollable region that clips overflowing content. |
 | `ControlFrame` | Bordered frame with an optional title around its content. |
 | `ControlResponsive` | Shows or hides content based on the viewport breakpoint. |
 | `ControlView` | Several views of one subject behind one switch, with a shared header and footer around them. The switch is the framework-wide one; the layout decides whether the active view is named beside it. Comes back in the view the user last chose. |
@@ -107,7 +107,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlBreadcrumb` | Path of links to the current location. |
 | `ControlSidebar` | Vertical navigation sidebar with collapsible tree items, badges, colors and per-item "..." options menus. |
 | `ControlTab` | Tabbed navigation between panels. |
-| `ControlPanelNavbar` | Top navigation bar. |
+| `ControlNavbar` | Top navigation bar. |
 | `ControlQuickfilter` | Inline filter chips - buttons, avatars, dropdowns and multi-selects - for narrowing a result set, plus a chip that creates a new filter. |
 | `ControlSearch` | Search box with suggestions. |
 | `ControlSearchContent` | Search that highlights matches in the page content. |
@@ -118,8 +118,8 @@ The tables below summarize the available controls and what each one is for. Pick
 | Control | Description |
 | --- | --- |
 | `ControlAlert` | Prominent, optionally dismissible message box. |
-| `ControlPanelDismissible` | Panel the user can dismiss, staying hidden afterwards. |
-| `ControlPanelCallout` | Bordered note that highlights related information. |
+| `ControlDismissible` | Panel the user can dismiss, staying hidden afterwards. |
+| `ControlCallout` | Bordered note that highlights related information. |
 | `ControlBadge` | Small count or status label. |
 | `ControlTag` | Compact, colored keyword tag. |
 | `ControlProgress` | Determinate progress bar. |
@@ -140,7 +140,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlTooltip` | Short hint shown on hover or focus. |
 | `ControlModalForm` | Modal dialog hosting a form. |
 | `ControlModalLogin` | Modal dialog framing the login control, so signing in happens on top of the current page. |
-| `ControlPanelToast` | Transient toast notification. |
+| `ControlToast` | Transient toast notification. |
 
 ## WebApp controls (REST-backed)
 

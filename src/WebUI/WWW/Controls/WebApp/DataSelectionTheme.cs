@@ -74,7 +74,7 @@ The selector below uses **`ControlDataSelectionTheme`** - a REST-backed picker t
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Three, PropertySpacing.Space.None)
                 }
                     .DataService<ThemeApi>(),
-                new ControlPanelFlex()
+                new ControlFlex()
                 {
                     Direction = _ => TypeDirection.Horizontal,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)

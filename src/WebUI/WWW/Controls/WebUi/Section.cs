@@ -26,7 +26,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
         /// <param name="pageContext">The context of the page.</param>
         public Section(IPageContext pageContext)
         {
-            Stage.Description = @"The `Section` control is a flat, collapsible section: a quiet label row over a body of content, without the frame, background or shadow of a `ControlPanelCard`. Use it when a page shows **one** subject from many angles - a reading view, a settings page, a detail pane - where a stack of framed boxes would make the borders compete with the content. A section separates by typography and whitespace instead: a small upper-case label, a generous gap to the section above, and a vertical guide line down the left of the body. The folded state is remembered per control id, so a reader who folds away what they never need keeps that view on the next visit.";
+            Stage.Description = @"The `Section` control is a flat, collapsible section: a quiet label row over a body of content, without the frame, background or shadow of a `ControlCard`. Use it when a page shows **one** subject from many angles - a reading view, a settings page, a detail pane - where a stack of framed boxes would make the borders compete with the content. A section separates by typography and whitespace instead: a small upper-case label, a generous gap to the section above, and a vertical guide line down the left of the body. The folded state is remembered per control id, so a reader who folds away what they never need keeps that view on the next visit.";
 
             Stage.Controls =
             [
