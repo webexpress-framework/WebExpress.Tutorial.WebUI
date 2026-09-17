@@ -8,7 +8,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Remove="config\webexpress.config.xml" />
+	  <None Remove="settings\webexpress.settings.json" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -20,7 +20,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Content Include="config\webexpress.config.xml">
+	  <Content Include="settings\webexpress.settings.json">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </Content>
 	</ItemGroup>
