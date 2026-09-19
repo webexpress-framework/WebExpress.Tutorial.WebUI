@@ -75,6 +75,12 @@ namespace WebExpress.Tutorial.WebUI.WebControl
             // Adds a custom data attribute to store the events as a space-separated string.
             html.AddUserAttribute("events", string.Join(" ", _events));
 
+            // the log scrolls once it fills, so the keyboard needs a way to reach it; a log
+            // role tells a reader what it is and that entries arrive over time
+            html.AddUserAttribute("role", "log");
+            html.AddUserAttribute("aria-label", "Event log");
+            html.AddUserAttribute("tabindex", "0");
+
             return html;
         }
     }

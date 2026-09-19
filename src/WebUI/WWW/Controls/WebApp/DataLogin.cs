@@ -30,7 +30,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         {
             Stage.Description = @"Provides a rest login control that prompts the user to enter credentials for authentication.";
 
-            Stage.Control = new ControlDataLogin()
+            Stage.Control = new ControlDataLogin() { HeadingLevel = _ => 5 }
                 .DataService<WWW.Api._1_.Session>();
 
             Stage.Code = @"

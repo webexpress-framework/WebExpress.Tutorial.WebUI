@@ -40,7 +40,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             // the tile panel is created separately and bound to the tiles
             // resource by type (fluent); the ViewState declares the state, the service
             // and the resource, all referenced by type rather than by string.
-            var tile = new ControlDataTile("myTileView").Resource<TilesResource>();
+            // the cards sit right under the section headings of this page, so their titles are fourth-level
+            var tile = new ControlDataTile("myTileView") { HeadingLevel = _ => 4 }.Resource<TilesResource>();
 
             Stage.Controls =
             [

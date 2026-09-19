@@ -25,7 +25,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
         {
             Stage.Description = @"Provides a login control that prompts the user to enter credentials for authentication.";
 
-            Stage.Control = new ControlLogin();
+            // the dialog sits under the section headings of this page, so its title steps down
+            Stage.Control = new ControlLogin() { HeadingLevel = _ => 5 };
 
             Stage.Code = @"
             new ControlLogin()";
@@ -37,7 +38,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Username = _ => \"WebExpress\"",
                 new ControlLogin()
                 {
-                    Username = _ => "WebExpress"
+                    Username = _ => "WebExpress",
+                    HeadingLevel = _ => 5
                 }
             );
 
@@ -48,7 +50,19 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "Title = _ => \"WebExpress\"",
                 new ControlLogin()
                 {
-                    Title = _ => "WebExpress"
+                    Title = _ => "WebExpress",
+                    HeadingLevel = _ => 5
+                }
+            );
+
+            Stage.AddProperty
+            (
+                "HeadingLevel",
+                "Sets the outline level of the title. On a page of its own the dialog is the page and its title a second-level heading; embedded under other headings, as on this page, a deeper level keeps the outline of the page in order.",
+                "HeadingLevel = _ => 5",
+                new ControlLogin()
+                {
+                    HeadingLevel = _ => 5
                 }
             );
         }

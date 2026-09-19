@@ -56,6 +56,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Help = _ => \"You can unsubscribe anytime from your account settings.\"",
                 new ControlForm(null, new ControlFormItemInputCheck(null)
                 {
+                    Label = _ => "Subscribe to newsletter",
                     Help = _ => "You can unsubscribe anytime from your account settings."
                 })
             );
@@ -67,6 +68,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Icon = _ => new IconPaperPlane()",
                 new ControlForm(null, new ControlFormItemInputCheck(null)
                 {
+                    Label = _ => "Subscribe to newsletter",
                     Icon = _ => new IconPaperPlane()
                 })
             );

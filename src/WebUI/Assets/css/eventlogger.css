@@ -33,9 +33,15 @@
     border-bottom: 0;
 }
 
+/* the emphasis shade: the raw primary falls under 4.5:1 on the recessed ground of the dark theme */
 .wx-eventlogger-type {
-    color: var(--wx-primary);
+    color: var(--wx-primary-text-emphasis, var(--wx-primary));
     font-weight: 600;
+}
+
+.wx-eventlogger:focus-visible {
+    outline: 2px solid var(--wx-primary);
+    outline-offset: 2px;
 }
 
 .wx-eventlogger-value {

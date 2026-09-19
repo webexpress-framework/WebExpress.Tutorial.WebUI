@@ -114,7 +114,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Icon",
                 "The `Icon` property defines the symbol assigned to a password field. It provides a visual representation and identification of the input field, enhancing user guidance and recognition.",
                 "Icon = _ => new IconLock()",
-                new ControlForm(null, new ControlFormItemInputPassword() { Icon = _ => new IconLock() })
+                new ControlForm(null, new ControlFormItemInputPassword() { Label = _ => "Password", Icon = _ => new IconLock() })
             );
 
             Stage.AddProperty
@@ -122,7 +122,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                "Help",
                "The `Help` property provides additional guidance or information for the password field. It enhances user understanding by offering context or instructions.",
                "Help = _ => \"Your password must be at least 8 characters long.\"",
-               new ControlForm(null, new ControlFormItemInputPassword() { Help = _ => "Your password must be at least 8 characters long." })
+               new ControlForm(null, new ControlFormItemInputPassword() { Label = _ => "Password", Help = _ => "Your password must be at least 8 characters long." })
             );
 
             Stage.AddProperty

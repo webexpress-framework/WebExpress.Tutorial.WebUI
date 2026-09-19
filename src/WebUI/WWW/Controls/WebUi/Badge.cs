@@ -80,7 +80,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlBadge()
                 {
                     Value = _ => "200",
-                    TextColor = _ => new PropertyColorText("red"),
+                    TextColor = _ => new PropertyColorText("darkred"),
                     BackgroundColor = _ => new PropertyColorBackgroundBadge("gold")
                 }
             ];
@@ -160,7 +160,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Value = _ => "User defined",
                     Pill = _ => TypePillBadge.Pill,
-                    TextColor = _ => new PropertyColorText("red"),
+                    TextColor = _ => new PropertyColorText("darkred"),
                     BackgroundColor = _ => new PropertyColorBackgroundBadge("gold")
                 }
             );
@@ -233,7 +233,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Value = _ => "Custom",
                     Uri = _ => pageContext.Route.ToUri(),
-                    TextColor = _ => new PropertyColorText("red"),
+                    TextColor = _ => new PropertyColorText("darkred"),
                     BackgroundColor = _ => new PropertyColorBackgroundBadge("gold")
                 }
             );

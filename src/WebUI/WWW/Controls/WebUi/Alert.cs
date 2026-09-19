@@ -135,7 +135,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Text = _ => "This is a custom alert!",
                     Dismissibility = _ => TypeDismissibilityAlert.Dismissible,
                     Fade = _ => TypeFade.FadeShow,
-                    TextColor = _ => new PropertyColorText("red"),
+                    TextColor = _ => new PropertyColorText("darkred"),
                     BackgroundColor = _ => new PropertyColorBackgroundAlert("gold")
                 }
             );

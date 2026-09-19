@@ -35,6 +35,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 Uri = _ => pageContext.ApplicationContext.Route.ToUri()
             };
 
+            // the embedded page brings its own theme, and a second copy of it would only double
+            // its landmarks on this page
+            Stage.DarkControls = null;
+
             Stage.Code = @"
             new ControlFrame()
             {

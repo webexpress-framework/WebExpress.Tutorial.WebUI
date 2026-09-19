@@ -72,7 +72,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
             // the tile panel renders the games resource and re-renders whenever the
             // quickfilter re-queries it
-            var tile = new ControlDataTile("myTileView").Resource<GamesResource>();
+            // the cards sit right under the section headings of this page, so their titles are fourth-level
+            var tile = new ControlDataTile("myTileView") { HeadingLevel = _ => 4 }.Resource<GamesResource>();
 
             Stage.Controls =
             [

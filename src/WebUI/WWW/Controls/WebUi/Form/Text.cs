@@ -60,6 +60,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 new ControlForm()
                     .Add(new ControlFormItemInputText()
                     {
+                        Label = _ => "Code",
                         MinLength = _ => 5,
                     }.Initialize(x => x.Value.Text = "01234"))
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
@@ -73,6 +74,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 new ControlForm()
                     .Add(new ControlFormItemInputText()
                     {
+                        Label = _ => "Code",
                         MaxLength = _ => 10,
                     }.Initialize(x => x.Value.Text = "0123456789"))
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
@@ -86,6 +88,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 new ControlForm()
                     .Add(new ControlFormItemInputText("pattern")
                     {
+                        Label = _ => "Word",
                         Pattern = _ => "[A-Za-z]{4}"
                     }.Initialize(x => x.Value.Text = "Hello"))
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
@@ -104,7 +107,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Icon",
                 "The `Icon` property defines the symbol assigned to a text box. It provides a visual representation and identification of the input field, enhancing user guidance and recognition.",
                 "Icon = _ => new IconHome()",
-                new ControlForm(null, new ControlFormItemInputText() { Icon = _ => new IconHome() })
+                new ControlForm(null, new ControlFormItemInputText() { Label = _ => "Home", Icon = _ => new IconHome() })
             );
 
             Stage.AddProperty
@@ -112,7 +115,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                "Help",
                "The `Help` property provides additional guidance or information for the text box. It enhances user understanding by offering context or instructions.",
                "Help = _ => \"This is a help text.\"",
-               new ControlForm(null, new ControlFormItemInputText() { Help = _ => "This is a help text." })
+               new ControlForm(null, new ControlFormItemInputText() { Label = _ => "Text", Help = _ => "This is a help text." })
             );
 
             Stage.AddProperty
@@ -121,11 +124,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                "The `Format` property controls the behavior of the text box, allowing it to be converted into a multi-line input box. When this property is configured, the TextBox supports line breaks and expands dynamically to accommodate longer text entries.",
                "Format = _ => TypeEditTextFormat.Wysiwyg",
                new ControlText() { Text = _ => "Default", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-               new ControlForm(null, new ControlFormItemInputText() { Format = _ => TypeEditTextFormat.Default }),
+               new ControlForm(null, new ControlFormItemInputText() { Label = _ => "Default", Format = _ => TypeEditTextFormat.Default }),
                new ControlText() { Text = _ => "Multiline", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-               new ControlForm(null, new ControlFormItemInputText() { Format = _ => TypeEditTextFormat.Multiline }),
+               new ControlForm(null, new ControlFormItemInputText() { Label = _ => "Multiline", Format = _ => TypeEditTextFormat.Multiline }),
                new ControlText() { Text = _ => "Wysiwyg", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
-               new ControlForm(null, new ControlFormItemInputText() { Format = _ => TypeEditTextFormat.Wysiwyg })
+               new ControlForm(null, new ControlFormItemInputText() { Label = _ => "Wysiwyg", Format = _ => TypeEditTextFormat.Wysiwyg })
             );
 
             Stage.AddProperty

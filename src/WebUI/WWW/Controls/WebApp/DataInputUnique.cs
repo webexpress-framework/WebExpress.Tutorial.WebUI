@@ -43,6 +43,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlForm()
                     .Add(new ControlDataFormItemInputUnique("lightUnique")
                     {
+                        Label = _ => "Curse name",
                         Help = _ => @"Enter a curse name to check its availability (e.g., ""Elaine's Statue Curse"")"
                     }
                         .DataService<MonkeyIslandCurseUnique>()
@@ -56,6 +57,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlForm()
                     .Add(new ControlDataFormItemInputUnique("darkUnique")
                     {
+                        Label = _ => "Curse name",
                         Help =_ =>  @"Enter a curse name to check its availability (e.g., ""Elaine's Statue Curse"")"
                     }
                         .DataService<MonkeyIslandCurseUnique>()
@@ -68,6 +70,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             new ControlForm()
                 .Add(new ControlDataFormItemInputUnique(""lightUnique"")
                 {
+                    Label = _ => ""Curse name"",
                     Help = _ => @""Enter a curse name to check its availability (e.g., """"Elaine's Statue Curse"""")""
                 }
                     .DataService<MonkeyIslandCurseUnique>()
@@ -82,6 +85,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 ".DataService<MonkeyIslandCurseUnique>()",
                 new ControlForm()
                     .Add(new ControlDataFormItemInputUnique("p_api")
+                    {
+                        Label = _ => "Curse name"
+                    }
                         .DataService<MonkeyIslandCurseUnique>())
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
             );

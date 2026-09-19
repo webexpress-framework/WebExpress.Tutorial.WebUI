@@ -33,12 +33,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             Stage.Description = @"The `File` upload control allows users to select and upload files as part of a form submission. It provides an intuitive interface for choosing one or multiple files and integrates seamlessly into form workflows.";
 
             Stage.Control = new ControlForm()
-                .Add(new ControlFormItemInputFile())
+                .Add(new ControlFormItemInputFile() { Label = _ => "Attachment" })
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
             new ControlForm()
-                .Add(new ControlFormItemInputTag())
+                .Add(new ControlFormItemInputFile() { Label = _ => ""Attachment"" })
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());";
         }
     }

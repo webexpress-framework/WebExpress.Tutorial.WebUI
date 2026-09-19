@@ -38,6 +38,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.Control = new ControlTile(RandomId.Create())
             {
+                // the cards sit right under the section headings of this page, so their titles are fourth-level
+                HeadingLevel = _ => 4
             }
                 .Add(GetCards());
 

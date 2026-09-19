@@ -58,9 +58,13 @@ The container id is the routing channel: only clients rendering the same id see 
                     .Add
                     (
                         new ControlFormItemInputText("collaborative-subject")
+                        {
+                            Label = _ => "Subject"
+                        }
                             .Initialize(x => x.Value.Text = "collaborative demo"),
                         new ControlFormItemInputText("collaborative-notes")
                         {
+                            Label = _ => "Notes",
                             Format = _ => TypeEditTextFormat.Wysiwyg,
                             Rows = _ => 5
                         }
@@ -86,9 +90,13 @@ The container id is the routing channel: only clients rendering the same id see 
                 .Add
                 (
                     new ControlFormItemInputText(""collaborative-subject"")
+                    {
+                        Label = _ => ""Subject""
+                    }
                         .Initialize(x => x.Value.Text = ""collaborative demo""),
                     new ControlFormItemInputText(""collaborative-notes"")
                     {
+                        Label = _ => ""Notes"",
                         Format = _ => TypeEditTextFormat.Wysiwyg,
                         Rows = _ => 5
                     }

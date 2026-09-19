@@ -45,12 +45,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             Stage.Description = @"The `Combo` control allows for an intuitive and dynamic selection of options. Users can easily choose from a dropdown list, creating a fluid and visually engaging interaction.";
 
             Stage.Control = new ControlForm()
-                .Add(new ControlFormItemInputCombo().Add([.. _options]))
+                .Add(new ControlFormItemInputCombo() { Label = _ => "Option" }.Add([.. _options]))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
             new ControlForm()  
-                .Add(new ControlFormItemInputCombo().Add(new ControlFormItemInputComboItem { Value = ""1"", Text = ""Option 1"" }))
+                .Add(new ControlFormItemInputCombo() { Label = _ => ""Option"" }.Add(new ControlFormItemInputComboItem { Value = ""1"", Text = ""Option 1"" }))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
             Stage.AddProperty
@@ -60,6 +60,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Placeholder = \"Select an option\"",
                 new ControlForm(null, new ControlFormItemInputCombo(null, [.. _options])
                 {
+                    Label = _ => "Option",
                     Placeholder = _ => "Select an option",
                 })
             );

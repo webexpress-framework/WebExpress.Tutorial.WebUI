@@ -155,7 +155,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText()
                 {
                     Text = _ => new StreamReader(GetType().Assembly.GetManifestResourceStream("WebExpress.Tutorial.WebUI.Assets.md\\example.md")).ReadToEnd(),
-                    Format = _ => TypeFormatText.Markdown
+                    Format = _ => TypeFormatText.Markdown,
+                    // the document sits under the fourth-level section headings of this page
+                    HeadingLevel = _ => 5
                 },
                 new ControlText() { Text = _ => "Mark", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlText()

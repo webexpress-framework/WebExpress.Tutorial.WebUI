@@ -56,6 +56,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Help = _ => \"Select one of the available options.\"",
                 new ControlForm(null, new ControlFormItemInputRadio(null)
                 {
+                    Label = _ => "Option 1",
                     Help = _ => "Select one of the available options."
                 })
             );
@@ -67,6 +68,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Icon = _ => new IconPaperPlane()",
                 new ControlForm(null, new ControlFormItemInputRadio(null)
                 {
+                    Label = _ => "Option 1",
                     Icon = _ => new IconPaperPlane()
                 })
             );

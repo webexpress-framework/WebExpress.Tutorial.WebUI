@@ -53,7 +53,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
                     Text = _ => "Light Mode",
-                    Format = _ => TypeFormatText.H5,
+                    Format = _ => TypeFormatText.H4,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
@@ -63,7 +63,9 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
             }
-            visualTree.Content.MainPanel.AddPrimary(new ControlCard(null, [.. Stage.Controls])
+            // a tutorial page shows one control many times over; the wrapper names the landmarks
+            // of each copy after its section, so a reader can tell the copies apart
+            visualTree.Content.MainPanel.AddPrimary(new ControlCard(null, [.. Stage.Controls.Select(x => new ControlSampleLandmarks(x, "Light Mode"))])
             {
                 Classes = ["wx-resizable"],
                 Styles = ["max-width: 80em;"],
@@ -75,7 +77,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
                 {
                     Text = _ => "Dark Mode",
-                    Format = _ => TypeFormatText.H5,
+                    Format = _ => TypeFormatText.H4,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
                 visualTree.Content.MainPanel.AddPrimary(new ControlText()
@@ -84,7 +86,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                     Format = _ => TypeFormatText.Markdown,
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                 });
-                visualTree.Content.MainPanel.AddPrimary(new ControlCard(null, [.. Stage.DarkControls.Any() ? Stage.DarkControls : Stage.Controls])
+                visualTree.Content.MainPanel.AddPrimary(new ControlCard(null, [.. (Stage.DarkControls.Any() ? Stage.DarkControls : Stage.Controls).Select(x => new ControlSampleLandmarks(x, "Dark Mode"))])
                 {
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Dark),
                     Styles = ["max-width: 80em;"],
@@ -170,7 +172,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                     });
                 }
 
-                visualTree.Content.MainPanel.AddPrimary(new ControlCard(null, [.. supportedAct.Controls])
+                visualTree.Content.MainPanel.AddPrimary(new ControlCard(null, [.. supportedAct.Controls.Select((x, i) => new ControlSampleLandmarks(x, supportedAct.Controls.Count() > 1 ? supportedAct.Name + " " + (i + 1) : supportedAct.Name))])
                 {
                     Styles = ["max-width: 80em;"],
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
@@ -230,7 +232,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                     });
                 }
 
-                visualTree.Content.MainPanel.AddPrimary(new ControlCard(null, [.. supportedAct.Controls])
+                visualTree.Content.MainPanel.AddPrimary(new ControlCard(null, [.. supportedAct.Controls.Select((x, i) => new ControlSampleLandmarks(x, supportedAct.Controls.Count() > 1 ? supportedAct.Name + " " + (i + 1) : supportedAct.Name))])
                 {
                     Styles = ["max-width: 80em;"],
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
@@ -258,7 +260,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                             new ControlText()
                             {
                                 Text = _ => subAct.Name,
-                                Format = _ => TypeFormatText.H5,
+                                Format = _ => TypeFormatText.H4,
                                 Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                             },
                             new ControlText()
@@ -276,7 +278,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
                                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
                                 }
                                 : null,
-                            new ControlCard(null, [.. subAct.Controls])
+                            new ControlCard(null, [.. subAct.Controls.Select((x, i) => new ControlSampleLandmarks(x, subAct.Controls.Count() > 1 ? subAct.Name + " " + (i + 1) : subAct.Name))])
                             {
                                 Styles = ["max-width: 80em;"],
                                 Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.Two)
