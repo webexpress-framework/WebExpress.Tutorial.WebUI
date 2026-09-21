@@ -47,6 +47,14 @@ This tutorial guides you through demonstrating the UI elements of a `WebExpress`
 ## Try the application
 - Check the result by calling up the following URL in the browser: http://localhost/webui
 
+## Development administrator
+
+For local administration, sign in with the demonstration account `admin` and password `password`. The tutorial's login form and the central authentication endpoint use the same identity provider. The account carries `SystemAccessPolicy` and can open **Settings > System > Certificates**. Invalid credentials are rejected, and the editable Monkey Island characters do not receive administrator rights.
+
+For an existing browser login, sign out and sign in again after updating the tutorial. Previously issued tokens retain their original identity and policies; refreshing the page or renewing the old token does not grant the new administrator policy.
+
+For deployment separation, run this tutorial over **HTTP during development**. Its published credentials are demonstration data and must not be deployed as a production administrator account. Production applications require their own identity provider and credentials, plus **HTTPS**. Configure authentication in the executable host's active settings directory, such as `WebExpress.Develop.App/settings/webexpress.settings.json` when using the combined development host.
+
 Good luck building stunning web applications with `WebExpress`!
 
 ## AI transparency notice
