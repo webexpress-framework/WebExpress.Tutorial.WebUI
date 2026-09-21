@@ -1,5 +1,4 @@
-﻿using WebExpress.WebCore;
-using WebExpress.WebCore.WebApplication;
+﻿using WebExpress.WebCore.WebApplication;
 using WebExpress.WebCore.WebAttribute;
 
 namespace WebExpress.Tutorial.WebUI
@@ -22,11 +21,10 @@ namespace WebExpress.Tutorial.WebUI
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
+        /// <param name="applicationContext">The context that supplies application services to the tutorial.</param>
         public Application(IApplicationContext applicationContext)
         {
             ApplicationContext = applicationContext;
-
-            WebEx.ComponentHub.IdentityManager.RegisterIdentityProvider(new WebIdentity.IdentityProvider(), applicationContext);
         }
 
         /// <summary>
