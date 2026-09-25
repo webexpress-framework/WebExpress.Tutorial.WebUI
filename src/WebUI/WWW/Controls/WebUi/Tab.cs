@@ -117,6 +117,66 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
 
             Stage.AddProperty
             (
+                "Color",
+                "Colors the active tab: the text in the underline layout, whose line follows it unless UnderlineColor is set, and the fill in the pill layout. The other layouts ignore it. On a pill, the text keeps its contrast: a system color takes its matching contrast color, a user-defined color gets black or white, whichever reads better.",
+                "Color = _ => new PropertyColorText(TypeColorText.Success)",
+                new ControlText() { Text = _ => "Underline with a system color", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlTab(RandomId.Create())
+                {
+                    Layout = _ => TypeLayoutTab.Underline,
+                    Color = _ => new PropertyColorText(TypeColorText.Danger)
+                }
+                    .Add(new ControlTabView() { Title = _ => "Tab View 1", Icon = _ => new IconTable() }.Add(new ControlText() { Text = _ => "content of the tab view 1" }))
+                    .Add(new ControlTabView() { Title = _ => "Tab View 2", Icon = _ => new IconList() }.Add(new ControlText() { Text = _ => "content of the tab view 2" }))
+                    .Add(new ControlTabView() { Title = _ => "Tab View 3", Icon = _ => new IconDiagramProject() }.Add(new ControlText() { Text = _ => "content of the tab view 3" })),
+                new ControlText() { Text = _ => "Pill with a system color", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlTab(RandomId.Create())
+                {
+                    Layout = _ => TypeLayoutTab.Pill,
+                    Color = _ => new PropertyColorText(TypeColorText.Success)
+                }
+                    .Add(new ControlTabView() { Title = _ => "Tab View 1", Icon = _ => new IconTable() }.Add(new ControlText() { Text = _ => "content of the tab view 1" }))
+                    .Add(new ControlTabView() { Title = _ => "Tab View 2", Icon = _ => new IconList() }.Add(new ControlText() { Text = _ => "content of the tab view 2" }))
+                    .Add(new ControlTabView() { Title = _ => "Tab View 3", Icon = _ => new IconDiagramProject() }.Add(new ControlText() { Text = _ => "content of the tab view 3" })),
+                new ControlText() { Text = _ => "Pill with a user-defined color", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlTab(RandomId.Create())
+                {
+                    Layout = _ => TypeLayoutTab.Pill,
+                    Color = _ => new PropertyColorText("#7c3aed")
+                }
+                    .Add(new ControlTabView() { Title = _ => "Tab View 1", Icon = _ => new IconTable() }.Add(new ControlText() { Text = _ => "content of the tab view 1" }))
+                    .Add(new ControlTabView() { Title = _ => "Tab View 2", Icon = _ => new IconList() }.Add(new ControlText() { Text = _ => "content of the tab view 2" }))
+                    .Add(new ControlTabView() { Title = _ => "Tab View 3", Icon = _ => new IconDiagramProject() }.Add(new ControlText() { Text = _ => "content of the tab view 3" }))
+            );
+
+            Stage.AddProperty
+            (
+                "UnderlineColor",
+                "Colors the line under the active tab in the underline layout, independently of the text color. When it is not set, the line takes the text color. The other layouts draw no such line and ignore it.",
+                "UnderlineColor = _ => new PropertyColorBorder(TypeColorBorder.Highlight)",
+                new ControlText() { Text = _ => "System color for the line only", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlTab(RandomId.Create())
+                {
+                    Layout = _ => TypeLayoutTab.Underline,
+                    UnderlineColor = _ => new PropertyColorBorder(TypeColorBorder.Highlight)
+                }
+                    .Add(new ControlTabView() { Title = _ => "Tab View 1", Icon = _ => new IconTable() }.Add(new ControlText() { Text = _ => "content of the tab view 1" }))
+                    .Add(new ControlTabView() { Title = _ => "Tab View 2", Icon = _ => new IconList() }.Add(new ControlText() { Text = _ => "content of the tab view 2" }))
+                    .Add(new ControlTabView() { Title = _ => "Tab View 3", Icon = _ => new IconDiagramProject() }.Add(new ControlText() { Text = _ => "content of the tab view 3" })),
+                new ControlText() { Text = _ => "Text and line in different colors", TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlTab(RandomId.Create())
+                {
+                    Layout = _ => TypeLayoutTab.Underline,
+                    Color = _ => new PropertyColorText(TypeColorText.Secondary),
+                    UnderlineColor = _ => new PropertyColorBorder("#7c3aed")
+                }
+                    .Add(new ControlTabView() { Title = _ => "Tab View 1", Icon = _ => new IconTable() }.Add(new ControlText() { Text = _ => "content of the tab view 1" }))
+                    .Add(new ControlTabView() { Title = _ => "Tab View 2", Icon = _ => new IconList() }.Add(new ControlText() { Text = _ => "content of the tab view 2" }))
+                    .Add(new ControlTabView() { Title = _ => "Tab View 3", Icon = _ => new IconDiagramProject() }.Add(new ControlText() { Text = _ => "content of the tab view 3" }))
+            );
+
+            Stage.AddProperty
+            (
                 "Badge",
                 "Shows a badge at the trailing edge of the tab header, typically a count. A system color is applied through BadgeColor; a user-defined color is emitted as an inline style.",
                 "Badge = _ => \"12\", BadgeColor = _ => new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger)",
