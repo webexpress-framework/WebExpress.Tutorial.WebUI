@@ -18,13 +18,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     public sealed class MonkeyIslandKanban : RestApiKanban<Curse>
     {
         private static readonly object _syncRoot = new();
+        private static readonly Dictionary<string, RestApiKanbanMove> _moves = new();
 
         private static readonly List<RestApiKanbanColumn> _columns =
         [
-            new RestApiKanbanColumn { Id = "todo",     Label = "Trials",          ColorCss = "bg-light text-dark",    Badge = "2", BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Secondary) },
-            new RestApiKanbanColumn { Id = "progress", Label = "Adventure",       ColorCss = "bg-primary text-white", Badge = "1", BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Primary) },
-            new RestApiKanbanColumn { Id = "danger",   Label = "Danger Zone",     ColorCss = "bg-danger text-white",  Badge = "1", BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger) },
-            new RestApiKanbanColumn { Id = "done",     Label = "Legendary Feats", ColorCss = "bg-success text-white", Badge = "1", BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Success) }
+            new RestApiKanbanColumn { Id = "todo", StatusIds = ["open"],     Label = "Trials",          ColorCss = "bg-light text-dark",    Badge = "2", BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Secondary) },
+            new RestApiKanbanColumn { Id = "progress", StatusIds = ["active", "review"], Label = "Adventure",       ColorCss = "bg-primary text-white", Badge = "1", BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Primary) },
+            new RestApiKanbanColumn { Id = "danger", StatusIds = ["blocked"],   Label = "Danger Zone",     ColorCss = "bg-danger text-white",  Badge = "1", BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger) },
+            new RestApiKanbanColumn { Id = "done", StatusIds = ["done"],     Label = "Legendary Feats", ColorCss = "bg-success text-white", Badge = "1", BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Success) }
         ];
 
         private static readonly List<RestApiKanbanSwimlane> _swimlanes =
@@ -46,6 +47,36 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         }
 
         /// <summary>
+        /// Offers workflow statuses that demonstrate multiple destinations within one column.
+        /// </summary>
+        /// <param name="request">The request used to retrieve the demonstration board.</param>
+        /// <returns>The status catalog shared by all demonstration cards.</returns>
+        protected override IEnumerable<RestApiKanbanStatus> RetrieveStatuses(IRequest request)
+        {
+            return
+            [
+                new() { Id = "open", Label = "Open" },
+                new() { Id = "active", Label = "In progress" },
+                new() { Id = "review", Label = "In review" },
+                new() { Id = "blocked", Label = "Blocked" },
+                new() { Id = "done", Label = "Done" }
+            ];
+        }
+
+        /// <summary>
+        /// Keeps a validated destination available on subsequent demonstration requests.
+        /// </summary>
+        /// <param name="move">The validated destination.</param>
+        /// <param name="request">The request that initiated the move.</param>
+        protected override void MoveCard(RestApiKanbanMove move, IRequest request)
+        {
+            lock (_syncRoot)
+            {
+                _moves[move.CardId] = move;
+            }
+        }
+
+        /// <summary>
         /// This method defines the columns for the kanban. Each card is
         /// themed around Monkey Island.
         /// </summary>
@@ -55,7 +86,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         {
             lock (_syncRoot)
             {
-                return [.. _columns.Select(c => new RestApiKanbanColumn { Id = c.Id, Label = c.Label, Size = c.Size, Color = c.Color, ColorCss = c.ColorCss, Badge = c.Badge, BadgeColor = c.BadgeColor })];
+                return [.. _columns.Select(c => new RestApiKanbanColumn { Id = c.Id, StatusIds = c.StatusIds?.ToArray(), Label = c.Label, Size = c.Size, Color = c.Color, ColorCss = c.ColorCss, Badge = c.Badge, BadgeColor = c.BadgeColor })];
             }
         }
 
@@ -89,11 +120,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                         existing.Label = col.Title ?? existing.Label;
                         existing.Size = col.Size;
                         existing.Color = col.Color;
+                        existing.StatusIds = col.StatusIds?.ToArray();
                         reordered.Add(existing);
                     }
                     else
                     {
-                        reordered.Add(new RestApiKanbanColumn { Id = col.Id, Label = col.Title, Size = col.Size, Color = col.Color });
+                        reordered.Add(new RestApiKanbanColumn { Id = col.Id, StatusIds = col.StatusIds?.ToArray(), Label = col.Title, Size = col.Size, Color = col.Color });
                     }
                 }
 
@@ -210,11 +242,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// </returns>
         protected override IEnumerable<RestApiKanbanCard> RetrieveCards(IQuery<Curse> query, IQueryContext context, IRequest request)
         {
-            return
+            RestApiKanbanCard[] cards =
             [
                 new RestApiKanbanCard
                 {
                     Id = "k1",
+                    StatusId = "active",
                     Label = "Swordfighting Training",
                     Html = "Face Carla and become the Sword Master.",
                     ColumnId = "progress",
@@ -235,6 +268,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 new RestApiKanbanCard
                 {
                     Id = "k2",
+                    StatusId = "blocked",
+                    AllowedStatusIds = ["open", "active"],
                     Label = "Steal the Idol",
                     Html = "Infiltrate the Governor's mansion and snatch the voodoo idol.",
                     ColumnId = "danger",
@@ -255,6 +290,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 new RestApiKanbanCard
                 {
                     Id = "k3",
+                    StatusId = "open",
                     Label = "Assemble Crew",
                     Html = "Recruit Carla, Otis and Meathook to sail to Monkey Island.",
                     ColumnId = "todo",
@@ -263,6 +299,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 new RestApiKanbanCard
                 {
                     Id = "k4",
+                    StatusId = "open",
+                    AllowedStatusIds = ["active", "review", "done"],
                     Label = "Find Secret of Monkey Island",
                     Html = "Explore and find the fabled secret.",
                     ColumnId = "todo",
@@ -271,6 +309,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 new RestApiKanbanCard
                 {
                     Id = "k5",
+                    StatusId = "done",
+                    AllowedStatusIds = [],
                     Label = "Defeat LeChuck",
                     Html = "Confront LeChuck and save Elaine.",
                     ColumnId = "done",
@@ -282,6 +322,21 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     AssigneeColor = "#991b1b"
                 }
             ];
+
+            lock (_syncRoot)
+            {
+                foreach (var card in cards)
+                {
+                    if (_moves.TryGetValue(card.Id, out var move))
+                    {
+                        card.ColumnId = move.ColumnId;
+                        card.SwimlaneId = move.SwimlaneId;
+                        card.StatusId = move.StatusId;
+                    }
+                }
+            }
+
+            return cards;
         }
     }
 }
