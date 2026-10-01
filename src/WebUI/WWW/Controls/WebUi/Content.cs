@@ -8,6 +8,7 @@ using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebCore.WebUri;
 using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebEditor;
 using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
@@ -109,9 +110,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             Stage.AddProperty
             (
                 "PDF",
-                "The same stored value can be turned into a PDF file on the server, without a browser and without a third-party library. `PdfRendererContent.ConvertToPdf` takes the value and its format - a `RichText` value has its editing scaffolding removed by the same rules as the reading view, a `Markdown` value is parsed by the same parser - and returns a `PdfDocument`, a flow of blocks that is only laid out on pages when it is written. Page size, margins, font, header, footer and metadata are set on the document before `ToArray` writes the file. Headings become bookmarks, tables repeat their header on every page they continue on, and pictures are only loaded through an `ImageResolver` the application provides, so a text can never make the server fetch an address. Each button below asks a REST endpoint of this tutorial to render the value on the server and opens the file in the viewer of the browser.",
+                "The same stored value can be turned into a PDF file on the server, without a browser and without a third-party library. The file is made from the stored value, not from the control: `EditorContent.ConvertToPdf` removes the editing scaffolding of a `RichText` value by the same rules as the reading view, `PdfRendererMarkdown.ConvertMarkdownToPdf` parses a `Markdown` value with the same parser. Both return a `PdfDocument`, a flow of blocks that is only laid out on pages when it is written. Page size, margins, font, header, footer and metadata are set on the document before `ToArray` writes the file. Headings become bookmarks, tables repeat their header on every page they continue on, and pictures are only loaded through an `ImageResolver` the application provides, so a text can never make the server fetch an address. Each button below asks a REST endpoint of this tutorial to render the value on the server and opens the file in the viewer of the browser.",
                 @"
-                var document = PdfRendererContent.ConvertToPdf(article.Description, TypeFormatContent.RichText);
+                var document = EditorContent.ConvertToPdf(article.Description);
                 document.Title = article.Title;
                 document.Footer = ""Page {page} of {pages}"";
                 document.ImageResolver = LoadAsset;
@@ -198,8 +199,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 + "<span>Warning Widget</span></div>"
                 + "<div><span class=\"wx-addon-settings-btn\"><i class=\"wx-icon-light wx-icon-light-cog\"></i></span></div>"
                 + "</div>"
-                + "<div class=\"card-body p-2 wx-addon-body-widget\" contenteditable=\"false\">"
-                + "<div class=\"alert alert-warning mb-0\"><strong>Warning:</strong> The interface changes with this release.</div>"
+                + "<div class=\"card-body p-2 wx-addon-body-container alert alert-warning\" contenteditable=\"true\">"
+                + "<p><strong>Warning:</strong> The interface changes with this release.</p>"
                 + "</div></div>"
                 + "<p><br></p>";
         }

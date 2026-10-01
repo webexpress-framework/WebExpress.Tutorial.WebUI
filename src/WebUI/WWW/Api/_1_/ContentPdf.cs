@@ -6,7 +6,7 @@ using WebExpress.Tutorial.WebUI.WWW.Controls.WebUi;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebRestApi;
-using WebExpress.WebUI.WebControl;
+using WebExpress.WebUI.WebEditor;
 using WebExpress.WebUI.WebPdf;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
@@ -37,9 +37,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
             var format = request?.GetParameter("format")?.Value?.ToLowerInvariant() ?? "richtext";
             var document = format switch
             {
-                "markdown" => PdfRendererContent.ConvertToPdf(Content.CreateMarkdown(), TypeFormatContent.Markdown),
-                "showcase" => PdfRendererContent.ConvertToPdf(CreateShowcase(request.ApplicationContext.Route.Concat("assets/img/image1.png").ToString()), TypeFormatContent.RichText),
-                _ => PdfRendererContent.ConvertToPdf(Content.CreateEditorValue(), TypeFormatContent.RichText)
+                "markdown" => PdfRendererMarkdown.ConvertMarkdownToPdf(Content.CreateMarkdown()),
+                "showcase" => EditorContent.ConvertToPdf(CreateShowcase(request.ApplicationContext.Route.Concat("assets/img/image1.png").ToString())),
+                _ => EditorContent.ConvertToPdf(Content.CreateEditorValue())
             };
 
             document.Title = $"WebExpress content ({format})";
@@ -125,7 +125,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 + "<div class=\"alert alert-warning\"><strong>Warning:</strong> Never pet a three-headed monkey.</div>"
                 + "<div class=\"wx-callout wx-callout-success\"><div class=\"wx-callout-body\">The voodoo lady approves.</div></div>"
                 + "<blockquote><p>You fight like a dairy farmer.</p><p>How appropriate. You fight like a cow.</p></blockquote>"
-                + "<pre><code class=\"language-csharp\">var document = PdfRendererContent.ConvertToPdf(value, TypeFormatContent.RichText);\n"
+                + "<pre><code class=\"language-csharp\">var document = EditorContent.ConvertToPdf(value);\n"
                 + "document.Footer = \"Page {page} of {pages}\";\nreturn document.ToArray();</code></pre>"
                 + "<h3>Lists</h3>"
                 + "<ul><li>Sword fighting<ul><li>Insults<ul><li>Comebacks</li></ul></li></ul></li><li>Thievery</li>"
