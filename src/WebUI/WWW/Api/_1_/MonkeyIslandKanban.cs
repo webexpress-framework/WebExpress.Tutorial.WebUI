@@ -47,7 +47,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         }
 
         /// <summary>
-        /// Offers workflow statuses that demonstrate multiple destinations within one column.
+        /// Offers workflow statuses that demonstrate multiple destinations within one column
+        /// and colored status chips in both system and user-defined colors.
         /// </summary>
         /// <param name="request">The request used to retrieve the demonstration board.</param>
         /// <returns>The status catalog shared by all demonstration cards.</returns>
@@ -55,11 +56,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         {
             return
             [
-                new() { Id = "open", Label = "Open" },
-                new() { Id = "active", Label = "In progress" },
-                new() { Id = "review", Label = "In review" },
-                new() { Id = "blocked", Label = "Blocked" },
-                new() { Id = "done", Label = "Done" }
+                new() { Id = "open", Label = "Open", Color = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Secondary) },
+                new() { Id = "active", Label = "In progress", Color = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Primary) },
+                new() { Id = "review", Label = "In review", Color = new PropertyColorBackgroundBadge("#7c3aed") },
+                new() { Id = "blocked", Label = "Blocked", Color = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Danger) },
+                new() { Id = "done", Label = "Done", Color = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Success) }
             ];
         }
 
