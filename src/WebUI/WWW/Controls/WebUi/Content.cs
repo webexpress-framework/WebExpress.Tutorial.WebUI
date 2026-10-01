@@ -1,8 +1,12 @@
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
+using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebPage;
+using WebExpress.WebCore.WebSitemap;
+using WebExpress.WebCore.WebUri;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
 
@@ -21,7 +25,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
-        public Content()
+        /// <param name="pageContext">The context of the page, for the address of the PDF endpoint.</param>
+        /// <param name="sitemapManager">The sitemap manager that resolves the PDF endpoint.</param>
+        public Content(IPageContext pageContext, ISitemapManager sitemapManager)
         {
             Stage.Description = @"The `Content` control is the reading view of stored text, in either of the two formats a value is written in. As `RichText` it is what the editor stores - and the editor does not store a document, it stores its whole working surface: an add-on is kept inside the frame that names, moves and configures it, a table is kept framed and with the resize handles in its header cells, and every block that must not be typed into is fenced by the empty paragraphs the caret needs to get past it. Published as it stands, that value shows the reader the scaffolding instead of the text; the control removes the scaffolding and leaves the document, so a single stored value serves both the author and the reader. As `Markdown` it is a value kept as plain text - a description field, an imported document, a README - which is parsed on the server by the same parser that backs `ControlText`, so both controls render the same document from the same source. The control is display only and never contributes a value to a form: it is the read side of `ControlSmartEdit` and of the editor table template, which build the same view on the client whenever their editor is not active.";
 
@@ -99,6 +105,45 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText() { Text = _ => "true", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlContent() { Content = _ => CreateInstruction(), Instruction = _ => true }
             );
+
+            Stage.AddProperty
+            (
+                "PDF",
+                "The same stored value can be turned into a PDF file on the server, without a browser and without a third-party library. `PdfRendererContent.ConvertToPdf` takes the value and its format - a `RichText` value has its editing scaffolding removed by the same rules as the reading view, a `Markdown` value is parsed by the same parser - and returns a `PdfDocument`, a flow of blocks that is only laid out on pages when it is written. Page size, margins, font, header, footer and metadata are set on the document before `ToArray` writes the file. Headings become bookmarks, tables repeat their header on every page they continue on, and pictures are only loaded through an `ImageResolver` the application provides, so a text can never make the server fetch an address. Each button below asks a REST endpoint of this tutorial to render the value on the server and opens the file in the viewer of the browser.",
+                @"
+                var document = PdfRendererContent.ConvertToPdf(article.Description, TypeFormatContent.RichText);
+                document.Title = article.Title;
+                document.Footer = ""Page {page} of {pages}"";
+                document.ImageResolver = LoadAsset;
+
+                return new ResponseOK { Content = document.ToArray() }
+                    .AddHeaderContentType(""application/pdf"");",
+                new ControlButtonLink()
+                {
+                    Text = _ => "RichText as PDF",
+                    Icon = _ => new IconFilePdf(),
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two, PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Uri = _ => sitemapManager.GetUri<ContentPdf>(pageContext).Add(new UriQuery("format", "richtext"))
+                },
+                new ControlButtonLink()
+                {
+                    Text = _ => "Markdown as PDF",
+                    Icon = _ => new IconFilePdf(),
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two, PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Uri = _ => sitemapManager.GetUri<ContentPdf>(pageContext).Add(new UriQuery("format", "markdown"))
+                },
+                new ControlButtonLink()
+                {
+                    Text = _ => "Showcase as PDF",
+                    Icon = _ => new IconFilePdf(),
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Info),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two, PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Uri = _ => sitemapManager.GetUri<ContentPdf>(pageContext).Add(new UriQuery("format", "showcase"))
+                },
+                new ControlContent() { Content = _ => ContentPdf.CreateShowcase(pageContext.ApplicationContext.Route.Concat("assets/img/image1.png").ToString()) }
+            );
         }
 
         /// <summary>
@@ -108,7 +153,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
         /// document that is left as markdown.
         /// </summary>
         /// <returns>The markdown source.</returns>
-        private static string CreateMarkdown()
+        internal static string CreateMarkdown()
         {
             return EditorContent.ConvertToMarkdown(CreateEditorValue());
         }
@@ -118,7 +163,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
         /// make the document editable.
         /// </summary>
         /// <returns>The raw editor value.</returns>
-        private static string CreateEditorValue()
+        internal static string CreateEditorValue()
         {
             return "<h4>Release notes</h4>"
                 + "<p>The editor stores <b>this</b> value together with everything that makes it editable.</p>"
