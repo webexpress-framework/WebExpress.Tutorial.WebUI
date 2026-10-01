@@ -18,7 +18,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// </summary>
     /// <remarks>
     /// <c>format=richtext</c> renders the stored editor value, <c>format=markdown</c> the same
-    /// document brought into markdown, and <c>format=showcase</c> a document that exercises
+    /// document brought into markdown, <c>format=plugin</c> a markdown text whose plugins are
+    /// drawn by <see cref="WebPdf.TicketPdfPlugin"/>, and <c>format=showcase</c> a document that exercises
     /// every block the renderer knows - long enough to break across pages, so the repeated
     /// table header, the running footer and the bookmarks can be seen.
     /// </remarks>
@@ -38,6 +39,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
             var document = format switch
             {
                 "markdown" => PdfRendererMarkdown.ConvertMarkdownToPdf(Content.CreateMarkdown()),
+                "plugin" => PdfRendererMarkdown.ConvertMarkdownToPdf(CreatePluginMarkdown()),
                 "showcase" => EditorContent.ConvertToPdf(CreateShowcase(request.ApplicationContext.Route.Concat("assets/img/image1.png").ToString())),
                 _ => EditorContent.ConvertToPdf(Content.CreateEditorValue())
             };
@@ -100,6 +102,26 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
             stream.CopyTo(memory);
 
             return memory.ToArray();
+        }
+
+        /// <summary>
+        /// Builds a markdown text that names the ticket plugin of this tutorial inline and as
+        /// a block, and a plugin no one has registered, which keeps only its content.
+        /// </summary>
+        /// <returns>The markdown source.</returns>
+        internal static string CreatePluginMarkdown()
+        {
+            return "# Sprint review\n\n"
+                + "The crash on save ({{ticket id=\"WX-42\"}}) is fixed, **{{ticket id=\"WX-57\"}} is still open**.\n\n"
+                + "{{% ticket id=\"WX-57\" status=\"open\" %}}\n"
+                + "The grog machine still dispenses *root beer*. Waiting for the voodoo lady.\n"
+                + "{{% /ticket %}}\n\n"
+                + "{{% ticket id=\"WX-42\" status=\"closed\" %}}\n"
+                + "Saving no longer crashes when the title contains a monkey.\n"
+                + "{{% /ticket %}}\n\n"
+                + "{{% unknown_plugin %}}\n"
+                + "No plugin is registered under this name, so only this text is kept.\n"
+                + "{{% /unknown_plugin %}}\n";
         }
 
         /// <summary>

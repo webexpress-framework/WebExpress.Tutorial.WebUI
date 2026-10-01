@@ -145,6 +145,42 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 },
                 new ControlContent() { Content = _ => ContentPdf.CreateShowcase(pageContext.ApplicationContext.Route.Concat("assets/img/image1.png").ToString()) }
             );
+
+            Stage.AddProperty
+            (
+                "PDF plugin",
+                "A markdown plugin - a name with parameters in double curly braces, inline or around a block, as in the markdown below - is brought to life by the client on a page. A PDF has no client, so a plugin tells the server what it looks like on paper: a public, sealed class implementing `IPdfPlugin` with a `Name` attribute is registered under that name when its plugin is loaded. The converters keep the plugin with its name and parameters in the document, and when the file is written the registered class decides which blocks or text runs take its place. It answers with the elements of the PDF model rather than drawing, so its result breaks across pages and fits into table cells like anything else.\n\nThis tutorial registers a `ticket` plugin: inline it sets the ticket number as a token in the style of the surrounding text, as a block it frames a note in a box tinted by the status. `ConvertInline` and `ConvertBlock` are both optional - by default a block keeps its content and an inline plugin is left out, which is also what happens to a plugin no one has registered, as the last block of the example shows.",
+                @"
+                [Name(""ticket"")]
+                public sealed class TicketPdfPlugin : IPdfPlugin
+                {
+                    public IEnumerable<PdfInlineElement> ConvertInline(PdfInlineElementPlugin element)
+                    {
+                        return [new PdfInlineElementText(element.Parameters[""id""], element.Style with
+                        {
+                            FontFamily = PdfFontFamily.Courier,
+                            Background = new PdfColor(231, 241, 255)
+                        })];
+                    }
+
+                    public IEnumerable<PdfBlockElement> ConvertBlock(PdfBlockElementPlugin element)
+                    {
+                        return [new PdfBlockElementTable()
+                            .Add(new PdfBlockElementTableRow([new PdfBlockElementTableCell(element.Parameters[""id""])]) { Header = true })
+                            .Add(new PdfBlockElementTableRow([new PdfBlockElementTableCell(element.Content)]))];
+                    }
+                }",
+                new ControlButtonLink()
+                {
+                    Text = _ => "Plugins as PDF",
+                    Icon = _ => new IconFilePdf(),
+                    BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary),
+                    Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two, PropertySpacing.Space.None, PropertySpacing.Space.Two),
+                    Uri = _ => sitemapManager.GetUri<ContentPdf>(pageContext).Add(new UriQuery("format", "plugin"))
+                },
+                new ControlText() { Text = _ => "The markdown that is rendered", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlCode() { Language = _ => TypeLanguage.Markdown, Code = _ => ContentPdf.CreatePluginMarkdown() }
+            );
         }
 
         /// <summary>
