@@ -32,13 +32,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
         {
             Stage.AddEvent(Event.CHANGE_VALUE_EVENT, Event.DROPDOWN_SHOW_EVENT, Event.DROPDOWN_HIDDEN_EVENT);
 
-            Stage.Description = @"The `CalendarRange` field enables intuitive selection of a date via a calendar. Users can conveniently select a date, providing a user-friendly and efficient interaction.";
+            Stage.Description = @"The `CalendarRange` field enables intuitive selection of a date range via an inline calendar. The first click sets the start date, the second the end date, and the days in between are highlighted. For a single date use the `Calendar` field instead.";
 
             Stage.Control = new ControlForm("myform", new ControlFormItemInputCalendarRange(null)
             {
                 Icon = _ => new IconCalendar(),
                 Label = _ => "Calendar",
-                Help = _ => "Select the desired date here.",
+                Help = _ => "Select the desired date range here.",
                 Name = _ => "myCalendarCtrl"
             }
                 .Initialize(args =>
@@ -53,11 +53,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
-                    new ControlForm(""myform"", new ControlFormItemInputDatepicker(null)
+                    new ControlForm(""myform"", new ControlFormItemInputCalendarRange(null)
                     {
                         Icon = _ => new IconCalendar(),
                         Label = _ => ""Calendar"",
-                        Help = _ => ""Select the desired date here."",
+                        Help = _ => ""Select the desired date range here."",
                         Name = _ => ""myCalendarCtrl""
                     }
                         .Initialize(args =>
@@ -76,11 +76,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Label",
                 "The `Label` property of the calendar field serves as a short description and is displayed in the main area of the control. It ensures a clear and concise presentation of the selection.",
                 "Label = _ => \"Calendar\"",
-                new ControlForm(null, new ControlFormItemInputCalendar(null)
+                new ControlForm(null, new ControlFormItemInputCalendarRange(null)
                 {
                     Icon = _ => new IconCalendar(),
                     Label = _ => "Calendar",
-                    Help = _ => "Select the desired date here.",
+                    Help = _ => "Select the desired date range here.",
                     Name = _ => "myDarkCalendarCtrl"
                 })
             );
@@ -89,10 +89,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "Help",
                 "The `Help` property provides a help text that gives the user additional information on how to use the calendar field.",
-                "Help = _ => \"Select a date.\"",
-                new ControlForm(null, new ControlFormItemInputCalendar(null)
+                "Help = _ => \"Select a date range.\"",
+                new ControlForm(null, new ControlFormItemInputCalendarRange(null)
                 {
-                    Help = _ => "Select a date."
+                    Help = _ => "Select a date range."
                 })
             );
 
@@ -101,7 +101,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Icon",
                 "The `Icon` property defines the icon associated with the calendar field. It provides visual support and makes it easier to identify the field.",
                 "Icon = _ => new IconCalendarDay()",
-                new ControlForm(null, new ControlFormItemInputCalendar(null)
+                new ControlForm(null, new ControlFormItemInputCalendarRange(null)
                 {
                     Icon = _ => new IconCalendarDay()
                 })
@@ -112,20 +112,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 "Format",
                 @"The `Format` property specifies the date or time pattern used to display values within the calendar input control. It accepts a format string based on the standard .NET date and time formatting conventions, such as ""YYYY-MM-DD"" for a year-month-day format or ""DD.MM.YYYY"" for a more localized European style. This pattern determines both how the value appears in the user interface and how it is represented as a string internally or in serialized output. If no format is specified, the control automatically uses the short date pattern defined by the current culture, as determined by the system's regional settings.",
                 @"Format = _ => ""DD.MM.YYYY""",
-                new ControlForm(null, new ControlFormItemInputCalendar(null)
+                new ControlForm(null, new ControlFormItemInputCalendarRange(null)
                 {
                     Format = _ => "DD.MM.YYYY"
-                })
-            );
-
-            Stage.AddProperty
-            (
-                "Range",
-                @"The `Range` property indicates whether the calendar control allows selection of a date range instead of a single date. When enabled, the expected input value is a string containing two dates separated by a hyphen (-), such as ""2025-07-01 - 2025-07-10"". The exact date format used for each value in the range depends on the format defined by the Format property-for example, ""DD.MM.YYYY - DD.MM.YYYY"" in a German locale.",
-                @"Range = _ => true",
-                new ControlForm(null, new ControlFormItemInputCalendar(null)
-                {
-                    Range = _ => true
                 })
             );
         }
