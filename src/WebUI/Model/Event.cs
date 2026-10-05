@@ -277,6 +277,11 @@
         GANTT_LINK_CREATE_EVENT,
 
         /// <summary>
+        /// Identifies changes to an existing Gantt dependency.
+        /// </summary>
+        GANTT_LINK_UPDATE_EVENT,
+
+        /// <summary>
         /// Event triggered when a gantt dependency link is deleted.
         /// </summary>
         GANTT_LINK_DELETE_EVENT,
@@ -401,6 +406,7 @@
                 Event.GANTT_TASK_UPDATE_EVENT => "webexpress.webapp.gantt.task.update",
                 Event.GANTT_TASK_DELETE_EVENT => "webexpress.webapp.gantt.task.delete",
                 Event.GANTT_LINK_CREATE_EVENT => "webexpress.webapp.gantt.link.create",
+                Event.GANTT_LINK_UPDATE_EVENT => "webexpress.webapp.gantt.link.update",
                 Event.GANTT_LINK_DELETE_EVENT => "webexpress.webapp.gantt.link.delete",
                 Event.GANTT_SELECT_EVENT => "webexpress.webapp.gantt.select",
                 Event.SLA_STATUS_CHANGE_EVENT => "webexpress.webui.sla.status.change",
@@ -480,6 +486,7 @@
                 Event.GANTT_TASK_UPDATE_EVENT => "Event triggered when a gantt task is updated.",
                 Event.GANTT_TASK_DELETE_EVENT => "Event triggered when a gantt task is deleted.",
                 Event.GANTT_LINK_CREATE_EVENT => "Event triggered when a gantt dependency link is created.",
+                Event.GANTT_LINK_UPDATE_EVENT => "Event triggered when a gantt dependency link is updated.",
                 Event.GANTT_LINK_DELETE_EVENT => "Event triggered when a gantt dependency link is deleted.",
                 Event.GANTT_SELECT_EVENT => "Event triggered when a gantt task or link is selected.",
                 Event.SLA_STATUS_CHANGE_EVENT => "Event triggered when a service level agreement changes its status.",

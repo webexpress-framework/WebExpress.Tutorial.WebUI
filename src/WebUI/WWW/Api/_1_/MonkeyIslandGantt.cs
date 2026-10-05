@@ -158,6 +158,39 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         }
 
         /// <summary>
+        /// Persists a dependency edit while retaining the canonical link id.
+        /// </summary>
+        /// <param name="id">The link id from the request path.</param>
+        /// <param name="link">The replacement dependency.</param>
+        /// <param name="request">The incoming request.</param>
+        /// <returns>The updated link, or null when it no longer exists.</returns>
+        protected override RestApiGanttLink UpdateLink(string id, RestApiGanttLink link, IRequest request)
+        {
+            lock (_syncRoot)
+            {
+                var existing = _links.FirstOrDefault(item => item.Id == id);
+                if (existing is null)
+                {
+                    return null;
+                }
+                existing.From = link.From;
+                existing.To = link.To;
+                existing.Type = link.Type;
+                return Clone(existing);
+            }
+        }
+
+        /// <summary>
+        /// Supplies project closures as calendar data without a calendar editor.
+        /// </summary>
+        /// <param name="request">The incoming request.</param>
+        /// <returns>The workweek and an illustrative project closure.</returns>
+        protected override RestApiGanttCalendar RetrieveCalendar(IRequest request)
+        {
+            return new RestApiGanttCalendar { Holidays = ["2026-07-15"] };
+        }
+
+        /// <summary>
         /// Removes a dependency link from the store.
         /// </summary>
         /// <param name="id">The link id from the sub-path.</param>
@@ -214,11 +247,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
             return
             [
                 new RestApiGanttLink { Id = "l1", From = "t1", To = "t4", Type = "FS" },
-                new RestApiGanttLink { Id = "l2", From = "t3", To = "t4", Type = "FS" },
-                new RestApiGanttLink { Id = "l3", From = "t4", To = "t5", Type = "FS" },
+                new RestApiGanttLink { Id = "l2", From = "t3", To = "t4", Type = "SS" },
+                new RestApiGanttLink { Id = "l3", From = "t4", To = "t5", Type = "FF" },
                 new RestApiGanttLink { Id = "l4", From = "t5", To = "m1", Type = "FS" },
                 new RestApiGanttLink { Id = "l5", From = "m1", To = "t6", Type = "FS" },
-                new RestApiGanttLink { Id = "l6", From = "t6", To = "m2", Type = "FS" }
+                new RestApiGanttLink { Id = "l6", From = "t6", To = "m2", Type = "SF" }
             ];
         }
 

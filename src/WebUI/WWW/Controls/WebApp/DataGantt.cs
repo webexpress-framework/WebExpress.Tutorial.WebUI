@@ -36,11 +36,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 Event.GANTT_TASK_UPDATE_EVENT,
                 Event.GANTT_TASK_DELETE_EVENT,
                 Event.GANTT_LINK_CREATE_EVENT,
+                Event.GANTT_LINK_UPDATE_EVENT,
                 Event.GANTT_LINK_DELETE_EVENT,
                 Event.GANTT_SELECT_EVENT
             );
 
-            Stage.Description = @"The `Gantt` control renders an interactive project plan: a task grid on the left and a scrollable timeline on the right, drawn from a pure JSON model of tasks and dependency links. Tasks carry a start date, an end date, a duration, a progress percentage and resources; tasks with children act as containers whose dates and progress are rolled up from the subtree. Bars are dragged to reschedule, their edges resize the duration, a handle adjusts the progress, and dragging a port at a bar edge onto another bar creates a typed dependency (finish-to-start, start-to-start, …) drawn as an orthogonal connector. New tasks are added through the toolbar or a double-click on a free spot in the timeline; the grid cells are edited inline. The timeline switches between a day, week and month scale and zooms, and every mutation is persisted REST-fully and raised as an event.";
+            Stage.Description = @"The `Gantt` control renders an interactive project plan: a task grid on the left and a scrollable timeline on the right, drawn from a pure JSON model of tasks and dependency links. Tasks carry a start date, an end date, a duration, a progress percentage and resources; tasks with children act as containers whose dates and progress are rolled up from the subtree. Bars are dragged to reschedule, their edges resize the duration, a handle adjusts the progress, and dragging a port at a bar edge onto another bar creates a typed dependency (finish-to-start, start-to-start, …) drawn as an orthogonal connector. New tasks are added through the toolbar or a double-click on a free spot in the timeline; the grid cells are edited inline. The timeline switches between a day, week and month scale and zooms, and every mutation is persisted REST-fully and raised as an event. Select a connector to change its FS, SS, FF or SF relationship. The endpoint supplies working weekdays and a project closure on July 15 as calendar data; task durations exclude these non-working days.";
 
             Stage.Controls =
             [
