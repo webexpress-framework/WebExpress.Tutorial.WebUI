@@ -24,6 +24,11 @@
       "MaxRequestBodySize": 3000000000
     },
 
+    // enable email administration in the tutorial host
+    "Email": {
+      "Enabled": true
+    },
+
     "Culture": "en",
 
     "PackagePath": "./packages",
