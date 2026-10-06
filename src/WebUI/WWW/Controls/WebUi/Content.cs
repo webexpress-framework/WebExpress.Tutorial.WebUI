@@ -1,3 +1,4 @@
+using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
@@ -30,26 +31,31 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
         /// <param name="sitemapManager">The sitemap manager that resolves the PDF endpoint.</param>
         public Content(IPageContext pageContext, ISitemapManager sitemapManager)
         {
-            Stage.Description = @"The `Content` control is the reading view of stored text, in either of the two formats a value is written in. As `RichText` it is what the editor stores - and the editor does not store a document, it stores its whole working surface: an add-on is kept inside the frame that names, moves and configures it, a table is kept framed and with the resize handles in its header cells, and every block that must not be typed into is fenced by the empty paragraphs the caret needs to get past it. Published as it stands, that value shows the reader the scaffolding instead of the text; the control removes the scaffolding and leaves the document, so a single stored value serves both the author and the reader. As `Markdown` it is a value kept as plain text - a description field, an imported document, a README - which is parsed on the server by the same parser that backs `ControlText`, so both controls render the same document from the same source. The control is display only and never contributes a value to a form: it is the read side of `ControlSmartEdit` and of the editor table template, which build the same view on the client whenever their editor is not active.";
+            Stage.AddEvent(Event.CHANGE_VALUE_EVENT);
+
+            Stage.Description = @"The `Content` control is the reading view of stored text, in either of the two formats a value is written in. As `RichText` it is what the editor stores - and the editor does not store a document, it stores its whole working surface: an add-on is kept inside the frame that names, moves and configures it, a table is kept framed and with the resize handles in its header cells, and every block that must not be typed into is fenced by the empty paragraphs the caret needs to get past it. Published as it stands, that value shows the reader the scaffolding instead of the text; the control removes the scaffolding and leaves the document, so a single stored value serves both the author and the reader. As `Markdown` it is a value kept as plain text - a description field, an imported document, a README - which is parsed on the server by the same parser that backs `ControlText`, so both controls render the same document from the same source. The control keeps document text read-only and never contributes a value to a form. Optional inline comments let readers annotate selected text without editing it. Comment changes emit `CHANGE_VALUE_EVENT` for the application to persist. By default it is a reading surface: it is the read side of `ControlSmartEdit` and of the editor table template, which build the same view on the client whenever their editor is not active.";
 
             Stage.Controls = [
                 new ControlContent()
                 {
-                    Content = _ => CreateEditorValue()
+                    Content = _ => CreateEditorValue() + EditorState.ToHtml(CreateCommentedValue()),
+                    AllowComments = _ => true
                 }
             ];
 
             Stage.DarkControls = [
                 new ControlContent()
                 {
-                    Content = _ => CreateEditorValue()
+                    Content = _ => CreateEditorValue() + EditorState.ToHtml(CreateCommentedValue()),
+                    AllowComments = _ => true
                 }
             ];
 
             Stage.Code = @"
             new ControlContent()
             {
-                Content = _ => article.Description
+                Content = _ => article.Description,
+                AllowComments = _ => true
             }";
 
             Stage.AddProperty
@@ -105,6 +111,39 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlContent() { Content = _ => CreateInstruction(), Instruction = _ => false },
                 new ControlText() { Text = _ => "true", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlContent() { Content = _ => CreateInstruction(), Instruction = _ => true }
+            );
+
+            Stage.AddProperty
+            (
+                "AllowComments",
+                "The `AllowComments` property enables inline comment authoring for `RichText`. Select existing text to open the comment bubble, then enter a comment in the dialog. Double-click annotated text to edit its comment. Document text and formatting remain read-only. With the default value `false`, existing comments are still available by hovering over or focusing the highlighted text. Markdown does not support comment authoring.\n\nThe examples keep changes in the current browser view. Reloading restores the sample document. Applications receive the updated document object through `webexpress.webui.Event.CHANGE_VALUE_EVENT` in `event.detail.value` and serialize it with `JSON.stringify` when saving it through their service integration. The event log above also shows changes made to the main sample.",
+                @"
+                new ControlContent()
+                {
+                    Content = _ => article.Description,
+                    AllowComments = _ => true
+                }",
+                new ControlText() { Text = _ => "Read existing comments", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlContent() { Content = _ => CreateCommentedValue() },
+                new ControlText() { Text = _ => "Select text to add a comment", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlContent() { Content = _ => CreateCommentedValue(), AllowComments = _ => true }
+            );
+
+            Stage.AddProperty
+            (
+                "DeleteComments",
+                "The `DeleteComments` property controls explicit comment removal independently of authoring. It defaults to `false`, so readers can add and edit comments without seeing a remove action. Set it to `true` for readers permitted to remove comments; the control then emits `data-delete-comments=\"true\"`. `AllowComments` must also be enabled. Double-click the highlighted text in each example to compare the dialog with and without the remove button. Removing a comment preserves its text and formatting.\n\nThe application resolves this property for the current user and validates the permission when saving changes. This additional permission belongs only to `ControlContent`. The WYSIWYG editor already has document editing permission and does not require the attribute.",
+                @"
+                new ControlContent()
+                {
+                    Content = _ => article.Description,
+                    AllowComments = _ => true,
+                    DeleteComments = context => CanDeleteComments(context)
+                }",
+                new ControlText() { Text = _ => "Comment authoring without deletion", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlContent() { Content = _ => CreateCommentedValue(), AllowComments = _ => true, DeleteComments = _ => false },
+                new ControlText() { Text = _ => "Comment authoring with deletion", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
+                new ControlContent() { Content = _ => CreateCommentedValue(), AllowComments = _ => true, DeleteComments = _ => true }
             );
 
             Stage.AddProperty
@@ -181,6 +220,32 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 new ControlText() { Text = _ => "The markdown that is rendered", Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two), TextColor = _ => new PropertyColorText(TypeColorText.Info) },
                 new ControlCode() { Language = _ => TypeLanguage.Markdown, Code = _ => ContentPdf.CreatePluginMarkdown() }
             );
+        }
+
+        /// <summary>
+        /// Provides the same persisted annotation for the reading and permission examples.
+        /// </summary>
+        /// <returns>A rich-text document with annotated and unannotated text.</returns>
+        private static string CreateCommentedValue()
+        {
+            return """
+                {
+                  "version": 1,
+                  "doc": {
+                    "type": "doc",
+                    "children": [{
+                      "type": "p",
+                      "children": [
+                        { "type": "text", "text": "The release date", "marks": {
+                          "bold": true,
+                          "comment": { "id": "release-review", "text": "Please confirm the date with the release team." }
+                        } },
+                        { "type": "text", "text": " is the first of the month. Select this sentence to add another comment." }
+                      ]
+                    }]
+                  }
+                }
+                """;
         }
 
         /// <summary>
