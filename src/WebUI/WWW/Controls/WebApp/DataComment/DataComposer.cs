@@ -47,6 +47,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Comment
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Two, PropertySpacing.Space.None, PropertySpacing.Space.None, PropertySpacing.Space.None)
                 }
                     .DataService<MonkeyIslandComment>()
+                    // the image dialog uploads to and lists from the same demo endpoint
+                    .UploadService<MonkeyIslandEditorImages>()
+                    .ImagesService<MonkeyIslandEditorImages>()
+                    .LinksService<MonkeyIslandEditorLinks>()
             ];
 
             Stage.Code = @"
@@ -54,7 +58,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Comment
             {
                 CurrentUser = _ => ""guybrush""
             }
-                .DataService<MonkeyIslandComment>();";
+                .DataService<MonkeyIslandComment>()
+                .UploadService<MonkeyIslandEditorImages>()
+                .ImagesService<MonkeyIslandEditorImages>()
+                .LinksService<MonkeyIslandEditorLinks>();";
         }
     }
 }

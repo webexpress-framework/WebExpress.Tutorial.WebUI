@@ -1,6 +1,7 @@
 ﻿using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
+using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebComponent;
@@ -29,17 +30,38 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
         {
             Stage.Description = @"The `Text` control allows for an intuitive and dynamic input of text options. Users can easily type or edit text, creating a fluid and visually engaging interaction.";
 
+            var images = componentHub.SitemapManager.GetUri<MonkeyIslandEditorImages>(pageContext.ApplicationContext);
+            var links = componentHub.SitemapManager.GetUri<MonkeyIslandEditorLinks>(pageContext.ApplicationContext);
+
             Stage.Control = new ControlForm()
                 .Add(new ControlFormItemInputText()
                 {
-                    Format = _ => TypeEditTextFormat.Wysiwyg
+                    Format = _ => TypeEditTextFormat.Wysiwyg,
+                    ImageUploadUri = _ => images,
+                    ImageLibraryUri = _ => images,
+                    LinkLibraryUri = _ => links
                 }.Initialize(x => x.Value.Text = "Hello <b>WebExpress!</b>"))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"  
                new ControlForm()
-                .Add(new ControlFormItemInputText() { Format = _ => TypeEditTextFormat.Wysiwyg })
+                .Add(new ControlFormItemInputText()
+                {
+                    Format = _ => TypeEditTextFormat.Wysiwyg,
+                    ImageUploadUri = _ => images,
+                    ImageLibraryUri = _ => images,
+                    LinkLibraryUri = _ => links
+                })
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());";
+
+            Stage.AddProperty
+            (
+                "ImageUploadUri, ImageLibraryUri, LinkLibraryUri",
+                "These properties apply to the `Wysiwyg` format. WebUI's link and image dialogs only offer an address field. WebApp adds pages that upload an image, choose one from a library or pick a link target, and shows them only in editors that name these endpoints. Without them, the editor below offers just the address fields.",
+                "ImageUploadUri = _ => images, ImageLibraryUri = _ => images, LinkLibraryUri = _ => links",
+                new ControlForm(null, new ControlFormItemInputText() { Label = _ => "With library pages", Format = _ => TypeEditTextFormat.Wysiwyg, ImageUploadUri = _ => images, ImageLibraryUri = _ => images, LinkLibraryUri = _ => links }),
+                new ControlForm(null, new ControlFormItemInputText() { Label = _ => "Without", Format = _ => TypeEditTextFormat.Wysiwyg })
+            );
 
             Stage.AddProperty
             (

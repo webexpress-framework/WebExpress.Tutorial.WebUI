@@ -48,7 +48,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Comment
             var comment = new ControlDataComment("tutorial-comment-guybrush-view")
             {
                 CurrentUser = _ => "guybrush"
-            }.Resource<CommentsResource>();
+            }
+                .Resource<CommentsResource>()
+                // the editor of an edited comment offers the image and link pages of WebApp
+                .UploadService<MonkeyIslandEditorImages>()
+                .ImagesService<MonkeyIslandEditorImages>()
+                .LinksService<MonkeyIslandEditorLinks>();
 
             Stage.Controls =
             [
@@ -64,7 +69,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Comment
             var comment = new ControlDataComment(""tutorial-comment-guybrush-view"")
             {
                 CurrentUser = _ => ""guybrush""
-            }.Resource<CommentsResource>();
+            }
+                .Resource<CommentsResource>()
+                .UploadService<MonkeyIslandEditorImages>()
+                .ImagesService<MonkeyIslandEditorImages>()
+                .LinksService<MonkeyIslandEditorLinks>();
 
             new ControlViewState<EmptyState>(""tutorial-comment-guybrush"")
                 .Service<MonkeyIslandComment>(svc => svc.Method(HttpMethod.Get).UpdateMethod(HttpMethod.Put))
