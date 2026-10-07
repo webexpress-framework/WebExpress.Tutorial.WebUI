@@ -200,7 +200,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// </summary>
         /// <param name="layout">The layout payload carrying the new column list.</param>
         /// <param name="request">The incoming request.</param>
-        protected override void UpdtaeColumns(RestApiDashboardLayout layout, IRequest request)
+        protected override void UpdateColumns(RestApiDashboardLayout layout, IRequest request)
         {
             if (layout?.Columns is null)
             {

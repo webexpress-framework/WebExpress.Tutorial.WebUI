@@ -20,6 +20,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         private static readonly object _syncRoot = new();
         private static readonly Dictionary<string, RestApiKanbanMove> _moves = new();
 
+        // the demonstration cards are fixed, so a card that went with its deleted
+        // column or swimlane is remembered here and left out of every later load
+        private static readonly HashSet<string> _deletedCards = [];
+
         private static readonly List<RestApiKanbanColumn> _columns =
         [
             new RestApiKanbanColumn { Id = "todo", StatusIds = ["open"],     Label = "Trials",          ColorCss = "bg-light text-dark",    Badge = "2", BadgeColor = new PropertyColorBackgroundBadge(TypeColorBackgroundBadge.Secondary) },
@@ -93,11 +97,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 
         /// <summary>
         /// Applies a column-layout change (rename / resize / recolor / reorder /
-        /// delete) to the in-memory store.
+        /// delete) to the in-memory store. A deleted column takes its cards along.
         /// </summary>
         /// <param name="layout">The layout payload carrying the new column list.</param>
         /// <param name="request">The incoming request.</param>
-        protected override void UpdtaeColumns(RestApiDashboardLayout layout, IRequest request)
+        protected override void UpdateColumns(RestApiDashboardLayout layout, IRequest request)
         {
             if (layout?.Columns is null)
             {
@@ -106,6 +110,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 
             lock (_syncRoot)
             {
+                var removed = _columns.Select(c => c.Id).Except(layout.Columns.Select(c => c?.Id)).ToHashSet();
+                foreach (var card in Cards().Where(card => removed.Contains(card.ColumnId)))
+                {
+                    _deletedCards.Add(card.Id);
+                }
+
                 var byId = _columns.ToDictionary(c => c.Id, c => c);
                 var reordered = new List<RestApiKanbanColumn>();
 
@@ -149,13 +159,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         {
             lock (_syncRoot)
             {
-                return [.. _swimlanes.Select(s => new RestApiKanbanSwimlane { Id = s.Id, Label = s.Label, ColorCss = s.ColorCss, Expanded = s.Expanded, Filter = s.Filter, Badge = s.Badge, BadgeColor = s.BadgeColor })];
+                return [.. _swimlanes.Select(s => new RestApiKanbanSwimlane { Id = s.Id, Label = s.Label, Color = s.Color, ColorCss = s.ColorCss, Expanded = s.Expanded, Filter = s.Filter, Badge = s.Badge, BadgeColor = s.BadgeColor })];
             }
         }
 
         /// <summary>
-        /// Applies a swimlane-layout change (add / rename / reorder / delete) to
-        /// the in-memory store.
+        /// Applies a swimlane-layout change (add / rename / recolor / reorder /
+        /// delete) to the in-memory store. A deleted lane takes its cards along, and
+        /// the first lane of a board without lanes receives every card.
         /// </summary>
         /// <param name="layout">The layout payload carrying the new swimlane list.</param>
         /// <param name="request">The incoming request.</param>
@@ -182,11 +193,28 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     {
                         existing.Label = lane.Title ?? existing.Label;
                         existing.Filter = lane.Filter;
+                        existing.Color = lane.Color;
                         reordered.Add(existing);
                     }
                     else
                     {
-                        reordered.Add(new RestApiKanbanSwimlane { Id = lane.Id, Label = lane.Title, Expanded = true, Filter = lane.Filter });
+                        reordered.Add(new RestApiKanbanSwimlane { Id = lane.Id, Label = lane.Title, Expanded = true, Filter = lane.Filter, Color = lane.Color });
+                    }
+                }
+
+                if (_swimlanes.Count == 0 && reordered.Count > 0)
+                {
+                    foreach (var card in Cards())
+                    {
+                        _moves[card.Id] = new RestApiKanbanMove { CardId = card.Id, ColumnId = card.ColumnId, SwimlaneId = reordered[0].Id, StatusId = card.StatusId };
+                    }
+                }
+                else
+                {
+                    var removed = _swimlanes.Select(s => s.Id).Except(reordered.Select(s => s.Id)).ToHashSet();
+                    foreach (var card in Cards().Where(card => removed.Contains(card.SwimlaneId)))
+                    {
+                        _deletedCards.Add(card.Id);
                     }
                 }
 
@@ -242,6 +270,17 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// collection is empty if no cards are available.
         /// </returns>
         protected override IEnumerable<RestApiKanbanCard> RetrieveCards(IQuery<Curse> query, IQueryContext context, IRequest request)
+        {
+            return Cards();
+        }
+
+        /// <summary>
+        /// Builds the demonstration cards in their stored state. The layout updates
+        /// work on these as well, since a deleted column or lane takes along cards the
+        /// board's filter may hide.
+        /// </summary>
+        /// <returns>The cards as moved, without those that were deleted.</returns>
+        private static List<RestApiKanbanCard> Cards()
         {
             RestApiKanbanCard[] cards =
             [
@@ -335,9 +374,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                         card.StatusId = move.StatusId;
                     }
                 }
-            }
 
-            return cards;
+                return [.. cards.Where(card => !_deletedCards.Contains(card.Id))];
+            }
         }
     }
 }
