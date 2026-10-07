@@ -292,6 +292,16 @@
         GANTT_SELECT_EVENT,
 
         /// <summary>
+        /// Event triggered when the gantt sandbox opens.
+        /// </summary>
+        GANTT_SANDBOX_ENTER_EVENT,
+
+        /// <summary>
+        /// Event triggered when the gantt sandbox closes, saved or discarded.
+        /// </summary>
+        GANTT_SANDBOX_LEAVE_EVENT,
+
+        /// <summary>
         /// Event triggered when a service level agreement changes its status.
         /// </summary>
         SLA_STATUS_CHANGE_EVENT,
@@ -409,6 +419,8 @@
                 Event.GANTT_LINK_UPDATE_EVENT => "webexpress.webapp.gantt.link.update",
                 Event.GANTT_LINK_DELETE_EVENT => "webexpress.webapp.gantt.link.delete",
                 Event.GANTT_SELECT_EVENT => "webexpress.webapp.gantt.select",
+                Event.GANTT_SANDBOX_ENTER_EVENT => "webexpress.webapp.gantt.sandbox.enter",
+                Event.GANTT_SANDBOX_LEAVE_EVENT => "webexpress.webapp.gantt.sandbox.leave",
                 Event.SLA_STATUS_CHANGE_EVENT => "webexpress.webui.sla.status.change",
                 Event.SLA_ACTION_EVENT => "webexpress.webui.sla.action",
                 Event.SLA_CYCLE_EVENT => "webexpress.webui.sla.cycle",
@@ -489,6 +501,8 @@
                 Event.GANTT_LINK_UPDATE_EVENT => "Event triggered when a gantt dependency link is updated.",
                 Event.GANTT_LINK_DELETE_EVENT => "Event triggered when a gantt dependency link is deleted.",
                 Event.GANTT_SELECT_EVENT => "Event triggered when a gantt task or link is selected.",
+                Event.GANTT_SANDBOX_ENTER_EVENT => "Event triggered when the gantt sandbox opens; changes stay local from now on.",
+                Event.GANTT_SANDBOX_LEAVE_EVENT => "Event triggered when the gantt sandbox closes; the detail tells whether the changes were saved.",
                 Event.SLA_STATUS_CHANGE_EVENT => "Event triggered when a service level agreement changes its status.",
                 Event.SLA_ACTION_EVENT => "Event triggered when a service level agreement is paused, resumed or settled.",
                 Event.SLA_CYCLE_EVENT => "Event triggered when a periodic service level agreement starts its next cycle.",
