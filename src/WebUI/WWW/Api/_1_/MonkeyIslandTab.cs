@@ -12,7 +12,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// <summary>
     /// Provides the REST tab endpoint for the Monkey Island tab demo. The tabs
     /// are held in a thread-safe in-memory store so that creating, removing and
-    /// reordering them (drag and drop with the ⠿ grip) persists across reloads.
+    /// reordering (drag and drop with the ⠿ grip), renaming or coloring them persists across reloads.
     /// </summary>
     public sealed class MonkeyIslandTab : RestApiTab<Game>
     {
@@ -179,6 +179,54 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 
                 _views.Clear();
                 _views.AddRange(reordered);
+
+                return true;
+            }
+        }
+
+        /// <summary>
+        /// Applies the color chosen from a tab menu to the in-memory store.
+        /// </summary>
+        /// <param name="viewId">The id of the tab.</param>
+        /// <param name="color">The new color, or null to remove it.</param>
+        /// <param name="context">The query context.</param>
+        /// <param name="request">The incoming request.</param>
+        /// <returns><see langword="true"/> when the tab exists and was colored.</returns>
+        protected override bool RecolorView(string viewId, string color, IQueryContext context, IRequest request)
+        {
+            lock (_syncRoot)
+            {
+                var view = _views.FirstOrDefault(v => string.Equals(v.Id, viewId, StringComparison.OrdinalIgnoreCase));
+                if (view is null)
+                {
+                    return false;
+                }
+
+                view.TabColor = color;
+
+                return true;
+            }
+        }
+
+        /// <summary>
+        /// Applies the new label of a tab renamed in place to the in-memory store.
+        /// </summary>
+        /// <param name="viewId">The id of the renamed tab.</param>
+        /// <param name="label">The new label.</param>
+        /// <param name="context">The query context.</param>
+        /// <param name="request">The incoming request.</param>
+        /// <returns><see langword="true"/> when the tab exists and was renamed.</returns>
+        protected override bool RenameView(string viewId, string label, IQueryContext context, IRequest request)
+        {
+            lock (_syncRoot)
+            {
+                var view = _views.FirstOrDefault(v => string.Equals(v.Id, viewId, StringComparison.OrdinalIgnoreCase));
+                if (view is null)
+                {
+                    return false;
+                }
+
+                view.Title = label;
 
                 return true;
             }

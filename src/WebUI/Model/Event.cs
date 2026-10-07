@@ -252,6 +252,16 @@
         TAB_CLOSED_EVENT,
 
         /// <summary>
+        /// Event triggered when a tab header is renamed.
+        /// </summary>
+        TAB_RENAMED_EVENT,
+
+        /// <summary>
+        /// Event triggered when the color of a tab is changed.
+        /// </summary>
+        TAB_RECOLORED_EVENT,
+
+        /// <summary>
         /// Event triggered when dark mode is toggled.
         /// </summary>
         CHANGE_DARKMODE_EVENT,
@@ -412,6 +422,8 @@
                 Event.UPDATE_EVENT => "webexpress.webapp.update",
                 Event.TAB_ADDED_EVENT => "webexpress.webapp.tab.added",
                 Event.TAB_CLOSED_EVENT => "webexpress.webapp.tab.closed",
+                Event.TAB_RENAMED_EVENT => "webexpress.webapp.tab.renamed",
+                Event.TAB_RECOLORED_EVENT => "webexpress.webapp.tab.recolored",
                 Event.GANTT_TASK_CREATE_EVENT => "webexpress.webapp.gantt.task.create",
                 Event.GANTT_TASK_UPDATE_EVENT => "webexpress.webapp.gantt.task.update",
                 Event.GANTT_TASK_DELETE_EVENT => "webexpress.webapp.gantt.task.delete",
@@ -494,6 +506,8 @@
                 Event.UPDATE_EVENT => "Event triggered when UI components require a general update",
                 Event.TAB_ADDED_EVENT => "Event triggered when a tab is added dynamically.",
                 Event.TAB_CLOSED_EVENT => "Event triggered when a tab is closed dynamically.",
+                Event.TAB_RENAMED_EVENT => "Event triggered when a tab header is renamed.",
+                Event.TAB_RECOLORED_EVENT => "Event triggered when the color of a tab is changed.",
                 Event.GANTT_TASK_CREATE_EVENT => "Event triggered when a gantt task is created.",
                 Event.GANTT_TASK_UPDATE_EVENT => "Event triggered when a gantt task is updated.",
                 Event.GANTT_TASK_DELETE_EVENT => "Event triggered when a gantt task is deleted.",
