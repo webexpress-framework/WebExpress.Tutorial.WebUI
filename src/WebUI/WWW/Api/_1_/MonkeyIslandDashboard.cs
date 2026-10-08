@@ -141,6 +141,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
             ];
 
         /// <summary>
+        /// Gives the seed widgets the instance ids a stored board carries, so a
+        /// widget stays recognisable to the client across reloads.
+        /// </summary>
+        static MonkeyIslandDashboard()
+        {
+            foreach (var widget in _columns.SelectMany(c => c.Widgets))
+            {
+                widget.InstanceId ??= Guid.NewGuid().ToString("N");
+            }
+        }
+
+        /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
         public MonkeyIslandDashboard()
@@ -285,6 +297,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 
                         var generic = new RestApiDashboardWidgetGeneric(widget.Id)
                         {
+                            InstanceId = string.IsNullOrWhiteSpace(widget.InstanceId)
+                                ? Guid.NewGuid().ToString("N")
+                                : widget.InstanceId,
                             Title = widget.Title,
                             Color = widget.Color,
                             Movable = true,
