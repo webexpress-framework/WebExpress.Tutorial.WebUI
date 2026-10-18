@@ -120,6 +120,25 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         }
 
         /// <summary>
+        /// Builds the cells of a character in the given column order.
+        /// </summary>
+        /// <param name="character">The character.</param>
+        /// <param name="columnIds">The column ids in the order of the response.</param>
+        /// <returns>One cell per column.</returns>
+        private static RestApiTableCell[] CellsOf(Character character, string[] columnIds) => columnIds
+            .Select(id => new RestApiTableCell()
+            {
+                Content = id switch
+                {
+                    "name" => character.Name,
+                    "description" => character.Description,
+                    "appearsin" => string.Join(";", character.AppearsIn.Select(x => x.Name)),
+                    _ => null
+                }
+            })
+            .ToArray();
+
+        /// <summary>
         /// Defensive copy so the cached layout cannot be mutated through a
         /// returned reference.
         /// </summary>
@@ -157,25 +176,15 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// </returns>
         protected override IQueryable<RestApiTableRow> RetrieveRows(IQuery<Character> query, IQueryContext context, IEnumerable<RestApiTableColumn> columns, IRequest request)
         {
+            // the columns come in the order the user stored, and the client reads the cells
+            // of a row in the order of the columns it received
+            var columnIds = columns.Select(x => x.Id).ToArray();
+
             return query.Apply(ViewModel.MonkeyIslandCharacters.AsQueryable())
                 .Select(x => new RestApiTableRow()
                 {
                     Id = x.Id.ToString(),
-                    Cells = new[]
-                    {
-                        new RestApiTableCell()
-                        {
-                            Content = x.Name
-                        },
-                        new RestApiTableCell()
-                        {
-                            Content = x.Description
-                        },
-                        new RestApiTableCell()
-                        {
-                            Content = string.Join(";", x.AppearsIn.Select(x => x.Name))
-                        }
-                    },
+                    Cells = CellsOf(x, columnIds),
                     Options = GetOptions(x.Id.ToString(), request).Select(o => o.ToJson()),
                     Image = (x.Icon is ImageIcon)
                         ? x.Icon.Uri.ToString()
