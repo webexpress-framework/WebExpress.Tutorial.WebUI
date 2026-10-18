@@ -40,7 +40,8 @@ webexpress.webui.EventLoggerCtrl = class extends webexpress.webui.Ctrl {
             // Create a div for the event log entry
             const div = document.createElement("div");
             div.className = "wx-eventlogger-entry";
-            div.innerHTML = `<b>Event-Typ:</b> <span class="wx-eventlogger-type">${eventId}</span>,<br><b>Data:</b> <span class="wx-eventlogger-value">null</span>`;
+            const value = this._renderEntry(div, eventId);
+            value.textContent = "null";
             this._element.appendChild(div);
 
             // Handler for the event
@@ -54,7 +55,9 @@ webexpress.webui.EventLoggerCtrl = class extends webexpress.webui.Ctrl {
                 }
                 // Logging
                 console.log(eventId, event, data);
-                div.innerHTML = `<b>Event-Typ:</b> <span class="wx-eventlogger-type">${eventId}</span>,<br><b>Data:</b> <span class="wx-eventlogger-value"><pre>${JSON.stringify(data, null, 4)}</pre></span>`;
+                const pre = document.createElement("pre");
+                pre.textContent = JSON.stringify(webexpress.webui.EventLoggerCtrl.describe(data), null, 4);
+                this._renderEntry(div, eventId).appendChild(pre);
                 // Move this div to the top
                 if (this._element.firstChild !== div) {
                     this._element.insertBefore(div, this._element.firstChild);
@@ -65,6 +68,64 @@ webexpress.webui.EventLoggerCtrl = class extends webexpress.webui.Ctrl {
             document.addEventListener(eventId, handler);
             this._listenerRefs.push({ eventId, handler });
         });
+    }
+
+    /**
+     * Writes the frame of a log entry and returns the element that takes the data.
+     * The event id and the data are text, so a payload that carries markup is shown
+     * rather than interpreted.
+     * @param {HTMLElement} div - The entry element.
+     * @param {string} eventId - The event id.
+     * @returns {HTMLElement} The data element.
+     */
+    _renderEntry(div, eventId) {
+        const typeLabel = document.createElement("b");
+        typeLabel.textContent = "Event-Typ:";
+        const type = document.createElement("span");
+        type.className = "wx-eventlogger-type";
+        type.textContent = eventId;
+        const dataLabel = document.createElement("b");
+        dataLabel.textContent = "Data:";
+        const value = document.createElement("span");
+        value.className = "wx-eventlogger-value";
+        div.replaceChildren(typeLabel, " ", type, ",", document.createElement("br"), dataLabel, " ", value);
+        return value;
+    }
+
+    /**
+     * Turns an event payload into a value JSON can write. A payload may hold DOM nodes
+     * and records that point back at their owners (a table row and its element, a tree
+     * row and its parent), which JSON cannot follow; a node is shown by its tag, and a
+     * record already open further up is shown as circular.
+     * @param {*} value - The payload.
+     * @param {Array<object>} [open=[]] - The records being described further up.
+     * @param {number} [depth=0] - The nesting depth.
+     * @returns {*} A JSON-safe copy.
+     */
+    static describe(value, open = [], depth = 0) {
+        if (value === null || typeof value !== "object") {
+            return typeof value === "function" ? "[Function]" : value;
+        }
+        if (typeof Node !== "undefined" && value instanceof Node) {
+            return "<" + (value.nodeName || "node").toLowerCase() + (value.id ? "#" + value.id : "") + ">";
+        }
+        if (open.includes(value)) {
+            return "[Circular]";
+        }
+        if (depth >= 8) {
+            return "[...]";
+        }
+
+        const inner = open.concat([value]);
+        if (Array.isArray(value)) {
+            return value.map((item) => webexpress.webui.EventLoggerCtrl.describe(item, inner, depth + 1));
+        }
+
+        const copy = {};
+        for (const key of Object.keys(value)) {
+            copy[key] = webexpress.webui.EventLoggerCtrl.describe(value[key], inner, depth + 1);
+        }
+        return copy;
     }
 
     /**

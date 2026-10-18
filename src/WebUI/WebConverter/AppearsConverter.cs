@@ -32,11 +32,12 @@ namespace WebExpress.Tutorial.WebUI.WebConverter
 
             if (rawValue?.GetType() == typeof(string))
             {
-                var split = rawValue?.ToString().Split(";");
+                var split = rawValue.ToString().Split(';', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 
+                // the edit form submits game ids, the inline tag editor of the table the names it shows
                 return ViewModel.MonkeyIslandGames
-                    .Where(x => split.Contains(x.Id.ToString()));
-
+                    .Where(x => split.Contains(x.Id.ToString()) || split.Contains(x.Name, StringComparer.OrdinalIgnoreCase))
+                    .ToList();
             }
 
             return rawValue;
