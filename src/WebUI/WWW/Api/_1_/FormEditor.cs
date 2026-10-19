@@ -12,9 +12,28 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// REST API for loading and persisting form structures used by the visual
     /// form editor. GET returns the structure; PUT saves it and increments the version.
     /// </summary>
+    /// <remarks>
+    /// For a form that is edited through a draft (see <see cref="FormEditorDraft"/>)
+    /// this endpoint decides what the editor opens on: GET answers the draft where
+    /// one exists and the published structure otherwise, and PUT <b>is</b> the
+    /// publication, which applies the structure and ends the draft in the same step.
+    /// A publication is checked against the published version, not against the
+    /// version the draft was started from.
+    /// </remarks>
     [Title("Form structure")]
     public sealed class FormEditor : RestApiFormEditor<Game>
     {
+        /// <summary>
+        /// The id of the form the samples without a draft edit.
+        /// </summary>
+        internal const string FormId = "00000000-0000-0000-0000-000000000001";
+
+        /// <summary>
+        /// The id of the form the drafting sample edits. It is a form of its own, so
+        /// the samples that save directly do not write over its draft.
+        /// </summary>
+        internal const string DraftFormId = "00000000-0000-0000-0000-000000000002";
+
         private static readonly RestApiFormEditorFieldItem[] _fields =
         [
             new RestApiFormEditorFieldItem{ Id = "Name",        Label = "Name",        Type = "string"    },
@@ -32,8 +51,15 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 
         private static readonly Dictionary<string, RestApiFormEditorItem> _store = new(StringComparer.OrdinalIgnoreCase)
         {
-            ["00000000-0000-0000-0000-000000000001"] = CreateSampleStructure()
+            [FormId] = CreateSampleStructure(),
+            [DraftFormId] = CreateDraftSampleStructure()
         };
+
+        /// <summary>
+        /// The lock both endpoints of the demo take, so a publication and a draft save
+        /// landing at the same moment cannot interleave.
+        /// </summary>
+        internal static object SyncRoot { get; } = new();
 
         /// <summary>
         /// Initializes a new instance of the class.
@@ -82,7 +108,32 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// </returns>
         protected override RestApiFormEditorItem RetrieveItem(string formId, IQueryContext context, IRequest request)
         {
-            return _store.TryGetValue(formId, out var item) ? item : null;
+            lock (SyncRoot)
+            {
+                if (!_store.TryGetValue(formId, out var item))
+                {
+                    return null;
+                }
+
+                // the editor opens on the unpublished draft where one exists
+                return FormEditorDraft.Current(formId)?.Structure ?? item;
+            }
+        }
+
+        /// <summary>
+        /// Retrieves the published version a publication is checked against, which
+        /// the draft answered by <see cref="RetrieveItem"/> cannot tell.
+        /// </summary>
+        /// <param name="formId">The id of the form.</param>
+        /// <param name="context">The query context used for retrieving the item.</param>
+        /// <param name="request">The current request.</param>
+        /// <returns>The published version, or null when the form is not stored.</returns>
+        protected override int? RetrieveVersion(string formId, IQueryContext context, IRequest request)
+        {
+            lock (SyncRoot)
+            {
+                return _store.TryGetValue(formId, out var item) ? item.Version : null;
+            }
         }
 
         /// <summary>
@@ -105,9 +156,58 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// </returns>
         protected override RestApiFormEditorItem UpdateItem(string formId, RestApiFormEditorItem item, IQueryContext context, IRequest request)
         {
-            item.Version = (_store.TryGetValue(formId, out var existing) ? existing.Version : 0) + 1;
-            _store[formId] = item;
-            return item;
+            lock (SyncRoot)
+            {
+                item.Version = (_store.TryGetValue(formId, out var existing) ? existing.Version : 0) + 1;
+                _store[formId] = item;
+
+                // the draft ends with the publication, inside the same lock, so there
+                // is never a moment in which neither the form nor the draft carries it
+                FormEditorDraft.Clear(formId);
+
+                return item;
+            }
+        }
+
+        /// <summary>
+        /// Creates the published structure of the form the drafting sample edits, with
+        /// a few fields so a change and its preview are visible at once.
+        /// </summary>
+        /// <returns>The published structure at version 1.</returns>
+        private static RestApiFormEditorItem CreateDraftSampleStructure()
+        {
+            return new RestApiFormEditorItem
+            {
+                FormId = DraftFormId,
+                FormName = "Monkey Island Ship",
+                FormDescription = "Changes are kept in a draft until they are published.",
+                ClassName = "Ship",
+                Version = 1,
+                Tabs =
+                [
+                    new RestApiFormEditorTabItem
+                    {
+                        Id = "t_ship",
+                        Name = "Ship",
+                        Children =
+                        [
+                            new RestApiFormEditorFieldItem { Id = "n_ship_name", Label = "Name", Type = "string", Required = true },
+                            new RestApiFormEditorFieldItem { Id = "n_ship_description", Label = "Description", Type = "text" },
+                            new RestApiFormEditorGroupItem
+                            {
+                                Id = "n_ship_crew",
+                                Label = "Crew",
+                                Layout = "horizontal",
+                                Children =
+                                [
+                                    new RestApiFormEditorFieldItem { Id = "n_ship_captain", Label = "AppearsIn", Type = "ref" },
+                                    new RestApiFormEditorFieldItem { Id = "n_ship_status", Label = "Status", Type = "enum" }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            };
         }
 
         /// <summary>
