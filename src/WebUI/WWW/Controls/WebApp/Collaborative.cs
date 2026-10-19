@@ -28,11 +28,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         /// <param name="componentHub">The component hub.</param>
         public Collaborative(IPageContext pageContext, IComponentHub componentHub)
         {
-            Stage.Description = @"The `Collaborative` control wraps the JavaScript collaboration module and enables real-time interaction inside a shared container. Open this page in two browser sessions to manually test presence chips, remote cursor movement and synchronized inputs.
-
-Both kinds of field take part. The plain text field is mirrored per keystroke; the rich-text surface is mirrored as markup, coalesced to one message every 250 ms and applied through the editor's own value API, so tables and add-ons keep their frames and the hidden form input stays in sync. A field the local user is currently typing in is never overwritten - the state converges when they leave it.
-
-The container id is the routing channel: only clients rendering the same id see each other.";
+            Stage.Description = @"The `Collaborative` control wraps the JavaScript collaboration module and enables real-time interaction inside a shared container. Open this page in two browser sessions to test presence chips, remote cursor movement and shared editing. Because the container names a document scope, the rich-text notes and the WQL query are shared documents: several users can type into the same paragraph at the same time, changes travel as operations that the server sequences, remote carets follow the text, and undo takes back only the own edits. The plain text field is mirrored by value per keystroke, as before. The scope names what is edited, so everybody rendering the same scope edits the same documents.";
 
             Stage.Controls =
             [
@@ -41,7 +37,8 @@ The container id is the routing channel: only clients rendering the same id see 
                     Presence = _ => true,
                     Cursor = _ => true,
                     Input = _ => true,
-                    ColorMode = _ => "auto"
+                    ColorMode = _ => "auto",
+                    Document = _ => "tutorial-collaborative"
                 }
                 .Add
                 (
@@ -68,8 +65,9 @@ The container id is the routing channel: only clients rendering the same id see 
                             Format = _ => TypeEditTextFormat.Wysiwyg,
                             Rows = _ => 5
                         }
-                        .Initialize(x => x.Value.Text = "Type here in one session and watch the markup arrive in the other.")
-                    )
+                        .Initialize(x => x.Value.Text = "Type here in two sessions at the same time - both edits are kept.")
+                    ),
+                    new ControlDataWqlPrompt("collaborative-query")
                 )
             ];
 
@@ -79,7 +77,8 @@ The container id is the routing channel: only clients rendering the same id see 
                 Presence = _ => true,
                 Cursor = _ => true,
                 Input = _ => true,
-                ColorMode = _ => ""auto""
+                ColorMode = _ => ""auto"",
+                Document = _ => ""tutorial-collaborative""
             }
             .Add
             (
@@ -100,8 +99,9 @@ The container id is the routing channel: only clients rendering the same id see 
                         Format = _ => TypeEditTextFormat.Wysiwyg,
                         Rows = _ => 5
                     }
-                    .Initialize(x => x.Value.Text = ""Test presence, cursor, and input sync together."")
-                )
+                    .Initialize(x => x.Value.Text = ""Type here in two sessions at the same time - both edits are kept."")
+                ),
+                new ControlDataWqlPrompt(""collaborative-query"")
             );";
         }
     }
