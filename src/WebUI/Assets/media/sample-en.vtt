@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00.500 --> 00:03.500
+This is the WebExpress sample clip.
+
+00:04.000 --> 00:07.500
+The browser's own player plays it.
+
+00:08.000 --> 00:11.500
+These subtitles come from a WebVTT file.
