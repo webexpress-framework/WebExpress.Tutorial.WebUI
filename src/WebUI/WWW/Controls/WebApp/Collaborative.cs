@@ -1,3 +1,4 @@
+using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
@@ -28,7 +29,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         /// <param name="componentHub">The component hub.</param>
         public Collaborative(IPageContext pageContext, IComponentHub componentHub)
         {
-            Stage.Description = @"The `Collaborative` control wraps the JavaScript collaboration module and enables real-time interaction inside a shared container. Open this page in two browser sessions to test presence chips, remote cursor movement and shared editing. Because the container names a document scope, the rich-text notes and the WQL query are shared documents: several users can type into the same paragraph at the same time, changes travel as operations that the server sequences, remote carets follow the text, and undo takes back only the own edits. The plain text field is mirrored by value per keystroke, as before. The scope names what is edited, so everybody rendering the same scope edits the same documents.";
+            Stage.Description = @"The `Collaborative` control wraps the JavaScript collaboration module and enables real-time interaction inside a shared container. Open this page in two browser sessions to test presence chips, remote cursor movement and shared editing. Because the container names a document scope, the rich-text notes, the WQL query and the spreadsheet are shared documents: several users can type into the same paragraph at the same time, changes travel as operations that the server sequences, remote carets follow the text, and undo takes back only the own edits. The plain text field is mirrored by value per keystroke, as before. The scope names what is edited, so everybody rendering the same scope edits the same documents.";
 
             Stage.Controls =
             [
@@ -67,7 +68,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                         }
                         .Initialize(x => x.Value.Text = "Type here in two sessions at the same time - both edits are kept.")
                     ),
-                    new ControlDataWqlPrompt("collaborative-query")
+                    new ControlDataWqlPrompt("collaborative-query"),
+                    new ControlSpreadsheet("collaborative-sheet")
+                    {
+                        Workbook = _ => SpreadsheetSamples.Sales(),
+                        GridHeight = _ => "14rem"
+                    }
                 )
             ];
 
@@ -101,7 +107,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                     }
                     .Initialize(x => x.Value.Text = ""Type here in two sessions at the same time - both edits are kept."")
                 ),
-                new ControlDataWqlPrompt(""collaborative-query"")
+                new ControlDataWqlPrompt(""collaborative-query""),
+                new ControlSpreadsheet(""collaborative-sheet"")
+                {
+                    Workbook = _ => SpreadsheetSamples.Sales(),
+                    GridHeight = _ => ""14rem""
+                }
             );";
         }
     }

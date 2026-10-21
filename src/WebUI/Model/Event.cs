@@ -354,7 +354,60 @@
         /// <summary>
         /// Event triggered when the relation types were rearranged.
         /// </summary>
-        RELATION_TYPE_REORDERED_EVENT
+        RELATION_TYPE_REORDERED_EVENT,
+
+        /// <summary>
+        /// Event triggered when the selection or the active cell of a spreadsheet changes.
+        /// </summary>
+        SPREADSHEET_SELECTION_CHANGED_EVENT,
+        /// <summary>
+        /// Event triggered when cells of a spreadsheet changed.
+        /// </summary>
+        SPREADSHEET_CELL_CHANGED_EVENT,
+        /// <summary>
+        /// Event triggered when formulas of a spreadsheet were entered, changed or removed.
+        /// </summary>
+        SPREADSHEET_FORMULA_CHANGED_EVENT,
+        /// <summary>
+        /// Event triggered when a recalculation changed results of spreadsheet formulas.
+        /// </summary>
+        SPREADSHEET_CALCULATED_EVENT,
+        /// <summary>
+        /// Event triggered when a sheet was added to a spreadsheet.
+        /// </summary>
+        SPREADSHEET_SHEET_CREATED_EVENT,
+        /// <summary>
+        /// Event triggered when a sheet was removed from a spreadsheet.
+        /// </summary>
+        SPREADSHEET_SHEET_DELETED_EVENT,
+        /// <summary>
+        /// Event triggered when a sheet of a spreadsheet was renamed.
+        /// </summary>
+        SPREADSHEET_SHEET_RENAMED_EVENT,
+        /// <summary>
+        /// Event triggered when rows were inserted into a spreadsheet.
+        /// </summary>
+        SPREADSHEET_ROW_ADDED_EVENT,
+        /// <summary>
+        /// Event triggered when rows were deleted from a spreadsheet.
+        /// </summary>
+        SPREADSHEET_ROW_REMOVED_EVENT,
+        /// <summary>
+        /// Event triggered when columns were inserted into a spreadsheet.
+        /// </summary>
+        SPREADSHEET_COLUMN_ADDED_EVENT,
+        /// <summary>
+        /// Event triggered when columns were deleted from a spreadsheet.
+        /// </summary>
+        SPREADSHEET_COLUMN_REMOVED_EVENT,
+        /// <summary>
+        /// Event triggered when a spreadsheet undid a change.
+        /// </summary>
+        SPREADSHEET_UNDO_EVENT,
+        /// <summary>
+        /// Event triggered when a spreadsheet redid a change.
+        /// </summary>
+        SPREADSHEET_REDO_EVENT
     }
 
     /// <summary>
@@ -442,6 +495,19 @@
                 Event.RELATION_TYPE_SAVED_EVENT => "webexpress.webapp.relation.type.saved",
                 Event.RELATION_TYPE_REMOVED_EVENT => "webexpress.webapp.relation.type.removed",
                 Event.RELATION_TYPE_REORDERED_EVENT => "webexpress.webapp.relation.type.reordered",
+                Event.SPREADSHEET_SELECTION_CHANGED_EVENT => "webexpress.webui.spreadsheet.selection.changed",
+                Event.SPREADSHEET_CELL_CHANGED_EVENT => "webexpress.webui.spreadsheet.cell.changed",
+                Event.SPREADSHEET_FORMULA_CHANGED_EVENT => "webexpress.webui.spreadsheet.formula.changed",
+                Event.SPREADSHEET_CALCULATED_EVENT => "webexpress.webui.spreadsheet.calculated",
+                Event.SPREADSHEET_SHEET_CREATED_EVENT => "webexpress.webui.spreadsheet.sheet.created",
+                Event.SPREADSHEET_SHEET_DELETED_EVENT => "webexpress.webui.spreadsheet.sheet.deleted",
+                Event.SPREADSHEET_SHEET_RENAMED_EVENT => "webexpress.webui.spreadsheet.sheet.renamed",
+                Event.SPREADSHEET_ROW_ADDED_EVENT => "webexpress.webui.spreadsheet.row.added",
+                Event.SPREADSHEET_ROW_REMOVED_EVENT => "webexpress.webui.spreadsheet.row.removed",
+                Event.SPREADSHEET_COLUMN_ADDED_EVENT => "webexpress.webui.spreadsheet.column.added",
+                Event.SPREADSHEET_COLUMN_REMOVED_EVENT => "webexpress.webui.spreadsheet.column.removed",
+                Event.SPREADSHEET_UNDO_EVENT => "webexpress.webui.spreadsheet.undo",
+                Event.SPREADSHEET_REDO_EVENT => "webexpress.webui.spreadsheet.redo",
                 _ => ""
             };
         }
@@ -520,6 +586,19 @@
                 Event.SLA_STATUS_CHANGE_EVENT => "Event triggered when a service level agreement changes its status.",
                 Event.SLA_ACTION_EVENT => "Event triggered when a service level agreement is paused, resumed or settled.",
                 Event.SLA_CYCLE_EVENT => "Event triggered when a periodic service level agreement starts its next cycle.",
+                Event.SPREADSHEET_SELECTION_CHANGED_EVENT => "Event triggered when the selection or the active cell of a spreadsheet changes.",
+                Event.SPREADSHEET_CELL_CHANGED_EVENT => "Event triggered when cells of a spreadsheet changed.",
+                Event.SPREADSHEET_FORMULA_CHANGED_EVENT => "Event triggered when formulas of a spreadsheet were entered, changed or removed.",
+                Event.SPREADSHEET_CALCULATED_EVENT => "Event triggered when a recalculation changed results of spreadsheet formulas.",
+                Event.SPREADSHEET_SHEET_CREATED_EVENT => "Event triggered when a sheet was added to a spreadsheet.",
+                Event.SPREADSHEET_SHEET_DELETED_EVENT => "Event triggered when a sheet was removed from a spreadsheet.",
+                Event.SPREADSHEET_SHEET_RENAMED_EVENT => "Event triggered when a sheet of a spreadsheet was renamed.",
+                Event.SPREADSHEET_ROW_ADDED_EVENT => "Event triggered when rows were inserted into a spreadsheet.",
+                Event.SPREADSHEET_ROW_REMOVED_EVENT => "Event triggered when rows were deleted from a spreadsheet.",
+                Event.SPREADSHEET_COLUMN_ADDED_EVENT => "Event triggered when columns were inserted into a spreadsheet.",
+                Event.SPREADSHEET_COLUMN_REMOVED_EVENT => "Event triggered when columns were deleted from a spreadsheet.",
+                Event.SPREADSHEET_UNDO_EVENT => "Event triggered when a spreadsheet undid a change.",
+                Event.SPREADSHEET_REDO_EVENT => "Event triggered when a spreadsheet redid a change.",
                 _ => ""
             };
         }
