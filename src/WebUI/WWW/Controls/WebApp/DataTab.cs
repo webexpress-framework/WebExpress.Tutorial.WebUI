@@ -55,9 +55,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                         Description = _ => "Dashboard template",
                         Multiplicity = _ => 5,
                         Bind = _ => new Binding().Add(new BindTemplate()
-                            .Add("title", TypeBindMode.Text, ".wx-resttab-dashboard-title")
-                            .Add("uri", TypeBindMode.Attr, ".wx-webui-dashboard", "data-uri")
-                            .Add("isActive", TypeBindMode.Toggle, ".wx-webui-dashboard", "active"))
+                            .Add("label", TypeBindMode.Text, ".wx-resttab-dashboard-title")
+                            .Add("uri", TypeBindMode.Attr, ".wx-webui-dashboard", "data-uri"))
                     }
                         .Add(new ControlText("dashboard-title")
                         {
@@ -122,7 +121,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                         Name = _ => "Table",
                         Description = _ => "Table template",
                         Bind = _ => new Binding().Add(new BindTemplate()
-                            .Add("title", TypeBindMode.Text, ".wx-resttab-table-title"))
+                            .Add("label", TypeBindMode.Text, ".wx-resttab-table-title"))
                     }
                         .Add(new ControlText("table-title")
                         {
@@ -179,9 +178,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                         Description = _ => ""Dashboard template"",
                         Multiplicity = _ => 5,
                         Bind = _ => new BindTemplate()
-                            .Add(""title"", TypeBindMode.Text, "".wx-resttab-dashboard-title"")
+                            .Add(""label"", TypeBindMode.Text, "".wx-resttab-dashboard-title"")
                             .Add(""uri"", TypeBindMode.Attr, "".wx-webui-dashboard"", ""data-uri"")
-                            .Add(""isActive"", TypeBindMode.Toggle, "".wx-webui-dashboard"", ""active"")
                     }
                         .Add(new ControlText(""dashboard-title"")
                         {
@@ -246,7 +244,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                         Name = _ => ""Table"",
                         Description = _ => ""Table template"",
                         Bind = _ => new BindTemplate()
-                            .Add(""title"", TypeBindMode.Text, "".wx-resttab-table-title"")
+                            .Add(""label"", TypeBindMode.Text, "".wx-resttab-table-title"")
                     }
                         .Add(new ControlText(""table-title"")
                         {
