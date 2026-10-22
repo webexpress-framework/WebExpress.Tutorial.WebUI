@@ -96,7 +96,7 @@ The tables below summarize the available controls and what each one is for. Pick
 | `ControlPagination` | Page navigation for paged data. |
 | `ControlCarousel` | Rotating slideshow of items. |
 | `ControlSchedule` | Calendar of time-based items in an agenda, week or month view. |
-| `ControlChart` | Line, bar and other charts. |
+| `ControlChart` | Line, bar, pie, doughnut, radar, polar area, bubble and scatter charts, drawn as SVG without a third-party library; theme-aware, with toggleable legend, tooltip and keyboard reading. |
 | `ControlHeatMap` | Read-only grid of values coloured on a gradient. |
 | `ControlGraphViewer` | Interactive node/edge graph viewer. |
 
