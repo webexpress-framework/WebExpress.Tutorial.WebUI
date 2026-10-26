@@ -41,3 +41,20 @@ statuspage.400=Error 400 - Bad Request
 statuspage.404=Error 404 - Page not found
 statuspage.500=Error 500 - Internal Server Error
 
+
+privacy.title=Privacy information
+privacy.example=Example information: This page demonstrates an application-owned privacy destination. Applications must supply information matching their actual services and storage.
+privacy.storage=Browser storage: The cookie examples store the decision, category permissions, policy version and expiry in localStorage under tutorial:cookie-consent, tutorial:cookie-notice or tutorial:cookie-fragment. The default decision lifetime is 180 days.
+privacy.choice=Your choice: Statistics and External media are demonstration categories and do not load external providers. Reopen Cookie settings to change optional permissions. Notice mode records an acknowledgement without granting permissions.
+cookiebanner.title=Cookie banner
+cookiebanner.notice.title=Notice
+cookiebanner.necessary.label=Necessary
+cookiebanner.necessary.description=Required application functions.
+cookiebanner.statistics.label=Statistics
+cookiebanner.statistics.description=Optional application usage statistics.
+cookiebanner.media.label=External media
+cookiebanner.media.description=An independent purpose reserved for application integrations.
+cookiebanner.server.pending=C# has not received a valid selection yet. Reload this page after saving.
+cookiebanner.server.allowed=C# received the selection: statistics are allowed.
+cookiebanner.server.denied=C# received the selection: statistics are not allowed.
+privacy.server=The selection is also stored in a cookie and sent to C# with subsequent requests to this website.

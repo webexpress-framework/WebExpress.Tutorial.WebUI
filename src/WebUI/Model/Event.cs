@@ -6,6 +6,11 @@
     public enum Event
     {
         /// <summary>
+        /// Announces an applied cookie notice or consent decision.
+        /// </summary>
+        COOKIE_CHANGE_EVENT,
+
+        /// <summary>
         /// Event triggered when the visibility of an element changes.
         /// </summary>
         CHANGE_VISIBILITY_EVENT,
@@ -438,6 +443,7 @@
                 Event.CHANGE_VALUE_EVENT => "webexpress.webui.change.value",
                 Event.MOVE_EVENT => "webexpress.webui.move",
                 Event.CHANGE_PAGE_EVENT => "webexpress.webui.change.page",
+                Event.COOKIE_CHANGE_EVENT => "webexpress.webui.cookie.change",
                 Event.MODAL_SHOW_EVENT => "webexpress.webui.modal.show",
                 Event.MODAL_HIDE_EVENT => "webexpress.webui.modal.hide",
                 Event.DATA_REQUESTED_EVENT => "webexpress.webui.data.requested",
@@ -535,6 +541,7 @@
                 Event.CHANGE_VALUE_EVENT => "Event triggered when the value of an input or control changes.",
                 Event.MOVE_EVENT => "Event triggered when a item is moved.",
                 Event.CHANGE_PAGE_EVENT => "Event triggered when the page changes in a pagination control.",
+                Event.COOKIE_CHANGE_EVENT => "Announces an applied cookie notice or consent decision.",
                 Event.MODAL_SHOW_EVENT => "Event triggered when a modal is shown.",
                 Event.MODAL_HIDE_EVENT => "Event triggered when a modal is hidden.",
                 Event.DATA_REQUESTED_EVENT => "Event triggered when data is requested.",
