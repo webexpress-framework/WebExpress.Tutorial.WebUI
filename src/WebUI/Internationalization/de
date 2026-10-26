@@ -9,6 +9,16 @@ app.license.uri=https://github.com/webexpress-framework/WebExpress.Tutorial.WebU
 app.about=Über WebUI Tutorial
 app.version.label={0} Version {1} erstellt mit {2} Version {3}.
 
+theme.autumnpastel.name=Herbstpastell
+theme.autumnpastel.description=Warme Cremeflächen mit Apricot, Salbeigrün und herbstlichen Terrakotta-Akzenten.
+theme.summer.name=Sommer
+theme.summer.description=Helle Sandtöne mit Türkis, Himmelblau, Sonnengelb und Korallenakzenten.
+theme.spring.name=Frühling
+theme.spring.description=Zarte Blütenfarben mit frischem Grün, Flieder und einem rosafarbenen Kopfbereich.
+theme.winter.name=Winter
+theme.winter.description=Schneeweiße Flächen mit Eisblau, kühlem Grau und dezenten Beerenakzenten.
+theme.settings.title=Darstellung
+theme.settings.description=Wähle ein Theme für die Tutorialseiten. Die Auswahl gilt für diesen Client und bleibt bis zum Neustart des Servers erhalten.
 theme.darkmode.name=Dunkles Theme
 theme.darkmode.description=Theme mit dunklem Farbschema.
 theme.lightmode.name=Helles Theme

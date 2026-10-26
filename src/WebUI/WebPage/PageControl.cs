@@ -29,6 +29,8 @@ namespace WebExpress.Tutorial.WebUI.WebPage
         /// <param name="visualTree">The visual tree of the web application.</param>
         public virtual void Process(IRenderContext renderContext, VisualTreeWebApp visualTree)
         {
+            ThemeStore.Apply(renderContext, visualTree);
+
             visualTree.Content.MainPanel.AddPrimary(new ControlLine()
             {
             });

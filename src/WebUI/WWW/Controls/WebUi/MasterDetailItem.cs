@@ -1,5 +1,5 @@
-using System;
 using System.Linq;
+using System;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebPage;
 using WebExpress.WebCore.WebAttribute;
@@ -28,6 +28,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
         /// <param name="visualTree">The visual tree of the web application.</param>
         public void Process(IRenderContext renderContext, VisualTreeWebApp visualTree)
         {
+            ThemeStore.Apply(renderContext, visualTree);
+
             var id = renderContext.Request?.GetParameter("id")?.Value;
             var character = Guid.TryParse(id, out var guid)
                 ? ViewModel.MonkeyIslandCharacters.FirstOrDefault(x => x.Id == guid)

@@ -1,9 +1,8 @@
 using WebExpress.Tutorial.WebUI.Model;
+using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
-using WebExpress.Tutorial.WebUI.WebTheme;
-using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.WebApp.WebControl;
 using WebExpress.WebApp.WebPage;
 using WebExpress.WebApp.WebScope;
@@ -27,7 +26,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     /// REST endpoint. The endpoint (a tutorial-side subclass of
     /// <see cref="WebApp.WebRestApi.RestApiTheme"/>) writes the value to
     /// <see cref="ThemeStore"/> - in-memory user-defined storage. The JS
-    /// layer reloads the page; on the next request <see cref="Process"/>
+    /// layer reloads the page; on the next request <see cref="PageControl.Process"/>
     /// reads from the same store and calls
     /// <c>visualTree.UseTheme&lt;TTheme&gt;()</c> so the visual tree adopts
     /// the chosen theme. Server-side icons resolved against the chosen
@@ -60,9 +59,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 * **Light** - the colour scheme used out of the box.
 * **Light** - the lightweight SVG variants defined in `webexpress.webui.icon.css` (`wx-icon-light wx-icon-light-*`).
 
-The theme in effect is decided per request. A theme declares its colour scheme with `[ThemeMode(ThemeMode.Dark)]` and may ship a stylesheet via `[ThemeStyle(...)]`; the resolved theme is picked up automatically by `VisualTreeWebApp`, which emits `<html data-bs-theme=""..."">`.
+The theme in effect is decided per request. A theme declares its colour scheme with `[ThemeMode(ThemeMode.Dark)]` and may ship a stylesheet via `[ThemeStyle(...)]`; the resolved theme is picked up automatically by `VisualTreeWebApp`, which emits `<html data-wx-theme=""..."">`.
 
-The selector below uses **`ControlDataSelectionTheme`** - a REST-backed picker that lists the themes registered for the current application via the tutorial's `ThemeApi` endpoint. Picking an entry calls the tutorial's `ThemeApi`, which writes the value into a user-defined `ThemeStore`; the page's `Process` override reads the same store on the next request and informs the visual tree via `visualTree.UseTheme<TTheme>()`. Try toggling between `DarkModeTheme` and `LightModeTheme` - the page switches its colour scheme.";
+The selector below uses **`ControlDataSelectionTheme`** - a REST-backed picker that lists the themes registered for the current application via the tutorial's `ThemeApi` endpoint. Picking an entry calls the tutorial's `ThemeApi`, which writes the value into a user-defined `ThemeStore`; the shared `PageControl.Process` method applies the registered theme through `ThemeStore.Apply` on the next request. The administration page **Appearance** uses the same selector. Try `AutumnPastelTheme`, `DarkModeTheme` and `LightModeTheme` - the page switches its colour scheme.";
 
             Stage.Controls =
             [
@@ -146,10 +145,7 @@ The selector below uses **`ControlDataSelectionTheme`** - a REST-backed picker t
             //    the visual tree so it picks the right theme:
             public override void Process(IRenderContext ctx, VisualTreeWebApp visualTree)
             {
-                if (ThemeStore.Get(ctx.Request) == typeof(LightModeTheme).FullName?.ToLower())
-                    visualTree.UseTheme<LightModeTheme>();
-                else
-                    visualTree.UseTheme<DarkModeTheme>();
+                ThemeStore.Apply(ctx, visualTree);
                 base.Process(ctx, visualTree);
             }";
 
@@ -173,33 +169,10 @@ public sealed class MyApplication : IApplication { }",
                 string.Empty,
                 new ControlText()
                 {
-                    Text = _ => "Both the JS side (`<html data-bs-theme=\"...\">`) and the server side read from the same `visualTree.Theme`, so the choice is consistent across the whole page.",
+                    Text = _ => "Both the JS side (`<html data-wx-theme=\"...\">`) and the server side read from the same `visualTree.Theme`, so the choice is consistent across the whole page.",
                     Format = _ => TypeFormatText.Markdown
                 }
             );
-        }
-
-        /// <summary>
-        /// Reads the stored selection from <see cref="ThemeStore"/> and
-        /// activates the matching theme on <paramref name="visualTree"/>
-        /// before delegating to the default rendering pipeline. The icons
-        /// embedded in <see cref="Stage.Controls"/> consult the same store
-        /// </summary>
-        /// <param name="renderContext">The render context.</param>
-        /// <param name="visualTree">The visual tree to swap.</param>
-        public override void Process(IRenderContext renderContext, VisualTreeWebApp visualTree)
-        {
-            var stored = ThemeStore.Get(renderContext?.Request);
-            if (string.Equals(stored, typeof(LightModeTheme).FullName?.ToLower(), System.StringComparison.OrdinalIgnoreCase))
-            {
-                visualTree.UseTheme<LightModeTheme>();
-            }
-            else if (string.Equals(stored, typeof(DarkModeTheme).FullName?.ToLower(), System.StringComparison.OrdinalIgnoreCase))
-            {
-                visualTree.UseTheme<DarkModeTheme>();
-            }
-
-            base.Process(renderContext, visualTree);
         }
 
     }

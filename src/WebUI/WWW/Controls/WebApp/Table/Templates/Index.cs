@@ -1,4 +1,5 @@
-﻿using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
+﻿using WebExpress.Tutorial.WebUI.Model;
+using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebPage;
 using WebExpress.WebApp.WebScope;
@@ -34,6 +35,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Table.Templates
         /// <param name="visualTree">The visual tree of the web application.</param>
         public void Process(IRenderContext renderContext, VisualTreeWebApp visualTree)
         {
+            ThemeStore.Apply(renderContext, visualTree);
+
             visualTree.Content.MainPanel.AddPrimary(new ControlText()
             {
                 Text = _ => @"This page provides an overview of the built-in templates that are available as cell renderers within the `TableControl`. In addition to the predefined options, developers can also implement and integrate their own custom renderers.",

@@ -1,4 +1,5 @@
-﻿using WebExpress.Tutorial.WebUI.WebFragment.FragmentPage;
+﻿using WebExpress.Tutorial.WebUI.Model;
+using WebExpress.Tutorial.WebUI.WebFragment.FragmentPage;
 using WebExpress.WebApp.WebPage;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.Internationalization;
@@ -37,6 +38,8 @@ namespace WebExpress.Tutorial.WebUI.WWW
         /// <param name="visualTree">The visual tree of the web application.</param>
         public void Process(IRenderContext renderContext, VisualTreeWebApp visualTree)
         {
+            ThemeStore.Apply(renderContext, visualTree);
+
             visualTree.Content.MainPanel.Headline.TitleEditor = new ControlSmartEdit()
                 .Add(new ControlFormItemInputText("title")
                     .Initialize(x => x.Value.Text = _title ?? I18N.Translate(renderContext, "webexpress.tutorial.webui:fragmentpage.label"))

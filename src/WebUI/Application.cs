@@ -1,4 +1,5 @@
-﻿using WebExpress.WebCore.WebApplication;
+﻿using WebExpress.Tutorial.WebUI.WebTheme;
+using WebExpress.WebCore.WebApplication;
 using WebExpress.WebCore.WebAttribute;
 
 namespace WebExpress.Tutorial.WebUI
@@ -10,6 +11,7 @@ namespace WebExpress.Tutorial.WebUI
     [Description("webexpress.Tutorial.webui:app.description")]
     [Icon("/assets/img/webui.svg")]
     [ContextPath("/webui")]
+    [Theme<DarkModeTheme>]
     public sealed class Application : IApplication
     {
         /// <summary>

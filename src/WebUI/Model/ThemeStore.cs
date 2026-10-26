@@ -1,6 +1,11 @@
 using System.Collections.Concurrent;
+using System.Linq;
 using System.Net;
+using System;
 using WebExpress.WebCore.WebMessage;
+using WebExpress.WebCore.WebPage;
+using WebExpress.WebCore;
+using WebExpress.WebUI.WebPage;
 
 namespace WebExpress.Tutorial.WebUI.Model
 {
@@ -51,6 +56,20 @@ namespace WebExpress.Tutorial.WebUI.Model
             {
                 _selections[key] = themeId;
             }
+        }
+
+        /// <summary>
+        /// Applies only a theme registered for the current application before rendering.
+        /// </summary>
+        /// <param name="renderContext">The request and application being rendered.</param>
+        /// <param name="visualTree">The visual tree that receives the selected stylesheet.</param>
+        public static void Apply(IRenderContext renderContext, VisualTreeControl visualTree)
+        {
+            var selected = Get(renderContext.Request);
+            var theme = WebEx.ComponentHub.ThemeManager.Themes.FirstOrDefault(x =>
+                x.ApplicationContext == renderContext.PageContext.ApplicationContext
+                && string.Equals(x.ThemeId.ToString(), selected, StringComparison.OrdinalIgnoreCase));
+            visualTree.UseTheme(theme);
         }
 
         /// <summary>

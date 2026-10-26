@@ -1,0 +1,108 @@
+/* retain the application layout because a theme replaces its default stylesheet */
+@import url("../../webexpress.webapp/assets/css/webexpress.webapp.theme.css");
+
+:root, [data-wx-theme="light"] {
+    --wx-body-bg: #fffdf5;
+    --wx-body-bg-rgb: 255, 253, 245;
+    --wx-body-color: #183e43;
+    --wx-body-color-rgb: 24, 62, 67;
+    --wx-secondary-bg: #e2f2ee;
+    --wx-tertiary-bg: #f3f8ed;
+    --wx-secondary-color: #48676b;
+    --wx-secondary-color-rgb: 72, 103, 107;
+    --wx-tertiary-color: #526e71;
+    --wx-emphasis-color: #103238;
+    --wx-heading-color: #175b62;
+    --wx-border-color: #afccc6;
+    --wx-border-color-translucent: rgba(23, 91, 98, 0.22);
+    --wx-link-color: #12636d;
+    --wx-link-color-rgb: 18, 99, 109;
+    --wx-link-hover-color: #0c4b53;
+    --wx-code-color: #985249;
+    --wx-highlight: #f8d976;
+    --wx-highlight-rgb: 248, 217, 118;
+    --wx-highlight-contrast: #183e43;
+    --wx-app-splash: #237981;
+    --wx-gray: #597c80;
+    --wx-gray-100: #fffdf5;
+    --wx-gray-200: #f3f8ed;
+    --wx-gray-300: #e2f2ee;
+    --wx-gray-400: #afccc6;
+    --wx-gray-500: #8eb1b1;
+    --wx-gray-600: #597c80;
+    --wx-gray-700: #48676b;
+    --wx-gray-800: #284e54;
+    --wx-gray-900: #183e43;
+    --wx-dropdown-shadow: 0 4px 12px rgba(24, 62, 67, 0.14);
+    --wx-primary: #83d8d0;
+    --wx-primary-rgb: 131, 216, 208;
+    --wx-primary-contrast: #183e43;
+    --wx-primary-bg-subtle: #dff6f1;
+    --wx-primary-border-subtle: #4aaba5;
+    --wx-primary-text-emphasis: #135d5c;
+    --wx-secondary: #b9d9ed;
+    --wx-secondary-rgb: 185, 217, 237;
+    --wx-secondary-contrast: #183e43;
+    --wx-secondary-bg-subtle: #e6f2fa;
+    --wx-secondary-border-subtle: #7caac5;
+    --wx-secondary-text-emphasis: #315d78;
+    --wx-success: #b7dda2;
+    --wx-success-rgb: 183, 221, 162;
+    --wx-success-contrast: #183e43;
+    --wx-success-bg-subtle: #eaf6e3;
+    --wx-success-border-subtle: #81ae68;
+    --wx-success-text-emphasis: #385f27;
+    --wx-info: #a4dfee;
+    --wx-info-rgb: 164, 223, 238;
+    --wx-info-contrast: #183e43;
+    --wx-info-bg-subtle: #e2f6fc;
+    --wx-info-border-subtle: #6eb3c8;
+    --wx-info-text-emphasis: #285e70;
+    --wx-warning: #f8d976;
+    --wx-warning-rgb: 248, 217, 118;
+    --wx-warning-contrast: #183e43;
+    --wx-warning-bg-subtle: #fff6d7;
+    --wx-warning-border-subtle: #c4a03f;
+    --wx-warning-text-emphasis: #69521a;
+    --wx-danger: #f3b1a0;
+    --wx-danger-rgb: 243, 177, 160;
+    --wx-danger-contrast: #183e43;
+    --wx-danger-bg-subtle: #ffebe3;
+    --wx-danger-border-subtle: #ce8878;
+    --wx-danger-text-emphasis: #7d4135;
+    --wx-light: #f3f8ed;
+    --wx-light-rgb: 243, 248, 237;
+    --wx-light-contrast: #183e43;
+    --wx-light-bg-subtle: #fffdf5;
+    --wx-light-border-subtle: #afccc6;
+    --wx-light-text-emphasis: #48676b;
+    --wx-dark: #183e43;
+    --wx-dark-rgb: 24, 62, 67;
+    --wx-dark-contrast: #fffdf5;
+    --wx-dark-bg-subtle: #d5e8e7;
+    --wx-dark-border-subtle: #8eb1b1;
+    --wx-dark-text-emphasis: #183e43;
+}
+
+/* the navigation keeps readable ink on the pastel header */
+html[data-wx-theme="light"] #wx-header {
+    background: #c7eee5;
+    border-bottom: 1px solid var(--wx-border-color);
+}
+
+html[data-wx-theme="light"] :is(#wx-header-apptitle, #wx-header-appnavigation,
+#wx-header-notifications, #wx-header-help, #wx-header-settings) {
+    color: var(--wx-body-color);
+}
+
+html[data-wx-theme="light"] #wx-header-appnavigation .active {
+    color: var(--wx-link-color);
+}
+
+html[data-wx-theme="light"] #wx-header-appnavigation > *:hover:not(.wx-overflow-menu):not(.dropdown-menu):not(.wx-dropdown),
+html[data-wx-theme="light"] #wx-header-appnavigation > *:focus:not(.wx-dropdown),
+html[data-wx-theme="light"] #wx-header-appnavigation > .btn:active,
+html[data-wx-theme="light"] #wx-header-appnavigation > .wx-dropdown > .btn:is(:hover, :focus, :active),
+html[data-wx-theme="light"] :is(#wx-header-notifications, #wx-header-help, #wx-header-settings) > .btn:is(:hover, :focus, :active) {
+    background: #a6ddd3;
+}

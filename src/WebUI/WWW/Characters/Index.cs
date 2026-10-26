@@ -1,4 +1,5 @@
-﻿using WebExpress.Tutorial.WebUI.WebParamter;
+﻿using WebExpress.Tutorial.WebUI.Model;
+using WebExpress.Tutorial.WebUI.WebParamter;
 using WebExpress.WebApp.WebPage;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
@@ -20,6 +21,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Characters
         /// <param name="visualTree">The visual tree of the web application.</param>
         public void Process(IRenderContext renderContext, VisualTreeWebApp visualTree)
         {
+            ThemeStore.Apply(renderContext, visualTree);
+
         }
     }
 }

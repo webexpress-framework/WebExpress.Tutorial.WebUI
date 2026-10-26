@@ -1,0 +1,108 @@
+/* retain the application layout because a theme replaces its default stylesheet */
+@import url("../../webexpress.webapp/assets/css/webexpress.webapp.theme.css");
+
+:root, [data-wx-theme="light"] {
+    --wx-body-bg: #fffdf9;
+    --wx-body-bg-rgb: 255, 253, 249;
+    --wx-body-color: #353e32;
+    --wx-body-color-rgb: 53, 62, 50;
+    --wx-secondary-bg: #eaf1df;
+    --wx-tertiary-bg: #f4f8ed;
+    --wx-secondary-color: #5b6857;
+    --wx-secondary-color-rgb: 91, 104, 87;
+    --wx-tertiary-color: #64715f;
+    --wx-emphasis-color: #353e32;
+    --wx-heading-color: #425e38;
+    --wx-border-color: #c4cfb5;
+    --wx-border-color-translucent: rgba(53, 62, 50, 0.22);
+    --wx-link-color: #665078;
+    --wx-link-color-rgb: 102, 80, 120;
+    --wx-link-hover-color: #425e38;
+    --wx-code-color: #795471;
+    --wx-highlight: #d9b4d5;
+    --wx-highlight-rgb: 217, 180, 213;
+    --wx-highlight-contrast: #353e32;
+    --wx-app-splash: #425e38;
+    --wx-gray: #425e38;
+    --wx-gray-100: #fffdf9;
+    --wx-gray-200: #f4f8ed;
+    --wx-gray-300: #eaf1df;
+    --wx-gray-400: #c4cfb5;
+    --wx-gray-500: #97ad72;
+    --wx-gray-600: #425e38;
+    --wx-gray-700: #425e38;
+    --wx-gray-800: #353e32;
+    --wx-gray-900: #353e32;
+    --wx-dropdown-shadow: 0 4px 12px rgba(53, 62, 50, 0.14);
+    --wx-primary: #d9b4d5;
+    --wx-primary-rgb: 217, 180, 213;
+    --wx-primary-contrast: #353e32;
+    --wx-primary-bg-subtle: #f5e7f2;
+    --wx-primary-border-subtle: #b28aaf;
+    --wx-primary-text-emphasis: #674164;
+    --wx-secondary: #c7d7a8;
+    --wx-secondary-rgb: 199, 215, 168;
+    --wx-secondary-contrast: #353e32;
+    --wx-secondary-bg-subtle: #edf3e2;
+    --wx-secondary-border-subtle: #97ad72;
+    --wx-secondary-text-emphasis: #4b612e;
+    --wx-success: #b3d6ad;
+    --wx-success-rgb: 179, 214, 173;
+    --wx-success-contrast: #353e32;
+    --wx-success-bg-subtle: #e7f4e4;
+    --wx-success-border-subtle: #7eab75;
+    --wx-success-text-emphasis: #365e30;
+    --wx-info: #bddce9;
+    --wx-info-rgb: 189, 220, 233;
+    --wx-info-contrast: #353e32;
+    --wx-info-bg-subtle: #e9f5fa;
+    --wx-info-border-subtle: #8eb8cb;
+    --wx-info-text-emphasis: #365e71;
+    --wx-warning: #f1dfa3;
+    --wx-warning-rgb: 241, 223, 163;
+    --wx-warning-contrast: #353e32;
+    --wx-warning-bg-subtle: #fcf5df;
+    --wx-warning-border-subtle: #c3aa62;
+    --wx-warning-text-emphasis: #665323;
+    --wx-danger: #e9b3ba;
+    --wx-danger-rgb: 233, 179, 186;
+    --wx-danger-contrast: #353e32;
+    --wx-danger-bg-subtle: #fae8eb;
+    --wx-danger-border-subtle: #be858d;
+    --wx-danger-text-emphasis: #743f49;
+    --wx-light: #f4f8ed;
+    --wx-light-rgb: 244, 248, 237;
+    --wx-light-contrast: #353e32;
+    --wx-light-bg-subtle: #fffdf9;
+    --wx-light-border-subtle: #c4cfb5;
+    --wx-light-text-emphasis: #425e38;
+    --wx-dark: #353e32;
+    --wx-dark-rgb: 53, 62, 50;
+    --wx-dark-contrast: #fffdf9;
+    --wx-dark-bg-subtle: #eaf1df;
+    --wx-dark-border-subtle: #c4cfb5;
+    --wx-dark-text-emphasis: #353e32;
+}
+
+/* the navigation keeps readable ink on the pastel header */
+html[data-wx-theme="light"] #wx-header {
+    background: #f2dce5;
+    border-bottom: 1px solid var(--wx-border-color);
+}
+
+html[data-wx-theme="light"] :is(#wx-header-apptitle, #wx-header-appnavigation,
+#wx-header-notifications, #wx-header-help, #wx-header-settings) {
+    color: var(--wx-body-color);
+}
+
+html[data-wx-theme="light"] #wx-header-appnavigation .active {
+    color: var(--wx-link-color);
+}
+
+html[data-wx-theme="light"] #wx-header-appnavigation > *:hover:not(.wx-overflow-menu):not(.dropdown-menu):not(.wx-dropdown),
+html[data-wx-theme="light"] #wx-header-appnavigation > *:focus:not(.wx-dropdown),
+html[data-wx-theme="light"] #wx-header-appnavigation > .btn:active,
+html[data-wx-theme="light"] #wx-header-appnavigation > .wx-dropdown > .btn:is(:hover, :focus, :active),
+html[data-wx-theme="light"] :is(#wx-header-notifications, #wx-header-help, #wx-header-settings) > .btn:is(:hover, :focus, :active) {
+    background: #e5bfd0;
+}

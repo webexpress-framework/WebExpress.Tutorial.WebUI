@@ -1,0 +1,108 @@
+/* retain the application layout because a theme replaces its default stylesheet */
+@import url("../../webexpress.webapp/assets/css/webexpress.webapp.theme.css");
+
+:root, [data-wx-theme="light"] {
+    --wx-body-bg: #f8fbff;
+    --wx-body-bg-rgb: 248, 251, 255;
+    --wx-body-color: #293e53;
+    --wx-body-color-rgb: 41, 62, 83;
+    --wx-secondary-bg: #e1eaf4;
+    --wx-tertiary-bg: #eef3fa;
+    --wx-secondary-color: #586b80;
+    --wx-secondary-color-rgb: 88, 107, 128;
+    --wx-tertiary-color: #61748a;
+    --wx-emphasis-color: #293e53;
+    --wx-heading-color: #354e72;
+    --wx-border-color: #b8c8dd;
+    --wx-border-color-translucent: rgba(41, 62, 83, 0.22);
+    --wx-link-color: #365e89;
+    --wx-link-color-rgb: 54, 94, 137;
+    --wx-link-hover-color: #354e72;
+    --wx-code-color: #655d88;
+    --wx-highlight: #abc9e8;
+    --wx-highlight-rgb: 171, 201, 232;
+    --wx-highlight-contrast: #293e53;
+    --wx-app-splash: #354e72;
+    --wx-gray: #354e72;
+    --wx-gray-100: #f8fbff;
+    --wx-gray-200: #eef3fa;
+    --wx-gray-300: #e1eaf4;
+    --wx-gray-400: #b8c8dd;
+    --wx-gray-500: #9895b8;
+    --wx-gray-600: #354e72;
+    --wx-gray-700: #354e72;
+    --wx-gray-800: #293e53;
+    --wx-gray-900: #293e53;
+    --wx-dropdown-shadow: 0 4px 12px rgba(41, 62, 83, 0.14);
+    --wx-primary: #abc9e8;
+    --wx-primary-rgb: 171, 201, 232;
+    --wx-primary-contrast: #293e53;
+    --wx-primary-bg-subtle: #e5effa;
+    --wx-primary-border-subtle: #789fc6;
+    --wx-primary-text-emphasis: #34577c;
+    --wx-secondary: #c6c5e0;
+    --wx-secondary-rgb: 198, 197, 224;
+    --wx-secondary-contrast: #293e53;
+    --wx-secondary-bg-subtle: #efedf8;
+    --wx-secondary-border-subtle: #9895b8;
+    --wx-secondary-text-emphasis: #55516e;
+    --wx-success: #b5d3c9;
+    --wx-success-rgb: 181, 211, 201;
+    --wx-success-contrast: #293e53;
+    --wx-success-bg-subtle: #e7f2ed;
+    --wx-success-border-subtle: #82aa9b;
+    --wx-success-text-emphasis: #365d4e;
+    --wx-info: #b4deea;
+    --wx-info-rgb: 180, 222, 234;
+    --wx-info-contrast: #293e53;
+    --wx-info-bg-subtle: #e7f5fa;
+    --wx-info-border-subtle: #82b3c5;
+    --wx-info-text-emphasis: #365f70;
+    --wx-warning: #e7d8b2;
+    --wx-warning-rgb: 231, 216, 178;
+    --wx-warning-contrast: #293e53;
+    --wx-warning-bg-subtle: #f9f3e3;
+    --wx-warning-border-subtle: #b8a16e;
+    --wx-warning-text-emphasis: #64542c;
+    --wx-danger: #ddb8cb;
+    --wx-danger-rgb: 221, 184, 203;
+    --wx-danger-contrast: #293e53;
+    --wx-danger-bg-subtle: #f5e8f0;
+    --wx-danger-border-subtle: #b08b9f;
+    --wx-danger-text-emphasis: #6e425b;
+    --wx-light: #eef3fa;
+    --wx-light-rgb: 238, 243, 250;
+    --wx-light-contrast: #293e53;
+    --wx-light-bg-subtle: #f8fbff;
+    --wx-light-border-subtle: #b8c8dd;
+    --wx-light-text-emphasis: #354e72;
+    --wx-dark: #293e53;
+    --wx-dark-rgb: 41, 62, 83;
+    --wx-dark-contrast: #f8fbff;
+    --wx-dark-bg-subtle: #e1eaf4;
+    --wx-dark-border-subtle: #b8c8dd;
+    --wx-dark-text-emphasis: #293e53;
+}
+
+/* the navigation keeps readable ink on the pastel header */
+html[data-wx-theme="light"] #wx-header {
+    background: #d4e3f5;
+    border-bottom: 1px solid var(--wx-border-color);
+}
+
+html[data-wx-theme="light"] :is(#wx-header-apptitle, #wx-header-appnavigation,
+#wx-header-notifications, #wx-header-help, #wx-header-settings) {
+    color: var(--wx-body-color);
+}
+
+html[data-wx-theme="light"] #wx-header-appnavigation .active {
+    color: var(--wx-link-color);
+}
+
+html[data-wx-theme="light"] #wx-header-appnavigation > *:hover:not(.wx-overflow-menu):not(.dropdown-menu):not(.wx-dropdown),
+html[data-wx-theme="light"] #wx-header-appnavigation > *:focus:not(.wx-dropdown),
+html[data-wx-theme="light"] #wx-header-appnavigation > .btn:active,
+html[data-wx-theme="light"] #wx-header-appnavigation > .wx-dropdown > .btn:is(:hover, :focus, :active),
+html[data-wx-theme="light"] :is(#wx-header-notifications, #wx-header-help, #wx-header-settings) > .btn:is(:hover, :focus, :active) {
+    background: #bdcfe8;
+}

@@ -1,7 +1,10 @@
+using System.Linq;
+using System;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebMessage;
+using WebExpress.WebCore;
 using WebExpress.WebIndex.Queries;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
@@ -17,15 +20,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     public sealed class ThemeApi : RestApiTheme
     {
         /// <summary>
-        /// Returns the stored theme id for the current request, or
-        /// <see langword="null"/> when nothing has been picked yet.
+        /// Keeps the selector aligned with the stored preference or application default.
         /// </summary>
         /// <param name="context">The query context (unused by the in-memory store).</param>
         /// <param name="request">The current HTTP request.</param>
-        /// <returns>The stored theme id or <see langword="null"/>.</returns>
+        /// <returns>The selected theme id, falling back to the application default.</returns>
         protected override string GetActiveThemeId(IQueryContext context, IRequest request)
         {
-            return ThemeStore.Get(request);
+            return ThemeStore.Get(request) ?? request.ApplicationContext.DefaultTheme?.ThemeId.ToString();
         }
 
         /// <summary>
@@ -36,6 +38,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// <param name="request">The current HTTP request.</param>
         protected override void PersistSelection(string themeId, IQueryContext context, IRequest request)
         {
+            if (!string.IsNullOrEmpty(themeId) && !WebEx.ComponentHub.ThemeManager.Themes.Any(x =>
+                x.ApplicationContext == request.ApplicationContext
+                && string.Equals(x.ThemeId.ToString(), themeId, StringComparison.OrdinalIgnoreCase)))
+            {
+                throw new ArgumentException("The selected theme is not registered for this application.", nameof(themeId));
+            }
+
             ThemeStore.Set(request, themeId);
         }
     }

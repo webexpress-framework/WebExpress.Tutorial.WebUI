@@ -1,4 +1,5 @@
-﻿using WebExpress.WebApp.WebPage;
+﻿using WebExpress.Tutorial.WebUI.Model;
+using WebExpress.WebApp.WebPage;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.Internationalization;
 using WebExpress.WebCore.WebAttribute;
@@ -33,6 +34,8 @@ namespace WebExpress.Tutorial.WebUI.WWW
         /// <param name="visualTree">The visual tree control to be processed.</param>
         public void Process(IRenderContext renderContext, VisualTreeWebApp visualTree)
         {
+            ThemeStore.Apply(renderContext, visualTree);
+
             var card = new ControlCard()
             {
                 Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.Null, PropertySpacing.Space.Two)

@@ -1,4 +1,5 @@
-﻿using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
+﻿using WebExpress.Tutorial.WebUI.Model;
+using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebPage;
 using WebExpress.WebApp.WebScope;
@@ -32,6 +33,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
         /// <param name="visualTree">The visual tree of the web application.</param>
         public void Process(IRenderContext renderContext, VisualTreeWebApp visualTree)
         {
+            ThemeStore.Apply(renderContext, visualTree);
+
 
         }
     }

@@ -1,3 +1,4 @@
+using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebPage;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
@@ -22,6 +23,8 @@ namespace WebExpress.Tutorial.WebUI.WWW
         /// <param name="visualTree">The application tree receiving the privacy information.</param>
         public void Process(IRenderContext renderContext, VisualTreeWebApp visualTree)
         {
+            ThemeStore.Apply(renderContext, visualTree);
+
             visualTree.Content.MainPanel.AddPrimary(new ControlText
             {
                 Text = _ => "webexpress.tutorial.webui:privacy.example",
