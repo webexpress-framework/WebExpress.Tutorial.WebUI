@@ -12,7 +12,7 @@ namespace WebExpress.Tutorial.WebUI.WebFragment
     /// <summary>
     /// Demonstrates a scoped banner configured and registered entirely in C#.
     /// </summary>
-    [Section<SectionBodySecondary>]
+    [Section<SectionCookieBanner>]
     [Scope<IScopeCookieBannerExample>]
     public sealed class CookieBannerFragment : FragmentControlCookieBanner
     {
