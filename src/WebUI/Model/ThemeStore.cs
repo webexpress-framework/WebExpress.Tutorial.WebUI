@@ -6,6 +6,7 @@ using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore;
 using WebExpress.WebUI.WebPage;
+using WebExpress.WebCore.WebTheme;
 
 namespace WebExpress.Tutorial.WebUI.Model
 {
@@ -65,11 +66,20 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// <param name="visualTree">The visual tree that receives the selected stylesheet.</param>
         public static void Apply(IRenderContext renderContext, VisualTreeControl visualTree)
         {
+            visualTree.UseTheme(Resolve(renderContext));
+        }
+
+        /// <summary>
+        /// Resolves the saved preference for both tutorial and shared settings pages.
+        /// </summary>
+        /// <param name="renderContext">The request and application being rendered.</param>
+        /// <returns>The selected registered theme, or null when no preference is stored.</returns>
+        public static IThemeContext Resolve(IRenderContext renderContext)
+        {
             var selected = Get(renderContext.Request);
-            var theme = WebEx.ComponentHub.ThemeManager.Themes.FirstOrDefault(x =>
+            return WebEx.ComponentHub.ThemeManager.Themes.FirstOrDefault(x =>
                 x.ApplicationContext == renderContext.PageContext.ApplicationContext
                 && string.Equals(x.ThemeId.ToString(), selected, StringComparison.OrdinalIgnoreCase));
-            visualTree.UseTheme(theme);
         }
 
         /// <summary>

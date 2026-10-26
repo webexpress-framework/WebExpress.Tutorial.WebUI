@@ -1,4 +1,8 @@
 ﻿using WebExpress.Tutorial.WebUI.WebTheme;
+using WebExpress.Tutorial.WebUI.Model;
+using WebExpress.Tutorial.WebUI.WWW.Api._1_;
+using WebExpress.WebApp.WebControl;
+using WebExpress.WebApp.WebTheme;
 using WebExpress.WebCore.WebApplication;
 using WebExpress.WebCore.WebAttribute;
 
@@ -27,6 +31,8 @@ namespace WebExpress.Tutorial.WebUI
         public Application(IApplicationContext applicationContext)
         {
             ApplicationContext = applicationContext;
+            ThemePreferences.Register(applicationContext, ThemeStore.Resolve,
+                () => new ControlDataSelectionTheme("tutorialThemeSelector").DataService<ThemeApi>());
         }
 
         /// <summary>
@@ -42,6 +48,7 @@ namespace WebExpress.Tutorial.WebUI
         /// </summary>
         public void Dispose()
         {
+            ThemePreferences.Remove(ApplicationContext);
         }
     }
 }

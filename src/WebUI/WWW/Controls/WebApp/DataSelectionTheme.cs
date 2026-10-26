@@ -1,14 +1,12 @@
 using WebExpress.Tutorial.WebUI.Model;
-using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
+using WebExpress.Tutorial.WebUI.WWW.Api._1_;
 using WebExpress.WebApp.WebControl;
-using WebExpress.WebApp.WebPage;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebComponent;
-using WebExpress.WebCore.WebIcon;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
@@ -61,7 +59,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
 The theme in effect is decided per request. A theme declares its colour scheme with `[ThemeMode(ThemeMode.Dark)]` and may ship a stylesheet via `[ThemeStyle(...)]`; the resolved theme is picked up automatically by `VisualTreeWebApp`, which emits `<html data-wx-theme=""..."">`.
 
-The selector below uses **`ControlDataSelectionTheme`** - a REST-backed picker that lists the themes registered for the current application via the tutorial's `ThemeApi` endpoint. Picking an entry calls the tutorial's `ThemeApi`, which writes the value into a user-defined `ThemeStore`; the shared `PageControl.Process` method applies the registered theme through `ThemeStore.Apply` on the next request. The administration page **Appearance** uses the same selector. Try `AutumnPastelTheme`, `DarkModeTheme` and `LightModeTheme` - the page switches its colour scheme.";
+The selector below uses **`ControlDataSelectionTheme`** - a REST-backed picker that lists the themes registered for the current application via the tutorial's `ThemeApi` endpoint. Picking an entry calls the tutorial's `ThemeApi`, which writes the value into a user-defined `ThemeStore`; the shared `PageControl.Process` method applies the registered theme through `ThemeStore.Apply` on the next request. The administration page **Designs** uses the same selector. Try `AutumnTheme`, `DarkModeTheme` and `LightModeTheme` - the page switches its colour scheme.";
 
             Stage.Controls =
             [
