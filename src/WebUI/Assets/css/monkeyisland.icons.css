@@ -3,8 +3,8 @@
  *
  * Nothing but mask rules: the classes stay the ones the framework already uses, so every
  * control that asks for wx-icon-light-home picks up the island without knowing this file
- * exists. Loaded either on its own (the switch in the user menu) or through the theme
- * stylesheet next to it.
+ * exists. Loaded either on its own (the icon set of the Designs page) or through the
+ * Monkey Island colour scheme next to it.
  */
 
 .wx-icon-light-home {
@@ -45,4 +45,64 @@
 .wx-icon-light-check {
     -webkit-mask-image: url("../icons/monkeyisland/check.svg");
     mask-image: url("../icons/monkeyisland/check.svg");
+}
+
+.wx-icon-light-circle-info {
+    -webkit-mask-image: url("../icons/monkeyisland/circle-info.svg");
+    mask-image: url("../icons/monkeyisland/circle-info.svg");
+}
+
+.wx-icon-light-rocket {
+    -webkit-mask-image: url("../icons/monkeyisland/rocket.svg");
+    mask-image: url("../icons/monkeyisland/rocket.svg");
+}
+
+.wx-icon-light-trash {
+    -webkit-mask-image: url("../icons/monkeyisland/trash.svg");
+    mask-image: url("../icons/monkeyisland/trash.svg");
+}
+
+.wx-icon-light-lock {
+    -webkit-mask-image: url("../icons/monkeyisland/lock.svg");
+    mask-image: url("../icons/monkeyisland/lock.svg");
+}
+
+.wx-icon-light-clock {
+    -webkit-mask-image: url("../icons/monkeyisland/clock.svg");
+    mask-image: url("../icons/monkeyisland/clock.svg");
+}
+
+.wx-icon-light-palette {
+    -webkit-mask-image: url("../icons/monkeyisland/palette.svg");
+    mask-image: url("../icons/monkeyisland/palette.svg");
+}
+
+.wx-icon-light-logout {
+    -webkit-mask-image: url("../icons/monkeyisland/logout.svg");
+    mask-image: url("../icons/monkeyisland/logout.svg");
+}
+
+.wx-icon-light-bell {
+    -webkit-mask-image: url("../icons/monkeyisland/bell.svg");
+    mask-image: url("../icons/monkeyisland/bell.svg");
+}
+
+.wx-icon-light-flag {
+    -webkit-mask-image: url("../icons/monkeyisland/flag.svg");
+    mask-image: url("../icons/monkeyisland/flag.svg");
+}
+
+.wx-icon-light-key {
+    -webkit-mask-image: url("../icons/monkeyisland/key.svg");
+    mask-image: url("../icons/monkeyisland/key.svg");
+}
+
+.wx-icon-light-pen {
+    -webkit-mask-image: url("../icons/monkeyisland/pen.svg");
+    mask-image: url("../icons/monkeyisland/pen.svg");
+}
+
+.wx-icon-light-comment {
+    -webkit-mask-image: url("../icons/monkeyisland/comment.svg");
+    mask-image: url("../icons/monkeyisland/comment.svg");
 }

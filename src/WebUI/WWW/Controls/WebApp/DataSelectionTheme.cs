@@ -53,13 +53,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             _sitemapManager = sitemapManager;
 
             Stage.Description = @"WebExpress ships two icon sets:
-
-* **Light** - the colour scheme used out of the box.
-* **Light** - the lightweight SVG variants defined in `webexpress.webui.icon.css` (`wx-icon-light wx-icon-light-*`).
-
-The theme in effect is decided per request. A theme declares its colour scheme with `[ThemeMode(ThemeMode.Dark)]` and may ship a stylesheet via `[ThemeStyle(...)]`; the resolved theme is picked up automatically by `VisualTreeWebApp`, which emits `<html data-wx-theme=""..."">`.
-
-The selector below uses **`ControlDataSelectionTheme`** - a REST-backed picker that lists the themes registered for the current application via the tutorial's `ThemeApi` endpoint. Picking an entry calls the tutorial's `ThemeApi`, which writes the value into a user-defined `ThemeStore`; the shared `PageControl.Process` method applies the registered theme through `ThemeStore.Apply` on the next request. The administration page **Designs** uses the same selector. Try `AutumnTheme`, `DarkModeTheme` and `LightModeTheme` - the page switches its colour scheme.";
+                * **Light** - the colour scheme used out of the box.
+                * **Light** - the lightweight SVG variants defined in `webexpress.webui.icon.css` (`wx-icon-light wx-icon-light-*`).
+                The theme in effect is decided per request. A theme declares its colour scheme with `[ThemeMode(ThemeMode.Dark)]` and may ship a stylesheet via `[ThemeStyle(...)]`; the resolved theme is picked up automatically by `VisualTreeWebApp`, which emits `<html data-wx-theme=""..."">`.
+                The selector below uses **`ControlDataSelectionTheme`** - a REST-backed picker that lists the themes registered for the current application via the tutorial's `ThemeApi` endpoint. Picking an entry calls the tutorial's `ThemeApi`, which writes the value into a user-defined `ThemeStore`; the shared `PageControl.Process` method applies the registered theme through `ThemeStore.Apply` on the next request. The administration page **Designs** uses the same selector. Try `StandardTheme`, `AutumnTheme` and `MonkeyIslandTheme` - the page switches its colour scheme. Light or dark is a choice of its own: every colour scheme comes in both modes, and `[ThemeMode]` only sets the default for a visitor who has not chosen.";
 
             Stage.Controls =
             [
@@ -110,10 +107,10 @@ The selector below uses **`ControlDataSelectionTheme`** - a REST-backed picker t
             ];
 
             Stage.Code = @"
-            // 1. Declare a theme that opts into the light icon set:
-            [Name(""LightModeTheme"")]
+            // 1. Declare a colour scheme; [ThemeMode] is only its default mode:
+            [Name(""StandardTheme"")]
             [ThemeMode(ThemeMode.Light)]
-            public sealed class LightModeTheme : IThemeWebApp { }
+            public sealed class StandardTheme : IThemeWebApp { }
 
             // 2. Hold the per-client selection somewhere the application
             //    controls - here, a static dictionary keyed by remote IP:
@@ -151,11 +148,11 @@ The selector below uses **`ControlDataSelectionTheme`** - a REST-backed picker t
             (
                 "Default theme via [Theme<TTheme>]",
                 "An application can declare its default theme declaratively. The theme is picked up automatically by every visual tree; no per-page `UseTheme<>` call is needed. User-side persistence (as demonstrated here) overrides that default for the current user.",
-                @"[Theme<LightModeTheme>]
+                @"[Theme<StandardTheme>]
 public sealed class MyApplication : IApplication { }",
                 new ControlText()
                 {
-                    Text = _ => "When the application carries `[Theme<LightModeTheme>]`, every page of that application renders with that theme out of the box. The per-page `UseTheme<>` call (wired from a user-defined store) overrides the application default.",
+                    Text = _ => "When the application carries `[Theme<StandardTheme>]`, every page of that application renders with that theme out of the box. The per-page `UseTheme<>` call (wired from a user-defined store) overrides the application default.",
                     Format = _ => TypeFormatText.Markdown
                 }
             );

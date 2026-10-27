@@ -122,7 +122,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             // the swapped drawings of the Monkey Island theme, shown next to the defaults so the
             // mechanism is visible without having to activate the theme first
             var monkeyBase = pageContext?.ApplicationContext?.Route?.Concat("assets/icons/monkeyisland")?.ToString();
-            var monkeyNames = new[] { "home", "user", "magnifying-glass", "gear", "star", "envelope", "bookmark", "check" };
+            var monkeyNames = new[]
+            {
+                "home", "user", "magnifying-glass", "gear", "star", "envelope", "bookmark", "check",
+                "circle-info", "rocket", "trash", "lock", "clock", "palette", "logout", "bell",
+                "flag", "key", "pen", "comment"
+            };
 
             var monkeyStyle = "<style>"
                 + ".wx-mi-demo{display:flex;flex-wrap:wrap;gap:1.25rem}"
@@ -153,10 +158,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 "An icon is drawn by a css mask that a class selects. A theme can point that class at a different "
                 + "drawing, and every control that already asks for the class follows - without knowing the theme "
                 + "exists and without a line of control code. The Monkey Island theme of this tutorial does exactly "
-                + "that for eight everyday icons: the house becomes an island, the cog a ship's wheel, the magnifier "
-                + "a spyglass. One catch: a theme stylesheet replaces the framework default instead of adding to it, "
+                + "that for twenty everyday icons: the house becomes an island, the cog a ship's wheel, the magnifier "
+                + "a spyglass, the lock a treasure chest and the bin a shark fin. One catch: a theme stylesheet replaces the framework default instead of adding to it, "
                 + "so it has to import the framework sheet before overriding anything.",
-                "[ThemeStyle(\"assets/css/monkeyisland.icon.css\")]",
+                "[ThemeStyle(\"assets/css/monkeyisland.theme.css\")]",
                 new ControlText()
                 {
                     Format = _ => TypeFormatText.Raw,

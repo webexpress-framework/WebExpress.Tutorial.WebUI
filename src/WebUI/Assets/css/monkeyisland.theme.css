@@ -1,0 +1,216 @@
+/*
+ * Monkey Island colour scheme.
+ *
+ * Monkey Island 1 ran on EGA, sixteen fixed colours: black, the four greys of the palette
+ * (#000, #555, #aaa, #fff) and the eight hues in a dark and a light step. Every token below
+ * is one of them; where a control needs a shade between two, it is mixed from two EGA
+ * colours the way the game dithered them. Night on Melee Island is the dark mode - black,
+ * the blue of its sky, cyan and magenta for the verbs; the day is white with EGA blue.
+ *
+ * A theme stylesheet replaces the framework default rather than adding to it, so the
+ * framework sheet is imported first, then the pirate drawings. Both imports are relative on
+ * purpose - they resolve under whatever route the application is mounted at.
+ */
+
+@import url("../../webexpress.webapp/assets/css/webexpress.webapp.theme.css");
+@import url("monkeyisland.icons.css");
+
+/* sixteen colours had no anti-aliased curves; square corners and hard shadows keep the look */
+:root, [data-wx-theme] {
+    --wx-border-radius: 0;
+    --wx-border-radius-sm: 0;
+    --wx-border-radius-lg: 0;
+    --wx-border-radius-xl: 0;
+}
+
+/* day: white surfaces, EGA blue for everything that acts */
+:root, [data-wx-theme="light"] {
+    --wx-body-bg: #ffffff;
+    --wx-body-bg-rgb: 255, 255, 255;
+    --wx-body-color: #000000;
+    --wx-body-color-rgb: 0, 0, 0;
+    --wx-secondary-bg: color-mix(in srgb, #aaaaaa 50%, #ffffff);
+    --wx-tertiary-bg: color-mix(in srgb, #aaaaaa 25%, #ffffff);
+    --wx-secondary-color: #555555;
+    --wx-secondary-color-rgb: 85, 85, 85;
+    --wx-tertiary-color: #555555;
+    --wx-emphasis-color: #000000;
+    --wx-heading-color: #0000aa;
+    --wx-border-color: #aaaaaa;
+    --wx-border-color-translucent: rgba(0, 0, 170, 0.25);
+    --wx-link-color: #0000aa;
+    --wx-link-color-rgb: 0, 0, 170;
+    --wx-link-hover-color: #aa00aa;
+    --wx-code-color: #aa00aa;
+    --wx-highlight: #ffff55;
+    --wx-highlight-rgb: 255, 255, 85;
+    --wx-highlight-contrast: #000000;
+    --wx-app-splash: #0000aa;
+    --wx-gray: #555555;
+    --wx-gray-100: #ffffff;
+    --wx-gray-200: color-mix(in srgb, #aaaaaa 50%, #ffffff);
+    --wx-gray-300: #aaaaaa;
+    --wx-gray-400: #aaaaaa;
+    --wx-gray-500: #555555;
+    --wx-gray-600: #555555;
+    --wx-gray-700: #555555;
+    --wx-gray-800: #000000;
+    --wx-gray-900: #000000;
+    --wx-dropdown-shadow: 4px 4px 0 #000000;
+    --wx-primary: #0000aa;
+    --wx-primary-rgb: 0, 0, 170;
+    --wx-primary-contrast: #ffffff;
+    --wx-primary-bg-subtle: color-mix(in srgb, #5555ff 20%, #ffffff);
+    --wx-primary-border-subtle: #5555ff;
+    --wx-primary-text-emphasis: #0000aa;
+    --wx-secondary: #aa00aa;
+    --wx-secondary-rgb: 170, 0, 170;
+    --wx-secondary-contrast: #ffffff;
+    --wx-secondary-bg-subtle: color-mix(in srgb, #ff55ff 20%, #ffffff);
+    --wx-secondary-border-subtle: #ff55ff;
+    --wx-secondary-text-emphasis: #aa00aa;
+    --wx-success: #00aa00;
+    --wx-success-rgb: 0, 170, 0;
+    --wx-success-contrast: #000000;
+    --wx-success-bg-subtle: color-mix(in srgb, #55ff55 25%, #ffffff);
+    --wx-success-border-subtle: #00aa00;
+    --wx-success-text-emphasis: #000000;
+    --wx-info: #00aaaa;
+    --wx-info-rgb: 0, 170, 170;
+    --wx-info-contrast: #000000;
+    --wx-info-bg-subtle: color-mix(in srgb, #55ffff 25%, #ffffff);
+    --wx-info-border-subtle: #00aaaa;
+    --wx-info-text-emphasis: #000000;
+    --wx-warning: #ffff55;
+    --wx-warning-rgb: 255, 255, 85;
+    --wx-warning-contrast: #000000;
+    --wx-warning-bg-subtle: color-mix(in srgb, #ffff55 35%, #ffffff);
+    --wx-warning-border-subtle: #aa5500;
+    --wx-warning-text-emphasis: #aa5500;
+    --wx-danger: #aa0000;
+    --wx-danger-rgb: 170, 0, 0;
+    --wx-danger-contrast: #ffffff;
+    --wx-danger-bg-subtle: color-mix(in srgb, #ff5555 20%, #ffffff);
+    --wx-danger-border-subtle: #ff5555;
+    --wx-danger-text-emphasis: #aa0000;
+    --wx-light: #aaaaaa;
+    --wx-light-rgb: 170, 170, 170;
+    --wx-light-contrast: #000000;
+    --wx-light-bg-subtle: #ffffff;
+    --wx-light-border-subtle: #aaaaaa;
+    --wx-light-text-emphasis: #555555;
+    --wx-dark: #000000;
+    --wx-dark-rgb: 0, 0, 0;
+    --wx-dark-contrast: #ffffff;
+    --wx-dark-bg-subtle: #aaaaaa;
+    --wx-dark-border-subtle: #555555;
+    --wx-dark-text-emphasis: #000000;
+}
+
+/* night on Melee Island: black, the sky in EGA blue, cyan and magenta like the verb bar */
+[data-wx-theme="dark"] {
+    --wx-body-bg: #000000;
+    --wx-body-bg-rgb: 0, 0, 0;
+    --wx-body-color: #ffffff;
+    --wx-body-color-rgb: 255, 255, 255;
+    --wx-secondary-bg: #0000aa;
+    --wx-tertiary-bg: color-mix(in srgb, #0000aa 50%, #000000);
+    --wx-secondary-color: #aaaaaa;
+    --wx-secondary-color-rgb: 170, 170, 170;
+    --wx-tertiary-color: #aaaaaa;
+    --wx-emphasis-color: #ffffff;
+    --wx-heading-color: #ffff55;
+    --wx-border-color: #5555ff;
+    --wx-border-color-translucent: rgba(85, 85, 255, 0.35);
+    --wx-link-color: #55ffff;
+    --wx-link-color-rgb: 85, 255, 255;
+    --wx-link-hover-color: #ff55ff;
+    --wx-code-color: #ff55ff;
+    --wx-highlight: #ffff55;
+    --wx-highlight-rgb: 255, 255, 85;
+    --wx-highlight-contrast: #000000;
+    --wx-app-splash: #0000aa;
+    --wx-gray: #555555;
+    --wx-gray-100: #ffffff;
+    --wx-gray-200: #aaaaaa;
+    --wx-gray-300: #aaaaaa;
+    --wx-gray-400: #555555;
+    --wx-gray-500: #555555;
+    --wx-gray-600: #555555;
+    --wx-gray-700: #555555;
+    --wx-gray-800: color-mix(in srgb, #0000aa 50%, #000000);
+    --wx-gray-900: #000000;
+    --wx-dropdown-shadow: 4px 4px 0 #0000aa;
+    --wx-primary: #5555ff;
+    --wx-primary-rgb: 85, 85, 255;
+    --wx-primary-contrast: #ffffff;
+    --wx-primary-bg-subtle: color-mix(in srgb, #0000aa 60%, #000000);
+    --wx-primary-border-subtle: #5555ff;
+    --wx-primary-text-emphasis: #55ffff;
+    /* the light step of magenta: the dark one is too dim for small text on black */
+    --wx-secondary: #ff55ff;
+    --wx-secondary-rgb: 255, 85, 255;
+    --wx-secondary-contrast: #000000;
+    --wx-secondary-bg-subtle: color-mix(in srgb, #aa00aa 35%, #000000);
+    --wx-secondary-border-subtle: #ff55ff;
+    --wx-secondary-text-emphasis: #ff55ff;
+    --wx-success: #55ff55;
+    --wx-success-rgb: 85, 255, 85;
+    --wx-success-contrast: #000000;
+    --wx-success-bg-subtle: color-mix(in srgb, #00aa00 35%, #000000);
+    --wx-success-border-subtle: #00aa00;
+    --wx-success-text-emphasis: #55ff55;
+    --wx-info: #55ffff;
+    --wx-info-rgb: 85, 255, 255;
+    --wx-info-contrast: #000000;
+    --wx-info-bg-subtle: color-mix(in srgb, #00aaaa 35%, #000000);
+    --wx-info-border-subtle: #00aaaa;
+    --wx-info-text-emphasis: #55ffff;
+    --wx-warning: #ffff55;
+    --wx-warning-rgb: 255, 255, 85;
+    --wx-warning-contrast: #000000;
+    --wx-warning-bg-subtle: color-mix(in srgb, #aa5500 40%, #000000);
+    --wx-warning-border-subtle: #aa5500;
+    --wx-warning-text-emphasis: #ffff55;
+    --wx-danger: #ff5555;
+    --wx-danger-rgb: 255, 85, 85;
+    --wx-danger-contrast: #000000;
+    --wx-danger-bg-subtle: color-mix(in srgb, #aa0000 40%, #000000);
+    --wx-danger-border-subtle: #aa0000;
+    --wx-danger-text-emphasis: #ff5555;
+    --wx-light: #aaaaaa;
+    --wx-light-rgb: 170, 170, 170;
+    --wx-light-contrast: #000000;
+    --wx-light-bg-subtle: #555555;
+    --wx-light-border-subtle: #aaaaaa;
+    --wx-light-text-emphasis: #ffffff;
+    --wx-dark: #000000;
+    --wx-dark-rgb: 0, 0, 0;
+    --wx-dark-contrast: #ffffff;
+    --wx-dark-bg-subtle: color-mix(in srgb, #0000aa 50%, #000000);
+    --wx-dark-border-subtle: #555555;
+    --wx-dark-text-emphasis: #ffffff;
+}
+
+/* the header is the sky in both modes, with white ink and the yellow of the dialog lines */
+html[data-wx-theme] #wx-header {
+    background: #0000aa;
+    border-bottom: 1px solid #5555ff;
+}
+
+html[data-wx-theme] :is(#wx-header-apptitle, #wx-header-appnavigation,
+#wx-header-notifications, #wx-header-help, #wx-header-settings) {
+    color: #ffffff;
+}
+
+html[data-wx-theme] #wx-header-appnavigation .active {
+    color: #ffff55;
+}
+
+html[data-wx-theme] #wx-header-appnavigation > *:hover:not(.wx-overflow-menu):not(.dropdown-menu):not(.wx-dropdown),
+html[data-wx-theme] #wx-header-appnavigation > *:focus:not(.wx-dropdown),
+html[data-wx-theme] #wx-header-appnavigation > .btn:active,
+html[data-wx-theme] #wx-header-appnavigation > .wx-dropdown > .btn:is(:hover, :focus, :active),
+html[data-wx-theme] :is(#wx-header-notifications, #wx-header-help, #wx-header-settings) > .btn:is(:hover, :focus, :active) {
+    background: #5555ff;
+}

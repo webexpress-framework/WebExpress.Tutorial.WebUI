@@ -15,7 +15,7 @@ namespace WebExpress.Tutorial.WebUI
     [Description("webexpress.Tutorial.webui:app.description")]
     [Icon("/assets/img/webui.svg")]
     [ContextPath("/webui")]
-    [Theme<DarkModeTheme>]
+    [Theme<StandardTheme>]
     public sealed class Application : IApplication
     {
         /// <summary>
@@ -23,6 +23,17 @@ namespace WebExpress.Tutorial.WebUI
         /// application-wide services and configurations.
         /// </summary>
         public static IApplicationContext ApplicationContext { get; private set; }
+
+        /// <summary>
+        /// Gets the pirate drawings, offered as icon set on the Designs page.
+        /// </summary>
+        public static IconSet MonkeyIsland { get; } = new
+        (
+            "monkeyisland",
+            "webexpress.tutorial.webui:iconset.monkeyisland.label",
+            "webexpress.tutorial.webui:iconset.monkeyisland.tooltip",
+            "assets/css/monkeyisland.icons.css"
+        );
 
         /// <summary>
         /// Initializes a new instance of the class.
@@ -33,6 +44,9 @@ namespace WebExpress.Tutorial.WebUI
             ApplicationContext = applicationContext;
             ThemePreferences.Register(applicationContext, ThemeStore.Resolve,
                 () => new ControlDataSelectionTheme("tutorialThemeSelector").DataService<ThemeApi>());
+            ThemePreferences.RegisterIconSets(applicationContext, [IconSet.Default, MonkeyIsland], ThemeStore.ResolveIconSet,
+                () => new ControlDataSelectionIconSet("tutorialIconSetSelector").DataService<IconSetApi>());
+            ThemePreferences.RegisterColorScheme<ColorSchemeApi>(applicationContext, ThemeStore.ResolveColorScheme);
         }
 
         /// <summary>

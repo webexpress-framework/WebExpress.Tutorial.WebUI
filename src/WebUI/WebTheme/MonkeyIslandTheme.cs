@@ -5,23 +5,25 @@ using WebExpress.WebCore.WebTheme;
 namespace WebExpress.Tutorial.WebUI.WebTheme
 {
     /// <summary>
-    /// A tutorial theme that reskins part of the icon set without touching a single control.
+    /// A tutorial colour scheme in the sixteen EGA colours of Monkey Island 1, with the pirate
+    /// drawings, reskinning the application without touching a single control.
     /// </summary>
     /// <remarks>
-    /// Icons are applied as css masks selected by class, so a theme can point a class at a
-    /// different drawing and every control that already asks for it follows. This theme does
-    /// that for eight everyday icons - the house becomes an island, the cog a ship's wheel,
-    /// the magnifier a spyglass - and changes nothing else.
+    /// Colours are tokens and icons are css masks selected by class, so a stylesheet can
+    /// redefine both and every control follows. The dark mode is night on Melee Island -
+    /// black, the blue sky, cyan and magenta - and the default, since that is the picture the
+    /// game is remembered by; the light mode is white with EGA blue. Twenty everyday icons
+    /// become pirate motifs: the house an island, the cog a ship's wheel, the lock a chest.
     /// <para>
     /// The stylesheet named here replaces the framework default instead of adding to it,
-    /// which is why <c>monkeyisland.icon.css</c> imports the framework sheet on its first
+    /// which is why <c>monkeyisland.theme.css</c> imports the framework sheet on its first
     /// line before overriding anything.
     /// </para>
     /// </remarks>
-    [Name("webexpress.Tutorial.webui:theme.monkeyisland.name")]
-    [Description("webexpress.Tutorial.webui:theme.monkeyisland.description")]
-    [ThemeMode(ThemeMode.Light)]
-    [ThemeStyle("assets/css/monkeyisland.icon.css")]
+    [Name("webexpress.tutorial.webui:theme.monkeyisland.name")]
+    [Description("webexpress.tutorial.webui:theme.monkeyisland.description")]
+    [ThemeMode(ThemeMode.Dark)]
+    [ThemeStyle("assets/css/monkeyisland.theme.css")]
     public sealed class MonkeyIslandTheme : IThemeWebApp
     {
     }
