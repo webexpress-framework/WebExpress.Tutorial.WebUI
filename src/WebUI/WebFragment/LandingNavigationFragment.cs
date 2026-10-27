@@ -4,6 +4,7 @@ using WebExpress.WebApp.WebSection;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebFragment;
+using WebExpress.WebCore.WebScope;
 using WebExpress.WebUI.WebFragment;
 
 namespace WebExpress.Tutorial.WebUI.WebFragment
@@ -13,6 +14,9 @@ namespace WebExpress.Tutorial.WebUI.WebFragment
     /// </summary>
     [Section<SectionAppNavigationPrimary>]
     [Scope<IScopeGeneral>]
+    [Scope<IScopeAdmin>]
+    [Scope<IScopeStatusPage>]
+    [Scope<IScopeLogin>]
     public sealed class LandingNavigationFragment : FragmentControlNavigationItemLink
     {
         /// <summary>
