@@ -1,3 +1,4 @@
+using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebPage;
 using WebExpress.WebCore.WebAttribute;
@@ -20,6 +21,7 @@ namespace WebExpress.Tutorial.WebUI.WWW
         /// <param name="visualTree">The independent landing layout for this example.</param>
         public void Process(IRenderContext renderContext, VisualTreeWebAppLanding visualTree)
         {
+            ThemeStore.Apply(renderContext, visualTree);
         }
     }
 }

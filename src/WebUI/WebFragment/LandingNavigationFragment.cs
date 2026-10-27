@@ -5,7 +5,9 @@ using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebFragment;
 using WebExpress.WebCore.WebScope;
+using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebFragment;
+using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WebFragment
 {
@@ -29,6 +31,10 @@ namespace WebExpress.Tutorial.WebUI.WebFragment
         {
             Text = _ => "webexpress.tutorial.webui:landing.title";
             Uri = _ => componentHub.SitemapManager.GetUri<Landing>(fragmentContext.ApplicationContext);
+            Icon = _ => new IconRocket();
+            Active = renderContext => renderContext?.Endpoint is Landing
+                ? TypeActive.Active
+                : TypeActive.None;
         }
     }
 }
