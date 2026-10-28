@@ -5,6 +5,7 @@ using System.Reflection;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
+using WebExpress.WebApp.WebPage;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebIcon;
@@ -62,29 +63,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
   <label for=""wxGallerySize"">Size</label>
   <input type=""range"" id=""wxGallerySize"" data-wx-gallery-size min=""12"" max=""72"" step=""2"" value=""20"">
   <output data-wx-gallery-size-out>20 px</output>
-</div>
-<script>
-(function () {
-    if (window.wxGallerySizerReady) { return; }
-    window.wxGallerySizerReady = true;
-
-    var apply = function (px) {
-        document.documentElement.style.setProperty(""--wx-gallery-size"", px + ""px"");
-        document.querySelectorAll(""[data-wx-gallery-size-out]"").forEach(function (o) { o.textContent = px + "" px""; });
-        document.querySelectorAll(""[data-wx-gallery-size]"").forEach(function (i) { i.value = px; });
-        try { localStorage.setItem(""wx-gallery-size"", px); } catch (e) { }
-    };
-
-    // delegated, so it works no matter when the slider enters the dom
-    document.addEventListener(""input"", function (e) {
-        if (e.target && e.target.matches && e.target.matches(""[data-wx-gallery-size]"")) { apply(e.target.value); }
-    });
-
-    var saved = null;
-    try { saved = localStorage.getItem(""wx-gallery-size""); } catch (e) { }
-    apply(saved || 20);
-})();
-</script>"
+</div>"
             };
 
             var tiles = icons.Select(x => (IControl)new ControlPanel
@@ -389,6 +368,19 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     TextColor = _ => new PropertyColorText(TypeColorText.Danger),
                 })]
             );
+        }
+
+        /// <summary>
+        /// Adds the script of the gallery's size slider. It is linked instead of written into the
+        /// stage, because the content security policy blocks a script inside the page's html text.
+        /// </summary>
+        /// <param name="renderContext">The context for rendering the page.</param>
+        /// <param name="visualTree">The visual tree of the web application.</param>
+        public override void Process(IRenderContext renderContext, VisualTreeWebApp visualTree)
+        {
+            visualTree.AddHeaderScriptLink(renderContext.PageContext.ApplicationContext.Route.Concat("assets/js/icon.tutorial.js").ToString());
+
+            base.Process(renderContext, visualTree);
         }
 
         /// <summary>
