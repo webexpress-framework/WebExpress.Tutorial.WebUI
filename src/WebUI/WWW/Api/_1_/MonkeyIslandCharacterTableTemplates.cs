@@ -239,6 +239,97 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     }
 
     /// <summary>
+    /// Demonstrates the "country" column template of the REST table.
+    /// </summary>
+    [Title("Monkey Island characters")]
+    public sealed class MonkeyIslandCharacterTableCountry : MonkeyIslandCharacterTableTemplateBase
+    {
+        private static readonly string[] _values = ["JM", "BS;CU", "BB", "TT;GD;LC"];
+
+        /// <summary>
+        /// Gets the label of the template column.
+        /// </summary>
+        protected override string ValueColumnLabel => "Ports of call";
+
+        /// <summary>
+        /// Creates the column template the endpoint demonstrates. The culture of the request
+        /// names the countries, so the cells read in the visitor's language.
+        /// </summary>
+        /// <param name="request">The request that provides the operational context.</param>
+        /// <returns>The template of the value column.</returns>
+        protected override IRestApiTableColumnTemplate CreateTemplate(IRequest request) =>
+            new RestApiTableColumnTemplateCountry(true, true, request?.Culture);
+
+        /// <summary>
+        /// Supplies the demo value of the template column for a character.
+        /// </summary>
+        /// <param name="character">The character of the row.</param>
+        /// <param name="index">The zero-based row index, used to rotate demo values.</param>
+        /// <returns>The cell content.</returns>
+        protected override string CreateCellContent(Character character, int index) => _values[index % _values.Length];
+    }
+
+    /// <summary>
+    /// Demonstrates the "email" column template of the REST table.
+    /// </summary>
+    [Title("Monkey Island characters")]
+    public sealed class MonkeyIslandCharacterTableEmail : MonkeyIslandCharacterTableTemplateBase
+    {
+        private static readonly string[] _values = ["guybrush@melee-island.example", "lechuck@ghost-ship.example", "elaine@governor.example", "stan@used-ships.example"];
+
+        /// <summary>
+        /// Gets the label of the template column.
+        /// </summary>
+        protected override string ValueColumnLabel => "E-mail";
+
+        /// <summary>
+        /// Creates the column template the endpoint demonstrates.
+        /// </summary>
+        /// <param name="request">The request that provides the operational context.</param>
+        /// <returns>The template of the value column.</returns>
+        protected override IRestApiTableColumnTemplate CreateTemplate(IRequest request) =>
+            new RestApiTableColumnTemplateEmail(true, "name@example.com");
+
+        /// <summary>
+        /// Supplies the demo value of the template column for a character.
+        /// </summary>
+        /// <param name="character">The character of the row.</param>
+        /// <param name="index">The zero-based row index, used to rotate demo values.</param>
+        /// <returns>The cell content.</returns>
+        protected override string CreateCellContent(Character character, int index) => _values[index % _values.Length];
+    }
+
+    /// <summary>
+    /// Demonstrates the "phone" column template of the REST table.
+    /// </summary>
+    [Title("Monkey Island characters")]
+    public sealed class MonkeyIslandCharacterTablePhone : MonkeyIslandCharacterTableTemplateBase
+    {
+        private static readonly string[] _values = ["+18765550100", "+12425550100", "+12465550100", "+18685550100"];
+
+        /// <summary>
+        /// Gets the label of the template column.
+        /// </summary>
+        protected override string ValueColumnLabel => "Phone";
+
+        /// <summary>
+        /// Creates the column template the endpoint demonstrates.
+        /// </summary>
+        /// <param name="request">The request that provides the operational context.</param>
+        /// <returns>The template of the value column.</returns>
+        protected override IRestApiTableColumnTemplate CreateTemplate(IRequest request) =>
+            new RestApiTableColumnTemplatePhone(true, "JM");
+
+        /// <summary>
+        /// Supplies the demo value of the template column for a character.
+        /// </summary>
+        /// <param name="character">The character of the row.</param>
+        /// <param name="index">The zero-based row index, used to rotate demo values.</param>
+        /// <returns>The cell content.</returns>
+        protected override string CreateCellContent(Character character, int index) => _values[index % _values.Length];
+    }
+
+    /// <summary>
     /// Demonstrates the "editor" column template of the REST table.
     /// </summary>
     [Title("Monkey Island characters")]
