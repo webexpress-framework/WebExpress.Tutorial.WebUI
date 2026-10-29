@@ -426,7 +426,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
         /// <summary>
         /// Creates a collection of toolbar items with sequential labels and icons.
         /// </summary>
-        /// <remarks>
+        /// <param name="count">The number of labeled items to include.</param>
         /// <returns>
         /// An enumerable collection of <see cref="IControlToolbarItem"/> objects, each representing a 
         /// toolbar item with a unique label and a icon.
@@ -435,6 +435,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
         {
             for (int i = 1; i <= count; i++)
             {
+                var label = $"Item {i}";
                 var alignment = i > count / 2 ? TypeToolbarItemAlignment.Right : TypeToolbarItemAlignment.Left;
 
                 if (i % 3 == 0)
@@ -443,7 +444,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 }
                 yield return new ControlToolbarItemButton($"item{i}")
                 {
-                    Text = _ => $"Item {i}",
+                    Text = _ => label,
                     Icon = i > count / 2 ? _ => new IconCat() : _ => new IconDog(),
                     Alignment = _ => alignment
                 };

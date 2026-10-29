@@ -106,7 +106,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 Id = "description",
                 Name = "Description",
                 Label = "Description",
-                Visible = true
+                Visible = true,
+                Template = new RestApiTableColumnTemplateEditor()
             };
 
             yield return new RestApiTableColumn()
