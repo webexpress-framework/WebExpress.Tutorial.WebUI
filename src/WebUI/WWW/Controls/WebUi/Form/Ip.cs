@@ -1,11 +1,14 @@
+using System.Net;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
+using WebExpress.WebUI.WebNotification;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
 {
@@ -23,17 +26,24 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
         /// Initializes a new instance of the class.
         /// </summary>
         /// <param name="pageContext">The context of the page on which the IP control is used.</param>
-        public Ip(IPageContext pageContext)
+        /// <param name="componentHub">The component hub for managing components.</param>
+        public Ip(IPageContext pageContext, IComponentHub componentHub)
         {
             Stage.Description = @"An `Ip` control takes an IPv4 or IPv6 address. An IPv4 address must have four parts without leading zeros; an IPv6 address reaches the page in its canonical, compressed form, so `2001:0DB8:0:0::1` arrives as `2001:db8::1`.";
 
             Stage.Control = new ControlForm()
-                .Add(new ControlFormItemInputIp { Label = _ => "Address", Icon = _ => new IconNetworkWired() })
+                .Add(new ControlFormItemInputIp { Label = _ => "Address", Icon = _ => new IconNetworkWired() }
+                    .Process(x => componentHub
+                        .GetComponentManager<NotificationManager>()
+                        .AddNotification(pageContext.ApplicationContext, x.Context.Request, $"Value: {WebUtility.HtmlEncode(x.Value.Text)}", durability: 5000)))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
             new ControlForm()
-                .Add(new ControlFormItemInputIp { Label = _ => ""Address"", Icon = _ => new IconNetworkWired() })
+                .Add(new ControlFormItemInputIp { Label = _ => ""Address"", Icon = _ => new IconNetworkWired() }
+                    .Process(x => componentHub
+                        .GetComponentManager<NotificationManager>()
+                        .AddNotification(pageContext.ApplicationContext, x.Context.Request, $""Value: {WebUtility.HtmlEncode(x.Value.Text)}"", durability: 5000)))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
             Stage.AddProperty

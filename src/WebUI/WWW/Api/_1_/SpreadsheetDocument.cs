@@ -88,6 +88,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 // never a moment in which neither the record nor the draft carries the workbook
                 SpreadsheetDocumentDraft.Clear();
 
+                SaveNotification.Notify(request, PublishedTitle);
+
                 return MonkeyIslandDocument.Json(payload);
             }
         }

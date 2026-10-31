@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Net;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
@@ -9,6 +10,7 @@ using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
+using WebExpress.WebUI.WebNotification;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
 {
@@ -34,12 +36,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             Stage.Description = @"The `TilePicker` control is an interactive card-based selection component. It allows users to choose one or multiple items represented as visual tiles. Each tile can contain text, icons, colors, or custom content, making it ideal for dashboards, category selection, or visually guided input.";
 
             Stage.Control = new ControlForm()
-                .Add(new ControlFormItemInputTile().Add(GetCards()))
+                .Add(new ControlFormItemInputTile().Add(GetCards())
+                    .Process(x => componentHub
+                        .GetComponentManager<NotificationManager>()
+                        .AddNotification(pageContext.ApplicationContext, x.Context.Request, $"Value: {WebUtility.HtmlEncode(string.Join("; ", x.Value.Items))}", durability: 5000)))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
             new ControlForm()
-                .Add(new ControlFormItemInputTile().Add(GetCards()))
+                .Add(new ControlFormItemInputTile().Add(GetCards())
+                    .Process(x => componentHub
+                        .GetComponentManager<NotificationManager>()
+                        .AddNotification(pageContext.ApplicationContext, x.Context.Request, $""Value: {WebUtility.HtmlEncode(string.Join(""; "", x.Value.Items))}"", durability: 5000)))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
             Stage.AddProperty

@@ -1,6 +1,7 @@
 using System;
 using System.Text;
 using System.Text.Json;
+using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebRestApi;
@@ -96,6 +97,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     // the draft ends with the publication, inside the same transaction, so there
                     // is never a moment in which neither the record nor the draft carries the text
                     MonkeyIslandDocumentDraft.Clear();
+
+                    SaveNotification.Notify(request, PublishedTitle);
 
                     return Json(new DocumentPayload { Title = PublishedTitle, Body = PublishedBody });
                 }

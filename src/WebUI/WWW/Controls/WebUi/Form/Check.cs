@@ -7,6 +7,7 @@ using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
+using WebExpress.WebUI.WebNotification;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
 {
@@ -30,12 +31,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             Stage.Description = @"A `Check` control is a graphical user interface element that allows users to choose between two states: checked (selected) or unchecked (not selected).";
 
             Stage.Control = new ControlForm()
-                .Add(new ControlFormItemInputCheck { Label = _ => "Label", Description = _ => "Check box description" })
+                .Add(new ControlFormItemInputCheck { Label = _ => "Label", Description = _ => "Check box description" }
+                    .Process(x => componentHub
+                        .GetComponentManager<NotificationManager>()
+                        .AddNotification(pageContext.ApplicationContext, x.Context.Request, $"Value: {x.Value}", durability: 5000)))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
             new ControlForm()
-                .Add(new ControlFormItemInputCheck { Label = _ => ""Label"", Description = _ => ""Check box description"" })
+                .Add(new ControlFormItemInputCheck { Label = _ => ""Label"", Description = _ => ""Check box description"" }
+                    .Process(x => componentHub
+                        .GetComponentManager<NotificationManager>()
+                        .AddNotification(pageContext.ApplicationContext, x.Context.Request, $""Value: {x.Value}"", durability: 5000)))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
             Stage.AddProperty

@@ -1,3 +1,4 @@
+using System.Net;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
@@ -7,6 +8,7 @@ using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
+using WebExpress.WebUI.WebNotification;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
 {
@@ -40,7 +42,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                         new ControlFormItemInputChoiceItem() { Text = _ => "S", Value = _ => "small" },
                         new ControlFormItemInputChoiceItem() { Text = _ => "M", Value = _ => "medium" },
                         new ControlFormItemInputChoiceItem() { Text = _ => "L", Value = _ => "large" }
-                    ))
+                    )
+                    .Process(x => componentHub
+                        .GetComponentManager<NotificationManager>()
+                        .AddNotification(pageContext.ApplicationContext, x.Context.Request, $"Value: {WebUtility.HtmlEncode(x.Value.Text)}", durability: 5000)))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
@@ -55,7 +60,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                                 new ControlFormItemInputChoiceItem() { Text = _ => ""S"", Value = _ => ""small"" },
                                 new ControlFormItemInputChoiceItem() { Text = _ => ""M"", Value = _ => ""medium"" },
                                 new ControlFormItemInputChoiceItem() { Text = _ => ""L"", Value = _ => ""large"" }
-                            ))
+                            )
+                            .Process(x => componentHub
+                                .GetComponentManager<NotificationManager>()
+                                .AddNotification(pageContext.ApplicationContext, x.Context.Request, $""Value: {WebUtility.HtmlEncode(x.Value.Text)}"", durability: 5000)))
                         .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
             Stage.AddProperty

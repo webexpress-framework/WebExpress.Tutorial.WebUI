@@ -53,7 +53,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 {
                     componentHub
                         .GetComponentManager<NotificationManager>()
-                        .AddNotification(pageContext.ApplicationContext, $"Value: {x.Value}");
+                        .AddNotification(pageContext.ApplicationContext, x.Context.Request, $"Value: {x.Value}", durability: 5000);
                 }))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
@@ -68,7 +68,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                         .Initialize(args => args.Value.Date = DateTime.Now)
                         .Process(x => componentHub
                             .GetComponentManager<NotificationManager>()
-                            .AddNotification(pageContext.ApplicationContext, $""Value: {x.Value}""))
+                            .AddNotification(pageContext.ApplicationContext, x.Context.Request, $""Value: {x.Value}"", durability: 5000))
                     )
                         .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 

@@ -1,4 +1,5 @@
-﻿using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
+﻿using System.Net;
+using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.Tutorial.WebUI.WWW.Api._1_;
@@ -8,6 +9,7 @@ using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
+using WebExpress.WebUI.WebNotification;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
 {
@@ -40,10 +42,14 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                     ImageUploadUri = _ => images,
                     ImageLibraryUri = _ => images,
                     LinkLibraryUri = _ => links
-                }.Initialize(x => x.Value.Text = "Hello <b>WebExpress!</b>"))
+                }
+                    .Initialize(x => x.Value.Text = "Hello <b>WebExpress!</b>")
+                    .Process(x => componentHub
+                        .GetComponentManager<NotificationManager>()
+                        .AddNotification(pageContext.ApplicationContext, x.Context.Request, $"Value: {WebUtility.HtmlEncode(x.Value.Text)}", durability: 5000)))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
-            Stage.Code = @"  
+            Stage.Code = @"
                new ControlForm()
                 .Add(new ControlFormItemInputText()
                 {
@@ -51,7 +57,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                     ImageUploadUri = _ => images,
                     ImageLibraryUri = _ => images,
                     LinkLibraryUri = _ => links
-                })
+                }
+                    .Process(x => componentHub
+                        .GetComponentManager<NotificationManager>()
+                        .AddNotification(pageContext.ApplicationContext, x.Context.Request, $""Value: {WebUtility.HtmlEncode(x.Value.Text)}"", durability: 5000)))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
             Stage.AddProperty

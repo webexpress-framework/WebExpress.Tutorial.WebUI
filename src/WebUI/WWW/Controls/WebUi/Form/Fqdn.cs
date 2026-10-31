@@ -1,11 +1,14 @@
+using System.Net;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
+using WebExpress.WebUI.WebNotification;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
 {
@@ -23,17 +26,24 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
         /// Initializes a new instance of the class.
         /// </summary>
         /// <param name="pageContext">The context of the page on which the host name control is used.</param>
-        public Fqdn(IPageContext pageContext)
+        /// <param name="componentHub">The component hub for managing components.</param>
+        public Fqdn(IPageContext pageContext, IComponentHub componentHub)
         {
             Stage.Description = @"An `Fqdn` control takes a fully qualified domain name, such as `server01.example.com`. An internationalized name like `bücher.de` is accepted; the page receives the name in lower case without a trailing root dot. A single label such as `localhost` is no fully qualified name and is refused.";
 
             Stage.Control = new ControlForm()
-                .Add(new ControlFormItemInputFqdn { Label = _ => "Host", Icon = _ => new IconGlobe() })
+                .Add(new ControlFormItemInputFqdn { Label = _ => "Host", Icon = _ => new IconGlobe() }
+                    .Process(x => componentHub
+                        .GetComponentManager<NotificationManager>()
+                        .AddNotification(pageContext.ApplicationContext, x.Context.Request, $"Value: {WebUtility.HtmlEncode(x.Value.Text)}", durability: 5000)))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
             new ControlForm()
-                .Add(new ControlFormItemInputFqdn { Label = _ => ""Host"", Icon = _ => new IconGlobe() })
+                .Add(new ControlFormItemInputFqdn { Label = _ => ""Host"", Icon = _ => new IconGlobe() }
+                    .Process(x => componentHub
+                        .GetComponentManager<NotificationManager>()
+                        .AddNotification(pageContext.ApplicationContext, x.Context.Request, $""Value: {WebUtility.HtmlEncode(x.Value.Text)}"", durability: 5000)))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
             Stage.AddProperty

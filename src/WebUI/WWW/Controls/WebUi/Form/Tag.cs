@@ -1,4 +1,5 @@
-﻿using WebExpress.Tutorial.WebUI.Model;
+﻿using System.Net;
+using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
@@ -8,6 +9,7 @@ using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
+using WebExpress.WebUI.WebNotification;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
 {
@@ -34,13 +36,19 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
 
             Stage.Control = new ControlForm()
                 .Add(new ControlFormItemInputTag()
-                    .Initialize(x => x.Value.Add("Tag-1;Tag-2;Tag-3")))
+                    .Initialize(x => x.Value.Add("Tag-1;Tag-2;Tag-3"))
+                    .Process(x => componentHub
+                        .GetComponentManager<NotificationManager>()
+                        .AddNotification(pageContext.ApplicationContext, x.Context.Request, $"Value: {WebUtility.HtmlEncode(string.Join("; ", x.Value.Items))}", durability: 5000)))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
             new ControlForm()
                 .Add(new ControlFormItemInputTag()
-                    .Initialize(x => x.Value.Add(""Tag-1;Tag-2;Tag-3""))))
+                    .Initialize(x => x.Value.Add(""Tag-1;Tag-2;Tag-3""))
+                    .Process(x => componentHub
+                        .GetComponentManager<NotificationManager>()
+                        .AddNotification(pageContext.ApplicationContext, x.Context.Request, $""Value: {WebUtility.HtmlEncode(string.Join(""; "", x.Value.Items))}"", durability: 5000)))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
             Stage.AddProperty

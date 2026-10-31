@@ -1,12 +1,15 @@
+using System.Net;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
+using WebExpress.WebUI.WebNotification;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
 {
@@ -24,19 +27,26 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
         /// Initializes a new instance of the class.
         /// </summary>
         /// <param name="pageContext">The context of the page on which the phone control is used.</param>
-        public Phone(IPageContext pageContext)
+        /// <param name="componentHub">The component hub for managing components.</param>
+        public Phone(IPageContext pageContext, IComponentHub componentHub)
         {
             Stage.AddEvent(Event.CHANGE_VALUE_EVENT, Event.DROPDOWN_SHOW_EVENT, Event.DROPDOWN_HIDDEN_EVENT);
 
             Stage.Description = @"A `Phone` control takes a telephone number: a button with the flag and calling code of the country, beside a field for the national number. The country menu can be searched by name or calling code, and a number typed or pasted with `+` or `00` selects its country itself. The page receives the number in the international E.164 form, checked against the numbering plan of its country.";
 
             Stage.Control = new ControlForm()
-                .Add(new ControlFormItemInputPhone { Label = _ => "Phone" })
+                .Add(new ControlFormItemInputPhone { Label = _ => "Phone" }
+                    .Process(x => componentHub
+                        .GetComponentManager<NotificationManager>()
+                        .AddNotification(pageContext.ApplicationContext, x.Context.Request, $"Value: {WebUtility.HtmlEncode(x.Value.Text)}", durability: 5000)))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
             new ControlForm()
-                .Add(new ControlFormItemInputPhone { Label = _ => ""Phone"" })
+                .Add(new ControlFormItemInputPhone { Label = _ => ""Phone"" }
+                    .Process(x => componentHub
+                        .GetComponentManager<NotificationManager>()
+                        .AddNotification(pageContext.ApplicationContext, x.Context.Request, $""Value: {WebUtility.HtmlEncode(x.Value.Text)}"", durability: 5000)))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
             Stage.AddProperty

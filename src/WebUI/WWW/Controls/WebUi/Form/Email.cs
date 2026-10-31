@@ -1,11 +1,14 @@
+using System.Net;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
+using WebExpress.WebUI.WebNotification;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
 {
@@ -23,17 +26,24 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
         /// Initializes a new instance of the class.
         /// </summary>
         /// <param name="pageContext">The context of the page on which the e-mail control is used.</param>
-        public Email(IPageContext pageContext)
+        /// <param name="componentHub">The component hub for managing components.</param>
+        public Email(IPageContext pageContext, IComponentHub componentHub)
         {
             Stage.Description = @"An `Email` control takes an e-mail address. The browser offers the addresses it knows and checks the notation while the user types; the server applies the same rule and passes the address to the page with its domain in lower case.";
 
             Stage.Control = new ControlForm()
-                .Add(new ControlFormItemInputEmail { Label = _ => "E-mail", Icon = _ => new IconEnvelope() })
+                .Add(new ControlFormItemInputEmail { Label = _ => "E-mail", Icon = _ => new IconEnvelope() }
+                    .Process(x => componentHub
+                        .GetComponentManager<NotificationManager>()
+                        .AddNotification(pageContext.ApplicationContext, x.Context.Request, $"Value: {WebUtility.HtmlEncode(x.Value.Text)}", durability: 5000)))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
             new ControlForm()
-                .Add(new ControlFormItemInputEmail { Label = _ => ""E-mail"", Icon = _ => new IconEnvelope() })
+                .Add(new ControlFormItemInputEmail { Label = _ => ""E-mail"", Icon = _ => new IconEnvelope() }
+                    .Process(x => componentHub
+                        .GetComponentManager<NotificationManager>()
+                        .AddNotification(pageContext.ApplicationContext, x.Context.Request, $""Value: {WebUtility.HtmlEncode(x.Value.Text)}"", durability: 5000)))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
             Stage.AddProperty

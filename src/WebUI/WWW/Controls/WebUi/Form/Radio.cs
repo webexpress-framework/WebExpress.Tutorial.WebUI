@@ -1,4 +1,5 @@
-﻿using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
+﻿using System.Net;
+using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
@@ -7,6 +8,7 @@ using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
+using WebExpress.WebUI.WebNotification;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
 {
@@ -30,12 +32,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             Stage.Description = @"A `Radio` control is a graphical user interface element that allows users to select one of several options. Unlike a checkbox, only one option within a group can be selected at a time.";
 
             Stage.Control = new ControlForm()
-                .Add(new ControlFormItemInputRadio { Label = _ => "Label", Description = _ => "Radio description" })
+                .Add(new ControlFormItemInputRadio { Label = _ => "Label", Description = _ => "Radio description", Option = _ => "option1" }
+                    .Process(x => componentHub
+                        .GetComponentManager<NotificationManager>()
+                        .AddNotification(pageContext.ApplicationContext, x.Context.Request, $"Value: {WebUtility.HtmlEncode(x.Value.Text)}", durability: 5000)))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
                     new ControlForm()
-                        .Add(new ControlFormItemInputRadio { Label = _ => ""Label"", Description = _ => ""RadioButton description"" })
+                        .Add(new ControlFormItemInputRadio { Label = _ => ""Label"", Description = _ => ""RadioButton description"", Option = _ => ""option1"" }
+                            .Process(x => componentHub
+                                .GetComponentManager<NotificationManager>()
+                                .AddNotification(pageContext.ApplicationContext, x.Context.Request, $""Value: {WebUtility.HtmlEncode(x.Value.Text)}"", durability: 5000)))
                         .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
             Stage.AddProperty
@@ -85,6 +93,51 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                            Icon = _ => new IconPaperPlane(),
                            Description = _ => "Option 1 – Select this option",
                            Help = _ => "For more information about the selection, see the help.",
+                       })
+                       .AddPrimaryButton(new ControlFormItemButtonSubmit())
+               );
+
+            Stage.AddProperty
+               (
+                   "Option",
+                   "The `Option` property sets the value a radio button submits when it is selected. Radio buttons that share the same `Name` form a group in which only one option can be selected; the form receives the `Option` of the selected button under that name. Without an `Option`, the browser submits the placeholder value \"on\", which does not tell the options apart.",
+                   @"
+                    new ControlForm()
+                        .Add(new ControlFormItemInputRadio
+                        {
+                            Name = _ => ""size"",
+                            Option = _ => ""small"",
+                            Description = _ => ""Small""
+                        }, new ControlFormItemInputRadio
+                        {
+                            Name = _ => ""size"",
+                            Option = _ => ""medium"",
+                            Description = _ => ""Medium"",
+                            Checked = _ => true
+                        }, new ControlFormItemInputRadio
+                        {
+                            Name = _ => ""size"",
+                            Option = _ => ""large"",
+                            Description = _ => ""Large""
+                        })
+                        .AddPrimaryButton(new ControlFormItemButtonSubmit());",
+                   new ControlForm()
+                       .Add(new ControlFormItemInputRadio
+                       {
+                           Name = _ => "size",
+                           Option = _ => "small",
+                           Description = _ => "Small"
+                       }, new ControlFormItemInputRadio
+                       {
+                           Name = _ => "size",
+                           Option = _ => "medium",
+                           Description = _ => "Medium",
+                           Checked = _ => true
+                       }, new ControlFormItemInputRadio
+                       {
+                           Name = _ => "size",
+                           Option = _ => "large",
+                           Description = _ => "Large"
                        })
                        .AddPrimaryButton(new ControlFormItemButtonSubmit())
                );

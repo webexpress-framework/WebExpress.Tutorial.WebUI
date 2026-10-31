@@ -5,10 +5,12 @@ using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
+using WebExpress.WebUI.WebNotification;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
 {
@@ -62,8 +64,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
         /// Initializes a new instance of the class.    
         /// </summary>    
         /// <param name="pageContext">The context of the page where the modal control is used.</param>  
-        /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>  
-        public ModalForm(IPageContext pageContext, ISitemapManager sitemapManager)
+        /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>
+        /// <param name="componentHub">The component hub for managing components.</param>
+        public ModalForm(IPageContext pageContext, ISitemapManager sitemapManager, IComponentHub componentHub)
         {
             Stage.AddEvent(Event.MODAL_SHOW_EVENT, Event.MODAL_HIDE_EVENT);
 
@@ -89,6 +92,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 }
                 .Add(_exampleFormItems)
                 .AddPreferencesButton(new ControlFormItemButtonSubmit())
+                .Process(x => componentHub
+                    .GetComponentManager<NotificationManager>()
+                    .AddNotification(pageContext.ApplicationContext, x.Context.Request, "The form has been saved.", durability: 5000))
             ];
 
             Stage.DarkControls =
@@ -111,6 +117,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                 }
                 .Add(_exampleFormItems)
                 .AddPreferencesButton(new ControlFormItemButtonSubmit())
+                .Process(x => componentHub
+                    .GetComponentManager<NotificationManager>()
+                    .AddNotification(pageContext.ApplicationContext, x.Context.Request, "The form has been saved.", durability: 5000))
             ];
 
             Stage.Code = @"
@@ -131,7 +140,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Modal
                     }
                 }
                 .Add(_exampleFormItems)
-                .AddPreferencesButton(new ControlFormItemButtonSubmit())";
+                .AddPreferencesButton(new ControlFormItemButtonSubmit())
+                .Process(x => componentHub
+                    .GetComponentManager<NotificationManager>()
+                    .AddNotification(pageContext.ApplicationContext, x.Context.Request, ""The form has been saved."", durability: 5000))";
 
             Stage.AddProperty
             (

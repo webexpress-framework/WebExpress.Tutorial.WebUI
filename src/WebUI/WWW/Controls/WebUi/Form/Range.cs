@@ -42,7 +42,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                     .Initialize(args => args.Value.Number = 3)
                     .Process(x => componentHub
                         .GetComponentManager<NotificationManager>()
-                        .AddNotification(pageContext.ApplicationContext, $"Value: {x.Value.Number}"))
+                        .AddNotification(pageContext.ApplicationContext, x.Context.Request, $"Value: {x.Value.Number}", durability: 5000))
                 )
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 

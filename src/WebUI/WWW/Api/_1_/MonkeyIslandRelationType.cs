@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRelation;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
@@ -51,7 +52,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// <returns>The stored relation.</returns>
         protected override IRelationType StoreType(RelationType type, IRequest request)
         {
-            return RelationRegistry.RegisterType(type);
+            var stored = RelationRegistry.RegisterType(type);
+
+            SaveNotification.Notify(request, stored?.Label);
+
+            return stored;
         }
 
         /// <summary>

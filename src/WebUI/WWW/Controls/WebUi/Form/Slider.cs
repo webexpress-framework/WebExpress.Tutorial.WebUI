@@ -52,7 +52,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                     })
                     .Process(x => componentHub
                         .GetComponentManager<NotificationManager>()
-                        .AddNotification(pageContext.ApplicationContext, $"Range: {x.Value.MinValue}…{x.Value.MaxValue} °C")))
+                        .AddNotification(pageContext.ApplicationContext, x.Context.Request, $"Range: {x.Value.MinValue}…{x.Value.MaxValue} °C", durability: 5000)))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
@@ -74,7 +74,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 })
                 .Process(x => componentHub
                     .GetComponentManager<NotificationManager>()
-                    .AddNotification(pageContext.ApplicationContext, $""Range: {x.Value.MinValue}…{x.Value.MaxValue} °C""))";
+                    .AddNotification(pageContext.ApplicationContext, x.Context.Request, $""Range: {x.Value.MinValue}…{x.Value.MaxValue} °C"", durability: 5000))";
 
             Stage.AddProperty
             (

@@ -165,6 +165,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 // is never a moment in which neither the form nor the draft carries it
                 FormEditorDraft.Clear(formId);
 
+                SaveNotification.Notify(request, item.FormName);
+
                 return item;
             }
         }

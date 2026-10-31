@@ -1,12 +1,15 @@
+using System.Net;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
+using WebExpress.WebUI.WebNotification;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
 {
@@ -24,19 +27,26 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
         /// Initializes a new instance of the class.
         /// </summary>
         /// <param name="pageContext">The context of the page on which the country control is used.</param>
-        public Country(IPageContext pageContext)
+        /// <param name="componentHub">The component hub for managing components.</param>
+        public Country(IPageContext pageContext, IComponentHub componentHub)
         {
             Stage.AddEvent(Event.CHANGE_VALUE_EVENT, Event.CHANGE_FILTER_EVENT, Event.DROPDOWN_SHOW_EVENT, Event.DROPDOWN_HIDDEN_EVENT);
 
             Stage.Description = @"A `Country` control lets users choose a country from a list that shows each country with its flag. The names are shown and sorted in the language of the visitor, and the list can be searched by typing. The value is the ISO 3166-1 alpha-2 code, such as `DE`, so it stays the same whatever language the form was filled in.";
 
             Stage.Control = new ControlForm()
-                .Add(new ControlFormItemInputCountry { Label = _ => "Country", Country = _ => "DE" })
+                .Add(new ControlFormItemInputCountry { Label = _ => "Country", Country = _ => "DE" }
+                    .Process(x => componentHub
+                        .GetComponentManager<NotificationManager>()
+                        .AddNotification(pageContext.ApplicationContext, x.Context.Request, $"Value: {WebUtility.HtmlEncode(x.Value.Text)}", durability: 5000)))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
             new ControlForm()
-                .Add(new ControlFormItemInputCountry { Label = _ => ""Country"", Country = _ => ""DE"" })
+                .Add(new ControlFormItemInputCountry { Label = _ => ""Country"", Country = _ => ""DE"" }
+                    .Process(x => componentHub
+                        .GetComponentManager<NotificationManager>()
+                        .AddNotification(pageContext.ApplicationContext, x.Context.Request, $""Value: {WebUtility.HtmlEncode(x.Value.Text)}"", durability: 5000)))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
             Stage.AddProperty

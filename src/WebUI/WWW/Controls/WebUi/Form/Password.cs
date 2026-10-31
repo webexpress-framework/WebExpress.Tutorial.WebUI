@@ -7,6 +7,7 @@ using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
+using WebExpress.WebUI.WebNotification;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
 {
@@ -35,7 +36,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                     Label = _ => "Password",
                     Icon = _ => new IconLock(),
                     Help = _ => "Enter your password."
-                })
+                }
+                    .Process(x => componentHub
+                        .GetComponentManager<NotificationManager>()
+                        .AddNotification(pageContext.ApplicationContext, x.Context.Request, $"Password received ({x.Value.Text?.Length ?? 0} characters).", durability: 5000)))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
@@ -45,7 +49,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                         Label = _ => ""Password"",
                         Icon = _ => new IconLock(),
                         Help = _ => ""Enter your password.""
-                    })
+                    }
+                        // never echo the password itself
+                        .Process(x => componentHub
+                            .GetComponentManager<NotificationManager>()
+                            .AddNotification(pageContext.ApplicationContext, x.Context.Request, $""Password received ({x.Value.Text?.Length ?? 0} characters)."", durability: 5000)))
                     .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
             Stage.AddProperty

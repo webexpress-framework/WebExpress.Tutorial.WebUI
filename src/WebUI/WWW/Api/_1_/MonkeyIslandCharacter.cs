@@ -83,7 +83,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// </param>
         protected override IRestApiCrudResultUpdate Update(Character existingItem, RestApiCrudFormData fieldMap, IRequest request)
         {
-            return base.Update(existingItem, fieldMap, request);
+            var result = base.Update(existingItem, fieldMap, request);
+
+            SaveNotification.Notify(request, existingItem.Name);
+
+            return result;
         }
 
         /// <summary>

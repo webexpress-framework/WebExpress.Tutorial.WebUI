@@ -1,14 +1,17 @@
 ﻿using System.Collections.Generic;
+using System.Net;
 using WebExpress.Tutorial.WebUI.WebControl;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
+using WebExpress.WebUI.WebNotification;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
 {
@@ -59,8 +62,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
         /// Initializes a new instance of the class.    
         /// </summary>    
         /// <param name="pageContext">The context of the page where the form control is used.</param>  
-        /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>  
-        public Index(IPageContext pageContext, ISitemapManager sitemapManager)
+        /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>
+        /// <param name="componentHub">The component hub for managing components.</param>
+        public Index(IPageContext pageContext, ISitemapManager sitemapManager, IComponentHub componentHub)
         {
             Stage.Description = @"A `Form` control is used to structure, validate, and submit user input to a server. It organizes various fields such as text boxes, dropdowns, and buttons, ensuring a seamless and user-friendly experience. Additionally, it incorporates validation mechanisms to maintain data accuracy and prevent errors before sending the information for processing.";
 
@@ -71,7 +75,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                     Label = _ => "Greetings",
                     Icon = _ => new IconFont(),
                     Help = _ => "This is the associated help text."
-                }.Initialize(args => args.Value.Text = "Hello World!"))
+                }
+                    .Initialize(args => args.Value.Text = "Hello World!")
+                    .Process(x => componentHub
+                        .GetComponentManager<NotificationManager>()
+                        .AddNotification(pageContext.ApplicationContext, x.Context.Request, $"Value: {WebUtility.HtmlEncode(x.Value.Text)}", durability: 5000)))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
@@ -81,7 +89,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                 Value = _ => ""Hello World!"",
                 Icon = _ => new IconFont(),
                 Help = _ => "" This is the associated help text.""
-            })
+            }
+                .Process(x => componentHub
+                    .GetComponentManager<NotificationManager>()
+                    .AddNotification(pageContext.ApplicationContext, x.Context.Request, $""Value: {WebUtility.HtmlEncode(x.Value.Text)}"", durability: 5000)))
             {
             }.AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
