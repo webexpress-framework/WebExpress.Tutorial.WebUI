@@ -124,9 +124,9 @@ namespace WebExpress.Tutorial.WebUI.WebPage
             });
             visualTree.Content.MainPanel.AddPrimary(new ControlCode()
             {
-                Code = _ => string.Join("<br>", Stage.Controls.Select(x => x.Render(new RenderControlContext(renderContext), visualTree)?.ToString().Trim())),
+                Code = _ => string.Join("<br>", (Stage.ListingControls ?? Stage.Controls).Select(x => x.Render(new RenderControlContext(renderContext), visualTree)?.ToString().Trim())),
                 LineNumbers = _ => true,
-                Styles = ["max_ => -width: 91em;"],
+                Styles = ["max-width: 91em;"],
                 Language = _ => TypeLanguage.Xml,
                 Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two)
             });

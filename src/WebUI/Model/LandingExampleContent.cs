@@ -214,10 +214,15 @@ namespace WebExpress.Tutorial.WebUI.Model
         /// <returns>The configured layout panel.</returns>
         private static ControlPanel Panel(string classes, string id, params IControl[] controls)
         {
+            var names = classes.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
             return new ControlPanel(id, controls)
             {
-                Role = _ => classes.Contains("wx-landing-nav") ? "navigation" : null,
-                Classes = classes.Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                // only the site menu is a navigation landmark; the link columns of the footer
+                // already sit in its landmark, and unnamed navigations of the same role cannot
+                // be told apart by a reader that lists the landmarks
+                Role = _ => Array.IndexOf(names, "wx-landing-site-nav") >= 0 ? "navigation" : null,
+                Classes = names
             };
         }
 

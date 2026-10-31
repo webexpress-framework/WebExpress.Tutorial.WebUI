@@ -136,11 +136,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "HeaderIcon",
                 "The `HeaderIcon` property places an `IIcon` next to the header text. Any `IIcon` is accepted, so both image-based icons (such as `ImageIcon`) and the drawn icons of the active icon set work the same way.",
-                "HeaderIcon = _ => new ImageIcon(applicationContext.Route.Concat(\"/assets/img/ufo.png\").ToUri())",
+                "HeaderIcon = _ => new ImageIcon(applicationContext.Route.Concat(\"/assets/img/favicon.png\").ToUri())",
                 new ControlCard()
                 {
                     Header = _ => "Header",
-                    HeaderIcon = _ => new ImageIcon(applicationContext.Route.Concat("/assets/img/ufo.png").ToUri()),
+                    HeaderIcon = _ => new ImageIcon(applicationContext.Route.Concat("/assets/img/favicon.png").ToUri()),
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 }
@@ -188,11 +188,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             (
                 "FooterIcon",
                 "The `FooterIcon` property places an `IIcon` next to the footer text. Like `HeaderIcon`, both image-based icons (`ImageIcon`) and CSS-based glyphs are supported.",
-                "FooterIcon = _ => new ImageIcon(applicationContext.Route.Concat(\"/assets/img/ufo.png\").ToUri())",
+                "FooterIcon = _ => new ImageIcon(applicationContext.Route.Concat(\"/assets/img/favicon.png\").ToUri())",
                 new ControlCard()
                 {
                     Footer = _ => "Footer",
-                    FooterIcon = _ => new ImageIcon(applicationContext.Route.Concat("/assets/img/ufo.png").ToUri()),
+                    FooterIcon = _ => new ImageIcon(applicationContext.Route.Concat("/assets/img/favicon.png").ToUri()),
                     TextColor = _ => new PropertyColorText(TypeColorText.White),
                     BackgroundColor = _ => new PropertyColorBackground(TypeColorBackground.Success)
                 }

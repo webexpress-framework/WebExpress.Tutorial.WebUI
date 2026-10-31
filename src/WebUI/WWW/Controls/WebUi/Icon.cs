@@ -89,6 +89,18 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             // one container holds every tile, so the grid does not depend on how the stage
             // happens to wrap its direct children
             Stage.Controls = [sizeControl, new ControlPanel(null, tiles) { Classes = ["wx-gallery"] }];
+            // the dark card only has to show how the drawings read on a dark surface; a second
+            // copy of the whole gallery doubled a page that already takes seconds to lay out
+            Stage.DarkControls = [new ControlPanel(null, [.. tiles.Take(48)]) { Classes = ["wx-gallery"] }];
+            Stage.ListingControls =
+            [
+                new ControlIcon()
+                {
+                    Icon = _ => new IconClone(),
+                    TextColor = _ => new PropertyColorText(TypeColorText.Info),
+                    Title = _ => "IconClone"
+                }
+            ];
 
             Stage.Code = @"
             new ControlIcon() 

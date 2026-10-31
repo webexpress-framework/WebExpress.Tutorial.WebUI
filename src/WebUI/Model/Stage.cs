@@ -57,8 +57,16 @@ namespace WebExpress.Tutorial.WebUI.Model
             set { _mainAct.DarkControls = value; }
         }
 
-        /// <summary>  
-        /// Gets or sets the example code associated with the main act.  
+        /// <summary>
+        /// Gets or sets the controls whose html the page lists below the code. Without them the
+        /// listing shows the main act itself; a page whose main act is a large gallery names a
+        /// single representative instead, because the listing is highlighted in the browser and
+        /// a gallery of that size blocks the page for seconds.
+        /// </summary>
+        public IEnumerable<IControl> ListingControls { get; set; }
+
+        /// <summary>
+        /// Gets or sets the example code associated with the main act.
         /// This property allows for the retrieval or assignment of the code snippet  
         /// that represents the Main Act's functionality or behavior.  
         /// </summary>  

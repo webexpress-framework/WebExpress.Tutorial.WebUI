@@ -182,7 +182,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                     Margin = _ => new PropertySpacingMargin(PropertySpacing.Space.None, PropertySpacing.Space.Two, PropertySpacing.Space.None, PropertySpacing.Space.Two),
                     Uri = _ => sitemapManager.GetUri<ContentPdf>(pageContext).Add(new UriQuery("format", "showcase"))
                 },
-                new ControlContent() { Content = _ => ContentPdf.CreateShowcase(pageContext.ApplicationContext.Route.Concat("assets/img/image1.png").ToString()) }
+                new ControlContent() { Content = _ => ContentPdf.CreateShowcase(pageContext.ApplicationContext.Route.Concat("assets/img/image1.png").ToString(), false) }
             );
 
             Stage.AddProperty

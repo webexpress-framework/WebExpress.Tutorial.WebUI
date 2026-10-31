@@ -129,8 +129,13 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         /// understands.
         /// </summary>
         /// <param name="picture">The address of the picture, as the page links it.</param>
+        /// <param name="foreignPicture">
+        /// Whether to include a picture from a foreign host. It shows that the PDF renderer
+        /// never fetches remote resources, but a browser would show it as a broken image, so
+        /// the page preview leaves it out.
+        /// </param>
         /// <returns>The raw editor value.</returns>
-        internal static string CreateShowcase(string picture)
+        internal static string CreateShowcase(string picture, bool foreignPicture = true)
         {
             var rows = string.Concat(Enumerable.Range(1, 40).Select(i =>
                 $"<tr><td>{i}</td><td>Insult number {i}</td><td style=\"text-align: right\">{i * 7 % 100} %</td></tr>"));
@@ -159,7 +164,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                 + "<h3>Picture</h3>"
                 + $"<img src=\"{picture}\" alt=\"Monkey Island\" style=\"display: block; width: 320px; margin-left: auto; margin-right: auto\">"
                 + "<p style=\"text-align: center\"><i>A picture resolved from the assets of the tutorial.</i></p>"
-                + "<img src=\"https://example.com/not-fetched.png\" alt=\"A picture the server refuses to fetch\" style=\"display: block\">"
+                + (foreignPicture ? "<img src=\"https://example.com/not-fetched.png\" alt=\"A picture the server refuses to fetch\" style=\"display: block\">" : "")
                 + "<h2>Table across pages</h2>"
                 + "<table class=\"table table-striped table-bordered\"><colgroup><col style=\"width: 60px\"><col><col style=\"width: 100px\"></colgroup>"
                 + "<thead><tr><th>#</th><th>Insult</th><th>Effect</th></tr></thead><tbody>" + rows + "</tbody></table>"
