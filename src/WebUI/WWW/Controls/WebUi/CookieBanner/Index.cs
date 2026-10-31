@@ -31,6 +31,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.CookieBanner
         /// <param name="pageContext">The application context of the example page.</param>
         public Index(IComponentHub componentHub, IPageContext pageContext)
         {
+            // the banner is pinned to the viewport and keyed on one storage entry, so a dark copy
+            // would lie on top of the light one and answer the same decision a second time
             Stage.DarkControls = null;
             Stage.Description = "The consent mode exposes application-defined purposes configured entirely in C#. Accept all purposes, retain only necessary purposes or save an individual selection. The standard event log below displays the resulting decision and its category permissions. No external provider is contacted. The Notice child page demonstrates acknowledgement without permissions.";
             Stage.AddEvent(Event.COOKIE_CHANGE_EVENT);

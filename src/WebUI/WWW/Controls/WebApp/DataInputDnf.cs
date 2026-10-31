@@ -1,3 +1,4 @@
+using System.Net;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
@@ -7,8 +8,11 @@ using WebExpress.WebApp.WebApiControl;
 using WebExpress.WebApp.WebControl;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebComponent;
+using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
+using WebExpress.WebUI.WebNotification;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
@@ -26,7 +30,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
-        public DataInputDnf()
+        /// <param name="pageContext">The context of the page where the dnf control is used.</param>
+        /// <param name="componentHub">The component hub for managing components.</param>
+        public DataInputDnf(IPageContext pageContext, IComponentHub componentHub)
         {
             Stage.AddEvent(Event.CHANGE_VALUE_EVENT, Event.ADD_EVENT, Event.REMOVE_EVENT, Event.DATA_ARRIVED_EVENT, Event.DATA_REQUESTED_EVENT);
 
@@ -36,39 +42,53 @@ The structure is the one of the static `Dnf` control; what the REST variant repl
 
 A conjunction added later starts from the terms already received rather than empty, so its list is on screen before its own request returns.";
 
-            Stage.Control = new ControlForm()
+            Stage.Control = new ControlForm("myform")
                 .Add
                 (
                     new ControlDataFormItemInputDnf("lightDnf")
                     {
-                        Label = _ => "Show characters seen at"
+                        Label = _ => "Show characters seen at",
+                        Name = _ => "myDnfCtrl"
                     }
                         .DataService<MonkeyIslandLocationsSelection>()
-                );
+                        .Process(x => componentHub
+                            .GetComponentManager<NotificationManager>()
+                            .AddNotification(pageContext.ApplicationContext, x.Context.Request, $"Value: {WebUtility.HtmlEncode(x.Value.ToString())}", durability: 5000))
+                )
+                .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
+            // shares the form and the field name with the light copy, which already announces
+            // the submission - only the ids differ, so the two data islands stay apart
             Stage.DarkControls =
             [
-                new ControlForm(null)
+                new ControlForm("myform")
                 .Add
                 (
                     new ControlDataFormItemInputDnf("darkDnf")
                     {
-                        Label = _ => "Show characters seen at"
+                        Label = _ => "Show characters seen at",
+                        Name = _ => "myDnfCtrl"
                     }
                         .DataService<MonkeyIslandLocationsSelection>()
                 )
+                .AddPrimaryButton(new ControlFormItemButtonSubmit())
             ];
 
             Stage.Code = @"
-            new ControlForm()
+            new ControlForm(""myform"")
                 .Add
                 (
                     new ControlDataFormItemInputDnf(""lightDnf"")
                     {
-                        Label = _ => ""Show characters seen at""
+                        Label = _ => ""Show characters seen at"",
+                        Name = _ => ""myDnfCtrl""
                     }
                         .DataService<MonkeyIslandLocationsSelection>()
-                );";
+                        .Process(x => componentHub
+                            .GetComponentManager<NotificationManager>()
+                            .AddNotification(pageContext.ApplicationContext, x.Context.Request, $""Value: {WebUtility.HtmlEncode(x.Value.ToString())}"", durability: 5000))
+                )
+                .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
             Stage.AddProperty
             (

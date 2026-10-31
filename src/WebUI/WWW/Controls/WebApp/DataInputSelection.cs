@@ -1,3 +1,4 @@
+using System.Net;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
@@ -7,10 +8,11 @@ using WebExpress.WebApp.WebApiControl;
 using WebExpress.WebApp.WebControl;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
-using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
+using WebExpress.WebUI.WebNotification;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
@@ -28,8 +30,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         /// Initializes a new instance of the class.
         /// </summary>
         /// <param name="pageContext">The context of the page where the table control is used.</param>
-        /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>
-        public DataInputSelection(IPageContext pageContext, ISitemapManager sitemapManager)
+        /// <param name="componentHub">The component hub for managing components.</param>
+        public DataInputSelection(IPageContext pageContext, IComponentHub componentHub)
         {
             // register relevant ui events
             Stage.AddEvent(Event.DATA_ARRIVED_EVENT, Event.DATA_REQUESTED_EVENT, Event.CHANGE_VALUE_EVENT, Event.CHANGE_FILTER_EVENT, Event.DROPDOWN_SHOW_EVENT, Event.DROPDOWN_HIDDEN_EVENT);
@@ -38,31 +40,50 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Description = @"A `Selection` control with a REST backend dynamically loads its options from a configurable API endpoint and supports search and paging parameters. When the dropdown opens, it fetches data based on the current search term; a loading indicator is displayed while the request is in progress. After a successful fetch, the options are available for multi-select.";
 
             // default (light) sample
-            Stage.Control = new ControlForm()
+            Stage.Control = new ControlForm("myform")
                 .Add
                 (
                     new ControlDataFormItemInputSelection("lightSelection")
+                    {
+                        Name = _ => "mySelectionCtrl"
+                    }
                         .DataService<MonkeyIslandLocationsSelection>()
-                );
+                        .Process(x => componentHub
+                            .GetComponentManager<NotificationManager>()
+                            .AddNotification(pageContext.ApplicationContext, x.Context.Request, $"Value: {WebUtility.HtmlEncode(x.Value.Text)}", durability: 5000))
+                )
+                .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
-            // dark sample
+            // shares the form and the field name with the light copy, which already announces
+            // the submission - only the ids differ, so the two data islands stay apart
             Stage.DarkControls =
             [
-                new ControlForm(null)
+                new ControlForm("myform")
                 .Add
                 (
                     new ControlDataFormItemInputSelection("darkSelection")
+                    {
+                        Name = _ => "mySelectionCtrl"
+                    }
                         .DataService<MonkeyIslandLocationsSelection>()
                 )
+                .AddPrimaryButton(new ControlFormItemButtonSubmit())
             ];
 
             Stage.Code = @"
-            new ControlForm()
+            new ControlForm(""myform"")
                 .Add
                 (
                     new ControlDataFormItemInputSelection(""lightSelection"")
+                    {
+                        Name = _ => ""mySelectionCtrl""
+                    }
                         .DataService<MonkeyIslandLocationsSelection>()
-                );";
+                        .Process(x => componentHub
+                            .GetComponentManager<NotificationManager>()
+                            .AddNotification(pageContext.ApplicationContext, x.Context.Request, $""Value: {WebUtility.HtmlEncode(x.Value.Text)}"", durability: 5000))
+                )
+                .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
             Stage.AddProperty
             (

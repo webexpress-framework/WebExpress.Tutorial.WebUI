@@ -1,14 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.Net;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
-using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
+using WebExpress.WebUI.WebNotification;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
 {
@@ -26,22 +28,31 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
         /// Initializes a new instance of the class.    
         /// </summary>    
         /// <param name="pageContext">The context of the page where the selection control is used.</param>  
-        /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>  
-        public Cascading(IPageContext pageContext, ISitemapManager sitemapManager)
+        /// <param name="componentHub">The component hub for managing components.</param>
+        public Cascading(IPageContext pageContext, IComponentHub componentHub)
         {
             Stage.AddEvent(Event.CHANGE_VALUE_EVENT, Event.CHANGE_FILTER_EVENT, Event.DROPDOWN_SHOW_EVENT, Event.DROPDOWN_HIDDEN_EVENT);
 
             Stage.Description = @"A `Cascading` control is a form element that allows users to select multiple options from a predefined list in a cascading or hierarchical manner. It simplifies interactions by enabling smooth transitions between interconnected selection options.";
 
-            Stage.Control = new ControlForm(null, new ControlFormItemInputCascading(null, [.. GetOptions()])
+            Stage.Control = new ControlForm("myform", new ControlFormItemInputCascading(null, [.. GetOptions()])
             {
-
-            });
+                Name = _ => "myCascadingCtrl"
+            }
+                .Process(x => componentHub
+                    .GetComponentManager<NotificationManager>()
+                    .AddNotification(pageContext.ApplicationContext, x.Context.Request, $"Value: {WebUtility.HtmlEncode(string.Join("; ", x.Value.Items))}", durability: 5000)))
+                .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
-            new ControlForm(new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem(""1"") { Label = _ => ""Option 1"" })  
-            {  
-            });";
+            new ControlForm(""myform"", new ControlFormItemInputCascading(null, new ControlFormItemInputCascadingItem(""1"") { Text = _ => ""Option 1"" })
+            {
+                Name = _ => ""myCascadingCtrl""
+            }
+                .Process(x => componentHub
+                    .GetComponentManager<NotificationManager>()
+                    .AddNotification(pageContext.ApplicationContext, x.Context.Request, $""Value: {WebUtility.HtmlEncode(string.Join(""; "", x.Value.Items))}"", durability: 5000)))
+                .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
 
             Stage.AddProperty

@@ -27,6 +27,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.CookieBanner
         /// <param name="pageContext">The application context of the example page.</param>
         public Notice(IComponentHub componentHub, IPageContext pageContext)
         {
+            // the banner is pinned to the viewport and keyed on one storage entry, so a dark copy
+            // would lie on top of the light one and answer the same acknowledgement a second time
             Stage.DarkControls = null;
             Stage.Description = "The notice mode records that information has been acknowledged. It never grants optional permissions. The permanent privacy information button reopens the notice.";
             Stage.Controls =

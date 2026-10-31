@@ -61,8 +61,6 @@ The table also exposes a fully implemented column management: dragging a column 
                 new ControlModalExample("modal")
             ];
 
-            Stage.DarkControls = null;
-
             Stage.Code = @"
             new ControlDataTable(""myTable"")
             {

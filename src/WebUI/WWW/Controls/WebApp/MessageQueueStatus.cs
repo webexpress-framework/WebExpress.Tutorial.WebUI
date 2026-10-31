@@ -36,8 +36,6 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
             Stage.Control = new ControlMessageQueueStatus();
 
             Stage.Code = @"new ControlMessageQueueStatus()";
-
-            Stage.DarkControls = null;
         }
     }
 }

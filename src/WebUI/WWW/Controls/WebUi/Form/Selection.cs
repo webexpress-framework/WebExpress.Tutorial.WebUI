@@ -1,14 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.Net;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
-using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
+using WebExpress.WebUI.WebNotification;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
 {
@@ -40,22 +42,31 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
         /// Initializes a new instance of the class.    
         /// </summary>    
         /// <param name="pageContext">The context of the page where the selection control is used.</param>  
-        /// <param name="sitemapManager">The sitemap manager for managing site navigation.</param>  
-        public Selection(IPageContext pageContext, ISitemapManager sitemapManager)
+        /// <param name="componentHub">The component hub for managing components.</param>
+        public Selection(IPageContext pageContext, IComponentHub componentHub)
         {
             Stage.AddEvent(Event.CHANGE_VALUE_EVENT, Event.CHANGE_FILTER_EVENT, Event.DROPDOWN_SHOW_EVENT, Event.DROPDOWN_HIDDEN_EVENT);
 
             Stage.Description = @"A `Selection` control is a form element that allows users to select multiple options from a predefined list. It is commonly used in user interfaces to simplify interactions by enabling users to choose their desired options with simple clicks or markings.";
 
-            Stage.Control = new ControlForm(null, new ControlFormItemInputSelection(null, [.. _options])
+            Stage.Control = new ControlForm("myform", new ControlFormItemInputSelection(null, [.. _options])
             {
-
-            });
+                Name = _ => "mySelectionCtrl"
+            }
+                .Process(x => componentHub
+                    .GetComponentManager<NotificationManager>()
+                    .AddNotification(pageContext.ApplicationContext, x.Context.Request, $"Value: {WebUtility.HtmlEncode(x.Value.Text)}", durability: 5000)))
+                .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
-            new ControlForm(new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem(""1"") { Label = ""Option 1"" })  
-            {  
-            });";
+            new ControlForm(""myform"", new ControlFormItemInputSelection(null, new ControlFormItemInputSelectionItem(""1"") { Text = _ => ""Option 1"" })
+            {
+                Name = _ => ""mySelectionCtrl""
+            }
+                .Process(x => componentHub
+                    .GetComponentManager<NotificationManager>()
+                    .AddNotification(pageContext.ApplicationContext, x.Context.Request, $""Value: {WebUtility.HtmlEncode(x.Value.Text)}"", durability: 5000)))
+                .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
             Stage.AddProperty
             (

@@ -43,8 +43,6 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                     .DataService<MonkeyIslandGamesFeed>()
             ];
 
-            Stage.DarkControls = null;
-
             Stage.Code = @"
             new ControlDataFeed(""monkeyIslandFeed"")
             {

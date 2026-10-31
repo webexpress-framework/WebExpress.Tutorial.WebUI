@@ -55,8 +55,6 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlModalExample("modal")
             ];
 
-            Stage.DarkControls = null;
-
             Stage.Code = @"
             var tile = new ControlDataTile(""myTileView"").Resource<TilesResource>();
 

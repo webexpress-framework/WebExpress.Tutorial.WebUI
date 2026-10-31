@@ -57,8 +57,6 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 tile
             ];
 
-            Stage.DarkControls = null;
-
             Stage.Code = @"
             var search = new ControlAdvancedSearch(""mySearch"")
                 .DataService<MonkeyIslandGameWql>();

@@ -57,8 +57,6 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 new ControlModalExample("modal")
             ];
 
-            Stage.DarkControls = null;
-
             Stage.Code = @"
             // the list is created separately and bound to the resource by type
             var list = new ControlDataList(""myListView"").Resource<GamesResource>();

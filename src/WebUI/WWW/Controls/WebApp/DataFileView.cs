@@ -63,8 +63,6 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                         .Response(r => r.Items().Total()))
             ];
 
-            Stage.DarkControls = null;
-
             Stage.Code = @"
             var upload = new ControlUpload(""myUpload"")
             {

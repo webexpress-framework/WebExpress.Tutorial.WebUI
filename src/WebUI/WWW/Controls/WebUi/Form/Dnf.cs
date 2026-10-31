@@ -1,12 +1,16 @@
 using System.Collections.Generic;
+using System.Net;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebComponent;
+using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
+using WebExpress.WebUI.WebNotification;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
 {
@@ -33,7 +37,9 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
-        public Dnf()
+        /// <param name="pageContext">The context of the page where the dnf control is used.</param>
+        /// <param name="componentHub">The component hub for managing components.</param>
+        public Dnf(IPageContext pageContext, IComponentHub componentHub)
         {
             Stage.AddEvent(Event.CHANGE_VALUE_EVENT, Event.ADD_EVENT, Event.REMOVE_EVENT);
 
@@ -45,23 +51,36 @@ The first row is the expression itself and therefore permanent: its close icon e
 
 The value is submitted as a single string in which `;` separates the terms of a conjunction and `|` separates the conjunctions - `pirate;ghost|governor`. A one-row expression is therefore byte for byte the value a plain `Selection` submits.";
 
-            Stage.Control = new ControlForm(null, new ControlFormItemInputDnf(null, [.. _options])
+            Stage.Control = new ControlForm("myform", new ControlFormItemInputDnf(null, [.. _options])
             {
-                Label = _ => "Show characters that are"
-            });
+                Label = _ => "Show characters that are",
+                Name = _ => "myDnfCtrl"
+            }
+                .Process(x => componentHub
+                    .GetComponentManager<NotificationManager>()
+                    .AddNotification(pageContext.ApplicationContext, x.Context.Request, $"Value: {WebUtility.HtmlEncode(x.Value.ToString())}", durability: 5000)))
+                .AddPrimaryButton(new ControlFormItemButtonSubmit());
 
             Stage.Code = @"
-            new ControlForm(null, new ControlFormItemInputDnf(null, new ControlFormItemInputSelectionItem(""pirate"") { Text = _ => ""Pirate"" })
+            new ControlForm(""myform"", new ControlFormItemInputDnf(null, new ControlFormItemInputSelectionItem(""pirate"") { Text = _ => ""Pirate"" })
             {
-                Label = _ => ""Show characters that are""
-            });";
+                Label = _ => ""Show characters that are"",
+                Name = _ => ""myDnfCtrl""
+            }
+                .Process(x => componentHub
+                    .GetComponentManager<NotificationManager>()
+                    .AddNotification(pageContext.ApplicationContext, x.Context.Request, $""Value: {WebUtility.HtmlEncode(x.Value.ToString())}"", durability: 5000)))
+                .AddPrimaryButton(new ControlFormItemButtonSubmit());";
 
             Stage.DarkControls =
             [
-                new ControlForm(null, new ControlFormItemInputDnf(null, [.. _options])
+                // shares the form name with the light copy, which already announces the submission
+                new ControlForm("myform", new ControlFormItemInputDnf(null, [.. _options])
                 {
-                    Label = _ => "Show characters that are"
+                    Label = _ => "Show characters that are",
+                    Name = _ => "myDnfCtrl"
                 })
+                    .AddPrimaryButton(new ControlFormItemButtonSubmit())
             ];
 
             Stage.AddProperty

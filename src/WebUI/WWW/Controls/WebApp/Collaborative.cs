@@ -1,3 +1,4 @@
+using System.Net;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
@@ -9,6 +10,7 @@ using WebExpress.WebCore.WebComponent;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
+using WebExpress.WebUI.WebNotification;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 {
@@ -59,7 +61,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                         {
                             Label = _ => "Subject"
                         }
-                            .Initialize(x => x.Value.Text = "collaborative demo"),
+                            .Initialize(x => x.Value.Text = "collaborative demo")
+                            .Process(x => componentHub
+                                .GetComponentManager<NotificationManager>()
+                                .AddNotification(pageContext.ApplicationContext, x.Context.Request, $"Subject: {WebUtility.HtmlEncode(x.Value.Text)}", durability: 5000)),
                         new ControlFormItemInputText("collaborative-notes")
                         {
                             Label = _ => "Notes",
@@ -67,7 +72,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                             Rows = _ => 5
                         }
                         .Initialize(x => x.Value.Text = "Type here in two sessions at the same time - both edits are kept.")
-                    ),
+                    )
+                    .AddPrimaryButton(new ControlFormItemButtonSubmit()),
                     new ControlDataWqlPrompt("collaborative-query"),
                     new ControlSpreadsheet("collaborative-sheet")
                     {
@@ -98,7 +104,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                     {
                         Label = _ => ""Subject""
                     }
-                        .Initialize(x => x.Value.Text = ""collaborative demo""),
+                        .Initialize(x => x.Value.Text = ""collaborative demo"")
+                        .Process(x => componentHub
+                            .GetComponentManager<NotificationManager>()
+                            .AddNotification(pageContext.ApplicationContext, x.Context.Request, $""Subject: {WebUtility.HtmlEncode(x.Value.Text)}"", durability: 5000)),
                     new ControlFormItemInputText(""collaborative-notes"")
                     {
                         Label = _ => ""Notes"",
@@ -106,7 +115,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                         Rows = _ => 5
                     }
                     .Initialize(x => x.Value.Text = ""Type here in two sessions at the same time - both edits are kept."")
-                ),
+                )
+                .AddPrimaryButton(new ControlFormItemButtonSubmit()),
                 new ControlDataWqlPrompt(""collaborative-query""),
                 new ControlSpreadsheet(""collaborative-sheet"")
                 {
