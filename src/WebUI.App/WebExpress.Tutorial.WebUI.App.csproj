@@ -12,7 +12,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="WebExpress.WebApp" Version="2.0.0-alpha" Condition="'$(Configuration)' != 'DebugLocal'" />
+		<PackageReference Include="WebExpress.WebApp" Version="2.0.1-alpha" Condition="'$(Configuration)' != 'DebugLocal'" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -25,8 +25,12 @@
 	  </Content>
 	</ItemGroup>
 
+	<PropertyGroup>
+		<PackageRoot>$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)\..\..'))</PackageRoot>
+	</PropertyGroup>
+
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Configuration)' == 'Release'">
-		<Exec Command="$(SolutionDir)$(AssemblyName)/bin/$(Configuration)/$(TargetFramework)/$(AssemblyName).exe -s $(SolutionDir)/$(SolutionName).spec -c $(Configuration) -t $(TargetFramework) -o $(SolutionDir)/pkg/$(Configuration)" />
+		<Exec Command="&quot;$(TargetDir)$(AssemblyName).exe&quot; -s &quot;$(PackageRoot)\WebExpress.Tutorial.WebUI.spec&quot; -c $(Configuration) -t $(TargetFramework) -o &quot;$(PackageRoot)\pkg\$(Configuration)&quot;" />
 	</Target>
 
 </Project>
