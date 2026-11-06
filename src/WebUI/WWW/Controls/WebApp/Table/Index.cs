@@ -10,6 +10,7 @@ using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore.WebSitemap;
+using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Table
@@ -41,7 +42,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Table
                 Event.TABLE_SORT_EVENT,
                 Event.COLUMN_REORDER_EVENT,
                 Event.ROW_REORDER_EVENT,
-                Event.UPDATED_EVENT
+                Event.UPDATED_EVENT,
+                Event.SELECTION_CHANGED_EVENT
             );
 
             Stage.Description = @"A `DataTable` control is a user interface component that retrieves data from a REST API and operates based on the CRUD principle, which encompasses creating, reading, updating, and processing data. The control automatically fetches data from the API and displays it in a tabular format. Users can add, modify, or delete entries in the table, with each action being synchronized directly with the API. Additionally, the control provides sorting and filtering functionalities to enhance data presentation and accessibility.
@@ -75,6 +77,48 @@ The table also exposes a fully implemented column management: dragging a column 
                 // columns the client omitted are appended at the tail as hidden.
                 _layout = columns.ToList();
             }";
+
+            Stage.AddProperty
+            (
+                "MultiSelect",
+                "The `MultiSelect` property lets the user choose rows for a bulk action. A checkbox column chooses single rows, the checkbox in the header chooses every row on screen, and a click with Ctrl (Cmd on a Mac) or Shift adds a row or a range of rows. The controls added with `AddSelectionAction` appear in a bar above the rows while at least one row is chosen; the bar names how many are. Every change of the choice is announced with the selection changed event, which carries the ids of the chosen rows, and the table exposes them as `selection`. A plain click still selects the row as before, since the selected row and the chosen rows are two separate things.",
+                @"
+                new ControlDataTable(""myMultiSelectTable"")
+                {
+                    PageSize = _ => 5,
+                    MultiSelect = _ => true
+                }
+                    .AddSelectionAction(new ControlButton(""assign"")
+                    {
+                        Text = _ => ""Assign to a crew"",
+                        BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary)
+                    })
+                    .DataService<MonkeyIslandCharacterTable>()",
+                new ControlDataTable("myMultiSelectTable")
+                {
+                    PageSize = _ => 5,
+                    MultiSelect = _ => true
+                }
+                    .AddSelectionAction(new ControlButton("assign")
+                    {
+                        Text = _ => "Assign to a crew",
+                        BackgroundColor = _ => new PropertyColorButton(TypeColorButton.Primary)
+                    })
+                    .DataService<MonkeyIslandCharacterTable>()
+            );
+
+            Stage.AddProperty
+            (
+                "DragKind",
+                "The `DragKind` property makes the rows sources of the drag-and-drop protocol that the data controls share. A row carries its id and the given kind, by which a target accepts or refuses it, and a drag that starts on a chosen row carries every chosen row. `DropKind` makes the rows targets in turn. The page receives the bubbling drop event with the dragged ids and the target; the data tree tutorial drops characters onto locations. A table with `MovableRow` keeps its own row moves and ignores the drag kind.",
+                @"DragKind = _ => ""character""",
+                new ControlDataTable("myDragKindTable")
+                {
+                    PageSize = _ => 5,
+                    DragKind = _ => "character"
+                }
+                    .DataService<MonkeyIslandCharacterTable>()
+            );
         }
     }
 }

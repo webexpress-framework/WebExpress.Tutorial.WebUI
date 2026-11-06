@@ -58,6 +58,27 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                 }
                     .Initialize(args => args.Value.Text = ""Hello World!""))
                 .AddPrimaryButton(new ControlFormItemButtonSubmit());";
+
+            Stage.AddProperty
+            (
+                "SuccessAction",
+                "The `SuccessAction` property decides what the form does once the server accepted it. By default the form stays where it is, and a dialog around it closes. `Reload` reloads the page, so everything it shows reflects the saved record; `FollowUri` navigates to the `uri` of the JSON answer, such as the page of a record that was just created. The action runs a tick after the form's own success handling, so the dialog is closed and the notification shown first. This form reloads the page after a save.",
+                "SuccessAction = _ => TypeRestFormSuccess.Reload",
+                new ControlDataForm("myReloadForm")
+                {
+                    SuccessAction = _ => TypeRestFormSuccess.Reload
+                }
+                    .Service("data", svc => svc
+                        .Uri(_ => sitemapManager.GetUri<DataFormGreeting>(pageContext)))
+                    .Add(new ControlFormItemInputText("regards")
+                    {
+                        Required = _ => true,
+                        Label = _ => "Greetings",
+                        Icon = _ => new IconFont()
+                    }
+                        .Initialize(args => args.Value.Text = "Hello World!"))
+                    .AddPrimaryButton(new ControlFormItemButtonSubmit())
+            );
         }
     }
 }

@@ -76,6 +76,21 @@
         MOVE_EVENT,
 
         /// <summary>
+        /// Event triggered when items of the drag-and-drop protocol are dropped on a target.
+        /// </summary>
+        DROP_EVENT,
+
+        /// <summary>
+        /// Event triggered while items of the drag-and-drop protocol are over a target; cancelable.
+        /// </summary>
+        DROP_CHECK_EVENT,
+
+        /// <summary>
+        /// Event triggered when the chosen items of a multi-selection change.
+        /// </summary>
+        SELECTION_CHANGED_EVENT,
+
+        /// <summary>
         /// Event triggered when the page changes in a pagination control.
         /// </summary>
         CHANGE_PAGE_EVENT,
@@ -442,6 +457,9 @@
                 Event.TABLE_SORT_EVENT => "webexpress.webui.table.sorted",
                 Event.CHANGE_VALUE_EVENT => "webexpress.webui.change.value",
                 Event.MOVE_EVENT => "webexpress.webui.move",
+                Event.DROP_EVENT => "webexpress.webui.drop",
+                Event.DROP_CHECK_EVENT => "webexpress.webui.drop.check",
+                Event.SELECTION_CHANGED_EVENT => "webexpress.webui.selection.changed",
                 Event.CHANGE_PAGE_EVENT => "webexpress.webui.change.page",
                 Event.COOKIE_CHANGE_EVENT => "webexpress.webui.cookie.change",
                 Event.MODAL_SHOW_EVENT => "webexpress.webui.modal.show",
@@ -540,6 +558,9 @@
                 Event.TABLE_SORT_EVENT => "Event triggered when a table is sorted.",
                 Event.CHANGE_VALUE_EVENT => "Event triggered when the value of an input or control changes.",
                 Event.MOVE_EVENT => "Event triggered when a item is moved.",
+                Event.DROP_EVENT => "Event triggered when items of the drag-and-drop protocol are dropped on a target.",
+                Event.DROP_CHECK_EVENT => "Event triggered while items of the drag-and-drop protocol are over a target; a listener refuses the target by preventing it.",
+                Event.SELECTION_CHANGED_EVENT => "Event triggered when the chosen items of a multi-selection change.",
                 Event.CHANGE_PAGE_EVENT => "Event triggered when the page changes in a pagination control.",
                 Event.COOKIE_CHANGE_EVENT => "Announces an applied cookie notice or consent decision.",
                 Event.MODAL_SHOW_EVENT => "Event triggered when a modal is shown.",

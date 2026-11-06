@@ -62,6 +62,22 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp.Comment
                 .UploadService<MonkeyIslandEditorImages>()
                 .ImagesService<MonkeyIslandEditorImages>()
                 .LinksService<MonkeyIslandEditorLinks>();";
+
+            Stage.AddProperty
+            (
+                "Expanded",
+                "The `Expanded` property starts the composer expanded, for a page whose purpose is writing a comment. The editor is created right away but takes no focus, since only a visitor expanding the composer asks for the focus; a focus on load would scroll the page to the composer. Cancel still collapses it to the single-line trigger.",
+                "Expanded = _ => true",
+                new ControlDataCommentComposer("tutorial-comment-composer-expanded")
+                {
+                    CurrentUser = _ => "guybrush",
+                    Expanded = _ => true
+                }
+                    .DataService<MonkeyIslandComment>()
+                    .UploadService<MonkeyIslandEditorImages>()
+                    .ImagesService<MonkeyIslandEditorImages>()
+                    .LinksService<MonkeyIslandEditorLinks>()
+            );
         }
     }
 }

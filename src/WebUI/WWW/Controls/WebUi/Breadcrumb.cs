@@ -1,6 +1,7 @@
 ﻿using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.Tutorial.WebUI.WebPage;
 using WebExpress.Tutorial.WebUI.WebScope;
+using WebExpress.Tutorial.WebUI.WebUri;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebApplication;
 using WebExpress.WebCore.WebAttribute;
@@ -256,6 +257,36 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 {
                     Uri = _ => pageContext.Route.ToUri(),
                     Size = _ => TypeSizeText.ExtraLarge
+                }
+            );
+
+            Stage.AddProperty
+            (
+                "Trail segments",
+                "A segment of the address that stands for a place in a hierarchy, such as a wiki page or a location of an island, is a single segment, but the visitor expects every ancestor in the breadcrumb, each a link of its own. Such a segment implements `IUriPathSegmentTrail` and returns the crumbs it contributes from `GetTrail`; the breadcrumb renders them in place of the one crumb the segment would give. A crumb may carry a menu, which the breadcrumb draws as a dropdown beside the link, so the trail also leads sideways, here to the neighbouring areas of the village. A segment reaches the address through a segment attribute whose `ToPathSegment` returns it; this example appends it to the address of the page.",
+                @"
+                new ControlBreadcrumb()
+                {
+                    Uri = _ => pageContext.Route.ToUri().Concat(new UriPathSegmentLocationTrail(""Scumm Bar""))
+                }
+
+                public sealed class UriPathSegmentLocationTrail(string value) : IUriPathSegmentTrail
+                {
+                    public IEnumerable<UriTrailCrumb> GetTrail(IRenderContext renderContext)
+                    {
+                        yield return new UriTrailCrumb { Text = ""Mêlée Island"", Uri = new UriEndpoint(""#melee-island"") };
+                        yield return new UriTrailCrumb
+                        {
+                            Text = ""Mêlée Island Village"",
+                            Uri = new UriEndpoint(""#village""),
+                            Menu = [new UriTrailCrumb { Text = ""Docks"", Uri = new UriEndpoint(""#docks"") }]
+                        };
+                        yield return new UriTrailCrumb { Text = Value, Uri = new UriEndpoint(""#scumm-bar"") };
+                    }
+                }",
+                new ControlBreadcrumb()
+                {
+                    Uri = _ => pageContext.Route.ToUri().Concat(new UriPathSegmentLocationTrail("Scumm Bar"))
                 }
             );
         }

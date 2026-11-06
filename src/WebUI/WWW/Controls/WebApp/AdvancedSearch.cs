@@ -72,6 +72,20 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
                     .Page().PageSize().Search().Wql().Filter().OrderBy().OrderDir()),
             search,
             tile";
+
+            var wqlSearch = new ControlAdvancedSearch("myWqlSearch")
+            {
+                Wql = _ => "Name ~ 'Monkey'"
+            }
+                .DataService<MonkeyIslandGameWql>();
+
+            Stage.AddProperty
+            (
+                "Wql",
+                "The `Wql` property hands the search a WQL query to open with. The search then opens in WQL mode with the query in the editor, ahead of the mode the visitor chose last on the page, because a page that is given a query, such as a saved search or a shared link, has to show that query. The page itself renders the result for that query, as it does for the initial text of the simple mode; the search does not query on load.",
+                @"Wql = _ => ""Name ~ 'Monkey'""",
+                wqlSearch
+            );
         }
     }
 }
