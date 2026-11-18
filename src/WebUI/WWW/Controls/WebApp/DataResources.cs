@@ -33,4 +33,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
 
     /// <summary>The traffic light status resource.</summary>
     public sealed class StatusResource : IDataResource { }
+
+    /// <summary>The assignment resource.</summary>
+    public sealed class AssignmentResource : IDataResource { }
 }
