@@ -54,7 +54,8 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
             (
                 "MultiSelect",
                 "The `MultiSelect` property enables selecting more than one tile. " +
-                "When set to `true`, users can choose multiple cards; otherwise only a single tile is allowed.",
+                "When set to `true`, users can choose multiple cards; otherwise only a single tile is allowed. " +
+                "A plain click selects the clicked tile alone, Ctrl+click adds or removes it and Shift+click adds the range from the tile clicked last.",
                 "MultiSelect = _ => true",
                 new ControlForm()
                     .Add
@@ -68,6 +69,30 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi.Form
                             {
                                 x.Value.Add("game-1972-pong");
                                 x.Value.Add("game-1978-spaceinvaders");
+                            })
+                    )
+                    .AddPrimaryButton(new ControlFormItemButtonSubmit())
+            );
+
+            Stage.AddProperty
+            (
+                "ToggleOnClick",
+                "The `ToggleOnClick` property lets a plain click add a tile to a multiple selection or take it out again, the way a checkbox does, instead of replacing the selection. " +
+                "This suits pickers whose users are not expected to know the Ctrl key, such as choosing several categories on a touch screen. Ctrl+click and Shift+click keep their meaning. " +
+                "The property only has an effect together with `MultiSelect`.",
+                "MultiSelect = _ => true, ToggleOnClick = _ => true",
+                new ControlForm()
+                    .Add
+                    (
+                        new ControlFormItemInputTile()
+                        {
+                            MultiSelect = _ => true,
+                            ToggleOnClick = _ => true
+                        }
+                            .Add(GetCards())
+                            .Initialize(x =>
+                            {
+                                x.Value.Add("game-1972-pong");
                             })
                     )
                     .AddPrimaryButton(new ControlFormItemButtonSubmit())
