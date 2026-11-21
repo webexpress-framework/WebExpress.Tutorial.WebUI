@@ -32,7 +32,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
         {
             Stage.AddEvent(Event.CLICK_EVENT, Event.DOUBLE_CLICK_EVENT);
 
-            Stage.Description = @" The `Workflow` control provides a visual container for rendering workflow structures composed of stages, transitions, and decision points. It is designed for process flows, state machines, approval chains, or any scenario where sequential or branching progression needs to be represented clearly. The control acts as a flexible canvas that can be extended with custom rendering logic, layout algorithms, and interactive behaviors.";
+            Stage.Description = @" The `Workflow` control provides a visual container for rendering workflow structures composed of stages, transitions, and decision points. It is designed for process flows, state machines, approval chains, or any scenario where sequential or branching progression needs to be represented clearly. The control acts as a flexible canvas that can be extended with custom rendering logic, layout algorithms, and interactive behaviors. A transition can name a form that is shown before it runs; the form picker in the properties panel offers the forms the data service returns from `RetrieveForms`.";
 
             // the data service and its endpoint are authored in C# through the
             // fluent data surface; the endpoint resolves through the sitemap and

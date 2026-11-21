@@ -239,6 +239,37 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
         }
 
         /// <summary>
+        /// Retrieves the forms a transition may show before it runs, which the editor offers
+        /// in the transition's form picker. A transition refers to the chosen form by its id.
+        /// </summary>
+        /// <param name="workflowId">
+        /// The unique identifier of the workflow whose transitions the forms are offered to.
+        /// </param>
+        /// <param name="context">
+        /// The query context providing access to the underlying data store. Cannot be null.
+        /// </param>
+        /// <param name="request">
+        /// The current API request. Cannot be null.
+        /// </param>
+        /// <returns>
+        /// The forms the picker lists, after its "no form" entry.
+        /// </returns>
+        protected override IEnumerable<RestApiWorkflowForm> RetrieveForms(string workflowId, IQueryContext context, IRequest request)
+        {
+            if (!string.Equals(workflowId, WorkflowId, System.StringComparison.OrdinalIgnoreCase))
+            {
+                return [];
+            }
+
+            return
+            [
+                new RestApiWorkflowForm { Id = "ship-log", Label = "Ship's Log" },
+                new RestApiWorkflowForm { Id = "insult-duel", Label = "Insult Sword Fighting" },
+                new RestApiWorkflowForm { Id = "treasure-map", Label = "Treasure Map" }
+            ];
+        }
+
+        /// <summary>
         /// Builds the transitions the tutorial starts from.
         /// </summary>
         /// <returns>The seed transitions.</returns>
@@ -256,7 +287,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
                     Waypoints = new List<RestApiWorkflowWaypoint> { new RestApiWorkflowWaypoint { X = 225, Y = 140 } },
                     Label = "Begin Quest",
                     Description = "Start a new pirate quest.",
-                    Form = "",
+                    Form = "ship-log",
                     Guards =
                     [
                         new RestApiWorkflowGuard
