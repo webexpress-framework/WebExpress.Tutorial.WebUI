@@ -4,6 +4,7 @@ using WebExpress.WebApp.WebPage;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.Internationalization;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
@@ -18,7 +19,7 @@ namespace WebExpress.Tutorial.WebUI.WWW
     [Description("webexpress.tutorial.webui:fragmentpage.description")]
     [Scope<IScopeGeneral>]
     [Scope<IScopeFragment>]
-    public sealed class Fragment : IPage<VisualTreeWebApp>, IScopeGeneral
+    public sealed class Fragment : IPage<VisualTreeWebApp>, IScopeGeneral, IPublicEndpoint
     {
         // the tutorial has no store, so an edited title lives as long as the server
         private static string _title;

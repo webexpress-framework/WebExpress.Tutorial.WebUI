@@ -4,6 +4,7 @@ using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebIndex.Queries;
 using WebExpress.WebIndex.Wql;
@@ -15,7 +16,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// file view demo, including the in place edit of a description.
     /// </summary>
     [Title("Monkey Island Archive")]
-    public sealed class MonkeyIslandFiles : RestApiFile<Document>
+    public sealed class MonkeyIslandFiles : RestApiFile<Document>, IPublicEndpoint
     {
         /// <summary>
         /// Retrieves the documents that match the specified query criteria.

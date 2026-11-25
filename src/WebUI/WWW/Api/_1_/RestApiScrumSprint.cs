@@ -3,6 +3,7 @@ using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebIndex.Queries;
 
@@ -14,7 +15,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     [Segment("scrum-sprint")]
     [IncludeSubPaths(true)]
     [Title("Monkey Island Scrum Sprint")]
-    public sealed class RestApiScrumSprint : RestApiScrumSprint<Sprint, ScrumItem>
+    public sealed class RestApiScrumSprint : RestApiScrumSprint<Sprint, ScrumItem>, IPublicEndpoint
     {
         private static readonly object SyncRoot = new();
 

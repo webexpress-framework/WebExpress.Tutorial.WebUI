@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
@@ -17,7 +18,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     [Segment("tags")]
     [IncludeSubPaths(true)]
     [Title("Monkey Island Tags")]
-    public sealed class MonkeyIslandTag : RestApiTag
+    public sealed class MonkeyIslandTag : RestApiTag, IPublicEndpoint
     {
         private static readonly object _syncRoot = new();
 

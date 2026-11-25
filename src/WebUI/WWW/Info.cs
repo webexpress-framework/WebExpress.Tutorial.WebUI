@@ -4,6 +4,7 @@ using WebExpress.WebApp.WebPage;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.Internationalization;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebCore;
 using WebExpress.WebUI.WebControl;
@@ -17,7 +18,7 @@ namespace WebExpress.Tutorial.WebUI.WWW
     [WebIcon<IconCircleInfo>]
     [Title("webexpress.tutorial.webui:infopage.label")]
     [Scope<IScopeGeneral>]
-    public sealed class Info : IPage<VisualTreeWebApp>, IScopeGeneral
+    public sealed class Info : IPage<VisualTreeWebApp>, IScopeGeneral, IPublicEndpoint
     {
         /// <summary>
         /// Initializes a new instance of the class with the specified page context.

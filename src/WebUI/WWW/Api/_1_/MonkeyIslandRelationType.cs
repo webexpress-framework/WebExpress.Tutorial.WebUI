@@ -4,6 +4,7 @@ using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRelation;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
@@ -20,7 +21,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     [Segment("link-types")]
     [IncludeSubPaths(true)]
     [Title("Monkey Island Relation Types")]
-    public sealed class MonkeyIslandRelationType : RestApiRelationType
+    public sealed class MonkeyIslandRelationType : RestApiRelationType, IPublicEndpoint
     {
         /// <summary>
         /// The relations WebExpress ships. They may be edited and deactivated

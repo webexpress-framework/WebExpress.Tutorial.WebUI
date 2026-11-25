@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebIndex.Queries;
 
@@ -21,7 +22,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// version the draft was started from.
     /// </remarks>
     [Title("Form structure")]
-    public sealed class FormEditor : RestApiFormEditor<Game>
+    public sealed class FormEditor : RestApiFormEditor<Game>, IPublicEndpoint
     {
         /// <summary>
         /// The id of the form the samples without a draft edit.

@@ -4,6 +4,7 @@ using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebApplication;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebCore.WebUri;
@@ -16,7 +17,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// Represents a REST API table for managing and retrieving data about Monkey Island characters.
     /// </summary>
     [Title("Monkey Island characters")]
-    public sealed class MonkeyIslandCharacterTableSelection : RestApiTable<Character>
+    public sealed class MonkeyIslandCharacterTableSelection : RestApiTable<Character>, IPublicEndpoint
     {
         private readonly IUri _selectionUri;
 

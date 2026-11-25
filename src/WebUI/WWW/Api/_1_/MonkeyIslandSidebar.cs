@@ -3,6 +3,7 @@ using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebUI.WebControl;
 
@@ -15,7 +16,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// tutorial shows the sidebar reflecting live server data.
     /// </summary>
     [Title("Monkey Island Navigation")]
-    public sealed class MonkeyIslandSidebar : RestApiSidebar
+    public sealed class MonkeyIslandSidebar : RestApiSidebar, IPublicEndpoint
     {
         /// <summary>
         /// Initializes a new instance of the class.

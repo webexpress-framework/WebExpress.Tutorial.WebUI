@@ -3,6 +3,7 @@ using System;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore;
 using WebExpress.WebIndex.Queries;
@@ -17,7 +18,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// these calls into a real user profile / session / database instead.
     /// </summary>
     [Title("Theme Selector")]
-    public sealed class ThemeApi : RestApiTheme
+    public sealed class ThemeApi : RestApiTheme, IPublicEndpoint
     {
         /// <summary>
         /// Keeps the selector aligned with the stored preference or application default.

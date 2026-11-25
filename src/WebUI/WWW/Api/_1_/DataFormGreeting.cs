@@ -2,6 +2,7 @@ using System.Text;
 using System.Text.Json;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebRestApi;
 
@@ -18,7 +19,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// </remarks>
     [Segment("greeting")]
     [Title("Greeting of the data form demo")]
-    public sealed class DataFormGreeting : IRestApi
+    public sealed class DataFormGreeting : IRestApi, IPublicEndpoint
     {
         private const string DefaultGreeting = "Hello World!";
 

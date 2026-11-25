@@ -3,6 +3,7 @@ using System;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebPage;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
@@ -19,7 +20,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
     /// </remarks>
     [WebIcon<IconControlMasterDetail>]
     [Title("Character")]
-    public sealed class MasterDetailItem : IPage<VisualTreeWebApp>
+    public sealed class MasterDetailItem : IPage<VisualTreeWebApp>, IPublicEndpoint
     {
         /// <summary>
         /// Processing of the resource.

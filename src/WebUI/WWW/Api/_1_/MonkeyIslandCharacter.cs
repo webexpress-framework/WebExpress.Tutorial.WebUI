@@ -3,6 +3,7 @@ using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebRestApi;
 using WebExpress.WebIndex.Queries;
@@ -14,7 +15,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// a Monkey Island character.
     /// </summary>
     [Title("Monkey Island characters")]
-    public sealed class MonkeyIslandCharacter : RestApiCrud<Character>
+    public sealed class MonkeyIslandCharacter : RestApiCrud<Character>, IPublicEndpoint
     {
         /// <summary>
         /// Initializes a new instance of the class.

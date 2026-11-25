@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebIndex.Queries;
 using WebExpress.WebUI.WebIcon;
@@ -15,7 +16,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// demo cell values through <see cref="CreateCellContent"/>, while the
     /// character column, the row shape and the name filter are shared here.
     /// </summary>
-    public abstract class MonkeyIslandCharacterTableTemplateBase : RestApiTable<Character>
+    public abstract class MonkeyIslandCharacterTableTemplateBase : RestApiTable<Character>, IPublicEndpoint
     {
         /// <summary>
         /// Gets the label of the template column.

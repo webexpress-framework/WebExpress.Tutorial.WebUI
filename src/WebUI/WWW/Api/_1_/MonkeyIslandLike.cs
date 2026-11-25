@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.Json;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebRestApi;
 
@@ -29,7 +30,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// </remarks>
     [Segment("like")]
     [Title("Like a Monkey Island subject")]
-    public sealed class MonkeyIslandLike : IRestApi
+    public sealed class MonkeyIslandLike : IRestApi, IPublicEndpoint
     {
         /// <summary>
         /// The control posts lowercase json and the deserializer matches property names

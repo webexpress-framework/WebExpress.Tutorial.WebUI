@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebIndex.Queries;
 using WebExpress.WebUI.WebIcon;
@@ -14,7 +15,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// avatar items for REST API scenarios.
     /// </summary>
     [Cache]
-    public sealed class AvatarDropdown : RestApiAvatarDropdown<Character>
+    public sealed class AvatarDropdown : RestApiAvatarDropdown<Character>, IPublicEndpoint
     {
         /// <summary>
         /// Initializes a new instance of the class.

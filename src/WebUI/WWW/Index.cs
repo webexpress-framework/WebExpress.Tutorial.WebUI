@@ -2,6 +2,7 @@
 using WebExpress.WebApp.WebPage;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebIcon;
 
@@ -13,7 +14,7 @@ namespace WebExpress.Tutorial.WebUI.WWW
     [WebIcon<IconHome>]
     [Title("webexpress.tutorial.webui:homepage.label")]
     [Scope<IScopeGeneral>]
-    public sealed class Index : IPage<VisualTreeWebApp>, IScopeGeneral
+    public sealed class Index : IPage<VisualTreeWebApp>, IScopeGeneral, IPublicEndpoint
     {
         /// <summary>
         /// Initializes a new instance of the class.

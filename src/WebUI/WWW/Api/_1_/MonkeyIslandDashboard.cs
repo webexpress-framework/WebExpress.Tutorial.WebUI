@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using WebExpress.WebApp.WebRestApi;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebUI.WebControl;
 
@@ -13,7 +14,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// The columns are held in a thread-safe in-memory store so that renaming,
     /// reordering, deleting and adding columns and widgets persists across reloads.
     /// </summary>
-    public sealed class MonkeyIslandDashboard : RestApiDashboard
+    public sealed class MonkeyIslandDashboard : RestApiDashboard, IPublicEndpoint
     {
         private const string ScrumVelocityWidgetId = "widget_scrum_velocity";
 

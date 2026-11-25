@@ -2,6 +2,7 @@ using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebPage;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebIcon;
@@ -14,7 +15,7 @@ namespace WebExpress.Tutorial.WebUI.WWW
     [WebIcon<IconCookie>]
     [Title("webexpress.tutorial.webui:privacy.title")]
     [Scope<IScopeGeneral>]
-    public sealed class Privacy : IPage<VisualTreeWebApp>, IScopeGeneral
+    public sealed class Privacy : IPage<VisualTreeWebApp>, IScopeGeneral, IPublicEndpoint
     {
         /// <summary>
         /// Renders example information through the standard C# text controls.

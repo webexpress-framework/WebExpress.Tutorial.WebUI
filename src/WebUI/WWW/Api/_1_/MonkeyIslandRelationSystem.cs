@@ -1,5 +1,6 @@
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 {
@@ -11,7 +12,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// </summary>
     [Segment("link-systems")]
     [Title("Monkey Island Relation Systems")]
-    public sealed class MonkeyIslandRelationSystem : RestApiRelationSystem
+    public sealed class MonkeyIslandRelationSystem : RestApiRelationSystem, IPublicEndpoint
     {
     }
 }

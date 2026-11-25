@@ -3,6 +3,7 @@ using System.Globalization;
 using WebExpress.WebCore.WebApplication;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebComponent;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebRestApi;
 using WebExpress.WebUI.WebNotification;
@@ -27,7 +28,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// </list>
     /// </remarks>
     [Title("Popup Notification Trigger")]
-    public sealed class PopupTrigger : IRestApi
+    public sealed class PopupTrigger : IRestApi, IPublicEndpoint
     {
         private readonly IComponentHub _componentHub;
         private readonly IApplicationContext _applicationContext;
@@ -81,7 +82,11 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
 
             var scope = Parameter("scope") ?? "global";
 
-            if (string.Equals(scope, "session", StringComparison.OrdinalIgnoreCase))
+            // the demo is open to visitors who are not signed in, but a global notification with
+            // a message of their choosing would reach every user, so theirs stays in their session
+            var signedIn = _componentHub?.IdentityManager?.GetCurrentIdentity(request) is not null;
+
+            if (!signedIn || string.Equals(scope, "session", StringComparison.OrdinalIgnoreCase))
             {
                 manager.AddNotification
                 (

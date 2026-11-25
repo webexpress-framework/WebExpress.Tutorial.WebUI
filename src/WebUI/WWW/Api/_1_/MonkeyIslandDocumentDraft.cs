@@ -2,6 +2,7 @@ using System;
 using System.Globalization;
 using System.Text.Json.Serialization;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebRestApi;
 using WebExpress.WebCore.WebStatusPage;
@@ -26,7 +27,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// </remarks>
     [Segment("documentdraft")]
     [Title("Monkey Island Document Draft")]
-    public sealed class MonkeyIslandDocumentDraft : IRestApi
+    public sealed class MonkeyIslandDocumentDraft : IRestApi, IPublicEndpoint
     {
         private static DocumentPayload _draft;
         private static DateTime? _updated;

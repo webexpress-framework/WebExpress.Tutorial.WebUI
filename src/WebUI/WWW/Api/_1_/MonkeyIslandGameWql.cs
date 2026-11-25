@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
@@ -8,7 +9,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// <summary>
     /// Represents a REST API wql prompt retrieving data about Monkey Island games.
     /// </summary>
-    public sealed class MonkeyIslandGameWql : RestApiWqlPrompt<Game>
+    public sealed class MonkeyIslandGameWql : RestApiWqlPrompt<Game>, IPublicEndpoint
     {
         /// <summary>
         /// Initializes a new instance of the class.

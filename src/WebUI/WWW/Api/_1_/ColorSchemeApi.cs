@@ -1,6 +1,7 @@
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebIndex.Queries;
 
@@ -13,7 +14,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// <see cref="ThemeStore"/>.
     /// </summary>
     [Title("Color Scheme Selector")]
-    public sealed class ColorSchemeApi : RestApiColorScheme
+    public sealed class ColorSchemeApi : RestApiColorScheme, IPublicEndpoint
     {
         /// <summary>
         /// Returns the stored scheme; without one the theme decides.

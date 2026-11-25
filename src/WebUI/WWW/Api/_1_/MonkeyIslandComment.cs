@@ -4,6 +4,7 @@ using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebIndex.Queries;
 
@@ -20,7 +21,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     [Segment("comments")]
     [IncludeSubPaths(true)]
     [Title("Monkey Island Comments")]
-    public sealed class MonkeyIslandComment : RestApiComment<Character>
+    public sealed class MonkeyIslandComment : RestApiComment<Character>, IPublicEndpoint
     {
         private static readonly object _syncRoot = new();
         private static readonly List<RestApiCommentItem> _store = Seed();

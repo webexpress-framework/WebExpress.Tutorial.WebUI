@@ -6,6 +6,7 @@ using System.Text;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebIndex.Queries;
 
@@ -17,7 +18,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// tutorial page last until the server restarts and every visitor sees the same tree.
     /// </summary>
     [Title("Monkey Island locations")]
-    public sealed class MonkeyIslandLocationTree : RestApiTree<Location>
+    public sealed class MonkeyIslandLocationTree : RestApiTree<Location>, IPublicEndpoint
     {
         private static readonly object _gate = new();
         private static Dictionary<string, List<string>> _children;

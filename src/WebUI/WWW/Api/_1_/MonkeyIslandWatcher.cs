@@ -3,6 +3,7 @@ using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebIndex.Queries;
 
@@ -15,7 +16,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     [Segment("watchers")]
     [IncludeSubPaths(true)]
     [Title("Monkey Island Watchers")]
-    public sealed class MonkeyIslandWatcher : RestApiWatcher<Character>
+    public sealed class MonkeyIslandWatcher : RestApiWatcher<Character>, IPublicEndpoint
     {
         private static readonly object _syncRoot = new();
         private static readonly List<RestApiWatcherItem> _store =

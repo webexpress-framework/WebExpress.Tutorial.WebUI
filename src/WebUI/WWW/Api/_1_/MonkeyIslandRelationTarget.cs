@@ -3,6 +3,7 @@ using System.Linq;
 using WebExpress.WebApp.WebRelation;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
@@ -15,7 +16,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// </summary>
     [Segment("link-targets")]
     [Title("Monkey Island Relation Targets")]
-    public sealed class MonkeyIslandRelationTarget : RestApiRelationTarget
+    public sealed class MonkeyIslandRelationTarget : RestApiRelationTarget, IPublicEndpoint
     {
         /// <summary>
         /// Returns the candidates for a search term, narrowed to the classes the

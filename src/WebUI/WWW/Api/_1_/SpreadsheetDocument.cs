@@ -1,5 +1,6 @@
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebRestApi;
 using WebExpress.WebCore.WebStatusPage;
@@ -25,7 +26,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// </remarks>
     [Segment("workbook")]
     [Title("Spreadsheet Document")]
-    public sealed class SpreadsheetDocument : IRestApi
+    public sealed class SpreadsheetDocument : IRestApi, IPublicEndpoint
     {
         /// <summary>
         /// The published name.

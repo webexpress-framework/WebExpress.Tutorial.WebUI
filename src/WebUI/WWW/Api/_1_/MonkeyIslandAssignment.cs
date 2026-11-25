@@ -3,6 +3,7 @@ using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.Internationalization;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebDomain;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebIndex;
 using WebExpress.WebIndex.Queries;
@@ -17,7 +18,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// </summary>
     [Segment("assignment")]
     [Title("Monkey Island Assignee")]
-    public sealed class MonkeyIslandAssignment : RestApiAssignment<MonkeyIslandQuest>
+    public sealed class MonkeyIslandAssignment : RestApiAssignment<MonkeyIslandQuest>, IPublicEndpoint
     {
         private const string SelfId = "guybrush";
         private const string RefusingId = "lechuck";

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
@@ -21,7 +22,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// </remarks>
     [Segment("schedule")]
     [Title("Monkey Island Schedule")]
-    public sealed class MonkeyIslandSchedule : RestApiSchedule
+    public sealed class MonkeyIslandSchedule : RestApiSchedule, IPublicEndpoint
     {
         private static readonly object _syncRoot = new();
         private static readonly List<RestApiScheduleItem> _items = [.. Seed()];

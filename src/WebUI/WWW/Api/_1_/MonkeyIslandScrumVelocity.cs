@@ -3,6 +3,7 @@ using System.Text;
 using System.Text.Json;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebRestApi;
 using WebExpress.WebCore.WebStatusPage;
@@ -18,7 +19,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// </summary>
     [Segment("scrum-velocity")]
     [Title("Monkey Island Scrum Velocity")]
-    public sealed class MonkeyIslandScrumVelocity : IRestApi
+    public sealed class MonkeyIslandScrumVelocity : IRestApi, IPublicEndpoint
     {
         private static readonly JsonSerializerOptions _jsonOptions = new()
         {

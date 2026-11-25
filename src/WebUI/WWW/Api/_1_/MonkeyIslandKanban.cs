@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebIndex.Queries;
 using WebExpress.WebUI.WebControl;
@@ -15,7 +16,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// The columns are held in a thread-safe in-memory store so that renaming,
     /// reordering and deleting them persists across reloads.
     /// </summary>
-    public sealed class MonkeyIslandKanban : RestApiKanban<Curse>
+    public sealed class MonkeyIslandKanban : RestApiKanban<Curse>, IPublicEndpoint
     {
         private static readonly object _syncRoot = new();
         private static readonly Dictionary<string, RestApiKanbanMove> _moves = new();

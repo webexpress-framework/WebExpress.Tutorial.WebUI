@@ -2,6 +2,7 @@ using System.Text;
 using System.Text.Json;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebStatusPage;
 using WebExpress.WebCore.WebRestApi;
@@ -21,7 +22,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// stored and answered again.
     /// </remarks>
     [Title("Spreadsheet budget")]
-    public sealed class SpreadsheetBudget : IRestApi
+    public sealed class SpreadsheetBudget : IRestApi, IPublicEndpoint
     {
         private static readonly object _sync = new();
         private static string _workbook;

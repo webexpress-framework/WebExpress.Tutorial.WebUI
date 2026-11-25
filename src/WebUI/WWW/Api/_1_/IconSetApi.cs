@@ -1,6 +1,7 @@
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebIndex.Queries;
 
@@ -12,7 +13,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// it in and out of <see cref="ThemeStore"/>.
     /// </summary>
     [Title("Icon Set Selector")]
-    public sealed class IconSetApi : RestApiIconSet
+    public sealed class IconSetApi : RestApiIconSet, IPublicEndpoint
     {
         /// <summary>
         /// Returns the stored icon set id; without one the selector shows the first offered set.

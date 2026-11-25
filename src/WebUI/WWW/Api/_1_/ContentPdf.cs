@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using WebExpress.Tutorial.WebUI.WWW.Controls.WebUi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebRestApi;
 using WebExpress.WebUI.WebEditor;
@@ -25,7 +26,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// </remarks>
     [Segment("content-pdf")]
     [Title("Content PDF")]
-    public sealed class ContentPdf : IRestApi
+    public sealed class ContentPdf : IRestApi, IPublicEndpoint
     {
         /// <summary>
         /// Renders the requested sample and returns it as a PDF file.

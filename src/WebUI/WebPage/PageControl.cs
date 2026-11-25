@@ -4,6 +4,7 @@ using WebExpress.Tutorial.WebUI.WebControl;
 using WebExpress.Tutorial.WebUI.WebFragment.ControlPage;
 using WebExpress.WebApp.WebPage;
 using WebExpress.WebApp.WebScope;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebControl;
 using WebExpress.WebUI.WebPage;
@@ -13,7 +14,7 @@ namespace WebExpress.Tutorial.WebUI.WebPage
     /// <summary>
     /// Represents the base class for page controls in the web application.
     /// </summary>
-    public abstract class PageControl : IPage<VisualTreeWebApp>, IScopeControl, IScopeGeneral
+    public abstract class PageControl : IPage<VisualTreeWebApp>, IScopeControl, IScopeGeneral, IPublicEndpoint
     {
         /// <summary>
         /// Gets the stage where the acts (Main Act and Supporting Acts) come to life.

@@ -2,6 +2,7 @@
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
@@ -10,7 +11,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// Represents a REST API table for managing and retrieving data about Monkey Island curses.
     /// </summary>
     [Title("Monkey Island Curses")]
-    public sealed class MonkeyIslandCurseUnique : RestApiUnique
+    public sealed class MonkeyIslandCurseUnique : RestApiUnique, IPublicEndpoint
     {
         /// <summary>
         /// Initializes a new instance of the class.

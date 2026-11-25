@@ -18,7 +18,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// </summary>
     [Segment("editor-links")]
     [Title("Monkey Island Editor Links")]
-    public sealed class MonkeyIslandEditorLinks : IRestApi
+    public sealed class MonkeyIslandEditorLinks : IRestApi, IPublicEndpoint
     {
         private static readonly JsonSerializerOptions _json = new() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
 

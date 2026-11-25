@@ -2,6 +2,7 @@
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebApplication;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebSitemap;
 
@@ -10,7 +11,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// <summary>
     /// Represents a REST API wql prompt retrieving data about Monkey Island boats.
     /// </summary>
-    public sealed class MonkeyIslandBoatWql : RestApiWqlPrompt<Boat>
+    public sealed class MonkeyIslandBoatWql : RestApiWqlPrompt<Boat>, IPublicEndpoint
     {
         /// <summary>
         /// Initializes a new instance of the class.

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebIcon;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebIndex.Queries;
@@ -15,7 +16,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// games run on. It backs a single-choice REST dropdown, so its options form an
     /// exclusive set on the client.
     /// </summary>
-    public sealed class MonkeyIslandPlatformQuickfilter : RestApiQuickfilter<QuickfilterGame>
+    public sealed class MonkeyIslandPlatformQuickfilter : RestApiQuickfilter<QuickfilterGame>, IPublicEndpoint
     {
         private static readonly (string Id, string Name, IIcon Icon)[] _platforms =
         [

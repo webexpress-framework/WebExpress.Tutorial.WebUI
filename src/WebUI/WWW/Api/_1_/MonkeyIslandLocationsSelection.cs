@@ -2,6 +2,7 @@
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebIndex.Queries;
 
@@ -11,7 +12,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// Represents a REST API selection for managing and retrieving data about Monkey Island locations.
     /// </summary>
     [Title("Monkey Island location")]
-    public sealed class MonkeyIslandLocationsSelection : RestApiSelection<Location>
+    public sealed class MonkeyIslandLocationsSelection : RestApiSelection<Location>, IPublicEndpoint
     {
         /// <summary>
         /// Initializes a new instance of the class.

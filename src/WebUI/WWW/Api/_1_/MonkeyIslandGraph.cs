@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
@@ -17,7 +18,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// </remarks>
     [Segment("graph")]
     [Title("Monkey Island Graph")]
-    public sealed class MonkeyIslandGraph : RestApiGraph
+    public sealed class MonkeyIslandGraph : RestApiGraph, IPublicEndpoint
     {
         /// <summary>
         /// Retrieves the places and characters of the map. Most carry a

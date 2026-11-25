@@ -5,6 +5,7 @@ using WebExpress.Tutorial.WebUI.WebParamter;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebApplication;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebCore.WebUri;
@@ -22,7 +23,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// term arrives in q, the entry cap in l, and the answer is the items envelope.
     /// </remarks>
     [Title("Monkey Island search suggestions")]
-    public sealed class MonkeyIslandSearchSuggestions : RestApiDropdown<Character>
+    public sealed class MonkeyIslandSearchSuggestions : RestApiDropdown<Character>, IPublicEndpoint
     {
         private readonly IUri _characterUri;
 

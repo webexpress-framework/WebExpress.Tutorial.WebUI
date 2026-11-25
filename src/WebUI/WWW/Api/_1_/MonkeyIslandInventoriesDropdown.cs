@@ -3,6 +3,7 @@ using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebIndex.Queries;
 
@@ -12,7 +13,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// Represents a REST API dropdown for managing and retrieving data about Monkey Island inventory items.
     /// </summary>
     [Title("Monkey Island inventory")]
-    public sealed class MonkeyIslandInventoriesDropdown : RestApiDropdown<Inventory>
+    public sealed class MonkeyIslandInventoriesDropdown : RestApiDropdown<Inventory>, IPublicEndpoint
     {
         /// <summary>
         /// Initializes a new instance of the class.

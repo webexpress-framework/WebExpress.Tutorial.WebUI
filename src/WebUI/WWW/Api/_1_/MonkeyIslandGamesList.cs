@@ -4,6 +4,7 @@ using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebApplication;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebCore.WebSitemap;
 using WebExpress.WebIndex.Queries;
@@ -15,7 +16,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// Represents a REST API list for managing and retrieving data about Monkey Island games.
     /// </summary>
     [Title("Monkey Island Games")]
-    public sealed class MonkeyIslandGamesList : RestApiList<Game>
+    public sealed class MonkeyIslandGamesList : RestApiList<Game>, IPublicEndpoint
     {
         /// <summary>
         /// Initializes a new instance of the class.

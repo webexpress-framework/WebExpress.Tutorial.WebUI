@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebIndex.Queries;
 
@@ -28,7 +29,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// </para>
     /// </remarks>
     [Title("Form structure draft")]
-    public sealed class FormEditorDraft : RestApiFormEditorDraft<Game>
+    public sealed class FormEditorDraft : RestApiFormEditorDraft<Game>, IPublicEndpoint
     {
         private static readonly Dictionary<string, RestApiFormEditorDraftItem> _drafts = new(StringComparer.OrdinalIgnoreCase);
 

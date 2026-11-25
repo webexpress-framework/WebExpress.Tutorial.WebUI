@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebIndex.Queries;
 using WebExpress.WebUI.WebControl;
@@ -13,7 +14,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// <summary>
     /// Represents a REST API quickfilter for managing and retrieving data about Monkey Island games.
     /// </summary>
-    public sealed class MonkeyIslandGamesQuickfilter : RestApiQuickfilter<QuickfilterGame>
+    public sealed class MonkeyIslandGamesQuickfilter : RestApiQuickfilter<QuickfilterGame>, IPublicEndpoint
     {
         // the tutorial keeps the user's own filters in memory, which is enough to
         // show the round trip; a real endpoint would store them per user

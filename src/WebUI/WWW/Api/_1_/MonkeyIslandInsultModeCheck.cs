@@ -1,5 +1,6 @@
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 
 namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
@@ -10,7 +11,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// insult sword fighting is enabled - through GET/POST requests.
     /// </summary>
     [Title("Monkey Island Insult Sword Fighting")]
-    public sealed class MonkeyIslandInsultModeCheck : RestApiCheck
+    public sealed class MonkeyIslandInsultModeCheck : RestApiCheck, IPublicEndpoint
     {
         private static bool _state = true;
 

@@ -4,6 +4,7 @@ using WebExpress.Tutorial.WebUI.WebScope;
 using WebExpress.WebApp.WebPage;
 using WebExpress.WebApp.WebScope;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebPage;
 using WebExpress.WebUI.WebIcon;
 
@@ -17,7 +18,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebApp
     [Scope<IScopeGeneral>]
     [Scope<IScopeControl>]
     [Scope<IScopeControlWebUI>]
-    public sealed class Index : IPage<VisualTreeWebApp>, IScopeGeneral, IScopeControl
+    public sealed class Index : IPage<VisualTreeWebApp>, IScopeGeneral, IScopeControl, IPublicEndpoint
     {
         /// <summary>
         /// Initializes a new instance of the class.

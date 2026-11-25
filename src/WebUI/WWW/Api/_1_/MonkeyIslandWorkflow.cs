@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using WebExpress.WebApp.WebRestApi;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebIndex.Queries;
 
@@ -10,7 +11,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// defining custom columns for use in REST API
     /// scenarios.
     /// </summary>
-    public sealed class MonkeyIslandWorkflow : RestApiWorkflow
+    public sealed class MonkeyIslandWorkflow : RestApiWorkflow, IPublicEndpoint
     {
         // the only workflow this tutorial knows; any other id is a miss, which is
         // what makes the 404 path observable

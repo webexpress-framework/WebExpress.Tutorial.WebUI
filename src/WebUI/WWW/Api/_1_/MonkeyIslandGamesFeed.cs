@@ -5,6 +5,7 @@ using System.Text;
 using WebExpress.Tutorial.WebUI.Model;
 using WebExpress.WebApp.WebRestApi;
 using WebExpress.WebCore.WebAttribute;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore.WebMessage;
 using WebExpress.WebIndex.Queries;
 
@@ -15,7 +16,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// that the feed control appends to what it is already showing.
     /// </summary>
     [Title("Monkey Island Games")]
-    public sealed class MonkeyIslandGamesFeed : RestApiFeed<Game>
+    public sealed class MonkeyIslandGamesFeed : RestApiFeed<Game>, IPublicEndpoint
     {
         /// <summary>
         /// Initializes a new instance of the class.

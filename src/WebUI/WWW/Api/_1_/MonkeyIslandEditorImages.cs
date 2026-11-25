@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
+using WebExpress.WebCore.WebEndpoint;
 using WebExpress.WebCore;
 using WebExpress.WebCore.WebAttribute;
 using WebExpress.WebCore.WebMessage;
@@ -23,7 +24,7 @@ namespace WebExpress.Tutorial.WebUI.WWW.Api._1_
     /// </remarks>
     [Segment("editor-images")]
     [Title("Monkey Island Editor Images")]
-    public sealed class MonkeyIslandEditorImages : IRestApi
+    public sealed class MonkeyIslandEditorImages : IRestApi, IPublicEndpoint
     {
         private const int MaxImages = 20;
         private const int MaxBytes = 2 * 1024 * 1024;
