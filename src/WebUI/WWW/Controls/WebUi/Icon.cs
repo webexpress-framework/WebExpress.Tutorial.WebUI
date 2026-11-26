@@ -44,10 +44,12 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
             // and the tile width read, so the grid reflows instead of overlapping
             // the page renders Stage.Controls twice - live and as an html listing - so nothing
             // here may depend on an id being unique or on the element existing at parse time
-            var sizeControl = new ControlText()
+            // the markup is written here and holds nothing a user typed, so it is trusted; a
+            // text control encodes what it is given
+            var sizeControl = new ControlHtml()
             {
-                Format = _ => TypeFormatText.Raw,
-                Text = _ => @"<style>
+                Trusted = true,
+                Html = _ => @"<style>
 .wx-gallery { display: flex; flex-wrap: wrap; align-items: flex-start; gap: .25rem; }
 .wx-gallery-tile {
     display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
@@ -153,10 +155,10 @@ namespace WebExpress.Tutorial.WebUI.WWW.Controls.WebUi
                 + "a spyglass, the lock a treasure chest and the bin a shark fin. One catch: a theme stylesheet replaces the framework default instead of adding to it, "
                 + "so it has to import the framework sheet before overriding anything.",
                 "[ThemeStyle(\"assets/css/monkeyisland.theme.css\")]",
-                new ControlText()
+                new ControlHtml()
                 {
-                    Format = _ => TypeFormatText.Raw,
-                    Text = _ => monkeyStyle + monkeyDemo
+                    Trusted = true,
+                    Html = _ => monkeyStyle + monkeyDemo
                 }
             );
 
